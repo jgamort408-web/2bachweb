@@ -13,7 +13,7 @@ const {chromium}=require('playwright');
    if(prefix!==base)await page.route(prefix+'**',async route=>{const response=await route.fetch({url:route.request().url().replace(prefix,base)});await route.fulfill({response});});
    await page.goto(prefix+'libro/temas/09-inferencia-estadistica/02-muestreo.html');
    await page.waitForFunction(()=>!!document.querySelector('#site-header a'));
-   assert.equal(await page.locator('main section').count(),5);
+   assert.equal(await page.locator('main section:not([data-content-availability])').count(),5);
    assert.equal(await page.locator('#cadena table tbody tr').count(),4);
    assert.equal(await page.locator('#decisiones li').count(),5);
    assert.match(await page.locator('#ejemplo').innerText(),/2500/);

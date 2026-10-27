@@ -15,8 +15,8 @@ const {chromium}=require('playwright');
  const {probabilityQuestions}=await import('../content/activities/probability-test.js');
  const {questions,questionsForScope,flashcards}=await import('../content/activities/catalog.js');
  assert.equal(probabilityQuestions.length,60);assert.equal(questionsForScope('t07').length,60);
- assert.equal(questions.length,398);assert.equal(flashcards.length,405);
- assert.equal(new Set(questions.map(q=>q.id)).size,398);
+ assert.equal(questions.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.questions);assert.equal(flashcards.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards);
+ assert.equal(new Set(questions.map(q=>q.id)).size,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.questions);
  probabilityQuestions.slice(0,9).forEach((q,i)=>{assert.equal(q.sourceIndex,i+1);assert.equal(q.correct,'abc'[i%3]);assert.equal(q.options.length,4);assert.ok(q.prompt&&q.hint&&q.explanation);});
  probabilityQuestions.slice(9).forEach((q,i)=>{assert.equal(q.origin,'ampliacion');assert.equal(q.correct,'abc'[i%3]);assert.equal(q.options.length,4);assert.ok(q.lessonId&&q.sourceFile&&q.prompt&&q.hint&&q.explanation);});
  assert.deepEqual(probabilityQuestions.slice(15,21).map(q=>q.lessonId),['t07-e03','t07-e03','t07-e03','t07-e04','t07-e04','t07-e04']);
@@ -119,6 +119,6 @@ const {chromium}=require('playwright');
   assert.match(await reading.locator('details').first().innerText(),/P\(A\\cup B\)/);
   await reading.close();
   assert.deepEqual(errors,[]);
-  console.log('PASS: nueve autoevaluaciones y cincuenta y una ampliaciones, 398 preguntas globales, MathJax, tablas, corrección, pista, teclado, raíz/subcarpeta, móvil y lectura sin JS.');
+  console.log('PASS: nueve autoevaluaciones y cincuenta y una ampliaciones, preguntas globales del catálogo, MathJax, tablas, corrección, pista, teclado, raíz/subcarpeta, móvil y lectura sin JS.');
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

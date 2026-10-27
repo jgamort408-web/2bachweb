@@ -20,7 +20,7 @@ const {chromium}=require('playwright');
    if(prefix!==base)await page.route(prefix+'**',async route=>{const response=await route.fetch({url:route.request().url().replace(prefix,base)});await route.fulfill({response});});
    await page.goto(prefix+'libro/temas/07-probabilidad/03-tablas-de-contingencia.html');
    await page.waitForFunction(()=>!!document.querySelector('#site-header a')&&document.querySelectorAll('mjx-container').length>15);
-   assert.equal(await page.locator('main section').count(),9);
+   assert.equal(await page.locator('main section:not([data-content-availability])').count(),9);
    assert.equal(await page.locator('#estructura table, #ejemplo table').count(),2);
    assert.equal(await page.locator('#estructura table tbody tr').count(),3);
    assert.equal(await page.locator('#ejemplo table tbody tr').count(),3);

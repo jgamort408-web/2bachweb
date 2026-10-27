@@ -8,7 +8,7 @@ const root=path.resolve(__dirname,'..'),base=process.env.TEST_URL||'http://127.0
  assert.equal(source.length,5);assert.equal((original.toString().match(/<svg id=/g)||[]).length,4);
  const {normalReadings}=await import(pathToFileURL(path.join(root,'content/models/normal-distribution.js')));
  const {questions,flashcards}=await import(pathToFileURL(path.join(root,'content/activities/catalog.js')));
- assert.equal(questions.length,347);assert.equal(flashcards.length,405);
+ assert.equal(questions.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.questions);assert.equal(flashcards.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards);
  const editorial=JSON.parse(fs.readFileSync(path.join(root,'config/editorial.json')));
  assert.equal(editorial.pages['t08-e03'],'partial');assert.ok(['pending','partial','reviewed'].includes(editorial.pages['t08-e04']||editorial.defaultStatus));
  const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH});

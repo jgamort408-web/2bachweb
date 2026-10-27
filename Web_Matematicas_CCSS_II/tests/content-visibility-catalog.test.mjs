@@ -17,7 +17,8 @@ test('visibilidad: todas las páginas curriculares están registradas con su ID 
   function htmlPaths(directory, prefix = '') {
     return fs.readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
       const relative = prefix + entry.name;
-      if (relative.startsWith('assets/vendor')) return [];
+      // Fuera del sitio publicado (.github/workflows/pages.yml): dependencias, documentación interna y pruebas.
+      if (relative.startsWith('assets/vendor') || ['node_modules', 'docs', 'tests', 'scripts'].includes(relative)) return [];
       return entry.isDirectory() ? htmlPaths(new URL(entry.name + '/', directory), relative + '/')
         : relative.endsWith('.html') ? [relative] : [];
     });

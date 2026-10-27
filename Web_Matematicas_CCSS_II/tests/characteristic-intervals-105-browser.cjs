@@ -14,7 +14,7 @@ const {chromium}=require('playwright');
    await page.goto(prefix+'libro/temas/09-inferencia-estadistica/06-intervalos-de-probabilidad-o-intervalos-caracteristicos.html');
    await page.waitForFunction(()=>!!document.querySelector('#site-header a'));
    await page.waitForFunction(()=>document.querySelectorAll('mjx-container').length>10);
-   assert.equal(await page.locator('main section').count(),5);
+   assert.equal(await page.locator('main section:not([data-content-availability])').count(),5);
    assert.equal(await page.locator('#central tbody tr').count(),3);
    assert.equal(await page.locator('#comparar tbody tr').count(),4);
    assert.equal(await page.locator('[data-mml-node="merror"]').count(),0);

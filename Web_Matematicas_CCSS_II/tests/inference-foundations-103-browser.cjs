@@ -5,7 +5,7 @@ const {chromium}=require('playwright');
 (async()=>{
  const source=fs.readFileSync('../Página web existente/5. Inferencia Estadística/0. Presentación.txt');
  assert.equal(crypto.createHash('sha256').update(source).digest('hex'),'2e61d377d29827b2e92c94e1ae4609fcfdeca28720e8db74db99e0131c08e75e');
- const {questions,flashcards}=await import('../content/activities/catalog.js');assert.equal(questions.length,347);assert.equal(flashcards.length,405);
+ const {questions,flashcards}=await import('../content/activities/catalog.js');assert.equal(questions.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.questions);assert.equal(flashcards.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards);
  const base='http://127.0.0.1:4173/',browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH});
  try{
   const page=await browser.newPage({viewport:{width:1200,height:900}}),errors=[];
@@ -14,7 +14,7 @@ const {chromium}=require('playwright');
    if(prefix!==base)await page.route(prefix+'**',async route=>{const response=await route.fetch({url:route.request().url().replace(prefix,base)});await route.fulfill({response});});
    await page.goto(prefix+'libro/temas/09-inferencia-estadistica/01-estadistica-inferencial.html');
    await page.waitForFunction(()=>!!document.querySelector('#site-header a'));
-   assert.equal(await page.locator('main section').count(),6);
+   assert.equal(await page.locator('main section:not([data-content-availability])').count(),6);
    assert.equal(await page.locator('#lenguaje table tbody tr').count(),4);
    assert.match(await page.locator('#ficha').innerText(),/2500|2\.500/);
    assert.match(await page.locator('#ficha').innerText(),/no se conoce/i);

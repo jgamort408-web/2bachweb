@@ -13,7 +13,7 @@ const {chromium}=require('playwright');
    if(prefix!==base)await page.route(prefix+'**',async route=>{const response=await route.fetch({url:route.request().url().replace(prefix,base)});await route.fulfill({response});});
    await page.goto(prefix+'libro/temas/09-inferencia-estadistica/09-ficha-tecnica-de-encuestas.html');
    await page.waitForFunction(()=>!!document.querySelector('#site-header a')&&document.querySelectorAll('mjx-container').length>4);
-   assert.equal(await page.locator('main section').count(),5);
+   assert.equal(await page.locator('main section:not([data-content-availability])').count(),5);
    assert.equal(await page.locator('#campos tbody tr').count(),6);
    assert.equal(await page.locator('#original tbody tr').count(),5);
    assert.equal(await page.locator('#comprobar li').count(),4);

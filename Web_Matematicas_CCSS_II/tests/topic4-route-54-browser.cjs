@@ -64,5 +64,5 @@ const ids=['t04-a-matrix-ops','t04-b-la-camara-del-determinante','t04-c-redes-y-
   const statuses=await page.evaluate(async base=>(await(await fetch(base+'config/editorial.json')).json()).pages,base);assert.equal(statuses.t04,'partial');for(const id of ids)assert.equal(statuses['game-'+id],'reviewed');
   await page.goto(base+topic+'#ruta-juegos');await preferences();await math();if(process.env.SCREENSHOT_DIR)await page.locator('#ruta-juegos').screenshot({path:process.env.SCREENSHOT_DIR+'/matrices-ruta-movil.png'});await reset();assert.deepEqual(errors,[]);
   console.log('Aprobado: doce lecciones y respuestas conservadas al 200 %, test 72/72, 72 tarjetas, tres juegos insertados e independientes, ajustes y puntuación, retornos, cadena de juegos en subcarpeta, estados editoriales y LaTeX.');
- }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'wait'});await browser.close();}
+ }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'ignoreErrors'});await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

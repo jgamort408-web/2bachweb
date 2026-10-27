@@ -30,6 +30,8 @@ const {chromium}=require('playwright');
   }
   await page.unrouteAll({behavior:'wait'});
   await page.goto(base+'widgets/games/t07-b-arbol-de-probabilidad/index.html');
+  // El widget dibuja tras un await de inicialización: esperar antes de leer el DOM.
+  await page.locator('[data-tree] li').first().waitFor();
   for(let i=0;i<6;i++){
    const state=await page.evaluate(()=>({text:document.querySelector('[data-tree]').textContent,question:document.querySelector('[data-question]').textContent}));
    const numbers=[...state.text.matchAll(/\((\d+) %\)/g)].map(m=>Number(m[1]));

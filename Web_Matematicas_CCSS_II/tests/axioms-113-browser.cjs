@@ -21,7 +21,7 @@ const {chromium}=require('playwright');
    if(prefix!==base)await page.route(prefix+'**',async route=>{const response=await route.fetch({url:route.request().url().replace(prefix,base)});await route.fulfill({response});});
    await page.goto(prefix+'libro/temas/07-probabilidad/05-axiomatica-de-kolmogorov.html');
    await page.waitForFunction(()=>!!document.querySelector('#site-header a')&&document.querySelectorAll('mjx-container').length>=12);
-   assert.equal(await page.locator('main section').count(),9);
+   assert.equal(await page.locator('main section:not([data-content-availability])').count(),9);
    assert.equal(await page.locator('[data-content-role="objectives"]').count(),1);
    assert.equal(await page.locator('#ejemplo details').count(),2);
    assert.equal(await page.locator('#asignaciones details').count(),1);
@@ -41,7 +41,7 @@ const {chromium}=require('playwright');
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
   const nojs=await browser.newPage({javaScriptEnabled:false});
   await nojs.goto(base+'libro/temas/07-probabilidad/05-axiomatica-de-kolmogorov.html');
-  assert.equal(await nojs.locator('main section').count(),9);assert.equal(await nojs.locator('#ejemplo details').count(),2);assert.equal(await nojs.locator('#asignaciones details').count(),1);await nojs.close();
+  assert.equal(await nojs.locator('main section:not([data-content-availability])').count(),9);assert.equal(await nojs.locator('#ejemplo details').count(),2);assert.equal(await nojs.locator('#asignaciones details').count(),1);await nojs.close();
   assert.deepEqual(errors,[]);
   console.log('PASS: fuente, axiomas, fórmulas, índice, raíz/subcarpeta, móvil y sin JS.');
  }finally{await browser.close();}

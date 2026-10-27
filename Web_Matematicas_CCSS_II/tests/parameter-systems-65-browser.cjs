@@ -64,5 +64,5 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',topic='libro/temas/05-
   assert.equal(await output.getAttribute('data-kind'),'SI');await value(2);assert.equal(await output.getAttribute('data-kind'),'SCI');await value(0);assert.equal(await output.getAttribute('data-kind'),'SCD');
   assert.ok(await page.locator('#site-header a').count()>0);assert.ok(await page.locator('#site-footer').innerText());assert.deepEqual(errors,[]);
   console.log('Aprobado: seis familias y 78 muestras, valores críticos, variantes, transiciones SCD/SCI/SI, tablas completas, Gauss, test 5/6, seis tarjetas, teclado, móvil 320/200 %, preferencias, recarga, t05 66/66, índice 11/11 y subcarpeta.');
- }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'wait'});await browser.close();}
+ }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'ignoreErrors'});await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

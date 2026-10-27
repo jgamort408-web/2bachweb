@@ -63,5 +63,5 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',topic='libro/temas/05-
   await page.goto(prefix+lesson+'#explorador');await output.locator('mjx-container').first().waitFor();await preset('three');assert.equal(await output.getAttribute('data-kind'),'SCD');assert.deepEqual(await solution(),[{numerator:1,denominator:1},{numerator:2,denominator:1},{numerator:3,denominator:1}]);
   assert.ok(await page.locator('#site-header a').count()>0);assert.ok(await page.locator('#site-footer').innerText());assert.deepEqual(errors,[]);
   console.log('Aprobado: seis casos, inversa y fracciones exactas, bloqueo singular sin salida obsoleta, edición y recuperación, órdenes 2/3, variantes, test 5/6, seis tarjetas, teclado, móvil 320/200 %, preferencias, recarga, t05 66/66, índice 11/11 y subcarpeta.');
- }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'wait'});await browser.close();}
+ }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'ignoreErrors'});await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

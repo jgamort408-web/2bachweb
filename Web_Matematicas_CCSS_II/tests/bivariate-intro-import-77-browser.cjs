@@ -18,7 +18,7 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',lesson='libro/apoyos/e
 
 
  const {flashcards,questions}=await import('../content/activities/catalog.js');
- assert.equal(flashcards.length,405);assert.equal(questions.length,347);
+ assert.equal(flashcards.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards);assert.equal(questions.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.questions);
  const editorial=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../config/editorial.json'),'utf8'));
  assert.equal(editorial.pages.bivariate,'partial');
  const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH});
@@ -82,13 +82,13 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',lesson='libro/apoyos/e
  assert.match(await page.locator('[data-course-index] article').nth(5).innerText(),/0 de 5.*Contenido parcial en 5/);
  await page.getByRole('link',{name:'Estadística bidimensional',exact:true}).click();await math();
  await page.getByRole('link',{name:'Conexiones con programación lineal',exact:true}).click();
- if(await page.locator('#itinerario-original').getAttribute('open')===null) await page.locator('#itinerario-original summary').press('Enter');
+ await page.waitForFunction(()=>location.hash==='#itinerario-original'&&!document.documentElement.classList.contains('content-pending'));if(await page.locator('#itinerario-original').getAttribute('open')===null) await page.locator('#itinerario-original summary').press('Enter');
  await page.locator('#itinerario-original').getByRole('link',{name:'Estadística bidimensional',exact:true}).click();await math();
  await page.locator('[data-reading-controls]>summary').click();await page.locator('[data-reset-reading]').click();await page.setViewportSize({width:1280,height:960});
  }
  assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
  console.log('PASS: nine original hashes, 12 frequencies, row/column marginals and 43 total, 30/32/27 pass counts, SVG means, LaTeX, keyboard table, 320px/200%, preferences, root/subfolder and navigation; banks unchanged.');
- }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'wait'});await browser.close();}
+ }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'ignoreErrors'});await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
 
 

@@ -33,6 +33,8 @@ const {chromium}=require('playwright');
   }
   await page.unrouteAll({behavior:'wait'});
   await page.goto(base+'widgets/games/t07-a-algebra-de-sucesos/index.html');
+  // El widget dibuja tras un await de inicialización: esperar antes de leer el DOM.
+  await page.locator('[data-question] h2').waitFor();
   for(let i=0;i<8;i++){
    const state=await page.evaluate(()=>({heading:document.querySelector('[data-question] h2').textContent,info:document.querySelector('[data-question] p').textContent}));
    const sets=[...state.info.matchAll(/\{([^}]*)\}/g)].map(m=>m[1].split(', ').map(Number));

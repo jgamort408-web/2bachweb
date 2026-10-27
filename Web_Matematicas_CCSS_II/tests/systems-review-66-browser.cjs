@@ -41,5 +41,5 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',topic='libro/temas/05-
   await page.goto(prefix+topic+'#repaso');await ready();await quiz.locator('input[value="correct"]').check();await quiz.getByRole('button',{name:'Comprobar',exact:true}).click();await quiz.locator('.feedback').filter({hasText:'Correcta'}).waitFor();await ready();
   assert.ok(await page.locator('#site-header a').count()>0);assert.ok(await page.locator('#site-footer').innerText());assert.deepEqual(errors,[]);
   console.log('Aprobado: cuatro bloques, test 10/11 con pista/reintento y reinicio, LaTeX, móvil 320/200 %, preferencias sin perder respuesta, once lecciones y retorno, bancos 66/66 y subcarpeta.');
- }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'wait'});await browser.close();}
+ }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'ignoreErrors'});await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

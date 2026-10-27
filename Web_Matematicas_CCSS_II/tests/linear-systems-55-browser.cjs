@@ -50,5 +50,5 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',topic='libro/temas/05-
   await page.goto(prefix+lesson+'#explorador');await output.locator('mjx-container').first().waitFor();await preset('signed');assert.equal(await output.getAttribute('data-satisfied'),'true');
   assert.ok(await page.locator('#site-header a').count()>0);assert.ok(await page.locator('#site-footer').innerText());assert.deepEqual(errors,[]);
   console.log('Aprobado: cinco ejemplos, sustitución simultánea, edición y validación, dimensiones 2–3, generación, cambios rápidos, test 5/6, seis tarjetas, móvil 320/200 %, preferencias, recarga, filtro t05, índice 11/11 y subcarpeta.');
- }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'wait'});await browser.close();}
+ }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'ignoreErrors'});await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

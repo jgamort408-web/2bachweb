@@ -13,9 +13,9 @@ const {chromium}=require('playwright');
  assert.deepEqual(probabilityCards.map(c=>c.sourceIndex),Array.from({length:16},(_,i)=>i+1));
  assert.ok(probabilityCards.every(c=>c.topicId==='t07'&&c.front&&c.back));
  assert.equal(cardsForScope('t07').length,16);
- assert.equal(flashcards.length,405);
- assert.equal(new Set(flashcards.map(c=>c.id)).size,405);
- assert.equal(questions.length,347);
+ assert.equal(flashcards.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards);
+ assert.equal(new Set(flashcards.map(c=>c.id)).size,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards);
+ assert.equal(questions.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.questions);
  const base='http://127.0.0.1:4173/';
  const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH});
  try{

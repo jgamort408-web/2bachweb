@@ -53,5 +53,5 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',topic='libro/temas/05-
   await page.goto(prefix+lesson+'#explorador');await practice.locator('input').first().waitFor();await math();await run(practice,answers);
   assert.ok(await page.locator('#site-header a').count()>0);assert.ok(await page.locator('#site-footer').innerText());assert.deepEqual(errors,[]);
   console.log('Aprobado: seis familias, dos sesiones, pista, dos fallos, resumen 5/6 y 6/6, test independiente, seis tarjetas, teclado, móvil 320/200 %, preferencias, recarga, índice 11/11, t05 66/66, LaTeX y subcarpeta.');
- }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'wait'});await browser.close();}
+ }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'ignoreErrors'});await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

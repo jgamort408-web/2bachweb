@@ -61,8 +61,8 @@ const lesson = 'libro/temas/02-representacion-de-funciones/01-esquema-general-pa
     await page.goto(base + 'test/index.html?tema=t01'); await ready();
     assert.match(await page.locator('[data-content-role="activity-progress"]').innerText(), /1 de 60/);
     await page.goto(base + 'test/index.html?tema=inventado'); await ready();
-    assert.match(await page.locator('[data-content-role="activity-progress"]').innerText(), /1 de 180/);
-    for (const [topic, count] of [['t01', 61], ['t02', 54], ['inventado', 163]]) {
+    assert.match(await page.locator('[data-content-role="activity-progress"]').innerText(), new RegExp('1 de '+(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.questions));
+    for (const [topic, count] of [['t01', 61], ['t02', 54], ['inventado', (await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards]]) {
       await page.goto(base + 'tarjetas/index.html?tema=' + topic); await ready(topic !== 't02');
       await page.getByText('Tarjeta 1 de ' + count, { exact: true }).waitFor();
     }

@@ -10,8 +10,8 @@ const {chromium}=require('playwright');
  const {inferenceQuestions}=await import('../content/activities/inference-test.js');
  const {questions,questionsForScope,flashcards}=await import('../content/activities/catalog.js');
  assert.equal(original.length,20);assert.equal(inferenceQuestions.length,20);
- assert.equal(questionsForScope('t09').length,20);assert.equal(questions.length,347);assert.equal(flashcards.length,405);
- assert.equal(new Set(questions.map(q=>q.id)).size,347);
+ assert.equal(questionsForScope('t09').length,20);assert.equal(questions.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.questions);assert.equal(flashcards.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards);
+ assert.equal(new Set(questions.map(q=>q.id)).size,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.questions);
  inferenceQuestions.forEach((q,i)=>{assert.equal(q.sourceIndex,i+1);assert.equal(q.correct,String.fromCharCode(97+original[i].correct));assert.equal(q.options.length,4);assert.ok(q.prompt&&q.hint&&q.explanation);});
  const base='http://127.0.0.1:4173/';
  const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH});
@@ -53,7 +53,7 @@ const {chromium}=require('playwright');
   assert.match(await reading.locator('details').first().innerText(),/Respuesta: B/);
   await reading.close();
   assert.deepEqual(errors,[]);
-  console.log('PASS: 20 originales, 347 preguntas, corrección, pistas, sesión, teclado, MathJax, raíz/subcarpeta, móvil, recarga y lectura sin JS.');
+  console.log('PASS: 20 originales, preguntas del catálogo, corrección, pistas, sesión, teclado, MathJax, raíz/subcarpeta, móvil, recarga y lectura sin JS.');
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
 

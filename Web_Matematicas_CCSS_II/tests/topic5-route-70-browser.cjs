@@ -93,5 +93,5 @@ const ids=['t05-a-clasificador-de-sistemas','t05-b-gauss-paso-a-paso','t05-c-eli
   const statuses=await page.evaluate(async base=>(await(await fetch(base+'config/editorial.json')).json()).pages,base);assert.equal(statuses.t05,'partial');for(const id of ids)assert.equal(statuses['game-'+id],'reviewed');
   await page.goto(base+topic+'#ruta-juegos');await preferences();await math();if(process.env.SCREENSHOT_DIR)await page.locator('#ruta-juegos').screenshot({path:process.env.SCREENSHOT_DIR+'/sistemas-ruta-movil.png'});await reset();assert.deepEqual(errors,[]);
   console.log('Aprobado: once lecciones y respuestas conservadas al 200 %, test 66/66, 66 tarjetas, tres juegos insertados e independientes, ajustes y puntuación, retornos, cadena de juegos en subcarpeta, estados editoriales y LaTeX.');
- }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'wait'});await browser.close();}
+ }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'ignoreErrors'});await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

@@ -71,5 +71,5 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',topic='libro/temas/06-
   }
   assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
   console.log('Aprobado: fuentes intactas, intersección y cuatro vértices independientes, 286 puntos factibles, hipótesis de extremos, LaTeX local, estados parciales, once lecciones de sistemas conservadas en índice, teclado, móvil 320/200 %, contraste, enlaces y subcarpeta.');
- }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'wait'});await browser.close();}
+ }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'ignoreErrors'});await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

@@ -20,7 +20,7 @@ const {chromium}=require('playwright');
    if(prefix!==base)await page.route(prefix+'**',async route=>{const response=await route.fetch({url:route.request().url().replace(prefix,base)});await route.fulfill({response});});
    await page.goto(prefix+'libro/temas/07-probabilidad/02-algebra-de-sucesos.html');
    await page.waitForFunction(()=>!!document.querySelector('#site-header a')&&document.querySelectorAll('mjx-container').length>15);
-   assert.equal(await page.locator('main section').count(),10);
+   assert.equal(await page.locator('main section:not([data-content-availability])').count(),10);
    assert.equal(await page.locator('#operaciones tbody tr').count(),4);
    assert.equal(await page.locator('#lenguaje tbody tr').count(),5);
    assert.equal(await page.locator('[data-content-role="objectives"]').count(),1);

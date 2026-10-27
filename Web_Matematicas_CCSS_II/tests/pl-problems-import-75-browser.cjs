@@ -89,5 +89,5 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',topic='libro/temas/06-
  assert.equal(await page.locator('[data-geogebra-container] iframe').count(),0);
  assert.deepEqual(errors,[]);
  console.log('PASS: seven original hashes, six problems / 23 steps, LaTeX, rapid selection, deep links, mobile 320/200%, keyboard, root/subfolder and controlled GeoGebra failure/retry/timeout.');
- }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'wait'});await browser.close();}
+ }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'ignoreErrors'});await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

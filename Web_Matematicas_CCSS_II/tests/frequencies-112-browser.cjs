@@ -16,7 +16,7 @@ const {chromium}=require('playwright');
    if(prefix!==base)await page.route(prefix+'**',async route=>{const response=await route.fetch({url:route.request().url().replace(prefix,base)});await route.fulfill({response});});
    await page.goto(prefix+'libro/temas/07-probabilidad/04-frecuencias.html');
    await page.waitForFunction(()=>!!document.querySelector('#site-header a')&&document.querySelectorAll('mjx-container').length>=10);
-   assert.equal(await page.locator('main section').count(),5);
+   assert.equal(await page.locator('main section:not([data-content-availability])').count(),5);
    assert.equal(await page.locator('[data-mml-node="merror"]').count(),0);
    assert.match((await page.locator('#casos').innerText()).replace(/\s/g,''),/8,5%/);
    await page.locator('#casos summary').click();
@@ -31,7 +31,7 @@ const {chromium}=require('playwright');
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
   const nojs=await browser.newPage({javaScriptEnabled:false});
   await nojs.goto(base+'libro/temas/07-probabilidad/04-frecuencias.html');
-  assert.equal(await nojs.locator('main section').count(),5);await nojs.close();
+  assert.equal(await nojs.locator('main section:not([data-content-availability])').count(),5);await nojs.close();
   assert.deepEqual(errors,[]);
   console.log('PASS: fuente, frecuencias, fórmulas, índice, raíz/subcarpeta, móvil y sin JS.');
  }finally{await browser.close();}

@@ -126,7 +126,7 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',lesson='libro/apoyos/e
  close(1.8/12*5,.75);close(.75/(3.6*(1/3)),.625);
  close((35+25)/100,.6);
  const {flashcards,questions}=await import('../content/activities/catalog.js');
- assert.equal(flashcards.length,405);assert.equal(questions.length,347);
+ assert.equal(flashcards.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards);assert.equal(questions.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.questions);
  const editorial=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../config/editorial.json'),'utf8'));
  assert.equal(editorial.pages.bivariate,'partial');
  console.log('Source and catalog checks passed. Launching browser.');
@@ -400,6 +400,7 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',lesson='libro/apoyos/e
  await page.getByRole('link',{name:'Estadística bidimensional',exact:true}).click();await math();
  await page.getByRole('link',{name:'Conexiones con programación lineal',exact:true}).click();
  await page.waitForLoadState('load');
+ await page.waitForFunction(()=>!document.documentElement.classList.contains('content-pending'));
  const connections=page.locator('#itinerario-original');
  await connections.locator('summary').focus();
  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
@@ -417,7 +418,7 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',lesson='libro/apoyos/e
  await plain.close();
  assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
  console.log('PASS: fifteen original hashes, nine exercises/32 steps, independent calculations, three source tables, selector/rapid changes/deep links/native keyboard solutions/no-JS fallback/mobile; least-squares geometry/centre/residuals/optimality, constant-variable cases, prediction 7.6 and R-squared .7225, static source scope; Pearson bounds/extremes/undefined/scaling cases, original three examples, scale marks, causal limitations and LaTeX; covariance identities and scaling 0.15->15 verified, zero/constant/nonlinear cases, four rendered formulas and quadrant signs; five scatter diagrams and original point coordinates, functional guide through all seven points, exact centre (100,90), trend signs, accessible descriptions; five original pairs, nine family frequencies, 50 observations, two marginal tables and exact means 2/1.22; full presentation regression, LaTeX, desktop/mobile, keyboard, preferences, root/subfolder and unchanged banks.');
- }catch(error){console.error(error);throw error;}finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'wait'});await browser.close();}
+ }catch(error){console.error(error);throw error;}finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'ignoreErrors'});await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
 
 

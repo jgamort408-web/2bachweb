@@ -13,7 +13,7 @@ const {chromium}=require('playwright');
    if(prefix!==base)await page.route(prefix+'**',async route=>{const response=await route.fetch({url:route.request().url().replace(prefix,base)});await route.fulfill({response});});
    await page.goto(prefix+'libro/temas/07-probabilidad/01-sucesos-regla-de-laplace.html');
    await page.waitForFunction(()=>!!document.querySelector('#site-header a')&&document.querySelectorAll('mjx-container').length>5);
-   assert.equal(await page.locator('main section').count(),9);
+   assert.equal(await page.locator('main section:not([data-content-availability])').count(),9);
    assert.equal(await page.locator('#tipos tbody tr').count(),4);
    assert.equal(await page.locator('#ejemplos details').count(),4);
    assert.equal(await page.locator('#cuando-no details').count(),1);

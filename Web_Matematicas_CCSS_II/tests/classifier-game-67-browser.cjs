@@ -60,5 +60,5 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',widget='widgets/games/
  await page.getByRole('link',{name:'Volver al repaso del tema 5',exact:true}).click();assert.match(page.url(),/#repaso$/);
  await page.goto(base+'laboratorios/index.html');await page.getByRole('link',{name:'Clasificador de sistemas',exact:true}).click();assert.equal(page.url(),base+host);assert.deepEqual(errors,[]);
  console.log('Aprobado: sesiones de 1050 y 1200 puntos, cuatro representaciones, doce explicaciones, errores/pistas, bloqueo, teclado, LaTeX, cuatro modos en móvil 320/200 %, recarga, iframe, preferencias, subcarpeta y navegación.');
- }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'wait'});await browser.close();}
+ }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'ignoreErrors'});await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

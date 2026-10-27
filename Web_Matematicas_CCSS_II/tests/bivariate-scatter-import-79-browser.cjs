@@ -25,7 +25,7 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',lesson='libro/apoyos/e
  const sourcePoints=[...originalScatter.matchAll(/<svg\b[\s\S]*?<\/svg>/g)].map(m=>[...m[0].matchAll(/<circle cx="([^"]+)" cy="([^"]+)" r="3"/g)].map(c=>[Number(c[1]),Number(c[2])]));
  assert.deepEqual(sourcePoints.map(p=>p.length),[9,8,9,7,6]);
  const {flashcards,questions}=await import('../content/activities/catalog.js');
- assert.equal(flashcards.length,405);assert.equal(questions.length,347);
+ assert.equal(flashcards.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards);assert.equal(questions.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.questions);
  const editorial=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../config/editorial.json'),'utf8'));
  assert.equal(editorial.pages.bivariate,'partial');
  console.log('Source and catalog checks passed. Launching browser.');
@@ -166,13 +166,13 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',lesson='libro/apoyos/e
  assert.match(await page.locator('[data-course-index] article').nth(5).innerText(),/0 de 5.*Contenido parcial en 5/);
  await page.getByRole('link',{name:'Estadística bidimensional',exact:true}).click();await math();
  await page.getByRole('link',{name:'Conexiones con programación lineal',exact:true}).click();
- if(await page.locator('#itinerario-original').getAttribute('open')===null) await page.locator('#itinerario-original summary').press('Enter');
+ await page.waitForFunction(()=>location.hash==='#itinerario-original'&&!document.documentElement.classList.contains('content-pending'));if(await page.locator('#itinerario-original').getAttribute('open')===null) await page.locator('#itinerario-original summary').press('Enter');
  await page.locator('#itinerario-original').getByRole('link',{name:'Estadística bidimensional',exact:true}).click();await math();
  await page.locator('[data-reading-controls]>summary').click();await page.locator('[data-reset-reading]').click();await page.setViewportSize({width:1280,height:960});
  }
  assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
  console.log('PASS: eleven original hashes, five scatter diagrams and original point coordinates, functional guide through all seven points, exact centre (100,90), trend signs, accessible descriptions; five original pairs, nine family frequencies, 50 observations, two marginal tables and exact means 2/1.22; full presentation regression, LaTeX, desktop/mobile, keyboard, preferences, root/subfolder and unchanged banks.');
- }catch(error){console.error(error);throw error;}finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'wait'});await browser.close();}
+ }catch(error){console.error(error);throw error;}finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'ignoreErrors'});await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
 
 

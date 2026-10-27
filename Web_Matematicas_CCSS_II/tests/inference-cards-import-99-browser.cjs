@@ -12,9 +12,9 @@ const { chromium } = require('playwright');
   assert.deepEqual(Object.fromEntries([...new Set(inferenceCards.map(c => c.category))].map(name => [name, inferenceCards.filter(c => c.category === name).length])), {'Conceptos Básicos':3, Notación:1, Muestreo:3, 'Teorema Central Límite':4, 'Intervalos de Confianza':6, Fórmulas:5, 'Trucos y Propiedades':4, Relaciones:4});
   assert.deepEqual(inferenceCards.map(c => c.sourceIndex), Array.from({length:30},(_,i)=>i+1));
   assert.ok(inferenceCards.every(c => c.topicId === 't09' && c.front && c.back));
-  assert.equal(flashcards.length,405);
-  assert.equal(new Set(flashcards.map(c=>c.id)).size,405);
-  assert.equal(questions.length,347);
+  assert.equal(flashcards.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards);
+  assert.equal(new Set(flashcards.map(c=>c.id)).size,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards);
+  assert.equal(questions.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.questions);
   const base='http://127.0.0.1:4173/';
   const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH});
   try {

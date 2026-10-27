@@ -73,5 +73,5 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',widget='widgets/games/
   await page.goto(base+'libro/temas/05-sistemas-de-ecuaciones/index.html');await page.getByRole('link',{name:'Gauss paso a paso',exact:true}).click();assert.equal(page.url(),base+host);
   await page.getByRole('link',{name:'Volver al repaso del tema 5',exact:true}).click();assert.match(page.url(),/#repaso$/);
   assert.deepEqual(errors,[]);console.log('Aprobado: rutas alternativas, errores de entrada, deshacer/reiniciar, pistas, asistencia persistente, 350/600 puntos, seis resúmenes, seis casos móviles 320/200 %, preferencias, recarga, iframe y subcarpeta.');
- }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'wait'});await browser.close();}
+ }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'ignoreErrors'});await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

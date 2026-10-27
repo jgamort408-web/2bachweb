@@ -20,8 +20,8 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/';
  const source=vm.runInNewContext(literal,{}, {timeout:1000});
  const {flashcards,questions,cardsForScope}=await import('../content/activities/catalog.js');
  const cards=cardsForScope('t06');
- assert.equal(source.length,19);assert.equal(cards.length,19);assert.equal(flashcards.length,405);assert.equal(questions.length,347);
- assert.equal(new Set(flashcards.map(c=>c.id)).size, 405);
+ assert.equal(source.length,19);assert.equal(cards.length,19);assert.equal(flashcards.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards);assert.equal(questions.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.questions);
+ assert.equal(new Set(flashcards.map(c=>c.id)).size,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards);
  cards.forEach((c,i)=>{assert.equal(c.sourceIndex,i+1);assert.equal(c.category,source[i].category);assert.ok(c.front&&c.back);});
  const categories=[['Definiciones',3],['Planteamiento',5],['Región Factible',4],['Teoremas y Métodos',3],['Casos Especiales',4]];
  for(const [topic,size] of [['t01',61],['t02',54],['t03',48],['t04',72],['t05',66]])assert.equal(cardsForScope(topic).length,size);
@@ -83,7 +83,7 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/';
  await page.getByRole('link',{name:'Abrir las 19 tarjetas y filtrar por categoría',exact:true}).click();await page.getByText('Tarjeta 1 de 19',{exact:true}).waitFor();
  }
  // Shared renderer regression: every older theme plus the global and lesson scopes.
- for(const [topic,size] of [['t01',61],['t02',54],['t03',48],['t04',72],['t05',66],['',320]]){
+ for(const [topic,size] of [['t01',61],['t02',54],['t03',48],['t04',72],['t05',66],['',(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards]]){
  await page.goto(base+'tarjetas/index.html'+(topic?'?tema='+topic:''));await page.getByText('Tarjeta 1 de '+size,{exact:true}).waitFor();
  assert.equal(await page.locator('[data-card-category]').count(),0);
  await deck.getByRole('button',{name:'Mostrar respuesta',exact:true}).click();await page.locator('[data-content-role="flashcard-back"]').waitFor();await ready();
@@ -95,7 +95,7 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/';
  assert.ok(await page.locator('[data-quiz] input').count()>0);
  assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
  console.log('PASS: eight hashes, 19 original cards/5 categories, 320 total, 318 questions unchanged; every PL answer in root/subfolder, LaTeX, keyboard, mobile/preferences, memory reset and shared deck regression in five themes/global/lesson.');
- }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'wait'});await browser.close();}
+ }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'ignoreErrors'});await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
 
 

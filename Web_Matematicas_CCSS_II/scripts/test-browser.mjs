@@ -10,13 +10,13 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { spawn } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const base = 'http://127.0.0.1:4173/';
 const filters = process.argv.slice(2).map(value => value.toLowerCase());
-const timeoutMs = Number(process.env.BROWSER_TEST_TIMEOUT || 300000);
+const timeoutMs = Number(process.env.BROWSER_TEST_TIMEOUT || 600000);
 
 const chromeCandidates = [
   'C:/Program Files/Google/Chrome/Application/chrome.exe',
@@ -46,6 +46,12 @@ if (!(await serverUp())) {
   if (!(await serverUp())) { server.kill(); throw new Error('No se pudo arrancar el servidor local en ' + base); }
 }
 
+/** Termina la prueba y los Chrome que haya lanzado (en Windows, kill() no alcanza a los hijos). */
+function killTree(child) {
+  if (process.platform === 'win32') spawnSync('taskkill', ['/pid', String(child.pid), '/T', '/F'], { windowsHide: true });
+  else child.kill('SIGKILL');
+}
+
 function run(file) {
   return new Promise(resolve => {
     const started = Date.now();
@@ -53,10 +59,12 @@ function run(file) {
     let output = '';
     child.stdout.on('data', chunk => { output += chunk; });
     child.stderr.on('data', chunk => { output += chunk; });
-    const timer = setTimeout(() => { output += '\nTiempo agotado.'; child.kill(); }, timeoutMs);
-    child.on('close', code => {
+    let timedOut = false;
+    const timer = setTimeout(() => { timedOut = true; output += '\nTiempo agotado.'; killTree(child); }, timeoutMs);
+    // «exit» y no «close»: un Chrome huérfano puede mantener abiertas las tuberías de salida.
+    child.on('exit', code => {
       clearTimeout(timer);
-      resolve({ file, ok: code === 0, seconds: (Date.now() - started) / 1000, output });
+      resolve({ file, ok: code === 0 && !timedOut, seconds: (Date.now() - started) / 1000, output });
     });
   });
 }
