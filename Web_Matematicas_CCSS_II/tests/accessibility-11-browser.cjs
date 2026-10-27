@@ -13,7 +13,8 @@ function collect(dir) {
     if (['node_modules', '.git'].includes(item.name)) continue;
     const file = path.join(dir, item.name);
     if (item.isDirectory()) collect(file);
-    else if (file.endsWith('.html')) htmlFiles.push({ path: path.relative(root, file).replaceAll('\\', '/'), html: fs.readFileSync(file, 'utf8') });
+    // Los .dc.html son láminas del lienzo de diseño (docs/diseno/prototipos), no páginas del sitio.
+    else if (file.endsWith('.html') && !file.endsWith('.dc.html')) htmlFiles.push({ path: path.relative(root, file).replaceAll('\\', '/'), html: fs.readFileSync(file, 'utf8') });
   }
 }
 collect(root);
