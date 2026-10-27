@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-21",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "batchId": "172-recuperacion-inferencia",
+  "sourceDirectory": "content/latex/recuperacion-inferencia",
+  "report": "docs/pdf/recuperacion-inferencia-build.json",
+  "mathematics": "recuperacion-inferencia",
+  "documents": [
+    {
+      "id": "recuperacion-inferencia-examen",
+      "source": "content/latex/recuperacion-inferencia/recuperacion-inferencia-examen.tex",
+      "output": "output/pdf/recuperacion-inferencia-examen.pdf",
+      "expectedPages": 5,
+      "title": "Recuperación de Inferencia y repaso - Examen revisado",
+      "forbiddenText": [
+        "£"
+      ],
+      "requiredText": [
+        "22,5 puntos nominales",
+        "Ejercicio 9",
+        "55 minutos"
+      ]
+    },
+    {
+      "id": "recuperacion-inferencia-soluciones",
+      "source": "content/latex/recuperacion-inferencia/recuperacion-inferencia-soluciones.tex",
+      "output": "output/pdf/recuperacion-inferencia-soluciones.pdf",
+      "expectedPages": 10,
+      "title": "Recuperación de Inferencia y repaso - Soluciones revisadas",
+      "forbiddenText": [
+        "£"
+      ],
+      "requiredText": [
+        "Corrección M04",
+        "Corrección M05",
+        "Corrección M24",
+        "Solución completada en esta edición",
+        "22,5 puntos nominales"
+      ]
+    }
+  ]
+}

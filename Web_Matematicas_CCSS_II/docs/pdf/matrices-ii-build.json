@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 1,
+  "mathematics": {
+    "passed": true,
+    "examProblems": 3,
+    "operationsReviewed": 5,
+    "operationsToChoose": 4,
+    "inverseMethods": [
+      "row-reduction",
+      "adjugate"
+    ],
+    "twoSidedInverseChecked": true,
+    "originalEquationResidualZero": true,
+    "undefinedOperationsChecked": 2,
+    "lastExercise": "parameters 6/7 and 9/7"
+  },
+  "documents": [
+    {
+      "id": "matrices-ii-examen",
+      "pages": 1,
+      "bytes": 33622,
+      "sha256": "0b0b7675a9d87bb281e9663d4ba68ce36a9424903c9dbba2445584f059f17f00",
+      "title": "Matrices II - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 12,
+      "characters": 906
+    },
+    {
+      "id": "matrices-ii-soluciones",
+      "pages": 3,
+      "bytes": 35735,
+      "sha256": "f2a3decd0bb0fb17fb729daec7198ca3e508b14d32711f69455dbddc54045610",
+      "title": "Matrices II - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 14,
+      "characters": 2567
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-20",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/matrices-ii/estilo.tex",
+      "sha256": "ed2c024cc2f3a40e24fa85c79e4c5de06b747a15311c5d3e22a3c708b841df8c"
+    },
+    {
+      "path": "content/latex/matrices-ii/logo-al-andalus.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    },
+    {
+      "path": "content/latex/matrices-ii/matrices-ii-examen.tex",
+      "sha256": "e3ac108230ecf3349240d4be4558df9e218986d876ffeca761b3abb22bc189e8"
+    },
+    {
+      "path": "content/latex/matrices-ii/matrices-ii-soluciones.tex",
+      "sha256": "5b11843ab85b53feb4bfd72e6f3dd19d43ee3c51c9a7cfc3dcc9ce1ec1e750ea"
+    },
+    {
+      "path": "content/latex/matrices-ii/provenance.json",
+      "sha256": "30ee2295df9baf2684cd7e2e5b11805d3f982dc5d6ae2fceb849ba9a5b2710e0"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 1,
+  "mathematics": {
+    "passed": true,
+    "exercises": 9,
+    "parts": 23,
+    "inference": [
+      {
+        "exercise": "patients",
+        "sum": "144",
+        "mean": "9",
+        "sampleSize": 121
+      },
+      {
+        "exercise": "berries",
+        "sum": "110",
+        "mean": "11",
+        "sampleSize": 19
+      }
+    ],
+    "keyPairsEnumerated": 4005,
+    "cansEnumerated": 30000,
+    "vertices": [
+      [
+        "2",
+        "7"
+      ],
+      [
+        "1",
+        "3"
+      ],
+      [
+        "3",
+        "2"
+      ],
+      [
+        "4",
+        "4"
+      ]
+    ],
+    "linearMinimum": "5",
+    "extremaCorrected": true,
+    "derivativeEvaluations": 10,
+    "areaQuadrature": 10.666666666666666,
+    "nominalPoints": 22.5,
+    "selectionRuleMissing": true
+  },
+  "documents": [
+    {
+      "id": "recuperacion-inferencia-examen",
+      "pages": 5,
+      "bytes": 46567,
+      "sha256": "8bd6e90a79c184270e93468266f05038dcee211c23b989ec0030bec2561186d6",
+      "title": "Recuperación de Inferencia y repaso - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 12,
+      "characters": 5888
+    },
+    {
+      "id": "recuperacion-inferencia-soluciones",
+      "pages": 10,
+      "bytes": 65689,
+      "sha256": "7f3392e7843111a2c47e56f54e2de0a447a21fa19a996534877272e20508a1c1",
+      "title": "Recuperación de Inferencia y repaso - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 13,
+      "characters": 10133
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-21",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/recuperacion-inferencia/estilo.tex",
+      "sha256": "a525f4bf7db262b193cbd21673f79d0d3e8413421220399a6061081e96fd3721"
+    },
+    {
+      "path": "content/latex/recuperacion-inferencia/logo-al-andalus.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    },
+    {
+      "path": "content/latex/recuperacion-inferencia/provenance.json",
+      "sha256": "2906a2fa21c438af3b21fa8bf08573679d38d89212e63b6d21e68838e1515c05"
+    },
+    {
+      "path": "content/latex/recuperacion-inferencia/recuperacion-inferencia-examen.tex",
+      "sha256": "b4d9585ee1273da6bc76dcae6dbc638ef0ec63dc1b19371f0e5638e0607002ac"
+    },
+    {
+      "path": "content/latex/recuperacion-inferencia/recuperacion-inferencia-soluciones.tex",
+      "sha256": "21fcb2e020705e77e836a86485f48240cb57d7875504abf72c7cc618d22213b3"
+    }
+  ]
+}

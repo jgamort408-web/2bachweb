@@ -1,0 +1,1019 @@
+[
+  {
+    "id": "home",
+    "title": "Inicio",
+    "path": "index.html",
+    "parentId": null,
+    "kind": "section"
+  },
+  {
+    "id": "book",
+    "title": "Libro de texto",
+    "path": "libro/index.html",
+    "parentId": "home",
+    "kind": "section"
+  },
+  {
+    "id": "t01",
+    "title": "1. Límites y derivadas",
+    "path": "libro/temas/01-limites-y-derivadas/index.html",
+    "parentId": "book",
+    "kind": "topic"
+  },
+  {
+    "id": "t01-e01",
+    "title": "1.1. Límite de una función",
+    "path": "libro/temas/01-limites-y-derivadas/01-limite-de-una-funcion.html",
+    "parentId": "t01",
+    "kind": "lesson"
+  },
+  {
+    "id": "t01-e02",
+    "title": "1.2. Límites laterales",
+    "path": "libro/temas/01-limites-y-derivadas/02-limites-laterales.html",
+    "parentId": "t01",
+    "kind": "lesson"
+  },
+  {
+    "id": "t01-e03",
+    "title": "1.3. Operaciones con el infinito",
+    "path": "libro/temas/01-limites-y-derivadas/03-operaciones-con-el-infinito.html",
+    "parentId": "t01",
+    "kind": "lesson"
+  },
+  {
+    "id": "t01-e04",
+    "title": "1.4. Límites infinitos en un punto finito",
+    "path": "libro/temas/01-limites-y-derivadas/04-limites-infinitos-en-un-punto-finito.html",
+    "parentId": "t01",
+    "kind": "lesson"
+  },
+  {
+    "id": "t01-e05",
+    "title": "1.5. Límites finitos en el infinito",
+    "path": "libro/temas/01-limites-y-derivadas/05-limites-finitos-en-el-infinito.html",
+    "parentId": "t01",
+    "kind": "lesson"
+  },
+  {
+    "id": "t01-e06",
+    "title": "1.6. Límites infinitos en el infinito",
+    "path": "libro/temas/01-limites-y-derivadas/06-limites-infinitos-en-el-infinito.html",
+    "parentId": "t01",
+    "kind": "lesson"
+  },
+  {
+    "id": "t01-e07",
+    "title": "1.7. Operaciones con límites de funciones",
+    "path": "libro/temas/01-limites-y-derivadas/07-operaciones-con-limites-de-funciones.html",
+    "parentId": "t01",
+    "kind": "lesson"
+  },
+  {
+    "id": "t01-e08",
+    "title": "1.8. Cálculo de límites sencillos",
+    "path": "libro/temas/01-limites-y-derivadas/08-calculo-de-limites-sencillos.html",
+    "parentId": "t01",
+    "kind": "lesson"
+  },
+  {
+    "id": "t01-e09",
+    "title": "1.9. Indeterminaciones",
+    "path": "libro/temas/01-limites-y-derivadas/09-indeterminaciones.html",
+    "parentId": "t01",
+    "kind": "lesson"
+  },
+  {
+    "id": "t01-e10",
+    "title": "1.10. Continuidad",
+    "path": "libro/temas/01-limites-y-derivadas/10-continuidad.html",
+    "parentId": "t01",
+    "kind": "lesson"
+  },
+  {
+    "id": "t01-e11",
+    "title": "1.11. Función derivada",
+    "path": "libro/temas/01-limites-y-derivadas/11-funcion-derivada.html",
+    "parentId": "t01",
+    "kind": "lesson"
+  },
+  {
+    "id": "t01-e12",
+    "title": "1.12. Derivadas laterales",
+    "path": "libro/temas/01-limites-y-derivadas/12-derivadas-laterales.html",
+    "parentId": "t01",
+    "kind": "lesson"
+  },
+  {
+    "id": "t01-e13",
+    "title": "1.13. Ecuaciones de las rectas tangente y normal",
+    "path": "libro/temas/01-limites-y-derivadas/13-ecuaciones-de-las-rectas-tangente-y-normal.html",
+    "parentId": "t01",
+    "kind": "lesson"
+  },
+  {
+    "id": "t01-e14",
+    "title": "1.14. Tabla de derivadas",
+    "path": "libro/temas/01-limites-y-derivadas/14-tabla-de-derivadas.html",
+    "parentId": "t01",
+    "kind": "lesson"
+  },
+  {
+    "id": "t01-e15",
+    "title": "1.15. Reglas de derivación",
+    "path": "libro/temas/01-limites-y-derivadas/15-reglas-de-derivacion.html",
+    "parentId": "t01",
+    "kind": "lesson"
+  },
+  {
+    "id": "t01-e16",
+    "title": "1.16. Regla de la cadena",
+    "path": "libro/temas/01-limites-y-derivadas/16-regla-de-la-cadena.html",
+    "parentId": "t01",
+    "kind": "lesson"
+  },
+  {
+    "id": "t01-e17",
+    "title": "1.17. Continuidad de las funciones derivables",
+    "path": "libro/temas/01-limites-y-derivadas/17-continuidad-de-las-funciones-derivables.html",
+    "parentId": "t01",
+    "kind": "lesson"
+  },
+  {
+    "id": "t01-e18",
+    "title": "1.18. Regla de L'Hôpital. Aplicación al cálculo de límites",
+    "path": "libro/temas/01-limites-y-derivadas/18-regla-de-l-hopital-aplicacion-al-calculo-de-limites.html",
+    "parentId": "t01",
+    "kind": "lesson"
+  },
+  {
+    "id": "t02",
+    "title": "2. Representación de funciones",
+    "path": "libro/temas/02-representacion-de-funciones/index.html",
+    "parentId": "book",
+    "kind": "topic"
+  },
+  {
+    "id": "t02-e01",
+    "title": "2.1. Esquema general para representar una función",
+    "path": "libro/temas/02-representacion-de-funciones/01-esquema-general-para-representar-una-funcion.html",
+    "parentId": "t02",
+    "kind": "lesson"
+  },
+  {
+    "id": "t02-e02",
+    "title": "2.2. Funciones polinómicas",
+    "path": "libro/temas/02-representacion-de-funciones/02-funciones-polinomicas.html",
+    "parentId": "t02",
+    "kind": "lesson"
+  },
+  {
+    "id": "t02-e03",
+    "title": "2.3. Funciones racionales",
+    "path": "libro/temas/02-representacion-de-funciones/03-funciones-racionales.html",
+    "parentId": "t02",
+    "kind": "lesson"
+  },
+  {
+    "id": "t02-e04",
+    "title": "2.4. Funciones exponenciales",
+    "path": "libro/temas/02-representacion-de-funciones/04-funciones-exponenciales.html",
+    "parentId": "t02",
+    "kind": "lesson"
+  },
+  {
+    "id": "t02-e05",
+    "title": "2.5. Funciones logarítmicas",
+    "path": "libro/temas/02-representacion-de-funciones/05-funciones-logaritmicas.html",
+    "parentId": "t02",
+    "kind": "lesson"
+  },
+  {
+    "id": "t02-e06",
+    "title": "2.6. Funciones a trozos. Valor absoluto",
+    "path": "libro/temas/02-representacion-de-funciones/06-funciones-a-trozos-valor-absoluto.html",
+    "parentId": "t02",
+    "kind": "lesson"
+  },
+  {
+    "id": "t02-e07",
+    "title": "2.7. Traslaciones",
+    "path": "libro/temas/02-representacion-de-funciones/07-traslaciones.html",
+    "parentId": "t02",
+    "kind": "lesson"
+  },
+  {
+    "id": "t02-e08",
+    "title": "2.8. Expansión y contracción",
+    "path": "libro/temas/02-representacion-de-funciones/08-expansion-y-contraccion.html",
+    "parentId": "t02",
+    "kind": "lesson"
+  },
+  {
+    "id": "t02-e09",
+    "title": "2.9. Optimización de funciones",
+    "path": "libro/temas/02-representacion-de-funciones/09-optimizacion-de-funciones.html",
+    "parentId": "t02",
+    "kind": "lesson"
+  },
+  {
+    "id": "t03",
+    "title": "3. Integrales",
+    "path": "libro/temas/03-integrales/index.html",
+    "parentId": "book",
+    "kind": "topic"
+  },
+  {
+    "id": "t03-e01",
+    "title": "3.1. Integral indefinida",
+    "path": "libro/temas/03-integrales/01-integral-indefinida.html",
+    "parentId": "t03",
+    "kind": "lesson"
+  },
+  {
+    "id": "t03-e02",
+    "title": "3.2. Integrales inmediatas",
+    "path": "libro/temas/03-integrales/02-integrales-inmediatas.html",
+    "parentId": "t03",
+    "kind": "lesson"
+  },
+  {
+    "id": "t03-e03",
+    "title": "3.3. Integrales casi inmediatas",
+    "path": "libro/temas/03-integrales/03-integrales-casi-inmediatas.html",
+    "parentId": "t03",
+    "kind": "lesson"
+  },
+  {
+    "id": "t03-e04",
+    "title": "3.4. Métodos de integración",
+    "path": "libro/temas/03-integrales/04-metodos-de-integracion.html",
+    "parentId": "t03",
+    "kind": "lesson"
+  },
+  {
+    "id": "t03-e05",
+    "title": "3.5. Integral definida",
+    "path": "libro/temas/03-integrales/05-integral-definida.html",
+    "parentId": "t03",
+    "kind": "lesson"
+  },
+  {
+    "id": "t03-e06",
+    "title": "3.6. Teorema fundamental del cálculo",
+    "path": "libro/temas/03-integrales/06-teorema-fundamental-del-calculo.html",
+    "parentId": "t03",
+    "kind": "lesson"
+  },
+  {
+    "id": "t03-e07",
+    "title": "3.7. Regla de Barrow",
+    "path": "libro/temas/03-integrales/07-regla-de-barrow.html",
+    "parentId": "t03",
+    "kind": "lesson"
+  },
+  {
+    "id": "t03-e08",
+    "title": "3.8. Aplicaciones de la integral",
+    "path": "libro/temas/03-integrales/08-aplicaciones-de-la-integral.html",
+    "parentId": "t03",
+    "kind": "lesson"
+  },
+  {
+    "id": "t04",
+    "title": "4. Matrices y determinantes",
+    "path": "libro/temas/04-matrices-y-determinantes/index.html",
+    "parentId": "book",
+    "kind": "topic"
+  },
+  {
+    "id": "t04-e01",
+    "title": "4.1. Matrices: definición, características y tipos",
+    "path": "libro/temas/04-matrices-y-determinantes/01-matrices-definicion-caracteristicas-y-tipos.html",
+    "parentId": "t04",
+    "kind": "lesson"
+  },
+  {
+    "id": "t04-e02",
+    "title": "4.2. Operaciones con matrices",
+    "path": "libro/temas/04-matrices-y-determinantes/02-operaciones-con-matrices.html",
+    "parentId": "t04",
+    "kind": "lesson"
+  },
+  {
+    "id": "t04-e03",
+    "title": "4.3. Producto de matrices",
+    "path": "libro/temas/04-matrices-y-determinantes/03-producto-de-matrices.html",
+    "parentId": "t04",
+    "kind": "lesson"
+  },
+  {
+    "id": "t04-e04",
+    "title": "4.4. Potencia de una matriz",
+    "path": "libro/temas/04-matrices-y-determinantes/04-potencia-de-una-matriz.html",
+    "parentId": "t04",
+    "kind": "lesson"
+  },
+  {
+    "id": "t04-e05",
+    "title": "4.5. Comparación de matrices. Matriz simétrica y matriz antisimétrica",
+    "path": "libro/temas/04-matrices-y-determinantes/05-comparacion-de-matrices-matriz-simetrica-y-matriz-antisimetrica.html",
+    "parentId": "t04",
+    "kind": "lesson"
+  },
+  {
+    "id": "t04-e06",
+    "title": "4.6. Determinante de una matriz",
+    "path": "libro/temas/04-matrices-y-determinantes/06-determinante-de-una-matriz.html",
+    "parentId": "t04",
+    "kind": "lesson"
+  },
+  {
+    "id": "t04-e07",
+    "title": "4.7. Propiedades de los determinantes",
+    "path": "libro/temas/04-matrices-y-determinantes/07-propiedades-de-los-determinantes.html",
+    "parentId": "t04",
+    "kind": "lesson"
+  },
+  {
+    "id": "t04-e08",
+    "title": "4.8. Desarrollo de un determinante",
+    "path": "libro/temas/04-matrices-y-determinantes/08-desarrollo-de-un-determinante.html",
+    "parentId": "t04",
+    "kind": "lesson"
+  },
+  {
+    "id": "t04-e09",
+    "title": "4.9. Matriz inversa y matriz adjunta",
+    "path": "libro/temas/04-matrices-y-determinantes/09-matriz-inversa-y-matriz-adjunta.html",
+    "parentId": "t04",
+    "kind": "lesson"
+  },
+  {
+    "id": "t04-e10",
+    "title": "4.10. Rango de una matriz",
+    "path": "libro/temas/04-matrices-y-determinantes/10-rango-de-una-matriz.html",
+    "parentId": "t04",
+    "kind": "lesson"
+  },
+  {
+    "id": "t04-e11",
+    "title": "4.11. Ecuaciones matriciales",
+    "path": "libro/temas/04-matrices-y-determinantes/11-ecuaciones-matriciales.html",
+    "parentId": "t04",
+    "kind": "lesson"
+  },
+  {
+    "id": "t04-e12",
+    "title": "4.12. Grafos y matriz de adyacencia asociada",
+    "path": "libro/temas/04-matrices-y-determinantes/12-grafos-y-matriz-de-adyacencia-asociada.html",
+    "parentId": "t04",
+    "kind": "lesson"
+  },
+  {
+    "id": "t05",
+    "title": "5. Sistemas de ecuaciones",
+    "path": "libro/temas/05-sistemas-de-ecuaciones/index.html",
+    "parentId": "book",
+    "kind": "topic"
+  },
+  {
+    "id": "t05-e01",
+    "title": "5.1. Sistemas de ecuaciones lineales",
+    "path": "libro/temas/05-sistemas-de-ecuaciones/01-sistemas-de-ecuaciones-lineales.html",
+    "parentId": "t05",
+    "kind": "lesson"
+  },
+  {
+    "id": "t05-e02",
+    "title": "5.2. Solución de un sistema de ecuaciones",
+    "path": "libro/temas/05-sistemas-de-ecuaciones/02-solucion-de-un-sistema-de-ecuaciones.html",
+    "parentId": "t05",
+    "kind": "lesson"
+  },
+  {
+    "id": "t05-e03",
+    "title": "5.3. Clasificación de sistemas de ecuaciones según sus soluciones",
+    "path": "libro/temas/05-sistemas-de-ecuaciones/03-clasificacion-de-sistemas-de-ecuaciones-segun-sus-soluciones.html",
+    "parentId": "t05",
+    "kind": "lesson"
+  },
+  {
+    "id": "t05-e04",
+    "title": "5.4. Notación matricial de un sistema de ecuaciones",
+    "path": "libro/temas/05-sistemas-de-ecuaciones/04-notacion-matricial-de-un-sistema-de-ecuaciones.html",
+    "parentId": "t05",
+    "kind": "lesson"
+  },
+  {
+    "id": "t05-e05",
+    "title": "5.5. Sistemas equivalentes",
+    "path": "libro/temas/05-sistemas-de-ecuaciones/05-sistemas-equivalentes.html",
+    "parentId": "t05",
+    "kind": "lesson"
+  },
+  {
+    "id": "t05-e06",
+    "title": "5.6. Teorema de Rouché-Frobenius",
+    "path": "libro/temas/05-sistemas-de-ecuaciones/06-teorema-de-rouche-frobenius.html",
+    "parentId": "t05",
+    "kind": "lesson"
+  },
+  {
+    "id": "t05-e07",
+    "title": "5.7. Resolución de sistemas. Matriz inversa",
+    "path": "libro/temas/05-sistemas-de-ecuaciones/07-resolucion-de-sistemas-matriz-inversa.html",
+    "parentId": "t05",
+    "kind": "lesson"
+  },
+  {
+    "id": "t05-e08",
+    "title": "5.8. Resolución de sistemas. Método de Gauss",
+    "path": "libro/temas/05-sistemas-de-ecuaciones/08-resolucion-de-sistemas-metodo-de-gauss.html",
+    "parentId": "t05",
+    "kind": "lesson"
+  },
+  {
+    "id": "t05-e09",
+    "title": "5.9. Resolución de sistemas. Regla de Cramer",
+    "path": "libro/temas/05-sistemas-de-ecuaciones/09-resolucion-de-sistemas-regla-de-cramer.html",
+    "parentId": "t05",
+    "kind": "lesson"
+  },
+  {
+    "id": "t05-e10",
+    "title": "5.10. Sistemas homogéneos",
+    "path": "libro/temas/05-sistemas-de-ecuaciones/10-sistemas-homogeneos.html",
+    "parentId": "t05",
+    "kind": "lesson"
+  },
+  {
+    "id": "t05-e11",
+    "title": "5.11. Discusión de sistemas con parámetros",
+    "path": "libro/temas/05-sistemas-de-ecuaciones/11-discusion-de-sistemas-con-parametros.html",
+    "parentId": "t05",
+    "kind": "lesson"
+  },
+  {
+    "id": "t06",
+    "title": "6. Programación lineal",
+    "path": "libro/temas/06-programacion-lineal/index.html",
+    "parentId": "book",
+    "kind": "topic"
+  },
+  {
+    "id": "t06-e01",
+    "title": "6.1. Inecuaciones lineales con dos incógnitas",
+    "path": "libro/temas/06-programacion-lineal/01-inecuaciones-lineales-con-dos-incognitas.html",
+    "parentId": "t06",
+    "kind": "lesson"
+  },
+  {
+    "id": "t06-e02",
+    "title": "6.2. Sistemas de inecuaciones lineales con dos incógnitas",
+    "path": "libro/temas/06-programacion-lineal/02-sistemas-de-inecuaciones-lineales-con-dos-incognitas.html",
+    "parentId": "t06",
+    "kind": "lesson"
+  },
+  {
+    "id": "t06-e03",
+    "title": "6.3. Programación lineal",
+    "path": "libro/temas/06-programacion-lineal/03-programacion-lineal.html",
+    "parentId": "t06",
+    "kind": "lesson"
+  },
+  {
+    "id": "t06-e04",
+    "title": "6.4. Solución de un problema de programación lineal",
+    "path": "libro/temas/06-programacion-lineal/04-solucion-de-un-problema-de-programacion-lineal.html",
+    "parentId": "t06",
+    "kind": "lesson"
+  },
+  {
+    "id": "t06-e05",
+    "title": "6.5. Problemas de programación lineal",
+    "path": "libro/temas/06-programacion-lineal/05-problemas-de-programacion-lineal.html",
+    "parentId": "t06",
+    "kind": "lesson"
+  },
+  {
+    "id": "t07",
+    "title": "7. Probabilidad",
+    "path": "libro/temas/07-probabilidad/index.html",
+    "parentId": "book",
+    "kind": "topic"
+  },
+  {
+    "id": "t07-e01",
+    "title": "7.1. Sucesos. Regla de Laplace",
+    "path": "libro/temas/07-probabilidad/01-sucesos-regla-de-laplace.html",
+    "parentId": "t07",
+    "kind": "lesson"
+  },
+  {
+    "id": "t07-e02",
+    "title": "7.2. Álgebra de sucesos",
+    "path": "libro/temas/07-probabilidad/02-algebra-de-sucesos.html",
+    "parentId": "t07",
+    "kind": "lesson"
+  },
+  {
+    "id": "t07-e03",
+    "title": "7.3. Tablas de contingencia",
+    "path": "libro/temas/07-probabilidad/03-tablas-de-contingencia.html",
+    "parentId": "t07",
+    "kind": "lesson"
+  },
+  {
+    "id": "t07-e04",
+    "title": "7.4. Frecuencias",
+    "path": "libro/temas/07-probabilidad/04-frecuencias.html",
+    "parentId": "t07",
+    "kind": "lesson"
+  },
+  {
+    "id": "t07-e05",
+    "title": "7.5. Axiomática de Kolmogórov",
+    "path": "libro/temas/07-probabilidad/05-axiomatica-de-kolmogorov.html",
+    "parentId": "t07",
+    "kind": "lesson"
+  },
+  {
+    "id": "t07-e06",
+    "title": "7.6. Propiedades de la probabilidad",
+    "path": "libro/temas/07-probabilidad/06-propiedades-de-la-probabilidad.html",
+    "parentId": "t07",
+    "kind": "lesson"
+  },
+  {
+    "id": "t07-e07",
+    "title": "7.7. Experimentos compuestos",
+    "path": "libro/temas/07-probabilidad/07-experimentos-compuestos.html",
+    "parentId": "t07",
+    "kind": "lesson"
+  },
+  {
+    "id": "t07-e08",
+    "title": "7.8. Probabilidad condicionada",
+    "path": "libro/temas/07-probabilidad/08-probabilidad-condicionada.html",
+    "parentId": "t07",
+    "kind": "lesson"
+  },
+  {
+    "id": "t07-e09",
+    "title": "7.9. Probabilidad total",
+    "path": "libro/temas/07-probabilidad/09-probabilidad-total.html",
+    "parentId": "t07",
+    "kind": "lesson"
+  },
+  {
+    "id": "t07-e10",
+    "title": "7.10. Teorema de Bayes",
+    "path": "libro/temas/07-probabilidad/10-teorema-de-bayes.html",
+    "parentId": "t07",
+    "kind": "lesson"
+  },
+  {
+    "id": "t07-exercises",
+    "title": "Ejercicios resueltos de Probabilidad",
+    "path": "libro/temas/07-probabilidad/ejercicios-resueltos.html",
+    "parentId": "t07",
+    "kind": "section"
+  },
+  {
+    "id": "t08",
+    "title": "8. Distribuciones de probabilidad",
+    "path": "libro/temas/08-distribuciones-de-probabilidad/index.html",
+    "parentId": "book",
+    "kind": "topic"
+  },
+  {
+    "id": "t08-e01",
+    "title": "8.1. Variable aleatoria",
+    "path": "libro/temas/08-distribuciones-de-probabilidad/01-variable-aleatoria.html",
+    "parentId": "t08",
+    "kind": "lesson"
+  },
+  {
+    "id": "t08-e02",
+    "title": "8.2. Distribución binomial",
+    "path": "libro/temas/08-distribuciones-de-probabilidad/02-distribucion-binomial.html",
+    "parentId": "t08",
+    "kind": "lesson"
+  },
+  {
+    "id": "t08-e03",
+    "title": "8.3. Distribución normal",
+    "path": "libro/temas/08-distribuciones-de-probabilidad/03-distribucion-normal.html",
+    "parentId": "t08",
+    "kind": "lesson"
+  },
+  {
+    "id": "t08-e04",
+    "title": "8.4. Aproximación de la distribución binomial a la distribución normal",
+    "path": "libro/temas/08-distribuciones-de-probabilidad/04-aproximacion-de-la-distribucion-binomial-a-la-distribucion-normal.html",
+    "parentId": "t08",
+    "kind": "lesson"
+  },
+  {
+    "id": "t09",
+    "title": "9. Inferencia estadística",
+    "path": "libro/temas/09-inferencia-estadistica/index.html",
+    "parentId": "book",
+    "kind": "topic"
+  },
+  {
+    "id": "t09-e01",
+    "title": "9.1. Estadística inferencial",
+    "path": "libro/temas/09-inferencia-estadistica/01-estadistica-inferencial.html",
+    "parentId": "t09",
+    "kind": "lesson"
+  },
+  {
+    "id": "t09-e02",
+    "title": "9.2. Muestreo",
+    "path": "libro/temas/09-inferencia-estadistica/02-muestreo.html",
+    "parentId": "t09",
+    "kind": "lesson"
+  },
+  {
+    "id": "t09-e03",
+    "title": "9.3. Técnicas de muestreo",
+    "path": "libro/temas/09-inferencia-estadistica/03-tecnicas-de-muestreo.html",
+    "parentId": "t09",
+    "kind": "lesson"
+  },
+  {
+    "id": "t09-e04",
+    "title": "9.4. Distribución muestral. Teorema central del límite",
+    "path": "libro/temas/09-inferencia-estadistica/04-distribucion-muestral-teorema-central-del-limite.html",
+    "parentId": "t09",
+    "kind": "lesson"
+  },
+  {
+    "id": "t09-e05",
+    "title": "9.5. Estimación puntual y estimación por intervalos",
+    "path": "libro/temas/09-inferencia-estadistica/05-estimacion-puntual-y-estimacion-por-intervalos.html",
+    "parentId": "t09",
+    "kind": "lesson"
+  },
+  {
+    "id": "t09-e06",
+    "title": "9.6. Intervalos de probabilidad o intervalos característicos",
+    "path": "libro/temas/09-inferencia-estadistica/06-intervalos-de-probabilidad-o-intervalos-caracteristicos.html",
+    "parentId": "t09",
+    "kind": "lesson"
+  },
+  {
+    "id": "t09-e07",
+    "title": "9.7. Intervalos de confianza",
+    "path": "libro/temas/09-inferencia-estadistica/07-intervalos-de-confianza.html",
+    "parentId": "t09",
+    "kind": "lesson"
+  },
+  {
+    "id": "t09-e08",
+    "title": "9.8. Tamaño de la muestra. Error cometido",
+    "path": "libro/temas/09-inferencia-estadistica/08-tamano-de-la-muestra-error-cometido.html",
+    "parentId": "t09",
+    "kind": "lesson"
+  },
+  {
+    "id": "t09-e09",
+    "title": "9.9. Ficha técnica de encuestas",
+    "path": "libro/temas/09-inferencia-estadistica/09-ficha-tecnica-de-encuestas.html",
+    "parentId": "t09",
+    "kind": "lesson"
+  },
+  {
+    "id": "t09-exercises",
+    "title": "Ejercicios resueltos de Inferencia",
+    "path": "libro/temas/09-inferencia-estadistica/ejercicios-resueltos.html",
+    "parentId": "t09",
+    "kind": "section"
+  },
+  {
+    "id": "supports",
+    "title": "Contenidos de apoyo",
+    "path": "libro/apoyos/index.html",
+    "parentId": "book",
+    "kind": "section"
+  },
+  {
+    "id": "combinatorics",
+    "title": "Combinatoria",
+    "path": "libro/apoyos/combinatoria.html",
+    "parentId": "supports",
+    "kind": "section"
+  },
+  {
+    "id": "bivariate",
+    "title": "Estadística bidimensional",
+    "path": "libro/apoyos/estadistica-bidimensional.html",
+    "parentId": "supports",
+    "kind": "section"
+  },
+  {
+    "id": "practice",
+    "title": "Practicar",
+    "path": "practicar/index.html",
+    "parentId": "home",
+    "kind": "section"
+  },
+  {
+    "id": "tests",
+    "title": "Test",
+    "path": "test/index.html",
+    "parentId": "home",
+    "kind": "section"
+  },
+  {
+    "id": "t07-questions",
+    "title": "Preguntas de Probabilidad",
+    "path": "test/probabilidad-preguntas.html",
+    "parentId": "tests",
+    "kind": "section",
+    "topicId": "t07"
+  },
+  {
+    "id": "t09-questions",
+    "title": "Preguntas de Inferencia: lectura",
+    "path": "test/inferencia-preguntas.html",
+    "parentId": "tests",
+    "kind": "section",
+    "topicId": "t09"
+  },
+  {
+    "id": "cards",
+    "title": "Flashcards",
+    "path": "tarjetas/index.html",
+    "parentId": "home",
+    "kind": "section"
+  },
+  {
+    "id": "labs",
+    "title": "Laboratorios y videojuegos",
+    "path": "laboratorios/index.html",
+    "parentId": "home",
+    "kind": "section"
+  },
+  {
+    "id": "resources",
+    "title": "Recursos",
+    "path": "recursos/index.html",
+    "parentId": "home",
+    "kind": "section"
+  },
+  {
+    "id": "exams",
+    "title": "Exámenes",
+    "path": "examenes/index.html",
+    "parentId": "home",
+    "kind": "section"
+  },
+  {
+    "id": "tools",
+    "title": "Herramientas",
+    "path": "herramientas/index.html",
+    "parentId": "home",
+    "kind": "section"
+  },
+  {
+    "id": "formulas",
+    "title": "Formulario",
+    "path": "herramientas/formulario.html",
+    "parentId": "tools",
+    "kind": "section"
+  },
+  {
+    "id": "glossary",
+    "title": "Glosario",
+    "path": "herramientas/glosario.html",
+    "parentId": "tools",
+    "kind": "section"
+  },
+  {
+    "id": "accessibility",
+    "title": "Accesibilidad",
+    "path": "accesibilidad/index.html",
+    "parentId": "home",
+    "kind": "section"
+  },
+  {
+    "id": "admin",
+    "title": "Administración",
+    "path": "admin/index.html",
+    "parentId": "home",
+    "kind": "section"
+  },
+  {
+    "id": "progress",
+    "title": "Mi progreso",
+    "path": "mi-progreso/index.html",
+    "parentId": "admin",
+    "kind": "section"
+  },
+  {
+    "id": "not-found",
+    "title": "Página no encontrada",
+    "path": "404.html",
+    "parentId": null,
+    "kind": "section"
+  },
+  {
+    "id": "game-t01-a-limite-express",
+    "title": "Límite Express",
+    "path": "laboratorios/juegos/t01-a-limite-express.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t01-b-continuidad-repara-la-funcion",
+    "title": "Continuidad: repara la función",
+    "path": "laboratorios/juegos/t01-b-continuidad-repara-la-funcion.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t01-c-derivada-detective",
+    "title": "Derivada Detective",
+    "path": "laboratorios/juegos/t01-c-derivada-detective.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t01-d-tangente-sprint",
+    "title": "Tangente Sprint",
+    "path": "laboratorios/juegos/t01-d-tangente-sprint.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t02-a-construye-la-grafica",
+    "title": "Construye la gráfica",
+    "path": "laboratorios/juegos/t02-a-construye-la-grafica.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t02-b-transforma-la-funcion",
+    "title": "Transforma la función",
+    "path": "laboratorios/juegos/t02-b-transforma-la-funcion.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t02-c-optimiza",
+    "title": "Optimiza",
+    "path": "laboratorios/juegos/t02-c-optimiza.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t03-a-parejas-de-primitivas",
+    "title": "Parejas de primitivas",
+    "path": "laboratorios/juegos/t03-a-parejas-de-primitivas.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t03-b-metodo-correcto",
+    "title": "Método correcto",
+    "path": "laboratorios/juegos/t03-b-metodo-correcto.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t03-c-area-por-tramos",
+    "title": "Área por tramos",
+    "path": "laboratorios/juegos/t03-c-area-por-tramos.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t04-a-matrix-ops",
+    "title": "Matrix Ops",
+    "path": "laboratorios/juegos/t04-a-matrix-ops.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t04-b-la-camara-del-determinante",
+    "title": "La cámara del determinante",
+    "path": "laboratorios/juegos/t04-b-la-camara-del-determinante.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t04-c-redes-y-adyacencia",
+    "title": "Redes y adyacencia",
+    "path": "laboratorios/juegos/t04-c-redes-y-adyacencia.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t05-a-clasificador-de-sistemas",
+    "title": "Clasificador de sistemas",
+    "path": "laboratorios/juegos/t05-a-clasificador-de-sistemas.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t05-b-gauss-paso-a-paso",
+    "title": "Gauss paso a paso",
+    "path": "laboratorios/juegos/t05-b-gauss-paso-a-paso.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t05-c-elige-el-metodo",
+    "title": "Elige el método",
+    "path": "laboratorios/juegos/t05-c-elige-el-metodo.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t06-a-pinta-la-region-factible",
+    "title": "Pinta la región factible",
+    "path": "laboratorios/juegos/t06-a-pinta-la-region-factible.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t06-b-cazador-de-vertices",
+    "title": "Cazador de vértices",
+    "path": "laboratorios/juegos/t06-b-cazador-de-vertices.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t06-c-fabrica-de-modelos",
+    "title": "Fábrica de modelos",
+    "path": "laboratorios/juegos/t06-c-fabrica-de-modelos.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t07-a-algebra-de-sucesos",
+    "title": "Álgebra de sucesos",
+    "path": "laboratorios/juegos/t07-a-algebra-de-sucesos.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t07-b-arbol-de-probabilidad",
+    "title": "Árbol de probabilidad",
+    "path": "laboratorios/juegos/t07-b-arbol-de-probabilidad.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t07-c-detective-bayes",
+    "title": "Detective Bayes",
+    "path": "laboratorios/juegos/t07-c-detective-bayes.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t08-a-binomial-factory",
+    "title": "Binomial Factory",
+    "path": "laboratorios/juegos/t08-a-binomial-factory.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t08-b-normal-slider",
+    "title": "Normal Slider",
+    "path": "laboratorios/juegos/t08-b-normal-slider.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t08-c-correccion-de-continuidad",
+    "title": "Corrección de continuidad",
+    "path": "laboratorios/juegos/t08-c-correccion-de-continuidad.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t09-a-disena-la-muestra",
+    "title": "Diseña la muestra",
+    "path": "laboratorios/juegos/t09-a-disena-la-muestra.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t09-b-constructor-de-intervalos",
+    "title": "Constructor de intervalos",
+    "path": "laboratorios/juegos/t09-b-constructor-de-intervalos.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  },
+  {
+    "id": "game-t09-c-auditor-de-encuestas",
+    "title": "Auditor de encuestas",
+    "path": "laboratorios/juegos/t09-c-auditor-de-encuestas.html",
+    "parentId": "labs",
+    "kind": "widget-host"
+  }
+]

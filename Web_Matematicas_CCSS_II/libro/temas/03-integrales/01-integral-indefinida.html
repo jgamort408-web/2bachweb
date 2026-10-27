@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3.1. Integral indefinida · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t03-e01">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">3.1. Integral indefinida</h1>
+    <p class="lead" data-content-role="introduction">La derivada describe cómo cambia una función. Ahora recorreremos el camino inverso: conocida una derivada, buscamos las funciones que la producen. Una misma derivada puede corresponder a muchas funciones.</p>
+    <div class="learning-goals"><p data-content-role="objectives"><strong>Al terminar podrás:</strong> reconocer una primitiva, explicar la constante de integración, comprobar resultados derivando y usar un dato inicial para elegir una función particular.</p><p data-content-role="prerequisites"><strong>Antes de empezar:</strong> repasa la <a href="../01-limites-y-derivadas/14-tabla-de-derivadas.html">tabla de derivadas</a> y las <a href="../02-representacion-de-funciones/07-traslaciones.html">traslaciones verticales</a>.</p></div>
+    <nav aria-label="En esta lección"><a href="#concepto">Primitiva</a> · <a href="#constante">La constante</a> · <a href="#ejemplos">Ejemplos</a> · <a href="#explorador">Explorar la familia</a> · <a href="#practica">Práctica y test</a> · <a href="#tarjetas">Tarjetas</a></nav>
+    <section id="concepto" data-content-role="definition"><h2>1. Una operación inversa a derivar</h2>
+    <div class="definition"><p>Una función F es una <strong>primitiva</strong> de f en un intervalo I si F es derivable y:</p><p>\[F'(x)=f(x)\qquad\text{para todo }x\in I.\]</p></div>
+    <p>Por ejemplo, F(x)=x² es una primitiva de f(x)=2x en ℝ porque (x²)′=2x. También lo son x²+3 y x²−5: sus constantes desaparecen al derivar. La función f es el <strong>integrando</strong>; F es una función cuya derivada coincide con él.</p>
+    <p>La <strong>integral indefinida</strong> representa la familia de todas las primitivas en el intervalo:</p><p>\[\int f(x)\,dx=F(x)+C,\qquad C\in\mathbb R.\]</p>
+    <p>El símbolo ∫ indica integración y dx señala que trabajamos respecto a x. C es un número fijo dentro de cada función elegida, aunque puede tomar cualquier valor al recorrer la familia. No es una función C(x).</p>
+    <p class="key-idea">Una integral indefinida es una familia de funciones. No es un único número ni un área ya calculada: las integrales definidas y las áreas se estudiarán más adelante.</p></section>
+    <section id="constante" data-content-role="explanation"><h2>2. Qué cambia al variar C</h2>
+    <p>Si F y G son primitivas de f en un mismo intervalo, entonces:</p><p>\[(F-G)'=F'-G'=f-f=0.\]</p><p>Una función cuya derivada es cero en un intervalo es constante allí. Por tanto F−G es constante: conocida una primitiva, las demás se obtienen sumando C. Sus gráficas son traslaciones verticales y tienen la misma pendiente en cada abscisa.</p>
+    <h3>Un dato inicial fija una curva</h3><p>Para F(x)=x²+C, si además se exige F(1)=4:</p><p>\[1+C=4\quad\Longrightarrow\quad C=3,\qquad F(x)=x^2+3.\]</p><p>El resultado cumple dos comprobaciones diferentes: F′(x)=2x y F(1)=4. La constante no es directamente 4: hay que sustituir el punto en la familia.</p>
+    <details data-content-role="extension"><summary>Ampliación: por qué decimos «en un intervalo»</summary><p>El dominio de 1/x está separado por cero. En cada lado, una primitiva es ln|x| y pueden elegirse constantes independientes:</p><p>\[F(x)=\begin{cases}\ln|x|+C_-,&x&lt;0,\\\ln|x|+C_+,&x&gt;0.\end{cases}\]</p><p>No es necesario que C₋=C₊. La derivada vale 1/x en cada punto del dominio y no se asigna ningún valor en cero. La expresión ln|x|+C con una única constante describe una subfamilia si se exige trabajar a la vez en ambos intervalos sin relaciones adicionales.</p></details></section>
+    <section id="ejemplos" data-content-role="worked-example"><h2>3. Ejemplos resueltos</h2>
+    <h3>Comprobar una familia</h3><p>Para f(x)=6x² proponemos F(x)=2x³. Comprobamos:</p><p>\[(2x^3)'=6x^2\quad\Longrightarrow\quad\int6x^2\,dx=2x^3+C.\]</p><p>2x³+1 es una primitiva concreta; 2x³+C es la familia completa en ℝ. En cambio, 6x³ no sirve porque su derivada es 18x².</p>
+    <h3>Una suma y una condición</h3><p>Buscamos una primitiva de f(x)=3x²−4x+2 que cumpla F(1)=5. A partir de las derivadas conocidas, proponemos F₀(x)=x³−2x²+2x:</p><p>\[F_0'(x)=3x^2-4x+2.\]</p><p>La familia es F=F₀+C. En x=1, F₀(1)=1−2+2=1, así que 1+C=5 y C=4:</p><p>\[F(x)=x^3-2x^2+2x+4.\]</p><p>Derivar comprueba el integrando; sustituir x=1 comprueba el dato inicial. No hace falta elegir C=0 si el enunciado da otra condición.</p>
+    <h3>Recuperar el coste total a partir del marginal</h3><p>En un modelo didáctico, q es una producción divisible en unidades y K(q) su coste total en euros. Se conoce K′(q)=2q+5 €/unidad para q&gt;0 y un coste fijo K(0)=40 €. Se supone continuidad en q=0.</p><p>Una familia compatible con la derivada es K(q)=q²+5q+C. El dato inicial y la continuidad fijan C=40:</p><p>\[K(q)=q^2+5q+40,\qquad q\ge0.\]</p><p>Por ejemplo, K(3)=9+15+40=64 €. La derivada por sí sola no recupera el coste fijo, porque la derivada de 40 es cero. Las unidades distinguen el coste total, en euros, del marginal, en euros por unidad.</p></section>
+    <section id="explorador" data-content-role="visualization"><h2>4. Explora una familia de primitivas</h2><p>Cambia C y observa la altura de la curva y su pendiente en x=a. Después elige un dato F(a)=b y pulsa «Ajustar al dato» para seleccionar la primitiva que lo cumple.</p>
+    <div data-primitive-explorer>
+    <div class="actions"><label>Integrando <select data-primitive-family><option value="linear">f(x)=2x</option><option value="quadratic">f(x)=6x²</option><option value="constant">f(x)=3</option></select></label><label>Constante C <input data-primitive-c type="range" min="-6" max="6" step="1" value="0"><output data-primitive-c-value>0</output></label></div>
+    <div class="actions"><label>Abscisa a <select data-primitive-a><option value="-1">−1</option><option value="0">0</option><option value="1" selected>1</option></select></label><label>Valor b <select data-primitive-b><option value="-2">−2</option><option value="0">0</option><option value="2" selected>2</option></select></label><button type="button" data-primitive-fit>Ajustar al dato</button></div>
+    <label><input type="checkbox" data-primitive-others checked> Mostrar también C=−3, C=0 y C=3</label>
+    <div data-primitive-result></div><p data-primitive-status role="status"></p>
+    </div></section>
+    <section id="practica" data-content-role="guided-practice"><h2>5. Practica y comprueba</h2><p>Encuentra todas las primitivas de f(x)=4x−3 en ℝ. Elige la que cumple F(2)=1. Después decide si H(x)=2x²−3 es también una primitiva.</p>
+    <details data-content-role="hint"><summary>Pista</summary><p>Busca una función cuya derivada sea 4x y otra cuya derivada sea −3. La constante se calcula después.</p></details>
+    <details data-content-role="solution"><summary>Ver solución razonada</summary><p>La familia es F(x)=2x²−3x+C, porque su derivada es 4x−3. La condición exige F(2)=8−6+C=1, luego C=−1 y F(x)=2x²−3x−1. En cambio, H′(x)=4x: falta el término −3, así que H no es una primitiva de f.</p></details>
+    <div class="activity" data-quiz="t03-e01" data-content-role="self-check"></div></section>
+    <section data-content-role="common-errors"><h2>6. Errores frecuentes</h2><ul><li>Dar una única primitiva cuando se pide la familia completa.</li><li>Añadir Cx en lugar de una constante C.</li><li>Elegir C igual al dato F(a) sin sustituir a.</li><li>Comprobar solo un punto en vez de la igualdad de funciones F′=f.</li><li>Confundir coste total y coste marginal, o una integral indefinida y un área.</li><li>Imponer una constante única en intervalos separados sin que el enunciado lo exija.</li></ul></section>
+    <section data-content-role="summary"><h2>7. Resumen</h2><p>Una primitiva F cumple F′=f. En un intervalo, todas las primitivas forman F+C. C desplaza la gráfica verticalmente sin alterar su pendiente. Una condición inicial selecciona una primitiva particular. La comprobación final es derivar y verificar también el dato, si existe.</p></section>
+    <section id="tarjetas"><h2>8. Tarjetas de repaso</h2><div class="activity" data-flashcards="t03-e01"></div></section>
+    <section data-content-role="related-links"><h2>Continúa</h2><p><a href="index.html">Índice de integrales</a> · <a href="../../../test/index.html?tema=t03">Test disponible del tema 3</a> · <a href="02-integrales-inmediatas.html">3.2. Integrales inmediatas</a></p></section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

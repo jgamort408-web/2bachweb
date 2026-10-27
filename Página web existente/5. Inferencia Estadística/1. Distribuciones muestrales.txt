@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.1 Distribuciones Muestrales</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-body: #ecfdf5;       
+            --primary: #047857;       
+            --primary-dark: #064e3b;  
+            --secondary: #0f172a;     
+            --accent: #d97706;        
+            --accent-light: #fef3c7;
+            
+            --text-main: #334155;
+            --text-light: #64748b;
+            
+            --radius: 8px;            
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            background-image: radial-gradient(#047857 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; color: var(--secondary); line-height: 1.2; }
+        .container { max-width: 950px; margin: 0 auto; }
+
+        /* HEADER */
+        .header-bar {
+            background: white;
+            padding: 1.5rem;
+            border-bottom: 4px solid var(--primary);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .header-num {
+            background: var(--primary);
+            color: white;
+            font-weight: 800;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 1.2rem;
+        }
+
+        /* TARJETAS */
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2.5rem;
+        }
+
+        /* TEOREMA DESTACADO */
+        .theorem-box {
+            background: var(--accent-light);
+            border: 2px solid var(--accent);
+            padding: 2rem;
+            border-radius: var(--radius);
+            margin: 2rem 0;
+            position: relative;
+        }
+        .theorem-badge {
+            position: absolute;
+            top: -12px; left: 20px;
+            background: var(--accent);
+            color: white;
+            padding: 2px 12px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            border-radius: 4px;
+        }
+
+        /* FÓRMULAS GRANDES */
+        .math-hero {
+            font-size: 1.4rem;
+            text-align: center;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px dashed #cbd5e1;
+        }
+
+        /* VISUALIZACIÓN TCL (SVG) */
+        .clt-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .dist-shape { fill: rgba(4, 120, 87, 0.2); stroke: var(--primary); stroke-width: 2; }
+        .arrow-process { stroke: var(--secondary); stroke-width: 2; marker-end: url(#arrowhead); }
+
+        /* TABLA CHEAT SHEET */
+        .cheat-sheet {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        .cheat-sheet th { background: var(--secondary); color: white; padding: 10px; text-align: left; }
+        .cheat-sheet td { border: 1px solid #cbd5e1; padding: 10px; background: white; }
+        .cheat-sheet tr:nth-child(even) td { background: #f8fafc; }
+
+        /* ALERTA DE ERROR COMÚN */
+        .warning-box {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #7f1d1d;
+        }
+
+        @media (max-width: 768px) {
+            .clt-grid { grid-template-columns: 1fr; }
+            body { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+
+        <div class="header-bar">
+            <div class="header-num">5.1</div>
+            <div>
+                <h1 style="font-size: 1.5rem; margin: 0;">Distribuciones Muestrales</h1>
+                <span style="font-size: 0.9rem; color: var(--text-light);">El Motor Matemático de la Inferencia</span>
+            </div>
+        </div>
+
+        <section class="card">
+            <h2>El Concepto Clave</h2>
+            <p>
+                Imagina que tomamos <strong>todas las muestras posibles</strong> de tamaño $n$ de una población. 
+                Cada muestra tendrá su propia media ($\bar{x}$). 
+                Si dibujamos un gráfico con todas esas medias posibles, ¿qué forma tendrá?
+            </p>
+            <p style="margin-top: 1rem; font-weight: bold; color: var(--primary);">
+                Esa gráfica se llama "Distribución Muestral de Medias".
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>El Teorema Central del Límite (TCL)</h2>
+            <p>Este es el teorema más importante de la estadística. Nos dice que la naturaleza tiende al orden.</p>
+
+            <div class="theorem-box">
+                <span class="theorem-badge">TEOREMA FUNDAMENTAL</span>
+                <p>
+                    Aunque la población original <strong>NO sea Normal</strong> (sea plana, asimétrica o caótica), la distribución de las medias muestrales ($\bar{X}$) se aproximará a una <strong>Normal</strong> si el tamaño de la muestra es suficientemente grande ($n \ge 30$).
+                </p>
+                <div class="math-hero">
+                    $$\bar{X} \sim N\left( \mu, \frac{\sigma}{\sqrt{n}} \right)$$
+                </div>
+                <ul style="list-style: none; padding: 0; font-size: 0.9rem; margin-top: 1rem;">
+                    <li>🎯 <strong>Media ($\mu$):</strong> La media de las muestras coincide con la real.</li>
+                    <li>📉 <strong>Desviación Típica ($\frac{\sigma}{\sqrt{n}}$):</strong> Se llama <strong>ERROR ESTÁNDAR</strong>. Al dividir por $\sqrt{n}$, la curva se hace más estrecha y precisa.</li>
+                </ul>
+            </div>
+
+            <div class="clt-grid">
+                <div>
+                    <h4 style="text-align: center; font-size: 0.9rem; margin-bottom: 0.5rem;">Población Original (Caótica)</h4>
+                    <svg viewBox="0 0 200 120" width="100%">
+                        <line x1="10" y1="110" x2="190" y2="110" stroke="#94a3b8" />
+                        <path d="M 10 110 L 10 60 Q 30 10 50 80 T 90 40 T 130 90 T 190 110 Z" class="dist-shape" style="fill: #e2e8f0; stroke: #64748b;" />
+                        <text x="100" y="30" text-anchor="middle" font-size="10" fill="#64748b">Cualquier forma</text>
+                    </svg>
+                </div>
+
+                <div>
+                    <h4 style="text-align: center; font-size: 0.9rem; margin-bottom: 0.5rem;">Distribución de Medias (n=100)</h4>
+                    <svg viewBox="0 0 200 120" width="100%">
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#0f172a" />
+                            </marker>
+                        </defs>
+                        <line x1="10" y1="110" x2="190" y2="110" stroke="#94a3b8" />
+                        <path d="M 10 110 Q 60 110 80 60 Q 100 10 120 60 Q 140 110 190 110" fill="rgba(4, 120, 87, 0.3)" stroke="#047857" stroke-width="2" />
+                        <line x1="100" y1="110" x2="100" y2="35" stroke="#d97706" stroke-dasharray="3" />
+                        <text x="100" y="25" text-anchor="middle" font-weight="bold" fill="#047857">Normal Perfecta</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ ¡Ojo al dato!</strong><br>
+                En los problemas de selectividad, si te piden la probabilidad de un individuo suelto usas $\sigma$. <br>
+                Pero si te piden la probabilidad de la <strong>MEDIA de un grupo</strong>, debes usar $\sigma / \sqrt{n}$.
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Distribución Muestral de Proporciones</h2>
+            <p>
+                Cuando no medimos números (altura, peso), sino cualidades de Sí/No (votar a un partido, tener una enfermedad), hablamos de <strong>Proporciones ($\hat{p}$)</strong>.
+            </p>
+            <p>
+                Si la muestra es grande ($np \ge 5$ y $nq \ge 5$), las proporciones muestrales también siguen una Normal:
+            </p>
+
+            <div class="math-hero" style="border-color: var(--primary);">
+                $$\hat{P} \sim N\left( p, \sqrt{\frac{p \cdot (1-p)}{n}} \right)$$
+            </div>
+            
+            <p style="font-size: 0.9rem; color: var(--text-light);">
+                Donde $p$ es la probabilidad de éxito de la población y $q = 1-p$.
+            </p>
+        </section>
+
+        <section class="card" style="background: #f0fdf4;">
+            <h3 style="color: var(--primary-dark);">⚡ Cheat Sheet: Fórmulas para Examen</h3>
+            <table class="cheat-sheet">
+                <thead>
+                    <tr>
+                        <th>Caso</th>
+                        <th>Estadístico</th>
+                        <th>Distribución Normal $N(\mu, \sigma')$</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Media Muestral</strong><br>(Variables continuas)</td>
+                        <td style="text-align: center; font-weight: bold;">$\bar{X}$</td>
+                        <td>
+                            Media: $\mu$<br>
+                            Desv: $\frac{\sigma}{\sqrt{n}}$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Proporción</strong><br>(Variables binomiales)</td>
+                        <td style="text-align: center; font-weight: bold;">$\hat{P}$</td>
+                        <td>
+                            Media: $p$<br>
+                            Desv: $\sqrt{\frac{p \cdot q}{n}}$
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Suma Muestral</strong><br>(Total del grupo)</td>
+                        <td style="text-align: center; font-weight: bold;">$\sum X$</td>
+                        <td>
+                            Media: $n \cdot \mu$<br>
+                            Desv: $\sigma \cdot \sqrt{n}$
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

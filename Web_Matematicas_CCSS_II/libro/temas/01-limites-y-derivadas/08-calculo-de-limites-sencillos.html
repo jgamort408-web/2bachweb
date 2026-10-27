@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.8. Cálculo de límites sencillos · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t01-e08">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">1.8. Cálculo de límites sencillos</h1>
+    <p class="lead" data-content-role="introduction">Empieza por la sustitución, interpreta lo que obtienes y elige una transformación que conserve los valores cercanos al punto.</p>
+    <div class="learning-goals"><p data-content-role="objectives"><strong>Al terminar podrás:</strong> resolver límites por sustitución, factorización, racionalización, comparación de grados y estudio de laterales.</p><p data-content-role="prerequisites"><strong>Antes:</strong> propiedades de límites, factorización, conjugados y signos. <a href="07-operaciones-con-limites-de-funciones.html">Repasar las condiciones de las propiedades</a>.</p></div>
+    <section data-content-role="method">
+      <h2>1. Un primer diagnóstico</h2>
+      <ol><li>Localiza el punto y comprueba el dominio.</li><li>Intenta sustituir si estás en un punto finito.</li><li>Si obtienes una expresión real bien definida y continua allí, termina el cálculo.</li><li>Si aparece \(0/0\), busca factores comunes o un conjugado. Si un denominador tiende a cero con numerador no nulo, estudia signos.</li><li>En el infinito, compara términos dominantes. En puntos de unión, calcula ambos laterales.</li></ol>
+      <p class="key-idea" data-content-role="warning">Una transformación puede ser válida <strong>cerca del punto</strong> aunque no lo sea justo en él. Eso basta para conservar el límite, siempre que se mantenga la igualdad para los valores del dominio en ese entorno perforado.</p>
+    </section>
+    <section data-content-role="worked-example">
+      <h2>2. Sustitución directa</h2>
+      <p>Los polinomios son continuos, así que:</p>
+      <p>\[\lim_{x\to-1}(x^3-2x+4)=(-1)^3-2(-1)+4=5.\]</p>
+      <p>Para un cociente, comprueba primero el denominador:</p>
+      <p>\[\lim_{x\to1}\frac{x^2+2}{x+2}=\frac{1+2}{1+2}=1.\]</p>
+      <p>El denominador tiende a 3, no a cero. No hace falta factorizar ni usar un método más complicado.</p>
+    </section>
+    <section data-content-role="worked-example">
+      <h2>3. Forma 0/0: factoriza y cancela factores</h2>
+      <p>Calcula \(\lim_{x\to2}(x^2+x-6)/(x-2)\).</p>
+      <ol class="worked-steps" data-content-role="worked-steps">
+        <li><strong>Detecta la forma.</strong> Al sustituir aparece \(0/0\), que no es un resultado.</li>
+        <li><strong>Factoriza.</strong> \(x^2+x-6=(x-2)(x+3)\).</li>
+        <li><strong>Simplifica fuera del punto.</strong> Para \(x\ne2\):
+          \[\frac{(x-2)(x+3)}{x-2}=x+3.\]</li>
+        <li><strong>Calcula el límite de la expresión equivalente.</strong> \(x+3\to5\).</li>
+      </ol>
+      <p>La función original tiene un hueco en \((2,5)\). Cancelar un factor no añade 2 al dominio original.</p>
+      <p data-content-role="warning">Se cancelan <strong>factores de todo el numerador y denominador</strong>, no términos de una suma. Por ejemplo, no se puede cancelar la x de \((x+3)/(x+2)\).</p>
+    </section>
+    <section data-content-role="worked-example">
+      <h2>4. Forma 0/0 con una raíz: usa el conjugado</h2>
+      <p>Calcula \(\lim_{x\to4}(\sqrt{x+5}-3)/(x-4)\). El dominio es \(x\ge-5\), con \(x\ne4\).</p>
+      <p>Multiplicamos numerador y denominador por \(\sqrt{x+5}+3\), que es positivo en este dominio:</p>
+      <p>\[\frac{\sqrt{x+5}-3}{x-4}=\frac{(x+5)-9}{(x-4)(\sqrt{x+5}+3)}=\frac1{\sqrt{x+5}+3},\quad x\ne4.\]</p>
+      <p>La indeterminación ha desaparecido. Sustituyendo en la última expresión, el límite es \(1/(3+3)=1/6\).</p>
+      <h3>Del examen local: racionalizar dos veces no es necesario</h3>
+      <p>En el apartado 3(a) del examen de Límites y Derivadas aparece:</p>
+      <p>\[\lim_{x\to0}\frac{1-\sqrt{1-x^2}}{x^2}.\]</p>
+      <p>La expresión está definida para \(-1\le x\le1\), excepto en 0. Su conjugado es \(1+\sqrt{1-x^2}\). Para \(x\ne0\):</p>
+      <p>\[\frac{1-\sqrt{1-x^2}}{x^2}=\frac{1-(1-x^2)}{x^2(1+\sqrt{1-x^2})}=\frac1{1+\sqrt{1-x^2}}.\]</p>
+      <p>Los dos laterales valen \(1/2\). En la gráfica original hay un hueco a altura \(1/2\), no una asíntota vertical.</p>
+    </section>
+    <section data-content-role="visualization">
+      <h2>5. Explora una familia de límites con raíces</h2>
+      <p>Estudia \((\sqrt{x}-k)/(x-k^2)\), con \(k&gt;0\). La expresión no está definida en \(x=k^2\), pero sí cerca de ese punto. El conjugado la transforma en \(1/(\sqrt{x}+k)\).</p>
+      <div class="activity" data-rationalization>
+        <label for="root-k">Valor de k</label><select id="root-k"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
+        <div data-root-formula>\[\lim_{x\to4}\frac{\sqrt{x}-2}{x-4}=\frac14.\]</div>
+        <label for="root-distance">Aproximación: 1 = distancia 0,1; 4 = distancia 0,0001</label><input id="root-distance" type="range" min="1" max="4" step="1" value="1">
+        <div class="table-scroll"><table><caption data-content-role="caption">Valores calculados con la expresión equivalente, fuera del punto excluido</caption><thead><tr><th scope="col">Lado</th><th scope="col">x</th><th scope="col">\(1/(\sqrt{x}+k)\)</th></tr></thead><tbody><tr><th scope="row">Izquierda</th><td data-root-left-x>3,9</td><td data-root-left-y>0,251582</td></tr><tr><th scope="row">Derecha</th><td data-root-right-x>4,1</td><td data-root-right-y>0,248457</td></tr></tbody></table></div>
+        <p data-root-summary role="status">Los valores se aproximan a 1/4. La expresión original sigue sin estar definida en x=4.</p>
+      </div>
+      <p>La tabla ayuda a observar el límite; la racionalización lo justifica. Se usa la expresión equivalente para no restar cantidades casi iguales.</p>
+    </section>
+    <section data-content-role="worked-example">
+      <h2>6. Forma ∞/∞: divide por una potencia</h2>
+      <p>En el límite de \((5x^2-x)/(2x^2+7)\), divide todos los términos por \(x^2\):</p>
+      <p>\[\frac{5x^2-x}{2x^2+7}=\frac{5-1/x}{2+7/x^2}\longrightarrow\frac52.\]</p>
+      <p>El cálculo vale tanto en \(+\infty\) como en \(-\infty\). La asíntota horizontal es \(y=5/2\). Si el numerador y el denominador tienen grados distintos, utiliza la clasificación del <a href="05-limites-finitos-en-el-infinito.html">epígrafe 1.5</a> y comprueba los signos.</p>
+    </section>
+    <section data-content-role="worked-example">
+      <h2>7. Funciones a trozos: cada lado tiene su expresión</h2>
+      <p>\[f(x)=\begin{cases}\dfrac{x^2-1}{x-1},&x&lt;1,\\3-x,&x\ge1.\end{cases}\]</p>
+      <p>A la izquierda simplificamos el cociente a \(x+1\), cuyo límite en 1 es 2. A la derecha usamos \(3-x\), cuyo límite también es 2. Por tanto, \(\lim_{x\to1}f(x)=2\).</p>
+      <p>Además, \(f(1)=2\) porque la segunda rama incluye el punto. No se debe sustituir 1 en el cociente de la primera rama para decidir el valor de esta función a trozos.</p>
+    </section>
+    <section id="practica" data-content-role="guided-practice">
+      <h2>8. Tu turno</h2><p>Calcula \(\lim_{x\to9}(\sqrt{x}-3)/(x-9)\).</p>
+      <details data-content-role="hint"><summary>Pista 1</summary><p>La sustitución da \(0/0\). La diferencia de raíces sugiere un conjugado.</p></details>
+      <details data-content-role="hint"><summary>Pista 2</summary><p>Multiplica arriba y abajo por \(\sqrt{x}+3\). El numerador se convierte en \(x-9\).</p></details>
+      <details data-content-role="solution"><summary>Solución razonada</summary><p>Para \(x\ge0\), \(x\ne9\), la expresión equivale a \(1/(\sqrt{x}+3)\). Su límite en 9 es \(1/6\), aunque el cociente original no esté definido allí.</p></details>
+      <div class="activity" data-content-role="self-check" data-quiz="t01-e08"></div>
+    </section>
+    <section data-content-role="summary"><h2>9. Resumen</h2><ul><li>Prueba primero la sustitución y clasifica su resultado.</li><li>Factoriza polinomios, racionaliza diferencias de raíces y divide por potencias en cocientes del infinito.</li><li>Conserva el dominio y la igualdad cerca del punto; calcula los dos laterales cuando haya ramas.</li></ul><p data-content-role="related-links"><a href="09-indeterminaciones.html">Continuar: elegir una técnica ante una indeterminación</a> · <a href="../../../laboratorios/juegos/t01-a-limite-express.html">Practicar con datos nuevos</a></p></section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

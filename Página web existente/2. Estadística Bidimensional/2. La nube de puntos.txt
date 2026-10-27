@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.2 Nube de Puntos</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-body: #f5f3ff;
+            --primary: #4c1d95;
+            --primary-light: #8b5cf6;
+            --secondary: #1e1b4b;
+            --accent: #d946ef;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --radius: 12px;
+            --shadow: 0 10px 15px -3px rgba(76, 29, 149, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            background-image: 
+                linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; color: var(--secondary); line-height: 1.2; }
+        .container { max-width: 950px; margin: 0 auto; }
+
+        /* TARJETAS */
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-top: 4px solid var(--primary);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        /* GRID DE GRÁFICOS (SCATTER PLOTS) */
+        .scatter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .plot-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .plot-card:hover { transform: translateY(-5px); border-color: var(--primary-light); }
+
+        .plot-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* ESTILOS SVG ESPECÍFICOS */
+        .axis { stroke: #94a3b8; stroke-width: 1.5; }
+        .dot { fill: var(--primary); opacity: 0.6; } /* Puntos semitransparentes */
+        .trend-line { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 4; opacity: 0.8; }
+        
+        /* CENTRO DE GRAVEDAD */
+        .cg-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .cg-box {
+            background: #fdf4ff;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .quadrant-line { stroke: var(--accent); stroke-width: 1; stroke-dasharray: 2; }
+        .cg-point { fill: white; stroke: var(--accent); stroke-width: 2; r: 5; }
+
+        @media (max-width: 768px) {
+            .cg-layout { grid-template-columns: 1fr; }
+            body { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+
+        <section class="card">
+            <h2 style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                <span style="color: var(--accent);">📊</span> 2.2 La Nube de Puntos
+            </h2>
+            <p>
+                La herramienta fundamental del análisis bidimensional es el <strong>Diagrama de Dispersión</strong>. 
+                Representamos cada par $(x_i, y_i)$ como un punto en el plano cartesiano. La forma que adopta esa "nube" nos cuenta la historia de los datos.
+            </p>
+
+            <div class="scatter-grid">
+                
+                <div class="plot-card">
+                    <span class="plot-title">Correlación Positiva (Directa)</span>
+                    <svg viewBox="0 0 150 150" width="100%">
+                        <line x1="10" y1="140" x2="140" y2="140" class="axis" />
+                        <line x1="10" y1="10" x2="10" y2="140" class="axis" />
+                        <circle cx="20" cy="120" r="3" class="dot" />
+                        <circle cx="35" cy="110" r="3" class="dot" />
+                        <circle cx="40" cy="125" r="3" class="dot" />
+                        <circle cx="50" cy="90" r="3" class="dot" />
+                        <circle cx="70" cy="80" r="3" class="dot" />
+                        <circle cx="85" cy="60" r="3" class="dot" />
+                        <circle cx="100" cy="50" r="3" class="dot" />
+                        <circle cx="120" cy="30" r="3" class="dot" />
+                        <circle cx="110" cy="45" r="3" class="dot" />
+                    </svg>
+                    <p style="font-size:0.8rem; color:var(--text-light); margin-top:0.5rem;">
+                        Al aumentar $X$, aumenta $Y$.<br>(Ej: Altura y Peso)
+                    </p>
+                </div>
+
+                <div class="plot-card">
+                    <span class="plot-title">Correlación Negativa (Inversa)</span>
+                    <svg viewBox="0 0 150 150" width="100%">
+                        <line x1="10" y1="140" x2="140" y2="140" class="axis" />
+                        <line x1="10" y1="10" x2="10" y2="140" class="axis" />
+                        <circle cx="20" cy="30" r="3" class="dot" />
+                        <circle cx="30" cy="45" r="3" class="dot" />
+                        <circle cx="50" cy="50" r="3" class="dot" />
+                        <circle cx="60" cy="80" r="3" class="dot" />
+                        <circle cx="80" cy="90" r="3" class="dot" />
+                        <circle cx="95" cy="110" r="3" class="dot" />
+                        <circle cx="120" cy="125" r="3" class="dot" />
+                        <circle cx="110" cy="115" r="3" class="dot" />
+                    </svg>
+                    <p style="font-size:0.8rem; color:var(--text-light); margin-top:0.5rem;">
+                        Al aumentar $X$, disminuye $Y$.<br>(Ej: Precio y Ventas)
+                    </p>
+                </div>
+
+                <div class="plot-card">
+                    <span class="plot-title">Incorrelación (Nula)</span>
+                    <svg viewBox="0 0 150 150" width="100%">
+                        <line x1="10" y1="140" x2="140" y2="140" class="axis" />
+                        <line x1="10" y1="10" x2="10" y2="140" class="axis" />
+                        <circle cx="30" cy="40" r="3" class="dot" />
+                        <circle cx="120" cy="120" r="3" class="dot" />
+                        <circle cx="30" cy="120" r="3" class="dot" />
+                        <circle cx="120" cy="40" r="3" class="dot" />
+                        <circle cx="75" cy="80" r="3" class="dot" />
+                        <circle cx="50" cy="60" r="3" class="dot" />
+                        <circle cx="100" cy="90" r="3" class="dot" />
+                        <circle cx="60" cy="110" r="3" class="dot" />
+                        <circle cx="90" cy="30" r="3" class="dot" />
+                    </svg>
+                    <p style="font-size:0.8rem; color:var(--text-light); margin-top:0.5rem;">
+                        Nube sin forma definida.<br>(Ej: Nota Mates y Altura)
+                    </p>
+                </div>
+
+                <div class="plot-card">
+                    <span class="plot-title">Dependencia Funcional</span>
+                    <svg viewBox="0 0 150 150" width="100%">
+                        <line x1="10" y1="140" x2="140" y2="140" class="axis" />
+                        <line x1="10" y1="10" x2="10" y2="140" class="axis" />
+                        <circle cx="20" cy="120" r="3" class="dot" style="opacity:1" />
+                        <circle cx="40" cy="90" r="3" class="dot" style="opacity:1" />
+                        <circle cx="60" cy="70" r="3" class="dot" style="opacity:1" />
+                        <circle cx="80" cy="60" r="3" class="dot" style="opacity:1" />
+                        <circle cx="100" cy="70" r="3" class="dot" style="opacity:1" />
+                        <circle cx="120" cy="90" r="3" class="dot" style="opacity:1" />
+                        <circle cx="140" cy="120" r="3" class="dot" style="opacity:1" />
+                        <path d="M 20 120 Q 80 20 140 120" fill="none" stroke="#d946ef" stroke-width="1" />
+                    </svg>
+                    <p style="font-size:0.8rem; color:var(--text-light); margin-top:0.5rem;">
+                        Todos los puntos están sobre una curva geométrica perfecta.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="card" style="border-top-color: var(--accent);">
+            <div class="cg-layout">
+                <div>
+                    <h3 style="color: var(--secondary); margin-bottom: 1rem;">El Centro de Gravedad</h3>
+                    <p style="margin-bottom: 1rem;">
+                        Toda nube de puntos tiene un "centro geométrico" definido por las medias de ambas variables. Este punto es crucial para la regresión.
+                    </p>
+                    <div class="cg-box">
+                        <strong style="color: var(--accent); font-size: 1.1rem;">$(\bar{x}, \bar{y})$</strong>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+                            Divide la nube en 4 cuadrantes. La mayoría de puntos en una correlación positiva están en el 1º y 3º cuadrante respecto a este centro.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; text-align: center;">
+                    <svg viewBox="0 0 200 160" width="100%">
+                        <line x1="10" y1="150" x2="190" y2="150" class="axis" />
+                        <line x1="10" y1="10" x2="10" y2="150" class="axis" />
+                        
+                        <circle cx="40" cy="130" r="3" class="dot" />
+                        <circle cx="60" cy="110" r="3" class="dot" />
+                        <circle cx="80" cy="120" r="3" class="dot" />
+                        <circle cx="120" cy="70" r="3" class="dot" />
+                        <circle cx="140" cy="50" r="3" class="dot" />
+                        <circle cx="160" cy="60" r="3" class="dot" />
+                        
+                        <line x1="100" y1="10" x2="100" y2="150" class="quadrant-line" />
+                        <line x1="10" y1="90" x2="190" y2="90" class="quadrant-line" />
+                        
+                        <circle cx="100" cy="90" class="cg-point" />
+                        <text x="105" y="85" font-size="12" fill="#d946ef" font-weight="bold">(x̄, ȳ)</text>
+
+                        <text x="160" y="40" font-size="14" fill="#4c1d95" opacity="0.3" font-weight="bold">+</text>
+                        <text x="40" y="140" font-size="14" fill="#4c1d95" opacity="0.3" font-weight="bold">+</text>
+                        <text x="40" y="40" font-size="14" fill="#ef4444" opacity="0.3" font-weight="bold">-</text>
+                        <text x="160" y="140" font-size="14" fill="#ef4444" opacity="0.3" font-weight="bold">-</text>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

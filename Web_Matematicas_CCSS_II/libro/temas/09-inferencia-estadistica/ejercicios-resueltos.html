@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ejercicios resueltos de Inferencia · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+  <script type="module" src="../../../assets/js/learning/inference-exercises.js"></script>
+</head>
+<body data-page-id="t09-exercises">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="page-title">27 ejercicios resueltos de Inferencia</h1>
+    <p data-content-role="lead">Elige un problema y abre su resolución cuando quieras comparar el procedimiento.</p>
+    <p data-content-role="source">Adaptación revisada de «4. Ejercicios resueltos.txt». <a href="index.html">Volver al tema 9</a>.</p>
+    <section id="orientaciones" data-content-role="warning"><h2>Antes de resolver</h2>
+      <p>Los intervalos y tamaños calculados con una normal suponen el modelo y el muestreo indicados en cada problema. Los intervalos para proporciones que aparecen aquí usan la aproximación normal tipo Wald; no corrigen sesgo de selección, no respuesta ni efectos de diseño. El nivel de confianza describe la cobertura del procedimiento al repetirlo, no una probabilidad posterior del parámetro fijo.</p>
+      <p>Las conclusiones numéricas conservan los datos originales; se han corregido redondeos, fórmulas rotas y afirmaciones más fuertes de lo que permiten los datos. Los títulos «Selectividad» o «EBAU» proceden de este material didáctico y no acreditan que sean preguntas de un examen oficial. <a href="04-distribucion-muestral-teorema-central-del-limite.html">Repasar distribuciones muestrales</a> · <a href="05-estimacion-puntual-y-estimacion-por-intervalos.html">Repasar intervalos</a> · <a href="08-tamano-de-la-muestra-error-cometido.html">Repasar tamaño muestral</a>.</p>
+    </section>
+    <div data-inference-exercise-controls hidden><label for="inference-exercise-select">Mostrar ejercicio</label> <select id="inference-exercise-select" data-inference-exercise-select><option value="all">Todos los ejercicios</option>
+<option value="1">01. Nivel 1: Distribución de la Media Muestral</option>
+<option value="2">02. Nivel 2: Cálculo del Intervalo de Confianza</option>
+<option value="3">03. Nivel 3: Cálculo del Tamaño Muestral</option>
+<option value="4">04. Nivel 4: Ingeniería Inversa (Hallar la Confianza)</option>
+<option value="5">05. Concepto 1: Población vs Muestra (Notación)</option>
+<option value="6">06. Concepto 2: El Poder de la Raíz de N (Error Estándar)</option>
+<option value="7">07. Concepto 3: Buscando el Valor Crítico (Z)</option>
+<option value="8">08. Concepto 4: Construyendo el Intervalo (Aritmética simple)</option>
+<option value="9">09. Concepto 5: Amplitud vs Error</option>
+<option value="10">10. Selectividad: Estimación de Proporciones (El Peor Caso)</option>
+<option value="11">11. Selectividad: El Problema de &#x27;Doble Paso&#x27;</option>
+<option value="12">12. Selectividad: Toma de Decisiones (Calibrado)</option>
+<option value="13">13. Selectividad: Teoría del Error (Pregunta Conceptual)</option>
+<option value="14">14. Media Muestral: Cálculo de Probabilidades</option>
+<option value="15">15. Proporción Muestral: Porcentaje de Usuarios</option>
+<option value="16">16. TCL: Individuo aislado vs. Media Muestral</option>
+<option value="17">17. Proporción Muestral: Intervalo de Control</option>
+<option value="18">18. Tamaño Muestral: Garantizando la Precisión</option>
+<option value="19">19. Error Máximo Admisible: Evaluando la Muestra</option>
+<option value="20">20. El Coste de la Precisión: Hallando la Confianza</option>
+<option value="21">21. Intervalo de Confianza para la Media</option>
+<option value="22">22. Intervalo de Confianza para una Proporción</option>
+<option value="23">23. Ingeniería Inversa: Descifrando la Muestra</option>
+<option value="24">24. Intervalo para la Media: Gasto en Ocio</option>
+<option value="25">25. Intervalo para la Proporción con Nivel Atípico</option>
+<option value="26">26. Asegurando la Precisión: Tamaño de Muestra</option>
+<option value="27">27. Ingeniería Inversa: Descubriendo la Confianza</option>
+</select><p data-inference-exercise-status role="status" aria-live="polite"></p></div>
+<section id="ejercicios" aria-label="Colección de ejercicios resueltos">
+<article id="ejercicio-01" data-inference-exercise="1" data-original-id="inferencia_nivel_1_distribucion_muestral" data-content-role="worked-example">
+<h2>01. Nivel 1: Distribución de la Media Muestral</h2><div data-content-role="statement">El peso de los paquetes de harina envasados por una máquina sigue una distribución Normal con media \(\mu = 500\) g y desviación típica \(\sigma = 20\) g. Se selecciona una muestra aleatoria de \(16\) paquetes para un control de calidad. Calcula la probabilidad de que la media de esa muestra sea superior a \(510\) g.</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 1</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">La población es normal; para 16 paquetes independientes, \(\bar X\sim N(500,20/\sqrt{16})=N(500,5)\). La normalidad de la media es exacta bajo estos supuestos.</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">El umbral 510 g se tipifica con el error estándar: \(z=(510-500)/5=2\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">La cola derecha es \(P(\bar X&gt;510)=1-\Phi(2)\approx0{,}0228\).</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> \(P(\bar X&gt;510)\approx0{,}0228\) (2,28 %).</p></details></article>
+<article id="ejercicio-02" data-inference-exercise="2" data-original-id="inferencia_nivel_2_intervalo_confianza" data-content-role="worked-example">
+<h2>02. Nivel 2: Cálculo del Intervalo de Confianza</h2><div data-content-role="statement">Se quiere estimar el tiempo medio que los estudiantes dedican a estudiar para la Selectividad. Se toma una muestra de \(100\) alumnos y se obtiene una media muestral de \(\bar{x} = 120\) horas. Se sabe por estudios previos que la desviación típica poblacional es \(\sigma = 30\) horas. Construye un Intervalo de Confianza al \(95\%\) para la media poblacional.</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 2</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">Para confianza bilateral del 95 %, \(\alpha=0{,}05\) y \(z_{\alpha/2}\approx1{,}96\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">Con desviación poblacional conocida, el margen es \(E=1{,}96\cdot30/\sqrt{100}=5{,}88\) horas.</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">El intervalo normal es \([120-5{,}88,120+5{,}88]=[114{,}12,125{,}88]\) horas. Su cobertura requiere los supuestos indicados al inicio de la colección.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Intervalo bilateral del 95 %: \([114{,}12,125{,}88]\) horas.</p></details></article>
+<article id="ejercicio-03" data-inference-exercise="3" data-original-id="inferencia_nivel_3_tamano_muestral" data-content-role="worked-example">
+<h2>03. Nivel 3: Cálculo del Tamaño Muestral</h2><div data-content-role="statement">Queremos estimar la altura media de los habitantes de una ciudad con un error máximo de \(2\) cm y un nivel de confianza del \(99\%\). Un estudio piloto indica que la desviación típica es \(\sigma = 10\) cm. ¿A cuántas personas debemos medir como mínimo?</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 3</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">El objetivo es \(E_0=2\) cm, \(\sigma=10\) cm y confianza del 99 %. El cuantil normal es \(z_{\alpha/2}\approx2{,}576\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">El tamaño real requerido es \((z_{\alpha/2}\sigma/E_0)^2\approx165{,}87\) usando el cuantil sin redondear antes del cálculo.</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">Como \(n\) es entero, se toma el techo: \(n_{\min}=166\). Esto garantiza el margen calculado del procedimiento bajo sus supuestos, no que toda muestra quede a 2 cm del parámetro.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Tamaño mínimo: 166 personas.</p></details></article>
+<article id="ejercicio-04" data-inference-exercise="4" data-original-id="inferencia_nivel_4_ingenieria_inversa" data-content-role="worked-example">
+<h2>04. Nivel 4: Ingeniería Inversa (Hallar la Confianza)</h2><div data-content-role="statement">Una máquina llena botellas de agua. Se sabe que la desviación típica es \(\sigma = 15\) ml. Se toma una muestra de \(n=50\) botellas y se construye el siguiente intervalo de confianza para la media: \((495.84, \; 504.16)\). ¿Con qué nivel de confianza se ha construido dicho intervalo?</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 4</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">El intervalo tiene centro 500 ml y semianchura \(E=(504{,}16-495{,}84)/2=4{,}16\) ml.</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">Con \(\sigma=15\) y \(n=50\), \(z=E\sqrt n/\sigma=4{,}16\sqrt{50}/15\approx1{,}961\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">La cobertura bilateral normal correspondiente es \(2\Phi(z)-1\approx0{,}9501\). Como los extremos publicados están redondeados, se informa una confianza aproximada del 95 %.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Nivel de confianza aproximado: 95 %.</p></details></article>
+<article id="ejercicio-05" data-inference-exercise="5" data-original-id="conceptos_basicos_1_parametro_vs_estadistico" data-content-role="worked-example">
+<h2>05. Concepto 1: Población vs Muestra (Notación)</h2><div data-content-role="statement">En una fábrica de tornillos, sabemos que la longitud media histórica de <strong>todos</strong> los tornillos fabricados es de \(50\) mm (Desviación \(\sigma=2\) mm). Hoy hemos cogido una cajita de \(10\) tornillos y su longitud media ha resultado ser \(50.5\) mm.  Identifica qué valor corresponde a \(\mu\) (Media Poblacional) y cuál a \(\bar{x}\) (Media Muestral). ¿Es normal que sean distintos?</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 5</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">La media histórica indicada para toda la población es el parámetro \(\mu=50\) mm.</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">La cajita de 10 tornillos produce el estadístico observado \(\bar x=50{,}5\) mm.</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">Pueden diferir por variación muestral; \(0{,}5\) mm es la diferencia observada, sin que por sí sola permita atribuir una causa o cuantificar una probabilidad.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> \(\mu=50\) mm y \(\bar x=50{,}5\) mm.</p></details></article>
+<article id="ejercicio-06" data-inference-exercise="6" data-original-id="conceptos_basicos_2_error_estandar" data-content-role="worked-example">
+<h2>06. Concepto 2: El Poder de la Raíz de N (Error Estándar)</h2><div data-content-role="statement">La altura de los españoles tiene una desviación típica de \(\sigma = 10\) cm. Vamos a comparar dos estudios: <ul><li><strong>Estudio A:</strong> Muestreamos a \(1\) sola persona (\(n=1\)).</li><li><strong>Estudio B:</strong> Muestreamos a \(100\) personas y hacemos la media (\(n=100\)).</li></ul> Calcula la desviación típica de la muestra (Error Estándar) en ambos casos.</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 6</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">Para una observación, \(\operatorname{DE}(\bar X_1)=10/\sqrt1=10\) cm.</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">Para la media de 100 observaciones independientes con igual dispersión, \(\operatorname{DE}(\bar X_{100})=10/\sqrt{100}=1\) cm.</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">El error estándar se divide por diez. Estos números son desviaciones típicas de distribuciones, no márgenes de confianza de \(\pm10\) o \(\pm1\) cm.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Error estándar: 10 cm con \(n=1\) y 1 cm con \(n=100\).</p></details></article>
+<article id="ejercicio-07" data-inference-exercise="7" data-original-id="conceptos_basicos_3_valor_critico_tabla" data-content-role="worked-example">
+<h2>07. Concepto 3: Buscando el Valor Crítico (Z)</h2><div data-content-role="statement">Queremos hacer un intervalo con una <strong>Confianza del 90%</strong>. ¿Qué número (\(z_{\alpha/2}\)) debemos poner en la fórmula? Sigue los pasos para encontrarlo en la tabla Normal.</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 7</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">Con 90 % de cobertura central, \(\alpha=0{,}10\) y cada cola tiene área \(0{,}05\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">Buscamos \(\Phi(z)=0{,}95\). En tablas, 1,64 y 1,65 dan valores cercanos; el cuantil es aproximadamente \(1{,}644854\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">Redondeado a tres decimales, \(z_{\alpha/2}=1{,}645\).</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Valor crítico bilateral del 90 %: 1,645.</p></details></article>
+<article id="ejercicio-08" data-inference-exercise="8" data-original-id="conceptos_basicos_4_construccion_intervalo" data-content-role="worked-example">
+<h2>08. Concepto 4: Construyendo el Intervalo (Aritmética simple)</h2><div data-content-role="statement">Imagina que ya has hecho los cálculos difíciles y sabes que: <ul><li>La media muestral es \(\bar{x} = 20\).</li><li>El error máximo admisible es \(E = 3\).</li></ul> Escribe el Intervalo de Confianza.</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 8</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">El centro observado es 20 y el margen calculado indicado es 3.</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">Se resta y se suma el margen: \(20-3=17\) y \(20+3=23\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">El intervalo numérico es \([17,23]\). Su nivel de cobertura no puede determinarse solo con estos dos números; no afirma que el parámetro esté atrapado con certeza.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Intervalo: \([17,23]\); confianza no especificada.</p></details></article>
+<article id="ejercicio-09" data-inference-exercise="9" data-original-id="conceptos_basicos_5_amplitud_error" data-content-role="worked-example">
+<h2>09. Concepto 5: Amplitud vs Error</h2><div data-content-role="statement">Un periódico publica que la intención de voto del partido A está entre el 40 % y el 46 %. a) ¿Cuál es el centro o estimación puntual de la proporción? b) ¿Cuál es el margen publicado?</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 9</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">El centro del intervalo publicado es \((40+46)/2=43\) %. Para intención de voto se trata de una estimación puntual de una proporción, no de una media muestral de una variable cuantitativa.</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">La semianchura es \((46-40)/2=3\) puntos porcentuales. La anchura total son 6 puntos.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Centro: 43 %; margen publicado: 3 puntos porcentuales.</p></details></article>
+<article id="ejercicio-10" data-inference-exercise="10" data-original-id="selectividad_nivel_1_proporcion_peor_caso" data-content-role="worked-example">
+<h2>10. Selectividad: Estimación de Proporciones (El Peor Caso)</h2><div data-content-role="statement">Se quiere estimar la proporción de jóvenes de 18 a 25 años que tienen intención de votar en las próximas elecciones. Se desea realizar una encuesta para obtener un intervalo de confianza al \(95\%\) con un error máximo de \(\pm 2\%\).  a) ¿A cuántos jóvenes debemos encuestar como mínimo si <strong>no tenemos ninguna información previa</strong> sobre la intención de voto? b) ¿Cómo cambiaría el tamaño muestral si un estudio piloto anterior sugiriera que la proporción está en torno al \(30\%\)?</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 10</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">Sin información previa, el producto \(p(1-p)\) alcanza su máximo \(0{,}25\) en \(p=0{,}5\). Para el diseño normal aproximado al 95 %, \(z=1{,}96\) y \(E_0=0{,}02\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">Se calcula \(n\ge z^2p(1-p)/E_0^2=1{,}96^2\cdot0{,}25/0{,}02^2=2401\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">Con proporción piloto \(p\approx0{,}30\), el cálculo da \(1{,}96^2\cdot0{,}30\cdot0{,}70/0{,}02^2=2016{,}84\) y se redondea a 2017. Es un diseño aproximado condicionado al modelo piloto y al muestreo.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Sin dato previo: 2401; con piloto del 30 %: 2017 jóvenes.</p></details></article>
+<article id="ejercicio-11" data-inference-exercise="11" data-original-id="selectividad_nivel_2_doble_paso_error" data-content-role="worked-example">
+<h2>11. Selectividad: El Problema de &#x27;Doble Paso&#x27;</h2><div data-content-role="statement">El tiempo de vida de una batería de smartphone sigue una distribución Normal con desviación típica \(\sigma = 4\) horas.  a) Se toma una muestra de \(100\) baterías y se obtiene una media de \(28\) horas. Calcula el intervalo de confianza al \(97\%\). b) A la vista del resultado, el fabricante quiere reducir el error a la mitad (manteniendo la misma confianza). ¿Cuántas baterías <strong>ADICIONALES</strong> debe analizar?</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 11</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">Para confianza del 97 %, el cuantil es aproximadamente \(z=2{,}1701\) (2,17 en tabla). Con \(n=100\) y \(\sigma=4\), \(E_1\approx2{,}1701\cdot4/10=0{,}8680\) horas.</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">El intervalo aproximado es \([28-0{,}8680,28+0{,}8680]=[27{,}1320,28{,}8680]\) horas.</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">A igual confianza y dispersión, \(E\propto1/\sqrt n\). Reducir el margen a la mitad exige \(n_2=4n_1=400\); además de las 100 ya analizadas, hacen falta 300.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Intervalo aproximado \([27{,}13,28{,}87]\) h; 300 baterías adicionales.</p></details></article>
+<article id="ejercicio-12" data-inference-exercise="12" data-original-id="selectividad_nivel_3_toma_decisiones" data-content-role="worked-example">
+<h2>12. Selectividad: Toma de Decisiones (Calibrado)</h2><div data-content-role="statement">Una máquina envasadora debe llenar latas con una media de \(\mu = 330\) ml. Sabemos que \(\sigma = 5\) ml. Un inspector toma una muestra aleatoria de \(50\) latas y obtiene una media muestral de \(\bar{x} = 328\) ml.  a) Construye un intervalo de confianza al \(95\%\) para la media poblacional. b) Con ese nivel de confianza, ¿se puede afirmar que la máquina está mal calibrada (que no llena 330 ml)? Razona la respuesta.</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 12</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">Con \(\bar x=328\), \(\sigma=5\), \(n=50\) y 95 %, el margen normal es \(E=1{,}96\cdot5/\sqrt{50}\approx1{,}386\) ml.</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">El intervalo, redondeado a centésimas, es \([326{,}61,329{,}39]\) ml. El valor de referencia 330 ml queda fuera.</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">Bajo un modelo válido y una regla bilateral al 5 %, esto aporta evidencia contra \(\mu=330\) ml. No demuestra con probabilidad del 95 % que la máquina esté mal calibrada ni identifica por sí solo la causa.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> 330 ml queda fuera del intervalo; hay evidencia estadística de desajuste bajo los supuestos.</p></details></article>
+<article id="ejercicio-13" data-inference-exercise="13" data-original-id="selectividad_nivel_4_teoria_error" data-content-role="worked-example">
+<h2>13. Selectividad: Teoría del Error (Pregunta Conceptual)</h2><div data-content-role="statement">Queremos estimar la media de una población con un error máximo \(E\).   a) Si cuadruplicamos el tamaño de la muestra (\(4n\)) manteniendo el nivel de confianza, ¿qué le ocurre al error? b) Si aumentamos el nivel de confianza (por ejemplo de 95% a 99%) manteniendo el tamaño de muestra, ¿qué le ocurre al error?</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 13</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">Con confianza y \(\sigma\) fijas, \(E=z\sigma/\sqrt n\). Al pasar de \(n\) a \(4n\), \(E\) se divide entre 2.</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">Con \(n\) y \(\sigma\) fijos, subir la confianza de 95 % a 99 % aumenta \(z\) de aproximadamente 1,960 a 2,576; por tanto aumenta el margen.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> a) El margen se reduce a la mitad. b) El margen aumenta.</p></details></article>
+<article id="ejercicio-14" data-inference-exercise="14" data-original-id="distribucion_media_1_calculo_directo" data-content-role="worked-example">
+<h2>14. Media Muestral: Cálculo de Probabilidades</h2><div data-content-role="statement">La estatura de los estudiantes de Bachillerato de una comunidad autónoma se distribuye normalmente con una media de \(\mu = 172\text{ cm}\) y una desviación típica de \(\sigma = 9\text{ cm}\).  Se selecciona una muestra aleatoria de \(36\) estudiantes. ¿Cuál es la probabilidad de que la estatura media de la muestra esté comprendida entre \(169\text{ cm}\) y \(175\text{ cm}\)?</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 14</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">La población es normal; con 36 observaciones independientes, \(\bar X\sim N(172,9/\sqrt{36})=N(172,1{,}5)\) exactamente.</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">Los extremos se tipifican como \((169-172)/1{,}5=-2\) y \((175-172)/1{,}5=2\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">\(P(169\le\bar X\le175)=\Phi(2)-\Phi(-2)\approx0{,}9545\). La tabla redondeada del original produce 0,9544.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Probabilidad aproximada: 0,9545 (95,45 %).</p></details></article>
+<article id="ejercicio-15" data-inference-exercise="15" data-original-id="distribucion_proporcion_1_menor_que" data-content-role="worked-example">
+<h2>15. Proporción Muestral: Porcentaje de Usuarios</h2><div data-content-role="statement">Según un estudio sociológico, el \(60\%\) de los jóvenes de una ciudad utiliza el transporte público a diario para ir al instituto.   Si se escoge una muestra aleatoria de \(100\) jóvenes, calcula la probabilidad de que la proporción de jóvenes en esa muestra que utiliza el transporte público sea <strong>inferior al \(50\%\)</strong>.</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 15</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">Bajo 100 ensayos independientes con \(p=0{,}60\), el número de usuarios \(X\sim B(100,0{,}60)\) y \(\hat P=X/100\). Como \(np=60\) y \(nq=40\), puede emplearse una normal aproximada.</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">Para el umbral 0,50, el error estándar es \(\sqrt{0{,}60\cdot0{,}40/100}\approx0{,}04899\) y \(z\approx-2{,}0412\). La normal sin corrección da \(P(\hat P&lt;0{,}50)\approx0{,}0206\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">El suceso estricto equivale a \(X\le49\); la binomial exacta da aproximadamente 0,0168. La diferencia recuerda que \(\hat P\) es discreta.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Binomial exacta: 0,0168; normal sin corrección: 0,0206.</p></details></article>
+<article id="ejercicio-16" data-inference-exercise="16" data-original-id="distribucion_comparacion_individuo_vs_muestra" data-content-role="worked-example">
+<h2>16. TCL: Individuo aislado vs. Media Muestral</h2><div data-content-role="statement">El tiempo de duración de las consultas médicas en un centro de salud sigue una distribución Normal con media \(\mu = 15\text{ minutos}\) y desviación típica \(\sigma = 4\text{ minutos}\).  a) Si elegimos un paciente al azar, ¿qué probabilidad hay de que su consulta dure más de \(17\) minutos? b) Si elegimos una muestra de \(64\) pacientes, ¿qué probabilidad hay de que el <strong>tiempo medio</strong> de sus consultas supere los \(17\) minutos?</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 16</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">Para un paciente, \(X\sim N(15,4)\) y \(z=(17-15)/4=0{,}5\). Por tanto \(P(X&gt;17)=1-\Phi(0{,}5)\approx0{,}3085\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">Para una media de 64 consultas independientes, \(\bar X\sim N(15,4/\sqrt{64})=N(15,0{,}5)\) exactamente, porque la población es normal.</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">Ahora \(z=(17-15)/0{,}5=4\) y \(P(\bar X&gt;17)=1-\Phi(4)\approx0{,}0000317\), es decir, 0,00317 %. No es cero.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Una consulta: 30,85 %; media de 64: aproximadamente 0,00317 %.</p></details></article>
+<article id="ejercicio-17" data-inference-exercise="17" data-original-id="distribucion_proporcion_rango" data-content-role="worked-example">
+<h2>17. Proporción Muestral: Intervalo de Control</h2><div data-content-role="statement">Una fábrica de componentes electrónicos sabe, por registros históricos, que el \(5\%\) de su producción es defectuosa.  En el lote de esta semana, compuesto por \(400\) componentes elegidos al azar, ¿cuál es la probabilidad de que la proporción de defectuosos en el lote se encuentre entre el \(4\%\) y el \(7\%\)?</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 17</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">Bajo independencia y probabilidad constante \(p=0{,}05\), el número de defectuosos \(X\sim B(400,0{,}05)\) y \(\hat P=X/400\). Los límites inclusivos equivalen a \(16\le X\le28\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">La binomial exacta da \(P(16\le X\le28)\approx0{,}8194\). Los éxitos y fracasos esperados son 20 y 380.</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">Una normal con corrección de continuidad usa \(15{,}5&lt;X&lt;28{,}5\) y da aproximadamente 0,8235. Sin corrección, la aproximación es 0,7874; el 0,7876 original procede de redondeos previos.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Binomial exacta: aproximadamente 81,94 %.</p></details></article>
+<article id="ejercicio-18" data-inference-exercise="18" data-original-id="calculo_tamano_muestral_medias" data-content-role="worked-example">
+<h2>18. Tamaño Muestral: Garantizando la Precisión</h2><div data-content-role="statement">Una cooperativa agrícola quiere estimar el peso medio de las manzanas de su próxima cosecha. Por estudios previos, se sabe que la desviación típica poblacional es de \(15\text{ g}\).  ¿Cuántas manzanas deben pesar como mínimo para garantizar, con un nivel de confianza del \(95\%\), que el error máximo de estimación no supere los \(5\text{ g}\)?</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 18</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">Para el diseño del intervalo normal al 95 % se usan \(\sigma=15\) g, objetivo \(E_0=5\) g y \(z\approx1{,}96\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">\(n\ge(z\sigma/E_0)^2=(1{,}96\cdot15/5)^2=34{,}5744\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">Se toma el entero superior, 35. Así se cumple el margen calculado bajo el modelo; no se asegura que cada estimación observada diste menos de 5 g de la media real.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Tamaño mínimo del diseño: 35 manzanas.</p></details></article>
+<article id="ejercicio-19" data-inference-exercise="19" data-original-id="calculo_error_maximo_medias" data-content-role="worked-example">
+<h2>19. Error Máximo Admisible: Evaluando la Muestra</h2><div data-content-role="statement">Una investigadora estudia el tiempo diario dedicado a vídeos cortos. Se conoce la desviación típica poblacional de 30 minutos y se seleccionan 150 adolescentes al azar. ¿Cuál es el margen calculado de un intervalo normal bilateral del 99 % para la media?</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 19</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">Con confianza bilateral del 99 %, \(z\approx2{,}575829\). Se conocen \(\sigma=30\) minutos y \(n=150\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">El margen calculado del intervalo normal es \(E=z\sigma/\sqrt n\approx2{,}575829\cdot30/\sqrt{150}\approx6{,}3095\) minutos.</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">Este valor es la semianchura del intervalo, no el error real garantizado de la muestra. El enunciado no da la media observada para construir los extremos.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Margen calculado: aproximadamente 6,31 minutos.</p></details></article>
+<article id="ejercicio-20" data-inference-exercise="20" data-original-id="calculo_nivel_confianza" data-content-role="worked-example">
+<h2>20. El Coste de la Precisión: Hallando la Confianza</h2><div data-content-role="statement">Se ha medido el nivel de colesterol en una muestra de \(64\) pacientes, asumiendo que la desviación típica poblacional es de \(20\text{ mg/dl}\). Si el error máximo de estimación cometido en el estudio ha sido de \(4.9\text{ mg/dl}\),  ¿cuál es el nivel de confianza con el que se ha publicado este intervalo estadístico?</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 20</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">El intervalo publicado tiene semianchura \(E=4{,}9\) mg/dl; \(n=64\) y \(\sigma=20\) mg/dl.</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">Despejamos \(z=E\sqrt n/\sigma=4{,}9\cdot8/20=1{,}96\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">La normal estándar deja \(\Phi(1{,}96)\approx0{,}975\) a la izquierda. La cobertura bilateral es \(2\Phi(1{,}96)-1\approx0{,}95\).</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Nivel de confianza aproximado: 95 %.</p></details></article>
+<article id="ejercicio-21" data-inference-exercise="21" data-original-id="ic_media_poblacional" data-content-role="worked-example">
+<h2>21. Intervalo de Confianza para la Media</h2><div data-content-role="statement">Se ha extraído una muestra aleatoria de 36 estudiantes de una universidad para medir su nivel de estrés en época de exámenes en una escala de 0 a 100. La media muestral obtenida ha sido de 75 puntos. Sabiendo que la desviación típica poblacional es de 12 puntos, calcula el intervalo de confianza para la media poblacional con un nivel de confianza del 95%.</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 21</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">Para el 95 % bilateral, \(z\approx1{,}96\). Con \(\sigma=12\), \(n=36\) y \(\bar x=75\), el margen es \(E=1{,}96\cdot12/6=3{,}92\) puntos.</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">Los extremos son \(75-3{,}92=71{,}08\) y \(75+3{,}92=78{,}92\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">La cobertura del 95 % se atribuye al procedimiento repetido bajo los supuestos del modelo; no es la probabilidad posterior de la media fija.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Intervalo normal del 95 %: \([71{,}08,78{,}92]\) puntos.</p></details></article>
+<article id="ejercicio-22" data-inference-exercise="22" data-original-id="ic_proporcion_poblacional" data-content-role="worked-example">
+<h2>22. Intervalo de Confianza para una Proporción</h2><div data-content-role="statement">En una encuesta electoral realizada a 400 votantes elegidos al azar, 240 declararon su intención de votar al partido A. Calcula un intervalo de confianza al 99% para la verdadera proporción de votantes de dicho partido en toda la población.</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 22</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">La proporción observada es \(\hat p=240/400=0{,}60\). Para 99 % bilateral, \(z\approx2{,}575829\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">El margen del intervalo normal tipo Wald es \(E=z\sqrt{\hat p(1-\hat p)/n}\approx2{,}575829\sqrt{0{,}24/400}\approx0{,}06309\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">Los extremos aproximados son \(0{,}60\pm0{,}06309\), es decir, \([0{,}5369,0{,}6631]\). La validez depende del diseño y de la aproximación; una selección sesgada no se corrige con la fórmula.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Intervalo normal aproximado del 99 %: \([0{,}5369,0{,}6631]\).</p></details></article>
+<article id="ejercicio-23" data-inference-exercise="23" data-original-id="ic_ingenieria_inversa" data-content-role="worked-example">
+<h2>23. Ingeniería Inversa: Descifrando la Muestra</h2><div data-content-role="statement">El intervalo de confianza al 90% para la vida útil media (en horas) de un lote de baterías industriales es \([78.355, 81.645]\). Si se sabe que la desviación típica poblacional de estas baterías es de 5 horas, determina la media de la muestra obtenida, el error máximo admisible y el tamaño de la muestra utilizada.</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 23</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">El centro del intervalo es \((78{,}355+81{,}645)/2=80\) h y su semianchura es \(E=(81{,}645-78{,}355)/2=1{,}645\) h.</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">Para 90 % bilateral se usa \(z\approx1{,}645\) y \(\sigma=5\) h. Al despejar, \(n\approx(z\sigma/E)^2\approx25\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">El valor previsto es 25 baterías. Como el intervalo y el cuantil están redondeados, sus cifras publicadas solo permiten reconstruir el tamaño aproximadamente, no demostrar un tamaño exacto único.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Media observada: 80 h; margen: 1,645 h; tamaño previsto: aproximadamente 25.</p></details></article>
+<article id="ejercicio-24" data-inference-exercise="24" data-original-id="ic_media_gasto_ebau" data-content-role="worked-example">
+<h2>24. Intervalo para la Media: Gasto en Ocio</h2><div data-content-role="statement">El gasto mensual en ocio de los jóvenes de una ciudad sigue una distribución normal con una desviación típica de \(12\text{ euros}\). Se toma una muestra aleatoria de \(100\) jóvenes, obteniendo un gasto medio de \(45\text{ euros}\). Calcula el intervalo de confianza al \(95\%\) para el gasto medio poblacional.</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 24</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">La población indicada es normal, \(\sigma=12\) €, \(n=100\) y \(\bar x=45\) €. Para confianza del 95 %, \(z\approx1{,}96\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">El margen es \(E=1{,}96\cdot12/10=2{,}352\) €. Los extremos son \(45\pm2{,}352\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">El intervalo exacto con este cuantil redondeado es \([42{,}648,47{,}352]\) €; a céntimos, \([42{,}65,47{,}35]\) €.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Intervalo del 95 %: aproximadamente \([42{,}65,47{,}35]\) €.</p></details></article>
+<article id="ejercicio-25" data-inference-exercise="25" data-original-id="ic_proporcion_redes_ebau" data-content-role="worked-example">
+<h2>25. Intervalo para la Proporción con Nivel Atípico</h2><div data-content-role="statement">Para estimar el uso de una nueva red social, se realiza una encuesta a \(500\) estudiantes, de los cuales \(150\) afirman usarla a diario. Obtén un intervalo de confianza al \(97\%\) para la verdadera proporción de usuarios en la población estudiantil.</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 25</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">La proporción observada es \(\hat p=150/500=0{,}30\), con \(1-\hat p=0{,}70\). Para confianza del 97 %, \(z\approx2{,}1701\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">El margen normal tipo Wald es \(E=z\sqrt{0{,}30\cdot0{,}70/500}\approx0{,}04447\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">Al sumar y restar, el intervalo aproximado es \([0{,}2555,0{,}3445]\). Requiere condiciones de muestreo y aproximación apropiadas; la no respuesta no queda incluida.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Intervalo normal aproximado del 97 %: \([0{,}2555,0{,}3445]\).</p></details></article>
+<article id="ejercicio-26" data-inference-exercise="26" data-original-id="tamano_muestra_media_ebau" data-content-role="worked-example">
+<h2>26. Asegurando la Precisión: Tamaño de Muestra</h2><div data-content-role="statement">El peso de los envíos de una empresa de mensajería tiene una desviación típica poblacional de \(2.5\text{ kg}\). ¿Cuántos paquetes deben seleccionarse como mínimo para estimar el peso medio poblacional con un error menor de \(0.5\text{ kg}\) y un nivel de confianza del \(99\%\)?</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 26</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">Para confianza del 99 %, \(z\approx2{,}575829\), \(\sigma=2{,}5\) kg y objetivo de margen inferior a 0,5 kg.</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">El límite real es \((z\sigma/0{,}5)^2\approx165{,}87\). El menor entero que lo supera es 166.</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">Con 166 observaciones, el margen calculado es menor que 0,5 kg bajo el modelo. Eso no garantiza un error observado menor que 0,5 kg en cada muestra.</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Tamaño mínimo: 166 paquetes.</p></details></article>
+<article id="ejercicio-27" data-inference-exercise="27" data-original-id="hallar_confianza_intervalo_ebau" data-content-role="worked-example">
+<h2>27. Ingeniería Inversa: Descubriendo la Confianza</h2><div data-content-role="statement">La calificación media en una prueba de acceso universitaria sigue una distribución normal con desviación típica de \(15\text{ puntos}\). Una muestra de \(36\text{ estudiantes}\) proporciona el siguiente intervalo de confianza para la media poblacional: \([65.1, 74.9]\). ¿Con qué nivel de confianza se construyó este intervalo?</div>
+<details data-solution><summary>Ver resolución paso a paso del ejercicio 27</summary>
+<section data-content-role="worked-step"><h3>Paso 1</h3><p class="math-scroll" tabindex="0">El intervalo \([65{,}1,74{,}9]\) tiene centro \(\bar x=70\) y semianchura \(E=4{,}9\) puntos.</p></section>
+<section data-content-role="worked-step"><h3>Paso 2</h3><p class="math-scroll" tabindex="0">Con \(\sigma=15\) y \(n=36\), se despeja \(z=E\sqrt n/\sigma=4{,}9\cdot6/15=1{,}96\).</p></section>
+<section data-content-role="worked-step"><h3>Paso 3</h3><p class="math-scroll" tabindex="0">La cobertura bilateral normal es \(2\Phi(1{,}96)-1\approx0{,}95\).</p></section>
+<p data-content-role="key-idea" class="math-scroll" tabindex="0"><strong>Resultado:</strong> Nivel de confianza aproximado: 95 %.</p></details></article>
+</section>
+    <section id="pendiente" data-content-role="warning"><h2>Estado de la colección</h2><p>Los 27 ejercicios del original están aquí, en el mismo orden. Las soluciones se pueden abrir individualmente sin JavaScript. Los once archivos originales de Inferencia ya se han revisado; sigue pendiente comprobar la colección con lectores de pantalla y la pronunciación matemática.</p></section>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>
+

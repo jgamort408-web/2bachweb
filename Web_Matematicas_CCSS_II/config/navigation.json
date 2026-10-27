@@ -1,0 +1,4 @@
+{
+  "primary": ["home", "book", "practice", "tests", "cards", "labs", "resources", "exams", "tools"],
+  "footer": ["supports", "glossary", "formulas", "accessibility", "admin"]
+}

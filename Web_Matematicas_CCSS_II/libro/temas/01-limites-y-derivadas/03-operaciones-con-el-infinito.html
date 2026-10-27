@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.3. Operaciones con el infinito · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t01-e03">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">1.3. Operaciones con el infinito</h1>
+    <p class="lead" data-content-role="introduction">El infinito describe un comportamiento, no un número con el que podamos operar sin condiciones.</p>
+    <div class="learning-goals">
+      <p data-content-role="objectives"><strong>Al terminar podrás:</strong> distinguir operaciones determinadas e indeterminaciones y justificar el signo de un resultado infinito.</p>
+      <p data-content-role="prerequisites"><strong>Antes:</strong> repasa los <a href="02-limites-laterales.html">límites laterales</a> y las reglas de signos.</p>
+    </div>
+    <section data-content-role="definition">
+      <h2>1. Qué significa tender a infinito</h2>
+      <p>\(f(x)\to+\infty\) significa que sus valores terminan superando cualquier cota positiva que fijemos. Con \(f(x)\to-\infty\), terminan por debajo de cualquier cota negativa. La aproximación de \(x\) puede ser a un punto o a infinito.</p>
+      <p class="key-idea">No existe un «último número» llamado infinito. Las expresiones de este apartado son abreviaturas de reglas sobre <strong>límites de funciones</strong>.</p>
+      <p data-content-role="context">Por ejemplo, si un modelo de coste \(C(q)=5q+200\) se considera para cantidades \(q\) cada vez mayores, el coste aumenta sin cota. Restarle una bonificación fija de 30 € no cambia ese comportamiento.</p>
+    </section>
+    <section data-content-role="rule">
+      <h2>2. Operaciones cuyo resultado sí queda determinado</h2>
+      <p>En esta tabla, \(c\) es una constante real finita. Las funciones deben estar definidas cerca del lugar donde calculamos el límite.</p>
+      <div class="table-scroll"><table>
+        <caption data-content-role="caption">Reglas de comportamiento: no son sustituciones de números infinitos</caption>
+        <thead><tr><th scope="col">Situación</th><th scope="col">Conclusión</th><th scope="col">Condición o motivo</th></tr></thead>
+        <tbody>
+          <tr><td>\(f\to+\infty\)</td><td>\(f+c\to+\infty\)</td><td>Sumar una cantidad fija no acota el crecimiento.</td></tr>
+          <tr><td>\(f,g\to+\infty\)</td><td>\(f+g\to+\infty\)</td><td>Ambas crecen sin cota.</td></tr>
+          <tr><td>\(f,g\to-\infty\)</td><td>\(f+g\to-\infty\)</td><td>Ambas decrecen sin cota.</td></tr>
+          <tr><td>\(f\to+\infty,\ g\to-\infty\)</td><td>\(f-g\to+\infty\)</td><td>Restar un valor negativo aumenta el resultado.</td></tr>
+          <tr><td>\(f\to+\infty\)</td><td>\(cf\to+\infty\) si \(c&gt;0\); \(cf\to-\infty\) si \(c&lt;0\)</td><td>El signo de la constante importa.</td></tr>
+          <tr><td>\(|f|\to\infty,\ g\to c\)</td><td>\(g/f\to0\)</td><td>Numerador con límite finito y denominador sin cota en valor absoluto.</td></tr>
+          <tr><td>\(f\to+\infty,\ g\to c\ne0\)</td><td>\(f/g\to+\infty\) si \(c&gt;0\); \(-\infty\) si \(c&lt;0\)</td><td>El denominador se mantiene separado de cero.</td></tr>
+        </tbody>
+      </table></div>
+      <p>Para productos de dos funciones que tienden a infinito en valor absoluto, aplica los signos: \((+\infty)(-\infty)\) describe \(-\infty\), y \((-\infty)(-\infty)\), \(+\infty\).</p>
+      <h3>Potencias</h3>
+      <p>Si \(f\to-\infty\) y \(n\) es un entero positivo, \(f^n\to+\infty\) para \(n\) par y \(f^n\to-\infty\) para \(n\) impar. Si \(f\to+\infty\), ambas paridades dan \(+\infty\).</p>
+      <p>Para una base constante \(b&gt;1\), \(b^x\to+\infty\) cuando \(x\to+\infty\) y \(b^x\to0\) cuando \(x\to-\infty\). Si \(0&lt;b&lt;1\), esos comportamientos se invierten.</p>
+    </section>
+    <section data-content-role="warning">
+      <h2>3. Una indeterminación todavía no es una respuesta</h2>
+      <p>Conocer por separado los límites de las partes no siempre permite conocer el límite de la operación. Las formas habituales son:</p>
+      <p>\[\infty-\infty,\quad\frac{\infty}{\infty},\quad\frac00,\quad0\cdot\infty,\quad1^\infty,\quad0^0,\quad\infty^0.\]</p>
+      <p>En las potencias con exponentes variables, trabajaremos con bases positivas en el entorno estudiado para que las expresiones reales estén definidas. Las técnicas de resolución se desarrollan más adelante.</p>
+      <p><strong>«Indeterminada» no significa «no existe el límite».</strong> Significa que falta estudiar cómo se relacionan las partes: el resultado puede ser finito, infinito o no existir.</p>
+      <div class="table-scroll"><table>
+        <caption data-content-role="caption">Misma forma aparente, distintos resultados; en todos los casos \(x\to+\infty\)</caption>
+        <thead><tr><th scope="col">Forma</th><th scope="col">Ejemplo con límite 0</th><th scope="col">Ejemplo con límite 1</th><th scope="col">Ejemplo con límite \(+\infty\)</th></tr></thead>
+        <tbody><tr><th scope="row">\(\infty-\infty\)</th><td>\(x-x\)</td><td>\((x+1)-x\)</td><td>\(x^2-x\)</td></tr>
+          <tr><th scope="row">\(\infty/\infty\)</th><td>\(x/x^2=1/x\)</td><td>\(x/x=1\)</td><td>\(x^2/x=x\)</td></tr>
+          <tr><th scope="row">\(0\cdot\infty\)</th><td>\((1/x^2)x=1/x\)</td><td>\((1/x)x=1\)</td><td>\((1/\sqrt{x})x=\sqrt{x}\)</td></tr></tbody>
+      </table></div>
+      <p>Multiplicar la <em>constante</em> cero por una función da cero donde esa función esté definida. Esto es distinto de multiplicar una función que <em>tiende</em> a cero por otra que crece sin cota.</p>
+    </section>
+    <section data-content-role="worked-example">
+      <h2>4. Ejemplos resueltos: decide antes de operar</h2>
+      <ol class="worked-steps" data-content-role="worked-steps">
+        <li><strong>Determinado:</strong> \(\lim_{x\to+\infty}(7-3x)=-\infty\). El término \(3x\) es positivo y sin cota; al restarlo, la expresión decrece sin cota. El 7 no cambia la conclusión.</li>
+        <li><strong>Indeterminado al principio:</strong> \(\lim_{x\to+\infty}(x^2-3x)\). No escribas «infinito menos infinito igual a cero». Factoriza:
+          \[x^2-3x=x^2\left(1-\frac3x\right).\]
+          El primer factor tiende a \(+\infty\) y el segundo a 1, positivo. El resultado es \(+\infty\).</li>
+        <li><strong>Finito entre infinito:</strong> \(\lim_{x\to-\infty}5/x=0\). Los valores se acercan a cero por debajo, pero el límite es el número 0.</li>
+      </ol>
+    </section>
+    <section id="practica" data-content-role="guided-practice">
+      <h2>5. Practica con ayuda</h2>
+      <p>Clasifica y resuelve \(\lim_{x\to+\infty}(2x-x^2)\) y \(\lim_{x\to+\infty}4/(x^2+1)\).</p>
+      <details data-content-role="hint"><summary>Pista 1: clasifica las formas</summary><p>En la primera aparece \(\infty-\infty\). En la segunda, un numerador constante dividido por una expresión que crece sin cota.</p></details>
+      <details data-content-role="hint"><summary>Pista 2: transforma la primera</summary><p>Escribe \(2x-x^2=x^2(2/x-1)\) y estudia el signo del segundo factor.</p></details>
+      <details data-content-role="solution"><summary>Solución razonada</summary><p>El factor \(2/x-1\) tiende a \(-1\), luego el primer límite es \(-\infty\). En el segundo, \(4/(x^2+1)\to0\). Ninguna de estas afirmaciones supone operar con infinito como un número.</p></details>
+      <div class="activity" data-content-role="self-check" data-quiz="t01-e03"></div>
+    </section>
+    <section data-content-role="summary"><h2>6. Resumen y errores que evitar</h2>
+      <ul><li>Identifica el signo y las condiciones antes de aplicar una regla.</li><li>No conviertas \(\infty-\infty\), \(0/0\) o \(0\cdot\infty\) en resultados numéricos.</li><li>Que una forma sea indeterminada obliga a transformar o estudiar la expresión.</li></ul>
+      <p data-content-role="related-links"><a href="04-limites-infinitos-en-un-punto-finito.html">Continuar: límites infinitos cerca de un punto</a> · <a href="../../../tarjetas/index.html?tema=t01">Tarjetas de repaso</a></p>
+    </section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

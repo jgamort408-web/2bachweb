@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "pairId": "matrices-ii",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-20",
+  "sources": [
+    {
+      "sourceId": "F015",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Matrices II.zip",
+      "zipSha256": "f0ea5b28522e880e53f4d3d1d98b822556c9c3c97486a5dec7618c7a9c341784",
+      "entry": "main.tex",
+      "texSha256": "e57f46f10d889218b1da68e01bfa5c3a03302f3bfc287012c3e0f380d80bdd10"
+    }
+  ],
+  "assets": [
+    {
+      "path": "logo-al-andalus.png",
+      "sourceId": "F015",
+      "entry": "Logo AL-ANDALUS.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    }
+  ],
+  "solutionOrigin": "Elaborado en esta revisión a partir del examen; el ZIP no incluye soluciones",
+  "preserved": {
+    "durationMinutes": 55,
+    "calculatorAllowed": true,
+    "exercisePoints": [
+      5,
+      2.5,
+      2.5
+    ],
+    "firstExerciseParts": [
+      3,
+      2
+    ],
+    "operationsOffered": 5,
+    "operationsToChoose": 4
+  },
+  "corrections": [],
+  "answers": {
+    "determinant": "-12",
+    "inverse": [
+      [
+        "1/4",
+        "1/6",
+        "7/12"
+      ],
+      [
+        "0",
+        "1/3",
+        "-1/3"
+      ],
+      [
+        "1/4",
+        "-1/6",
+        "-1/12"
+      ]
+    ],
+    "X": [
+      [
+        "1"
+      ],
+      [
+        "1"
+      ],
+      [
+        "0"
+      ]
+    ],
+    "operations": {
+      "sumDefined": false,
+      "column": [
+        [
+          "-3"
+        ],
+        [
+          "6"
+        ]
+      ],
+      "square": [
+        [
+          "4",
+          "0"
+        ],
+        [
+          "-5",
+          "6"
+        ]
+      ],
+      "scaledDeterminant": "25",
+      "rectangularDeterminantDefined": false
+    },
+    "parameters": {
+      "a": "6/7",
+      "b": "9/7"
+    }
+  }
+}

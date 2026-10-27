@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "pairId": "programacion-lineal-ii",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-20",
+  "sources": [
+    {
+      "sourceId": "F020",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Programación Lineal (Soluciones 2).zip",
+      "zipSha256": "b402df5c604f64253bdf595f8f754a7a588e0aa322d1917b4e6bb978baa3b32a",
+      "entry": "main.tex",
+      "texSha256": "39ca272b850afb9065de1916865495304610d709eb4aa21882a3cb06f84d500c"
+    },
+    {
+      "sourceId": "F022",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Programación Lineal 2.zip",
+      "zipSha256": "a33b41c877d9d8746d29e20f608cd284a799b2dae9249013220f608b906598bf",
+      "entry": "main.tex",
+      "texSha256": "516d9e589da87142e4449f770d20d7f2ae9b5e572d8df17963a81539c6f50497"
+    }
+  ],
+  "assets": [
+    {
+      "path": "logo-al-andalus.png",
+      "sourceId": "F022",
+      "entry": "Logo AL-ANDALUS.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    }
+  ],
+  "preserved": {
+    "durationMinutes": 55,
+    "calculatorAllowed": true,
+    "mandatoryExercises": [
+      1,
+      2,
+      3
+    ],
+    "points": [
+      4,
+      3,
+      3
+    ],
+    "exerciseMinutes": [
+      25,
+      15,
+      15
+    ],
+    "formulationOnly": [
+      2
+    ],
+    "annexFormulationOnly": true
+  },
+  "corrections": [
+    "M07",
+    "M18",
+    "M19"
+  ],
+  "exerciseMapping": [
+    {
+      "exam": 1,
+      "originalSolution": 1
+    },
+    {
+      "exam": 2,
+      "originalSolution": null,
+      "action": "Formulación fiel a F022, sin resolver"
+    },
+    {
+      "exam": 3,
+      "originalSolution": 3
+    },
+    {
+      "exam": null,
+      "originalSolution": 2,
+      "action": "Conservado en anexo no evaluable; falta información de costes para beneficio neto"
+    }
+  ],
+  "answers": {
+    "batteries": {
+      "vertices": [
+        [
+          "0",
+          "10"
+        ],
+        [
+          "10",
+          "0"
+        ],
+        [
+          "40",
+          "0"
+        ],
+        [
+          "20",
+          "30"
+        ]
+      ],
+      "maximumPoint": [
+        "20",
+        "30"
+      ],
+      "maximum": "6800"
+    },
+    "missions": {
+      "strictLowerBound": "2*x+y>20",
+      "objective": [
+        "3/5",
+        "2/5"
+      ],
+      "solvedInPdf": false
+    },
+    "region": {
+      "vertices": [
+        [
+          "0",
+          "2"
+        ],
+        [
+          "3",
+          "1/2"
+        ],
+        [
+          "5",
+          "0"
+        ],
+        [
+          "0",
+          "7"
+        ]
+      ],
+      "minimumPoint": [
+        "0",
+        "2"
+      ],
+      "minimum": "2"
+    },
+    "berries": {
+      "blueberriesGrams": 3750,
+      "raspberriesGrams": 4000,
+      "revenueCoefficients": [
+        "12/5",
+        "9/5"
+      ],
+      "netProfitDataComplete": false,
+      "solvedInPdf": false
+    }
+  }
+}

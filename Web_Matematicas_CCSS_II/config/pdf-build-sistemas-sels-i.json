@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-20",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "batchId": "162",
+  "sourceDirectory": "content/latex/sistemas-sels-i",
+  "report": "docs/pdf/sistemas-sels-i-build.json",
+  "mathematics": "sistemas-sels-i",
+  "documents": [
+    {
+      "id": "sistemas-sels-i-examen",
+      "source": "content/latex/sistemas-sels-i/sistemas-sels-i-examen.tex",
+      "output": "output/pdf/sistemas-sels-i-examen.pdf",
+      "expectedPages": 1,
+      "title": "Sistemas de ecuaciones I - Examen revisado"
+    },
+    {
+      "id": "sistemas-sels-i-soluciones",
+      "source": "content/latex/sistemas-sels-i/sistemas-sels-i-soluciones.tex",
+      "output": "output/pdf/sistemas-sels-i-soluciones.pdf",
+      "expectedPages": 4,
+      "title": "Sistemas de ecuaciones I - Soluciones revisadas"
+    }
+  ]
+}

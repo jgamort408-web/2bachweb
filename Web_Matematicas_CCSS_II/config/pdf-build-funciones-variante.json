@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-20",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "batchId": "168-funciones-variante",
+  "sourceDirectory": "content/latex/funciones-variante",
+  "report": "docs/pdf/funciones-variante-build.json",
+  "mathematics": "funciones-variante",
+  "documents": [
+    {
+      "id": "funciones-variante-examen",
+      "source": "content/latex/funciones-variante/funciones-variante-examen.tex",
+      "output": "output/pdf/funciones-variante-examen.pdf",
+      "expectedPages": 1,
+      "title": "Funciones: variante - Examen revisado",
+      "forbiddenText": [
+        "£"
+      ]
+    },
+    {
+      "id": "funciones-variante-soluciones",
+      "source": "content/latex/funciones-variante/funciones-variante-soluciones.tex",
+      "output": "output/pdf/funciones-variante-soluciones.pdf",
+      "expectedPages": 3,
+      "title": "Funciones: variante - Soluciones revisadas",
+      "forbiddenText": [
+        "£"
+      ]
+    }
+  ]
+}

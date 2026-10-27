@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9.4. Distribución muestral. Teorema central del límite · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+  <script type="module" src="../../../assets/js/learning/staged-adventure.js"></script>
+</head>
+<body data-page-id="t09-e04">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">9.4. Distribución muestral. Teorema central del límite</h1>
+    <p data-content-role="lead">Una muestra produce un estadístico; repetir el procedimiento produce una distribución de posibles estadísticos.</p>
+    <p data-content-role="source">Adaptación revisada de «1. Distribuciones muestrales.txt», «2.1. Distribución de la media muestral.txt» y «2.2. Distribución de la proporción muestral.txt». <a href="index.html">Volver al tema 9</a>.</p>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#idea">Idea clave</a> · <a href="#medias">Medias y TCL</a> · <a href="#proporciones">Proporciones</a> · <a href="#sumas">Sumas</a> · <a href="#resumen">Fórmulas</a> · <a href="#ejemplo-cafe">Café</a> · <a href="#aventura-medias">Bombillas</a> · <a href="#ejemplo-comercio">Comercio</a> · <a href="#aventura-proporciones">Premium</a> · <a href="#pendiente">Pendiente</a></nav>
+
+    <section id="idea" data-content-role="theory"><h2>¿Qué es una distribución muestral?</h2>
+      <p>Si repetimos un mismo procedimiento de selección de muestras de tamaño \(n\), cada muestra da una media distinta \(\bar x\). La distribución de todos los valores que podría tomar la variable \(\bar X\) es la <strong>distribución muestral de la media</strong>. No es la distribución de los valores individuales \(X_i\), ni la lista de datos de una sola muestra.</p>
+      <p>Del mismo modo podemos estudiar la distribución muestral de una proporción \(\hat P\) o de una suma \(S_n\). La forma de estas distribuciones depende de la población y del mecanismo de muestreo.</p>
+    </section>
+
+    <section id="medias" data-content-role="theory"><h2>Media muestral y teorema central del límite</h2>
+      <p>Supongamos observaciones \(X_1,\ldots,X_n\) independientes y con la misma distribución, media poblacional \(\mu\) y varianza finita \(\sigma^2>0\). Entonces la media de las observaciones cumple <strong>exactamente</strong>:</p>
+      <p>\[\bar X=\frac{X_1+\cdots+X_n}{n},\qquad E(\bar X)=\mu,\qquad \operatorname{Var}(\bar X)=\frac{\sigma^2}{n},\qquad \operatorname{DE}(\bar X)=\frac{\sigma}{\sqrt n}.\]</p>
+      <p>La última cantidad es el <strong>error estándar de la media</strong> cuando \(\sigma\) se conoce. Describe cuánto varía la media entre muestras del mismo tamaño. Si \(n=100\), vale \(\sigma/10\); no significa que una media observada esté siempre a esa distancia de \(\mu\).</p>
+      <p>El teorema central del límite establece que, bajo los supuestos anteriores, la distribución de la media <strong>tipificada</strong> se acerca a la normal estándar cuando \(n\) crece:</p>
+      <p>\[\frac{\bar X-\mu}{\sigma/\sqrt n}\;\xrightarrow[n\to\infty]{\mathrm{distribución}}\;N(0,1).\]</p>
+      <p>Por eso, para tamaños apropiados, escribimos \(\bar X\approx N\!\left(\mu,\sigma/\sqrt n\right)\), usando como segundo parámetro la desviación típica. Si la población ya sigue una normal y las observaciones son independientes, esta distribución de \(\bar X\) es normal <strong>exactamente</strong> para cualquier \(n\).</p>
+      <figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" role="img" aria-labelledby="tcl-fig-titulo tcl-fig-desc" style="display:block;width:100%;max-width:38rem;height:auto"><title id="tcl-fig-titulo">Forma individual y forma de las medias</title><desc id="tcl-fig-desc">A la izquierda, una forma poblacional irregular ilustrativa. A la derecha, una curva suave ilustrativa para medias de muestras grandes; la forma normal es aproximada, no garantizada por n igual a 100.</desc><path d="M15 150H280M320 150H585" stroke="currentColor" fill="none"/><path d="M15 150L32 100Q60 26 88 122T145 80T215 118T280 150" stroke="currentColor" stroke-width="2" fill="none"/><path d="M320 150Q385 150 405 111Q451 25 460 45Q480 45 500 111Q522 150 585 150" stroke="currentColor" stroke-width="2" fill="none"/><text x="145" y="22" text-anchor="middle" fill="currentColor">Valores individuales</text><text x="452" y="22" text-anchor="middle" fill="currentColor">Medias muestrales</text><text x="451" y="172" text-anchor="middle" fill="currentColor">aproximación ilustrativa</text></svg><figcaption>Dos formas posibles a modo de ilustración. La aproximación concreta depende de la población y del tamaño muestral.</figcaption></figure>
+      <p data-content-role="warning">La regla \(n\ge30\) que aparece en el original es orientativa, no una garantía universal: la asimetría, las colas muy pesadas y la dependencia pueden exigir otro análisis. La forma clásica del teorema requiere varianza finita e independencia; si se muestrea sin reemplazo una población finita, la variación incorpora una corrección por población finita.</p>
+      <p>Para una <strong>observación individual</strong>, la desviación típica sigue siendo \(\sigma\). Para la <strong>media de \(n\) observaciones independientes</strong>, es \(\sigma/\sqrt n\). Hay que identificar qué variable pregunta el problema antes de elegir la fórmula.</p>
+    </section>
+
+    <section id="proporciones" data-content-role="theory"><h2>Distribución muestral de una proporción</h2>
+      <p>Si cada observación registra «sí» o «no» de forma independiente con probabilidad de éxito constante \(p\), el número de éxitos \(X\) sigue \(\operatorname{Bin}(n,p)\) y la proporción muestral es \(\hat P=X/n\). Con \(q=1-p\), sus parámetros son exactos:</p>
+      <p>\[E(\hat P)=p,\qquad \operatorname{Var}(\hat P)=\frac{pq}{n},\qquad \operatorname{DE}(\hat P)=\sqrt{\frac{pq}{n}}.\]</p>
+      <p>Cuando hay suficientes éxitos y fracasos esperados, puede usarse \(\hat P\approx N\!\left(p,\sqrt{pq/n}\right)\). El criterio del original, \(np\ge5\) y \(nq\ge5\), es una orientación, no una garantía de precisión en toda probabilidad, especialmente en las colas. Si la selección sin reemplazo afecta apreciablemente a una población finita, también debe revisarse la varianza.</p>
+      <p>El símbolo \(\hat P\) representa la <strong>variable aleatoria</strong> antes de observar una muestra; \(\hat p\) puede denotar el valor calculado después. La probabilidad de éxito poblacional \(p\) no se conoce necesariamente en una aplicación real.</p>
+    </section>
+
+    <section id="sumas" data-content-role="theory"><h2>Distribución de la suma muestral</h2>
+      <p>El original incluye también el total del grupo, \(S_n=X_1+\cdots+X_n\). Bajo los mismos supuestos de independencia y distribución idéntica, se cumple exactamente:</p>
+      <p>\[E(S_n)=n\mu,\qquad \operatorname{Var}(S_n)=n\sigma^2,\qquad \operatorname{DE}(S_n)=\sigma\sqrt n.\]</p>
+      <p>Su forma normal es aproximada cuando se aplica el teorema central del límite; es exacta si las observaciones independientes ya son normales.</p>
+    </section>
+
+    <section id="resumen" data-content-role="reference"><h2>Fórmulas para elegir la variable correcta</h2><div style="overflow-x:auto"><table><caption>Resultados con observaciones independientes e idénticamente distribuidas y varianza finita</caption><thead><tr><th scope="col">Caso</th><th scope="col">Variable</th><th scope="col">Media</th><th scope="col">Desviación típica</th><th scope="col">Forma normal</th></tr></thead><tbody><tr><th scope="row">Dato individual</th><td>\(X_i\)</td><td>\(\mu\)</td><td>\(\sigma\)</td><td>Solo si la población es normal</td></tr><tr><th scope="row">Media muestral</th><td>\(\bar X\)</td><td>\(\mu\)</td><td>\(\sigma/\sqrt n\)</td><td>Exacta si \(X_i\) es normal; aproximada por TCL en otros casos apropiados</td></tr><tr><th scope="row">Proporción muestral</th><td>\(\hat P\)</td><td>\(p\)</td><td>\(\sqrt{p(1-p)/n}\)</td><td>Aproximada cuando la binomial se aproxima bien</td></tr><tr><th scope="row">Suma muestral</th><td>\(S_n\)</td><td>\(n\mu\)</td><td>\(\sigma\sqrt n\)</td><td>Exacta si \(X_i\) es normal; aproximada por TCL en otros casos apropiados</td></tr></tbody></table></div></section>
+    <section id="ejemplo-cafe" data-content-role="worked-example"><h2>Ejemplo original: peso de bolsas de café</h2>
+      <p>El peso de una bolsa se modeliza por \(X\sim N(500,15)\), en gramos; el segundo parámetro es la desviación típica. Se pide comparar la probabilidad de que <strong>una bolsa</strong> pese menos de 495 g con la de que la <strong>media de 25 bolsas independientes</strong> sea menor que 495 g.</p>
+      <details><summary>Ver resolución del apartado a: una bolsa</summary><p>Se usa la desviación individual de 15 g:</p><p>\[z=\frac{495-500}{15}=-\frac13\approx-0{,}3333,\qquad P(X<495)=\Phi(-1/3)\approx0{,}3694.\]</p><p>El original muestra 0,3707 porque redondea antes a \(z=-0{,}33\); el valor sin redondeo intermedio es aproximadamente 36,94 %.</p></details>
+      <details><summary>Ver resolución del apartado b: media de 25 bolsas</summary><p>La población indicada es normal, por lo que la media también sigue una normal <strong>exactamente</strong>, sin necesitar la aproximación del TCL:</p><p>\[\bar X\sim N\!\left(500,\frac{15}{\sqrt{25}}\right)=N(500,3),\qquad z=\frac{495-500}{3}=-\frac53\approx-1{,}6667.\]</p><p>\[P(\bar X<495)=\Phi(-5/3)\approx0{,}0478.\]</p><p>El original obtiene 0,0475 al redondear antes a \(z=-1{,}67\). La media de 25 bolsas varía menos que un peso individual bajo este modelo. El resultado supone observaciones independientes; una dependencia entre bolsas cambiaría el error estándar.</p></details>
+    </section>
+
+    <section id="aventura-medias" data-content-role="practice" data-step-adventure data-sampling-adventure><h2>Operación Bombilla: aventura original adaptada</h2>
+      <p>La vida útil de cada bombilla LED se modeliza por una normal de media 1200 h y desviación típica 80 h. Se toma una muestra aleatoria de 64 bombillas y se pregunta por la probabilidad de que la <strong>media muestral</strong> sea inferior a 1180 h. Suponemos vidas independientes. Elige una respuesta en cada etapa para avanzar.</p>
+      <p data-adventure-progress role="status" aria-live="polite">Tres decisiones; sin JavaScript puedes abrir las resoluciones de cada etapa.</p>
+      <section data-stage="1" data-success="Correcto: la media es 1200 h y su desviación típica es 80 dividido entre raíz de 64, es decir, 10 h."><h3 tabindex="-1">Paso 1. Modelo de la media</h3><p>¿Cuál es la distribución de \(\bar X\)? Al ser normal la vida individual, la distribución de la media es normal exacta.</p>
+        <div data-adventure-controls hidden class="actions"><button type="button" data-answer="wrong" data-hint="80 h es la desviación de una bombilla individual; divide por raíz de 64.">A) \(N(1200,80)\)</button><button type="button" data-answer="correct">B) \(N(1200,10)\)</button><button type="button" data-answer="wrong" data-hint="1,25 no es 80 dividido entre raíz de 64.">C) \(N(1200,1{,}25)\)</button><p data-feedback role="status" aria-live="polite" hidden></p><button type="button" data-next hidden>Continuar al paso 2</button></div>
+        <details data-adventure-fallback><summary>Ver respuesta explicada</summary><p>\(\operatorname{DE}(\bar X)=80/\sqrt{64}=10\), así que \(\bar X\sim N(1200,10)\).</p></details>
+      </section>
+      <section data-stage="2" data-success="Correcto: se tipifica 1180 con el error estándar 10 h; el resultado es menos 2."><h3 tabindex="-1">Paso 2. Tipificación</h3><p>¿Qué puntuación típica corresponde a una media de 1180 h?</p>
+        <div data-adventure-controls hidden class="actions"><button type="button" data-answer="wrong" data-hint="Has usado la desviación de una bombilla individual en lugar de la de la media.">A) \(z=(1180-1200)/80=-0{,}25\)</button><button type="button" data-answer="correct">B) \(z=(1180-1200)/10=-2\)</button><button type="button" data-answer="wrong" data-hint="Revisa el orden: valor observado menos media.">C) \(z=(1200-1180)/10=2\)</button><p data-feedback role="status" aria-live="polite" hidden></p><button type="button" data-next hidden>Continuar al paso 3</button></div>
+        <details data-adventure-fallback><summary>Ver respuesta explicada</summary><p>\(z=(1180-1200)/10=-2\).</p></details>
+      </section>
+      <section data-stage="3" data-success="Correcto: la cola izquierda en menos 2 tiene probabilidad aproximada 0,0228, o 2,28 %."><h3 tabindex="-1">Paso 3. Probabilidad</h3><p>Calcula \(P(\bar X<1180)=\Phi(-2)\). Si la tabla da \(\Phi(2)\approx0{,}9772\), usa la simetría.</p>
+        <div data-adventure-controls hidden class="actions"><button type="button" data-answer="wrong" data-hint="0,9772 corresponde al área acumulada a la izquierda de más 2, no de menos 2.">A) 97,72 %</button><button type="button" data-answer="wrong" data-hint="Resta 0,9772 a 1 para obtener la cola izquierda de menos 2.">B) 47,72 %</button><button type="button" data-answer="correct">C) 2,28 %</button><p data-feedback role="status" aria-live="polite" hidden></p><button type="button" data-next hidden>Ver informe final</button></div>
+        <details data-adventure-fallback><summary>Ver respuesta explicada</summary><p>\(\Phi(-2)=1-\Phi(2)\approx1-0{,}9772=0{,}0228\), es decir, 2,28 %.</p></details>
+      </section>
+      <section data-stage="4"><h3 tabindex="-1">Informe final</h3><p>\[\bar X\sim N(1200,10),\qquad P(\bar X<1180)=\Phi(-2)\approx0{,}0228.\]</p><p>Esta es la probabilidad de observar una <strong>media muestral</strong> tan baja bajo el modelo supuesto. Por sí sola no demuestra que el lote concreto sea seguro ni determina si debe enviarse: esa decisión necesita una regla de aceptación, datos observados y consecuencias de cada error.</p><div data-adventure-controls hidden><button type="button" data-restart>Reiniciar aventura</button></div></section>
+      <p data-content-role="status">La aventura procede del original y funciona como componente independiente, sin guardar respuestas ni progreso. Sus botones usan el motor local de fórmulas y pueden accionarse con teclado.</p>
+    </section>
+    <section id="ejemplo-comercio" data-content-role="worked-example"><h2>Ejemplo original: pequeño comercio</h2>
+      <p>En el escenario didáctico, la probabilidad de que una persona compre alimentos en un comercio de barrio es \(p=0{,}20\); se eligen \(n=50\) personas. Para modelizar el recuento como \(X\sim\operatorname{Bin}(50,0{,}20)\), suponemos respuestas independientes y la misma probabilidad para cada persona. Entonces \(\hat P=X/50\), \(E(\hat P)=0{,}20\) y \(\operatorname{DE}(\hat P)=\sqrt{0{,}20\cdot0{,}80/50}\approx0{,}05657\).</p>
+      <p>Como \(np=10\) y \(n(1-p)=40\), la aproximación normal es razonable como orientación para este cálculo. Se pide \(P(\hat P>0{,}25)\). El recuento es entero: más del 25 % de 50 equivale a <strong>al menos 13 personas</strong>.</p>
+      <details><summary>Ver resolución y comparar aproximación con valor exacto</summary>
+        <p>Sin redondear el error estándar antes de tipificar, el modelo normal da:</p>
+        <p>\[z=\frac{0{,}25-0{,}20}{\sqrt{0{,}20\cdot0{,}80/50}}\approx0{,}8839,\qquad P(\hat P>0{,}25)\approx1-\Phi(0{,}8839)\approx0{,}1884.\]</p>
+        <p>El cálculo binomial exacto es \(P(X\ge13)\approx0{,}1861\). La aproximación no es una igualdad: el original obtiene 0,1894 tras redondear primero la desviación a 0,057 y luego \(z\) a 0,88. La frontera corregida por continuidad para \(X\ge13\) es \(12{,}5/50=0{,}25\); aquí coincide con el umbral escrito, aunque se llega a ella desde el recuento.</p>
+      </details>
+    </section>
+
+    <section id="aventura-proporciones" data-content-role="practice" data-step-adventure data-proportion-adventure><h2>Lanzamiento Premium: aventura original adaptada</h2>
+      <p>En el modelo didáctico, cada usuario gratuito compra la versión Premium con probabilidad \(p=0{,}15\). Se observan \(n=100\) usuarios seleccionados al azar. Suponemos decisiones independientes y la misma probabilidad individual. La actividad pregunta por la proporción que <strong>afirma que comprará</strong>; una intención declarada no equivale a una compra futura comprobada.</p>
+      <p data-adventure-progress role="status" aria-live="polite">Tres decisiones; sin JavaScript puedes abrir las resoluciones de cada etapa.</p>
+      <section data-stage="1" data-success="Correcto: la media es 0,15 y el error estándar es aproximadamente 0,0357."><h3 tabindex="-1">Paso 1. Modelo aproximado</h3><p>¿Qué normal aproxima la distribución de \(\hat P\)? Aquí \(np=15\) y \(n(1-p)=85\).</p>
+        <div data-adventure-controls hidden class="actions"><button type="button" data-answer="wrong" data-hint="0,001275 es la varianza; falta extraer la raíz cuadrada.">A) \(N(0{,}15,0{,}001275)\)</button><button type="button" data-answer="correct">B) \(N(0{,}15,0{,}0357)\)</button><button type="button" data-answer="wrong" data-hint="La proporción se expresa entre 0 y 1; 15 es el número esperado de éxitos, no la media de la proporción.">C) \(N(15,1{,}275)\)</button><p data-feedback role="status" aria-live="polite" hidden></p><button type="button" data-next hidden>Continuar al paso 2</button></div>
+        <details data-adventure-fallback><summary>Ver respuesta explicada</summary><p>\(E(\hat P)=0{,}15\) y \(\operatorname{DE}(\hat P)=\sqrt{0{,}15\cdot0{,}85/100}\approx0{,}0357\). La normal es una aproximación a una proporción discreta, no su distribución exacta.</p></details>
+      </section>
+      <section data-stage="2" data-success="Correcto: el umbral está por encima de la media y la puntuación típica es aproximadamente 1,40."><h3 tabindex="-1">Paso 2. Tipificación</h3><p>Usando la normal sin corrección de continuidad, ¿qué \(z\) corresponde a \(\hat P=0{,}20\)?</p>
+        <div data-adventure-controls hidden class="actions"><button type="button" data-answer="wrong" data-hint="0,05 es la diferencia de proporciones, todavía hay que dividirla por el error estándar.">A) \(z=0{,}05\)</button><button type="button" data-answer="wrong" data-hint="El umbral 0,20 está por encima de la media 0,15; z debe ser positivo.">B) \(z=-1{,}40\)</button><button type="button" data-answer="correct">C) \(z\approx1{,}40\)</button><p data-feedback role="status" aria-live="polite" hidden></p><button type="button" data-next hidden>Continuar al paso 3</button></div>
+        <details data-adventure-fallback><summary>Ver respuesta explicada</summary><p>\(z=(0{,}20-0{,}15)/\sqrt{0{,}15\cdot0{,}85/100}\approx1{,}4003\).</p></details>
+      </section>
+      <section data-stage="3" data-success="Correcto para la tabla del original: 1 menos 0,9192 es 0,0808. Es una aproximación sin corrección, no la probabilidad exacta."><h3 tabindex="-1">Paso 3. Cola de la normal</h3><p>La tabla del original indica \(\Phi(1{,}40)=0{,}9192\). ¿Qué resultado da <strong>esa aproximación normal</strong> para \(P(\hat P>0{,}20)\)?</p>
+        <div data-adventure-controls hidden class="actions"><button type="button" data-answer="wrong" data-hint="0,9192 es el área a la izquierda; se pide la cola derecha.">A) 91,92 %</button><button type="button" data-answer="correct">B) 8,08 %</button><button type="button" data-answer="wrong" data-hint="1,40 es una puntuación z, no un porcentaje de probabilidad.">C) 1,40 %</button><p data-feedback role="status" aria-live="polite" hidden></p><button type="button" data-next hidden>Ver informe final</button></div>
+        <details data-adventure-fallback><summary>Ver respuesta explicada</summary><p>Según la tabla redondeada, \(1-0{,}9192=0{,}0808\), es decir, 8,08 %. Sin redondeo intermedio, la normal da aproximadamente 8,07 %. El resultado exacto del recuento se examina en el informe final.</p></details>
+      </section>
+      <section data-stage="4"><h3 tabindex="-1">Informe final</h3><p>«Más del 20 %» de 100 significa \(X\ge21\). Para el modelo binomial supuesto, \(P(X\ge21)\approx0{,}0663\), es decir, <strong>6,63 %</strong>. La normal sin corrección da aproximadamente 8,07 % (8,08 % con la tabla original); con corrección de continuidad, la frontera \(X>20{,}5\) da aproximadamente 6,17 %.</p><p>La diferencia muestra el límite de la aproximación en una cola. Ninguna de estas cifras permite, por sí sola, decidir una campaña ni garantiza ventas: dependen del modelo, del modo de selección y de cómo se mida la intención de compra.</p><div data-adventure-controls hidden><button type="button" data-restart>Reiniciar aventura</button></div></section>
+      <p data-content-role="status">La aventura conserva las tres decisiones originales, ofrece pistas y no almacena respuestas ni progreso.</p>
+    </section>
+    <section id="pendiente" data-content-role="warning"><h2>Qué falta</h2><p>Están incorporados los ejemplos y aventuras de los archivos 2.1 y 2.2. Los <a href="ejercicios-resueltos.html">27 ejercicios</a>, el <a href="../../../test/index.html?tema=t09">test</a> y las <a href="../../../tarjetas/index.html?tema=t09">tarjetas</a> originales ya están disponibles. La lección conserva estado parcial por las limitaciones indicadas en sus modelos y por la revisión global de accesibilidad pendiente.</p></section>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>
+

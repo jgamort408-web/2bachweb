@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "pairId": "sistemas-sels-ii",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-20",
+  "sources": [
+    {
+      "sourceId": "F027",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - SELs II (SOLUCIONES).zip",
+      "zipSha256": "058eb70e2b68d9e7a35c6cbbc00d523fe0ff86f7a947ce4e57a85916935f85ff",
+      "entry": "main.tex",
+      "texSha256": "e83eb106407b8eeeab49416e872c776ecadcacd288535666cb40101e18f8a239"
+    },
+    {
+      "sourceId": "F028",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - SELs II.zip",
+      "zipSha256": "f9f839c211ea1419fef4382c4ecd1dfd262d57231f03b054abb593e6491f3326",
+      "entry": "main.tex",
+      "texSha256": "a9a7421ba0aa305ae8bdf6cf6320eaeaf35dcccf5a69f36070048ca1bd46b118"
+    }
+  ],
+  "assets": [
+    {
+      "path": "logo-al-andalus.png",
+      "sourceId": "F028",
+      "entry": "Logo AL-ANDALUS.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    }
+  ],
+  "preserved": {
+    "durationMinutes": 55,
+    "points": [
+      2,
+      4,
+      2.5,
+      1.5
+    ],
+    "exerciseMinutes": [
+      9,
+      23,
+      23
+    ],
+    "calculatorAllowed": true
+  },
+  "corrections": [],
+  "clarifications": [
+    "Contradicción explícita para lambda=5",
+    "Sustitución de todas las soluciones",
+    "La diferencia del problema de logística se interpreta como medianos menos grandes, según el original"
+  ],
+  "answers": {
+    "triangular": [
+      "13/6",
+      "2/3",
+      "1"
+    ],
+    "shipments": [
+      20,
+      70,
+      60
+    ],
+    "determinant": "5-lambda",
+    "singularParameter": 5,
+    "singularRanks": [
+      2,
+      3
+    ],
+    "lambdaZero": [
+      "21/5",
+      "-4/5",
+      "-2/5"
+    ]
+  }
+}

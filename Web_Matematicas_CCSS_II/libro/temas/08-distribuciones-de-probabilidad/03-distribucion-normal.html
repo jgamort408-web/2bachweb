@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>8.3. Distribución normal · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+  <script type="module" src="../../../assets/js/learning/normal-explorer.js"></script>
+</head>
+<body data-page-id="t08-e03">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">8.3. Distribución normal</h1>
+    <p data-content-role="lead">La campana de Gauss: densidad, probabilidad como área y distribución acumulada.</p>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#definicion">Modelo normal</a> · <a href="#funciones">Densidad y acumulada</a> · <a href="#areas">Áreas</a> · <a href="#tipificacion">Tipificación</a> · <a href="#explorador">Explorador</a> · <a href="#regla-empirica">Regla empírica</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+
+    <section id="definicion" data-content-role="definition"><h2>¿Qué significa «normal»?</h2>
+      <p>La normal es un modelo para variables continuas. Estaturas, pesos, errores de medida y tiempos son los ejemplos que propone el original; que una variable sea continua no garantiza que siga una normal. Hay que valorar el ajuste y las limitaciones del modelo en cada caso.</p>
+      <p>\(X\sim N(\mu,\sigma)\): usamos el segundo parámetro para la <strong>desviación típica</strong>, con \(\sigma&gt;0\). La media \(\mu\) puede ser cualquier número real. La varianza es \(\sigma^2\); otros textos usan esa varianza como segundo parámetro.</p>
+      <ul><li>La media es el centro de simetría de la campana.</li><li>Con la misma escala de ejes, una desviación mayor produce una campana más ancha y más baja.</li><li>Los puntos de inflexión de la densidad están en \(\mu-\sigma\) y \(\mu+\sigma\).</li></ul>
+      <p data-content-role="key-idea">En una normal, \(P(X=3{,}00)=0\) sí tiene significado: un punto tiene área nula. No significa que el valor 3 sea imposible. Para intervalos, como \(P(2{,}9\le X\le3{,}1)\), la probabilidad puede ser positiva.</p>
+    </section>
+
+    <section id="funciones" data-content-role="explanation"><h2>Dos funciones distintas: densidad y acumulada</h2>
+      <h3>Densidad: f(x)</h3>
+      <p>Describe la forma de la campana. Su altura no es una probabilidad puntual; la probabilidad se obtiene como un área.</p>
+      <p data-normal-formula="density">\[f(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac12\left(\frac{x-\mu}{\sigma}\right)^2}.\]</p>
+      <h3>Función de distribución: F(x)</h3>
+      <p>Acumula la probabilidad desde menos infinito hasta x:</p>
+      <p data-normal-formula="cdf">\[F(x)=P(X\le x)=\int_{-\infty}^{x}f(t)\,dt.\]</p>
+      <p>En la normal, F es creciente y se aproxima a 0 y a 1 en los extremos infinitos. Para x finito queda entre 0 y 1. La densidad sube y baja; su área total es 1 y su altura puede superar 1 sin contradecirlo.</p>
+      <p>Los dos gráficos siguientes responden a la media y la desviación del <a href="#explorador">explorador</a>. El primero sombrea el intervalo \(\mu\pm\sigma\); el segundo señala \(k=\mu+0{,}8\sigma\), como en el original.</p>
+      <p data-normal-loading>Los gráficos se cargarán al iniciar el explorador. Sin JavaScript puedes consultar las definiciones y fórmulas de esta página.</p>
+      <figure class="normal-figure"><div class="normal-plot-scroll" tabindex="0" role="region" aria-label="Gráfico de densidad de referencia; desplazamiento horizontal"><div id="normal-pdf-small"></div></div><figcaption data-content-role="caption">Densidad: región rayada entre una desviación por debajo y por encima de la media. Las marcas discontinuas indican la media y las dos inflexiones.</figcaption></figure>
+      <figure class="normal-figure"><div class="normal-plot-scroll" tabindex="0" role="region" aria-label="Gráfico de acumulada de referencia; desplazamiento horizontal"><div id="normal-cdf-small"></div></div><figcaption data-content-role="caption">Acumulada: la altura del punto es F(k). Las líneas discontinuas permiten leer sus coordenadas; el área bajo esta curva no representa P(X≤k).</figcaption></figure>
+    </section>
+
+    <section id="areas" data-content-role="explanation"><h2>La probabilidad es área bajo la densidad</h2>
+      <h3>Área total</h3><p data-normal-formula="total">\[\int_{-\infty}^{+\infty}f(x)\,dx=1.\]</p>
+      <h3>Intervalo, con a≤b</h3><p data-normal-formula="interval">\[P(a\le X\le b)=\int_a^b f(x)\,dx=F(b)-F(a).\]</p>
+      <p>Incluir o excluir los extremos no cambia esta probabilidad porque cada punto tiene probabilidad cero.</p>
+      <h3>Acumulada hasta k</h3><p data-normal-formula="cumulative">\[P(X\le k)=F(k).\]</p>
+    </section>
+
+    <section id="tipificacion" data-content-role="method"><h2>Tipificación y tablas</h2>
+      <p>Transformamos X en una normal estándar, de media cero y desviación uno:</p>
+      <p data-normal-formula="standardize">\[Z=\frac{X-\mu}{\sigma}\sim N(0,1).\]</p>
+      <ol><li>Para un valor x, calcula \(z=(x-\mu)/\sigma\).</li><li>Busca \(\Phi(z)=P(Z\le z)\) en una tabla acumulada de la normal estándar o usa una calculadora. Comprueba qué área ofrece la tabla: no todas usan la misma convención.</li><li>Recupera la probabilidad pedida mediante las expresiones siguientes.</li></ol>
+      <p data-normal-formula="standard-cdf">\[P(X\le x)=\Phi\left(\frac{x-\mu}{\sigma}\right).\]</p>
+      <p data-normal-formula="standard-interval">\[P(a\le X\le b)=\Phi\left(\frac{b-\mu}{\sigma}\right)-\Phi\left(\frac{a-\mu}{\sigma}\right).\]</p>
+      <p data-normal-formula="symmetry">Por simetría: \(\Phi(-z)=1-\Phi(z)\).</p>
+    </section>
+
+    <section id="explorador" data-normal-explorer data-content-role="explorer"><h2>Explorador de densidad y acumulada</h2>
+      <p>Modifica los cinco controles originales. a, b y k son valores absolutos de X; no cambian ni se recortan al mover la media o la desviación.</p>
+      <div data-normal-controls hidden>
+        <label for="normal-mu">Media μ: <output for="normal-mu" data-value="mu">0,0</output></label><input id="normal-mu" name="mu" type="range" min="-2" max="2" step="0.1" value="0">
+        <label for="normal-sigma">Desviación típica σ: <output for="normal-sigma" data-value="sigma">1,0</output></label><input id="normal-sigma" name="sigma" type="range" min="0.5" max="2.5" step="0.1" value="1">
+        <label for="normal-a">Extremo a: <output for="normal-a" data-value="a">−1,0</output></label><input id="normal-a" name="a" type="range" min="-4" max="4" step="0.1" value="-1">
+        <label for="normal-b">Extremo b: <output for="normal-b" data-value="b">1,0</output></label><input id="normal-b" name="b" type="range" min="-4" max="4" step="0.1" value="1">
+        <label for="normal-k">Punto k para F(k): <output for="normal-k" data-value="k">0,8</output></label><input id="normal-k" name="k" type="range" min="-4" max="4" step="0.1" value="0.8">
+      </div>
+      <p data-normal-loading>El explorador necesita JavaScript. Mientras se carga, las fórmulas y explicaciones permanecen disponibles.</p>
+      <p data-normal-summary role="status" aria-live="polite">Configuración inicial: media 0, desviación 1, intervalo de −1 a 1 y punto k=0,8.</p>
+      <div data-normal-readouts data-content-role="result"></div>
+      <p data-content-role="context">Las probabilidades se calculan mediante una aproximación numérica y se muestran con cuatro decimales. Un resultado redondeado a 0 o 1 no significa probabilidad exactamente nula o segura. Si a supera a b, se muestra el intervalo entre ambos extremos y se avisa; si coinciden, su probabilidad es cero.</p>
+      <p>Las escalas se mantienen fijas para comparar formas: x entre −12 y 12; densidad entre 0 y 0,85; acumulada entre 0 y 1. La normal continúa fuera del dibujo: los cálculos no recortan sus colas al borde del gráfico. En pantallas estrechas puedes enfocar el marco y desplazarte horizontalmente con las flechas.</p>
+      <figure class="normal-figure"><div class="normal-plot-scroll" tabindex="0" role="region" aria-label="Densidad e intervalo seleccionado; desplazamiento horizontal"><div id="normal-pdf"></div></div><figcaption data-content-role="caption">Densidad f(x). El rayado representa el intervalo entre a y b. Trazo discontinuo largo: media; puntos: media ± desviación; trazo mixto: k. La probabilidad es el área rayada, no su altura.</figcaption></figure>
+      <figure class="normal-figure"><div class="normal-plot-scroll" tabindex="0" role="region" aria-label="Acumulada y punto k seleccionado; desplazamiento horizontal"><div id="normal-cdf"></div></div><figcaption data-content-role="caption">Acumulada F(x). El punto y las guías indican k y F(k); no se sombrea una falsa área de probabilidad bajo F.</figcaption></figure>
+    </section>
+
+    <section id="regla-empirica" data-content-role="recap"><h2>Regla empírica para el modelo normal</h2>
+      <ul><li>\(P(\mu-\sigma\le X\le\mu+\sigma)\approx68{,}27\,\%\): aproximadamente dos de cada tres.</li><li>\(P(\mu-2\sigma\le X\le\mu+2\sigma)\approx95{,}45\,\%\).</li><li>\(P(\mu-3\sigma\le X\le\mu+3\sigma)\approx99{,}73\,\%\).</li></ul>
+      <p>Son probabilidades aproximadas del modelo, no porcentajes garantizados en cada muestra. Estar fuera de estos intervalos no convierte un dato en imposible ni justifica por sí solo eliminarlo.</p>
+    </section>
+    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2>
+      <p>El original incluye esta teoría y el explorador, pero no una tabla normal consultable, ejercicios resueltos independientes, preguntas autocorregibles ni generación procedural. Esos contenidos no se inventan aquí; el resto de archivos se revisará por separado.</p>
+      <p>El explorador no califica ni guarda parámetros o progreso. La lección permanece con contenido parcial.</p>
+    </section>
+    <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="02-distribucion-binomial.html">8.2. Distribución binomial</a> · <a href="index.html">Volver al tema 8</a> · <a href="04-aproximacion-de-la-distribucion-binomial-a-la-distribucion-normal.html">8.4. Aproximación normal (en preparación)</a></nav>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

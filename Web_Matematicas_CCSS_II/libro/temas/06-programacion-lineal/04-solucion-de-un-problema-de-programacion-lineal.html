@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>6.4. Solución de un problema de programación lineal · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t06-e04">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">6.4. Solución de un problema de programación lineal</h1>
+    <p data-content-role="lead">El método gráfico permite comparar decisiones factibles a partir de los vértices de la región. Aplicamos los cinco pasos al ejemplo original de sillas y mesas, con sus cálculos revisados.</p>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#principio">Por qué usar vértices</a> · <a href="#metodo">Cinco pasos</a> · <a href="#modelo">Sillas y mesas</a> · <a href="#region">Región factible</a> · <a href="#evaluacion">Evaluación</a> · <a href="#variante">Variante de beneficio</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+    <section id="principio" data-content-role="theorem"><h2>Por qué basta comparar vértices</h2>
+      <p>Si la región factible es un <strong>polígono cerrado, acotado y no vacío</strong>, una función objetivo lineal alcanza su máximo y su mínimo en al menos un vértice.</p>
+      <p>Si el óptimo es único, está en un vértice. Si varios vértices alcanzan el mismo óptimo, todos los puntos del segmento que los une también lo alcanzan: el óptimo puede no ser único.</p>
+      <p>Antes de aplicar esta comparación, comprueba las condiciones del problema. Una región vacía no admite soluciones; una región no acotada requiere estudiar si existe el extremo buscado.</p>
+    </section>
+    <section id="metodo" data-content-role="procedure"><h2>Algoritmo de resolución: cinco pasos</h2><ol>
+      <li><strong>Plantear:</strong> define las variables y traduce el enunciado a una tabla, restricciones y función objetivo.</li>
+      <li><strong>Dibujar:</strong> representa la región que cumple simultáneamente todas las restricciones.</li>
+      <li><strong>Calcular los vértices:</strong> resuelve las intersecciones de fronteras y conserva solo las que sean factibles.</li>
+      <li><strong>Evaluar:</strong> sustituye cada vértice en la función objetivo.</li>
+      <li><strong>Decidir:</strong> elige el máximo o mínimo pedido e interpreta la solución y sus unidades.</li>
+    </ol></section>
+    <section id="modelo" data-content-role="worked-example"><h2>Ejemplo resuelto: sillas y mesas</h2>
+      <p>Un carpintero dispone de <strong>18 horas de corte y 42 horas de montaje</strong>. Cada silla requiere 2 horas de corte y 1 de montaje, y aporta 30 € de beneficio. Cada mesa requiere 2 horas de corte y 3 de montaje, y aporta 50 €. ¿Qué debe fabricar para obtener el máximo beneficio?</p>
+      <h3>1. Plantear el modelo</h3>
+      <p>\[x=\text{número de sillas},\qquad y=\text{número de mesas}.\]</p>
+      <p data-content-role="instruction">Si una tabla no cabe en la pantalla, deslízala horizontalmente. Con teclado, enfoca su marco con Tab y usa las flechas izquierda y derecha.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Tabla de recursos y beneficios">
+      <table data-resource-table><caption>Recursos por unidad y disponibilidad total</caption><thead><tr><th scope="col">Dato</th><th scope="col">Silla</th><th scope="col">Mesa</th><th scope="col">Disponible / meta</th></tr></thead><tbody>
+        <tr><th scope="row">Corte (h)</th><td>2</td><td>2</td><td>18 h</td></tr>
+        <tr><th scope="row">Montaje (h)</th><td>1</td><td>3</td><td>42 h</td></tr>
+        <tr><th scope="row">Beneficio (€)</th><td>30</td><td>50</td><td>Maximizar</td></tr>
+      </tbody></table></div>
+      <p>\[\text{Maximizar }Z(x,y)=30x+50y\]</p>
+      <p>\[\text{sujeto a }\begin{cases}2x+2y\le18\\x+3y\le42\\x\ge0,\quad y\ge0.\end{cases}\]</p>
+      <p>El modelo gráfico admite variables reales. Como contamos objetos enteros, comprobaremos que la solución obtenida también es entera.</p>
+    </section>
+    <section id="region" data-content-role="visualization"><h2>2. Dibujar la región factible</h2>
+      <p>La restricción de corte equivale a \(x+y\le9\). En el primer cuadrante determina un triángulo. La de montaje no lo recorta, porque para todos sus puntos:</p>
+      <p>\[x+3y\le3(x+y)\le27&lt;42.\]</p>
+      <p>La restricción de montaje es <strong>redundante</strong>: ya se cumple cuando se cumplen las otras tres condiciones. Se mantiene en el modelo porque forma parte del enunciado.</p>
+      <figure>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 380" width="500" role="img" aria-labelledby="region-title region-desc" data-source-diagram>
+        <title id="region-title">Región factible de sillas y mesas</title>
+        <desc id="region-desc">Ejes con la misma escala. El triángulo rayado tiene vértices A (0,0), B (9,0) y C (0,9). La frontera de corte pasa por B y C. La frontera de montaje pasa por (0,14) y queda por encima de todo el triángulo.</desc>
+        <defs><pattern id="region-rayado" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 8L8 0" stroke="currentColor" stroke-width="1" opacity=".35"/></pattern></defs>
+        <path data-feasible-region d="M50 330L230 330L50 150Z" fill="url(#region-rayado)" stroke="currentColor" stroke-width="2"/>
+        <g stroke="currentColor" fill="none" stroke-width="2">
+          <path data-boundary="corte" d="M50 150L230 330"/>
+          <path data-boundary="montaje" d="M50 50L290 130"/>
+          <path d="M35 330H315M50 345V25"/>
+        </g>
+        <g fill="white" stroke="currentColor" stroke-width="2">
+          <circle data-vertex="A" cx="50" cy="330" r="4"/><circle data-vertex="B" cx="230" cy="330" r="4"/><circle data-vertex="C" cx="50" cy="150" r="4"/>
+        </g>
+        <g fill="currentColor" font-family="system-ui,sans-serif" font-size="14">
+          <text x="54" y="17">y (mesas)</text><text x="230" y="374">x (sillas)</text>
+          <text x="15" y="354">A (0,0)</text><text x="198" y="354">B (9,0)</text><text x="59" y="146">C (0,9)</text>
+          <text x="57" y="46">(0,14)</text><text x="156" y="76">Montaje: x+3y=42</text>
+          <text x="143" y="204">Corte: x+y=9</text><text x="66" y="297">Región factible</text>
+        </g>
+      </svg>
+      <figcaption data-content-role="caption">Escala uniforme: 20 píxeles por unidad. Región factible: triángulo de vértices (0,0), (9,0) y (0,9), con los bordes incluidos. La recta de montaje no toca esta región.</figcaption>
+      </figure>
+    </section>
+    <section id="vertices" data-content-role="worked-example"><h2>3. Calcular y comprobar los vértices</h2>
+      <ul><li>Los dos ejes se cortan en \(A=(0,0)\).</li><li>Con \(y=0\), la frontera \(x+y=9\) da \(B=(9,0)\).</li><li>Con \(x=0\), la misma frontera da \(C=(0,9)\).</li></ul>
+      <details data-content-role="solution"><summary>Comprobar las intersecciones descartadas</summary>
+        <p>Las dos rectas de recursos se cortan al resolver:</p>
+        <p>\[\begin{cases}x+y=9\\x+3y=42\end{cases}\Rightarrow 2y=33\Rightarrow (x,y)=\left(-\frac{15}{2},\frac{33}{2}\right).\]</p>
+        <p>Ese punto tiene \(x&lt;0\), por lo que queda fuera del dominio. Los cortes de la recta de montaje con los ejes, (0,14) y (42,0), tampoco son factibles: necesitan, respectivamente, 28 y 84 horas de corte.</p>
+        <p>El punto (3,12) que figuraba en el gráfico de partida consume \(2\cdot3+2\cdot12=30\) horas de corte, más de las 18 disponibles. No puede ser un vértice factible ni una solución del problema.</p>
+      </details>
+    </section>
+    <section id="evaluacion" data-content-role="worked-example"><h2>4. Evaluar el beneficio</h2>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Evaluación del beneficio original">
+      <table data-objective="30"><caption>Beneficio original: \(Z=30x+50y\)</caption><thead><tr><th scope="col">Vértice (sillas, mesas)</th><th scope="col">Cálculo</th><th scope="col">Beneficio</th></tr></thead><tbody>
+        <tr data-point="0,0" data-value="0"><th scope="row">A (0,0)</th><td>\(30\cdot0+50\cdot0\)</td><td>0 €</td></tr>
+        <tr data-point="9,0" data-value="270"><th scope="row">B (9,0)</th><td>\(30\cdot9+50\cdot0\)</td><td>270 €</td></tr>
+        <tr data-point="0,9" data-value="450"><th scope="row">C (0,9)</th><td>\(30\cdot0+50\cdot9\)</td><td><strong>450 € · máximo</strong></td></tr>
+      </tbody></table></div>
+      <h3>5. Decidir e interpretar</h3>
+      <p data-content-role="key-idea"><strong>Debe fabricar 0 sillas y 9 mesas, con un beneficio máximo de 450 €.</strong> Utiliza las 18 horas de corte y 27 de montaje; sobran 15 horas de montaje.</p>
+      <p>Es el único máximo: \(Z=50(x+y)-20x\le450\), y la igualdad exige \(x=0\) e \(y=9\). La solución es entera, por lo que también resuelve el problema de fabricar objetos indivisibles.</p>
+    </section>
+    <section id="variante" data-content-role="worked-example"><h2>Variante original: beneficio de 40 € por silla</h2>
+      <p>El material de partida también plantea cambiar el beneficio de cada silla a 40 €, conservando el resto de los datos. Es un <strong>segundo supuesto</strong>; no modifica el beneficio de 30 € del enunciado anterior.</p>
+      <p>La región y los vértices son los mismos: solo cambia la función objetivo a \(Z_2=40x+50y\).</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Evaluación de la variante de beneficio">
+      <table data-objective="40"><caption>Variante: \(Z_2=40x+50y\)</caption><thead><tr><th scope="col">Vértice (sillas, mesas)</th><th scope="col">Cálculo</th><th scope="col">Beneficio</th></tr></thead><tbody>
+        <tr data-point="0,0" data-value="0"><th scope="row">A (0,0)</th><td>\(40\cdot0+50\cdot0\)</td><td>0 €</td></tr>
+        <tr data-point="9,0" data-value="360"><th scope="row">B (9,0)</th><td>\(40\cdot9+50\cdot0\)</td><td>360 €</td></tr>
+        <tr data-point="0,9" data-value="450"><th scope="row">C (0,9)</th><td>\(40\cdot0+50\cdot9\)</td><td><strong>450 € · máximo</strong></td></tr>
+      </tbody></table></div>
+      <p>El máximo sigue siendo único y se obtiene con <strong>0 sillas y 9 mesas: 450 €</strong>. Ahora \(Z_2=50(x+y)-10x\le450\), con igualdad solo en ese punto. Cambiar el beneficio no vuelve factible una combinación que incumple los recursos.</p>
+    </section>
+    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2><p>Esta fuente aporta un ejemplo resuelto y su variante, pero no contiene práctica autocorregible, preguntas procedurales ni explorador editable. Esas actividades permanecen pendientes. También faltan ejemplos desarrollados de óptimo múltiple y de ausencia de óptimo.</p></section>
+    <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="03-programacion-lineal.html">Anterior: programación lineal</a> · <a href="index.html">Volver al tema 6</a> · <a href="05-problemas-de-programacion-lineal.html">Siguiente: problemas de programación lineal (contenido parcial)</a></nav>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+\input{estilo.tex}
+\hypersetup{pdftitle={Repaso de Análisis - Exámenes 1 y 2 - Soluciones revisadas}}
+\begin{document}
+
+\section*{Examen 1 - Ejercicio 1: función a trozos}
+Soluciones originales revisadas; se elaboran las gráficas. Se conservan ambos exámenes independientes y sus puntuaciones.
+\begin{enumerate}[label=(\alph*)]
+\item En 0, $f(0)=2$ y el límite derecho es $-b$. Continuidad exige $b=-2$. La derivada izquierda vale $a$ y la derecha $-1-b$, luego $\boxed{a=1,b=-2}$. La derivada en 0 se afirma tras comprobar continuidad y coincidencia de las derivadas laterales, no por aplicar una rama fuera de su intervalo.
+\item Con los parámetros anteriores, en $x=2$ rige $(x-2)/(x-1)$. Así $f(2)=0$ y $f'(2)=1$, por lo que la tangente es $\boxed{y=x-2}$.
+\item La normal pasa por $(2,0)$ y tiene pendiente $-1$: $\boxed{y=-x+2}$. Las pendientes multiplicadas dan $-1$.
+\end{enumerate}
+El dominio es $\mathbb R\setminus\{1\}$; en $x=1$ la rama racional tiene un polo. No se exige continuidad en todo el dominio extendido a ese punto excluido.
+\clearpage
+\section*{Examen 1 - Ejercicio 2: cuatro derivadas}
+Hay cuatro opciones y se piden cuatro: se mantienen todas. No se inventa una quinta opción. El bloque vale 2,4 puntos; el original rotula las opciones con letras en el campo de puntos y no especifica un reparto numérico individual. No se impone aquí uno nuevo.
+\begin{enumerate}[label=(\alph*)]
+\item Cadena y cociente, con $x\ne-3/2$:
+\[
+f'(x)=\boxed{\frac{3(3x^2-5)^2(6x^2+18x+10)}{(2x+3)^4}}.
+\]
+\item $\boxed{(\sin^2x)'=2\sin x\cos x=\sin(2x)}$, para todo real.
+\item Como $x^2+4>0$, el dominio es real. Simplificando el cociente:
+\[
+f'(x)=\boxed{\frac{-x^4+12x^2+16x}{(x^2+4)^3}}.
+\]
+\item Por cadena, $\boxed{f'(x)=(6x-1)e^{3x^2-x+2}}$, para todo real.
+\end{enumerate}
+Se corrigen las roturas tipográficas de ecuaciones del original, conservando las expresiones y reglas matemáticas correctas.
+\clearpage
+\section*{Examen 1 - Ejercicio 3: cuatro límites}
+\begin{enumerate}[label=(\alph*)]
+\item Racionalizando para $x\ne0$ y $|x|\leq1$,
+\[
+\frac{1-\sqrt{1-x^2}}{x^2}=\frac1{1+\sqrt{1-x^2}}\longrightarrow\boxed{\frac12}.
+\]
+Se evita presentar una aproximación de Taylor como igualdad exacta.
+\item $3^x-x^5=3^x(1-x^5/3^x)\to\boxed{+\infty}$ porque $x^5/3^x\to0$.
+\item Para $x\to+\infty$, $\sqrt{x^2}=x$ y
+\[
+\frac{5x+7}{\sqrt{2x^2+3}}=\frac{5+7/x}{\sqrt{2+3/x^2}}\to\boxed{5/\sqrt2}.
+\]
+\item \textbf{M34:} el original no indica la tendencia del último límite. Se explicita $x\to+\infty$, conforme al resultado de su solución. Para $x>1$, la base es positiva y
+\[
+\ln\left[\left(1-\frac1{x^2}\right)^x\right]
+=x\ln(1-x^{-2})\to0,
+\]
+por tanto el límite es $\boxed1$. Esta aclaración se identifica también en el enunciado revisado.
+\end{enumerate}
+\clearpage
+\section*{Examen 1 - Ejercicio 4: distancia del cohete}
+\begin{enumerate}[label=(\alph*)]
+\item $\boxed{D(0)=100}$ y $\boxed{D(2)=20}$. Son las unidades de distancia de la función; el enunciado no las especifica. La solución original las interpreta como miles de kilómetros, lo que daría 100000 y 20000 km. Esa escala se identifica como interpretación del solucionario, sin atribuirla a un dato ausente del enunciado.
+\item $\boxed{\lim_{t\to+\infty}D(t)=0}$. Para cualquier tiempo finito $t\geq0$, $100/(t^2+1)>0$: el modelo no describe una llegada en tiempo finito. Su derivada es $-200t/(t^2+1)^2$, negativa para $t>0$.
+\end{enumerate}
+El límite del original es correcto. Se distingue acercamiento asintótico de llegada efectiva, en coherencia con la revisión M14 de otros materiales.
+\clearpage
+\section*{Examen 2 - Ejercicio 1: función cúbica}
+\begin{enumerate}[label=(\alph*)]
+\item $f=x(x-1)(x-2)$: cortes $(0,0),(1,0),(2,0)$ y corte con OY $(0,0)$. Escribiendo $u=x-1$, $f=u^3-u$.
+
+Los puntos críticos son $x_-=1-1/\sqrt3$ y $x_+=1+1/\sqrt3$. Crece en cada intervalo $(-\infty,x_-)$ y $(x_+,\infty)$ y decrece entre ellos. Máximo relativo $(x_-,2/(3\sqrt3))$ y mínimo relativo $(x_+,-2/(3\sqrt3))$.
+
+Como $f''=6x-6$, curvatura negativa para $x<1$ y positiva para $x>1$; inflexión $(1,0)$ por cambio de signo, no solo por anularse la segunda derivada.
+\item Gráfica elaborada, que completa la indicación meramente descriptiva del original:
+\end{enumerate}
+\begin{center}\begin{tikzpicture}\begin{axis}[revision,xmin=-.5,xmax=2.5,ymin=-2,ymax=2]
+\addplot[blue,thick,domain=-.5:2.5]{x^3-3*x^2+2*x};
+\addplot[only marks] coordinates {(0,0)(1,0)(2,0)};
+\end{axis}\end{tikzpicture}\end{center}
+\clearpage
+\section*{Examen 2 - Ejercicio 2: continuidad sin derivabilidad}
+El dominio es $[0,\infty)$. La función es continua en él, incluida continuidad por la derecha en 0. En 2, ambos límites y el valor son $4/3$.
+\[
+f'_-(2)=4/3,\qquad f'_+(2)=-4/9.
+\]
+No es derivable en 2; sí en $(0,2)$ y $(2,\infty)$. En 0 existe derivada derecha 0, no una derivada bilateral en un entorno abierto del dominio.
+
+Crece estrictamente en $[0,2]$ y decrece en $[2,\infty)$. Máximo absoluto $\boxed{(2,4/3)}$ y mínimo absoluto $f(0)=0$.
+
+\textbf{M35:} no hay ``salto suave'': la función es continua, con un punto angular en 2. La derivada en 0 vale 0 por la derecha, de modo que no es correcto afirmar positividad de la derivada en todo $[0,2]$.
+\begin{center}\begin{tikzpicture}\begin{axis}[revision,xmin=0,xmax=8,ymin=0,ymax=1.6]
+\addplot[blue,thick,domain=0:2]{x^2/3};\addplot[blue,thick,domain=2:8]{4/(x+1)};
+\addplot[only marks] coordinates {(0,0)(2,1.33333333)};
+\end{axis}\end{tikzpicture}\end{center}
+\clearpage
+\section*{Examen 2 - Ejercicio 3: asíntotas}
+El dominio de $f(x)=1/((x-2)(x-1))$ es $\mathbb R\setminus\{1,2\}$. Como el numerador no se anula, ambos polos son efectivos:
+\[
+\lim_{x\to1^-}f=+\infty,\quad\lim_{x\to1^+}f=-\infty,
+\]
+\[
+\lim_{x\to2^-}f=-\infty,\quad\lim_{x\to2^+}f=+\infty.
+\]
+Asíntotas verticales $\boxed{x=1,x=2}$. En ambos infinitos, $f(x)\to0$: asíntota horizontal $\boxed{y=0}$. No hay asíntota oblicua distinta.
+\clearpage
+\section*{Examen 2 - Ejercicio 4: temperatura}
+\begin{enumerate}[label=(\alph*)]
+\item En 1 y 11, la rama cuadrática toma límite $-9$, igual a las ramas constantes. La función es continua en $[0,24]$.
+\item Entre 1 y 11, $f(t)=16-(t-6)^2$; máximo absoluto 16 en $t=6$. Gráfica elaborada:
+\end{enumerate}
+\begin{center}\begin{tikzpicture}\begin{axis}[revision,height=5cm,xmin=0,xmax=24,ymin=-11,ymax=18,xlabel={$t$},ylabel={$f(t)$}]
+\addplot[blue,thick,domain=0:1]{-9};\addplot[blue,thick,domain=1:11]{16-(x-6)^2};\addplot[blue,thick,domain=11:24]{-9};
+\addplot[only marks] coordinates {(2,0)(6,16)(10,0)};
+\end{axis}\end{tikzpicture}\end{center}
+\begin{enumerate}[label=(\alph*),start=3]
+\item \textbf{M20:} la curva por sí sola no permite conocer el instante de restitución eléctrica. Solo si se adopta la interpretación del original de que el corte coincide con todo el tramo no constante, comienza en 1 y dura 10 horas hasta 11. Es una hipótesis adicional, no una deducción única de temperaturas.
+\item \textbf{M32/M33:} el enunciado pregunta por sueros y vacunas pero no aporta umbrales de conservación. La solución original añade: sueros si se alcanza 20 grados y vacunas si se superan 0 grados durante más de 6 horas. No se presentan como criterios sanitarios generales; son reglas del ejercicio ausentes de su enunciado.
+
+Bajo esas reglas, no se cumple el umbral de sueros porque el máximo es 16. Para vacunas,
+\[
+16-(t-6)^2>0\iff2<t<10.
+\]
+La duración es $\boxed8$ horas, mayor que 6: \textbf{sí se cumple el criterio del ejercicio para vacunas}. Se corrigen las raíces 3,1 y 8,9 y la conclusión del original. Sin incorporar explícitamente sus reglas, el enunciado es insuficiente para decidir daños.
+\end{enumerate}
+\end{document}

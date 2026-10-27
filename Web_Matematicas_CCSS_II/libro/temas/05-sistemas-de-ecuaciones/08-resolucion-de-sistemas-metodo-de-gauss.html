@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>5.8. Resolución de sistemas. Método de Gauss · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t05-e08">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+
+    <h1 data-content-role="lesson-title">5.8. Resolución de sistemas mediante el método de Gauss</h1>
+    <p class="lead" data-content-role="lead">Elimina incógnitas de forma ordenada hasta obtener ecuaciones sencillas. La misma transformación permite saber si hay una solución, infinitas o ninguna.</p>
+    <nav aria-label="Contenido de la lección"><a href="#objetivos">Objetivos</a> · <a href="#metodo">Método</a> · <a href="#ejemplos">Ejemplos</a> · <a href="#explorador">Explorador</a> · <a href="#practica">Práctica</a> · <a href="#tarjetas">Tarjetas</a></nav>
+    <section id="objetivos" class="learning-goals" data-content-role="learning-goals"><h2>1. Qué vas a aprender</h2><ul><li>Escalonar una matriz ampliada sin alterar sus soluciones.</li><li>Elegir pivotes y evitar divisiones entre cero.</li><li>Resolver por sustitución hacia atrás con fracciones exactas.</li><li>Reconocer contradicciones y expresar todas las soluciones mediante parámetros.</li></ul><p>Repasa <a href="04-notacion-matricial-de-un-sistema-de-ecuaciones.html">notación matricial (5.4)</a>, <a href="05-sistemas-equivalentes.html">sistemas equivalentes (5.5)</a> y <a href="06-teorema-de-rouche-frobenius.html">Rouché–Frobenius (5.6)</a>. Trabajamos sobre los números reales.</p></section>
+    <section id="metodo" data-content-role="theory"><h2>2. De las ecuaciones a una escalera</h2>
+    <div class="definition" data-content-role="definition"><p>El <strong>método de Gauss</strong> transforma \((A|B)\) mediante operaciones elementales por filas hasta obtener una matriz escalonada. Las filas nulas quedan abajo; el primer elemento no nulo de cada fila, llamado <strong>pivote</strong>, queda a la derecha del anterior y tiene ceros debajo.</p></div>
+    <p>Podemos intercambiar dos filas, multiplicar una fila por un número no nulo o sumarle un múltiplo de otra fila. Cada operación actúa sobre <strong>la fila completa, incluida B</strong>, y es reversible; por eso conserva exactamente el conjunto solución.</p>
+    <p>No se exige que A sea cuadrada ni invertible. Tampoco es obligatorio convertir los pivotes en unos; el explorador lo hace para facilitar la lectura. La forma escalonada basta para resolver de abajo arriba. Anular también las entradas por encima de los pivotes corresponde a continuar hasta la forma reducida, como en Gauss–Jordan.</p>
+    <h3>Algoritmo, paso a paso</h3><ol data-content-role="worked-steps"><li>Ordena las incógnitas y escribe la matriz ampliada.</li><li>Busca un coeficiente no nulo en la columna actual, entre la fila en la que trabajas y las inferiores. Si hace falta, intercambia filas. Si no hay ninguno, pasa a la siguiente columna.</li><li>Con ese pivote, anula las entradas situadas debajo sumando múltiplos de su fila. Para anular una entrada a bajo un pivote p, usa \(F_i\leftarrow F_i-\frac{a}{p}F_{\mathrm{pivote}}\).</li><li>Continúa en la fila siguiente y hacia la derecha. Nunca divides entre un pivote cero.</li><li>Interpreta las filas, asigna parámetros a las incógnitas libres y resuelve de abajo arriba.</li><li>Sustituye la solución o familia en todas las ecuaciones originales.</li></ol>
+    <h3>Cómo leer el resultado</h3><ul><li>\((0,\ldots,0|c)\), con \(c\ne0\), significa \(0=c\): <strong>SI</strong>. No hay solución.</li><li>Una fila \((0,\ldots,0|0)\) significa \(0=0\): no añade condiciones.</li><li>Si no hay contradicción y cada incógnita tiene pivote: <strong>SCD</strong>.</li><li>Si no hay contradicción y quedan columnas de incógnitas sin pivote: <strong>SCI</strong>. Cada una recibe un parámetro real independiente.</li></ul>
+    <div class="key-idea" data-content-role="key-idea"><p>En un sistema compatible hay \(n-r\) variables libres, donde r es el rango de A y n el número de incógnitas. Un pivote en la columna B indica contradicción: B no es una incógnita adicional.</p></div>
+    <p>Las filas nulas no bastan para clasificar: en un sistema de tres ecuaciones y dos incógnitas puede sobrar una ecuación y seguir habiendo solución única. Hay que revisar todas las filas y contar los pivotes de las incógnitas.</p></section>
+    <section id="ejemplos" data-content-role="worked-example"><h2>3. Ejemplos resueltos</h2>
+    <h3>Ejemplo 1. Tres incógnitas y sustitución hacia atrás</h3>
+    <p>\[\begin{cases}x+y+z=6\\2x-y=0\\y-z=-1.\end{cases}\qquad
+    \left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;6\\2&amp;-1&amp;0&amp;0\\0&amp;1&amp;-1&amp;-1\end{array}\right).\]</p>
+    <p>Aplicamos \(F_2\leftarrow F_2-2F_1\), después \(F_2\leftarrow-\frac13F_2\) y finalmente \(F_3\leftarrow F_3-F_2\):</p>
+    <p>\[\left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;6\\0&amp;-3&amp;-2&amp;-12\\0&amp;1&amp;-1&amp;-1\end{array}\right)
+    \longrightarrow\left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;6\\0&amp;1&amp;2/3&amp;4\\0&amp;0&amp;-5/3&amp;-5\end{array}\right).\]</p>
+    <p>Hay tres pivotes y ninguna contradicción. La última fila da \(-5z/3=-5\), luego z=3. En la segunda, \(y+(2/3)3=4\), así que y=2; en la primera, \(x+2+3=6\), luego x=1. Solución única: (1,2,3). Comprobación: 1+2+3=6, 2−2=0 y 2−3=−1.</p>
+    <h3>Ejemplo 2. El primer coeficiente es cero</h3>
+    <p>\[\left(\begin{array}{cc|c}0&amp;2&amp;4\\1&amp;1&amp;3\end{array}\right)
+    \xrightarrow{F_1\leftrightarrow F_2}
+    \left(\begin{array}{cc|c}1&amp;1&amp;3\\0&amp;2&amp;4\end{array}\right).\]</p>
+    <p>No se divide entre cero: se intercambian filas. De 2y=4 sale y=2, y de x+y=3 sale x=1. Se cumplen las dos ecuaciones originales. El cero inicial no era una contradicción.</p>
+    <h3>Ejemplo 3. Fracciones que no deben redondearse</h3>
+    <p>\[\left(\begin{array}{cc|c}2&amp;1&amp;1\\1&amp;2&amp;0\end{array}\right)
+    \xrightarrow{F_2\leftarrow F_2-\frac12F_1}
+    \left(\begin{array}{cc|c}2&amp;1&amp;1\\0&amp;3/2&amp;-1/2\end{array}\right).\]</p>
+    <p>Resulta \(y=(-1/2)/(3/2)=-1/3\) y \(x=(1-y)/2=2/3\). Comprobamos \(2(2/3)-1/3=1\) y \(2/3+2(-1/3)=0\). Normalizar antes la primera fila conduce a la misma solución.</p>
+    <h3>Ejemplo 4. Una fila nula y una variable libre</h3>
+    <p>\[\left(\begin{array}{cc|c}1&amp;1&amp;3\\2&amp;2&amp;6\end{array}\right)
+    \xrightarrow{F_2\leftarrow F_2-2F_1}
+    \left(\begin{array}{cc|c}1&amp;1&amp;3\\0&amp;0&amp;0\end{array}\right).\]</p>
+    <p>Solo queda x+y=3. La columna de y no tiene pivote; tomamos \(y=t\), \(t\in\mathbb R\), y obtenemos \(x=3-t\). La familia \((3-t,t)\) verifica ambas ecuaciones: \(3-t+t=3\) y \(2(3-t)+2t=6\). Es SCI. Fijar t=0 daría solo una de sus infinitas soluciones.</p>
+    <h3>Ejemplo 5. La última columna cambia la compatibilidad</h3>
+    <p>Si en el ejemplo anterior el segundo término independiente fuese 7, la misma operación produciría</p>
+    <p>\[\left(\begin{array}{cc|c}1&amp;1&amp;3\\0&amp;0&amp;1\end{array}\right).\]</p>
+    <p>La última fila es 0=1, imposible. El sistema es SI. No se puede ignorar esta fila ni interpretar el 1 como el valor de y.</p>
+    <h3>Ejemplo 6. Sistema rectangular y columnas sin pivote</h3>
+    <p>Las ecuaciones \(x+z=2,\ y-z=1\) ya están escalonadas. Hay dos pivotes para tres incógnitas. Tomamos \(z=t\) y despejamos:</p>
+    <p>\[(x,y,z)=(2-t,1+t,t),\qquad t\in\mathbb R.\]</p>
+    <p>Se verifica \(2-t+t=2\) y \(1+t-t=1\). No hace falta una matriz cuadrada. Si, en cambio, el sistema fuera \(y+z=2,\ 2y+2z=4\), la primera columna no tendría pivote. Tras eliminar la segunda fila, x y z serían libres: \((x,y,z)=(s,2-t,t)\), con s,t reales independientes.</p></section>
+    <section id="explorador" data-content-role="guided-practice"><h2>4. Recorre Gauss paso a paso</h2><p>Predice la siguiente operación antes de avanzar. Compara el caso con una fila nula y el que acaba en contradicción. Después prueba un sistema rectangular y uno con la primera columna nula.</p><div class="activity" data-gauss-explorer></div><p>Reto: resuelve una variante a mano y compara tu procedimiento con el mostrado. Puede haber varias secuencias correctas de operaciones; deben conducir al mismo conjunto solución. Para elegir tú las operaciones, utiliza el <a href="05-sistemas-equivalentes.html#explorador">taller de filas de 5.5</a>.</p></section>
+    <section id="practica" data-content-role="guided-practice"><h2>5. Práctica contextual y test</h2><p>Un pedido contiene nueve cuadernos: x de un modelo a 2 € e y de otro a 3 €. Se pagan 23 €. Plantea y resuelve mediante Gauss; interpreta y comprueba la respuesta. Los precios son datos didácticos.</p><details data-content-role="hint"><summary>Pista</summary><p>La primera fila cuenta cuadernos y la segunda recoge el importe. Resta dos veces la primera ecuación a la segunda.</p></details><details data-content-role="solution"><summary>Ver solución razonada</summary><p>\[\left(\begin{array}{cc|c}1&amp;1&amp;9\\2&amp;3&amp;23\end{array}\right)\xrightarrow{F_2\leftarrow F_2-2F_1}\left(\begin{array}{cc|c}1&amp;1&amp;9\\0&amp;1&amp;5\end{array}\right).\]</p><p>De abajo arriba: y=5 y x=9−5=4. Son cantidades enteras no negativas: cuatro cuadernos del primer modelo y cinco del segundo. Comprobación: 4+5=9 y \(2\cdot4+3\cdot5=23\). Es el mismo resultado que por inversa, obtenido sin calcularla. Esta práctica se resuelve en el texto; el editor admite entradas entre −9 y 9.</p></details><div class="activity" data-quiz="t05-e08" data-content-role="self-check"></div></section>
+    <section data-content-role="common-errors"><h2>6. Errores frecuentes</h2><ul><li>Transformar A y olvidar B.</li><li>Dividir entre un pivote cero o borrar una fila multiplicándola por cero.</li><li>Confundir 0=0 con 0=c no nulo.</li><li>Dar como solución los términos independientes sin hacer sustitución hacia atrás.</li><li>Fijar a cero las variables libres y presentar una solución particular como la familia completa.</li><li>Contar la columna B como si fuera una incógnita o concluir SCI únicamente por una fila nula.</li><li>Redondear las fracciones durante la eliminación.</li></ul></section>
+    <section data-content-role="summary"><h2>7. Resumen</h2><p>Ordena, escalona con operaciones reversibles y lee el resultado. Una contradicción implica SI; sin contradicciones, los pivotes y las variables libres distinguen SCD de SCI. Sustituye de abajo arriba y comprueba todas las ecuaciones originales. El método admite sistemas cuadrados y rectangulares.</p></section>
+    <section id="tarjetas"><h2>8. Tarjetas de repaso</h2><div class="activity" data-flashcards="t05-e08"></div></section>
+    <section data-content-role="related-links"><h2>Continúa</h2><p><a href="07-resolucion-de-sistemas-matriz-inversa.html">5.7. Matriz inversa</a> · <a href="index.html">Índice de sistemas de ecuaciones</a> · <a href="index.html#repaso">Repaso integrado de sistemas</a> · <a href="../../../test/index.html?tema=t05">Test disponible de sistemas</a> · <a href="09-resolucion-de-sistemas-regla-de-cramer.html">5.9. Regla de Cramer</a></p></section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+
+    <section id="juego-recomendado" data-content-role="transfer"><h2>Practica lo aprendido</h2><p><a href="../../../laboratorios/juegos/t05-b-gauss-paso-a-paso.html">Gauss paso a paso</a>. Aplica operaciones sobre filas, prueba distintas rutas y clasifica el sistema escalonado.</p><p><a href="index.html#ruta-juegos">Ver el recorrido de juegos del tema 5</a></p></section>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

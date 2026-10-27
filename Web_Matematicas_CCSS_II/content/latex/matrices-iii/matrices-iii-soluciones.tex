@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+\input{estilo.tex}
+\hypersetup{pdftitle={Matrices III - Soluciones revisadas}}
+\begin{document}
+\section*{Matrices III: soluciones}
+Solucionario elaborado en esta revisión a partir de F016. El ZIP original no incluía soluciones.
+\section*{Ejercicio 1(a): factor común y ecuación}
+Como $X$ aparece a la derecha en ambos sumandos, la propiedad distributiva da
+\[AX+BX=(A+B)X.\]
+No se cambia el orden de los factores. Con las matrices del enunciado,
+\[
+H=A+B=\begin{pmatrix}1&0\\2&1\end{pmatrix},\qquad\det H=1.
+\]
+Existe inversa:
+\[
+H^{-1}=\begin{pmatrix}1&0\\-2&1\end{pmatrix},\qquad
+HH^{-1}=H^{-1}H=I_2.
+\]
+Multiplicamos por ella a la izquierda:
+\[
+X=H^{-1}C=\begin{pmatrix}1&0\\-2&1\end{pmatrix}
+\begin{pmatrix}2&1\\3&2\end{pmatrix}
+=\boxed{\begin{pmatrix}2&1\\-1&0\end{pmatrix}}.
+\]
+\textbf{Comprobación en la ecuación original:}
+\[
+AX=\begin{pmatrix}1&0\\2&1\end{pmatrix},\quad
+BX=\begin{pmatrix}1&1\\1&1\end{pmatrix},\quad
+AX+BX=\begin{pmatrix}2&1\\3&2\end{pmatrix}=C.
+\]
+La solución es única porque $A+B$ es invertible.
+\section*{Ejercicio 1(b): potencias}
+\[
+A^2=\begin{pmatrix}0&-1\\1&0\end{pmatrix}^2
+=\begin{pmatrix}-1&0\\0&-1\end{pmatrix}=-I_2.
+\]
+Por tanto,
+\[
+\boxed{A^4=(A^2)^2=I_2},\qquad
+\boxed{A^{80}=(A^4)^{20}=I_2}.
+\]
+Se conservan los exponentes 4 y 80 del original. El ciclo de potencias se repite cada cuatro exponentes.
+\clearpage
+\section*{Ejercicio 2: operaciones y dimensiones}
+Se muestran las cinco respuestas para consulta. En el examen se deben elegir \textbf{solo cuatro}; el ejercicio completo vale 2,5 puntos.
+
+Aquí $A,B$ son $2\times2$, $C$ es $2\times1$ y $D$ es $1\times2$. Se utilizan las matrices propias del ejercicio 2.
+\subsection*{1. $AC^t+BD^t$}
+$C^t$ tiene dimensión $1\times2$. El producto $AC^t$ no existe, porque las dimensiones internas son 2 y 1. Por ello la operación completa \textbf{no está definida}, aunque $BD^t$ sí exista.
+\subsection*{2. $(A+B)C$}
+\[
+A+B=\begin{pmatrix}4&2\\-2&-1\end{pmatrix},\qquad
+\boxed{(A+B)C=\begin{pmatrix}-10\\5\end{pmatrix}}.
+\]
+El producto tiene dimensión $2\times1$.
+\subsection*{3. $B^2+CD$}
+\[
+B^2=\begin{pmatrix}10&0\\0&10\end{pmatrix},\qquad
+CD=\begin{pmatrix}0&-6\\0&-3\end{pmatrix}.
+\]
+Ambas son $2\times2$:
+\[\boxed{B^2+CD=\begin{pmatrix}10&-6\\0&7\end{pmatrix}}.\]
+\subsection*{4. $|-2A|$}
+Como $A$ es de orden 2,
+\[|-2A|=(-2)^2|A|=4\bigl(2\cdot1-(-1)(-4)\bigr)=4(-2)=\boxed{-8}.\]
+\subsection*{5. $|C^tC|$}
+Este producto \textbf{sí está definido}: $(1\times2)(2\times1)$ da una matriz $1\times1$.
+\[C^tC=\begin{pmatrix}-2&-1\end{pmatrix}\begin{pmatrix}-2\\-1\end{pmatrix}=\begin{pmatrix}5\end{pmatrix}.\]
+El determinante de una matriz de orden 1 es su único elemento:
+\[\boxed{|C^tC|=5}.\]
+No se confunde con $|C|$, que no estaría definido por ser $C$ rectangular.
+\clearpage
+\section*{Ejercicio 3: igualdad $MA=A$}
+La multiplicación a la izquierda por $M$ intercambia las dos filas:
+\[
+MA=\begin{pmatrix}0&1\\1&0\end{pmatrix}
+\begin{pmatrix}a&b\\2&1\end{pmatrix}
+=\begin{pmatrix}2&1\\a&b\end{pmatrix}.
+\]
+Imponemos la igualdad con la matriz original:
+\[
+\begin{pmatrix}2&1\\a&b\end{pmatrix}
+=\begin{pmatrix}a&b\\2&1\end{pmatrix}.
+\]
+Igualando las entradas se obtiene $a=2$ y $b=1$; las condiciones de la segunda fila repiten las mismas ecuaciones.
+\[\boxed{a=2,\qquad b=1}.\]
+\textbf{Comprobación:}
+\[
+M\begin{pmatrix}2&1\\2&1\end{pmatrix}
+=\begin{pmatrix}2&1\\2&1\end{pmatrix}=A.
+\]
+Las filas iguales permanecen invariantes al intercambiarlas. Esta matriz $A$ es singular, pero el ejercicio no exige que tenga inversa: la igualdad se verifica directamente por multiplicación.
+\end{document}

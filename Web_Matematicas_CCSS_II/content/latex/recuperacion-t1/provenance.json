@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "pairId": "recuperacion-t1",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-20",
+  "sources": [
+    {
+      "sourceId": "F024",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Recuperación T1.zip",
+      "zipSha256": "fe9c6c519bce835b1944be291879abd2697e35bc83eda452b2a3f26968899732",
+      "entry": "main.tex",
+      "texSha256": "6cd2c0739f5dfd30458d9dea012e11d7d6de4993dee7b890e3370087564fdff0"
+    },
+    {
+      "sourceId": "F023",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Recuperación T1 Soluciones.zip",
+      "zipSha256": "f5f648c8defdd27e725d6aa12381ac4cd46b604ddcef258ba92bce7ed071f47d",
+      "entry": "main.tex",
+      "texSha256": "380ebf619552affae1f901a1f1112d541204db8b45acfd4e680401086f7200f0"
+    }
+  ],
+  "assets": [
+    {
+      "file": "logo-al-andalus.png",
+      "sourceId": "F024",
+      "entry": "Logo AL-ANDALUS.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    }
+  ],
+  "preserved": {
+    "exercises": 2,
+    "parts": 4,
+    "points": [2, 2, 4, 2],
+    "durationMinutes": 55,
+    "calculatorAllowed": true
+  },
+  "corrections": ["M08", "M15"],
+  "answers": {
+    "parameters": {"a": 10, "b": 5, "valueAtJoin": 7, "derivativeAtJoin": 4},
+    "tangent": {"x": 2, "y": 6, "slope": 8, "intercept": -10},
+    "rational": {"excludedPoint": -3, "verticalAsymptote": -3, "horizontalAsymptote": 0},
+    "area": {"from": 2, "to": 4, "exact": "ln(7/5)", "approx": 0.3364722366212129}
+  }
+}

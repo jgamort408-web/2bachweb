@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 2: Estadística Bidimensional</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            /* PALETA DATA SCIENCE */
+            --bg-body: #f5f3ff;       /* Lavender Mist */
+            --primary: #4c1d95;       /* Deep Violet */
+            --primary-light: #8b5cf6; /* Violet */
+            --secondary: #1e1b4b;     /* Midnight Blue */
+            
+            --accent: #d946ef;        /* Magenta Neon (Para resaltar) */
+            --accent-soft: #fdf4ff;
+            
+            --text-main: #334155;
+            --text-light: #64748b;
+            
+            --radius: 12px;
+            --shadow: 0 10px 15px -3px rgba(76, 29, 149, 0.1), 0 4px 6px -2px rgba(76, 29, 149, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            /* Fondo de rejilla analítica */
+            background-image: 
+                linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        h1, h2, h3, h4 { 
+            font-family: 'Outfit', sans-serif; 
+            color: var(--secondary); 
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        /* HEADER HERO */
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(76, 29, 149, 0.1);
+        }
+        
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(139, 92, 246, 0.4);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* TARJETAS GLASS */
+        .card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-top: 4px solid var(--primary); /* Borde superior de color */
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        /* SECCIÓN 2.0: REPASO FLASH */
+        .flash-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .flash-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+        .stat-row:last-child { border-bottom: none; }
+        
+        .stat-label { font-weight: 600; color: var(--text-light); font-size: 0.9rem; }
+        .stat-value { font-family: 'Times New Roman', serif; font-size: 1.2rem; color: var(--primary); font-weight: bold; }
+
+        /* SVG COMPARATIVA DIMENSIONES */
+        .dim-compare {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 150px;
+        }
+        
+        .dim-box {
+            text-align: center;
+            width: 45%;
+        }
+
+        /* TABLAS DE DATOS */
+        .table-container {
+            overflow-x: auto;
+            margin-top: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            background: white;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #f1f5f9;
+        }
+
+        /* Estilos específicos para tabla de doble entrada */
+        .header-main { background: var(--secondary); color: white; font-weight: 700; }
+        .header-sub { background: #f8fafc; color: var(--text-main); font-weight: 700; }
+        
+        .marginal-bg {
+            background-color: #f3e8ff; /* Light Purple */
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .cell-data { color: var(--text-light); }
+        .total-corner { background-color: var(--accent); color: white; font-weight: 800; }
+
+        /* FORMULAS BOX */
+        .math-box {
+            background: #fdf4ff; /* Pinkish tint */
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            .flash-grid { grid-template-columns: 1fr; }
+            body { padding: 1rem; }
+            h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        
+        <header>
+            <span class="badge">Unidad 02. Data Science</span>
+            <h1>Estadística Bidimensional</h1>
+            <p class="subtitle">Del análisis aislado a la búsqueda de relaciones y patrones.</p>
+        </header>
+
+        <section class="card">
+            <h2 style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <span style="color: var(--accent);">⚡</span> Repaso Flash: 1D
+            </h2>
+            <p style="margin-bottom: 2rem;">
+                En estadística unidimensional estudiábamos una sola característica ($X$: notas, altura...). Antes de comparar dos variables, recordemos las tres herramientas clave para describir una sola:
+            </p>
+
+            <div class="flash-grid">
+                <div class="flash-card">
+                    <div class="stat-row">
+                        <span class="stat-label">Media (Centro)</span>
+                        <span class="stat-value">$\bar{x}$</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Varianza (Dispersión)</span>
+                        <span class="stat-value">$\sigma^2$</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Desviación Típica</span>
+                        <span class="stat-value">$\sigma$</span>
+                    </div>
+                </div>
+
+                <div class="flash-card" style="background: #f8fafc; border: none;">
+                    <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; text-align: center;">El salto dimensional</h4>
+                    
+                    <svg viewBox="0 0 400 120" width="100%">
+                        <g transform="translate(20, 20)">
+                            <text x="60" y="0" font-size="10" fill="#64748b" text-anchor="middle">Unidimensional (X)</text>
+                            <line x1="10" y1="50" x2="110" y2="50" stroke="#94a3b8" stroke-width="2" />
+                            <circle cx="30" cy="50" r="3" fill="#4c1d95" />
+                            <circle cx="50" cy="50" r="3" fill="#4c1d95" />
+                            <circle cx="60" cy="50" r="3" fill="#4c1d95" />
+                            <circle cx="90" cy="50" r="3" fill="#4c1d95" />
+                            <line x1="57.5" y1="40" x2="57.5" y2="60" stroke="#d946ef" stroke-width="2" />
+                            <text x="57.5" y="75" font-size="10" fill="#d946ef" text-anchor="middle">x̄</text>
+                        </g>
+
+                        <path d="M 150 50 L 190 50" stroke="#cbd5e1" stroke-width="2" marker-end="url(#arrow)" />
+                        <defs>
+                            <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#cbd5e1" />
+                            </marker>
+                        </defs>
+
+                        <g transform="translate(240, 10)">
+                            <text x="75" y="10" font-size="10" fill="#64748b" text-anchor="middle">Bidimensional (X, Y)</text>
+                            <line x1="10" y1="90" x2="140" y2="90" stroke="#94a3b8" stroke-width="1.5" />
+                            <line x1="10" y1="10" x2="10" y2="90" stroke="#94a3b8" stroke-width="1.5" />
+                            <circle cx="30" cy="70" r="3" fill="#4c1d95" opacity="0.7" />
+                            <circle cx="50" cy="60" r="3" fill="#4c1d95" opacity="0.7" />
+                            <circle cx="80" cy="40" r="3" fill="#4c1d95" opacity="0.7" />
+                            <circle cx="110" cy="20" r="3" fill="#4c1d95" opacity="0.7" />
+                            <circle cx="67.5" cy="47.5" r="4" fill="none" stroke="#d946ef" stroke-width="2" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <div style="border-left: 4px solid var(--primary); padding-left: 1.5rem; margin-bottom: 2rem;">
+                <h2 style="margin-bottom: 0.5rem;">La Variable Bidimensional</h2>
+                <p style="font-size: 1.1rem; color: var(--text-main);">
+                    Estudiamos dos características simultáneamente ($X$ e $Y$) sobre la misma población.
+                    Cada dato individual es ahora un par ordenado:
+                </p>
+                <div style="font-family: 'Times New Roman', serif; font-size: 1.5rem; margin-top: 1rem; color: var(--primary);">
+                    $$(x_i, y_i)$$
+                </div>
+            </div>
+
+            <h3 style="margin-top: 3rem; margin-bottom: 1rem;">Tabulación de Datos</h3>
+            <p>
+                Cuando tenemos pocos datos, usamos una lista simple. Pero cuando $N$ es grande y los valores se repiten, construimos una <strong>Tabla de Doble Entrada</strong> (o de Contingencia).
+            </p>
+
+            <div style="margin-top: 2rem;">
+                <h4 style="font-size: 0.9rem; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.5rem;">
+                    Ejemplo: Notas Matemáticas ($X$) vs Física ($Y$)
+                </h4>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th rowspan="2" class="header-main" style="border-right: 2px solid white;">X \ Y</th>
+                                <th colspan="4" class="header-sub">Notas Física ($y_j$)</th>
+                                <th rowspan="2" class="marginal-bg" style="border-left: 2px solid #d8b4fe;">Marginal $n_{i\cdot}$</th>
+                            </tr>
+                            <tr class="header-sub">
+                                <th>Suspenso (0-4)</th>
+                                <th>Aprobado (5-6)</th>
+                                <th>Notable (7-8)</th>
+                                <th>Sobresaliente (9-10)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="header-sub"><strong>Suspenso</strong></td>
+                                <td class="cell-data">8</td>
+                                <td class="cell-data">4</td>
+                                <td class="cell-data">1</td>
+                                <td class="cell-data">0</td>
+                                <td class="marginal-bg">13</td>
+                            </tr>
+                            <tr>
+                                <td class="header-sub"><strong>Aprobado</strong></td>
+                                <td class="cell-data">3</td>
+                                <td class="cell-data">10</td>
+                                <td class="cell-data">5</td>
+                                <td class="cell-data">0</td>
+                                <td class="marginal-bg">18</td>
+                            </tr>
+                            <tr>
+                                <td class="header-sub"><strong>Notable</strong></td>
+                                <td class="cell-data">0</td>
+                                <td class="cell-data">2</td>
+                                <td class="cell-data">6</td>
+                                <td class="cell-data">4</td>
+                                <td class="marginal-bg">12</td>
+                            </tr>
+                            <tr>
+                                <td class="marginal-bg" style="border-top: 2px solid #d8b4fe;">Marginal $n_{\cdot j}$</td>
+                                <td class="marginal-bg" style="border-top: 2px solid #d8b4fe;">11</td>
+                                <td class="marginal-bg" style="border-top: 2px solid #d8b4fe;">16</td>
+                                <td class="marginal-bg" style="border-top: 2px solid #d8b4fe;">12</td>
+                                <td class="marginal-bg" style="border-top: 2px solid #d8b4fe;">4</td>
+                                <td class="total-corner">N = 43</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="math-box">
+                    <strong style="color: var(--primary);">🔍 Clave de lectura:</strong>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem; list-style-type: disc;">
+                        <li><strong>Celdas centrales ($n_{ij}$):</strong> Frecuencia conjunta (ej: 10 alumnos aprobaron ambas).</li>
+                        <li><strong>Última Columna (Marginal X):</strong> Si olvidamos Física, ¿cuántos aprobaron Mates? (18).</li>
+                        <li><strong>Última Fila (Marginal Y):</strong> Si olvidamos Mates, ¿cuántos aprobaron Física? (16).</li>
+                        <li><strong>Esquina ($N$):</strong> Total de la población.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

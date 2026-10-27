@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Practicar · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <script type="module" src="../assets/js/app.js"></script>
+</head>
+<body data-page-id="practice">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1>Practicar</h1>
+    <p><a href="../libro/temas/02-representacion-de-funciones/index.html#repaso">Repaso integrado del tema 2: representación de funciones</a></p>
+    <p class="lead" data-content-role="lead">Repaso del tema 1: conecta límites, continuidad y derivadas.</p>
+    <p><a href="../libro/temas/05-sistemas-de-ecuaciones/index.html#repaso">Repaso integrado del tema 5: sistemas de ecuaciones</a></p>
+    <nav aria-label="Contenido del repaso"><a href="#ruta">Ruta de problemas</a> · <a href="#resueltos">Tres problemas integrados</a> · <a href="#repaso">Test breve</a> · <a href="#juegos">Practicar jugando</a></nav>
+    <section id="ruta" data-content-role="guided-practice">
+      <h2>Elige qué necesitas reforzar</h2>
+      <p>Intenta cada problema antes de consultar su desarrollo. Puedes recorrer un bloque cada vez.</p>
+      <details><summary>Límites: elegir la rama y el método</summary><ul>
+        <li><a href="../libro/temas/01-limites-y-derivadas/02-limites-laterales.html">Tarifa por tramos y parámetro que une dos ramas</a>.</li>
+        <li><a href="../libro/temas/01-limites-y-derivadas/04-limites-infinitos-en-un-punto-finito.html">Signos cerca de un denominador nulo; límite 3(f) del examen</a>.</li>
+        <li><a href="../libro/temas/01-limites-y-derivadas/05-limites-finitos-en-el-infinito.html">Raíces en el infinito; límite 3(c)</a>.</li>
+        <li><a href="../libro/temas/01-limites-y-derivadas/06-limites-infinitos-en-el-infinito.html">Comparación de crecimientos; límite 3(b)</a>.</li>
+        <li><a href="../libro/temas/01-limites-y-derivadas/08-calculo-de-limites-sencillos.html">Conjugado y factorización; límite 3(a)</a>.</li>
+        <li><a href="../libro/temas/01-limites-y-derivadas/09-indeterminaciones.html">Diferencia de fracciones; límite 3(e)</a>.</li>
+        <li><a href="../libro/temas/01-limites-y-derivadas/18-regla-de-l-hopital-aplicacion-al-calculo-de-limites.html">Logaritmo de una potencia; límite 3(d)</a>.</li>
+      </ul></details>
+      <details><summary>Continuidad, derivadas y rectas</summary><ul>
+        <li>Pregunta 1 del examen: <a href="../libro/temas/01-limites-y-derivadas/10-continuidad.html#ejemplos">continuidad</a>, <a href="../libro/temas/01-limites-y-derivadas/12-derivadas-laterales.html">derivabilidad</a> y <a href="../libro/temas/01-limites-y-derivadas/13-ecuaciones-de-las-rectas-tangente-y-normal.html">tangente y normal</a>.</li>
+        <li><a href="../libro/temas/01-limites-y-derivadas/11-funcion-derivada.html#coste-marginal">Coste marginal y significado de la derivada</a>.</li>
+        <li><a href="../libro/temas/01-limites-y-derivadas/15-reglas-de-derivacion.html">Cociente con potencia en el denominador; derivada 2(c)</a>.</li>
+        <li><a href="../libro/temas/01-limites-y-derivadas/16-regla-de-la-cadena.html">Composiciones, trigonometría, exponencial y logaritmo; derivadas 2(a), 2(b), 2(d), 2(e) y 2(f)</a>.</li>
+      </ul></details>
+    </section>
+    <section id="resueltos" data-content-role="worked-example">
+      <h2>Tres problemas integrados</h2>
+      <article id="parametros-fraccion">
+        <h3>1. Parámetros: respetar la función del enunciado</h3>
+        <p>Encuentra los parámetros que hacen derivable en \(0\) la función:</p>
+        <div>\[f(x)=\begin{cases}\dfrac{a}{x-1},&x<0,\\x^2-bx-1,&x\geq0.\end{cases}\]</div>
+        <details><summary>Ver solución paso a paso</summary>
+          <ol><li><strong>Continuidad primero.</strong> El límite izquierdo es \(-a\); el derecho y el valor puntual son \(-1\). Por tanto, \(-a=-1\), es decir, \(a=1\).</li>
+          <li><strong>Pendientes laterales.</strong> Una vez asegurada la continuidad, las ramas tienen derivadas \(-a/(x-1)^2\) y \(2x-b\). En la unión dan \(-a=-1\) y \(-b\).</li>
+          <li><strong>Igualdad y comprobación.</strong> \(-1=-b\), luego \(b=1\). Con estos valores hay continuidad y ambas derivadas laterales son \(-1\).</li></ol>
+          <p data-content-role="key-idea">Resultado: \(a=1,\ b=1\). Cambiar la fracción por \(a(x-1)\) daría otro problema y cambiaría el signo de \(b\).</p>
+        </details>
+        <p data-content-role="source">Adaptado de «Subida de nota T1 General», pregunta 1(a). Solución recalculada a partir de su enunciado.</p>
+      </article>
+      <article id="parametros-tangente">
+        <h3>2. Derivabilidad y tangente: cada apartado tiene sus datos</h3>
+        <div>\[f(x)=\begin{cases}ax-3x^2,&x\leq1,\\2x^2+b,&x>1.\end{cases}\]</div>
+        <p><strong>a)</strong> Busca \(a,b\) para que sea derivable en \(1\). <strong>b)</strong> Ahora toma expresamente \(a=3,\ b=-2\) y calcula la tangente en \(2\).</p>
+        <details><summary>Ver solución paso a paso</summary>
+          <ol><li>En (a), continuidad: \(a-3=2+b\), de donde \(a-b=5\).</li>
+          <li>Igualar las derivadas de las ramas en la unión exige \(a-6=4\); así, \(a=10\) y \(b=5\). Ambos laterales y el valor valen \(7\); ambas pendientes valen \(4\).</li>
+          <li>En (b) se usan los <strong>nuevos valores</strong>. Cerca de \(2\), \(f(x)=2x^2-2\), de modo que \(f(2)=6\) y \(f'(2)=8\).</li>
+          <li>La tangente es \(y-6=8(x-2)\), o \(\boxed{y=8x-10}\). Pasa por \((2,6)\) y tiene pendiente \(8\).</li></ol>
+          <p data-content-role="common-error">No arrastres \(b=5\) al apartado (b). Que los nuevos parámetros produzcan una discontinuidad en \(1\) no impide calcular la derivada en \(2\).</p>
+        </details>
+        <p data-content-role="source">Adaptado de «Recuperación T1», pregunta 1(a–b).</p>
+      </article>
+      <article id="distancia-asintotica">
+        <h3>3. Un límite cero no indica una llegada en tiempo finito</h3>
+        <p>La distancia de un cohete a la superficie, en miles de kilómetros, se modela mediante \(D(t)=100/(t^2+1)\), con \(t\geq0\) en horas. Calcula la distancia inicial, la distancia a las dos horas y su comportamiento a largo plazo.</p>
+        <details><summary>Ver solución paso a paso</summary>
+          <ol><li>\(D(0)=100\): inicialmente hay \(100\,000\) km.</li>
+          <li>\(D(2)=100/5=20\): a las dos horas hay \(20\,000\) km.</li>
+          <li>\(\lim_{t\to+\infty}100/(t^2+1)=0\), pues el denominador crece sin cota y el numerador es constante.</li>
+          <li>Para cada tiempo finito del dominio, \(D(t)>0\). La ecuación \(100/(t^2+1)=0\) no tiene solución. El modelo describe aproximación a la superficie y no proporciona un instante de aterrizaje.</li></ol>
+        </details>
+        <p data-content-role="source">Adaptado de «Examen Límites y Derivadas», pregunta 4; también aparece en «Ejercicios repaso», examen 1.</p>
+      </article>
+    </section>
+    <section id="repaso" data-content-role="guided-practice">
+      <h2>Repaso breve: seis decisiones matemáticas</h2>
+      <p>Responde sin prisa. Dispones de una pista y un segundo intento; el resumen cuenta los aciertos al primer intento.</p>
+      <div class="activity" data-quiz="review-t01"></div>
+      <p><a href="../test/index.html?tema=t01">Hacer el test completo de 60 preguntas</a> · <a href="../tarjetas/index.html?tema=t01">Repasar con tarjetas</a></p>
+    </section>
+    <section id="juegos">
+      <h2>Practicar jugando</h2>
+      <ul><li><a href="../laboratorios/juegos/t01-a-limite-express.html">Límite Express</a>: diez retos de cálculo e interpretación.</li>
+      <li><a href="../laboratorios/juegos/t01-b-continuidad-repara-la-funcion.html">Continuidad: repara la función</a>: seis funciones para diagnosticar y ajustar.</li>
+      <li><a href="../laboratorios/juegos/t01-c-derivada-detective.html">Derivada Detective</a>: identifica derivadas y localiza errores.</li>
+      <li><a href="../laboratorios/juegos/t01-d-tangente-sprint.html">Tangente Sprint</a>: calcula y coloca tangentes y normales.</li></ul>
+    </section>
+    <script type="module" src="../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>6.1. Inecuaciones lineales con dos incógnitas · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t06-e01">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">6.1. Inecuaciones lineales con dos incógnitas</h1>
+    <p data-content-role="lead">Una ecuación lineal representa una recta; una inecuación selecciona uno de los semiplanos que delimita.</p>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#definicion">Definición</a> · <a href="#ejemplo-grafico">Ejemplo gráfico</a> · <a href="#metodo">Método de representación</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+    <section id="definicion" data-content-role="definition"><h2>De la recta al semiplano</h2>
+    <p>Una ecuación \(ax+by=c\), con \(a\) y \(b\) no ambos nulos, define una recta. Una inecuación con \(\le,\ge,&lt;,&gt;\) define un territorio completo: uno de los dos semiplanos.</p>
+    <p>\[ax+by\le c,\qquad (a,b)\ne(0,0).\]</p>
+    <p>La recta frontera divide el plano en dos mitades. La inecuación elige uno de esos lados como solución. Si la desigualdad admite la igualdad, la frontera también pertenece a la solución.</p>
+    </section>
+    <section id="ejemplo-grafico" data-content-role="visualization"><h2>Ejemplo de la fuente: \(x+2y\le10\)</h2>
+    <figure>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 250" width="640" role="img" aria-labelledby="semiplano-title semiplano-desc" data-source-diagram>
+      <title id="semiplano-title">Semiplano x más dos y menor o igual que diez</title>
+      <desc id="semiplano-desc">La recta continua pasa por (0,5) y (10,0). La región rayada incluye el origen (0,0), queda por debajo de la recta y se extiende fuera de la ventana dibujada.</desc>
+      <defs><pattern id="semiplano-rayado" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 8L8 0" stroke="#999" stroke-width=".7"/></pattern></defs>
+      <rect x="20" y="20" width="260" height="200" fill="white" stroke="#999"/>
+      <path data-region d="M20 90L280 220L20 220Z" fill="url(#semiplano-rayado)"/>
+      <g stroke="#888" stroke-width="1"><path d="M80 20V220M120 20V220M160 20V220M200 20V220M240 20V220M20 160H280M20 120H280M20 80H280M20 40H280" stroke-dasharray="2 4"/></g>
+      <g stroke="#222" stroke-width="1.5"><path d="M20 200H286M40 226V16"/></g>
+      <path data-boundary d="M20 90L280 220" fill="none" stroke="#111" stroke-width="3"/>
+      <g fill="#111"><circle data-intercept="y" cx="40" cy="100" r="3"/><circle data-intercept="x" cx="240" cy="200" r="3"/><circle data-test-point cx="40" cy="200" r="3"/></g>
+      <g font-family="system-ui,sans-serif" font-size="12" fill="#111">
+        <text x="25" y="216">0</text><text x="77" y="215">2</text><text x="117" y="215">4</text><text x="157" y="215">6</text><text x="197" y="215">8</text><text x="232" y="215">10</text>
+        <text x="25" y="164">2</text><text x="25" y="124">4</text><text x="25" y="84">6</text><text x="25" y="44">8</text>
+        <text x="291" y="204">x</text><text x="36" y="12">y</text><text x="47" y="96">(0,5)</text>
+        <text x="71" y="185">Zona solución</text>
+      </g>
+    </svg>
+    <figcaption data-content-role="caption">La frontera \(x+2y=10\) pasa por \((0,5)\) y \((10,0)\). El origen cumple \(0+2\cdot0\le10\), por lo que se sombrea su lado. La línea continua está incluida. El marco del dibujo solo limita la vista: el semiplano continúa fuera de él.</figcaption>
+    </figure>
+    </section>
+    <section id="metodo" data-content-role="method"><h2>Método de resolución gráfica</h2><p>Representa la solución en tres pasos:</p>
+    <ol data-content-role="worked-steps">
+      <li><h3>Dibujar la frontera</h3><p>Representa la recta \(ax+by=c\).</p>
+      <ul data-content-role="comparison"><li><strong>Línea continua</strong> <svg viewBox="0 0 120 12" width="120" aria-hidden="true" focusable="false"><path d="M0 6H120" stroke="currentColor" stroke-width="3"/></svg> si aparece \(\le\) o \(\ge\): el borde cuenta.</li><li><strong>Línea discontinua</strong> <svg viewBox="0 0 120 12" width="120" aria-hidden="true" focusable="false"><path d="M0 6H120" stroke="currentColor" stroke-width="3" stroke-dasharray="8 5"/></svg> si aparece \(&lt;\) o \(&gt;\): el borde no cuenta.</li></ul></li>
+      <li><h3>Elegir un punto de prueba</h3><p>Elige un punto que <strong>no esté en la recta frontera</strong>. Normalmente sirve \((0,0)\); si pertenece a la recta, elige otro punto fuera de ella. Sustitúyelo en la inecuación.</p><p>Para la desigualdad escrita arriba, si el origen está fuera de la frontera, comprueba si \(a\cdot0+b\cdot0\le c\).</p></li>
+      <li><h3>Sombrear el semiplano</h3><ul><li>Si el punto cumple la inecuación, sombrea el lado donde está.</li><li>Si no la cumple, sombrea el lado contrario.</li></ul><p>Incluye o excluye la frontera según el signo de la desigualdad.</p></li>
+    </ol>
+    </section>
+    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2><p>Práctica autocorregible y explorador interactivo pendientes. Esta página ofrece la explicación, el gráfico y el método de representación.</p></section>
+    <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="index.html">Volver al tema 6</a> · <a href="02-sistemas-de-inecuaciones-lineales-con-dos-incognitas.html">Siguiente: sistemas de inecuaciones (contenido parcial)</a></nav>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

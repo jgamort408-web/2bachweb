@@ -1,0 +1,14 @@
+@import url("../../shared/widget-base.css");
+
+/* Distribución neutra; la tipografía matemática conserva sus propios estilos. */
+[hidden] { display: none !important; }
+main { max-width: 48rem; margin-inline: auto; }
+body { overflow-wrap: anywhere; }
+button, input, select { font: inherit; }
+button { padding: .5rem .75rem; }
+input, select { display: block; width: 100%; max-width: 26rem; padding: .5rem; margin-block: .3rem 1rem; }
+fieldset { min-width: 0; padding: 1rem; border: 1px solid #d6d6d6; }
+figure { margin: 1rem 0; }
+figure > svg { display: block; width: 100%; height: auto; }
+[data-handle] { touch-action: none; cursor: grab; }
+[data-graph][data-disabled="true"] [data-handle] { pointer-events: none; }

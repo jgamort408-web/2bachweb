@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-20",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "batchId": "165",
+  "sourceDirectory": "content/latex/programacion-lineal-ii",
+  "report": "docs/pdf/programacion-lineal-ii-build.json",
+  "mathematics": "programacion-lineal-ii",
+  "documents": [
+    {
+      "id": "programacion-lineal-ii-examen",
+      "source": "content/latex/programacion-lineal-ii/programacion-lineal-ii-examen.tex",
+      "output": "output/pdf/programacion-lineal-ii-examen.pdf",
+      "expectedPages": 2,
+      "title": "Programación lineal II - Examen revisado",
+      "forbiddenText": [
+        "£"
+      ],
+      "requiredText": [
+        "Los tres ejercicios son obligatorios.",
+        "¿En qué punto"
+      ]
+    },
+    {
+      "id": "programacion-lineal-ii-soluciones",
+      "source": "content/latex/programacion-lineal-ii/programacion-lineal-ii-soluciones.tex",
+      "output": "output/pdf/programacion-lineal-ii-soluciones.pdf",
+      "expectedPages": 4,
+      "title": "Programación lineal II - Soluciones revisadas",
+      "forbiddenText": [
+        "£"
+      ],
+      "requiredText": [
+        "solo formulación",
+        "Anexo documental: frutos rojos",
+        "No forma parte del examen F022"
+      ]
+    }
+  ]
+}

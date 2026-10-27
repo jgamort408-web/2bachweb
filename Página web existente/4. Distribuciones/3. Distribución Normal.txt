@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4.3 Distribución Normal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+    };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root {
+      /* COLORES (Tema Rose) */
+      --bg-body: #fff1f2; /* Rose 50 */
+      --primary: #be123c; /* Rose 700 */
+      --primary-dark: #881337;
+      --secondary: #0f172a;
+
+      --accent-light: #ffe4e6;
+      --accent-stroke: #fb7185;
+
+      --text-main: #334155;
+      --text-light: #64748b;
+
+      --radius: 16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 2rem;
+      background-image:
+        linear-gradient(#fecdd3 1px, transparent 1px),
+        linear-gradient(90deg, #fecdd3 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif;
+      color: var(--secondary);
+      line-height: 1.2;
+    }
+
+    .container { max-width: 980px; margin: 0 auto; }
+
+    header { text-align: center; margin-bottom: 3rem; }
+
+    .badge {
+      display: inline-block;
+      background-color: white;
+      color: var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      border: 1px solid #fda4af;
+      box-shadow: 0 4px 6px rgba(190, 18, 60, 0.1);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      color: var(--primary-dark);
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background-color: var(--primary);
+      border-top-left-radius: var(--radius);
+      border-top-right-radius: var(--radius);
+    }
+
+    .definition-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 820px) {
+      .definition-grid { grid-template-columns: 1.25fr 0.75fr; }
+    }
+
+    .formula-display {
+      background: var(--secondary);
+      color: white;
+      padding: 1.25rem 1.25rem;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 1.05rem;
+      margin-top: 0.75rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .note {
+      border-left: 4px solid var(--primary);
+      padding-left: 1rem;
+      margin-top: 1rem;
+    }
+
+    .mini {
+      font-size: 0.92rem;
+      color: var(--text-light);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .prop-card {
+      background: white;
+      border: 1px solid #fed7aa;
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .prop-title { font-weight: 800; margin-bottom: 0.4rem; color: var(--primary-dark); }
+    .prop-desc { font-size: 0.92rem; color: var(--text-light); margin-bottom: 0.8rem; }
+
+    .empirical-section {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .stat-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: #fff1f2;
+      border-radius: 12px;
+      border: 1px solid #fecdd3;
+    }
+
+    .stat-circle {
+      width: 56px; height: 56px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 14px;
+      background: rgba(255, 228, 230, 0.55);
+      border: 1px solid #fecdd3;
+    }
+
+    @media (min-width: 820px) {
+      .controls { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .control {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 0.9rem;
+    }
+
+    .control label {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    input[type="range"] { width: 100%; accent-color: var(--primary); }
+    .readout { font-family: "Times New Roman", serif; color: var(--text-light); font-size: 0.95rem; }
+
+    /* SVG styling */
+    .svg-wrap {
+      width: 100%;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 0.75rem;
+      overflow: hidden;
+    }
+
+    .axis { stroke: #94a3b8; stroke-width: 1.5; }
+    .gridline { stroke: #e2e8f0; stroke-width: 1; }
+    .dashed { stroke: #94a3b8; stroke-width: 1.2; stroke-dasharray: 5 4; }
+
+    .curve { fill: none; stroke: var(--primary); stroke-width: 3; stroke-linecap: round; }
+    .curve2 { fill: none; stroke: #0f172a; stroke-width: 2.4; stroke-linecap: round; opacity: 0.9; }
+
+    .shade { fill: rgba(251, 113, 133, 0.28); stroke: none; }
+    .shade2 { fill: rgba(15, 23, 42, 0.10); stroke: none; }
+
+    .lbl { font-family: "Times New Roman", serif; font-size: 13px; fill: #64748b; }
+    .lblStrong { font-family: "Outfit", sans-serif; font-size: 12px; fill: #0f172a; font-weight: 800; }
+
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid #fecdd3;
+      background: #fff;
+      color: var(--primary-dark);
+      font-weight: 800;
+      font-size: 0.85rem;
+      margin-right: 0.35rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      color: var(--text-light);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">Unidad 4.3</span>
+      <h1>Distribución Normal</h1>
+      <p class="subtitle">
+        El modelo continuo más importante: <strong>la Campana de Gauss</strong>.  
+        Aquí verás (de verdad) cómo la probabilidad se convierte en <strong>área</strong> y cómo funciona la <strong>función de distribución</strong> $F(x)$.
+      </p>
+    </header>
+
+    <!-- 1) Definición + PDF vs CDF -->
+    <section class="card">
+      <div class="definition-grid">
+        <div>
+          <h3 style="margin-bottom: 0.8rem;">1) ¿Qué significa “normal”?</h3>
+          <p style="margin-bottom: 1rem;">
+            La normal sirve para modelizar variables <strong>continuas</strong> (estaturas, pesos, errores de medida, tiempos…).
+            En variables continuas, una “probabilidad puntual” no tiene sentido:
+            $$P(X = 3.00)=0$$
+            Lo que sí tiene sentido es la probabilidad de caer en un <strong>intervalo</strong>, por ejemplo $P(2.9 \le X \le 3.1)$.
+          </p>
+
+          <div class="note">
+            <strong style="color: var(--primary-dark); display:block; margin-bottom: 0.4rem;">
+              Dos funciones distintas (¡y se confunden mucho!)
+            </strong>
+            <p class="mini" style="margin-bottom: 0.6rem;">
+              <span class="pill">Densidad</span> $f(x)$ describe la forma de la campana (no da probabilidades directamente).
+              <br/>
+              <span class="pill">Distribución</span> $F(x)$ acumula el área desde $-\infty$ hasta $x$ (eso sí es probabilidad).
+            </p>
+
+            <div class="formula-display">
+              $$X \sim N(\mu,\sigma)\qquad
+              f(x)=\frac{1}{\sigma\sqrt{2\pi}}\,e^{-\frac12\left(\frac{x-\mu}{\sigma}\right)^2}\qquad
+              F(x)=P(X\le x)=\int_{-\infty}^{x} f(t)\,dt$$
+            </div>
+
+            <p class="mini" style="margin-top: 0.7rem;">
+              Idea clave: <strong>$F(x)$ es una función creciente</strong> que va de 0 a 1.  
+              En cambio, <strong>$f(x)$</strong> sube y baja, y su área total vale 1.
+            </p>
+          </div>
+
+          <div style="margin-top: 1.1rem;">
+            <h4 style="margin-bottom: 0.4rem;">Parámetros</h4>
+            <ul style="padding-left: 1.2rem; color: var(--text-main);">
+              <li><strong>Media</strong> $\mu$: centro de la campana (simetría).</li>
+              <li><strong>Desviación típica</strong> $\sigma$: dispersión (más grande ⇒ campana más ancha y bajita).</li>
+              <li>Puntos de inflexión de $f(x)$ en <strong>$\mu\pm\sigma$</strong>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h4 style="margin-bottom: 0.7rem; font-size: 0.95rem; text-transform: uppercase; color: var(--text-light); text-align:center;">
+            PDF y CDF (precisas)
+          </h4>
+          <div class="svg-wrap">
+            <svg id="svgPDFSmall" viewBox="0 0 420 210" width="100%" role="img" aria-label="Curva de densidad normal con mu y sigma"></svg>
+          </div>
+          <p class="mini" style="text-align:center; margin-top: 0.6rem;">
+            Arriba: densidad $f(x)$. La probabilidad se mide como <strong>área</strong>.
+          </p>
+
+          <div class="svg-wrap" style="margin-top: 0.8rem;">
+            <svg id="svgCDFSmall" viewBox="0 0 420 210" width="100%" role="img" aria-label="Función de distribución acumulada normal"></svg>
+          </div>
+          <p class="mini" style="text-align:center; margin-top: 0.6rem;">
+            Abajo: acumulada $F(x)=P(X\le x)$ (la “S”).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2) Probabilidad es área + estandarización -->
+    <h3 style="margin-bottom: 1rem; display:flex; align-items:center; gap:0.5rem;">
+      <span style="color: var(--primary);">#</span> 2) La probabilidad es área (y se calcula con $F$)
+    </h3>
+
+    <div class="grid-3">
+      <div class="prop-card">
+        <div class="prop-title">Área total = 1</div>
+        <p class="prop-desc">Toda la curva suma el 100% de probabilidad.</p>
+        <div style="font-family: 'Times New Roman'; font-size: 1.1rem;">
+          $$\int_{-\infty}^{+\infty} f(x)\,dx = 1$$
+        </div>
+      </div>
+
+      <div class="prop-card">
+        <div class="prop-title">Intervalo $(a,b)$</div>
+        <p class="prop-desc">La probabilidad entre dos valores es un área:</p>
+        <div style="font-family: 'Times New Roman'; font-size: 1.1rem;">
+          $$P(a\le X\le b)=$$$$\int_{a}^{b}f(x)\,dx = F(b)-F(a)$$
+        </div>
+      </div>
+
+      <div class="prop-card">
+        <div class="prop-title">Acumulada $P(X\le k)$</div>
+        <p class="prop-desc">Es el área desde $-\infty$ hasta $k$:</p>
+        <div style="font-family: 'Times New Roman'; font-size: 1.1rem;">
+          $$P(X\le k)=F(k)$$
+        </div>
+      </div>
+    </div>
+
+    <section class="card">
+      <h3 style="margin-bottom: 0.8rem;">3) Estandarización y tablas (lo que se hace en exámenes)</h3>
+      <p style="margin-bottom: 0.8rem;">
+        En Bachillerato, lo habitual es convertir cualquier normal en la <strong>normal estándar</strong>:
+        $$Z=\frac{X-\mu}{\sigma}\qquad\Rightarrow\qquad Z\sim N(0,1)$$
+      </p>
+
+      <div class="note">
+        <strong style="color: var(--primary-dark); display:block; margin-bottom: 0.35rem;">
+          Receta rápida
+        </strong>
+        <ol style="padding-left: 1.2rem;">
+          <li>Transforma a puntuación típica: $z=\dfrac{x-\mu}{\sigma}$.</li>
+          <li>Busca $\Phi(z)=P(Z\le z)$ en la tabla (o calcula con calculadora/software).</li>
+          <li>Vuelve a la probabilidad pedida:
+            <ul style="padding-left: 1.2rem;">
+              <li>$P(X\le x)=\Phi\!\left(\dfrac{x-\mu}{\sigma}\right)$</li>
+              <li>$P(a\le X\le b)=\Phi\!\left(\dfrac{b-\mu}{\sigma}\right)-\Phi\!\left(\dfrac{a-\mu}{\sigma}\right)$</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+
+      <p class="mini" style="margin-top: 0.8rem;">
+        Nota práctica: por simetría, $\Phi(-z)=1-\Phi(z)$.
+      </p>
+    </section>
+
+    <!-- 4) Visual interactiva precisa -->
+    <section class="empirical-section">
+      <h3 style="margin-bottom: 0.6rem; text-align:center;">4) Visual interactiva: PDF (áreas) y CDF (acumulación)</h3>
+      <p class="mini" style="text-align:center; margin-bottom: 1.2rem;">
+        Ajusta $\mu$, $\sigma$ y los puntos $a$, $b$, $k$. Las áreas y valores se calculan de forma coherente con $f$ y $F$.
+      </p>
+
+      <div class="grid-2">
+        <div>
+          <div class="svg-wrap">
+            <svg id="svgPDF" viewBox="0 0 680 320" width="100%" role="img" aria-label="PDF normal con área sombreada"></svg>
+          </div>
+
+          <div class="svg-wrap" style="margin-top: 0.9rem;">
+            <svg id="svgCDF" viewBox="0 0 680 320" width="100%" role="img" aria-label="CDF normal con lectura de F(k)"></svg>
+          </div>
+        </div>
+
+        <div>
+          <div class="controls">
+            <div class="control">
+              <label><span>$\mu$ (media)</span> <span id="muVal" class="readout"></span></label>
+              <input id="mu" type="range" min="-2" max="2" step="0.1" value="0">
+              <div class="mini">Mueve el centro de la campana.</div>
+            </div>
+
+            <div class="control">
+              <label><span>$\sigma$ (desviación)</span> <span id="sigmaVal" class="readout"></span></label>
+              <input id="sigma" type="range" min="0.5" max="2.5" step="0.1" value="1">
+              <div class="mini">Controla la anchura (más $\sigma$ ⇒ más dispersión).</div>
+            </div>
+
+            <div class="control">
+              <label><span>$a$</span> <span id="aVal" class="readout"></span></label>
+              <input id="a" type="range" min="-4" max="4" step="0.1" value="-1">
+              <div class="mini">Extremo izquierdo del intervalo.</div>
+            </div>
+
+            <div class="control">
+              <label><span>$b$</span> <span id="bVal" class="readout"></span></label>
+              <input id="b" type="range" min="-4" max="4" step="0.1" value="1">
+              <div class="mini">Extremo derecho del intervalo.</div>
+            </div>
+
+            <div class="control" style="grid-column: 1 / -1;">
+              <label><span>$k$ (para $F(k)$)</span> <span id="kVal" class="readout"></span></label>
+              <input id="k" type="range" min="-4" max="4" step="0.1" value="0.8">
+              <div class="mini">Marca el punto hasta el que se acumula el área.</div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top: 1rem; padding: 1.25rem;">
+            <h4 style="margin-bottom: 0.6rem;">Lecturas (lo que debes saber interpretar)</h4>
+            <div class="mini" id="readouts" style="line-height: 1.75;"></div>
+          </div>
+
+          <div class="card" style="margin-top: 1rem; padding: 1.25rem;">
+            <h4 style="margin-bottom: 0.6rem;">Atajo mental: regla empírica (valores reales)</h4>
+
+            <div class="stat-row">
+              <div class="stat-circle">68.27%</div>
+              <div>
+                <strong>$(\mu\pm\sigma)$</strong>
+                <div class="mini">Aproximadamente 2 de cada 3 valores caen aquí.</div>
+              </div>
+            </div>
+
+            <div class="stat-row">
+              <div class="stat-circle" style="background:#fb7185;">95.45%</div>
+              <div>
+                <strong>$(\mu\pm2\sigma)$</strong>
+                <div class="mini">Casi todo: “dentro de lo normal” en muchas aplicaciones.</div>
+              </div>
+            </div>
+
+            <div class="stat-row" style="margin-bottom:0;">
+              <div class="stat-circle" style="background:#fda4af; color:#881337;">99.73%</div>
+              <div>
+                <strong>$(\mu\pm3\sigma)$</strong>
+                <div class="mini">Prácticamente todo el conjunto de valores.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      MathMastery Digital Notebook &copy; 2026
+    </footer>
+  </div>
+
+  <script>
+    // =========================
+    // Matemáticas: PDF y CDF normal
+    // =========================
+
+    // Aproximación de erf(x) (Abramowitz & Stegun, forma clásica)
+    function erf(x) {
+      const sign = x >= 0 ? 1 : -1;
+      x = Math.abs(x);
+
+      const a1 = 0.254829592;
+      const a2 = -0.284496736;
+      const a3 = 1.421413741;
+      const a4 = -1.453152027;
+      const a5 = 1.061405429;
+      const p  = 0.3275911;
+
+      const t = 1.0 / (1.0 + p * x);
+      const y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
+      return sign * y;
+    }
+
+    function phi(z) { // CDF estándar
+      return 0.5 * (1 + erf(z / Math.SQRT2));
+    }
+
+    function normalPDF(x, mu, sigma) {
+      const z = (x - mu) / sigma;
+      return (1 / (sigma * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * z * z);
+    }
+
+    function normalCDF(x, mu, sigma) {
+      return phi((x - mu) / sigma);
+    }
+
+    // =========================
+    // SVG helpers
+    // =========================
+    function el(name, attrs = {}) {
+      const node = document.createElementNS("http://www.w3.org/2000/svg", name);
+      for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, v);
+      return node;
+    }
+
+    function clearSVG(svg) {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+    }
+
+    // Map from data coords to SVG coords
+    function mapper(xmin, xmax, ymin, ymax, W, H, pad) {
+      return {
+        X: x => pad + (x - xmin) * (W - 2*pad) / (xmax - xmin),
+        Y: y => (H - pad) - (y - ymin) * (H - 2*pad) / (ymax - ymin)
+      };
+    }
+
+    function pathFromPoints(points) {
+      if (!points.length) return "";
+      let d = `M ${points[0][0].toFixed(2)} ${points[0][1].toFixed(2)}`;
+      for (let i = 1; i < points.length; i++) {
+        d += ` L ${points[i][0].toFixed(2)} ${points[i][1].toFixed(2)}`;
+      }
+      return d;
+    }
+
+    // =========================
+    // Dibujo de PDF con sombreado
+    // =========================
+    function drawPDF(svg, mu, sigma, a, b, k, opts = {}) {
+      const W = 680, H = 320, pad = 48;
+      const isSmall = !!opts.small;
+
+      const xmin = mu - 4 * sigma;
+      const xmax = mu + 4 * sigma;
+
+      // encontrar ymax (máximo de la densidad en x=mu)
+      const ymax = normalPDF(mu, mu, sigma) * 1.15;
+
+      const m = mapper(xmin, xmax, 0, ymax, W, H, pad);
+
+      clearSVG(svg);
+
+      // fondo y rejilla suave
+      for (let i = 0; i <= 8; i++) {
+        const x = xmin + i * (xmax - xmin) / 8;
+        svg.appendChild(el("line", { x1: m.X(x), y1: pad, x2: m.X(x), y2: H - pad, class: "gridline" }));
+      }
+      for (let j = 0; j <= 4; j++) {
+        const y = j * ymax / 4;
+        svg.appendChild(el("line", { x1: pad, y1: m.Y(y), x2: W - pad, y2: m.Y(y), class: "gridline" }));
+      }
+
+      // ejes
+      svg.appendChild(el("line", { x1: pad, y1: H - pad, x2: W - pad, y2: H - pad, class: "axis" }));
+      svg.appendChild(el("line", { x1: pad, y1: pad, x2: pad, y2: H - pad, class: "axis" }));
+
+      // curva
+      const N = isSmall ? 160 : 260;
+      const pts = [];
+      for (let i = 0; i <= N; i++) {
+        const x = xmin + i * (xmax - xmin) / N;
+        const y = normalPDF(x, mu, sigma);
+        pts.push([m.X(x), m.Y(y)]);
+      }
+      svg.appendChild(el("path", { d: pathFromPoints(pts), class: isSmall ? "curve2" : "curve" }));
+
+      // sombreado intervalo [a,b]
+      const aa = Math.min(a, b), bb = Math.max(a, b);
+      const shadePts = [];
+      shadePts.push([m.X(aa), m.Y(0)]);
+      for (let i = 0; i <= N; i++) {
+        const x = aa + i * (bb - aa) / N;
+        const y = normalPDF(x, mu, sigma);
+        shadePts.push([m.X(x), m.Y(y)]);
+      }
+      shadePts.push([m.X(bb), m.Y(0)]);
+
+      svg.appendChild(el("path", { d: pathFromPoints(shadePts) + " Z", class: "shade" }));
+
+      // línea mu, mu±sigma
+      const marks = [
+        { x: mu, label: "μ" },
+        { x: mu - sigma, label: "μ-σ" },
+        { x: mu + sigma, label: "μ+σ" },
+      ];
+
+      marks.forEach(mark => {
+        svg.appendChild(el("line", { x1: m.X(mark.x), y1: pad, x2: m.X(mark.x), y2: H - pad, class: "dashed" }));
+        svg.appendChild(el("text", { x: m.X(mark.x) - 10, y: H - pad + 22, class: "lbl" })).textContent = mark.label;
+      });
+
+      // línea vertical en k
+      svg.appendChild(el("line", { x1: m.X(k), y1: pad, x2: m.X(k), y2: H - pad, class: "dashed" }));
+      svg.appendChild(el("text", { x: m.X(k) - 8, y: H - pad + 22, class: "lbl" })).textContent = "k";
+
+      // título pequeño
+      svg.appendChild(el("text", { x: pad, y: 26, class: "lblStrong" })).textContent = isSmall ? "Densidad f(x)" : "PDF: densidad f(x) y área P(a≤X≤b)";
+    }
+
+    // =========================
+    // Dibujo de CDF con lectura F(k)
+    // =========================
+    function drawCDF(svg, mu, sigma, a, b, k, opts = {}) {
+      const W = 680, H = 320, pad = 48;
+      const isSmall = !!opts.small;
+
+      const xmin = mu - 4 * sigma;
+      const xmax = mu + 4 * sigma;
+
+      const m = mapper(xmin, xmax, 0, 1, W, H, pad);
+
+      clearSVG(svg);
+
+      // rejilla
+      for (let i = 0; i <= 8; i++) {
+        const x = xmin + i * (xmax - xmin) / 8;
+        svg.appendChild(el("line", { x1: m.X(x), y1: pad, x2: m.X(x), y2: H - pad, class: "gridline" }));
+      }
+      for (let j = 0; j <= 5; j++) {
+        const y = j / 5;
+        svg.appendChild(el("line", { x1: pad, y1: m.Y(y), x2: W - pad, y2: m.Y(y), class: "gridline" }));
+        // labels 0..1
+        if (!isSmall) {
+          svg.appendChild(el("text", { x: 14, y: m.Y(y)+4, class: "lbl" })).textContent = y.toFixed(1);
+        }
+      }
+
+      // ejes
+      svg.appendChild(el("line", { x1: pad, y1: H - pad, x2: W - pad, y2: H - pad, class: "axis" }));
+      svg.appendChild(el("line", { x1: pad, y1: pad, x2: pad, y2: H - pad, class: "axis" }));
+
+      // curva F
+      const N = isSmall ? 160 : 260;
+      const pts = [];
+      for (let i = 0; i <= N; i++) {
+        const x = xmin + i * (xmax - xmin) / N;
+        const y = normalCDF(x, mu, sigma);
+        pts.push([m.X(x), m.Y(y)]);
+      }
+      svg.appendChild(el("path", { d: pathFromPoints(pts), class: isSmall ? "curve2" : "curve" }));
+
+      // sombreado: recta vertical en k y horizontal en F(k)
+      const Fk = normalCDF(k, mu, sigma);
+
+      // área conceptual (banda) hasta k (opcional, ligera)
+      const shadePts = [];
+      shadePts.push([m.X(xmin), m.Y(0)]);
+      shadePts.push([m.X(xmin), m.Y(1)]);
+      shadePts.push([m.X(k), m.Y(1)]);
+      shadePts.push([m.X(k), m.Y(0)]);
+      svg.appendChild(el("path", { d: pathFromPoints(shadePts) + " Z", class: "shade2" }));
+
+      // guía k -> F(k)
+      svg.appendChild(el("line", { x1: m.X(k), y1: H - pad, x2: m.X(k), y2: m.Y(Fk), class: "dashed" }));
+      svg.appendChild(el("line", { x1: pad, y1: m.Y(Fk), x2: m.X(k), y2: m.Y(Fk), class: "dashed" }));
+
+      // punto en la curva
+      svg.appendChild(el("circle", { cx: m.X(k), cy: m.Y(Fk), r: 4.5, fill: "#be123c" }));
+
+      // etiquetas
+      svg.appendChild(el("text", { x: m.X(k) - 8, y: H - pad + 22, class: "lbl" })).textContent = "k";
+      if (!isSmall) {
+        svg.appendChild(el("text", { x: pad + 6, y: m.Y(Fk) - 8, class: "lbl" }))
+          .textContent = `F(k) = ${Fk.toFixed(4)}`;
+      }
+
+      // título pequeño
+      svg.appendChild(el("text", { x: pad, y: 26, class: "lblStrong" })).textContent = isSmall ? "Acumulada F(x)" : "CDF: F(x)=P(X≤x) y lectura de F(k)";
+    }
+
+    // =========================
+    // UI logic
+    // =========================
+    const $ = (id) => document.getElementById(id);
+
+    const inputs = {
+      mu: $("mu"),
+      sigma: $("sigma"),
+      a: $("a"),
+      b: $("b"),
+      k: $("k"),
+    };
+
+    const labels = {
+      muVal: $("muVal"),
+      sigmaVal: $("sigmaVal"),
+      aVal: $("aVal"),
+      bVal: $("bVal"),
+      kVal: $("kVal"),
+      readouts: $("readouts"),
+    };
+
+    const svgPDF = $("svgPDF");
+    const svgCDF = $("svgCDF");
+    const svgPDFSmall = $("svgPDFSmall");
+    const svgCDFSmall = $("svgCDFSmall");
+
+    function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+    function render() {
+      const mu = parseFloat(inputs.mu.value);
+      const sigma = parseFloat(inputs.sigma.value);
+
+      // Convertimos a, b, k (en escala de "x") pero garantizando que se vean bien respecto a mu y sigma
+      let a = parseFloat(inputs.a.value);
+      let b = parseFloat(inputs.b.value);
+      let k = parseFloat(inputs.k.value);
+
+      // Para que el alumno no se pierda: hacemos que a,b,k estén en torno a mu con escala sigma (opcional).
+      // Aquí los dejamos como valores absolutos, pero los límites de dibujo dependen de mu y sigma.
+      // Ajuste suave si sigma cambia mucho:
+      const xmin = mu - 4*sigma;
+      const xmax = mu + 4*sigma;
+      a = clamp(a, xmin, xmax);
+      b = clamp(b, xmin, xmax);
+      k = clamp(k, xmin, xmax);
+
+      labels.muVal.textContent = mu.toFixed(1);
+      labels.sigmaVal.textContent = sigma.toFixed(1);
+      labels.aVal.textContent = a.toFixed(1);
+      labels.bVal.textContent = b.toFixed(1);
+      labels.kVal.textContent = k.toFixed(1);
+
+      // Probabilidades
+      const aa = Math.min(a, b), bb = Math.max(a, b);
+      const Pa = normalCDF(aa, mu, sigma);
+      const Pb = normalCDF(bb, mu, sigma);
+      const Pab = Pb - Pa;
+
+      const Fk = normalCDF(k, mu, sigma);
+
+      const zk = (k - mu) / sigma;
+      const za = (aa - mu) / sigma;
+      const zb = (bb - mu) / sigma;
+
+      labels.readouts.innerHTML = `
+        <div><strong>Acumulada:</strong> $F(k)=P(X\\le k)=${Fk.toFixed(4)}$</div>
+        <div><strong>Intervalo:</strong> $P(${aa.toFixed(1)}\\le X\\le ${bb.toFixed(1)})=F(${bb.toFixed(1)})-F(${aa.toFixed(1)})=${Pab.toFixed(4)}$</div>
+        <div class="mini" style="margin-top:0.35rem;">
+          Estandarizando:
+          $z_k=\\dfrac{k-\\mu}{\\sigma}=${zk.toFixed(3)}$,
+          $z_a=${za.toFixed(3)}$,
+          $z_b=${zb.toFixed(3)}$.
+          <br/>
+          Entonces: $F(k)=\\Phi(z_k)$ y $P(a\\le X\\le b)=\\Phi(z_b)-\\Phi(z_a)$.
+        </div>
+      `;
+
+      // Re-render MathJax (cuando cambiamos el HTML con LaTeX)
+      if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([labels.readouts]);
+
+      // Dibujo grande
+      drawPDF(svgPDF, mu, sigma, a, b, k);
+      drawCDF(svgCDF, mu, sigma, a, b, k);
+
+      // Dibujo pequeño (estético) con mu/sigma actuales y un sombreado simple
+      drawPDF(svgPDFSmall, mu, sigma, mu - sigma, mu + sigma, mu, { small: true });
+      drawCDF(svgCDFSmall, mu, sigma, mu - sigma, mu + sigma, mu + 0.8*sigma, { small: true });
+    }
+
+    Object.values(inputs).forEach(inp => inp.addEventListener("input", render));
+    render();
+  </script>
+
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

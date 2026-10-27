@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-20",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "batchId": "170-distribuciones-ii",
+  "sourceDirectory": "content/latex/distribuciones-ii",
+  "report": "docs/pdf/distribuciones-ii-build.json",
+  "mathematics": "distribuciones-ii",
+  "documents": [
+    {
+      "id": "distribuciones-ii-examen",
+      "source": "content/latex/distribuciones-ii/distribuciones-ii-examen.tex",
+      "output": "output/pdf/distribuciones-ii-examen.pdf",
+      "expectedPages": 1,
+      "title": "Distribuciones II - Examen revisado",
+      "forbiddenText": [
+        "£"
+      ]
+    },
+    {
+      "id": "distribuciones-ii-soluciones",
+      "source": "content/latex/distribuciones-ii/distribuciones-ii-soluciones.tex",
+      "output": "output/pdf/distribuciones-ii-soluciones.pdf",
+      "expectedPages": 3,
+      "title": "Distribuciones II - Soluciones revisadas",
+      "forbiddenText": [
+        "£"
+      ]
+    }
+  ]
+}

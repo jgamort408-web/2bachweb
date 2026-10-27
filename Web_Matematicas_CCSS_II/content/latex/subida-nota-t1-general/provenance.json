@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "pairId": "subida-nota-t1-general",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-20",
+  "sources": [
+    {
+      "sourceId": "F029",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Subida de nota T1 General Soluciones.zip",
+      "zipSha256": "fde4c7d23e55aaee2e4c4c312bd1d1a3afeff8220e940109de43e7ab2b0608eb",
+      "entry": "main.tex",
+      "texSha256": "d60fcdf8c5c0fb19718f64ed140d532813d7e4fa7e7f8a0897364dba7408b3b8",
+      "documents": 2
+    },
+    {
+      "sourceId": "F030",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Subida de nota T1 General.zip",
+      "zipSha256": "7c1b938086ca97fe6f8c0e0e0b33555d44f5cf98db59da3a032c72227c28534e",
+      "entry": "main.tex",
+      "texSha256": "a595c144a47bbe01d3688e94105406b5f5cb5e1e2334880eeb8a349a237ea477",
+      "documents": 1
+    }
+  ],
+  "preserved": {
+    "durationMinutes": 55,
+    "points": [
+      2,
+      2,
+      3.5,
+      1.5,
+      1
+    ],
+    "exerciseMinutes": [
+      15,
+      35,
+      5
+    ]
+  },
+  "corrections": [
+    "M06",
+    "M13",
+    "M16"
+  ],
+  "variants": {
+    "F029": "Dos documentos concatenados y conversación; ambos usan rama lineal ajena a F030. Se conserva una única pareja fiel al examen racional."
+  },
+  "answers": {
+    "a": 1,
+    "b": 1,
+    "area": "5/3",
+    "tangentSlope": "3/25",
+    "tangentIntercept": "4/25",
+    "primitive": "x^3/3+exp(2x)/2+ln|1-x|+C"
+  }
+}

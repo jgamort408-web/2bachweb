@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 1,
+  "mathematics": {
+    "passed": true,
+    "originalStatementsMatched": 3,
+    "exercises": 4,
+    "parts": 8,
+    "nominalPoints": 10,
+    "commonInferenceVerified": true,
+    "tableSampleSize": 144,
+    "compatibleRoundedSizes": [
+      143,
+      144,
+      145
+    ],
+    "newMargin": 1.8600774665010515
+  },
+  "documents": [
+    {
+      "id": "inferencia-general-examen",
+      "pages": 2,
+      "bytes": 31357,
+      "sha256": "3b8c0044c83520657351324fca4672113f3b6f9a1cbccc9974b05e105ce8a3cc",
+      "title": "Inferencia - Examen general - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 7,
+      "characters": 2937
+    },
+    {
+      "id": "inferencia-general-soluciones",
+      "pages": 4,
+      "bytes": 39385,
+      "sha256": "8a116db78ec436d60cc83eb459c8c58f473056e9726283e7c7df3b244b740b11",
+      "title": "Inferencia - Examen general - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 12,
+      "characters": 6190
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-22",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/inferencia-general/estilo.tex",
+      "sha256": "2771347378eecf2398340fe3186f5b9978cd9209cb78ba91c1b21d3be63c97ca"
+    },
+    {
+      "path": "content/latex/inferencia-general/inferencia-general-examen.tex",
+      "sha256": "2d019183d9b4a1cc93ed747dace530a4b7212b8fe6988879ad9e15d369bf0fe8"
+    },
+    {
+      "path": "content/latex/inferencia-general/inferencia-general-soluciones.tex",
+      "sha256": "aea81f1d0b10ff8449b7a3fce03f7a5e28cd82ce160982386db24476120b1f08"
+    },
+    {
+      "path": "content/latex/inferencia-general/logo-al-andalus.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    },
+    {
+      "path": "content/latex/inferencia-general/provenance.json",
+      "sha256": "ed7d7d946072d56f026d12195b47be48d43eb594dec44b28a6178a91a060fdae"
+    }
+  ]
+}

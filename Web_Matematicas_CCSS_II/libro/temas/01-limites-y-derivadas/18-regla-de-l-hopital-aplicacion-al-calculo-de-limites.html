@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.18. Regla de L&#x27;Hôpital. Aplicación al cálculo de límites · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t01-e18">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">1.18. Regla de L’Hôpital. Aplicación al cálculo de límites</h1>
+    <p class="lead" data-content-role="introduction">En ciertos cocientes indeterminados, comparar las derivadas permite calcular el límite. La regla exige comprobar condiciones: no sirve para cualquier fracción.</p>
+    <div class="learning-goals"><p data-content-role="objectives"><strong>Al terminar podrás:</strong> decidir cuándo aplicar L’Hôpital, repetirla con justificación, transformar otras indeterminaciones y elegir entre derivación y álgebra.</p><p data-content-role="prerequisites"><strong>Antes:</strong> <a href="09-indeterminaciones.html">indeterminaciones</a>, <a href="15-reglas-de-derivacion.html">derivación</a> y <a href="16-regla-de-la-cadena.html">cadena</a>.</p></div>
+    <section data-content-role="rule"><h2>1. Una versión suficiente para el curso</h2>
+      <div class="definition"><p>Estudiamos una aproximación por un lado de un punto, o hacia \(+\infty\) o \(-\infty\). Supongamos que:</p><ol><li>f y g son derivables en un intervalo por el que nos aproximamos, sin exigir derivabilidad en el punto límite.</li><li>\(g(x)\ne0\) y \(g'(x)\ne0\) en ese intervalo, suficientemente cerca del límite.</li><li>Aparece \(0/0\), o ambos términos tienden a infinitos de signo determinado (forma \(\infty/\infty\), con sus signos).</li><li>El límite de \(f'(x)/g'(x)\) existe como número real o infinito de signo determinado.</li></ol><p>Entonces el cociente original tiene ese mismo límite:</p><p>\[\lim\frac{f(x)}{g(x)}=\lim\frac{f'(x)}{g'(x)}.\]</p></div>
+      <p>Para un límite bilateral, comprueba las hipótesis por ambos lados y que los resultados coincidan. Al aproximarnos al infinito usamos un intervalo suficientemente alejado. Siempre debemos permanecer dentro del dominio real.</p>
+      <p data-content-role="warning">Se derivan numerador y denominador <strong>por separado</strong>, sin usar la regla del cociente. Las dos fracciones no tienen por qué ser iguales: lo que coincide, bajo las hipótesis, es su límite.</p>
+    </section>
+    <section id="ejemplos" data-content-role="worked-example"><h2>2. Forma 0/0 y aplicación repetida</h2>
+      <p>En \(\lim_{x\to0}(e^x-1)/x\), ambos términos tienden a 0. Son derivables cerca de 0 y la derivada del denominador es 1. El cociente de derivadas es \(e^x\to1\). Por tanto, el límite original vale 1.</p>
+      <p>Ahora considera \(\lim_{x\to0}(e^x-1-x)/x^2\). La primera derivación conduce a:</p><p>\[\frac{e^x-1}{2x}.\]</p>
+      <p>Sigue siendo \(0/0\). La derivada del nuevo denominador es 2, no nula; el segundo cociente de derivadas es \(e^x/2\to1/2\). Así, el límite original vale \(1/2\). En la primera aplicación, \(g'=2x\ne0\) en el entorno perforado de 0.</p>
+      <p>Cada aplicación necesita su propia comprobación. Cuando desaparece la indeterminación, calcula el límite obtenido; no sigas derivando automáticamente.</p>
+    </section>
+    <section data-content-role="worked-example"><h2>3. Forma ∞/∞ y producto 0·∞</h2>
+      <p>Para \(\lim_{x\to+\infty}\ln x/x\), la forma es \(\infty/\infty\), el dominio es \(x&gt;0\) y la derivada del denominador es 1:</p><p>\[\frac{(\ln x)'}{x'}=\frac1x\longrightarrow0.\]</p>
+      <p>En cambio, \(x\ln x\), cuando \(x\to0^+\), es un producto indeterminado. Primero lo escribimos como cociente:</p><p>\[x\ln x=\frac{\ln x}{1/x}.\]</p>
+      <p>La forma es \(-\infty/+\infty\). En \(x&gt;0\), la derivada del denominador es \(-1/x^2\ne0\). El cociente de derivadas es \(-x\to0\). El producto original tiende a 0, con valores negativos cerca de 0.</p>
+    </section>
+    <section id="examen" data-content-role="worked-example"><h2>4. Del examen: una potencia de forma 1 elevado a infinito</h2>
+      <p>El apartado 3(d) del examen local es:</p><p>\[\lim_{x\to+\infty}\left(\frac{x^2-1}{x^2}\right)^x.\]</p>
+      <p>Para \(x&gt;1\), la base es positiva. Si \(Y=(1-1/x^2)^x\), podemos tomar logaritmos:</p><p>\[\ln Y=x\ln(1-1/x^2)=\frac{\ln(1-1/x^2)}{1/x}.\]</p>
+      <ol class="worked-steps" data-content-role="worked-steps"><li>El cociente es \(0/0\) cuando \(x\to+\infty\).</li><li>Las funciones son derivables para \(x&gt;1\) y \((1/x)'=-1/x^2\ne0\).</li><li>El cociente de derivadas es:\[\frac{2/[x^3(1-1/x^2)]}{-1/x^2}=\frac{-2}{x(1-1/x^2)}\longrightarrow0.\]</li><li>Por continuidad de la exponencial, \(Y=\exp(\ln Y)\to e^0=1\).</li></ol>
+      <p data-content-role="warning">El límite 0 corresponde al logaritmo. La respuesta de la potencia original es \(\boxed{1}\). No olvides volver con la exponencial.</p>
+    </section>
+    <section data-content-role="method"><h2>5. Cuándo parar o elegir otro método</h2>
+      <details id="crecimientos" data-content-role="worked-example"><summary>Justificación de la comparación de crecimientos usada en 1.6</summary><p>Para una base \(b&gt;1\) y un entero \(n\ge1\), considera \(x^n/b^x\) cuando \(x\to+\infty\). Al aplicar L’Hôpital n veces, los cocientes intermedios mantienen la forma infinito/infinito hasta la última derivación. Las derivadas del denominador son \(b^x(\ln b)^k\), siempre positivas.</p><p>El último cociente es:</p><p>\[\frac{n!}{b^x(\ln b)^n}\longrightarrow0.\]</p><p>Aquí \(n!=1\cdot2\cdots n\). En el apartado 3(b) del examen, \(x^5/3^x\to0\). Por tanto, \(3^x-x^5=3^x(1-x^5/3^x)\to+\infty\): el segundo factor tiende a 1 y queda, por ejemplo, por encima de 1/2 para x suficientemente grande.</p></details>
+      <p>Para \((x^2-1)/(x-1)\) en 1, factorizar da \(x+1\to2\). L’Hôpital también es válida, pero no es necesaria.</p>
+      <p>En \(x/(x+1)\) cuando \(x\to0\), la sustitución da \(0/1=0\): no hay indeterminación. Derivar arriba y abajo produciría 1, un resultado incorrecto para el límite original.</p>
+      <p>Que el cociente de derivadas no tenga límite <strong>no demuestra</strong> que el original tampoco lo tenga. Puede ocurrir que la regla no decida el problema.</p>
+      <details data-content-role="worked-example"><summary>Ejemplo donde la regla no decide</summary><p>Para \(x\ne0\), \((x^2\sin(1/x))/x=x\sin(1/x)\). Su valor absoluto está acotado por \(|x|\), así que tiende a 0. Pero el cociente de derivadas sería \(2x\sin(1/x)-\cos(1/x)\), que oscila sin límite. La acotación resuelve lo que L’Hôpital no permite concluir.</p></details>
+    </section>
+    <section id="practica" data-content-role="guided-practice"><h2>6. Tu turno</h2><p>Calcula \(\lim_{x\to0}(1-\cos x)/x^2\), en radianes.</p>
+      <details data-content-role="hint"><summary>Pista 1</summary><p>Es \(0/0\). La primera aplicación conduce a \(\sin x/(2x)\).</p></details><details data-content-role="hint"><summary>Pista 2</summary><p>Comprueba otra vez la forma y la derivada del denominador antes de repetir.</p></details>
+      <details data-content-role="solution"><summary>Solución razonada</summary><p>En la primera aplicación, \(2x\ne0\) en el entorno perforado. El nuevo cociente sigue siendo \(0/0\); su denominador tiene derivada 2. La segunda aplicación da \(\cos x/2\to1/2\). Los dos laterales coinciden: el límite es \(1/2\).</p></details>
+      <div class="activity" data-content-role="self-check" data-quiz="t01-e18"></div>
+    </section>
+    <section data-content-role="summary"><h2>7. Resumen</h2><ul><li>Comprueba forma, dominio, derivabilidad y denominadores no nulos cerca del límite.</li><li>Deriva arriba y abajo por separado y verifica el nuevo límite.</li><li>Transforma productos y potencias antes de usar la regla.</li><li>Si la regla no decide, busca una transformación o acotación.</li></ul><p data-content-role="related-links"><a href="index.html">Volver al índice del tema</a> · <a href="../../../test/index.html?tema=t01">Repasar límites y derivadas</a>.</p></section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

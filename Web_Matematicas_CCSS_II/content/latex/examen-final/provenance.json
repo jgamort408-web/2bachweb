@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "pairId": "examen-final",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-22",
+  "sources": [
+    {
+      "sourceId": "F005",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Examen Final.zip",
+      "zipSha256": "7a202e65dc946ff87bd5645511dcc064664edb4cb44304507473606a369217ad",
+      "entry": "main.tex",
+      "texSha256": "156873730487fb0eba0d94c92dff8958520baae6a60e038c503b0ad364039df6"
+    }
+  ],
+  "assets": [
+    {
+      "path": "logo-al-andalus.png",
+      "sourceId": "F005",
+      "entry": "Logo AL-ANDALUS.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    }
+  ],
+  "solutionOrigin": "Solucionario elaborado en esta edición; el original no contiene soluciones",
+  "preserved": {
+    "durationMinutes": 55,
+    "calculatorAllowed": true,
+    "exercisePoints": [
+      5,
+      2,
+      1,
+      2
+    ],
+    "separateExamTotals": [
+      10
+    ],
+    "suggestedMinutes": [
+      30,
+      10,
+      5,
+      10
+    ],
+    "annexNonAssessable": true
+  },
+  "corrections": [
+    "M36"
+  ],
+  "answers": {
+    "parameters": [
+      -1,
+      1
+    ],
+    "areaPolynomial": "10/3",
+    "areaLogMultiplier": 4,
+    "maximum": [
+      "1/2",
+      "9/4"
+    ],
+    "rentabilityMaximum": [
+      5,
+      9
+    ],
+    "stockPrimitive": [
+      10,
+      6,
+      "-5/2",
+      "1/3"
+    ],
+    "stockGain": 2000,
+    "stockOptimalGain": 54000
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-22",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "batchId": "174-inferencia-general",
+  "sourceDirectory": "content/latex/inferencia-general",
+  "report": "docs/pdf/inferencia-general-build.json",
+  "mathematics": "inferencia-general",
+  "documents": [
+    {
+      "id": "inferencia-general-examen",
+      "source": "content/latex/inferencia-general/inferencia-general-examen.tex",
+      "output": "output/pdf/inferencia-general-examen.pdf",
+      "expectedPages": 2,
+      "title": "Inferencia - Examen general - Examen revisado",
+      "forbiddenText": [
+        "£"
+      ],
+      "requiredText": [
+        "10 puntos"
+      ]
+    },
+    {
+      "id": "inferencia-general-soluciones",
+      "source": "content/latex/inferencia-general/inferencia-general-soluciones.tex",
+      "output": "output/pdf/inferencia-general-soluciones.pdf",
+      "expectedPages": 4,
+      "title": "Inferencia - Examen general - Soluciones revisadas",
+      "forbiddenText": [
+        "£"
+      ],
+      "requiredText": [
+        "Precisión editorial M30",
+        "Corrección M29"
+      ]
+    }
+  ]
+}

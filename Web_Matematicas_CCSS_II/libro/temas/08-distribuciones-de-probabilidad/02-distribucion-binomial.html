@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>8.2. Distribución binomial · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t08-e02">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">8.2. Distribución binomial</h1>
+    <p data-content-role="lead">Contar éxitos en ensayos de Bernoulli independientes.</p>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#condiciones">Condiciones</a> · <a href="#probabilidad">Probabilidad exacta</a> · <a href="#parametros">Parámetros</a> · <a href="#ejemplos">Ejemplos resueltos</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+    <section id="condiciones" data-content-role="definition"><h2>De Bernoulli a la binomial</h2>
+      <p>Un ensayo de Bernoulli distingue dos resultados: éxito y fracaso. Cara o cruz, encestar o fallar, pieza defectuosa o correcta son las situaciones propuestas en el material de partida.</p>
+      <ol data-binomial-conditions>
+        <li>Cada ensayo tiene dos resultados: éxito E y fracaso F.</li>
+        <li>Se fija de antemano el número de ensayos \(n\), entero positivo.</li>
+        <li>Los ensayos son independientes: conocer los resultados de unos no cambia las probabilidades de los otros.</li>
+        <li>La probabilidad de éxito \(p\) es la misma en cada ensayo; la de fracaso es \(q=1-p\).</li>
+      </ol>
+      <p>La variable X cuenta el número de éxitos en esos n ensayos:</p>
+      <p data-binomial-formula="model">\[X\sim B(n,p),\qquad X\in\{0,1,\ldots,n\},\qquad 0\le p\le1.\]</p>
+      <p data-content-role="key-idea">«Éxito» es el resultado que contamos, no necesariamente algo bueno. Si contamos piezas defectuosas, encontrar una defectuosa es un éxito del modelo.</p>
+      <p data-content-role="warning">Tener solo dos resultados no basta. Los ejemplos se modelan como binomiales suponiendo independencia y probabilidad constante; esas condiciones deben justificarse en la situación real.</p>
+    </section>
+    <section id="probabilidad" data-content-role="explanation"><h2>Probabilidad de exactamente k éxitos</h2>
+      <p>Para \(0&lt;p&lt;1\) y un entero \(k\) entre 0 y n:</p>
+      <p data-binomial-formula="mass">\[P(X=k)=\binom{n}{k}p^kq^{n-k}.\]</p>
+      <dl>
+        <dt>\(\binom{n}{k}\)</dt><dd>Número de maneras de elegir las k posiciones que ocuparán los éxitos entre los n ensayos. Se calcula con la operación nCr de la calculadora.</dd>
+        <dt>\(p^k\)</dt><dd>Factor correspondiente a los k éxitos de una secuencia concreta.</dd>
+        <dt>\(q^{n-k}\)</dt><dd>Factor correspondiente a los n−k fracasos de esa misma secuencia.</dd>
+      </dl>
+      <p data-content-role="key-idea">Por independencia, \(p^kq^{n-k}\) es la probabilidad de una secuencia concreta con k éxitos. Multiplicamos por el número de secuencias posibles. \(p^k\) por sí solo no es una probabilidad acumulada de X.</p>
+      <p data-content-role="warning">Fuera de los valores enteros de 0 a n, la probabilidad es cero. En los extremos: si \(p=0\), X=0 con probabilidad 1; si \(p=1\), X=n con probabilidad 1. Así se evitan expresiones ambiguas como \(0^0\) al sustituir directamente.</p>
+    </section>
+    <section id="parametros" data-content-role="explanation"><h2>Parámetros de la binomial</h2>
+      <h3>Media o esperanza</h3>
+      <p data-binomial-formula="mean">\[\mu=np.\]</p>
+      <h3>Varianza y desviación típica</h3>
+      <p data-binomial-formula="variance">\[\sigma^2=npq.\]</p>
+      <p data-binomial-formula="deviation">\[\sigma=\sqrt{npq}.\]</p>
+      <p>La desviación típica es la raíz no negativa de la varianza. La esperanza describe el promedio del modelo, no un número de éxitos que deba obtenerse en cada grupo de ensayos.</p>
+    </section>
+    <section id="ejemplos" data-content-role="practice"><h2>Ejemplos resueltos</h2>
+      <p>Los dos ejemplos del original. Intenta resolver cada enunciado y después abre su solución. Son ejemplos guiados, sin parámetros editables.</p>
+      <article id="baloncesto" data-content-role="worked-example"><h3>1. El jugador de baloncesto</h3>
+        <p data-content-role="statement">Un jugador encesta el 80 % de sus tiros. Lanza cinco veces: ¿cuál es la probabilidad de encestar exactamente tres?</p>
+        <p>Suponemos tiros independientes y probabilidad constante \(p=0{,}8\) en los cinco lanzamientos. X cuenta los aciertos.</p>
+        <details data-binomial-solution="basketball"><summary>Ver solución del jugador de baloncesto</summary>
+          <p data-binomial-formula="basketball-model">\[X\sim B(5,0{,}8),\qquad q=0{,}2.\]</p>
+          <p data-binomial-formula="basketball-substitution">\[P(X=3)=\binom53(0{,}8)^3(0{,}2)^2.\]</p>
+          <ul data-basketball-factors><li>\(\binom53=10\).</li><li>\((0{,}8)^3=0{,}512\).</li><li>\((0{,}2)^2=0{,}04\).</li></ul>
+          <p data-binomial-formula="basketball-result">\[P(X=3)=10\cdot0{,}512\cdot0{,}04=0{,}2048=20{,}48\,\%.\]</p>
+          <p data-content-role="key-idea">Es la probabilidad de exactamente tres aciertos, no de al menos tres.</p>
+        </details>
+      </article>
+      <article id="calidad" data-content-role="worked-example"><h3>2. Control de calidad</h3>
+        <p data-content-role="statement">La probabilidad de que una pieza sea defectuosa es del 2 %. Revisamos 1000 piezas. ¿Cuántas esperamos encontrar defectuosas?</p>
+        <p>Suponemos defectos independientes entre piezas y probabilidad constante \(p=0{,}02\). X cuenta las piezas defectuosas: ese es el éxito que registramos.</p>
+        <details data-binomial-solution="quality"><summary>Ver solución del control de calidad</summary>
+          <p data-binomial-formula="quality-model">\[X\sim B(1000,0{,}02),\qquad q=0{,}98.\]</p>
+          <h4>Esperanza</h4>
+          <p data-binomial-formula="quality-mean">\[\mu=1000\cdot0{,}02=20\text{ piezas}.\]</p>
+          <h4>Desviación típica</h4>
+          <p data-binomial-formula="quality-deviation">\[\sigma=\sqrt{1000\cdot0{,}02\cdot0{,}98}=\sqrt{19{,}6}\approx4{,}43\text{ piezas}.\]</p>
+          <p data-content-role="key-idea">Esperamos 20 piezas defectuosas como promedio del modelo. No significa que todo lote contenga exactamente 20 ni que 4,43 sea un margen de error garantizado.</p>
+        </details>
+      </article>
+    </section>
+    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2>
+      <p>El archivo original aporta teoría y dos ejemplos desplegables. No contiene simulador, controles para variar n y p, gráfico de probabilidades, preguntas autocorregibles ni generación procedural. Su «laboratorio» se conserva aquí como ejemplos resueltos.</p>
+      <p>La práctica de probabilidades acumuladas y la relación de ejercicios del bloque quedan pendientes de revisión en los otros archivos. Esta lección mantiene el estado de contenido parcial.</p>
+    </section>
+    <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="01-variable-aleatoria.html">8.1. Variable aleatoria</a> · <a href="index.html">Volver al tema 8</a> · <a href="03-distribucion-normal.html">8.3. Distribución normal</a></nav>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

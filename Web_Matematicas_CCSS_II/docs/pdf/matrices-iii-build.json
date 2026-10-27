@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 1,
+  "mathematics": {
+    "passed": true,
+    "examProblems": 3,
+    "operationsReviewed": 5,
+    "operationsToChoose": 4,
+    "inverseMethods": [
+      "row-reduction",
+      "adjugate"
+    ],
+    "twoSidedInverseChecked": true,
+    "originalEquationResidualZero": true,
+    "powerCases": 81,
+    "gramDeterminant": "5",
+    "parameters": [
+      "2",
+      "1"
+    ]
+  },
+  "documents": [
+    {
+      "id": "matrices-iii-examen",
+      "pages": 1,
+      "bytes": 33093,
+      "sha256": "fc1c645c0ef670b72b26d9fde24f2625251f8aaae8e94e2d122b5a02559e47f1",
+      "title": "Matrices III - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 11,
+      "characters": 899
+    },
+    {
+      "id": "matrices-iii-soluciones",
+      "pages": 3,
+      "bytes": 35763,
+      "sha256": "e890f41d72a0ed05e6ed4daecd098453a06f3798b81233951f30c51436b78df1",
+      "title": "Matrices III - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 14,
+      "characters": 2762
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-20",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/matrices-iii/estilo.tex",
+      "sha256": "d312e0a3322c1f3ec500ec41a627d00d9b9313fa3293d635ac343fac672fbc2a"
+    },
+    {
+      "path": "content/latex/matrices-iii/logo-al-andalus.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    },
+    {
+      "path": "content/latex/matrices-iii/matrices-iii-examen.tex",
+      "sha256": "a76e770951ed0a1d4ffafa23f21821e6f35c356c8763c72202f528707c4cfce2"
+    },
+    {
+      "path": "content/latex/matrices-iii/matrices-iii-soluciones.tex",
+      "sha256": "5648bc2598f8d82f5a9c2e6f0c16db073cf76d7f1785c3f0a8b2a70b12b739fe"
+    },
+    {
+      "path": "content/latex/matrices-iii/provenance.json",
+      "sha256": "655c2174039ffd99bc12d6f2055ed5aeb3df602053c8d09529fdc704ef711ddc"
+    }
+  ]
+}

@@ -1,0 +1,764 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-22",
+  "passed": true,
+  "originalPackages": 30,
+  "pairs": 24,
+  "pdfs": 48,
+  "pages": 154,
+  "allOriginalHashesVerified": true,
+  "allReviewedSourceHashesVerified": true,
+  "allMathematicsPassed": true,
+  "pairsChecked": [
+    {
+      "pairId": "distribuciones-i",
+      "config": "config/pdf-build-distribuciones-i.json",
+      "sources": [
+        "F003"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "distribuciones-i-examen",
+          "pages": 1,
+          "bytes": 29711,
+          "sha256": "94d44b1587e5b7a48ac22b99d12bfc740f2785c4ddcb07f16ace433373249dd2",
+          "title": "Distribuciones I - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 7,
+          "characters": 1551
+        },
+        {
+          "id": "distribuciones-i-soluciones",
+          "pages": 3,
+          "bytes": 36391,
+          "sha256": "d78cb4d0344089af5b82fa7136a26f2f3d6f911b0908c84d8afef2c2d2edd638",
+          "title": "Distribuciones I - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 12,
+          "characters": 3024
+        }
+      ],
+      "releaseDate": "2026-10-20"
+    },
+    {
+      "pairId": "distribuciones-ii",
+      "config": "config/pdf-build-distribuciones-ii.json",
+      "sources": [
+        "F002"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "distribuciones-ii-examen",
+          "pages": 1,
+          "bytes": 29586,
+          "sha256": "b824c5fa8a220c178c6cedddfa5037d12bf0cb9af0ff545531d27ade617fda57",
+          "title": "Distribuciones II - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 7,
+          "characters": 1436
+        },
+        {
+          "id": "distribuciones-ii-soluciones",
+          "pages": 3,
+          "bytes": 38017,
+          "sha256": "fae075bb4e6c5bc601c445a808aa2e913eebe255c887a079cb99870e12dc64f6",
+          "title": "Distribuciones II - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 12,
+          "characters": 3377
+        }
+      ],
+      "releaseDate": "2026-10-20"
+    },
+    {
+      "pairId": "examen-final",
+      "config": "config/pdf-build-examen-final.json",
+      "sources": [
+        "F005"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "examen-final-examen",
+          "pages": 3,
+          "bytes": 33968,
+          "sha256": "30377cd09cdbc65d68a32b4985bfddff9001a17267e0f501113e42c2483cbeed",
+          "title": "Examen final - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 11,
+          "characters": 3298
+        },
+        {
+          "id": "examen-final-soluciones",
+          "pages": 6,
+          "bytes": 49232,
+          "sha256": "8a4d35e8fbf69ca6bae5d05e087a60bf9dba2a2676cca820831a32c3b94fd349",
+          "title": "Examen final - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 14,
+          "characters": 4760
+        }
+      ],
+      "releaseDate": "2026-10-22"
+    },
+    {
+      "pairId": "funciones-principal",
+      "config": "config/pdf-build-funciones-principal.json",
+      "sources": [
+        "F007"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "funciones-principal-examen",
+          "pages": 2,
+          "bytes": 33849,
+          "sha256": "21c4ded70b4b955adefea5be0991f7f6b1b7753f77d031b64e932449f91acc52",
+          "title": "Funciones: examen principal - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 11,
+          "characters": 1577
+        },
+        {
+          "id": "funciones-principal-soluciones",
+          "pages": 6,
+          "bytes": 62858,
+          "sha256": "d534b92d3f097261a0b6f412173c31f640bab09c750c929d12b65e817433fbd7",
+          "title": "Funciones: examen principal - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 15,
+          "characters": 5365
+        }
+      ],
+      "releaseDate": "2026-10-20"
+    },
+    {
+      "pairId": "funciones-variante",
+      "config": "config/pdf-build-funciones-variante.json",
+      "sources": [
+        "F006"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "funciones-variante-examen",
+          "pages": 1,
+          "bytes": 31519,
+          "sha256": "d0ab2b23ee4d3939754dea76f18238563aa568c2fc78144f181839e2213f2bb5",
+          "title": "Funciones: variante - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 11,
+          "characters": 991
+        },
+        {
+          "id": "funciones-variante-soluciones",
+          "pages": 3,
+          "bytes": 44323,
+          "sha256": "1a1210a9468f9831cb6be60aec3f9d8321291e913e8b98ad32eb759ec8029591",
+          "title": "Funciones: variante - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 12,
+          "characters": 2791
+        }
+      ],
+      "releaseDate": "2026-10-20"
+    },
+    {
+      "pairId": "inferencia-general",
+      "config": "config/pdf-build-inferencia-general.json",
+      "sources": [
+        "F013"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "inferencia-general-examen",
+          "pages": 2,
+          "bytes": 31357,
+          "sha256": "3b8c0044c83520657351324fca4672113f3b6f9a1cbccc9974b05e105ce8a3cc",
+          "title": "Inferencia - Examen general - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 7,
+          "characters": 2937
+        },
+        {
+          "id": "inferencia-general-soluciones",
+          "pages": 4,
+          "bytes": 39385,
+          "sha256": "8a116db78ec436d60cc83eb459c8c58f473056e9726283e7c7df3b244b740b11",
+          "title": "Inferencia - Examen general - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 12,
+          "characters": 6190
+        }
+      ],
+      "releaseDate": "2026-10-22"
+    },
+    {
+      "pairId": "inferencia-i",
+      "config": "config/pdf-build-inferencia-i.json",
+      "sources": [
+        "F011"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "inferencia-i-examen",
+          "pages": 2,
+          "bytes": 28329,
+          "sha256": "ff750f7a8682f7d394a1f68abdf82ad923b3269fe61c4319a07f054237773331",
+          "title": "Inferencia I - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 5,
+          "characters": 2670
+        },
+        {
+          "id": "inferencia-i-soluciones",
+          "pages": 3,
+          "bytes": 36472,
+          "sha256": "2caa2392beef7b4e9a77f5bd569259f6b5ce50a7b6a2d156b382f9b861e77ad2",
+          "title": "Inferencia I - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 12,
+          "characters": 4768
+        }
+      ],
+      "releaseDate": "2026-10-22"
+    },
+    {
+      "pairId": "inferencia-ii",
+      "config": "config/pdf-build-inferencia-ii.json",
+      "sources": [
+        "F012"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "inferencia-ii-examen",
+          "pages": 2,
+          "bytes": 30830,
+          "sha256": "73a787b631a6643837763b81725a79982608abc560febdccef30e597c3083196",
+          "title": "Inferencia II - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 7,
+          "characters": 2559
+        },
+        {
+          "id": "inferencia-ii-soluciones",
+          "pages": 3,
+          "bytes": 37123,
+          "sha256": "b49b2d85a0c256a5f6edf770705c68dd31150ac57a35e34369e9cf764af2db1c",
+          "title": "Inferencia II - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 12,
+          "characters": 5105
+        }
+      ],
+      "releaseDate": "2026-10-22"
+    },
+    {
+      "pairId": "inferencia-recopilacion",
+      "config": "config/pdf-build-inferencia-recopilacion.json",
+      "sources": [
+        "F010"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "inferencia-recopilacion-examen",
+          "pages": 3,
+          "bytes": 34088,
+          "sha256": "2201e62b47dc128f64b5ac1f50dee77ac3a5a9366bc58dd16e481b044dcd665d",
+          "title": "Inferencia - Recopilación I y II - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 7,
+          "characters": 3973
+        },
+        {
+          "id": "inferencia-recopilacion-soluciones",
+          "pages": 5,
+          "bytes": 42721,
+          "sha256": "097ed18601de179ebe8f423dc33284aad33bc99c6494883e408b27c161cfc8e3",
+          "title": "Inferencia - Recopilación I y II - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 12,
+          "characters": 8020
+        }
+      ],
+      "releaseDate": "2026-10-22"
+    },
+    {
+      "pairId": "limites-derivadas",
+      "config": "config/pdf-build-limites-derivadas.json",
+      "sources": [
+        "F008"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "limites-derivadas-examen",
+          "pages": 2,
+          "bytes": 41203,
+          "sha256": "c8d0d08ab9b89e3d6acef6b0b2cc45b3273401fa4fc5fbb2a54de181118c4b0f",
+          "title": "Límites y derivadas - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 14,
+          "characters": 1707
+        },
+        {
+          "id": "limites-derivadas-soluciones",
+          "pages": 7,
+          "bytes": 57559,
+          "sha256": "e301e2c45e70f1cfa2d6d81a55148f49517ab1d458e98fc2e6175c07a217fcd2",
+          "title": "Límites y derivadas - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 17,
+          "characters": 6139
+        }
+      ],
+      "releaseDate": "2026-10-20"
+    },
+    {
+      "pairId": "matrices-i",
+      "config": "config/pdf-build-matrices-i.json",
+      "sources": [
+        "F014"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "matrices-i-examen",
+          "pages": 1,
+          "bytes": 34753,
+          "sha256": "65a138a80eabed4f956afb6e73ffeaadf515358e462edebaa0efa0d5c8517141",
+          "title": "Matrices I - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 12,
+          "characters": 976
+        },
+        {
+          "id": "matrices-i-soluciones",
+          "pages": 3,
+          "bytes": 37038,
+          "sha256": "969b83f5811097d1c62cc535ff274f188c179d5663e3983dc532f8789a39123d",
+          "title": "Matrices I - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 14,
+          "characters": 2599
+        }
+      ],
+      "releaseDate": "2026-10-20"
+    },
+    {
+      "pairId": "matrices-ii",
+      "config": "config/pdf-build-matrices-ii.json",
+      "sources": [
+        "F015"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "matrices-ii-examen",
+          "pages": 1,
+          "bytes": 33622,
+          "sha256": "0b0b7675a9d87bb281e9663d4ba68ce36a9424903c9dbba2445584f059f17f00",
+          "title": "Matrices II - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 12,
+          "characters": 906
+        },
+        {
+          "id": "matrices-ii-soluciones",
+          "pages": 3,
+          "bytes": 35735,
+          "sha256": "f2a3decd0bb0fb17fb729daec7198ca3e508b14d32711f69455dbddc54045610",
+          "title": "Matrices II - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 14,
+          "characters": 2567
+        }
+      ],
+      "releaseDate": "2026-10-20"
+    },
+    {
+      "pairId": "matrices-iii",
+      "config": "config/pdf-build-matrices-iii.json",
+      "sources": [
+        "F016"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "matrices-iii-examen",
+          "pages": 1,
+          "bytes": 33093,
+          "sha256": "fc1c645c0ef670b72b26d9fde24f2625251f8aaae8e94e2d122b5a02559e47f1",
+          "title": "Matrices III - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 11,
+          "characters": 899
+        },
+        {
+          "id": "matrices-iii-soluciones",
+          "pages": 3,
+          "bytes": 35763,
+          "sha256": "e890f41d72a0ed05e6ed4daecd098453a06f3798b81233951f30c51436b78df1",
+          "title": "Matrices III - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 14,
+          "characters": 2762
+        }
+      ],
+      "releaseDate": "2026-10-20"
+    },
+    {
+      "pairId": "probabilidad-i",
+      "config": "config/pdf-build-probabilidad-i.json",
+      "sources": [
+        "F018"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "probabilidad-i-examen",
+          "pages": 2,
+          "bytes": 33372,
+          "sha256": "fed00e0f5e60816ee0627ca3511322d09f04af8ad6dac524e197cca6a0acf62d",
+          "title": "Probabilidad I - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 9,
+          "characters": 2433
+        },
+        {
+          "id": "probabilidad-i-soluciones",
+          "pages": 4,
+          "bytes": 30582,
+          "sha256": "252dfada65bc4f4c1fd5974c33269dea082b9d56eefaa46a4db79d9c4fbb17c9",
+          "title": "Probabilidad I - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 9,
+          "characters": 2450
+        }
+      ],
+      "releaseDate": "2026-10-21"
+    },
+    {
+      "pairId": "probabilidad-ii",
+      "config": "config/pdf-build-probabilidad-ii.json",
+      "sources": [
+        "F017"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "probabilidad-ii-examen",
+          "pages": 2,
+          "bytes": 32956,
+          "sha256": "7b765091643cce013efd75056750a98f5cb9c77297f071c531788a6219ffe791",
+          "title": "Probabilidad II - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 9,
+          "characters": 2081
+        },
+        {
+          "id": "probabilidad-ii-soluciones",
+          "pages": 4,
+          "bytes": 30254,
+          "sha256": "28f84ef37a89fdf20dd4a9f8c647910ad78621bf02b1e35b61dd5d43a8f16006",
+          "title": "Probabilidad II - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 9,
+          "characters": 2331
+        }
+      ],
+      "releaseDate": "2026-10-21"
+    },
+    {
+      "pairId": "programacion-lineal-i",
+      "config": "config/pdf-build-programacion-lineal-i.json",
+      "sources": [
+        "F019",
+        "F021"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "programacion-lineal-i-examen",
+          "pages": 2,
+          "bytes": 35917,
+          "sha256": "ad69399eeeb0078b143a63a4a16d0e3d7c6c55c7effeb57a689ed1613b445386",
+          "title": "Programación lineal I - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 8,
+          "characters": 2368
+        },
+        {
+          "id": "programacion-lineal-i-soluciones",
+          "pages": 4,
+          "bytes": 43128,
+          "sha256": "70f21def34d45ffb5e0b9489ab884d352d4de5183476225b10c8482322a844e9",
+          "title": "Programación lineal I - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 10,
+          "characters": 4463
+        }
+      ],
+      "releaseDate": "2026-10-20"
+    },
+    {
+      "pairId": "programacion-lineal-ii",
+      "config": "config/pdf-build-programacion-lineal-ii.json",
+      "sources": [
+        "F020",
+        "F022"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "programacion-lineal-ii-examen",
+          "pages": 2,
+          "bytes": 35356,
+          "sha256": "dfaf870a0f5d3a4a2452ea2b1b535d513ec1f2d0a335895c8af15190c0aa33e0",
+          "title": "Programación lineal II - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 8,
+          "characters": 2153
+        },
+        {
+          "id": "programacion-lineal-ii-soluciones",
+          "pages": 4,
+          "bytes": 45683,
+          "sha256": "11f88b0333fed0fc4e6c84ebc250788492c17b1bada2467e864507628df40e80",
+          "title": "Programación lineal II - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 12,
+          "characters": 4707
+        }
+      ],
+      "releaseDate": "2026-10-20"
+    },
+    {
+      "pairId": "recuperacion-inferencia",
+      "config": "config/pdf-build-recuperacion-inferencia.json",
+      "sources": [
+        "F009"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "recuperacion-inferencia-examen",
+          "pages": 5,
+          "bytes": 46567,
+          "sha256": "8bd6e90a79c184270e93468266f05038dcee211c23b989ec0030bec2561186d6",
+          "title": "Recuperación de Inferencia y repaso - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 12,
+          "characters": 5888
+        },
+        {
+          "id": "recuperacion-inferencia-soluciones",
+          "pages": 10,
+          "bytes": 65689,
+          "sha256": "7f3392e7843111a2c47e56f54e2de0a447a21fa19a996534877272e20508a1c1",
+          "title": "Recuperación de Inferencia y repaso - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 13,
+          "characters": 10133
+        }
+      ],
+      "releaseDate": "2026-10-21"
+    },
+    {
+      "pairId": "repaso-analisis",
+      "config": "config/pdf-build-repaso-analisis.json",
+      "sources": [
+        "F004"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "repaso-analisis-examen",
+          "pages": 4,
+          "bytes": 33986,
+          "sha256": "bd089c5f5bda81d32ddc167b317d5dc433418e045f20ed5f31c46ba47e0fc240",
+          "title": "Repaso de Análisis - Exámenes 1 y 2 - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 12,
+          "characters": 2906
+        },
+        {
+          "id": "repaso-analisis-soluciones",
+          "pages": 8,
+          "bytes": 61346,
+          "sha256": "dd168d297608d26f87db5b1f8fe58d4c5a9f5b9d22b315453af844bdc6ff4493",
+          "title": "Repaso de Análisis - Exámenes 1 y 2 - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 15,
+          "characters": 6666
+        }
+      ],
+      "releaseDate": "2026-10-22"
+    },
+    {
+      "pairId": "sistemas-sels-i",
+      "config": "config/pdf-build-sistemas-sels-i.json",
+      "sources": [
+        "F025",
+        "F026"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "sistemas-sels-i-examen",
+          "pages": 1,
+          "bytes": 33091,
+          "sha256": "c8a9f7d6e2225c511f0fc01bbaec5ab31ec57802fcf55efc9539712d363e8a37",
+          "title": "Sistemas de ecuaciones I - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 8,
+          "characters": 1307
+        },
+        {
+          "id": "sistemas-sels-i-soluciones",
+          "pages": 4,
+          "bytes": 37456,
+          "sha256": "9795f079822ed98a772d1a5613a1fd0b3c65ae85253c887a6bd4814b9b23a84a",
+          "title": "Sistemas de ecuaciones I - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 12,
+          "characters": 3547
+        }
+      ],
+      "releaseDate": "2026-10-20"
+    },
+    {
+      "pairId": "sistemas-sels-ii",
+      "config": "config/pdf-build-sistemas-sels-ii.json",
+      "sources": [
+        "F027",
+        "F028"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "sistemas-sels-ii-examen",
+          "pages": 1,
+          "bytes": 33382,
+          "sha256": "34d2424ef4755ee72b0c7dafd62c54fa4071eee06020bfae171ed8d0482bca58",
+          "title": "Sistemas de ecuaciones II - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 9,
+          "characters": 1359
+        },
+        {
+          "id": "sistemas-sels-ii-soluciones",
+          "pages": 4,
+          "bytes": 38441,
+          "sha256": "c566c3ac1cbeacc1d6035d7b052f7076ba4d6cb0fed983a8112f72892ed2f337",
+          "title": "Sistemas de ecuaciones II - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 12,
+          "characters": 3347
+        }
+      ],
+      "releaseDate": "2026-10-20"
+    },
+    {
+      "pairId": "subida-nota-curso",
+      "config": "config/pdf-build-subida-nota-curso.json",
+      "sources": [
+        "F001"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "subida-nota-curso-examen",
+          "pages": 4,
+          "bytes": 32213,
+          "sha256": "c68e6cfbcd4e4f6e8b994e036f6aaea3becbe1ad61d353ed4c1435b2164c5659",
+          "title": "Subida de nota de curso - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 11,
+          "characters": 3330
+        },
+        {
+          "id": "subida-nota-curso-soluciones",
+          "pages": 4,
+          "bytes": 46818,
+          "sha256": "772b379e92a134ff92f7391371c677ef5778517c5c4c3d94194c38d959544e65",
+          "title": "Subida de nota de curso - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 13,
+          "characters": 5056
+        }
+      ],
+      "releaseDate": "2026-10-22"
+    },
+    {
+      "pairId": "subida-nota-t1-general",
+      "config": "config/pdf-build-subida-nota-t1-general.json",
+      "sources": [
+        "F029",
+        "F030"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "subida-nota-t1-general-examen",
+          "pages": 1,
+          "bytes": 27118,
+          "sha256": "1cfe6e807324aa5fb97af38dd469b2235d0b4866697c76fadba5c89607aca8eb",
+          "title": "Subida de nota T1 - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 11,
+          "characters": 1127
+        },
+        {
+          "id": "subida-nota-t1-general-soluciones",
+          "pages": 5,
+          "bytes": 58019,
+          "sha256": "2156e6778c058c19de67cc3f82a1693e2beb6a5f3705ef53122e43d728db3b5b",
+          "title": "Subida de nota T1 - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 17,
+          "characters": 4421
+        }
+      ],
+      "releaseDate": "2026-10-20"
+    },
+    {
+      "pairId": "recuperacion-t1",
+      "config": "config/pdf-build.json",
+      "sources": [
+        "F024",
+        "F023"
+      ],
+      "mathematicsPassed": true,
+      "documents": [
+        {
+          "id": "recuperacion-t1-examen",
+          "pages": 1,
+          "bytes": 34071,
+          "sha256": "26a786b9d6b1da02fc3933aec2257854e1068acc994450487a5232742f5f1af5",
+          "title": "Recuperación T1 - Examen revisado",
+          "language": "es-ES",
+          "embeddedFonts": 10,
+          "characters": 1157
+        },
+        {
+          "id": "recuperacion-t1-soluciones",
+          "pages": 4,
+          "bytes": 56830,
+          "sha256": "16bc2395c3d3b7b82e29d707a7740d46328f891696453ab645f82102f13a848b",
+          "title": "Recuperación T1 - Soluciones revisadas",
+          "language": "es-ES",
+          "embeddedFonts": 18,
+          "characters": 3502
+        }
+      ],
+      "releaseDate": "2026-10-20"
+    }
+  ]
+}

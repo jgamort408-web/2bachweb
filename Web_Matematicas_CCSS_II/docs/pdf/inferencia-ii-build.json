@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 1,
+  "mathematics": {
+    "passed": true,
+    "exercises": 3,
+    "parts": 6,
+    "calculations": [
+      {
+        "kind": "proportion",
+        "bound": 434.4322097751607,
+        "sampleSize": 435,
+        "previousMargin": 0.04001991254479148,
+        "margin": 0.0399738861781601
+      },
+      {
+        "kind": "mean",
+        "bound": 26.53958640408515,
+        "sampleSize": 27,
+        "previousMargin": 50.51616877876934,
+        "margin": 49.57185805968307
+      }
+    ],
+    "allocation": [
+      96,
+      44,
+      60,
+      40
+    ],
+    "population": 12000,
+    "sampleSize": 240,
+    "quantilesCheckedBy": "independent Gaussian quadrature and bisection"
+  },
+  "documents": [
+    {
+      "id": "inferencia-ii-examen",
+      "pages": 2,
+      "bytes": 30830,
+      "sha256": "73a787b631a6643837763b81725a79982608abc560febdccef30e597c3083196",
+      "title": "Inferencia II - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 7,
+      "characters": 2559
+    },
+    {
+      "id": "inferencia-ii-soluciones",
+      "pages": 3,
+      "bytes": 37123,
+      "sha256": "b49b2d85a0c256a5f6edf770705c68dd31150ac57a35e34369e9cf764af2db1c",
+      "title": "Inferencia II - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 12,
+      "characters": 5105
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-22",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/inferencia-ii/estilo.tex",
+      "sha256": "243dd357b41fc37c529286f9bfa9c6ca38bff8fd85cf51c4dc1c35256da1452a"
+    },
+    {
+      "path": "content/latex/inferencia-ii/inferencia-ii-examen.tex",
+      "sha256": "8adfaaf31eadbef101f222d4423d1cf272e63362a8056f6ced7ff2e7394b9c85"
+    },
+    {
+      "path": "content/latex/inferencia-ii/inferencia-ii-soluciones.tex",
+      "sha256": "48d8c35ca8143efb456972a803f48c71b60079c96d5673af3a3dd509d0f5b13e"
+    },
+    {
+      "path": "content/latex/inferencia-ii/logo-al-andalus.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    },
+    {
+      "path": "content/latex/inferencia-ii/provenance.json",
+      "sha256": "efa2cde14c8d43c832efe5cdc9178b67594dcef493570251a276f4c60db105e7"
+    }
+  ]
+}

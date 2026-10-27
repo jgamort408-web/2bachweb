@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Axiomática de Kolmogorov — Matemáticas Aplicadas (2º Bach.)</title>
+
+  <!-- Fuentes (con fallback automático) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Inter:wght@300;400;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- MathJax: configuración ANTES, carga UNA sola vez -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      options: { renderActions: { addMenu: [] } }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root{
+      --bg:#FDFBF7;
+      --text:#0f172a;
+      --ink:#1f2937;
+      --muted:#475569;
+
+      --card:#ffffff;
+      --radius:18px;
+      --max:1040px;
+
+      --indigo:#4f46e5;
+      --indigo-2:#312e81;
+      --amber:#d97706;
+      --red:#ef4444;
+      --green:#16a34a;
+
+      --grid-dot: rgba(15, 23, 42, .10);
+      --shadow: 0 18px 35px rgba(15,23,42,.10);
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.55;
+      overflow-x:hidden;
+      touch-action: manipulation;
+
+      /* Fondo cuaderno */
+      background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    :focus-visible{
+      outline: 3px solid rgba(79,70,229,.35);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .page{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(18px, 3.2vw, 46px);
+    }
+
+    h1,h2,h3{
+      font-family: Fraunces, ui-serif, Georgia, "Times New Roman", Times, serif;
+      letter-spacing: -0.02em;
+      margin: 0;
+      color: var(--text);
+    }
+
+    .handwritten{
+      font-family: Kalam, "Comic Sans MS", "Segoe Print", cursive;
+      color: var(--amber);
+      font-weight: 700;
+      display:inline-block;
+      transform: rotate(-1deg);
+      letter-spacing:.2px;
+    }
+
+    header{
+      border-bottom: 2px solid rgba(15,23,42,.20);
+      padding-bottom: 18px;
+      margin-bottom: 34px;
+    }
+
+    h1{
+      margin-top: 10px;
+      font-size: clamp(30px, 4.2vw, 52px);
+      line-height: 1.08;
+      text-shadow: 2px 2px 0 var(--bg), 4px 4px 0 rgba(15,23,42,.08);
+    }
+
+    .lead{
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 90ch;
+    }
+
+    section{ margin: 0 0 44px; }
+
+    .paper{
+      background: var(--card);
+      border: 1px solid rgba(15,23,42,.12);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .pad{ padding: clamp(14px, 2.2vw, 22px); }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.7fr 1fr;
+      gap: 16px;
+      align-items:start;
+    }
+    @media (max-width: 900px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    /* Graph paper */
+    .graph-paper{
+      background-color: #ffffff;
+      background-image:
+        linear-gradient(rgba(15,23,42,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,23,42,.08) 1px, transparent 1px);
+      background-size: 20px 20px;
+      border: 2px solid rgba(15,23,42,.82);
+      box-shadow: 4px 4px 0 rgba(15,23,42,.82);
+      border-radius: 16px;
+    }
+
+    .hr{
+      height: 0;
+      border: none;
+      border-top: 2px dashed rgba(15,23,42,.22);
+      margin: 40px 0;
+    }
+
+    /* Caja “idea clave” */
+    .key{
+      border-left: 6px solid var(--indigo);
+      background: rgba(248,250,252,.92);
+      border-radius: 0 16px 16px 0;
+      padding: clamp(14px, 2.2vw, 22px);
+      border: 1px solid rgba(15,23,42,.10);
+      border-left-width: 6px;
+    }
+    .key .title{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-weight: 900;
+      letter-spacing:-0.01em;
+      margin: 0 0 6px;
+      color:#334155;
+    }
+    .key p{ margin: 0 0 8px; color:#334155; }
+    .key ul{ margin: 10px 0 0 18px; color:#334155; }
+
+    /* Axiomas */
+    .axioms{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 980px){
+      .axioms{ grid-template-columns: 1fr; }
+    }
+
+    .axiom{
+      position: relative;
+      overflow:hidden;
+      border-radius: 18px;
+      border: 1px solid rgba(15,23,42,.12);
+      background: var(--card);
+      box-shadow: 0 14px 28px rgba(15,23,42,.08);
+      padding: 16px 16px 14px;
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      background: rgba(15,23,42,.92);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+    .axiom h3{
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+    .axiom .desc{
+      color: var(--muted);
+      margin: 0 0 10px;
+      font-size: 14.5px;
+    }
+    .formula{
+      background: rgba(79,70,229,.08);
+      border: 1px solid rgba(79,70,229,.18);
+      border-radius: 16px;
+      padding: 10px 12px;
+      text-align:center;
+    }
+    .axiom .hint{
+      margin-top: 10px;
+      font-size: 12.5px;
+      color:#64748b;
+      font-style: italic;
+    }
+
+    /* Consecuencias */
+    .two-col{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      align-items:center;
+    }
+    @media (max-width: 980px){
+      .two-col{ grid-template-columns: 1fr; }
+    }
+
+    .mini{
+      background: rgba(15,23,42,.03);
+      border: 1px solid rgba(15,23,42,.10);
+      border-radius: 18px;
+      padding: 14px 14px;
+    }
+    .mini h3{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-weight: 900;
+      letter-spacing:-0.01em;
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+    .mini p{ margin: 0 0 8px; color:#334155; }
+
+    /* Truco del contrario */
+    .pro{
+      border-left: 6px solid rgba(217,119,6,.95);
+      background: rgba(253,230,138,.20);
+      border-radius: 18px;
+      padding: clamp(14px, 2.2vw, 22px);
+      border: 1px solid rgba(217,119,6,.22);
+      box-shadow: 0 14px 28px rgba(15,23,42,.08);
+    }
+    .pro-head{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      margin-bottom: 10px;
+    }
+    .badge{
+      font-size: 12px;
+      font-weight: 900;
+      color: #7c2d12;
+      background: rgba(255,255,255,.55);
+      border: 1px solid rgba(124,45,18,.18);
+      padding: 5px 10px;
+      border-radius: 999px;
+      letter-spacing: .03em;
+      white-space: nowrap;
+    }
+    .pro p{ margin: 0 0 10px; color:#7c2d12; }
+
+    /* Acordeones */
+    .task{
+      border: 1px solid rgba(15,23,42,.12);
+      border-radius: 18px;
+      overflow:hidden;
+      background: var(--card);
+      box-shadow: 0 14px 28px rgba(15,23,42,.08);
+    }
+    .task .top{
+      padding: 12px 14px;
+      background: rgba(15,23,42,.03);
+      border-bottom: 1px solid rgba(15,23,42,.10);
+      font-weight: 800;
+      color:#0f172a;
+    }
+    details.sol{ padding: 12px 14px; }
+
+    summary{
+      list-style:none;
+      cursor:pointer;
+      font-weight: 900;
+      color: var(--indigo);
+      padding: 6px 0;
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 10px;
+      user-select:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    .chev{
+      transition: transform .18s ease;
+      opacity:.55;
+      font-weight: 900;
+    }
+    details[open] summary{ color: #1d4ed8; }
+    details[open] .chev{ transform: rotate(180deg); opacity:.75; }
+
+    .sol-body{
+      margin-top: 10px;
+      padding-left: 12px;
+      border-left: 3px solid rgba(79,70,229,.18);
+      color:#334155;
+    }
+    .sol-body p{ margin: 0 0 8px; }
+    .sol-body ul{ margin: 8px 0 8px 18px; }
+
+    /* Micro-chequeo (autoevaluación) */
+    .check{
+      border-left: 6px solid rgba(22,163,74,.9);
+      background: rgba(220,252,231,.45);
+      border-radius: 18px;
+      padding: clamp(14px, 2.2vw, 22px);
+      border: 1px solid rgba(22,163,74,.22);
+      box-shadow: 0 14px 28px rgba(15,23,42,.08);
+    }
+    .check h3{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-weight: 900;
+      letter-spacing:-0.01em;
+      color:#14532d;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+    .q{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .q label{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(20,83,45,.18);
+      background: rgba(255,255,255,.55);
+      color:#14532d;
+      font-weight: 700;
+      cursor:pointer;
+    }
+    .q input{ margin-top: 3px; }
+    .result{
+      margin-top: 10px;
+      font-weight: 900;
+      color:#14532d;
+    }
+
+    /* Bloque ejercicios propuestos */
+    .sheet-dark{
+      background: rgba(30,41,59,.96);
+      color: #e2e8f0;
+      border-radius: 20px;
+      padding: clamp(16px, 2.6vw, 28px);
+      box-shadow: 0 20px 55px rgba(15,23,42,.22);
+      position: relative;
+      overflow:hidden;
+    }
+    .sheet-dark h3{
+      color: #ffffff;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    .sheet-dark ol{
+      margin: 0;
+      padding-left: 18px;
+      color: #cbd5e1;
+    }
+    .sheet-dark li{ margin: 10px 0; }
+    .glow{
+      position:absolute;
+      top:-40px;
+      right:-40px;
+      width: 180px;
+      height: 180px;
+      background: rgba(79,70,229,.65);
+      border-radius: 999px;
+      filter: blur(32px);
+      opacity:.45;
+    }
+
+    /* MathJax ajuste */
+    mjx-container[jax="CHTML"]{ font-size: 1.02em; }
+
+    @media (prefers-reduced-motion: reduce){
+      .handwritten{ transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <header>
+      <span class="handwritten">Tema 3.3</span>
+      <h1>Axiomática de Kolmogorov</h1>
+      <p class="lead">
+        En 1933, <strong>Andréi Kolmogórov</strong> formalizó la probabilidad con tres reglas.
+        A partir de ellas se deduce prácticamente todo lo que usamos en Bachillerato: complementarios, uniones,
+        condicionadas (cuando se define), y estrategias de cálculo.
+      </p>
+    </header>
+
+    <section class="grid">
+      <div>
+        <p style="margin:0 0 12px; font-size:18px; color:#334155;">
+          La probabilidad es una función $P$ que asigna a cada suceso $A$ un número $P(A)$.
+          Piensa en los sucesos como conjuntos dentro del espacio muestral $E$ (o $\Omega$).
+        </p>
+
+        <div class="key">
+          <div class="title">Idea clave para 2º de Bach</div>
+          <p style="margin:0;">
+            En esta unidad trabajamos con tres niveles:
+          </p>
+          <ul>
+            <li><strong>Modelo</strong>: definimos $E$ y los sucesos.</li>
+            <li><strong>Reglas</strong>: axiomas $\Rightarrow$ propiedades (fórmulas).</li>
+            <li><strong>Cálculo</strong>: aplicamos propiedades a ejercicios reales.</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="graph-paper pad" style="text-align:center; transform: rotate(1.5deg);">
+        <div style="font-size: 46px; line-height: 1;">🧠</div>
+        <div class="handwritten" style="font-size: 18px; margin-top: 8px;">Kolmogórov</div>
+        <p style="margin:8px 0 0; color:#64748b; font-size: 12.5px; font-weight: 800;">
+          Andréi Kolmogórov (1903–1987)
+        </p>
+      </aside>
+    </section>
+
+    <section>
+      <h2 style="font-size: clamp(22px, 2.8vw, 34px); margin-bottom: 14px;">Los tres axiomas fundamentales</h2>
+
+      <div class="axioms">
+        <article class="axiom">
+          <span class="tag">Axioma 1</span>
+          <h3>Normalización</h3>
+          <p class="desc">La probabilidad del suceso seguro es 1.</p>
+          <div class="formula">$$ P(E)=1 $$</div>
+          <div class="hint">Interpretación: “siempre ocurre algún resultado del espacio muestral”.</div>
+        </article>
+
+        <article class="axiom">
+          <span class="tag">Axioma 2</span>
+          <h3>No negatividad</h3>
+          <p class="desc">Las probabilidades no pueden ser negativas.</p>
+          <div class="formula">$$ P(A)\ge 0 $$</div>
+          <div class="hint">Interpretación: como una “medida”, no puede ser menor que 0.</div>
+        </article>
+
+        <article class="axiom">
+          <span class="tag">Axioma 3</span>
+          <h3>Aditividad</h3>
+          <p class="desc">Si $A$ y $B$ son incompatibles ($A\cap B=\varnothing$):</p>
+          <div class="formula">$$ P(A\cup B)=P(A)+P(B) $$</div>
+          <div class="hint">Si no se solapan, sumar tiene sentido (no contamos dos veces).</div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2 style="font-size: clamp(22px, 2.8vw, 34px); margin-bottom: 12px;">Consecuencias útiles (las que más se usan)</h2>
+      <p style="margin:0 0 14px; font-size:18px; color:#334155;">
+        Con estos axiomas se deducen propiedades clave. No son “nuevas reglas”: se demuestran a partir de las tres anteriores.
+      </p>
+
+      <div class="two-col">
+        <div class="key">
+          <div class="title">1) Complementario</div>
+          <p>Si $A^c$ es “no $A$”, entonces:</p>
+          $$ P(A^c)=1-P(A) $$
+          <p style="margin-top:10px;">
+            Se usa muchísimo en “al menos uno…”, “ninguno…”, “no sale…”, etc.
+          </p>
+        </div>
+
+        <div class="graph-paper pad">
+          <svg viewBox="0 0 160 100" width="320" height="200" role="img" aria-label="Diagrama del complementario">
+            <rect x="0" y="0" width="160" height="100" fill="rgba(226,232,240,.6)"/>
+            <rect x="10" y="10" width="140" height="80" fill="none" stroke="rgba(15,23,42,.82)" stroke-width="2"/>
+            <text x="142" y="26" font-size="10" fill="#0f172a">E</text>
+            <circle cx="80" cy="50" r="30" fill="#ffffff" stroke="rgba(15,23,42,.82)" stroke-width="2"/>
+            <text x="80" y="55" text-anchor="middle" font-weight="900" fill="#0f172a">A</text>
+            <text x="28" y="82" text-anchor="middle" font-size="14" fill="#d97706"
+              font-family="Kalam, cursive">Aᶜ</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns: 1fr 1fr; margin-top: 14px;">
+        <div class="mini">
+          <h3>2) Suceso imposible</h3>
+          <p>El conjunto vacío no ocurre:</p>
+          $$ P(\varnothing)=0 $$
+        </div>
+        <div class="mini">
+          <h3>3) Unión general</h3>
+          <p>Si <strong>no</strong> son incompatibles, hay que corregir el solape:</p>
+          $$ P(A\cup B)=P(A)+P(B)-P(A\cap B) $$
+        </div>
+      </div>
+    </section>
+
+    <hr class="hr" />
+
+    <section>
+      <div class="pro-head">
+        <h2 style="font-size: clamp(20px, 2.5vw, 30px);">Estrategia Pro: el truco del suceso contrario</h2>
+        <span class="badge">Muy útil</span>
+      </div>
+
+      <div class="pro">
+        <p style="font-weight:900; margin: 0 0 6px;">Problema: “al menos un 6” al lanzar dos dados</p>
+        <p style="margin: 0 0 10px;">
+          Directamente hay varios casos. Es más rápido calcular “ningún 6” y restar a 1.
+        </p>
+
+        <ol style="margin:0; padding-left: 18px; color:#7c2d12; font-weight:700;">
+          <li>Sea $A=$ “sale al menos un 6”. Entonces $A^c=$ “no sale ningún 6”.</li>
+          <li>En un dado: $P(\text{no 6})=\frac{5}{6}$.</li>
+          <li>Dos dados independientes:
+            $$ P(A^c)=\frac{5}{6}\cdot\frac{5}{6}=\frac{25}{36}. $$
+          </li>
+          <li>Por complementario:
+            $$ P(A)=1-\frac{25}{36}=\frac{11}{36}. $$
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <h2 style="font-size: clamp(22px, 2.8vw, 34px); margin-bottom: 12px;">Ejemplos paso a paso</h2>
+
+      <div style="display:grid; gap: 14px;">
+        <article class="task">
+          <div class="top">1) Dado: “menor que 4”</div>
+          <details class="sol">
+            <summary>Ver solución <span class="chev" aria-hidden="true">▼</span></summary>
+            <div class="sol-body">
+              <p>Suceso $A=\{1,2,3\}$. Por Laplace:</p>
+              $$ P(A)=\frac{3}{6}=\frac{1}{2}. $$
+              <p>Comprobación con el contrario $A^c=\{4,5,6\}$:</p>
+              $$ P(A^c)=1-\frac{1}{2}=\frac{1}{2}. $$
+            </div>
+          </details>
+        </article>
+
+        <article class="task">
+          <div class="top">2) Baraja española: “sacar figura”</div>
+          <details class="sol">
+            <summary>Ver solución <span class="chev" aria-hidden="true">▼</span></summary>
+            <div class="sol-body">
+              <p>Figuras: Sota, Caballo, Rey (3 por palo) y 4 palos:</p>
+              $$ \#(\text{figuras})=3\cdot 4=12. $$
+              <p>Probabilidad:</p>
+              $$ P(\text{figura})=\frac{12}{40}=\frac{3}{10}. $$
+            </div>
+          </details>
+        </article>
+
+        <!-- NUEVO (mejora didáctica): unión con intersección -->
+        <article class="task">
+          <div class="top">3) Unión con solape: “Rey o Copas”</div>
+          <details class="sol">
+            <summary>Ver solución <span class="chev" aria-hidden="true">▼</span></summary>
+            <div class="sol-body">
+              <p>Sea $R=$ “Rey” y $C=$ “Copas”. Usamos la fórmula general:</p>
+              $$ P(R\cup C)=P(R)+P(C)-P(R\cap C). $$
+              <ul>
+                <li>$P(R)=\frac{4}{40}$ (hay 4 reyes).</li>
+                <li>$P(C)=\frac{10}{40}$ (10 copas).</li>
+                <li>$P(R\cap C)=\frac{1}{40}$ (Rey de Copas).</li>
+              </ul>
+              $$ P(R\cup C)=\frac{4}{40}+\frac{10}{40}-\frac{1}{40}=\frac{13}{40}. $$
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <!-- NUEVO (mejora didáctica): autoevaluación rápida -->
+    <section class="check" aria-label="Autoevaluación rápida">
+      <h3>✅ Autoevaluación rápida (1 minuto)</h3>
+      <p style="margin:0; color:#14532d; font-weight:700;">
+        Marca la opción correcta en cada afirmación (sin calcular demasiado).
+      </p>
+
+      <form id="quiz" class="q">
+        <label>
+          <input type="radio" name="q1" value="ok" />
+          Si $A\cap B=\varnothing$, entonces $P(A\cup B)=P(A)+P(B)$.
+        </label>
+        <label>
+          <input type="radio" name="q2" value="ok" />
+          Siempre se cumple $P(A^c)=1-P(A)$.
+        </label>
+        <label>
+          <input type="radio" name="q3" value="bad" />
+          Si hay dos opciones (sí/no), entonces la probabilidad es $1/2$.
+        </label>
+        <label>
+          <input type="radio" name="q3" value="ok" />
+          Que haya dos opciones (sí/no) NO implica $1/2$ si no son equiprobables.
+        </label>
+
+        <button type="button" id="checkBtn"
+          style="margin-top:8px; padding:10px 12px; border-radius:14px; border:1px solid rgba(20,83,45,.18);
+                 background: rgba(255,255,255,.75); font-weight:900; color:#14532d; cursor:pointer; width: fit-content;">
+          Corregir
+        </button>
+
+        <div class="result" id="quizResult" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section class="sheet-dark">
+      <div class="glow" aria-hidden="true"></div>
+      <h3>📝 Ejercicios propuestos</h3>
+      <ol>
+        <li>Calcula la probabilidad de <strong>NO</strong> obtener ninguna carta de copas al extraer una carta de la baraja española.</li>
+        <li>Al lanzar dos dados, calcula la probabilidad de que la suma sea <strong>menor que 4</strong>.</li>
+        <li>En una clase de 30 alumnos, 18 aprobaron. Calcula $P(\text{Aprobado})$ y $P(\text{Suspenso})$.</li>
+        <li><strong>(Nuevo)</strong> Si $P(A)=0{,}35$ y $P(A\cap B)=0{,}10$, y además $P(B)=0{,}40$, calcula $P(A\cup B)$.</li>
+        <li><strong>(Nuevo)</strong> En un sorteo, $P(\text{premio})=0{,}08$. ¿Cuál es $P(\text{no premio})$? Interprétalo con palabras.</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('checkBtn');
+      const out = document.getElementById('quizResult');
+
+      function getVal(name){
+        const sel = document.querySelector('input[name="'+name+'"]:checked');
+        return sel ? sel.value : null;
+      }
+
+      btn.addEventListener('click', () => {
+        const q1 = getVal('q1');
+        const q2 = getVal('q2');
+        const q3 = getVal('q3');
+
+        if(!q1 || !q2 || !q3){
+          out.textContent = "Completa las 3 antes de corregir.";
+          return;
+        }
+
+        const ok = (q1 === 'ok') + (q2 === 'ok') + (q3 === 'ok');
+        if(ok === 3){
+          out.textContent = "Perfecto: 3/3. Controlas los axiomas y la idea de equiprobabilidad.";
+        }else if(ok === 2){
+          out.textContent = "Bien: 2/3. Repasa especialmente la equiprobabilidad (no siempre hay 1/2).";
+        }else{
+          out.textContent = "A revisar: 1/3 o 0/3. Vuelve a leer axiomas y consecuencias, y prueba el truco del complementario.";
+        }
+      });
+    })();
+  </script>
+</body>
+
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</html>

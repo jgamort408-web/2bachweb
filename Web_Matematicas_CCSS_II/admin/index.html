@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administración · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <script type="module" src="../assets/js/app.js"></script>
+</head>
+<body data-page-id="admin">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1>Administración</h1>
+    <p data-admin-service role="status">Administración central sin configurar. No está disponible el guardado global.</p>
+    <p>El alumnado puede usar el libro sin cuenta. La publicación de cambios requiere un servicio central con acceso autorizado.</p>
+    <button type="button" data-admin-development hidden>Activar prueba local sin publicar</button>
+    <section data-admin-panel hidden aria-label="Prueba de administración">
+      <p><strong>Prueba local:</strong> los cambios y guardados pertenecen a esta pestaña. No se publican ni se comparten con otros visitantes. Al recargar se pierden.</p>
+      <p>Ocultar un padre conserva las elecciones de sus hijos. Una partida iniciada puede terminar; al ocultarla se bloquean las siguientes.</p>
+      <p data-admin-summary></p>
+      <p data-admin-status role="status" aria-live="polite"></p>
+      <div class="admin-actions">
+        <button type="button" data-admin-save>Guardar solo en memoria</button>
+        <button type="button" data-admin-discard>Descartar cambios</button>
+        <button type="button" data-admin-compare>Comparar con lo guardado</button>
+      </div>
+      <section data-admin-conflicts hidden aria-label="Comparación de versiones"></section>
+      <label>Buscar por nombre o identificador <input type="search" data-admin-search autocomplete="off"></label>
+      <p>Despliega las secciones para encontrar temas, lecciones, preguntas y tarjetas. Los exámenes aparecerán cuando sus PDF estén revisados.</p>
+      <ul class="admin-tree" data-admin-tree aria-label="Jerarquía de contenidos"></ul>
+      <section aria-labelledby="preview-heading">
+        <h2 id="preview-heading">Vista previa del borrador</h2>
+        <p>Esta vista utiliza el borrador. Las páginas abiertas fuera de ella conservan la configuración publicada.</p>
+        <label>Página que quieres comprobar <select data-admin-preview-page></select></label>
+        <button type="button" data-admin-preview-open>Abrir o actualizar vista previa</button>
+        <iframe class="admin-preview" data-admin-preview title="Vista previa del borrador" hidden></iframe>
+      </section>
+    </section>
+    <noscript><p>La administración necesita JavaScript y un servicio central configurado. No es posible guardar cambios desde esta pantalla.</p></noscript>
+    <script type="module" src="../assets/js/admin/panel.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "pairId": "repaso-analisis",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-22",
+  "sources": [
+    {
+      "sourceId": "F004",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Ejercicios repaso.zip",
+      "zipSha256": "62d40763dec82b38c415d03e99d7adbefdfd5c2c507c2f9c1a516ca36f5a5526",
+      "entry": "main.tex",
+      "texSha256": "a941c6d7c2839338862114ffd8c3b906c0b023f9a5b8cdc0a7679577dfb87d16"
+    }
+  ],
+  "assets": [],
+  "solutionOrigin": "Soluciones originales revisadas y gráficas elaboradas",
+  "preserved": {
+    "durationMinutes": null,
+    "calculatorAllowed": null,
+    "exercisePoints": [
+      [
+        3.2,
+        2.4,
+        2.4,
+        2
+      ],
+      [
+        2,
+        3,
+        2,
+        3
+      ]
+    ],
+    "separateExamTotals": [
+      10,
+      10
+    ],
+    "suggestedMinutes": null,
+    "annexNonAssessable": false
+  },
+  "corrections": [
+    "M20",
+    "M32",
+    "M33",
+    "M34",
+    "M35"
+  ],
+  "answers": {
+    "parameters": [
+      1,
+      -2
+    ],
+    "tangent": [
+      1,
+      -2
+    ],
+    "normal": [
+      -1,
+      2
+    ],
+    "temperatureRoots": [
+      2,
+      10
+    ],
+    "positiveHours": 8,
+    "maximumTemperature": 16,
+    "criteriaOnlyInSolutions": true,
+    "limitDirectionAdded": true
+  }
+}

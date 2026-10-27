@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-22",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "batchId": "175-examen-final",
+  "sourceDirectory": "content/latex/examen-final",
+  "report": "docs/pdf/examen-final-build.json",
+  "mathematics": "examen-final",
+  "documents": [
+    {
+      "id": "examen-final-examen",
+      "source": "content/latex/examen-final/examen-final-examen.tex",
+      "output": "output/pdf/examen-final-examen.pdf",
+      "expectedPages": 3,
+      "title": "Examen final - Examen revisado",
+      "forbiddenText": [
+        "£",
+        "ü"
+      ],
+      "requiredText": [
+        "Anexo no evaluable",
+        "10 puntos"
+      ]
+    },
+    {
+      "id": "examen-final-soluciones",
+      "source": "content/latex/examen-final/examen-final-soluciones.tex",
+      "output": "output/pdf/examen-final-soluciones.pdf",
+      "expectedPages": 6,
+      "title": "Examen final - Soluciones revisadas",
+      "forbiddenText": [
+        "£",
+        "ü"
+      ],
+      "requiredText": [
+        "Solucionario elaborado",
+        "M36",
+        "54000"
+      ]
+    }
+  ]
+}

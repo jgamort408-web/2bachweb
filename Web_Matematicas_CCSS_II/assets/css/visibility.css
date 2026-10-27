@@ -1,0 +1,16 @@
+.content-pending main { visibility: hidden; }
+[data-content-availability] { border: 1px solid var(--color-border, currentColor); padding: 1rem; margin-block: 1rem; }
+.admin-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block: 1rem; }
+.admin-tree, .admin-tree ul { list-style: none; padding-inline-start: 1rem; }
+.admin-tree > li { padding-block: 0.5rem; }
+.admin-row { display: flex; flex-wrap: wrap; align-items: start; gap: 0.5rem 1rem; border-block-end: 1px solid var(--color-border); padding-block: 0.5rem; }
+.admin-row label { flex: 1 1 20rem; }
+.admin-row label, .admin-state { min-width: 0; }
+.admin-row select { max-width: 100%; }
+[data-admin-panel] input, [data-admin-panel] select { max-width: 100%; min-width: 0; }
+.admin-state { flex: 1 1 16rem; }
+.admin-meta { display: block; font-size: 0.875rem; }
+.admin-preview { display: block; width: 100%; height: 42rem; border: 1px solid var(--color-border); background: var(--color-background); }
+.admin-conflicts label { display: block; margin-block: 1rem; }
+[data-admin-panel] summary { padding-block: 0.5rem; }
+@media print { [data-admin-panel] iframe, .admin-actions { display: none; } }

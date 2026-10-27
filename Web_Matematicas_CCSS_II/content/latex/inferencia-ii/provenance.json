@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "pairId": "inferencia-ii",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-22",
+  "sources": [
+    {
+      "sourceId": "F012",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Inferencia Estadística (EXAMEN II).zip",
+      "zipSha256": "a13a4afe6251cd8e8e4f5f71f00a47283f02bba62af191910183ee958740f321",
+      "entry": "main.tex",
+      "texSha256": "99a7c950cf9f991517558ad8d41754bb32d9ecc45b24f03709592dae7987de94"
+    }
+  ],
+  "assets": [
+    {
+      "path": "logo-al-andalus.png",
+      "sourceId": "F012",
+      "entry": "Logo AL-ANDALUS.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    }
+  ],
+  "solutionOrigin": "Soluciones originales revisadas; datos y ejercicio compartido conservados",
+  "preserved": {
+    "durationMinutes": 55,
+    "calculatorAllowed": true,
+    "exercisePoints": [
+      4,
+      4,
+      2
+    ],
+    "partPoints": [
+      [
+        2.5,
+        1.5
+      ],
+      [
+        2.5,
+        1.5
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "suggestedMinutes": [
+      20,
+      20,
+      10
+    ],
+    "expressionPointsIncludedPerExercise": 0.5
+  },
+  "corrections": [
+    "M27",
+    "M28"
+  ],
+  "normalConvention": "N(mu,sigma), segundo parámetro desviación típica",
+  "answers": {
+    "proportion": {
+      "n": 500,
+      "successes": 410,
+      "confidence": 0.95,
+      "interval": [
+        0.7863251036546672,
+        0.8536748963453327
+      ],
+      "planningConfidence": 0.97,
+      "error": 0.04,
+      "strict": true,
+      "sampleSize": 435,
+      "bound": 434.43220977515045
+    },
+    "mean": {
+      "data": [
+        255,
+        85,
+        120,
+        290,
+        80,
+        90,
+        275,
+        290,
+        135
+      ],
+      "value": 180,
+      "sigma": 100,
+      "n": 9,
+      "confidence": 0.95,
+      "interval": [
+        114.6678671819982,
+        245.3321328180018
+      ],
+      "planningConfidence": 0.99,
+      "error": 50,
+      "strict": false,
+      "sampleSize": 27,
+      "bound": 26.539586404084844
+    },
+    "strata": {
+      "populations": [
+        4800,
+        2200,
+        3000,
+        2000
+      ],
+      "knownIndex": 2,
+      "knownSample": 60,
+      "sampleSize": 240,
+      "allocation": [
+        96,
+        44,
+        60,
+        40
+      ]
+    }
+  }
+}

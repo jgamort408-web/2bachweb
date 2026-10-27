@@ -1,0 +1,20 @@
+@import url('../../shared/widget-base.css');
+.graph-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+.graph-choice { border:1px solid currentColor; padding:.6rem; min-width:0; }
+.graph-choice label { display:block; cursor:pointer; }
+.graph-choice input { width:1.2rem; height:1.2rem; margin-inline-end:.5rem; }
+.graph-choice label>svg { display:block; width:100%; height:auto; background:#fff; color:#172033; }
+.graph-choice svg text { fill:currentColor; font:15px system-ui,sans-serif; }
+.grid-line { stroke:#d5d8df; stroke-width:1; }
+.axis { stroke:#172033; stroke-width:1.5; }
+.asymptote { stroke:#6b426b; stroke-width:2; stroke-dasharray:6 5; }
+.function-curve { stroke:#124caf; stroke-width:3; fill:none; }
+.vertex { fill:#124caf; }
+.graph-choice:has(input:checked) { outline:3px solid currentColor; outline-offset:2px; }
+[data-facts] li { margin-block:.5rem; }
+[data-facts] [data-incompatible] { border-inline-start:4px solid currentColor; padding-inline-start:.5rem; font-weight:700; }
+html[data-contrast="true"] .function-curve { stroke:#000; }
+
+html[data-contrast="true"] .asymptote { stroke:#000; }
+
+@media(max-width:48rem) { .graph-options { grid-template-columns:1fr; } }

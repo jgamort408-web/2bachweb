@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9.2. Muestreo · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t09-e02">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">9.2. Muestreo</h1>
+    <p data-content-role="lead">Una muestra sirve para estudiar una población solo si sabemos a quién queríamos incluir, cómo elegimos las unidades y qué ocurrió durante la recogida de datos.</p>
+    <p data-content-role="source">Lección organizada a partir de «0. Presentación.txt», «6. Tipos de muestreo.txt» y las preguntas conceptuales de «7. Tipo test.txt». <a href="index.html">Volver al tema 9</a>.</p>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#cadena">La cadena de selección</a> · <a href="#decisiones">Decisiones</a> · <a href="#ejemplo">Ejemplo</a> · <a href="#errores">Qué puede fallar</a> · <a href="#continuar">Continuar</a></nav>
+
+    <section id="cadena" data-content-role="theory"><h2>De la población a quienes responden</h2>
+      <p><strong>Muestrear</strong> es seleccionar una parte de las unidades de una población para estudiarlas. Conviene distinguir cuatro conjuntos: la <strong>población objetivo</strong> sobre la que se quiere concluir; el <strong>marco de muestreo</strong>, lista o procedimiento que permite localizar unidades; la <strong>muestra seleccionada</strong> mediante una regla; y las <strong>unidades observadas</strong>, de las que finalmente se obtienen datos. La distinción entre selección y respuesta aclara el proceso descrito en los originales.</p>
+      <div style="overflow-x:auto"><table><caption>Preguntas para seguir la selección</caption><thead><tr><th scope="col">Etapa</th><th scope="col">Pregunta que hay que responder</th><th scope="col">Problema posible</th></tr></thead><tbody><tr><th scope="row">Población objetivo</th><td>¿A qué personas, hogares u otras unidades se refiere la conclusión?</td><td>Pregunta demasiado vaga o población mal delimitada.</td></tr><tr><th scope="row">Marco</th><td>¿Dónde están identificadas las unidades elegibles?</td><td>Parte de la población puede faltar en la lista: falta de cobertura.</td></tr><tr><th scope="row">Selección</th><td>¿Con qué regla se eligieron las unidades y cuál era su probabilidad de inclusión?</td><td>La comodidad de acceso puede favorecer a unos grupos.</td></tr><tr><th scope="row">Observación</th><td>¿Quién respondió y cómo se midió la característica?</td><td>No respuesta o preguntas que influyen en la contestación.</td></tr></tbody></table></div>
+      <p>El tamaño \(n\) indica cuántas unidades se estudian; por sí mismo no informa sobre cobertura, selección ni calidad de las respuestas. Consulta <a href="01-estadistica-inferencial.html#lenguaje">población, parámetro y estadístico</a> si necesitas repasar el vocabulario.</p>
+    </section>
+
+    <section id="decisiones" data-content-role="method"><h2>Prepara el diseño antes de calcular</h2><ol>
+      <li><strong>Define la pregunta y la población.</strong> Especifica unidad, lugar, periodo y característica que interesa medir.</li>
+      <li><strong>Comprueba el marco.</strong> Anota qué unidades cubre y cuáles podrían quedar fuera.</li>
+      <li><strong>Elige la regla de selección y el tamaño.</strong> En un <em>muestreo probabilístico</em> las probabilidades de inclusión se conocen o pueden calcularse; en uno <em>no probabilístico</em> esto no se garantiza. <a href="03-tecnicas-de-muestreo.html">9.3 compara ocho técnicas</a> de ambos grupos.</li>
+      <li><strong>Registra la recogida.</strong> Documenta a quién se invitó, quién respondió y cómo se formularon las preguntas. Una pregunta tendenciosa puede deformar los datos aunque la selección fuera correcta.</li>
+      <li><strong>Interpreta según el diseño real.</strong> Comunica las limitaciones y no atribuyas automáticamente a toda la población un resultado observado en una muestra.</li>
+    </ol></section>
+
+    <section id="ejemplo" data-content-role="worked-example"><h2>Leer un diseño sin inventar resultados</h2><p>La presentación original ofrece una ficha <strong>didáctica</strong> para personas mayores de 18 años residentes en España, \(n=2500\) entrevistas y una selección descrita como estratificada por comunidad autónoma y tamaño de hábitat. La población objetivo y el tamaño están indicados; el archivo no aporta el marco, la selección concreta dentro de cada estrato, la respuesta efectiva ni los datos recogidos.</p><p>Por tanto, podemos nombrar la estrategia declarada, pero no calcular una proporción observada ni comprobar que las 2500 entrevistas cubran adecuadamente la población. La cifra de margen de error que figura en la presentación necesita supuestos y detalles de diseño adicionales; <a href="01-estadistica-inferencial.html#ficha">9.1 examina esa limitación</a>. La <a href="09-ficha-tecnica-de-encuestas.html">lección 9.9</a> explica qué debería documentar una ficha técnica.</p></section>
+
+    <section id="errores" data-content-role="reference"><h2>Tres preguntas antes de generalizar</h2><dl><dt>¿Faltan unidades desde el principio?</dt><dd>Si el marco no contiene parte de la población objetivo, aparece un problema de cobertura.</dd><dt>¿La selección favorece sistemáticamente a un grupo?</dt><dd>La muestra puede estar sesgada. Aumentar su tamaño con la misma regla no corrige ese sesgo.</dd><dt>¿Se obtuvieron respuestas fiables?</dt><dd>La falta de respuesta y las preguntas dirigidas pueden alterar lo observado. El <a href="../../../test/index.html?tema=t09">test original de Inferencia</a> incluye una cuestión sobre neutralidad del cuestionario.</dd></dl><p>Estas fuentes no documentan tasas de respuesta, ponderaciones ni un estudio completo para cuantificar tales errores. La variación aleatoria entre muestras se estudia después en <a href="04-distribucion-muestral-teorema-central-del-limite.html">9.4. Distribución muestral</a>.</p></section>
+
+    <section id="continuar" data-content-role="related-links"><h2>Continúa aprendiendo</h2><p>Para elegir un procedimiento, visita <a href="03-tecnicas-de-muestreo.html">9.3. Técnicas de muestreo</a>. Para comprobar conceptos, usa las <a href="../../../tarjetas/index.html?tema=t09">tarjetas de Inferencia</a> o el <a href="../../../test/index.html?tema=t09">test autocorregible</a>.</p><p>Esta lección queda <strong>parcial</strong>: organiza las condiciones de selección a partir de los originales, pero estos no ofrecen una muestra observada completa ni datos suficientes para evaluar una encuesta real. No se añaden ejercicios numéricos ni resultados supuestos.</p></section>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

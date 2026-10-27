@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.17. Continuidad de las funciones derivables · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t01-e17">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">1.17. Continuidad de las funciones derivables</h1>
+    <p class="lead" data-content-role="introduction">La derivabilidad exige más que continuidad. Esta relación permite descartar cálculos innecesarios y justificar lo que una gráfica sugiere.</p>
+    <div class="learning-goals"><p data-content-role="objectives"><strong>Al terminar podrás:</strong> justificar el teorema, usar su contraposición y distinguir discontinuidades de esquinas.</p><p data-content-role="prerequisites"><strong>Antes:</strong> <a href="10-continuidad.html">continuidad</a> y <a href="12-derivadas-laterales.html">derivadas laterales</a>.</p></div>
+    <section data-content-role="rule"><h2>1. El teorema y su justificación</h2>
+      <div class="definition"><p>Si f es derivable en un punto interior a, con derivada real finita, entonces f es continua en a.</p><p>\[f\text{ derivable en }a\ \Longrightarrow\ \lim_{x\to a}f(x)=f(a).\]</p></div>
+      <p>Para \(h\ne0\), se puede escribir:</p><p>\[f(a+h)-f(a)=\frac{f(a+h)-f(a)}h\,h.\]</p>
+      <p>El cociente tiende al número finito \(f'(a)\) y h tiende a 0. El producto tiende a 0, por lo que \(f(a+h)\to f(a)\): esta es la continuidad en a.</p>
+      <p data-content-role="warning">La finitud de la derivada permite usar el producto de límites finitos. No se puede escribir «infinito por cero es cero» para justificar el paso.</p>
+    </section>
+    <section data-content-role="comparison"><h2>2. Qué se puede deducir</h2>
+      <ul><li><strong>Derivable ⇒ continua.</strong> Es el teorema.</li><li><strong>No continua ⇒ no derivable.</strong> Es su contraposición: un salto o un valor incompatible con el límite descartan la derivada.</li><li><strong>Continua ⇒ derivable.</strong> Es falso: \(|x|\) es continua en 0 y tiene pendientes laterales −1 y 1.</li><li><strong>No derivable ⇒ no continua.</strong> También es falso por el mismo ejemplo.</li></ul>
+      <p>La continuidad descarta saltos y huecos, pero no garantiza una pendiente única. Una tarifa puede mantener el coste total en una unión y cambiar bruscamente el coste marginal.</p>
+    </section>
+    <section id="explorador" data-content-role="visualization"><h2>3. Compara cuatro casos en 0</h2>
+      <p>Observa los valores cercanos, el valor en 0 y las pendientes de las secantes. Los datos ayudan a explorar; las expresiones y sus límites justifican el diagnóstico.</p>
+      <div class="activity" data-continuity-explorer>
+        <p><label for="continuity-case">Función</label> <select id="continuity-case"><option value="smooth">Cuadrado</option><option value="corner">Valor absoluto</option><option value="jump">Rectas con salto</option><option value="isolated">Cuadrado con valor aislado</option></select></p>
+        <p><label for="continuity-distance">Aproximación: 1 = distancia 0,1; 4 = distancia 0,0001</label> <input id="continuity-distance" type="range" min="1" max="4" value="1" step="1"></p>
+        <div data-continuity-formula>\[f(x)=x^2,\qquad f(0)=0.\]</div>
+        <figure><svg width="100%" viewBox="0 0 440 320" role="img" aria-labelledby="continuity-title continuity-description">
+          <title id="continuity-title">Continuidad y derivabilidad en el origen</title><desc id="continuity-description">La parábola es continua y derivable en 0, con pendiente 0.</desc>
+          <defs><clipPath id="continuity-clip"><rect x="30" y="15" width="380" height="285"/></clipPath></defs>
+          <path d="M30 240H410 M220 15V300" fill="none" stroke="#8792a2"/><text x="400" y="260">x</text><text x="230" y="28">y</text><text x="225" y="260">0</text>
+          <g clip-path="url(#continuity-clip)"><path data-continuity-left fill="none" stroke="#1746a2" stroke-width="3"/><path data-continuity-right fill="none" stroke="#1746a2" stroke-width="3"/>
+            <circle data-continuity-hole cx="220" cy="240" r="5" fill="white" stroke="#1746a2" stroke-width="2" visibility="hidden"/><circle data-continuity-value cx="220" cy="240" r="5" fill="#172033"/></g>
+        </svg><figcaption data-content-role="caption">El punto relleno representa f(0); el círculo vacío, un extremo no incluido o un hueco. La tabla da los valores numéricos.</figcaption></figure>
+        <div class="table-scroll"><table><caption data-content-role="caption">Valores y cocientes incrementales en 0</caption><thead><tr><th scope="col">h</th><th scope="col">\(f(h)\)</th><th scope="col">Pendiente</th></tr></thead><tbody><tr><td data-continuity-left-h>−0,1</td><td data-continuity-left-value>0,01</td><td data-continuity-left-slope>−0,1</td></tr><tr><td data-continuity-right-h>0,1</td><td data-continuity-right-value>0,01</td><td data-continuity-right-slope>0,1</td></tr></tbody></table></div>
+        <p data-continuity-point>f(0)=0.</p><p data-continuity-summary role="status">Es continua y derivable en 0. Las pendientes se aproximan a 0.</p>
+      </div>
+    </section>
+    <section id="ejemplos" data-content-role="worked-example"><h2>4. El valor puntual también decide</h2>
+      <p>Sea \(f(x)=x^2\) para \(x\ne0\), pero \(f(0)=1\). El límite en 0 es 0, distinto del valor 1: la discontinuidad es evitable y f no es derivable.</p><p>El cociente incremental confirma el fallo:</p><p>\[\frac{f(h)-f(0)}h=\frac{h^2-1}h=h-\frac1h.\]</p>
+      <p>Tiende a \(+\infty\) por la izquierda y a \(-\infty\) por la derecha. Derivar \(x^2\) y sustituir 0 ignoraría el valor real de la función.</p>
+      <p>En cambio, \(p(x)=x^2\) para \(x\le1\), y \(p(x)=2x-1\) para \(x&gt;1\), es continua y derivable en 1: el valor y los límites son 1; los cocientes laterales tienden a 2.</p>
+    </section>
+    <section data-content-role="explanation"><h2>5. La función y su derivada son objetos distintos</h2>
+      <p>El teorema garantiza continuidad de f, no continuidad de \(f'\).</p>
+      <details data-content-role="worked-example"><summary>Ampliación: una derivada que no es continua</summary><p>Define \(g(x)=x^2\sin(1/x)\) para \(x\ne0\), y \(g(0)=0\). Como \(|h\sin(1/h)|\le|h|\), el cociente incremental tiende a 0, luego \(g'(0)=0\).</p><p>Fuera de 0, \(g'(x)=2x\sin(1/x)-\cos(1/x)\). En \(x_n=1/(2\pi n)\), vale −1; en \(z_n=1/((2n+1)\pi)\), vale 1. Así, \(g'\) no es continua en 0, aunque g sea derivable allí.</p></details>
+    </section>
+    <section id="practica" data-content-role="guided-practice"><h2>6. Tu turno</h2><p>Sea \(r(x)=x+1\) si \(x&lt;0\), y \(r(x)=x+3\) si \(x\ge0\). Decide si es derivable en 0 sin derivar primero las ramas.</p>
+      <details data-content-role="hint"><summary>Pista 1</summary><p>Los límites laterales de r son 1 y 3.</p></details><details data-content-role="hint"><summary>Pista 2</summary><p>Usa «no continua implica no derivable».</p></details>
+      <details data-content-role="solution"><summary>Solución razonada</summary><p>Hay un salto: no es continua ni derivable en 0. Que las rectas tengan pendiente 1 no repara la discontinuidad.</p></details>
+      <div class="activity" data-content-role="self-check" data-quiz="t01-e17"></div>
+    </section>
+    <section data-content-role="summary"><h2>7. Resumen</h2><ul><li>Una derivada finita garantiza continuidad de f.</li><li>Una discontinuidad basta para descartar derivabilidad.</li><li>La continuidad no descarta esquinas.</li><li>No confundas continuidad de f con continuidad de f′.</li></ul><p data-content-role="related-links"><a href="18-regla-de-l-hopital-aplicacion-al-calculo-de-limites.html">Continuar: derivadas para calcular límites</a>.</p></section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

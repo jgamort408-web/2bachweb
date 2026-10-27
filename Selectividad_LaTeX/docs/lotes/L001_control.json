@@ -1,0 +1,83 @@
+{
+  "lote": "L001",
+  "fecha": "2026-10-22",
+  "motor": "Tectonic 0.17.0",
+  "soluciones_redactadas": 0,
+  "documentos": [
+    {
+      "archivo": "l001-enunciados.pdf",
+      "paginas": 4,
+      "sha256": "0997aa8a97331e1eea9343dead832b526253a812223720a7788de2ee35467b55",
+      "avisos_solucion_pendiente": 0
+    },
+    {
+      "archivo": "l001-con-soluciones.pdf",
+      "paginas": 4,
+      "sha256": "3cf30cd6ccb77f95b4dc9c794fd6c3e0b983bcf02ea167ba83e16b90fc93cabd",
+      "avisos_solucion_pendiente": 8
+    }
+  ],
+  "soluciones_sin_cambios": true,
+  "enunciados_sha256": {
+    "SEL-D0001-OA-E01.tex": "a6ed68fcf1c24a2162d7f83d2e352bfbcdc2036a0d56c7d9d3eec6df4a7b49d3",
+    "SEL-D0001-OA-E02.tex": "7e54199b52f2fc3fcc8b55c5ded808118fabf46aad307c8e147901bd8e574a38",
+    "SEL-D0001-OA-E03.tex": "ae671e29d340f2f95aac5f2529a7c7e0b1821ea18bf9c9ea6eedb899e8a759e7",
+    "SEL-D0001-OA-E04.tex": "93fc365c115d7fc8f5c4851b0058c38c0ca2427ecfcbc750959706d8a9058e8a",
+    "SEL-D0001-OB-E01.tex": "c815c03e12ee1dcac62a489e43c17228c5551253c146931da0a8a81cc851ef87",
+    "SEL-D0001-OB-E02.tex": "f2852cefb5771799738ea3a8d83ef6203a5915f258132aa2c77cb3a6a1f4dd03",
+    "SEL-D0001-OB-E03.tex": "e28c9eff3a3562728b5118f9658b904255cb4470c0d9bc9ccb4179a223b8f676",
+    "SEL-D0001-OB-E04.tex": "b268cd8341f76ec98260502bd7b90b49e8754af69b5887e2e8f64d8edee8f6c5"
+  },
+  "revision_visual_paginas_finales": 8,
+  "pruebas_catalogo_superadas": 17,
+  "fuentes_originales_huellas_coincidentes": 215,
+  "pdfs": {
+    "output/pdf/l001-junio-2019-enunciados.pdf": "0997aa8a97331e1eea9343dead832b526253a812223720a7788de2ee35467b55",
+    "output/pdf/l001-junio-2019-con-soluciones-pendientes.pdf": "3cf30cd6ccb77f95b4dc9c794fd6c3e0b983bcf02ea167ba83e16b90fc93cabd"
+  },
+  "entrada_compilacion_sha256": {
+    "catalogo/registro.tex": "70e62ef7fcdf0e8db7b1edcfa636d3d52a4ef889f3c128d7cf9a806327e9d08d",
+    "config/opciones.tex": "7562aaff52f6faeab000efd481a7bb2fa01ba9423de3e7a09c7e854c6cfe4a48",
+    "config/seleccion.tex": "2a047c71d3f61d6824f371986bf17ba6b6fc9c34287a44385997d30dabcb29f2",
+    "enunciados/SEL-D0001-OA-E01.tex": "a6ed68fcf1c24a2162d7f83d2e352bfbcdc2036a0d56c7d9d3eec6df4a7b49d3",
+    "enunciados/SEL-D0001-OA-E02.tex": "7e54199b52f2fc3fcc8b55c5ded808118fabf46aad307c8e147901bd8e574a38",
+    "enunciados/SEL-D0001-OA-E03.tex": "ae671e29d340f2f95aac5f2529a7c7e0b1821ea18bf9c9ea6eedb899e8a759e7",
+    "enunciados/SEL-D0001-OA-E04.tex": "93fc365c115d7fc8f5c4851b0058c38c0ca2427ecfcbc750959706d8a9058e8a",
+    "enunciados/SEL-D0001-OB-E01.tex": "c815c03e12ee1dcac62a489e43c17228c5551253c146931da0a8a81cc851ef87",
+    "enunciados/SEL-D0001-OB-E02.tex": "f2852cefb5771799738ea3a8d83ef6203a5915f258132aa2c77cb3a6a1f4dd03",
+    "enunciados/SEL-D0001-OB-E03.tex": "e28c9eff3a3562728b5118f9658b904255cb4470c0d9bc9ccb4179a223b8f676",
+    "enunciados/SEL-D0001-OB-E04.tex": "b268cd8341f76ec98260502bd7b90b49e8754af69b5887e2e8f64d8edee8f6c5",
+    "l001-con-soluciones.tex": "3648b134735866f2807f1a7c777de64fa75475bdda83cb3b78985e177b7a3ead",
+    "l001-enunciados.tex": "cdd4d34a27ea1f5606a57c5ec678272f2892feb42170ecb1932d02dd5ef62f1c",
+    "main.tex": "21b9d49d4e6baa9ed95f70382dcef34b3caee58ca8506295a8d7cb34369de4b0",
+    "recursos/comunes/EXA-0001-instrucciones.tex": "c0236eb315d3b1f28ca499a93c80032703ed7294f846b62533fc175cdfd68de6",
+    "selecciones/l001-ids.tex": "684cd7c1ee7da00eb43bd1e1fad9104b60bc298c37f540b81ade80407f387788",
+    "selecciones/l001-junio-2019.tex": "29fdb2a9d72eab1c7e44a85794b0104129af57386c624cc29413d3cf43a02bc6",
+    "selecciones/piloto-2019.tex": "684cd7c1ee7da00eb43bd1e1fad9104b60bc298c37f540b81ade80407f387788",
+    "soluciones/SEL-D0001-OA-E01.tex": "3966a57fcfbb7d3ea3622cc0f02085f2457f79f5bcc20d9f6900d3414419c1d7",
+    "soluciones/SEL-D0001-OA-E02.tex": "1e1b46080fd7a0d6f74016e3f6383501d4dca630077c350121e91390b4b74740",
+    "soluciones/SEL-D0001-OA-E03.tex": "6ec6c851d57d0fcc58a984f9b93556efb15b5a002db128faf71b88c0d22d8156",
+    "soluciones/SEL-D0001-OA-E04.tex": "54a05170a38fb27a326e78c445a15dafb45e4bf7c409e87936d38adac86000ff",
+    "soluciones/SEL-D0001-OB-E01.tex": "0d78cb2ea169d1ea4849b672acc1d06248187e10383953114915e034552b051d",
+    "soluciones/SEL-D0001-OB-E02.tex": "cdd7c5ecaac0a40983aba21ec2cdd73134514aa7a5bd1c436b8cbe29e1b9f17f",
+    "soluciones/SEL-D0001-OB-E03.tex": "c2a11efdcb5c755517f65b3797fad08cd738d226687d8715f76382173bda5fa3",
+    "soluciones/SEL-D0001-OB-E04.tex": "3a1b1599799023a459a6d09f045fe48e47e6c24ed1f923eb0e3c345482a1855e",
+    "tex/comandos.tex": "7e15e7bcac81edf6aad2a6efc5eff07d6025df7f7cfa1ab78fe51578a17c53e2",
+    "tex/paquetes.tex": "f11e412acf818ad10d573a6c5cfe2ec7dcaf604830c76810f934b4b2481a36b8"
+  },
+  "soluciones_sha256": {
+    "SEL-D0001-OA-E01.tex": "3966a57fcfbb7d3ea3622cc0f02085f2457f79f5bcc20d9f6900d3414419c1d7",
+    "SEL-D0001-OA-E02.tex": "1e1b46080fd7a0d6f74016e3f6383501d4dca630077c350121e91390b4b74740",
+    "SEL-D0001-OA-E03.tex": "6ec6c851d57d0fcc58a984f9b93556efb15b5a002db128faf71b88c0d22d8156",
+    "SEL-D0001-OA-E04.tex": "54a05170a38fb27a326e78c445a15dafb45e4bf7c409e87936d38adac86000ff",
+    "SEL-D0001-OB-E01.tex": "0d78cb2ea169d1ea4849b672acc1d06248187e10383953114915e034552b051d",
+    "SEL-D0001-OB-E02.tex": "cdd7c5ecaac0a40983aba21ec2cdd73134514aa7a5bd1c436b8cbe29e1b9f17f",
+    "SEL-D0001-OB-E03.tex": "c2a11efdcb5c755517f65b3797fad08cd738d226687d8715f76382173bda5fa3",
+    "SEL-D0001-OB-E04.tex": "3a1b1599799023a459a6d09f045fe48e47e6c24ed1f923eb0e3c345482a1855e"
+  },
+  "verificacion_zip_aislado": {
+    "compilacion_sin_originales_externos": true,
+    "modo_sin_red": "only-cached",
+    "pdfs_recompilados_identicos_byte_a_byte": 2
+  }
+}

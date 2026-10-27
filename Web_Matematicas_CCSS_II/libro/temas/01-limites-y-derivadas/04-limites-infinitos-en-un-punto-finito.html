@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.4. Límites infinitos en un punto finito · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t01-e04">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">1.4. Límites infinitos en un punto finito</h1>
+    <p class="lead" data-content-role="introduction">Cuando un denominador se acerca a cero, los valores pueden crecer sin cota. El signo y el lado de aproximación deciden qué ocurre.</p>
+    <div class="learning-goals"><p data-content-role="objectives"><strong>Al terminar podrás:</strong> calcular límites laterales infinitos con una tabla de signos y reconocer asíntotas verticales.</p><p data-content-role="prerequisites"><strong>Antes:</strong> límites laterales, productos con signos y factorización de polinomios sencillos.</p></div>
+    <section data-content-role="definition">
+      <h2>1. Una variable cerca de un número; la función sin cota</h2>
+      <p>\(\lim_{x\to a^+}f(x)=+\infty\) significa que podemos hacer \(f(x)\) mayor que cualquier número prefijado tomando \(x&gt;a\) suficientemente cerca de \(a\). La variable se acerca al número finito \(a\); no está tendiendo a infinito.</p>
+      <div class="definition"><p>La recta <strong>\(x=a\) es una asíntota vertical</strong> si al menos uno de los límites laterales de \(f\) en \(a\) es \(+\infty\) o \(-\infty\).</p></div>
+      <p>No es necesario que los dos lados den el mismo infinito. Tampoco se exige que \(f(a)\) esté indefinido: asignar un valor aislado en \(a\) no cambia el comportamiento de sus ramas.</p>
+    </section>
+    <section data-content-role="worked-example">
+      <h2>2. Ejemplo resuelto: \(f(x)=3/(x-2)\)</h2>
+      <ol class="worked-steps" data-content-role="worked-steps">
+        <li><strong>Localiza el problema.</strong> El denominador se anula en 2 y el numerador es 3, distinto de cero.</li>
+        <li><strong>Por la izquierda.</strong> Si \(x&lt;2\), entonces \(x-2&lt;0\). Dividimos positivo entre negativo muy pequeño en valor absoluto: \(\lim_{x\to2^-}f(x)=-\infty\).</li>
+        <li><strong>Por la derecha.</strong> Si \(x&gt;2\), el denominador es positivo y cercano a cero: \(\lim_{x\to2^+}f(x)=+\infty\).</li>
+        <li><strong>Concluye.</strong> No hay límite bilateral único, pero \(x=2\) sí es una asíntota vertical.</li>
+      </ol>
+      <div class="table-scroll"><table><caption data-content-role="caption">Comprobación numérica, sin sustituir en el punto prohibido</caption>
+        <thead><tr><th scope="col">\(x\)</th><th scope="col">1,9</th><th scope="col">1,99</th><th scope="col">2,01</th><th scope="col">2,1</th></tr></thead>
+        <tbody><tr><th scope="row">\(3/(x-2)\)</th><td>−30</td><td>−300</td><td>300</td><td>30</td></tr></tbody>
+      </table></div>
+      <p data-content-role="warning">«3/0» no es el valor de la función ni indica por sí solo el signo del límite. Hay que precisar si el denominador se acerca a cero por valores positivos o negativos.</p>
+    </section>
+    <section data-content-role="visualization">
+      <h2>3. Explora el signo y la potencia</h2>
+      <p>Cambia la función y acerca los valores a 2. La tabla ofrece una alternativa numérica a la lectura de una gráfica.</p>
+      <div class="activity" data-infinite-point>
+        <label for="point-function">Función que quieres explorar</label>
+        <select id="point-function"><option value="odd-positive">3/(x−2)</option><option value="odd-negative">−3/(x−2)</option><option value="even-negative">−3/(x−2)²</option></select>
+        <div data-point-formula>\[f(x)=\frac{3}{x-2}\]</div>
+        <label for="point-distance">Aproximación a 2: 1 = distancia 0,1; 4 = distancia 0,0001</label>
+        <input id="point-distance" type="range" min="1" max="4" step="1" value="1">
+        <div class="table-scroll"><table><caption data-content-role="caption">Valores de la función a ambos lados</caption><thead><tr><th scope="col">Lado</th><th scope="col">\(x\)</th><th scope="col">\(f(x)\)</th></tr></thead>
+          <tbody><tr><th scope="row">Izquierda</th><td data-point-left-x>1,9</td><td data-point-left-y>−30</td></tr><tr><th scope="row">Derecha</th><td data-point-right-x>2,1</td><td data-point-right-y>30</td></tr></tbody></table></div>
+        <p data-point-summary role="status">Por la izquierda los valores son negativos; por la derecha, positivos. La recta x=2 es una asíntota vertical.</p>
+      </div>
+    </section>
+    <section data-content-role="worked-example">
+      <h2>4. Dos laterales con el mismo signo</h2>
+      <p>En \(g(x)=-2/(x+1)^2\), el denominador es positivo a ambos lados de \(-1\). Como tiende a cero y el numerador es negativo:</p>
+      <p>\[\lim_{x\to-1^-}g(x)=\lim_{x\to-1^+}g(x)=-\infty.\]</p>
+      <p>Podemos escribir \(\lim_{x\to-1}g(x)=-\infty\). Hay asíntota vertical \(x=-1\). La potencia par hace desaparecer el cambio de signo del factor \(x+1\).</p>
+      <h3>Un denominador nulo no basta</h3>
+      <p>En \((x^2-4)/(x-2)\), el numerador también tiende a cero. Para \(x\ne2\), la expresión se simplifica a \(x+2\), con límite 4. Por tanto, <strong>en 2 hay un hueco, no una asíntota vertical</strong>.</p>
+    </section>
+    <section data-content-role="worked-example">
+      <h2>5. Del examen local: dos factores en el denominador</h2>
+      <p>Calcula los laterales en 1 de \(r(x)=1/(x^2-3x+2)\). Es el apartado 3(f) del examen de Límites y Derivadas de los materiales.</p>
+      <p>\[r(x)=\frac{1}{(x-1)(x-2)}.\]</p>
+      <p>Cerca de 1, el factor \(x-2\) es <strong>negativo en ambos lados</strong>. Solo cambia de signo \(x-1\).</p>
+      <div class="table-scroll"><table><caption data-content-role="caption">Tabla de signos en un entorno de 1</caption><thead><tr><th scope="col">Aproximación</th><th scope="col">\(x-1\)</th><th scope="col">\(x-2\)</th><th scope="col">Producto</th><th scope="col">Límite</th></tr></thead>
+        <tbody><tr><th scope="row">\(x\to1^-\)</th><td>−</td><td>−</td><td>\(0^+\)</td><td>\(+\infty\)</td></tr><tr><th scope="row">\(x\to1^+\)</th><td>+</td><td>−</td><td>\(0^-\)</td><td>\(-\infty\)</td></tr></tbody></table></div>
+      <p>No existe un límite bilateral único; \(x=1\) es asíntota vertical. La notación \(0^+\) o \(0^-\) en la tabla describe valores que tienden a cero con ese signo; no representa dos números cero diferentes.</p>
+    </section>
+    <section data-content-role="method">
+      <h2>6. Método que puedes reutilizar</h2>
+      <ol><li>Comprueba el dominio y factoriza cuando sea útil.</li><li>Si numerador y denominador tienden a cero, simplifica o transforma antes de concluir.</li><li>Si el numerador tiende a un número distinto de cero y el denominador a cero, estudia los signos por separado a cada lado.</li><li>Escribe los dos laterales y después decide el límite bilateral y la asíntota.</li></ol>
+    </section>
+    <section id="practica" data-content-role="guided-practice">
+      <h2>7. Tu turno</h2><p>Estudia \(h(x)=-4/(x+3)\) cerca de \(-3\).</p>
+      <details data-content-role="hint"><summary>Pista 1</summary><p>A la izquierda de \(-3\), \(x+3&lt;0\). A la derecha, \(x+3&gt;0\).</p></details>
+      <details data-content-role="hint"><summary>Pista 2</summary><p>El numerador es negativo: aplica la regla de signos del cociente.</p></details>
+      <details data-content-role="solution"><summary>Solución razonada</summary><p>Izquierda: negativo entre negativo cercano a cero da \(+\infty\). Derecha: negativo entre positivo da \(-\infty\). Hay asíntota vertical \(x=-3\), sin límite bilateral único.</p></details>
+      <div class="activity" data-content-role="self-check" data-quiz="t01-e04"></div>
+    </section>
+    <section data-content-role="summary"><h2>8. Resumen</h2><ul><li>El lado de aproximación y los signos son esenciales.</li><li>Basta un lateral infinito para reconocer una asíntota vertical.</li><li>Antes de concluir a partir de un denominador nulo, descarta una indeterminación o un factor cancelable.</li></ul>
+      <p data-content-role="related-links"><a href="05-limites-finitos-en-el-infinito.html">Continuar: comportamiento a largo plazo</a> · <a href="../../../laboratorios/juegos/t01-a-limite-express.html">Practicar en Límite Express</a></p>
+    </section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

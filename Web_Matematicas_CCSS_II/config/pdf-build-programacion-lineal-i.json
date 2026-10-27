@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-20",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "batchId": "164",
+  "sourceDirectory": "content/latex/programacion-lineal-i",
+  "report": "docs/pdf/programacion-lineal-i-build.json",
+  "mathematics": "programacion-lineal-i",
+  "documents": [
+    {
+      "id": "programacion-lineal-i-examen",
+      "source": "content/latex/programacion-lineal-i/programacion-lineal-i-examen.tex",
+      "output": "output/pdf/programacion-lineal-i-examen.pdf",
+      "expectedPages": 2,
+      "title": "Programación lineal I - Examen revisado",
+      "requiredText": [
+        "¿En qué punto",
+        "¿Cuántas misiones"
+      ],
+      "forbiddenText": [
+        "£"
+      ]
+    },
+    {
+      "id": "programacion-lineal-i-soluciones",
+      "source": "content/latex/programacion-lineal-i/programacion-lineal-i-soluciones.tex",
+      "output": "output/pdf/programacion-lineal-i-soluciones.pdf",
+      "expectedPages": 4,
+      "title": "Programación lineal I - Soluciones revisadas",
+      "requiredText": [
+        "¿Pertenece a la región?"
+      ],
+      "forbiddenText": [
+        "£"
+      ]
+    }
+  ]
+}

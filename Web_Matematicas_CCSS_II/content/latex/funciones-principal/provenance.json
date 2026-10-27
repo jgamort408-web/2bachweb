@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "pairId": "funciones-principal",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-20",
+  "sources": [
+    {
+      "sourceId": "F007",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Examen Funciones.zip",
+      "zipSha256": "b77e2dbb3827999889f5f2c7b0affe5dca0aaf2419b969112fe3af9f057563d4",
+      "entry": "main.tex",
+      "texSha256": "4da29d3c7e952229aff2919ccf5059d9aeab50bac2e49b271e1067591dfa2cb1"
+    }
+  ],
+  "assets": [
+    {
+      "path": "logo-al-andalus.png",
+      "sourceId": "F007",
+      "entry": "Logo AL-ANDALUS.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    }
+  ],
+  "solutionOrigin": "Elaborado en esta revisión; ZIP sin solucionario",
+  "preserved": {
+    "durationMinutes": 55,
+    "calculatorAllowed": true,
+    "exercisePoints": [
+      2,
+      3,
+      2,
+      3
+    ],
+    "partPoints": [
+      1,
+      1,
+      1.5,
+      1.5,
+      2,
+      1,
+      1,
+      0.5,
+      0.5
+    ]
+  },
+  "corrections": [
+    "M20"
+  ],
+  "dormantVariant": "El ejercicio bursátil comentado en ambos ZIP se conserva una vez en anexo no evaluable de funciones-principal; no se trasladan sus puntuaciones comentadas inconsistentes",
+  "answers": {
+    "cubicZeros": [
+      0,
+      1,
+      2
+    ],
+    "join": {
+      "x": 2,
+      "value": "4/3",
+      "leftDerivative": "4/3",
+      "rightDerivative": "-4/9"
+    },
+    "verticalAsymptotes": [
+      1,
+      2
+    ],
+    "temperatureMaximum": [
+      6,
+      16
+    ],
+    "positiveTemperatureInterval": [
+      2,
+      10
+    ],
+    "hoursAboveZero": 8,
+    "powerCutInterpretation": {
+      "start": 1,
+      "end": 6,
+      "duration": 5,
+      "requiresAdditionalAssumptions": true
+    },
+    "commentedVariant": {
+      "initialValue": 10,
+      "shares": 3000,
+      "gainFrom2To4": 2000,
+      "buyTime": 0,
+      "sellTime": 6,
+      "maximumGain": 54000
+    }
+  }
+}

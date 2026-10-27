@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards: Inferencia Estadística</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-body: #f1f5f9;
+            --primary: #4f46e5;       /* Indigo */
+            --primary-dark: #3730a3;
+            --secondary: #0f172a;     /* Slate Dark */
+            --accent: #f59e0b;        /* Amber */
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --card-front: #ffffff;
+            --card-back: #1e293b;
+            
+            --radius: 16px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        p.subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* FILTROS */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 1px solid #cbd5e1;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+        }
+
+        /* GRID FLASHCARDS */
+        .flashcard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* ESTILO CARTA 3D */
+        .flashcard {
+            background-color: transparent;
+            width: 100%;
+            height: 240px; /* Altura fija para uniformidad */
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* CARA FRONTAL */
+        .flashcard-front {
+            background-color: var(--card-front);
+            border: 1px solid #e2e8f0;
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .fc-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .fc-category {
+            position: absolute;
+            top: 15px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            background: #f1f5f9;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .fc-question {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary);
+            line-height: 1.4;
+        }
+
+        .fc-hint {
+            position: absolute;
+            bottom: 15px;
+            font-size: 0.75rem;
+            color: var(--primary);
+            font-weight: 600;
+            opacity: 0.7;
+        }
+
+        /* CARA TRASERA */
+        .flashcard-back {
+            background-color: var(--card-back);
+            color: white;
+            transform: rotateY(180deg);
+            border: 1px solid var(--secondary);
+            overflow-y: auto; /* Por si la respuesta es larga */
+        }
+
+        .fc-answer {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        /* Personalización MathJax dentro de cartas */
+        mjx-container { color: white !important; }
+        .flashcard-front mjx-container { color: var(--secondary) !important; }
+
+        /* SCROLLBAR OCULTO PERO FUNCIONAL */
+        .flashcard-back::-webkit-scrollbar { width: 4px; }
+        .flashcard-back::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>🧠 Flashcards</h1>
+            <p class="subtitle">Inferencia Estadística • 2º Bachillerato</p>
+        </header>
+
+        <div class="filter-container" id="filters">
+            <button class="filter-btn active" onclick="filterCards('all', this)">Todas</button>
+            <button class="filter-btn" onclick="filterCards('Conceptos Básicos', this)">Conceptos</button>
+            <button class="filter-btn" onclick="filterCards('Muestreo', this)">Muestreo</button>
+            <button class="filter-btn" onclick="filterCards('Teorema Central Límite', this)">TCL</button>
+            <button class="filter-btn" onclick="filterCards('Intervalos de Confianza', this)">Intervalos</button>
+            <button class="filter-btn" onclick="filterCards('Fórmulas', this)">Fórmulas</button>
+            <button class="filter-btn" onclick="filterCards('Trucos y Propiedades', this)">Trucos</button>
+            <button class="filter-btn" onclick="filterCards('Relaciones', this)">Relaciones</button>
+        </div>
+
+        <div class="flashcard-grid" id="grid">
+            </div>
+
+    </div>
+
+    <script>
+        // --- DATOS COMPLETOS ---
+        const cardsData = [
+            { category: "Conceptos Básicos", icon: "👥", question: "¿Qué es la Población ($N$)?", answer: "Es el conjunto <strong>total</strong> de individuos objeto de estudio. Sus datos son desconocidos y constantes." },
+            { category: "Conceptos Básicos", icon: "🔎", question: "¿Qué es la Muestra ($n$)?", answer: "Es un <strong>subconjunto</strong> representativo de la población. Sus datos cambian si repetimos el estudio." },
+            { category: "Conceptos Básicos", icon: "📊", question: "Diferencia: Parámetro vs Estadístico", answer: "<strong>Parámetro:</strong> Valor real de la población ($\\mu, \\sigma$).<br><strong>Estadístico:</strong> Valor calculado en la muestra ($\\bar{x}, s$)." },
+            { category: "Notación", icon: "🔤", question: "¿Qué significan $p$ y $\\hat{p}$?", answer: "$p$: Proporción real de la Población.<br>$\\hat{p}$: Proporción observada en la Muestra." },
+            
+            { category: "Muestreo", icon: "🎲", question: "¿Qué es el Muestreo Aleatorio Simple?", answer: "Todos los individuos tienen la <strong>misma probabilidad</strong> de ser elegidos. Requiere una lista completa." },
+            { category: "Muestreo", icon: "🍰", question: "Muestreo Estratificado: Fórmula", answer: "Se mantiene la proporción. Si el estrato es el $k\\%$ de la población, la muestra del estrato será el $k\\%$ de $n$." },
+            { category: "Muestreo", icon: "📏", question: "Muestreo Sistemático: Coeficiente 'k'", answer: "Es el salto de elección. Se calcula como $$k = \\frac{N}{n}$$." },
+            
+            { category: "Teorema Central Límite", icon: "📉", question: "Distribución de la Media Muestral ($\\bar{X}$)", answer: "Sigue una Normal: $$N\\left( \\mu, \\frac{\\sigma}{\\sqrt{n}} \\right)$$." },
+            { category: "Teorema Central Límite", icon: "😵", question: "Distribución de la Proporción ($\\hat{P}$)", answer: "Sigue una Normal: $$N\\left( p, \\sqrt{\\frac{p \\cdot q}{n}} \\right)$$." },
+            { category: "Teorema Central Límite", icon: "🚧", question: "¿Condición para aplicar el TCL?", answer: "Generalmente cuando el tamaño de la muestra es <strong>$$n \\ge 30$$</strong>." },
+            { category: "Teorema Central Límite", icon: "📉", question: "¿Qué es el Error Estándar?", answer: "Es la desviación típica de la media muestral: $$\\frac{\\sigma}{\\sqrt{n}}$$." },
+            
+            { category: "Intervalos de Confianza", icon: "🎯", question: "Valor Crítico $z_{\\alpha/2}$ para 90%", answer: "<strong>1.645</strong>" },
+            { category: "Intervalos de Confianza", icon: "🎯", question: "Valor Crítico $z_{\\alpha/2}$ para 95%", answer: "<strong>1.96</strong>" },
+            { category: "Intervalos de Confianza", icon: "🎯", question: "Valor Crítico $z_{\\alpha/2}$ para 97%", answer: "<strong>2.17</strong>" },
+            { category: "Intervalos de Confianza", icon: "🎯", question: "Valor Crítico $z_{\\alpha/2}$ para 99%", answer: "<strong>2.575</strong>" },
+            { category: "Intervalos de Confianza", icon: "🛡️", question: "¿Qué es el Nivel de Confianza?", answer: "La probabilidad ($1-\\alpha$) de que el intervalo contenga al parámetro real." },
+            { category: "Intervalos de Confianza", icon: "⚠️", question: "¿Qué es el Nivel de Significación ($\\alpha$)?", answer: "El riesgo de error o probabilidad de que el parámetro quede <strong>fuera</strong> del intervalo." },
+            
+            { category: "Fórmulas", icon: "📝", question: "Fórmula Intervalo de Confianza (Media)", answer: "$$(\\bar{x} - E, \\; \\bar{x} + E)$$ donde $$E = z_{\\alpha/2} \\cdot \\frac{\\sigma}{\\sqrt{n}}$$" },
+            { category: "Fórmulas", icon: "📝", question: "Fórmula Error Máximo (Media)", answer: "$$E = z_{\\alpha/2} \\cdot \\frac{\\sigma}{\\sqrt{n}}$$" },
+            { category: "Fórmulas", icon: "📝", question: "Fórmula Tamaño Muestral ($n$) Media", answer: "$$n = \\left( \\frac{z_{\\alpha/2} \\cdot \\sigma}{E} \\right)^2$$" },
+            { category: "Fórmulas", icon: "📝", question: "Fórmula Error Máximo (Proporción)", answer: "$$E = z_{\\alpha/2} \\cdot \\sqrt{\\frac{p \\cdot q}{n}}$$" },
+            { category: "Fórmulas", icon: "📝", question: "Fórmula Tamaño Muestral ($n$) Proporción", answer: "$$n = \\frac{(z_{\\alpha/2})^2 \\cdot p \\cdot q}{E^2}$$" },
+            
+            { category: "Trucos y Propiedades", icon: "📏", question: "¿Hallar la Media sabiendo el Intervalo?", answer: "Es el punto medio: $$\\bar{x} = \\frac{\\text{Extremo}_1 + \\text{Extremo}_2}{2}$$" },
+            { category: "Trucos y Propiedades", icon: "📏", question: "¿Hallar el Error sabiendo el Intervalo?", answer: "Es la mitad de la longitud: $$E = \\frac{\\text{Lím.Sup} - \\text{Lím.Inf}}{2}$$" },
+            { category: "Trucos y Propiedades", icon: "🏗️", question: "Regla de Oro del Redondeo de $n$", answer: "Siempre hacia <strong>ARRIBA</strong> (Ceiling).<br>Ej: $14.1 \\to 15$ personas." },
+            { category: "Trucos y Propiedades", icon: "⚖️", question: "Proporciones: El Peor Caso", answer: "Si no dan datos de $p$, usamos el caso más desfavorable: $$p=0.5, \\; q=0.5$$" },
+            
+            { category: "Relaciones", icon: "📈", question: "Si aumento el Nivel de Confianza...", answer: "Aumenta $z_{\\alpha/2}$ y el intervalo se hace <strong>más ancho</strong> (menos preciso)." },
+            { category: "Relaciones", icon: "📉", question: "Si aumento el tamaño de muestra ($n$)...", answer: "El intervalo se hace <strong>más estrecho</strong> (más preciso, menos error)." },
+            { category: "Relaciones", icon: "➗", question: "Para reducir el Error a la mitad...", answer: "Debo multiplicar el tamaño de la muestra por <strong>4</strong> ($n \\times 4$)." },
+            { category: "Relaciones", icon: "➗", question: "Para reducir el Error a la tercera parte...", answer: "Debo multiplicar el tamaño de la muestra por <strong>9</strong> ($3^2$)." }
+        ];
+
+        // --- LÓGICA DE RENDERIZADO ---
+        const grid = document.getElementById('grid');
+
+        function renderCards(filter = 'all') {
+            grid.innerHTML = ''; // Limpiar
+            
+            const filteredData = filter === 'all' 
+                ? cardsData 
+                : cardsData.filter(card => card.category === filter);
+
+            filteredData.forEach(card => {
+                const el = document.createElement('div');
+                el.className = 'flashcard';
+                el.onclick = function() { this.classList.toggle('flipped'); };
+                
+                el.innerHTML = `
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="fc-category">${card.category}</span>
+                            <div class="fc-icon">${card.icon}</div>
+                            <div class="fc-question">${card.question}</div>
+                            <div class="fc-hint">Clic para ver respuesta</div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div class="fc-answer">${card.answer}</div>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(el);
+            });
+
+            // Forzar renderizado de fórmulas matemáticas
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        // --- LÓGICA DE FILTRADO ---
+        window.filterCards = function(category, btn) {
+            // Actualizar estilo botones
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            // Renderizar
+            renderCards(category);
+        };
+
+        // Inicializar
+        renderCards('all');
+
+    </script>
+
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

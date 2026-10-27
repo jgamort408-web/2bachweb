@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de Problemas</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            /* COLORES (Tema Indigo/Violeta) */
+            --bg-body: #f8fafc;
+            --primary: #6366f1; /* Indigo 500 */
+            --primary-dark: #4338ca;
+            --secondary: #0f172a;
+            
+            --accent-bg: #e0e7ff;
+            --border-color: #cbd5e1;
+            
+            --text-main: #334155;
+            --text-light: #64748b;
+            
+            --radius: 12px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            /* Fondo de papel milimetrado sutil */
+            background-image: 
+                linear-gradient(#e2e8f0 1px, transparent 1px),
+                linear-gradient(90deg, #e2e8f0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        h1, h2, h3, h4 { 
+            font-family: 'Outfit', sans-serif; 
+            color: var(--secondary); 
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        header { text-align: center; margin-bottom: 3rem; }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* PANEL DE CONTROL (SELECTOR) */
+        .control-panel {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .control-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .select-wrapper {
+            position: relative;
+        }
+
+        /* Select personalizado para reemplazar Tailwind */
+        select {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            padding-right: 2.5rem;
+            font-size: 1rem;
+            font-family: inherit;
+            color: var(--text-main);
+            background-color: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            appearance: none; /* Quitar flecha por defecto */
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: white;
+        }
+
+        /* Flecha personalizada */
+        .select-arrow {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+
+        /* CONTENEDOR DEL EJERCICIO */
+        #exerciseContainer {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        #exerciseContainer.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hidden { display: none; }
+
+        /* SECCIÓN ENUNCIADO */
+        .statement-section { margin-bottom: 3rem; }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .badge-tag {
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+
+        .statement-card {
+            background: #eef2ff; /* Indigo 50 */
+            border-left: 5px solid var(--primary);
+            padding: 2rem;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            box-shadow: var(--shadow);
+        }
+
+        /* PASOS (STEPS) */
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .step-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .step-header {
+            background: #f8fafc;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .step-title {
+            font-weight: 700;
+            color: var(--secondary);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .step-badge {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .step-content {
+            padding: 1.5rem;
+            color: var(--text-main);
+        }
+
+        /* CONCLUSIÓN */
+        .conclusion-card {
+            margin-top: 3rem;
+            background: #f0fdf4; /* Green 50 */
+            border: 1px solid #bbf7d0;
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .conclusion-label {
+            display: block;
+            color: #15803d; /* Green 700 */
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .conclusion-text {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        /* Estilos generales para listas dentro de los pasos */
+        ul { margin-left: 1.5rem; margin-bottom: 1rem; list-style: disc; }
+        li { margin-bottom: 0.5rem; }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 2rem; }
+            .step-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        
+        <header>
+            <h1>Laboratorio de Problemas</h1>
+            <p class="subtitle">Selecciona un ejercicio para ver su resolución detallada.</p>
+        </header>
+
+        <div class="control-panel">
+            <label for="exerciseSelect" class="control-label">
+                Problemas Disponibles:
+            </label>
+            <div class="select-wrapper">
+                <select id="exerciseSelect">
+                    <option value="" disabled selected>-- Elige un problema --</option>
+                </select>
+                <div class="select-arrow">▼</div>
+            </div>
+        </div>
+
+        <div id="exerciseContainer" class="hidden">
+            
+            <section class="statement-section">
+                <div class="section-header">
+                    <span class="badge-tag">Enunciado</span>
+                    <h2 id="exTitle" style="font-size: 1.5rem; font-weight: 700;"></h2>
+                </div>
+                <div id="exStatement" class="statement-card"></div>
+            </section>
+
+            <section>
+                <div class="section-header" style="margin-bottom: 1.5rem;">
+                    <span style="font-size: 1.5rem;">💡</span>
+                    <h3 style="font-size: 1.3rem; font-weight: 700;">Resolución Paso a Paso</h3>
+                </div>
+                
+                <div id="exSteps" class="steps-container"></div>
+                
+                <div id="exConclusion" class="conclusion-card hidden"></div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <script>
+
+
+
+        // =================================================================
+        // DATOS DE EJEMPLO
+        // =================================================================
+        const ejercicios = [
+  {
+    "id": "inferencia_nivel_1_distribucion_muestral",
+    "title": "Nivel 1: Distribución de la Media Muestral",
+    "statement": "El peso de los paquetes de harina envasados por una máquina sigue una distribución Normal con media $\\mu = 500$ g y desviación típica $\\sigma = 20$ g. Se selecciona una muestra aleatoria de $16$ paquetes para un control de calidad. Calcula la probabilidad de que la media de esa muestra sea superior a $510$ g.",
+    "steps": [
+      {
+        "title": "Paso 1: Identificar la distribución de la media muestral",
+        "content": "<p>Aunque la población es $N(500, 20)$, la media de la muestra ($\\bar{X}$) sigue una distribución Normal con la desviación ajustada (Error Estándar):</p>$$\\bar{X} \\sim N\\left(\\mu, \\frac{\\sigma}{\\sqrt{n}}\\right)$$$$\\bar{X} \\sim N\\left(500, \\frac{20}{\\sqrt{16}}\\right) = N(500, 5)$$ "
+      },
+      {
+        "title": "Paso 2: Tipificar la variable",
+        "content": "<p>Para usar las tablas de la Normal Estándar $Z(0,1)$, tipificamos el valor $510$:</p>$$Z = \\frac{\\bar{x} - \\mu}{\\sigma'} = \\frac{510 - 500}{5} = \\frac{10}{5} = 2$$"
+      },
+      {
+        "title": "Paso 3: Calcular la probabilidad",
+        "content": "<p>Buscamos $P(\\bar{X} > 510)$, que equivale a $P(Z > 2)$.</p><p>Como la tabla nos da el área a la izquierda:</p>$$P(Z > 2) = 1 - P(Z \\le 2) = 1 - 0.9772 = 0.0228$$ "
+      }
+    ],
+    "conclusion": "$$\\text{La probabilidad es de0.0228$$"
+  },
+  {
+    "id": "inferencia_nivel_2_intervalo_confianza",
+    "title": "Nivel 2: Cálculo del Intervalo de Confianza",
+    "statement": "Se quiere estimar el tiempo medio que los estudiantes dedican a estudiar para la Selectividad. Se toma una muestra de $100$ alumnos y se obtiene una media muestral de $\\bar{x} = 120$ horas. Se sabe por estudios previos que la desviación típica poblacional es $\\sigma = 30$ horas. Construye un Intervalo de Confianza al $95\\%$ para la media poblacional.",
+    "steps": [
+      {
+        "title": "Paso 1: Determinar el valor crítico ($z_{\\alpha/2}$)",
+        "content": "<p>Para un nivel de confianza del $95\\%$ ($1-\\alpha = 0.95$):</p><ul><li>$\\alpha = 0.05$ (lo que queda fuera).</li><li>$\\alpha/2 = 0.025$ (cada cola).</li><li>Buscamos en la tabla el valor que deja $0.975$ a su izquierda.</li></ul><p>El valor crítico es <strong>$z_{\\alpha/2} = 1.96$</strong>.</p>"
+      },
+      {
+        "title": "Paso 2: Calcular el Error Máximo ($E$)",
+        "content": "<p>El radio del intervalo es:</p>$$E = z_{\\alpha/2} \\cdot \\frac{\\sigma}{\\sqrt{n}} = 1.96 \\cdot \\frac{30}{\\sqrt{100}} = 1.96 \\cdot 3 = 5.88$$"
+      },
+      {
+        "title": "Paso 3: Construir el intervalo",
+        "content": "<p>Aplicamos la fórmula $(\\bar{x} - E, \\; \\bar{x} + E)$:</p>$$IC = (120 - 5.88, \\; 120 + 5.88) = (114.12, \\; 125.88)$$ "
+      }
+    ],
+    "conclusion": "$$IC_{95\\%} = (114.12, \\; 125.88) \\text{ horas}$$"
+  },
+  {
+    "id": "inferencia_nivel_3_tamano_muestral",
+    "title": "Nivel 3: Cálculo del Tamaño Muestral",
+    "statement": "Queremos estimar la altura media de los habitantes de una ciudad con un error máximo de $2$ cm y un nivel de confianza del $99\\%$. Un estudio piloto indica que la desviación típica es $\\sigma = 10$ cm. ¿A cuántas personas debemos medir como mínimo?",
+    "steps": [
+      {
+        "title": "Paso 1: Identificar datos y valor crítico",
+        "content": "<p>Datos:</p><ul><li>Error máximo $E = 2$.</li><li>Desviación $\\sigma = 10$.</li><li>Confianza $99\\% \\Rightarrow \\alpha=0.01$.</li></ul><p>Buscamos en la tabla el $Z$ que deja $0.995$ a la izquierda: <strong>$z_{\\alpha/2} = 2.575$</strong>.</p>"
+      },
+      {
+        "title": "Paso 2: Aplicar la fórmula de tamaño muestral",
+        "content": "<p>Despejamos $n$ de la fórmula del error:</p>$$n = \\left( \\frac{z_{\\alpha/2} \\cdot \\sigma}{E} \\right)^2$$$$n = \\left( \\frac{2.575 \\cdot 10}{2} \\right)^2 = \\left( 12.875 \\right)^2$$"
+      },
+      {
+        "title": "Paso 3: Cálculo y Redondeo (Crucial)",
+        "content": "<p>Calculamos el valor exacto:</p>$$n = 165.765$$<p><strong>¡Atención!</strong> No podemos medir a 0.7 personas. En el cálculo del tamaño muestral, <strong>siempre se redondea hacia arriba</strong> para garantizar que el error sea menor a 2.</p>"
+      }
+    ],
+    "conclusion": "$$n = 166 \\text{ personas}$$"
+  },
+  {
+    "id": "inferencia_nivel_4_ingenieria_inversa",
+    "title": "Nivel 4: Ingeniería Inversa (Hallar la Confianza)",
+    "statement": "Una máquina llena botellas de agua. Se sabe que la desviación típica es $\\sigma = 15$ ml. Se toma una muestra de $n=50$ botellas y se construye el siguiente intervalo de confianza para la media: $(495.84, \\; 504.16)$. ¿Con qué nivel de confianza se ha construido dicho intervalo?",
+    "steps": [
+      {
+        "title": "Paso 1: Deducir el Error ($E$) del intervalo",
+        "content": "<p>La longitud total del intervalo es la resta del límite superior menos el inferior:</p>$$L = 504.16 - 495.84 = 8.32$$<p>Sabemos que la longitud es $2E$, por tanto:</p>$$E = \\frac{8.32}{2} = 4.16$$ "
+      },
+      {
+        "title": "Paso 2: Despejar $z_{\\alpha/2}$ de la fórmula del error",
+        "content": "<p>Sabemos que $E = z_{\\alpha/2} \\cdot \\frac{\\sigma}{\\sqrt{n}}$. Sustituimos:</p>$$4.16 = z_{\\alpha/2} \\cdot \\frac{15}{\\sqrt{50}}$$$$4.16 = z_{\\alpha/2} \\cdot 2.121$$$$z_{\\alpha/2} = \\frac{4.16}{2.121} \\approx 1.96$$"
+      },
+      {
+        "title": "Paso 3: Traducir Z a Nivel de Confianza",
+        "content": "<p>Miramos en la tabla de la Normal qué probabilidad corresponde a $Z < 1.96$. Vemos que es $0.975$.</p><p>Esto significa que $1 - \\alpha/2 = 0.975$.</p><ul><li>$\\alpha/2 = 0.025$</li><li>$\\alpha = 0.05$</li><li>Confianza $1 - \\alpha = 0.95$</li></ul>"
+      }
+    ],
+    "conclusion": "$$\\text{Nivel de Confianza del } 95\\%$$"
+  },
+
+{
+    "id": "conceptos_basicos_1_parametro_vs_estadistico",
+    "title": "Concepto 1: Población vs Muestra (Notación)",
+    "statement": "En una fábrica de tornillos, sabemos que la longitud media histórica de <strong>todos</strong> los tornillos fabricados es de $50$ mm (Desviación $\\sigma=2$ mm). Hoy hemos cogido una cajita de $10$ tornillos y su longitud media ha resultado ser $50.5$ mm.\n\nIdentifica qué valor corresponde a $\\mu$ (Media Poblacional) y cuál a $\\bar{x}$ (Media Muestral). ¿Es normal que sean distintos?",
+    "steps": [
+      {
+        "title": "Paso 1: Identificar la Población (El 'Todo')",
+        "content": "<p>La media histórica se refiere a la totalidad de la producción. Es un valor fijo y teórico.</p>$$\\mu = 50 \\text{ mm}$$"
+      },
+      {
+        "title": "Paso 2: Identificar la Muestra (La 'Parte')",
+        "content": "<p>El valor $50.5$ proviene de medir solo 10 tornillos concretos. Es un dato experimental.</p>$$\\bar{x} = 50.5 \\text{ mm}$$"
+      },
+      {
+        "title": "Paso 3: Conclusión Conceptual",
+        "content": "<p>Sí, es totalmente normal que sean distintos. La diferencia ($50.5 - 50 = 0.5$) se debe al <strong>azar del muestreo</strong>. La Inferencia trata de controlar cuánto puede alejarse $\\bar{x}$ de $\\mu$.</p>"
+      }
+    ],
+    "conclusion": "$$\\mu=50 \\text{ (Teórico)}, \\quad \\bar{x}=50.5 \\text{ (Empírico)}$$"
+  },
+  {
+    "id": "conceptos_basicos_2_error_estandar",
+    "title": "Concepto 2: El Poder de la Raíz de N (Error Estándar)",
+    "statement": "La altura de los españoles tiene una desviación típica de $\\sigma = 10$ cm. Vamos a comparar dos estudios:\n<ul><li><strong>Estudio A:</strong> Muestreamos a $1$ sola persona ($n=1$).</li><li><strong>Estudio B:</strong> Muestreamos a $100$ personas y hacemos la media ($n=100$).</li></ul>\nCalcula la desviación típica de la muestra (Error Estándar) en ambos casos.",
+    "steps": [
+      {
+        "title": "Paso 1: Caso A (Individuo)",
+        "content": "<p>Si coges a una sola persona, la variabilidad es total. Puede ser muy alta o muy baja.</p>$$E.E. = \\frac{\\sigma}{\\sqrt{1}} = \\frac{10}{1} = 10 \\text{ cm}$$"
+      },
+      {
+        "title": "Paso 2: Caso B (Promedio de Grupo)",
+        "content": "<p>Al hacer la media de 100 personas, los altos se compensan con los bajos. La variabilidad se aplasta.</p>$$E.E. = \\frac{\\sigma}{\\sqrt{100}} = \\frac{10}{10} = 1 \\text{ cm}$$ "
+      },
+      {
+        "title": "Paso 3: Interpretación",
+        "content": "<p>Al aumentar la muestra a 100, el error se ha reducido <strong>10 veces</strong>. Por eso usamos muestras grandes: para reducir la incertidumbre.</p>"
+      }
+    ],
+    "conclusion": "$$\\text{Individuo: } \\pm 10 \\text{cm} \\quad \\text{Grupo (Media): } \\pm 1 \\text{cm}$$"
+  },
+  {
+    "id": "conceptos_basicos_3_valor_critico_tabla",
+    "title": "Concepto 3: Buscando el Valor Crítico (Z)",
+    "statement": "Queremos hacer un intervalo con una <strong>Confianza del 90%</strong>. ¿Qué número ($z_{\\alpha/2}$) debemos poner en la fórmula? Sigue los pasos para encontrarlo en la tabla Normal.",
+    "steps": [
+      {
+        "title": "Paso 1: Calcular la probabilidad acumulada",
+        "content": "<p>Si la confianza es $0.90$ (zona central), fuera queda $\\alpha = 0.10$.</p><p>Ese $0.10$ se reparte en dos colas: $0.05$ a cada lado.</p><p>La probabilidad acumulada hasta el valor crítico es:</p>$$P(Z < z) = 0.90 + 0.05 = 0.95$$"
+      },
+      {
+        "title": "Paso 2: Buscar en la Tabla N(0,1)",
+        "content": "<p>Buscamos el número $0.9500$ <strong>dentro</strong> de la tabla.</p><p>Vemos que está justo entre $1.64$ ($0.9495$) y $1.65$ ($0.9505$).</p>"
+      },
+      {
+        "title": "Paso 3: Promediar",
+        "content": "<p>Tomamos el punto medio entre $1.64$ y $1.65$.</p>$$z_{\\alpha/2} = 1.645$$"
+      }
+    ],
+    "conclusion": "$$\\text{Para el 90\\%, el multiplicador es } 1.645$$"
+  },
+  {
+    "id": "conceptos_basicos_4_construccion_intervalo",
+    "title": "Concepto 4: Construyendo el Intervalo (Aritmética simple)",
+    "statement": "Imagina que ya has hecho los cálculos difíciles y sabes que:\n<ul><li>La media muestral es $\\bar{x} = 20$.</li><li>El error máximo admisible es $E = 3$.</li></ul>\nEscribe el Intervalo de Confianza.",
+    "steps": [
+      {
+        "title": "Paso 1: Entender la estructura",
+        "content": "<p>Un intervalo es simplemente: <strong>[Centro - Radio, Centro + Radio]</strong>.</p>"
+      },
+      {
+        "title": "Paso 2: Calcular límites",
+        "content": "<ul><li>Límite Inferior: $20 - 3 = 17$.</li><li>Límite Superior: $20 + 3 = 23$.</li></ul>"
+      },
+      {
+        "title": "Paso 3: Expresión final",
+        "content": "<p>El intervalo es $(17, 23)$.</p><p><strong>Interpretación:</strong> Estamos seguros (al nivel de confianza dado) de que la media real de la población está atrapada entre 17 y 23.</p>"
+      }
+    ],
+    "conclusion": "$$IC = (17, 23)$$"
+  },
+  {
+    "id": "conceptos_basicos_5_amplitud_error",
+    "title": "Concepto 5: Amplitud vs Error",
+    "statement": "Un periódico publica: <em>'La intención de voto del Partido A está entre el 40% y el 46%'</em>. \n\na) ¿Cuál es la media muestral de la encuesta?\nb) ¿Cuál es el error máximo ($E$) del estudio?",
+    "steps": [
+      {
+        "title": "Paso 1: Hallar la media (El punto medio)",
+        "content": "<p>La media está justo en el centro del intervalo $(40, 46)$.</p>$$\\bar{x} = \\frac{40 + 46}{2} = \\frac{86}{2} = 43\\%$$"
+      },
+      {
+        "title": "Paso 2: Hallar el Error (La distancia al borde)",
+        "content": "<p>Es la distancia desde el centro ($43$) hasta cualquiera de los extremos ($46$ o $40$).</p>$$E = 46 - 43 = 3\\%$$<p>También se puede calcular como la mitad de la amplitud total: $(46-40)/2 = 3$.</p>"
+      }
+    ],
+    "conclusion": "$$\\text{Media: } 43\\%. \\quad \\text{Error: } \\pm 3\\%$$"
+  },
+
+
+  {
+    "id": "selectividad_nivel_1_proporcion_peor_caso",
+    "title": "Selectividad: Estimación de Proporciones (El Peor Caso)",
+    "statement": "Se quiere estimar la proporción de jóvenes de 18 a 25 años que tienen intención de votar en las próximas elecciones. Se desea realizar una encuesta para obtener un intervalo de confianza al $95\\%$ con un error máximo de $\\pm 2\\%$.\n\na) ¿A cuántos jóvenes debemos encuestar como mínimo si <strong>no tenemos ninguna información previa</strong> sobre la intención de voto?\nb) ¿Cómo cambiaría el tamaño muestral si un estudio piloto anterior sugiriera que la proporción está en torno al $30\\%$?",
+    "steps": [
+      {
+        "title": "Paso 1: Análisis del Caso A (Indeterminación Máxima)",
+        "content": "<p>Cuando estimamos una proporción ($p$) y no tenemos datos previos, nos ponemos en el <strong>peor escenario posible</strong> (el que exige mayor muestra). Esto ocurre cuando $p = q = 0.5$ (50%).</p><p>Datos: $1-\\alpha = 0.95 \\Rightarrow z_{\\alpha/2} = 1.96$. Error $E = 0.02$.</p>"
+      },
+      {
+        "title": "Paso 2: Cálculo para el Caso A",
+        "content": "<p>Usamos la fórmula de $n$ para proporciones:</p>$$n = \\frac{z_{\\alpha/2}^2 \\cdot p \\cdot q}{E^2}$$$$n = \\frac{1.96^2 \\cdot 0.5 \\cdot 0.5}{0.02^2} = \\frac{3.8416 \\cdot 0.25}{0.0004} = 2401$$<p>Se necesitan 2401 personas.</p>"
+      },
+      {
+        "title": "Paso 3: Análisis del Caso B (Información Previa)",
+        "content": "<p>Ahora sabemos que $p \\approx 0.30$, por lo que $q = 1 - 0.30 = 0.70$. La varianza ($p\\cdot q$) será menor, y necesitaremos menos gente.</p>$$n = \\frac{1.96^2 \\cdot 0.30 \\cdot 0.70}{0.02^2} = \\frac{3.8416 \\cdot 0.21}{0.0004} = 2016.84$$<p>Redondeamos siempre hacia arriba: <strong>2017 personas</strong>.</p>"
+      }
+    ],
+    "conclusion": "$$\\text{a) } n=2401 \\quad \\text{b) } n=2017$$"
+  },
+  {
+    "id": "selectividad_nivel_2_doble_paso_error",
+    "title": "Selectividad: El Problema de 'Doble Paso'",
+    "statement": "El tiempo de vida de una batería de smartphone sigue una distribución Normal con desviación típica $\\sigma = 4$ horas.\n\na) Se toma una muestra de $100$ baterías y se obtiene una media de $28$ horas. Calcula el intervalo de confianza al $97\\%$.\nb) A la vista del resultado, el fabricante quiere reducir el error a la mitad (manteniendo la misma confianza). ¿Cuántas baterías <strong>ADICIONALES</strong> debe analizar?",
+    "steps": [
+      {
+        "title": "Paso 1: Hallar Z crítico para 97%",
+        "content": "<p>Nivel $0.97$. Colas: $\\alpha = 0.03 \\Rightarrow \\alpha/2 = 0.015$.<br>Buscamos en la tabla $1 - 0.015 = 0.985$.<br>El valor en la tabla corresponde a <strong>$z_{\\alpha/2} = 2.17$</strong>.</p>"
+      },
+      {
+        "title": "Paso 2: Calcular el Intervalo Inicial y su Error",
+        "content": "<p>Error inicial ($E_1$):</p>$$E_1 = 2.17 \\cdot \\frac{4}{\\sqrt{100}} = 2.17 \\cdot 0.4 = 0.868$$<p>IC = $(28 \\pm 0.868) = (27.132, \\; 28.868)$.</p>"
+      },
+      {
+        "title": "Paso 3: Calcular el nuevo n para la mitad de error",
+        "content": "<p>Nuevo error objetivo: $E_2 = E_1 / 2 = 0.434$. Despejamos $n_2$:</p>$$n_2 = \\left( \\frac{2.17 \\cdot 4}{0.434} \\right)^2$$<p><strong>Truco teórico:</strong> Para reducir el error a la mitad, se necesita cuadruplicar la muestra ($2^2=4$).</p>$$n_2 = 4 \\cdot n_1 = 400$$"
+      },
+      {
+        "title": "Paso 4: Calcular las muestras ADICIONALES",
+        "content": "<p>La pregunta tiene trampa. Pide cuántas <strong>más</strong> necesitamos.</p>$$\\Delta n = n_{final} - n_{inicial} = 400 - 100 = 300$$"
+      }
+    ],
+    "conclusion": "$$\\text{IC: }(27.13, 28.87). \\quad \\text{Necesita analizar 300 baterías más.}$$"
+  },
+  {
+    "id": "selectividad_nivel_3_toma_decisiones",
+    "title": "Selectividad: Toma de Decisiones (Calibrado)",
+    "statement": "Una máquina envasadora debe llenar latas con una media de $\\mu = 330$ ml. Sabemos que $\\sigma = 5$ ml. Un inspector toma una muestra aleatoria de $50$ latas y obtiene una media muestral de $\\bar{x} = 328$ ml.\n\na) Construye un intervalo de confianza al $95\\%$ para la media poblacional.\nb) Con ese nivel de confianza, ¿se puede afirmar que la máquina está mal calibrada (que no llena 330 ml)? Razona la respuesta.",
+    "steps": [
+      {
+        "title": "Paso 1: Construcción del Intervalo",
+        "content": "<p>Datos: $\\bar{x}=328, \\sigma=5, n=50, z_{0.025}=1.96$.</p>$$E = 1.96 \\cdot \\frac{5}{\\sqrt{50}} = 1.96 \\cdot 0.707 = 1.386$$$$IC = (328 - 1.39, \\; 328 + 1.39) = (326.61, \\; 329.39)$$ "
+      },
+      {
+        "title": "Paso 2: Razonamiento de la Decisión",
+        "content": "<p>El intervalo nos dice dónde está \"probablemente\" la media real de la máquina basándonos en nuestra muestra. </p><p>El intervalo es $[326.61, 329.39]$.</p><p>El valor teórico que debería tener es <strong>330 ml</strong>.</p>"
+      },
+      {
+        "title": "Paso 3: Conclusión",
+        "content": "<p>Como $330$ <strong>NO pertenece</strong> al intervalo de confianza calculado, hay una probabilidad muy alta (95%) de que la media real de la máquina no sea 330.</p><p>Por tanto, <strong>sí podemos afirmar que está desajustada</strong> (está llenando de menos).</p>"
+      }
+    ],
+    "conclusion": "$$\\text{La máquina está mal calibrada (330 } \\notin IC)$$"
+  },
+  {
+    "id": "selectividad_nivel_4_teoria_error",
+    "title": "Selectividad: Teoría del Error (Pregunta Conceptual)",
+    "statement": "Queremos estimar la media de una población con un error máximo $E$. \n\na) Si cuadruplicamos el tamaño de la muestra ($4n$) manteniendo el nivel de confianza, ¿qué le ocurre al error?\nb) Si aumentamos el nivel de confianza (por ejemplo de 95% a 99%) manteniendo el tamaño de muestra, ¿qué le ocurre al error?",
+    "steps": [
+      {
+        "title": "Paso 1: Análisis del apartado A (Tamaño muestral)",
+        "content": "<p>Miramos la fórmula del error:</p>$$E = z \\cdot \\frac{\\sigma}{\\sqrt{n}}$$ <p>Si cambiamos $n$ por $4n$:</p>$$E_{nuevo} = z \\cdot \\frac{\\sigma}{\\sqrt{4n}} = z \\cdot \\frac{\\sigma}{2\\sqrt{n}} = \\frac{1}{2} \\left( z \\cdot \\frac{\\sigma}{\\sqrt{n}} \\right) = \\frac{E}{2}$$<p><strong>Conclusión:</strong> El error se reduce a la mitad.</p>"
+      },
+      {
+        "title": "Paso 2: Análisis del apartado B (Confianza)",
+        "content": "<p>Si aumentamos la confianza (de 95% a 99%), el valor crítico $z_{\\alpha/2}$ aumenta (pasa de 1.96 a 2.575).</p><p>Como $z$ está en el numerador de la fórmula del error:</p>$$E = \\mathbf{z} \\cdot \\frac{\\sigma}{\\sqrt{n}}$$ <p>Si $z$ crece, <strong>el error crece</strong>. (Para estar más seguros, necesitamos un intervalo más ancho).</p>"
+      }
+    ],
+    "conclusion": "$$\\text{a) El error se divide por 2. \\quad b) El error aumenta.}$$"
+  },
+  {
+    "id": "distribucion_media_1_calculo_directo",
+    "title": "Media Muestral: Cálculo de Probabilidades",
+    "statement": "La estatura de los estudiantes de Bachillerato de una comunidad autónoma se distribuye normalmente con una media de $\\mu = 172\\text{ cm}$ y una desviación típica de $\\sigma = 9\\text{ cm}$.\n\nSe selecciona una muestra aleatoria de $36$ estudiantes. ¿Cuál es la probabilidad de que la estatura media de la muestra esté comprendida entre $169\\text{ cm}$ y $175\\text{ cm}$?",
+    "steps": [
+      {
+        "title": "Paso 1: Definir la Distribución de la Media Muestral",
+        "content": "<p>Aplicamos el Teorema Central del Límite. La nueva desviación típica para las medias de tamaño $n=36$ es $\\frac{\\sigma}{\\sqrt{n}}$.</p>$$\\bar{X} \\sim N\\left(\\mu, \\frac{\\sigma}{\\sqrt{n}}\\right) = N\\left(172, \\frac{9}{\\sqrt{36}}\\right) = N\\left(172, \\frac{9}{6}\\right) = N(172, 1.5)$$"
+      },
+      {
+        "title": "Paso 2: Tipificar los Valores Extremos",
+        "content": "<p>Queremos calcular $P(169 \\le \\bar{X} \\le 175)$. Transformamos ambos valores a la normal estándar $Z$:</p>$$z_1 = \\frac{169 - 172}{1.5} = -2$$$$z_2 = \\frac{175 - 172}{1.5} = 2$$"
+      },
+      {
+        "title": "Paso 3: Calcular el Área bajo la Curva",
+        "content": "<p>Buscamos en la tabla $N(0,1)$ sabiendo que $P(Z \\le 2) = 0.9772$.</p>$$P(-2 \\le Z \\le 2) = P(Z \\le 2) - P(Z \\le -2)$$$$P(-2 \\le Z \\le 2) = P(Z \\le 2) - (1 - P(Z \\le 2))$$$$P(-2 \\le Z \\le 2) = 0.9772 - (1 - 0.9772) = 0.9772 - 0.0228 = 0.9544$$"
+      }
+    ],
+    "conclusion": "$$\\text{La probabilidad es del 0.9544$$"
+  },
+  {
+    "id": "distribucion_proporcion_1_menor_que",
+    "title": "Proporción Muestral: Porcentaje de Usuarios",
+    "statement": "Según un estudio sociológico, el $60\\%$ de los jóvenes de una ciudad utiliza el transporte público a diario para ir al instituto. \n\nSi se escoge una muestra aleatoria de $100$ jóvenes, calcula la probabilidad de que la proporción de jóvenes en esa muestra que utiliza el transporte público sea <strong>inferior al $50\\%$</strong>.",
+    "steps": [
+      {
+        "title": "Paso 1: Identificar Parámetros de la Población y la Muestra",
+        "content": "<p>Datos poblacionales: $p = 0.60$ (éxito) y $q = 1 - 0.60 = 0.40$ (fracaso). Tamaño muestral: $n = 100$.</p><p>Como $n \\ge 30$, la proporción muestral $\\hat{P}$ se aproxima a una distribución Normal.</p>"
+      },
+      {
+        "title": "Paso 2: Construir el Modelo Normal para Proporciones",
+        "content": "<p>Calculamos la desviación típica de la proporción:</p>$$\\sigma_{\\hat{P}} = \\sqrt{\\frac{p \\cdot q}{n}} = \\sqrt{\\frac{0.60 \\cdot 0.40}{100}} = \\sqrt{\\frac{0.24}{100}} = \\sqrt{0.0024} \\approx 0.049$$<p>El modelo es: $\\hat{P} \\sim N(0.60, 0.049)$</p>"
+      },
+      {
+        "title": "Paso 3: Tipificar y Resolver",
+        "content": "<p>Nos piden $P(\\hat{P} < 0.50)$. Tipificamos con los datos del modelo:</p>$$z = \\frac{0.50 - 0.60}{0.049} = \\frac{-0.10}{0.049} \\approx -2.04$$<p>Calculamos la probabilidad del valor negativo usando el contrario:</p>$$P(Z < -2.04) = 1 - P(Z \\le 2.04) = 1 - 0.9793 = 0.0207$$"
+      }
+    ],
+    "conclusion": "$$\\text{La probabilidad es } P(\\hat{P} < 0.50) = 0.0207$$"
+  },
+  {
+    "id": "distribucion_comparacion_individuo_vs_muestra",
+    "title": "TCL: Individuo aislado vs. Media Muestral",
+    "statement": "El tiempo de duración de las consultas médicas en un centro de salud sigue una distribución Normal con media $\\mu = 15\\text{ minutos}$ y desviación típica $\\sigma = 4\\text{ minutos}$.\n\na) Si elegimos un paciente al azar, ¿qué probabilidad hay de que su consulta dure más de $17$ minutos?\nb) Si elegimos una muestra de $64$ pacientes, ¿qué probabilidad hay de que el <strong>tiempo medio</strong> de sus consultas supere los $17$ minutos?",
+    "steps": [
+      {
+        "title": "Paso 1: Análisis del Apartado A (Individuo)",
+        "content": "<p>En este caso, evaluamos a una sola persona ($n=1$), por lo que usamos la distribución original $X \\sim N(15, 4)$.</p>$$z = \\frac{17 - 15}{4} = \\frac{2}{4} = 0.5$$$$P(X > 17) = P(Z > 0.5) = 1 - P(Z \\le 0.5) = 1 - 0.6915 = 0.3085$$"
+      },
+      {
+        "title": "Paso 2: Análisis del Apartado B (Muestra de 64)",
+        "content": "<p>Al evaluar la media de un grupo ($n=64$), la variabilidad se reduce por el Teorema Central del Límite. La nueva desviación es:</p>$$\\sigma_{\\bar{X}} = \\frac{4}{\\sqrt{64}} = \\frac{4}{8} = 0.5$$<p>La nueva distribución es $\\bar{X} \\sim N(15, 0.5)$.</p>"
+      },
+      {
+        "title": "Paso 3: Tipificación para la Muestra",
+        "content": "<p>Calculamos el nuevo valor $Z$ usando la desviación típica de las medias:</p>$$z = \\frac{17 - 15}{0.5} = \\frac{2}{0.5} = 4$$$$P(\\bar{X} > 17) = P(Z > 4)$$$<p>Como $Z=4$ está fuera de las tablas estándar (es un valor extremadamente atípico), su área a la izquierda es prácticamente $1$. Por tanto, $1 - 1 \\approx 0$.</p>"
+      }
+    ],
+    "conclusion": "$$\\text{a) } 30.85\\% \\quad \\text{b) Prácticamente } 0\\% \\text{ (Invento muy improbable)}$$"
+  },
+  {
+    "id": "distribucion_proporcion_rango",
+    "title": "Proporción Muestral: Intervalo de Control",
+    "statement": "Una fábrica de componentes electrónicos sabe, por registros históricos, que el $5\\%$ de su producción es defectuosa.\n\nEn el lote de esta semana, compuesto por $400$ componentes elegidos al azar, ¿cuál es la probabilidad de que la proporción de defectuosos en el lote se encuentre entre el $4\\%$ y el $7\\%$?",
+    "steps": [
+      {
+        "title": "Paso 1: Parámetros del Modelo de Proporciones",
+        "content": "<p>Población: $p = 0.05$ (defecto) y $q = 0.95$ (correcto). Muestra: $n = 400$.</p>$$\\sigma_{\\hat{P}} = \\sqrt{\\frac{0.05 \\cdot 0.95}{400}} = \\sqrt{\\frac{0.0475}{400}} = \\sqrt{0.00011875} \\approx 0.0109$$<p>El modelo matemático es: $\\hat{P} \\sim N(0.05, 0.0109)$</p>"
+      },
+      {
+        "title": "Paso 2: Tipificar los Extremos del Rango",
+        "content": "<p>Necesitamos calcular $P(0.04 \\le \\hat{P} \\le 0.07)$. Transformamos a $Z$:</p>$$z_1 = \\frac{0.04 - 0.05}{0.0109} \\approx -0.92$$$$z_2 = \\frac{0.07 - 0.05}{0.0109} \\approx 1.83$$"
+      },
+      {
+        "title": "Paso 3: Leer Tablas y Restar Áreas",
+        "content": "<p>Buscamos $P(Z \\le 1.83) = 0.9664$ y $P(Z \\le 0.92) = 0.8212$.</p>$$P(-0.92 \\le Z \\le 1.83) = P(Z \\le 1.83) - P(Z \\le -0.92)$$$$P(-0.92 \\le Z \\le 1.83) = 0.9664 - (1 - P(Z \\le 0.92))$$$$P(-0.92 \\le Z \\le 1.83) = 0.9664 - (1 - 0.8212) = 0.9664 - 0.1788 = 0.7876$$"
+      }
+    ],
+    "conclusion": "$$\\text{Hay una probabilidad del } 0.7876 \\text{ de mantenerse en ese rango.}$$"
+  },
+  {
+    "id": "calculo_tamano_muestral_medias",
+    "title": "Tamaño Muestral: Garantizando la Precisión",
+    "statement": "Una cooperativa agrícola quiere estimar el peso medio de las manzanas de su próxima cosecha. Por estudios previos, se sabe que la desviación típica poblacional es de $15\\text{ g}$.\n\n¿Cuántas manzanas deben pesar como mínimo para garantizar, con un nivel de confianza del $95\\%$, que el error máximo de estimación no supere los $5\\text{ g}$?",
+    "steps": [
+      {
+        "title": "Paso 1: Identificación de Parámetros y Valor Crítico",
+        "content": "<p>Extraemos los datos del enunciado: $\\sigma = 15$ y $E = 5$. Para un nivel de confianza del $95\\%$ ($1 - \\alpha = 0.95$), calculamos el valor crítico $z_{\\alpha/2}$:</p>$$1 - \\frac{\\alpha}{2} = 1 - 0.025 = 0.975$$<p>Buscando en la tabla de la normal $N(0,1)$, obtenemos que $z_{\\alpha/2} = 1.96$.</p>"
+      },
+      {
+        "title": "Paso 2: Aplicar la Fórmula del Tamaño Muestral",
+        "content": "<p>Despejamos $n$ de la fórmula del error máximo admisible $E = z_{\\alpha/2} \\cdot \\frac{\\sigma}{\\sqrt{n}}$ o usamos directamente la fórmula de diseño:</p>$$n = \\left( \\frac{z_{\\alpha/2} \\cdot \\sigma}{E} \\right)^2$$$$n = \\left( \\frac{1.96 \\cdot 15}{5} \\right)^2 = (1.96 \\cdot 3)^2$$"
+      },
+      {
+        "title": "Paso 3: Cálculo y Regla de Redondeo",
+        "content": "<p>Realizamos el cálculo final:</p>$$n = (5.88)^2 = 34.5744$$<p>Aplicando la regla de oro, como estamos contando \"elementos\" (manzanas) y necesitamos <strong>garantizar</strong> que el error no supere los $5\\text{ g}$, debemos redondear siempre al entero inmediatamente superior.</p>"
+      }
+    ],
+    "conclusion": "$$\\text{Deben pesar como mínimo } 35 \\text{ manzanas.}$$"
+  },
+  {
+    "id": "calculo_error_maximo_medias",
+    "title": "Error Máximo Admisible: Evaluando la Muestra",
+    "statement": "Una investigadora estudia el tiempo diario, en minutos, que los adolescentes dedican a consumir vídeos cortos en redes sociales. Sabe que la desviación típica es de $30\\text{ minutos}$. Si selecciona una muestra aleatoria de $150$ adolescentes y utiliza un nivel de confianza del $99\\%$,\n\n¿cuál es el error máximo que cometerá en su estimación de la media poblacional?",
+    "steps": [
+      {
+        "title": "Paso 1: Parámetros del Estudio",
+        "content": "<p>Tenemos los siguientes datos: $\\sigma = 30$ y $n = 150$. Calculamos el valor crítico para un nivel de confianza del $99\\%$ ($1 - \\alpha = 0.99$):</p>$$1 - \\frac{\\alpha}{2} = 1 - 0.005 = 0.995$$<p>Buscando en la tabla normal, este valor se encuentra entre $2.57$ y $2.58$, por lo que tomamos $z_{\\alpha/2} = 2.575$.</p>"
+      },
+      {
+        "title": "Paso 2: Fórmula del Error",
+        "content": "<p>Planteamos la ecuación fundamental del error máximo en la estimación de medias:</p>$$E = z_{\\alpha/2} \\cdot \\frac{\\sigma}{\\sqrt{n}}$$"
+      },
+      {
+        "title": "Paso 3: Sustitución y Resolución",
+        "content": "<p>Sustituimos los valores y operamos:</p>$$E = 2.575 \\cdot \\frac{30}{\\sqrt{150}}$$$$E = 2.575 \\cdot \\frac{30}{12.247} \\approx 2.575 \\cdot 2.4496 \\approx 6.307$$"
+      }
+    ],
+    "conclusion": "$$\\text{El error máximo de estimación será de aproximadamente } 6.31 \\text{ minutos.}$$"
+  },
+  {
+    "id": "calculo_nivel_confianza",
+    "title": "El Coste de la Precisión: Hallando la Confianza",
+    "statement": "Se ha medido el nivel de colesterol en una muestra de $64$ pacientes, asumiendo que la desviación típica poblacional es de $20\\text{ mg/dl}$. Si el error máximo de estimación cometido en el estudio ha sido de $4.9\\text{ mg/dl}$,\n\n¿cuál es el nivel de confianza con el que se ha publicado este intervalo estadístico?",
+    "steps": [
+      {
+        "title": "Paso 1: Identificación de Datos y Planteamiento",
+        "content": "<p>Sabemos que $E = 4.9$, $n = 64$ y $\\sigma = 20$. Usaremos la fórmula del error máximo para despejar el valor crítico $z_{\\alpha/2}$:</p>$$E = z_{\\alpha/2} \\cdot \\frac{\\sigma}{\\sqrt{n}}$$"
+      },
+      {
+        "title": "Paso 2: Despejar el Valor Crítico",
+        "content": "<p>Aislamos $z_{\\alpha/2}$ y sustituimos los valores de la muestra:</p>$$z_{\\alpha/2} = \\frac{E \\cdot \\sqrt{n}}{\\sigma}$$$$z_{\\alpha/2} = \\frac{4.9 \\cdot \\sqrt{64}}{20} = \\frac{4.9 \\cdot 8}{20} = \\frac{39.2}{20} = 1.96$$"
+      },
+      {
+        "title": "Paso 3: Calcular Probabilidades y Nivel de Confianza",
+        "content": "<p>Buscamos $z = 1.96$ en la tabla de la distribución $N(0,1)$, lo que nos da un área de $0.9750$. Esto significa que:</p>$$1 - \\frac{\\alpha}{2} = 0.9750 \\implies \\frac{\\alpha}{2} = 0.025$$<p>Por tanto, $\\alpha = 0.05$. El nivel de confianza es $1 - \\alpha = 0.95$.</p>"
+      }
+    ],
+    "conclusion": "$$\\text{El estudio se ha realizado con un nivel de confianza del } 95\\%.$$"
+  },
+  {
+    "id": "ic_media_poblacional",
+    "title": "Intervalo de Confianza para la Media",
+    "statement": "Se ha extraído una muestra aleatoria de 36 estudiantes de una universidad para medir su nivel de estrés en época de exámenes en una escala de 0 a 100. La media muestral obtenida ha sido de 75 puntos. Sabiendo que la desviación típica poblacional es de 12 puntos, calcula el intervalo de confianza para la media poblacional con un nivel de confianza del 95%.",
+    "steps": [
+      {
+        "title": "Paso 1: Recopilación de datos y valor crítico",
+        "content": "<p>Los datos de la muestra son: n = 36, media muestral $\\bar{x} = 75$, y desviación típica $\\sigma = 12$. Para un nivel de confianza del 95%, calculamos $z_{\\alpha/2}$:</p>$$1 - \\alpha = 0.95 \\implies \\alpha = 0.05 \\implies \\frac{\\alpha}{2} = 0.025$$<p>Buscando en la tabla de la normal estándar la probabilidad $1 - 0.025 = 0.9750$, obtenemos $z_{\\alpha/2} = 1.96$.</p>"
+      },
+      {
+        "title": "Paso 2: Cálculo del Error Máximo Admisible",
+        "content": "<p>Aplicamos la fórmula del error para la estimación de la media poblacional:</p>$$E = z_{\\alpha/2} \\cdot \\frac{\\sigma}{\\sqrt{n}}$$$$E = 1.96 \\cdot \\frac{12}{\\sqrt{36}} = 1.96 \\cdot \\frac{12}{6} = 1.96 \\cdot 2 = 3.92$$"
+      },
+      {
+        "title": "Paso 3: Construcción del Intervalo",
+        "content": "<p>El intervalo de confianza se define como el entorno centrado en la media muestral con radio igual al error: $[\\bar{x} - E, \\bar{x} + E]$.</p>$$IC = [75 - 3.92, 75 + 3.92] = [71.08, 78.92]$$"
+      }
+    ],
+    "conclusion": "$$\\text{El intervalo de confianza al 95\\% es } [71.08, 78.92].$$"
+  },
+  {
+    "id": "ic_proporcion_poblacional",
+    "title": "Intervalo de Confianza para una Proporción",
+    "statement": "En una encuesta electoral realizada a 400 votantes elegidos al azar, 240 declararon su intención de votar al partido A. Calcula un intervalo de confianza al 99% para la verdadera proporción de votantes de dicho partido en toda la población.",
+    "steps": [
+      {
+        "title": "Paso 1: Proporción muestral y valor crítico",
+        "content": "<p>El tamaño muestral es n = 400. La proporción de la muestra a favor es $\\hat{p} = \\frac{240}{400} = 0.60$, por lo que la proporción en contra es $\\hat{q} = 1 - 0.60 = 0.40$.</p><p>Para un nivel de confianza del 99%, su área central deja unas colas de 0.005. Buscamos la probabilidad 0.9950 en la tabla y tomamos el valor intermedio $z_{\\alpha/2} = 2.575$.</p>"
+      },
+      {
+        "title": "Paso 2: Cálculo del Margen de Error",
+        "content": "<p>Utilizamos la fórmula específica del error para proporciones:</p>$$E = z_{\\alpha/2} \\cdot \\sqrt{\\frac{\\hat{p} \\cdot \\hat{q}}{n}}$$$$E = 2.575 \\cdot \\sqrt{\\frac{0.60 \\cdot 0.40}{400}} = 2.575 \\cdot \\sqrt{\\frac{0.24}{400}} = 2.575 \\cdot \\sqrt{0.0006} \\approx 2.575 \\cdot 0.0245 = 0.0631$$"
+      },
+      {
+        "title": "Paso 3: Construcción del Intervalo",
+        "content": "<p>Sumamos y restamos el margen de error a la proporción obtenida en la encuesta $[\\hat{p} - E, \\hat{p} + E]$:</p>$$IC = [0.60 - 0.0631, 0.60 + 0.0631] = [0.5369, 0.6631]$$"
+      }
+    ],
+    "conclusion": "$$\\text{El intervalo para la proporción poblacional es } [0.5369, 0.6631].$$"
+  },
+  {
+    "id": "ic_ingenieria_inversa",
+    "title": "Ingeniería Inversa: Descifrando la Muestra",
+    "statement": "El intervalo de confianza al 90% para la vida útil media (en horas) de un lote de baterías industriales es $[78.355, 81.645]$. Si se sabe que la desviación típica poblacional de estas baterías es de 5 horas, determina la media de la muestra obtenida, el error máximo admisible y el tamaño de la muestra utilizada.",
+    "steps": [
+      {
+        "title": "Paso 1: Extraer el centro (Media) y el radio (Error)",
+        "content": "<p>La media muestral $\\bar{x}$ es siempre el punto medio geométrico del intervalo de confianza:</p>$$\\bar{x} = \\frac{78.355 + 81.645}{2} = \\frac{160}{2} = 80 \\text{ horas}$$<p>El error máximo admisible E es la mitad de la amplitud total del intervalo (la distancia desde la media hasta un extremo):</p>$$E = \\frac{81.645 - 78.355}{2} = \\frac{3.29}{2} = 1.645 \\text{ horas}$$"
+      },
+      {
+        "title": "Paso 2: Valor crítico",
+        "content": "<p>Para un nivel de confianza del 90%, calculamos el valor de $z_{\\alpha/2}$. Buscamos en la tabla normal la probabilidad de 0.9500.</p><p>Este valor se encuentra exactamente a la mitad entre 1.64 y 1.65, por lo que el valor crítico estándar que usamos es $z_{\\alpha/2} = 1.645$.</p>"
+      },
+      {
+        "title": "Paso 3: Despejar el tamaño muestral",
+        "content": "<p>Planteamos la ecuación del error para la media y despejamos la variable n:</p>$$E = z_{\\alpha/2} \\cdot \\frac{\\sigma}{\\sqrt{n}} \\implies 1.645 = 1.645 \\cdot \\frac{5}{\\sqrt{n}}$$$$1 = \\frac{5}{\\sqrt{n}} \\implies \\sqrt{n} = 5 \\implies n = 25$$"
+      }
+    ],
+    "conclusion": "$$\\text{La media fue 80h, el error de 1.645h y se testearon 25 baterías.}$$"
+  },
+{
+    "id": "ic_media_gasto_ebau",
+    "title": "Intervalo para la Media: Gasto en Ocio",
+    "statement": "El gasto mensual en ocio de los jóvenes de una ciudad sigue una distribución normal con una desviación típica de $12\\text{ euros}$. Se toma una muestra aleatoria de $100$ jóvenes, obteniendo un gasto medio de $45\\text{ euros}$. Calcula el intervalo de confianza al $95\\%$ para el gasto medio poblacional.",
+    "steps": [
+      {
+        "title": "Paso 1: Datos y Valor Crítico",
+        "content": "<p>Extraemos los datos de la muestra: $n = 100$, $\\bar{x} = 45$ y $\\sigma = 12$. Para un nivel de confianza del $95\\%$ ($1 - \\alpha = 0.95$), hallamos el valor crítico:</p>$$1 - \\frac{\\alpha}{2} = 1 - 0.025 = 0.9750$$<p>Buscando la probabilidad $0.9750$ en el interior de la tabla normal $N(0,1)$, encontramos que $z_{\\alpha/2} = 1.96$.</p>"
+      },
+      {
+        "title": "Paso 2: Cálculo del Error",
+        "content": "<p>Aplicamos la fórmula del error máximo admisible para la media poblacional:</p>$$E = z_{\\alpha/2} \\cdot \\frac{\\sigma}{\\sqrt{n}}$$$$E = 1.96 \\cdot \\frac{12}{\\sqrt{100}} = 1.96 \\cdot \\frac{12}{10} = 1.96 \\cdot 1.2 = 2.352$$"
+      },
+      {
+        "title": "Paso 3: Construcción del Intervalo",
+        "content": "<p>El intervalo se obtiene sumando y restando el error a la media muestral $[\\bar{x} - E, \\bar{x} + E]$:</p>$$IC = [45 - 2.352, 45 + 2.352] = [42.648, 47.352]$$"
+      }
+    ],
+    "conclusion": "$$\\text{El gasto medio poblacional estará entre } 42.65€ \\text{ y } 47.35€.$$"
+  },
+  {
+    "id": "ic_proporcion_redes_ebau",
+    "title": "Intervalo para la Proporción con Nivel Atípico",
+    "statement": "Para estimar el uso de una nueva red social, se realiza una encuesta a $500$ estudiantes, de los cuales $150$ afirman usarla a diario. Obtén un intervalo de confianza al $97\\%$ para la verdadera proporción de usuarios en la población estudiantil.",
+    "steps": [
+      {
+        "title": "Paso 1: Proporción y Valor Crítico",
+        "content": "<p>Calculamos la proporción a favor ($\\hat{p}$) y en contra ($\\hat{q}$):</p>$$\\hat{p} = \\frac{150}{500} = 0.30 \\implies \\hat{q} = 1 - 0.30 = 0.70$$<p>Para el $97\\%$ de confianza ($1 - \\alpha = 0.97$):</p>$$1 - \\frac{\\alpha}{2} = 1 - 0.015 = 0.9850$$<p>Buscamos $0.9850$ en la tabla de la normal y obtenemos $z_{\\alpha/2} = 2.17$.</p>"
+      },
+      {
+        "title": "Paso 2: Error Máximo de la Proporción",
+        "content": "<p>Usamos la fórmula del error para estimación de proporciones:</p>$$E = z_{\\alpha/2} \\cdot \\sqrt{\\frac{\\hat{p} \\cdot \\hat{q}}{n}}$$$$E = 2.17 \\cdot \\sqrt{\\frac{0.30 \\cdot 0.70}{500}} = 2.17 \\cdot \\sqrt{0.00042} \\approx 2.17 \\cdot 0.02049 = 0.04447$$"
+      },
+      {
+        "title": "Paso 3: Construcción del Intervalo",
+        "content": "<p>Restamos y sumamos el margen de error a la proporción obtenida en la muestra:</p>$$IC = [0.30 - 0.04447, 0.30 + 0.04447] = [0.25553, 0.34447]$$"
+      }
+    ],
+    "conclusion": "$$\\text{El intervalo de la proporción es } [0.2555, 0.3445].$$"
+  },
+  {
+    "id": "tamano_muestra_media_ebau",
+    "title": "Asegurando la Precisión: Tamaño de Muestra",
+    "statement": "El peso de los envíos de una empresa de mensajería tiene una desviación típica poblacional de $2.5\\text{ kg}$. ¿Cuántos paquetes deben seleccionarse como mínimo para estimar el peso medio poblacional con un error menor de $0.5\\text{ kg}$ y un nivel de confianza del $99\\%$?",
+    "steps": [
+      {
+        "title": "Paso 1: Extraer Datos y Valor de Z",
+        "content": "<p>Se nos da el error máximo admisible $E = 0.5$ y la desviación típica $\\sigma = 2.5$. Para una confianza del $99\\%$:</p>$$1 - \\frac{\\alpha}{2} = 1 - 0.005 = 0.9950$$<p>En la tabla normal, $0.9950$ queda entre $2.57$ y $2.58$. Usamos el valor estandarizado $z_{\\alpha/2} = 2.575$.</p>"
+      },
+      {
+        "title": "Paso 2: Fórmula del Tamaño Muestral",
+        "content": "<p>Despejamos el tamaño muestral $n$ de la fórmula del error para medias y sustituimos:</p>$$n = \\left( \\frac{z_{\\alpha/2} \\cdot \\sigma}{E} \\right)^2$$$$n = \\left( \\frac{2.575 \\cdot 2.5}{0.5} \\right)^2$$"
+      },
+      {
+        "title": "Paso 3: Cálculo y Regla de Redondeo",
+        "content": "<p>Realizamos el cálculo. (Truco: $2.5 / 0.5 = 5$):</p>$$n = (2.575 \\cdot 5)^2 = 12.875^2 = 165.7656$$<p>Como necesitamos <strong>garantizar</strong> que el error no supere los $0.5\\text{ kg}$, siempre debemos redondear el tamaño de la muestra al número entero inmediatamente superior.</p>"
+      }
+    ],
+    "conclusion": "$$\\text{Se deben seleccionar como mínimo } 166 \\text{ paquetes.}$$"
+  },
+  {
+    "id": "hallar_confianza_intervalo_ebau",
+    "title": "Ingeniería Inversa: Descubriendo la Confianza",
+    "statement": "La calificación media en una prueba de acceso universitaria sigue una distribución normal con desviación típica de $15\\text{ puntos}$. Una muestra de $36\\text{ estudiantes}$ proporciona el siguiente intervalo de confianza para la media poblacional: $[65.1, 74.9]$. ¿Con qué nivel de confianza se construyó este intervalo?",
+    "steps": [
+      {
+        "title": "Paso 1: Calcular la Media y el Error",
+        "content": "<p>A partir del intervalo $[65.1, 74.9]$, deducimos el centro (la media muestral $\\bar{x}$) y el radio (el error $E$):</p>$$\\bar{x} = \\frac{65.1 + 74.9}{2} = 70$$$$E = 74.9 - 70 = 4.9$$<p>Nota: También se puede calcular el error haciendo la mitad de la amplitud: $(74.9 - 65.1) / 2 = 4.9$.</p>"
+      },
+      {
+        "title": "Paso 2: Despejar el Valor Crítico",
+        "content": "<p>Usamos la fórmula del error de la media con los datos conocidos ($E = 4.9$, $\\sigma = 15$, $n = 36$):</p>$$E = z_{\\alpha/2} \\cdot \\frac{\\sigma}{\\sqrt{n}} \\implies 4.9 = z_{\\alpha/2} \\cdot \\frac{15}{\\sqrt{36}}$$$$4.9 = z_{\\alpha/2} \\cdot \\frac{15}{6} \\implies 4.9 = z_{\\alpha/2} \\cdot 2.5$$$$z_{\\alpha/2} = \\frac{4.9}{2.5} = 1.96$$"
+      },
+      {
+        "title": "Paso 3: Hallar la Confianza en las Tablas",
+        "content": "<p>Buscamos $z = 1.96$ en los márgenes de la tabla $N(0,1)$, obteniendo el área interna de $0.9750$. Esto significa que:</p>$$1 - \\frac{\\alpha}{2} = 0.9750 \\implies \\frac{\\alpha}{2} = 0.025 \\implies \\alpha = 0.05$$<p>El nivel de confianza es la probabilidad central, es decir, $1 - \\alpha = 1 - 0.05 = 0.95$.</p>"
+      }
+    ],
+    "conclusion": "$$\\text{El intervalo se ha construido con una confianza del } 95\\%.$$"
+  }
+];
+
+
+        // =================================================================
+        // LÓGICA DE RENDERIZADO (Actualizada para usar clases semánticas)
+        // =================================================================
+        const selectElement = document.getElementById('exerciseSelect');
+        const container = document.getElementById('exerciseContainer');
+        const exTitle = document.getElementById('exTitle');
+        const exStatement = document.getElementById('exStatement');
+        const exSteps = document.getElementById('exSteps');
+        const exConclusion = document.getElementById('exConclusion');
+
+        // Llenar select
+        ejercicios.forEach(ex => {
+            const option = document.createElement('option');
+            option.value = ex.id;
+            option.textContent = ex.title;
+            selectElement.appendChild(option);
+        });
+
+        // Cambio de opción
+        selectElement.addEventListener('change', (e) => {
+            const selectedId = e.target.value;
+            const exercise = ejercicios.find(ex => ex.id === selectedId);
+            if (exercise) renderExercise(exercise);
+        });
+
+        function renderExercise(exercise) {
+            // Reiniciar animación css pura
+            container.classList.remove('fade-in');
+            void container.offsetWidth; // Trigger reflow
+            container.classList.add('fade-in');
+            container.classList.remove('hidden');
+
+            exTitle.innerHTML = exercise.title;
+            exStatement.innerHTML = exercise.statement;
+            exSteps.innerHTML = '';
+
+            exercise.steps.forEach((step, index) => {
+                // AQUÍ USAMOS LAS NUEVAS CLASES CSS EN LUGAR DE TAILWIND
+                const stepHTML = `
+                    <div class="step-card">
+                        <div class="step-header">
+                            <h4 class="step-title">${step.title}</h4>
+                            <span class="step-badge">Paso ${index + 1}</span>
+                        </div>
+                        <div class="step-content">
+                            ${step.content}
+                        </div>
+                    </div>
+                `;
+                exSteps.insertAdjacentHTML('beforeend', stepHTML);
+            });
+
+            if (exercise.conclusion) {
+                exConclusion.innerHTML = `
+                    <span class="conclusion-label">Solución Final</span>
+                    <div class="conclusion-text">${exercise.conclusion}</div>
+                `;
+                exConclusion.classList.remove('hidden');
+            } else {
+                exConclusion.classList.add('hidden');
+            }
+
+            // REPROCESAR MATHJAX
+            if (window.MathJax) {
+                MathJax.typesetPromise([container]).catch(err => console.log(err));
+            }
+        }
+    </script>
+
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

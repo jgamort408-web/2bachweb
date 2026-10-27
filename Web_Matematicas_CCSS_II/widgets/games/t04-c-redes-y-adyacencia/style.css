@@ -1,0 +1,15 @@
+@import url('../../shared/widget-base.css');
+[data-options] { min-width: 0; margin-block: 1rem; }
+[data-grid] { max-width: 100%; overflow-x: auto; }
+[data-grid] table { border-collapse: collapse; }
+[data-grid] th, [data-grid] td { border: 1px solid currentColor; padding: .45rem; text-align: center; }
+[data-cell] { min-width: 2rem; min-height: 2rem; }
+[data-figure] { max-width: 26rem; }
+[data-figure] svg { display: block; width: 100%; height: auto; }
+[data-node] { touch-action: none; cursor: grab; }
+[data-node]:focus { outline: none; }
+[data-node]:focus circle { stroke-width: 5; stroke-dasharray: 4 2; }
+[data-node][aria-pressed="true"] circle { stroke-dasharray: 2 2; }
+[data-meter] { max-width: 100%; }
+[data-feedback] li { margin-block: 1rem; }
+:root[data-contrast="true"] { --network-surface: #fff; }

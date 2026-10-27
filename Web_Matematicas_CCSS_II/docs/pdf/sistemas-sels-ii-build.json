@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 2,
+  "mathematics": {
+    "parts": 4,
+    "passed": true,
+    "exactParameterCases": 79,
+    "singularRanks": [
+      2,
+      3
+    ],
+    "triangular": [
+      "13/6",
+      "2/3",
+      "1"
+    ],
+    "shipments": [
+      20,
+      70,
+      60
+    ],
+    "lambdaZero": [
+      "21/5",
+      "-4/5",
+      "-2/5"
+    ]
+  },
+  "documents": [
+    {
+      "id": "sistemas-sels-ii-examen",
+      "pages": 1,
+      "bytes": 33382,
+      "sha256": "34d2424ef4755ee72b0c7dafd62c54fa4071eee06020bfae171ed8d0482bca58",
+      "title": "Sistemas de ecuaciones II - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 9,
+      "characters": 1359
+    },
+    {
+      "id": "sistemas-sels-ii-soluciones",
+      "pages": 4,
+      "bytes": 38441,
+      "sha256": "c566c3ac1cbeacc1d6035d7b052f7076ba4d6cb0fed983a8112f72892ed2f337",
+      "title": "Sistemas de ecuaciones II - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 12,
+      "characters": 3347
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-20",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/sistemas-sels-ii/estilo.tex",
+      "sha256": "d4a70bf450fac1c02e271edebc663e5c18097b3e33afa20b3ee1d6a0b86c55fb"
+    },
+    {
+      "path": "content/latex/sistemas-sels-ii/logo-al-andalus.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    },
+    {
+      "path": "content/latex/sistemas-sels-ii/provenance.json",
+      "sha256": "e9190ceeec374630a37c3bcea9621b3da328cc3e100e3f957f08ab0e6473e881"
+    },
+    {
+      "path": "content/latex/sistemas-sels-ii/sistemas-sels-ii-examen.tex",
+      "sha256": "4a63df7c87960c0984a6eb57ac82d6152b454ecf370bfb5789cff367743c4ce8"
+    },
+    {
+      "path": "content/latex/sistemas-sels-ii/sistemas-sels-ii-soluciones.tex",
+      "sha256": "74b09e481a2a60fc6b1b24706a9a1279fa5752bde85df15f79d4994a19168fc3"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-21",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "batchId": "171-probabilidad-i",
+  "sourceDirectory": "content/latex/probabilidad-i",
+  "report": "docs/pdf/probabilidad-i-build.json",
+  "mathematics": "probabilidad-i",
+  "documents": [
+    {
+      "id": "probabilidad-i-examen",
+      "source": "content/latex/probabilidad-i/probabilidad-i-examen.tex",
+      "output": "output/pdf/probabilidad-i-examen.pdf",
+      "expectedPages": 2,
+      "title": "Probabilidad I - Examen revisado",
+      "forbiddenText": [
+        "£"
+      ]
+    },
+    {
+      "id": "probabilidad-i-soluciones",
+      "source": "content/latex/probabilidad-i/probabilidad-i-soluciones.tex",
+      "output": "output/pdf/probabilidad-i-soluciones.pdf",
+      "expectedPages": 4,
+      "title": "Probabilidad I - Soluciones revisadas",
+      "forbiddenText": [
+        "£"
+      ]
+    }
+  ]
+}

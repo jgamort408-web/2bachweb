@@ -1,0 +1,13 @@
+@import url('../../shared/widget-base.css');
+.graph-scroll { overflow-x: auto; max-width: 100%; border: 1px solid currentColor; margin-block: 1rem; }
+[data-graph] > svg { display: block; width: 100%; min-width: 560px; height: auto; }
+[data-graph] [role="button"] { cursor: pointer; }
+[data-graph] [aria-disabled="true"] { cursor: default; }
+[data-fields] { min-width: 0; margin-block: 1rem; }
+.area-input { display: block; margin-block: .75rem; }
+.area-input:has(input[type="text"]) > span { display: block; padding-bottom: .35rem; }
+.area-input input[type="text"] { display: block; width: 100%; max-width: 16rem; min-width: 0; padding: .5rem; }
+.area-input input[type="checkbox"] { width: 1.2rem; height: 1.2rem; margin-inline-end: .5rem; }
+[data-table] table { width: 100%; border-collapse: collapse; }
+[data-table] th, [data-table] td { padding: .35rem; border: 1px solid currentColor; text-align: center; }
+[data-feedback] li { margin-block: .8rem; }

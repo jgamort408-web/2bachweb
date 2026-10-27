@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>8.1. Variable aleatoria · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t08-e01">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">8.1. Variable aleatoria</h1>
+    <p data-content-role="lead">Del resultado de un experimento aleatorio a un valor numérico.</p>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#definicion">Definición</a> · <a href="#probabilidad">Función de probabilidad</a> · <a href="#parametros">Parámetros</a> · <a href="#ejemplo-dado">Ejemplo del dado</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+
+    <section id="definicion" data-content-role="definition"><h2>¿Qué es una variable aleatoria?</h2>
+      <p>En un experimento aleatorio hablamos de resultados como «salir cara» o de sucesos como «sacar oros». Una variable aleatoria permite asociar números a los resultados para estudiarlos matemáticamente.</p>
+      <p>Una <strong>variable aleatoria \(X\)</strong> es una función que asigna un número real a cada resultado del espacio muestral \(E\):</p>
+      <p data-variable-formula="definition">\[X:E\longrightarrow\mathbb{R}.\]</p>
+      <p data-content-role="key-idea">No hay que confundir el resultado del experimento con el número que le asigna X. Resultados distintos pueden recibir el mismo valor.</p>
+    </section>
+
+    <section id="probabilidad" data-content-role="explanation"><h2>Función de probabilidad: caso discreto finito</h2>
+      <p>En este apartado consideramos una variable que toma un número finito de valores distintos \(x_1,\ldots,x_n\). Estos son los valores de X, no necesariamente los resultados del espacio muestral.</p>
+      <p>La probabilidad \(p_i\) corresponde al suceso formado por todos los resultados que dan el valor \(x_i\):</p>
+      <p data-variable-formula="mass">\[P(X=x_i)=p_i.\]</p>
+      <p>Podemos describir su <strong>distribución</strong> mediante los pares \((x_1,p_1),\ldots,(x_n,p_n)\). Esa lista describe los valores y sus probabilidades; no sustituye la definición de X como función.</p>
+      <h3>Dos condiciones obligatorias</h3>
+      <ul>
+        <li>Cada probabilidad está entre 0 y 1.<p data-variable-formula="bounds">\[0\le p_i\le1.\]</p></li>
+        <li>Al incluir todos los valores posibles, las probabilidades suman 1.<p data-variable-formula="total">\[\sum_{i=1}^{n}p_i=1.\]</p></li>
+      </ul>
+      <p data-content-role="warning">Estas sumas se refieren al caso discreto finito. No se aplican de esta forma a una variable continua descrita mediante una densidad.</p>
+    </section>
+
+    <section id="parametros" data-content-role="explanation"><h2>Parámetros de la distribución</h2>
+      <p data-content-role="key-idea">Aquí calculamos características de un modelo de probabilidad. La estadística descriptiva resume datos observados, que pueden pertenecer a una muestra o a una población completa. La diferencia no es «muestra frente a población teórica total».</p>
+      <section data-content-role="definition"><h3>Media o esperanza: \(\mu\)</h3>
+        <p>Es el promedio de los valores ponderados por sus probabilidades: el centro de gravedad de la distribución.</p>
+        <p data-variable-formula="mean">\[\mu=\sum_{i=1}^{n}x_i p_i.\]</p>
+      </section>
+      <section data-content-role="definition"><h3>Varianza: \(\sigma^2\)</h3>
+        <p>Mide la dispersión respecto a la media. La fórmula rápida del original resta el cuadrado de la media a la media de los cuadrados:</p>
+        <p data-variable-formula="variance">\[\sigma^2=\sum_{i=1}^{n}x_i^2p_i-\mu^2.\]</p>
+        <p>Se expresa en las unidades de X al cuadrado.</p>
+      </section>
+      <section data-content-role="definition"><h3>Desviación típica: \(\sigma\)</h3>
+        <p>Es la raíz cuadrada no negativa de la varianza. Recupera las unidades de la variable.</p>
+        <p data-variable-formula="deviation">\[\sigma=\sqrt{\sigma^2}.\]</p>
+      </section>
+    </section>
+
+    <section id="ejemplo-dado" data-content-role="worked-example"><h2>Ejemplo resuelto: un dado equilibrado</h2>
+      <div data-content-role="statement"><p>Lanzamos un dado equilibrado de seis caras. X es el número obtenido. En este ejemplo, los resultados se identifican directamente con los valores \(1,2,3,4,5,6\), cada uno con probabilidad \(1/6\).</p></div>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Valores y probabilidades del dado">
+        <table data-die-distribution><caption>Distribución del resultado de un dado equilibrado</caption>
+          <thead><tr><th scope="col">Valor de X</th><th scope="col">Probabilidad</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">1</th><td>\(1/6\)</td></tr>
+            <tr><th scope="row">2</th><td>\(1/6\)</td></tr>
+            <tr><th scope="row">3</th><td>\(1/6\)</td></tr>
+            <tr><th scope="row">4</th><td>\(1/6\)</td></tr>
+            <tr><th scope="row">5</th><td>\(1/6\)</td></tr>
+            <tr><th scope="row">6</th><td>\(1/6\)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Las seis probabilidades suman \(6\cdot(1/6)=1\).</p>
+      <section data-content-role="worked-step" id="dado-media"><h3>1. Calcular la media</h3>
+        <p data-variable-formula="die-mean">\[\mu=1\cdot\frac16+\cdots+6\cdot\frac16=\frac{21}{6}=3{,}5.\]</p>
+        <p data-content-role="key-idea">La esperanza es 3,5, aunque ese valor no puede salir en una tirada. Es una media del modelo, no un resultado garantizado.</p>
+      </section>
+      <section data-content-role="worked-step" id="dado-cuadrados"><h3>2. Calcular la media de los cuadrados</h3>
+        <p data-variable-formula="die-squares">\[\sum_{i=1}^{6}x_i^2p_i=\frac{1^2+2^2+3^2+4^2+5^2+6^2}{6}=\frac{91}{6}.\]</p>
+        <p>\(91/6\approx15{,}17\), pero mantenemos la fracción exacta para el siguiente paso.</p>
+      </section>
+      <section data-content-role="worked-step" id="dado-varianza"><h3>3. Restar el cuadrado de la media</h3>
+        <p data-variable-formula="die-variance">\[\sigma^2=\frac{91}{6}-\left(\frac72\right)^2=\frac{35}{12}\approx2{,}92.\]</p>
+        <p data-content-role="warning">Redondeamos al final. Escribir \(15{,}17-3{,}5^2=2{,}92\) usa un valor ya aproximado de la media de los cuadrados; la varianza exacta es \(35/12\).</p>
+      </section>
+    </section>
+    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2>
+      <p>Esta lección incorpora la definición, la distribución discreta finita, los tres parámetros y el ejemplo del dado del material original. El archivo no desarrolla la clasificación discreta/continua ni el cálculo con densidades; tampoco incluye un explorador editable, preguntas autocorregibles o generación procedural.</p>
+      <p>El resto de archivos del bloque se revisará por separado. Las carencias se mantienen señaladas y esta lección tiene contenido parcial.</p>
+    </section>
+    <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="index.html">Volver al tema 8</a> · <a href="02-distribucion-binomial.html">8.2. Distribución binomial</a> · <a href="../../index.html">Volver al libro</a></nav>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

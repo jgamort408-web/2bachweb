@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards: Estadística Bidimensional</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-body: #fdf4ff;       /* Light Purple bg */
+            --primary: #7c3aed;       /* Violet 600 */
+            --primary-dark: #5b21b6;
+            --secondary: #2e1065;     /* Deep Violet */
+            --accent: #db2777;        /* Pink */
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --card-front: #ffffff;
+            --card-back: #2e1065;
+            
+            --radius: 16px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            padding: 2rem;
+            min-height: 100vh;
+            background-image: radial-gradient(#d8b4fe 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* HEADER */
+        header { text-align: center; margin-bottom: 3rem; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--secondary); margin-bottom: 0.5rem; }
+        p.subtitle { color: var(--text-light); font-size: 1.1rem; }
+
+        /* FILTROS */
+        .filter-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+        .filter-btn {
+            background: white; border: 1px solid #d8b4fe; padding: 0.5rem 1.2rem;
+            border-radius: 50px; cursor: pointer; font-family: 'Inter', sans-serif;
+            font-weight: 600; font-size: 0.9rem; color: var(--text-light); transition: all 0.2s ease;
+        }
+        .filter-btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
+        .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); box-shadow: 0 4px 10px rgba(124, 58, 237, 0.3); }
+
+        /* GRID */
+        .flashcard-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+
+        /* CARTA 3D */
+        .flashcard { background-color: transparent; width: 100%; height: 260px; perspective: 1000px; cursor: pointer; }
+        .flashcard-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; }
+        .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+        
+        .flashcard-front, .flashcard-back {
+            position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden;
+            border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.5rem;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+
+        .flashcard-front { background-color: var(--card-front); border: 1px solid #e9d5ff; border-bottom: 4px solid var(--primary); }
+        .fc-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .fc-category { position: absolute; top: 15px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); background: #f3e8ff; padding: 2px 8px; border-radius: 4px; }
+        .fc-question { font-size: 1.1rem; font-weight: 700; color: var(--secondary); line-height: 1.4; }
+        .fc-hint { position: absolute; bottom: 15px; font-size: 0.75rem; color: var(--primary); font-weight: 600; opacity: 0.7; }
+
+        .flashcard-back { background-color: var(--card-back); color: white; transform: rotateY(180deg); border: 1px solid var(--secondary); overflow-y: auto; }
+        .fc-answer { font-size: 1rem; line-height: 1.6; }
+        .flashcard-back::-webkit-scrollbar { width: 4px; }
+        .flashcard-back::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
+
+        mjx-container { color: white !important; }
+        .flashcard-front mjx-container { color: var(--secondary) !important; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>📊 Estadística Bidimensional</h1>
+            <p class="subtitle">Análisis de correlación, covarianza y regresión lineal</p>
+        </header>
+
+        <div class="filter-container" id="filters">
+            <button class="filter-btn active" onclick="filterCards('all', this)">Todas</button>
+            <button class="filter-btn" onclick="filterCards('Conceptos', this)">Conceptos</button>
+            <button class="filter-btn" onclick="filterCards('Covarianza', this)">Covarianza</button>
+            <button class="filter-btn" onclick="filterCards('Correlación', this)">Correlación (r)</button>
+            <button class="filter-btn" onclick="filterCards('Regresión', this)">Regresión y Predicción</button>
+        </div>
+
+        <div class="flashcard-grid" id="grid"></div>
+
+    </div>
+
+    <script>
+        const cardsData = [
+            // --- CONCEPTOS BÁSICOS ---
+            { category: "Conceptos", icon: "🎲", question: "¿Qué es una Variable Bidimensional?", answer: "Es el estudio de dos características ($X, Y$) simultáneamente en cada individuo. Se representan como pares $(x_i, y_i)$." },
+            { category: "Conceptos", icon: "🌫️", question: "¿Qué es la Nube de Puntos?", answer: "Es la representación gráfica de los pares de valores. Su forma nos indica el tipo de relación (lineal, curva, nula)." },
+            { category: "Conceptos", icon: "📑", question: "¿Qué son las Distribuciones Marginales?", answer: "Son las distribuciones unidimensionales de $X$ o $Y$ por separado, calculadas sumando filas o columnas de la tabla." },
+            { category: "Conceptos", icon: "📍", question: "¿Qué es el Centro de Gravedad?", answer: "Es el punto formado por las medias de ambas variables: $$(\\bar{x}, \\bar{y})$$. Todas las rectas de regresión pasan por él." },
+            
+            // --- COVARIANZA ---
+            { category: "Covarianza", icon: "⚙️", question: "¿Qué mide la Covarianza ($S_{xy}$)?", answer: "Mide la variación conjunta. Indica el <strong>sentido</strong> de la relación, pero depende de las unidades." },
+            { category: "Covarianza", icon: "📝", question: "Fórmula de la Covarianza", answer: "$$S_{xy} = \\frac{\\sum x_i y_i}{N} - \\bar{x}\\cdot\\bar{y}$$ (Media de productos menos producto de medias)." },
+            { category: "Covarianza", icon: "📈", question: "Si $S_{xy} > 0$...", answer: "La relación es <strong>Directa</strong> (Positiva).<br>Si $X$ sube, $Y$ tiende a subir." },
+            { category: "Covarianza", icon: "📉", question: "Si $S_{xy} < 0$...", answer: "La relación es <strong>Inversa</strong> (Negativa).<br>Si $X$ sube, $Y$ tiende a bajar." },
+            { category: "Covarianza", icon: "🌫️", question: "Si $S_{xy} \\approx 0$...", answer: "No hay relación lineal (Incorrelación). La nube de puntos es dispersa." },
+
+            // --- CORRELACIÓN (r) ---
+            { category: "Correlación", icon: "💎", question: "¿Qué es el Coeficiente de Pearson ($r$)?", answer: "Es la covarianza estandarizada. Mide la fuerza de la relación lineal sin depender de unidades." },
+            { category: "Correlación", icon: "📝", question: "Fórmula de Pearson ($r$)", answer: "$$r = \\frac{S_{xy}}{S_x \\cdot S_y}$$" },
+            { category: "Correlación", icon: "📏", question: "Rango de valores de $r$", answer: "Siempre está acotado entre -1 y +1: $$-1 \\le r \\le 1$$" },
+            { category: "Correlación", icon: "💪", question: "Interpretación de $|r| \\approx 1$", answer: "Correlación muy <strong>fuerte</strong>. Los puntos están casi alineados en una recta." },
+            { category: "Correlación", icon: "⚠️", question: "¿Causalidad vs Correlación?", answer: "Que $r$ sea alto <strong>NO</strong> implica que $X$ cause $Y$. Puede ser casualidad o haber una variable oculta." },
+
+            // --- REGRESIÓN ---
+            { category: "Regresión", icon: "🔮", question: "¿Qué es la Recta de Regresión?", answer: "Es la recta que mejor se ajusta a la nube de puntos (Mínimos Cuadrados). Sirve para predecir." },
+            { category: "Regresión", icon: "📝", question: "Fórmula Recta $Y$ sobre $X$", answer: "$$y - \\bar{y} = \\frac{S_{xy}}{S_x^2} (x - \\bar{x})$$<br>Pendiente = Covarianza / Varianza X." },
+            { category: "Regresión", icon: "📐", question: "¿Qué son los Residuos?", answer: "Son las distancias verticales entre los puntos reales y la recta de regresión. El método busca minimizar su cuadrado." },
+            { category: "Regresión", icon: "💯", question: "Coeficiente de Determinación ($R^2$)", answer: "Para regresión lineal, es $$R^2 = r^2$$. Indica el porcentaje de fiabilidad de la predicción." },
+            { category: "Regresión", icon: "🔍", question: "¿Si $r=0.9$, es fiable la predicción?", answer: "$$R^2 = 0.9^2 = 0.81$$.<br>La predicción es fiable al <strong>81%</strong>." },
+            { category: "Regresión", icon: "🔀", question: "¿Producto de Pendientes?", answer: "El producto de las pendientes de las dos rectas de regresión ($Y/X$ y $X/Y$) es igual a $r^2$." }
+        ];
+
+        const grid = document.getElementById('grid');
+
+        function renderCards(filter = 'all') {
+            grid.innerHTML = '';
+            const filteredData = filter === 'all' ? cardsData : cardsData.filter(card => card.category === filter);
+
+            filteredData.forEach(card => {
+                const el = document.createElement('div');
+                el.className = 'flashcard';
+                el.onclick = function() { this.classList.toggle('flipped'); };
+                el.innerHTML = `
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="fc-category">${card.category}</span>
+                            <div class="fc-icon">${card.icon}</div>
+                            <div class="fc-question">${card.question}</div>
+                            <div class="fc-hint">Clic para ver respuesta</div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div class="fc-answer">${card.answer}</div>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(el);
+            });
+
+            if (window.MathJax) MathJax.typesetPromise();
+        }
+
+        window.filterCards = function(category, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderCards(category);
+        };
+
+        renderCards('all');
+    </script>
+
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

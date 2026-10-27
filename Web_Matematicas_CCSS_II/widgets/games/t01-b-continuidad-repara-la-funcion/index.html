@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Continuidad: repara la función</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="widget.js"></script>
+</head>
+<body data-widget-id="t01-b-continuidad-repara-la-funcion">
+  <main>
+    <h1 data-content-role="lesson-title">Continuidad: repara la función</h1>
+    <p>Seis retos con datos nuevos. Calcula los límites laterales, diagnostica y ajusta la función. Sin límite de tiempo.</p>
+    <details><summary>Cómo jugar y puntuar</summary><p>Analiza la función inicial. Después podrás cambiar b y el valor puntual; los demás datos se mantienen. Todos los resultados pedidos son enteros. Puedes escribir decimales con punto o coma.</p><p>Cada límite correcto suma 50 puntos; el diagnóstico, 100; la reparación, 150. Cada paso puntúa una sola vez. Hay un bonus de 100 si completas el reto sin pista. Los errores no restan y puedes volver a intentarlo. La puntuación solo dura esta sesión.</p></details>
+    <p data-repair-progress data-content-role="activity-progress"></p>
+    <section data-repair-round>
+      <h2>Función que estás estudiando</h2>
+      <div data-repair-formula></div><p data-repair-context></p>
+      <figure>
+        <svg viewBox="0 0 440 320" width="100%" role="img" aria-labelledby="repair-graph-title repair-graph-description">
+          <title id="repair-graph-title">Ramas y valor en la unión</title><desc id="repair-graph-description"></desc>
+          <defs><clipPath id="repair-clip"><rect x="30" y="15" width="380" height="265"/></clipPath></defs>
+          <path data-repair-axes fill="none" stroke="#8792a2"/>
+          <g clip-path="url(#repair-clip)"><path data-repair-left-curve fill="none" stroke="#1746a2" stroke-width="3"/><path data-repair-right-curve fill="none" stroke="#1746a2" stroke-width="3"/>
+            <circle data-repair-left-hole cx="220" r="5" fill="white" stroke="#1746a2" stroke-width="2"/><circle data-repair-right-hole cx="220" r="5" fill="white" stroke="#1746a2" stroke-width="2"/><circle data-repair-dot cx="220" r="6" fill="#172033"/></g>
+          <text x="220" y="304" text-anchor="middle" data-repair-axis-label></text>
+        </svg>
+        <figcaption data-content-role="caption">Círculos vacíos: extremos de las ramas. Punto relleno: valor en la unión. La escala vertical se ajusta al cambiar los valores.</figcaption>
+      </figure>
+      <form data-repair-analysis novalidate>
+        <fieldset><legend>1. Analiza la función inicial</legend>
+          <label for="repair-left-answer">Límite por la izquierda</label><input id="repair-left-answer" inputmode="decimal" maxlength="12" autocomplete="off">
+          <label for="repair-right-answer">Límite por la derecha</label><input id="repair-right-answer" inputmode="decimal" maxlength="12" autocomplete="off">
+          <label for="repair-diagnosis">Diagnóstico en la unión</label><select id="repair-diagnosis"><option value="">Elige una opción</option><option value="continuous">Continua</option><option value="removable">Discontinuidad evitable</option><option value="jump">Discontinuidad de salto</option></select>
+          <button type="submit">Comprobar análisis</button>
+        </fieldset>
+      </form>
+      <div class="feedback" data-repair-analysis-feedback role="status" data-content-role="feedback"></div>
+      <form data-repair-adjust hidden novalidate>
+        <fieldset><legend>2. Repara o conserva la continuidad</legend>
+          <p>Haz coincidir los límites y el valor puntual. Si ya era continua, conserva los valores. La gráfica muestra tus cambios.</p>
+          <label for="repair-b">Nuevo b (entre −30 y 30)</label><input id="repair-b" inputmode="decimal" maxlength="12" autocomplete="off">
+          <label for="repair-value">Nuevo valor en la unión (entre −30 y 30)</label><input id="repair-value" inputmode="decimal" maxlength="12" autocomplete="off">
+          <button type="submit">Comprobar reparación</button>
+        </fieldset>
+      </form>
+      <div class="feedback" data-repair-adjust-feedback role="status" data-content-role="feedback"></div>
+      <div class="actions"><button type="button" data-repair-hint>Ver pista</button><button type="button" data-repair-next hidden>Siguiente reto</button></div>
+      <p data-repair-hint-text role="status" data-content-role="hint"></p>
+    </section>
+    <section data-repair-summary hidden><h2>Sesión terminada</h2><p data-repair-total role="status"></p><button type="button" data-repair-restart>Generar otra sesión</button></section>
+  </main>
+</body>
+</html>

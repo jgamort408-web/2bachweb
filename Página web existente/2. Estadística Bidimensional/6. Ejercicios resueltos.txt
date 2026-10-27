@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de Problemas</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            /* COLORES (Tema Indigo/Violeta) */
+            --bg-body: #f8fafc;
+            --primary: #6366f1; /* Indigo 500 */
+            --primary-dark: #4338ca;
+            --secondary: #0f172a;
+            
+            --accent-bg: #e0e7ff;
+            --border-color: #cbd5e1;
+            
+            --text-main: #334155;
+            --text-light: #64748b;
+            
+            --radius: 12px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            /* Fondo de papel milimetrado sutil */
+            background-image: 
+                linear-gradient(#e2e8f0 1px, transparent 1px),
+                linear-gradient(90deg, #e2e8f0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        h1, h2, h3, h4 { 
+            font-family: 'Outfit', sans-serif; 
+            color: var(--secondary); 
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        header { text-align: center; margin-bottom: 3rem; }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* PANEL DE CONTROL (SELECTOR) */
+        .control-panel {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .control-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .select-wrapper {
+            position: relative;
+        }
+
+        /* Select personalizado para reemplazar Tailwind */
+        select {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            padding-right: 2.5rem;
+            font-size: 1rem;
+            font-family: inherit;
+            color: var(--text-main);
+            background-color: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            appearance: none; /* Quitar flecha por defecto */
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: white;
+        }
+
+        /* Flecha personalizada */
+        .select-arrow {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+
+        /* CONTENEDOR DEL EJERCICIO */
+        #exerciseContainer {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        #exerciseContainer.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hidden { display: none; }
+
+        /* SECCIÓN ENUNCIADO */
+        .statement-section { margin-bottom: 3rem; }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .badge-tag {
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+
+        .statement-card {
+            background: #eef2ff; /* Indigo 50 */
+            border-left: 5px solid var(--primary);
+            padding: 2rem;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            box-shadow: var(--shadow);
+        }
+
+        /* PASOS (STEPS) */
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .step-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .step-header {
+            background: #f8fafc;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .step-title {
+            font-weight: 700;
+            color: var(--secondary);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .step-badge {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .step-content {
+            padding: 1.5rem;
+            color: var(--text-main);
+        }
+
+        /* CONCLUSIÓN */
+        .conclusion-card {
+            margin-top: 3rem;
+            background: #f0fdf4; /* Green 50 */
+            border: 1px solid #bbf7d0;
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .conclusion-label {
+            display: block;
+            color: #15803d; /* Green 700 */
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .conclusion-text {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        /* Estilos generales para listas dentro de los pasos */
+        ul { margin-left: 1.5rem; margin-bottom: 1rem; list-style: disc; }
+        li { margin-bottom: 0.5rem; }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 2rem; }
+            .step-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        
+        <header>
+            <h1>Laboratorio de Problemas</h1>
+            <p class="subtitle">Selecciona un ejercicio para ver su resolución detallada.</p>
+        </header>
+
+        <div class="control-panel">
+            <label for="exerciseSelect" class="control-label">
+                Problemas Disponibles:
+            </label>
+            <div class="select-wrapper">
+                <select id="exerciseSelect">
+                    <option value="" disabled selected>-- Elige un problema --</option>
+                </select>
+                <div class="select-arrow">▼</div>
+            </div>
+        </div>
+
+        <div id="exerciseContainer" class="hidden">
+            
+            <section class="statement-section">
+                <div class="section-header">
+                    <span class="badge-tag">Enunciado</span>
+                    <h2 id="exTitle" style="font-size: 1.5rem; font-weight: 700;"></h2>
+                </div>
+                <div id="exStatement" class="statement-card"></div>
+            </section>
+
+            <section>
+                <div class="section-header" style="margin-bottom: 1.5rem;">
+                    <span style="font-size: 1.5rem;">💡</span>
+                    <h3 style="font-size: 1.3rem; font-weight: 700;">Resolución Paso a Paso</h3>
+                </div>
+                
+                <div id="exSteps" class="steps-container"></div>
+                
+                <div id="exConclusion" class="conclusion-card hidden"></div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <script>
+
+
+
+        // =================================================================
+        // DATOS DE EJEMPLO
+        // =================================================================
+        const ejercicios = [
+  {
+    "id": "estadistica_2d_ejercicio_1_marginales_condicionadas",
+    "title": "Ejercicio 1: Tablas, Marginales y Medias",
+    "statement": "Se ha realizado un estudio sobre el número de hijos ($X$) y el número de habitaciones de la vivienda ($Y$) en 50 familias, obteniendo la siguiente tabla de doble entrada:\n\n<table class='w-full text-center border mt-2 mb-4'><tr><th class='border p-2'>X \\ Y</th><th class='border p-2'>2 hab</th><th class='border p-2'>3 hab</th><th class='border p-2'>4 hab</th></tr><tr><td class='border p-2 font-bold'>1 hijo</td><td class='border p-2'>4</td><td class='border p-2'>8</td><td class='border p-2'>3</td></tr><tr><td class='border p-2 font-bold'>2 hijos</td><td class='border p-2'>2</td><td class='border p-2'>15</td><td class='border p-2'>8</td></tr><tr><td class='border p-2 font-bold'>3 hijos</td><td class='border p-2'>1</td><td class='border p-2'>5</td><td class='border p-2'>4</td></tr></table>\n\nCalcula:\na) Las distribuciones marginales de $X$ e $Y$.\nb) El número medio de hijos y de habitaciones.\nc) La distribución de habitaciones condicionada a tener 2 hijos ($Y|X=2$).",
+    "steps": [
+      {
+        "title": "Paso 1: Distribuciones Marginales",
+        "content": "<p>Calculamos las sumas por filas (Marginal $X$) y por columnas (Marginal $Y$):</p><p><strong>Marginal X (Hijos):</strong></p><ul><li>$n_{1\\cdot} = 4+8+3 = 15$</li><li>$n_{2\\cdot} = 2+15+8 = 25$</li><li>$n_{3\\cdot} = 1+5+4 = 10$</li><li>Total $N = 50$.</li></ul><p><strong>Marginal Y (Habitaciones):</strong></p><ul><li>$n_{\\cdot 2} = 4+2+1 = 7$</li><li>$n_{\\cdot 3} = 8+15+5 = 28$</li><li>$n_{\\cdot 4} = 3+8+4 = 15$</li><li>Total $N = 50$.</li></ul>"
+      },
+      {
+        "title": "Paso 2: Cálculo de las Medias (Centro de Gravedad)",
+        "content": "<p>Aplicamos la fórmula $\\bar{x} = \\frac{\\sum x_i n_{i\\cdot}}{N}$ y $\\bar{y} = \\frac{\\sum y_j n_{\\cdot j}}{N}$:</p>$$\\bar{x} = \\frac{1\\cdot15 + 2\\cdot25 + 3\\cdot10}{50} = \\frac{15+50+30}{50} = \\frac{95}{50} = 1.9 \\text{ hijos}$$ $$\\bar{y} = \\frac{2\\cdot7 + 3\\cdot28 + 4\\cdot15}{50} = \\frac{14+84+60}{50} = \\frac{158}{50} = 3.16 \\text{ habs}$$"
+      },
+      {
+        "title": "Paso 3: Distribución Condicionada ($Y|X=2$)",
+        "content": "<p>Nos fijamos <strong>solo en la fila de $X=2$</strong> (familias con 2 hijos). El total de esta subpoblación es $25$.</p><ul><li>$Y=2$: $n_{22}=2 \\Rightarrow f_2 = 2/25 = 0.08$</li><li>$Y=3$: $n_{23}=15 \\Rightarrow f_3 = 15/25 = 0.60$</li><li>$Y=4$: $n_{24}=8 \\Rightarrow f_4 = 8/25 = 0.32$</li></ul>"
+      }
+    ],
+    "conclusion": "$$\\bar{x}=1.9, \\quad \\bar{y}=3.16, \\quad P(Y=3|X=2)=60\\%$$"
+  },
+  {
+    "id": "estadistica_2d_ejercicio_2_covarianza_correlacion",
+    "title": "Ejercicio 2: Covarianza y Correlación",
+    "statement": "Se quieren comparar las notas de Matemáticas ($X$) y Física ($Y$) de 5 alumnos. Los pares de valores obtenidos son: $(3,4), (5,6), (6,5), (8,9), (9,8)$.\n\na) Calcula la covarianza ($S_{xy}$).\nb) Calcula el coeficiente de correlación de Pearson ($r$).\nc) ¿Es fuerte la relación?",
+    "steps": [
+      {
+        "title": "Paso 1: Tabla de cálculos auxiliares",
+        "content": "<p>Construimos una tabla con las columnas necesarias ($x_i, y_i, x_i^2, y_i^2, x_i\\cdot y_i$). Sumamos las columnas:</p><ul><li>$\\sum x = 31 \\Rightarrow \\bar{x} = 6.2$</li><li>$\\sum y = 32 \\Rightarrow \\bar{y} = 6.4$</li><li>$\\sum x^2 = 215$</li><li>$\\sum y^2 = 222$</li><li>$\\sum x\\cdot y = 217$</li><li>$N=5$</li></ul>"
+      },
+      {
+        "title": "Paso 2: Varianzas y Desviaciones Típicas",
+        "content": "<p>Calculamos la dispersión de cada variable por separado:</p>$$S_x^2 = \\frac{215}{5} - 6.2^2 = 43 - 38.44 = 4.56 \\Rightarrow S_x = \\sqrt{4.56} \\approx 2.135$$ $$S_y^2 = \\frac{222}{5} - 6.4^2 = 44.4 - 40.96 = 3.44 \\Rightarrow S_y = \\sqrt{3.44} \\approx 1.855$$"
+      },
+      {
+        "title": "Paso 3: Cálculo de la Covarianza",
+        "content": "<p>Usamos la fórmula rápida:</p>$$S_{xy} = \\frac{\\sum x_i y_i}{N} - \\bar{x}\\cdot\\bar{y}$$ $$S_{xy} = \\frac{217}{5} - 6.2 \\cdot 6.4 = 43.4 - 39.68 = 3.72$$<p>Al ser positiva, la relación es directa.</p>"
+      },
+      {
+        "title": "Paso 4: Coeficiente de Pearson",
+        "content": "<p>Estandarizamos la covarianza:</p>$$r = \\frac{S_{xy}}{S_x \\cdot S_y} = \\frac{3.72}{2.135 \\cdot 1.855} = \\frac{3.72}{3.96} \\approx 0.939$$"
+      }
+    ],
+    "conclusion": "$$r \\approx 0.94 \\text{ (Correlación positiva muy fuerte)}$$"
+  },
+  {
+    "id": "estadistica_2d_ejercicio_3_regresion_lineal",
+    "title": "Ejercicio 3: Rectas de Regresión y Predicción",
+    "statement": "Una empresa ha registrado el gasto en publicidad ($X$, en miles de €) y las ventas obtenidas ($Y$, en miles de €) durante los últimos meses. Los parámetros estadísticos calculados son:\n\n$\\bar{x}=4, \\quad \\bar{y}=25, \\quad S_x^2=2, \\quad S_y^2=50, \\quad S_{xy}=9$\n\na) Halla la recta de regresión de Ventas sobre Publicidad ($Y$ sobre $X$).\nb) Si la empresa invierte 6.000€ en publicidad, ¿cuántas ventas espera obtener?\nc) ¿Es fiable esta predicción?",
+    "steps": [
+      {
+        "title": "Paso 1: Calcular la pendiente de la recta (Y sobre X)",
+        "content": "<p>La pendiente $b_{yx}$ viene dada por:</p>$$b_{yx} = \\frac{S_{xy}}{S_x^2} = \\frac{9}{2} = 4.5$$<p>Esto significa que por cada mil euros de publicidad extra, las ventas suben 4.500€.</p>"
+      },
+      {
+        "title": "Paso 2: Ecuación Punto-Pendiente",
+        "content": "<p>Usamos el centro de gravedad $(\\bar{x}, \\bar{y}) = (4, 25)$:</p>$$y - \\bar{y} = b_{yx} (x - \\bar{x})$$ $$y - 25 = 4.5(x - 4)$$<p>Despejamos $y$ para dejarla bonita:</p>$$y = 4.5x - 18 + 25 \\Rightarrow y = 4.5x + 7$$"
+      },
+      {
+        "title": "Paso 3: Predicción (Estimación)",
+        "content": "<p>Nos piden estimar $Y$ para $x=6$ (ojo, son miles de euros):</p>$$y = 4.5(6) + 7 = 27 + 7 = 34$$<p>Se esperan ventas de 34.000€.</p>"
+      },
+      {
+        "title": "Paso 4: Fiabilidad ($R^2$)",
+        "content": "<p>Calculamos el coeficiente de determinación:</p>$$R^2 = r^2 = \\frac{S_{xy}^2}{S_x^2 \\cdot S_y^2} = \\frac{9^2}{2 \\cdot 50} = \\frac{81}{100} = 0.81$$<p>Como $R^2 = 0.81$ (81%), el ajuste es bueno y la predicción es bastante fiable.</p>"
+      }
+    ],
+    "conclusion": "$$\\text{Recta: } y=4.5x+7. \\quad \\text{Predicción: 34.000€. } \\quad R^2=0.81$$"
+  },
+  {
+    "id": "estadistica_2d_ejercicio_4_rectas_cruzadas",
+    "title": "Ejercicio 4: Propiedades de las Rectas (Nivel Avanzado)",
+    "statement": "Las rectas de regresión de una distribución bidimensional son:\n<ul><li>$y = 2x + 4$ (Recta de Y sobre X)</li><li>$x = 0.4y + 1$ (Recta de X sobre Y)</li></ul>\nCalcula las medias de la distribución ($\\bar{x}, \\bar{y}$) y el coeficiente de correlación $r$.",
+    "steps": [
+      {
+        "title": "Paso 1: Propiedad del Centro de Gravedad",
+        "content": "<p>Sabemos que ambas rectas se cortan obligatoriamente en el punto $(\\bar{x}, \\bar{y})$. Resolvemos el sistema formado por ambas ecuaciones:</p>$$\\begin{cases} y = 2x + 4 \\\\ x = 0.4y + 1 \\end{cases}$$"
+      },
+      {
+        "title": "Paso 2: Resolución del Sistema",
+        "content": "<p>Sustituimos la primera en la segunda:</p>$$x = 0.4(2x + 4) + 1$$ $$x = 0.8x + 1.6 + 1$$ $$x - 0.8x = 2.6 \\Rightarrow 0.2x = 2.6$$ $$\\bar{x} = \\frac{2.6}{0.2} = 13$$<p>Ahora hallamos $\\bar{y}$:</p>$$\\bar{y} = 2(13) + 4 = 30$$"
+      },
+      {
+        "title": "Paso 3: Cálculo de la correlación ($r$)",
+        "content": "<p>El coeficiente de determinación $R^2$ es el producto de las pendientes de las dos rectas de regresión.</p><ul><li>Pendiente $Y/X$: $m = 2$.</li><li>Pendiente $X/Y$: $m' = 0.4$.</li></ul>$$r^2 = m \\cdot m' = 2 \\cdot 0.4 = 0.8$$<p>Para hallar $r$, hacemos la raíz cuadrada. Como las pendientes son positivas, $r$ debe ser positivo:</p>$$r = \\sqrt{0.8} \\approx 0.894$$"
+      }
+    ],
+    "conclusion": "$$\\bar{x}=13, \\quad \\bar{y}=30, \\quad r \\approx 0.89$$"
+  },
+{
+    "id": "estadistica_2d_ejercicio_5_identificacion_rectas",
+    "title": "Ejercicio 5: El Misterio de las Rectas (Nivel Experto)",
+    "statement": "Se ha realizado un estudio estadístico y se han obtenido las siguientes dos rectas de regresión, pero <strong>se ha perdido la etiqueta</strong> de cuál es cuál (Y sobre X o X sobre Y):\n<ul><li>Recta A: $2x - y - 3 = 0$</li><li>Recta B: $4x - 5y + 9 = 0$</li></ul>\nSe pide:\na) Determinar justificadamente cuál es la recta de regresión de $Y$ sobre $X$.\nb) Calcular las medias $\\bar{x}$ y $\\bar{y}$.\nc) Calcular el coeficiente de correlación $r$.",
+    "steps": [
+      {
+        "title": "Paso 1: Análisis de Pendientes",
+        "content": "<p>Despejamos $y$ en ambas ecuaciones para ver sus pendientes explícitas:</p><ul><li>Recta A: $y = 2x - 3$ (Pendiente $m_A = 2$)</li><li>Recta B: $5y = 4x + 9 \\Rightarrow y = 0.8x + 1.8$ (Pendiente $m_B = 0.8$)</li></ul><p>Sabemos que el coeficiente de determinación es el producto de los coeficientes de regresión: $R^2 = b_{yx} \\cdot b_{xy}$. Como $R^2 \\le 1$, el producto de las pendientes (considerando cada una en su función) debe ser $\\le 1$.</p>"
+      },
+      {
+        "title": "Paso 2: Prueba de Hipótesis",
+        "content": "<p><strong>Hipótesis 1:</strong> A es $Y/X$ y B es $X/Y$.<br>Entonces $b_{yx} = 2$. Para la recta B, despejamos $x$: $4x = 5y - 9 \\Rightarrow x = 1.25y - 2.25 \\Rightarrow b_{xy} = 1.25$.<br>Producto: $2 \\cdot 1.25 = 2.5$. <strong>¡Imposible!</strong> ($>1$).</p><p><strong>Hipótesis 2:</strong> B es $Y/X$ y A es $X/Y$.<br>Entonces $b_{yx} = 0.8$. Para la recta A, despejamos $x$: $2x = y + 3 \\Rightarrow x = 0.5y + 1.5 \\Rightarrow b_{xy} = 0.5$.<br>Producto: $0.8 \\cdot 0.5 = 0.4$. <strong>¡Correcto!</strong> ($ \\le 1$).</p><p><strong>Solución a):</strong> La recta de $Y$ sobre $X$ es la B ($4x - 5y + 9 = 0$).</p>"
+      },
+      {
+        "title": "Paso 3: Cálculo de Medias (Centro de Gravedad)",
+        "content": "<p>Las medias son el punto de intersección de ambas rectas. Resolvemos el sistema:</p>$$\\begin{cases} 2x - y = 3 \\\\ 4x - 5y = -9 \\end{cases}$$<p>Multiplicamos la primera por -2: $-4x + 2y = -6$.<br>Sumamos a la segunda: $-3y = -15 \\Rightarrow \\bar{y} = 5$.<br>Sustituimos: $2x - 5 = 3 \\Rightarrow 2x = 8 \\Rightarrow \\bar{x} = 4$.</p>"
+      },
+      {
+        "title": "Paso 4: Coeficiente de Correlación",
+        "content": "<p>Ya calculamos $r^2 = 0.4$ en el Paso 2. Para hallar $r$, hacemos la raíz cuadrada. El signo es el de las pendientes (ambas positivas).</p>$$r = +\\sqrt{0.4} \\approx 0.632$$"
+      }
+    ],
+    "conclusion": "$$\\text{Recta Y/X: } 4x-5y+9=0. \\quad (\\bar{x}, \\bar{y})=(4, 5). \\quad r \\approx 0.63$$"
+  },
+  {
+    "id": "estadistica_2d_ejercicio_6_ingenieria_inversa",
+    "title": "Ejercicio 6: Ingeniería Inversa de Parámetros",
+    "statement": "De una distribución bidimensional conocemos la recta de regresión de $Y$ sobre $X$ ($y = 0.5x + 2$) y sabemos que la varianza de $Y$ es $S_y^2 = 9$ y que el coeficiente de determinación es $R^2 = 0.25$.\n\nCalcula, sin tener los datos originales:\na) La covarianza $S_{xy}$.\nb) La varianza de $X$ ($S_x^2$).",
+    "steps": [
+      {
+        "title": "Paso 1: Desglosar la pendiente",
+        "content": "<p>Sabemos que la pendiente de la recta $Y/X$ es $b_{yx} = 0.5$.<br>La fórmula teórica de esta pendiente es:</p>$$b_{yx} = \\frac{S_{xy}}{S_x^2} = 0.5 \\quad \\text{(Ecuación 1)}$$"
+      },
+      {
+        "title": "Paso 2: Usar el Coeficiente de Determinación",
+        "content": "<p>Sabemos que $R^2 = r^2 = 0.25$. La fórmula de $r^2$ es:</p>$$r^2 = \\frac{(S_{xy})^2}{S_x^2 \\cdot S_y^2} = 0.25$$<p>Sustituimos el dato conocido $S_y^2 = 9$:</p>$$\\frac{(S_{xy})^2}{S_x^2 \\cdot 9} = 0.25 \\quad \\text{(Ecuación 2)}$$"
+      },
+      {
+        "title": "Paso 3: Recuperar la Covarianza",
+        "content": "<p>Existe una relación más directa. Sabemos que $b_{yx} = r \\cdot \\frac{S_y}{S_x}$? No, usemos la definición de recta y correlación:</p>$$b_{yx} \\cdot S_x^2 = S_{xy}$$<p>Podemos usar la fórmula alternativa de $R^2$:</p>$$R^2 = \\frac{S_{xy}^2}{S_x^2 S_y^2} = b_{yx} \\cdot b_{xy}$$<p>Esto se complica. Usemos la vía rápida: $S_{xy} = b_{yx} \\cdot S_x^2$. Sustituimos en la fórmula de $R^2$:</p>$$\\frac{(0.5 S_x^2)^2}{S_x^2 \\cdot 9} = 0.25 \\Rightarrow \\frac{0.25 S_x^4}{9 S_x^2} = 0.25$$<p>Simplificamos $S_x^4 / S_x^2 = S_x^2$ y cancelamos 0.25:</p>$$\\frac{S_x^2}{9} = 1 \\Rightarrow S_x^2 = 9.$$</p>"
+      },
+      {
+        "title": "Paso 4: Calcular Covarianza final",
+        "content": "<p>Ahora que tenemos $S_x^2 = 9$, volvemos a la Ecuación 1:</p>$$S_{xy} = 0.5 \\cdot S_x^2 = 0.5 \\cdot 9 = 4.5$$"
+      }
+    ],
+    "conclusion": "$$S_{xy} = 4.5, \\quad S_x^2 = 9$$"
+  },
+  {
+    "id": "estadistica_2d_ejercicio_7_cambio_escala",
+    "title": "Ejercicio 7: Transformaciones Lineales (Cambio de Escala)",
+    "statement": "Tenemos dos variables $X$ (temperatura en ºC) e $Y$ (ventas de refrescos). Sabemos que su covarianza es $S_{xy} = 5$ y sus desviaciones son $S_x = 2$ y $S_y = 4$.\n\nDecidimos cambiar las unidades:\n<ul><li>Pasamos la temperatura a Fahrenheit: $U = 1.8X + 32$.</li><li>Pasamos las ventas a docenas y restamos una tasa fija: $V = \\frac{1}{12}Y - 10$.</li></ul>\n\nCalcula la nueva covarianza $S_{uv}$ y el nuevo coeficiente de correlación $r_{uv}$ sin recalcular todos los datos.",
+    "steps": [
+      {
+        "title": "Paso 1: Propiedad de la Covarianza",
+        "content": "<p>Si $U = aX + b$ y $V = cY + d$, la nueva covarianza es:</p>$$S_{uv} = a \\cdot c \\cdot S_{xy}$$<p>En nuestro caso:</p><ul><li>$a = 1.8$ (factor de X)</li><li>$c = 1/12 \\approx 0.0833$ (factor de Y)</li></ul>$$S_{uv} = 1.8 \\cdot \\frac{1}{12} \\cdot 5 = 0.15 \\cdot 5 = 0.75$$"
+      },
+      {
+        "title": "Paso 2: Propiedad de las Desviaciones Típicas",
+        "content": "<p>Las desviaciones solo se ven afectadas por el factor multiplicativo (valor absoluto), no por la suma:</p>$$S_u = |a| \\cdot S_x = 1.8 \\cdot 2 = 3.6$$ $$S_v = |c| \\cdot S_y = \\frac{1}{12} \\cdot 4 = \\frac{1}{3} \\approx 0.333$$"
+      },
+      {
+        "title": "Paso 3: Nuevo coeficiente de correlación",
+        "content": "<p>Calculamos $r$ con los nuevos datos:</p>$$r_{uv} = \\frac{S_{uv}}{S_u \\cdot S_v} = \\frac{0.75}{3.6 \\cdot 0.333} = \\frac{0.75}{1.2} = 0.625$$<p><strong>Comprobación teórica:</strong> Calculamos el $r$ original:</p>$$r_{xy} = \\frac{5}{2 \\cdot 4} = \\frac{5}{8} = 0.625$$<p>¡Es el mismo! <strong>El coeficiente de correlación es invariante</strong> a los cambios de escala (siempre que $a$ y $c$ tengan el mismo signo). Si uno fuera negativo, $r$ cambiaría de signo.</p>"
+      }
+    ],
+    "conclusion": "$$S_{uv} = 0.75, \\quad r_{uv} = 0.625 \\text{ (Invariante)}$$"
+  },
+{
+    "id": "estadistica_2d_ejercicio_8_interpretacion_notas_horas",
+    "title": "Ejercicio 8: Rendimiento Académico (Interpretación de Tablas)",
+    "statement": "Se ha preguntado a 100 alumnos de Bachillerato cuántas horas dedican al estudio semanal ($X$) y qué nota media han obtenido ($Y$). Los resultados se agrupan en la siguiente tabla de contingencia:\n\n<table class='w-full text-center border mt-2 mb-4'><tr><th class='border p-2 bg-gray-100'>X (Horas) \\ Y (Nota)</th><th class='border p-2'>Suspenso (3)</th><th class='border p-2'>Aprobado (6)</th><th class='border p-2'>Notable (8)</th></tr><tr><td class='border p-2 font-bold'>Poco (2h)</td><td class='border p-2 bg-red-50'>30</td><td class='border p-2'>10</td><td class='border p-2'>0</td></tr><tr><td class='border p-2 font-bold'>Medio (5h)</td><td class='border p-2'>10</td><td class='border p-2 bg-blue-50'>20</td><td class='border p-2'>10</td></tr><tr><td class='border p-2 font-bold'>Mucho (10h)</td><td class='border p-2'>0</td><td class='border p-2'>5</td><td class='border p-2 bg-green-50'>15</td></tr></table>\n\n(Nota: Para los cálculos, usa los valores representativos: $X=\{2, 5, 10\}$ y $Y=\{3, 6, 8\}$).\n\nSe pide:\na) Calcular e interpretar las medias marginales ($\\bar{x}, \\bar{y}$).\nb) Analizar la distribución marginal de $Y$ (¿Cuál es la tasa de aprobados global?).\nc) Calcular la covarianza e interpretar el tipo de relación.",
+    "steps": [
+      {
+        "title": "Paso 1: Medias Marginales (Centros de Gravedad)",
+        "content": "<p>Primero obtenemos los totales marginales:</p><ul><li><strong>Marginal X (Horas):</strong> $n_{x=2}=40$, $n_{x=5}=40$, $n_{x=10}=20$. Total $N=100$.</li><li><strong>Marginal Y (Notas):</strong> $n_{y=3}=40$, $n_{y=6}=35$, $n_{y=8}=25$. Total $N=100$.</li></ul><p>Cálculo de medias:</p>$$\\bar{x} = \\frac{2(40) + 5(40) + 10(20)}{100} = \\frac{80+200+200}{100} = 4.8 \\text{ h/sem}$$ $$\\bar{y} = \\frac{3(40) + 6(35) + 8(25)}{100} = \\frac{120+210+200}{100} = 5.3 \\text{ puntos}$$<p><strong>Interpretación:</strong> El alumno promedio estudia casi 5 horas y aprueba raspado (5.3).</p>"
+      },
+      {
+        "title": "Paso 2: Análisis de la Marginal de Y",
+        "content": "<p>Miramos solo los totales de las columnas ($Y$).</p><ul><li>Total Suspensos: 40 alumnos.</li><li>Total Aprobados (6 o más): $35 + 25 = 60$ alumnos.</li></ul><p><strong>Interpretación:</strong> Independientemente de las horas estudiadas, el $60\\%$ del alumnado aprueba la asignatura.</p>"
+      },
+      {
+        "title": "Paso 3: Cálculo de la Covarianza ($S_{xy}$)",
+        "content": "<p>Necesitamos la media de los productos $\\frac{\\sum x_i y_j n_{ij}}{N}$. Sumamos cada celda multiplicada por sus valores:</p><ul><li>Fila 2h: $2\\cdot3\\cdot30 + 2\\cdot6\\cdot10 = 180 + 120 = 300$</li><li>Fila 5h: $5\\cdot3\\cdot10 + 5\\cdot6\\cdot20 + 5\\cdot8\\cdot10 = 150 + 600 + 400 = 1150$</li><li>Fila 10h: $10\\cdot6\\cdot5 + 10\\cdot8\\cdot15 = 300 + 1200 = 1500$</li></ul><p>Suma Total $= 2950$.</p>$$S_{xy} = \\frac{2950}{100} - \\bar{x}\\cdot\\bar{y} = 29.5 - (4.8 \\cdot 5.3) = 29.5 - 25.44 = 4.06$$"
+      },
+      {
+        "title": "Paso 4: Interpretación de la Covarianza",
+        "content": "<p>El resultado es <strong>Positivo ($S_{xy} = 4.06 > 0$)</strong>.</p><p>Esto indica una <strong>relación directa</strong>: A medida que aumentan las horas de estudio ($X$), tiende a aumentar la nota ($Y$). La \"nube de puntos\" imaginaria es ascendente.</p>"
+      }
+    ],
+    "conclusion": "$$\\bar{x}=4.8, \\bar{y}=5.3, S_{xy}=4.06 \\text{ (Relación Directa)}$$"
+  },
+  {
+    "id": "estadistica_2d_ejercicio_9_precio_demanda_negativa",
+    "title": "Ejercicio 9: Precio vs Ventas (Covarianza Negativa)",
+    "statement": "Una tienda de electrónica ha probado 3 precios distintos para unos auriculares ($X$) durante 50 días y ha anotado cuántas unidades se vendieron ($Y$).\n\n<table class='w-full text-center border mt-2 mb-4'><tr><th class='border p-2 bg-gray-100'>Precio ($X$) \\ Ventas ($Y$)</th><th class='border p-2'>Bajas (10u)</th><th class='border p-2'>Medias (30u)</th><th class='border p-2'>Altas (50u)</th></tr><tr><td class='border p-2 font-bold'>Barato (20€)</td><td class='border p-2'>0</td><td class='border p-2'>5</td><td class='border p-2 bg-green-50'>15</td></tr><tr><td class='border p-2 font-bold'>Normal (40€)</td><td class='border p-2'>5</td><td class='border p-2 bg-blue-50'>10</td><td class='border p-2'>5</td></tr><tr><td class='border p-2 font-bold'>Caro (60€)</td><td class='border p-2 bg-red-50'>8</td><td class='border p-2'>2</td><td class='border p-2'>0</td></tr></table>\n\na) Calcula la media de ventas ($\\bar{y}$) y de precio ($\\bar{x}$).\nb) Calcula la covarianza $S_{xy}$.\nc) Interpreta el resultado para tomar una decisión comercial.",
+    "steps": [
+      {
+        "title": "Paso 1: Medias Marginales",
+        "content": "<p><strong>Marginal X (Precio):</strong></p><ul><li>$n_{20} = 20$ días, $n_{40} = 20$ días, $n_{60} = 10$ días. ($N=50$)</li><li>$\\bar{x} = \\frac{20(20)+40(20)+60(10)}{50} = \\frac{1800}{50} = 36$ €</li></ul><p><strong>Marginal Y (Ventas):</strong></p><ul><li>$n_{10} = 13$, $n_{30} = 17$, $n_{50} = 20$.</li><li>$\\bar{y} = \\frac{10(13)+30(17)+50(20)}{50} = \\frac{130+510+1000}{50} = \\frac{1640}{50} = 32.8$ u.</li></ul>"
+      },
+      {
+        "title": "Paso 2: Cálculo de la Covarianza",
+        "content": "<p>Sumamos los productos celda a celda ($x \\cdot y \\cdot n_{ij}$):</p><ul><li>Fila 20€: $20\\cdot30\\cdot5 + 20\\cdot50\\cdot15 = 3000 + 15000 = 18000$</li><li>Fila 40€: $40\\cdot10\\cdot5 + 40\\cdot30\\cdot10 + 40\\cdot50\\cdot5 = 2000 + 12000 + 10000 = 24000$</li><li>Fila 60€: $60\\cdot10\\cdot8 + 60\\cdot30\\cdot2 = 4800 + 3600 = 8400$</li></ul><p>Suma Total $= 50400$.</p>$$S_{xy} = \\frac{50400}{50} - (36 \\cdot 32.8) = 1008 - 1180.8 = -172.8$$"
+      },
+      {
+        "title": "Paso 3: Interpretación (La decisión)",
+        "content": "<p><strong>Resultado:</strong> La covarianza es <strong>muy negativa</strong> ($-172.8$).</p><p><strong>Interpretación Estadística:</strong> Existe una relación inversa fuerte. Al subir el precio ($X$), bajan drásticamente las ventas ($Y$).</p><p><strong>Interpretación Comercial:</strong> La estrategia de subir precios para ganar más por unidad es arriesgada porque el volumen de ventas se desploma. Los datos sugieren que los clientes son muy sensibles al precio.</p>"
+      }
+    ],
+    "conclusion": "$$S_{xy} = -172.8 \\text{ (Relación Inversa Fuerte)}$$"
+  }
+];
+
+
+        // =================================================================
+        // LÓGICA DE RENDERIZADO (Actualizada para usar clases semánticas)
+        // =================================================================
+        const selectElement = document.getElementById('exerciseSelect');
+        const container = document.getElementById('exerciseContainer');
+        const exTitle = document.getElementById('exTitle');
+        const exStatement = document.getElementById('exStatement');
+        const exSteps = document.getElementById('exSteps');
+        const exConclusion = document.getElementById('exConclusion');
+
+        // Llenar select
+        ejercicios.forEach(ex => {
+            const option = document.createElement('option');
+            option.value = ex.id;
+            option.textContent = ex.title;
+            selectElement.appendChild(option);
+        });
+
+        // Cambio de opción
+        selectElement.addEventListener('change', (e) => {
+            const selectedId = e.target.value;
+            const exercise = ejercicios.find(ex => ex.id === selectedId);
+            if (exercise) renderExercise(exercise);
+        });
+
+        function renderExercise(exercise) {
+            // Reiniciar animación css pura
+            container.classList.remove('fade-in');
+            void container.offsetWidth; // Trigger reflow
+            container.classList.add('fade-in');
+            container.classList.remove('hidden');
+
+            exTitle.innerHTML = exercise.title;
+            exStatement.innerHTML = exercise.statement;
+            exSteps.innerHTML = '';
+
+            exercise.steps.forEach((step, index) => {
+                // AQUÍ USAMOS LAS NUEVAS CLASES CSS EN LUGAR DE TAILWIND
+                const stepHTML = `
+                    <div class="step-card">
+                        <div class="step-header">
+                            <h4 class="step-title">${step.title}</h4>
+                            <span class="step-badge">Paso ${index + 1}</span>
+                        </div>
+                        <div class="step-content">
+                            ${step.content}
+                        </div>
+                    </div>
+                `;
+                exSteps.insertAdjacentHTML('beforeend', stepHTML);
+            });
+
+            if (exercise.conclusion) {
+                exConclusion.innerHTML = `
+                    <span class="conclusion-label">Solución Final</span>
+                    <div class="conclusion-text">${exercise.conclusion}</div>
+                `;
+                exConclusion.classList.remove('hidden');
+            } else {
+                exConclusion.classList.add('hidden');
+            }
+
+            // REPROCESAR MATHJAX
+            if (window.MathJax) {
+                MathJax.typesetPromise([container]).catch(err => console.log(err));
+            }
+        }
+    </script>
+
+
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

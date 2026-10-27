@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 4: Distribuciones de Probabilidad</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            /* COLORES */
+            --bg-body: #f1f5f9;       /* Gris muy claro, más seguro que el blanco */
+            --primary: #4f46e5;       /* Indigo Vibrante */
+            --secondary: #0f172a;     /* Texto Oscuro */
+            
+            /* ACENTOS */
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-rose: #e11d48;
+            --accent-amber: #f59e0b;
+            
+            --text-main: #334155;
+            --text-light: #64748b;
+            
+            /* CONFIGURACIÓN */
+            --radius: 16px;
+        }
+
+        /* RESET BÁSICO */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            /* Patrón de fondo sutil pero visible */
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* TIPOGRAFÍA */
+        h1, h2, h3 { 
+            font-family: 'Outfit', sans-serif; 
+            color: var(--secondary); 
+            line-height: 1.2;
+        }
+        
+        /* CONTENEDOR CENTRAL */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: transparent;
+        }
+
+        /* HEADER HERO */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+        
+        .badge {
+            display: inline-block;
+            background-color: #e0e7ff;
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            border: 1px solid #c7d2fe;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* NOTA AMARILLA (Post-it style) */
+        .note-highlight {
+            margin-top: 1.5rem;
+            display: inline-block;
+            background-color: #fef3c7;
+            color: #92400e;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            border: 1px solid #fcd34d;
+            transform: rotate(-1deg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* GRID (Rejilla de tarjetas) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* TARJETAS ROBUSTAS */
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius);
+            padding: 2rem;
+            /* Sombra suave */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-color: var(--card-color, #94a3b8);
+        }
+
+        /* Borde superior de color */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 6px;
+            background-color: var(--card-color, #cbd5e1);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .icon-box {
+            font-size: 2rem;
+        }
+
+        .section-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: #64748b;
+        }
+
+        /* Fórmulas matemáticas dentro de tarjetas */
+        .math-badge {
+            margin-top: 1rem;
+            display: inline-block;
+            background-color: #f8fafc;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-family: 'Times New Roman', serif;
+            font-size: 0.9rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* SECCIÓN OBJETIVOS */
+        .objectives-box {
+            background-color: white;
+            border: 2px dashed #cbd5e1;
+            border-radius: var(--radius);
+            padding: 2.5rem;
+        }
+
+        .obj-title {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .obj-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .obj-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            color: #334155;
+        }
+
+        .obj-list li::before {
+            content: '•';
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            line-height: 1rem;
+            top: 0.2rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        /* Variables de colores para las tarjetas */
+        .c-blue { --card-color: var(--accent-blue); }
+        .c-green { --card-color: var(--accent-green); }
+        .c-rose { --card-color: var(--accent-rose); }
+        .c-amber { --card-color: var(--accent-amber); }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <span class="badge">Nueva Unidad</span>
+            <h1>Distribuciones de Probabilidad</h1>
+            <p class="subtitle">
+                Dejamos atrás los sucesos aislados para estudiar <strong>Variables Aleatorias</strong>. Modelizaremos la realidad con las distribuciones Binomial y Normal.
+            </p>
+            
+            <div class="note-highlight">
+                🔔 Dato Clave: Aquí nace la famosa Campana de Gauss
+            </div>
+        </header>
+
+        <main class="grid">
+            
+            <a href="https://sites.google.com/g.educaand.es/estadstica2bach/4-distribuciones/4-1-variable-aleatoria" class="card c-blue">
+                <div class="card-header">
+                    <span class="icon-box">🎲</span>
+                    <span class="section-tag">Sección 4.1</span>
+                </div>
+                <h3 class="card-title">Variable Aleatoria</h3>
+                <p class="card-text">
+                    Definición formal. Diferencia clave entre variables <strong>discretas</strong> (contar) y <strong>continuas</strong> (medir).
+                </p>
+            </a>
+
+            <a href="https://sites.google.com/g.educaand.es/estadstica2bach/4-distribuciones/4-2-distribuci%C3%B3n-binomial" class="card c-green">
+                <div class="card-header">
+                    <span class="icon-box">🎯</span>
+                    <span class="section-tag">Sección 4.2</span>
+                </div>
+                <h3 class="card-title">Distribución Binomial</h3>
+                <p class="card-text">
+                    El modelo de Bernoulli. Éxito o Fracaso repetido $n$ veces de forma independiente.
+                </p>
+                <div class="math-badge">
+                    $X \sim B(n, p)$
+                </div>
+            </a>
+
+            <a href="https://sites.google.com/g.educaand.es/estadstica2bach/4-distribuciones/4-3-distribuci%C3%B3n-normal" class="card c-rose">
+                <div class="card-header">
+                    <span class="icon-box">🔔</span>
+                    <span class="section-tag">Sección 4.3</span>
+                </div>
+                <h3 class="card-title">Distribución Normal</h3>
+                <p class="card-text">
+                    La distribución más importante. Uso de la tabla $N(0,1)$ y tipificación de la variable.
+                </p>
+                <div class="math-badge">
+                    $X \sim N(\mu, \sigma)$
+                </div>
+            </a>
+
+            <a href="https://sites.google.com/g.educaand.es/estadstica2bach/4-distribuciones/4-4-aproximaci%C3%B3n" class="card c-amber">
+                <div class="card-header">
+                    <span class="icon-box">🔄</span>
+                    <span class="section-tag">Sección 4.4</span>
+                </div>
+                <h3 class="card-title">Aproximación Normal</h3>
+                <p class="card-text">
+                    ¿Qué pasa cuando $n$ es muy grande? Teorema de De Moivre-Laplace y corrección de Yates.
+                </p>
+            </a>
+
+            <a href="https://sites.google.com/g.educaand.es/estadstica2bach/4-distribuciones/4-5-ejercicios-resueltos" class="card c-amber">
+                <div class="card-header">
+                    <span class="icon-box">📔</span>
+                    <span class="section-tag">Sección 4.5</span>
+                </div>
+                <h3 class="card-title">Ejercicios Resueltos</h3>
+                <p class="card-text">
+                    Relación de ejercicios resueltos para practicar.
+                </p>
+            </a>
+        </main>
+
+        <section class="objectives-box">
+            <h2 class="obj-title">Objetivos de Aprendizaje</h2>
+            <ul class="obj-list">
+                <li>Operar con soltura utilizando distribuciones de probabilidad.</li>
+                <li>Clasificar variables aleatorias en discretas y continuas.</li>
+                <li>Identificar situaciones reales modelizables mediante Binomial o Normal.</li>
+                <li>Calcular probabilidades utilizando tablas y fórmulas específicas.</li>
+                <li>Aplicar la aproximación de Binomial a Normal cuando $n$ es grande.</li>
+            </ul>
+        </section>
+
+        <footer>
+            MathMastery Digital Notebook &copy; 2024
+        </footer>
+
+    </div>
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-20",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "documents": [
+    {
+      "id": "recuperacion-t1-examen",
+      "source": "content/latex/recuperacion-t1/recuperacion-t1-examen.tex",
+      "output": "output/pdf/recuperacion-t1-examen.pdf",
+      "expectedPages": 1,
+      "title": "Recuperación T1 - Examen revisado"
+    },
+    {
+      "id": "recuperacion-t1-soluciones",
+      "source": "content/latex/recuperacion-t1/recuperacion-t1-soluciones.tex",
+      "output": "output/pdf/recuperacion-t1-soluciones.pdf",
+      "expectedPages": 4,
+      "title": "Recuperación T1 - Soluciones revisadas"
+    }
+  ]
+}

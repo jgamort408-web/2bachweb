@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+\input{estilo.tex}
+\hypersetup{pdftitle={Subida de nota de curso - Soluciones revisadas}}
+\begin{document}
+
+\section*{Bloque A: continuidad, monotonía y asíntotas}
+Soluciones originales revisadas. Se conservan cuatro ejercicios, 90 minutos y 10 puntos; 0,25 de expresión incluidos por ejercicio y condiciones de calculadora del original.
+\begin{enumerate}[label=(\alph*)]
+\item En 2, el valor y el límite derecho son 1; el izquierdo vale $a-4$. Continuidad exige $a-4=1$, luego $\boxed{a=5}$.
+
+Para ese valor, las derivadas laterales son 0 y $-1$; por tanto, no es derivable en 2. El cociente incremental izquierdo es $h\to0$; el derecho es $-1/(1+h)\to-1$.
+\item Ahora se usa $a=4$, como pide este apartado: la rama izquierda es $(x-2)^2$ para $x<2$, y la derecha es $1/(x-1)$ solo para $x\geq2$.
+
+\textbf{Corrección M01:} el dominio de la función a trozos es $\mathbb R$, pues en torno a 1 rige el polinomio, no la expresión racional. En particular $f(1)=1$ y $\lim_{x\to1}f(x)=1$: \textbf{no hay asíntota vertical en 1} ni en otro punto.
+
+Para $x<2$, $f'(x)=2x-4<0$; para $x>2$, $f'(x)=-1/(x-1)^2<0$. Es estrictamente decreciente en cada intervalo $(-\infty,2)$ y $[2,\infty)$ por separado. No es decreciente en todo $\mathbb R$: $f(3/2)=1/4<f(2)=1$ aunque $3/2<2$.
+
+En 2 hay salto desde límite izquierdo 0 hasta valor y límite derecho 1. No es una discontinuidad infinita. El salto invalida la conclusión global del original pese a las derivadas negativas en las ramas.
+
+Al tender $x$ a $+\infty$, $f(x)\to0$: asíntota horizontal $\boxed{y=0}$ por la derecha. Por la izquierda la rama es cuadrática, sin asíntota horizontal ni oblicua lineal; no se extiende la rama racional fuera de su intervalo.
+\end{enumerate}
+\clearpage
+\section*{Bloque B: confitería y beneficio máximo}
+Sean $x$ las tartas de chocolate e $y$ las de chocolate y merengue. Se conserva el modelo original:
+\[
+\max B=10x+12y,\qquad
+\begin{cases}
+x+2y\leq100,\\
+2x+y\leq80,\\
+y\leq46,\\
+x,y\geq0.
+\end{cases}
+\]
+\textbf{Corrección M37:} deben comprobarse todas las restricciones antes de comparar beneficios. El recinto tiene los cinco vértices siguientes:
+\[
+\begin{array}{c|r}
+(x,y)&B\text{ (euros)}\\\hline
+(0,0)&0\\(40,0)&400\\(20,40)&680\\(8,46)&632\\(0,46)&552
+\end{array}
+\]
+\begin{center}\begin{tikzpicture}\begin{axis}[revision,height=5cm,xmin=0,xmax=55,ymin=0,ymax=55]
+\addplot[fill=blue!15,draw=blue,thick] coordinates {(0,0)(40,0)(20,40)(8,46)(0,46)(0,0)};
+\addplot[domain=0:55,dashed]{(100-x)/2};\addplot[domain=12.5:40,dotted]{80-2*x};\addplot[domain=0:55,dashdotted]{46};
+\addplot[only marks,blue] coordinates {(20,40)};
+\end{axis}\end{tikzpicture}\end{center}
+Máximo único $\boxed{680\text{ euros en }(20,40)}$: 20 tartas de chocolate y 40 de chocolate y merengue. Consumen 100 kg de bizcocho, 80 de crema y 40 de merengue, dentro de los 46 disponibles.
+
+El óptimo original $(17,46)$ consume 109 kg de bizcocho, de modo que no es factible. $(50,0)$ incumple la crema; $(0,40)$ es factible pero no es vértice del recinto. El modelo continuo alcanza un óptimo entero, por lo que también resuelve el problema si se exigen tartas enteras.
+\clearpage
+\section*{Bloque C: incompatibilidad y probabilidades}
+\begin{enumerate}[label=(\alph*)]
+\item Si $P(A)>0$ y $P(B)>0$, independencia exigiría $P(A\cap B)=P(A)P(B)>0$. La incompatibilidad exige intersección vacía y, por tanto, probabilidad 0. No pueden darse ambas condiciones simultáneamente bajo esas hipótesis. El requisito de probabilidades no nulas es esencial.
+\item Se interpreta $P(A/B)$ como $P(A\mid B)$, conforme a la solución original. Dado que $P(B)=0,5>0$,
+\[
+P(A\cap B)=0,2\cdot0,5=\boxed{0,1}.
+\]
+\[
+P(A\cup B)=0,3+0,5-0,1=\boxed{0,7}.
+\]
+Por De Morgan,
+\[
+P(A^c\cup B^c)=1-P(A\cap B)=\boxed{0,9}.
+\]
+\[
+P(A-B)=P(A\cap B^c)=0,3-0,1=\boxed{0,2}.
+\]
+Como comprobación, los cuatro átomos $A\cap B$, $A\cap B^c$, $A^c\cap B$, $A^c\cap B^c$ tienen probabilidades $0,1;0,2;0,4;0,3$, todas no negativas y con suma 1.
+\end{enumerate}
+\clearpage
+\section*{Bloque D: desfase del autobús}
+Se conserva la varianza poblacional 4, luego $\sigma=2$ minutos. Se supone muestreo aleatorio con independencia acorde al modelo normal. La normalidad de la media es exacta bajo ese modelo aunque $n=10$; no se justifica por una regla universal de tamaño grande.
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{Corrección M38:} los diez datos, incluido $-0,2$, suman 30,9 minutos, no 31,9:
+\[
+\bar x=30,9/10=\boxed{3,09\text{ minutos}}.
+\]
+Para confianza del 97\%, $z_c=\Phi^{-1}(0,985)\approx2,17009038$:
+\[
+IC=\bar x\pm z_c\frac2{\sqrt{10}}
+=\boxed{(1,71751434;\ 4,46248566)}\text{ minutos}.
+\]
+Con tabla $z_c\approx2,17$ el margen es 1,37242850 y, a dos decimales, el intervalo es $(1,72;4,46)$ minutos. No se centra en la media errónea 3,19 del original.
+\item 30 segundos son 0,5 minutos. Se pide margen estrictamente inferior a esa cantidad. Con confianza del 95\%,
+\[
+q=\left(\frac{\Phi^{-1}(0,975)\,2}{0,5}\right)^2\approx61,46334113,
+\qquad n>q.
+\]
+\[
+\boxed{n_{\min}=\lfloor q\rfloor+1=62}.
+\]
+Con 61 observaciones el margen es aproximadamente 0,50190 minutos, y con 62, 0,49783; solo el segundo cumple. El cuantil de tabla 1,96 conduce al mismo entero.
+
+Aumentar la confianza, manteniendo margen y desviación, aumenta la cota real q. El tamaño mínimo entero no disminuye; puede mantenerse igual para aumentos pequeños de confianza por el redondeo a enteros. Se precisa así el aumento afirmado en el original, sin exigir crecimiento estricto en cada incremento de confianza.
+\end{enumerate}
+Los intervalos tienen la interpretación de cobertura del procedimiento bajo muestreo repetido; no asignan probabilidad posterior a una media fija. No se inventan tamaño de población ni correcciones finitas sin datos.
+\end{document}

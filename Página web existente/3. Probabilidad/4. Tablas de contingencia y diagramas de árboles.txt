@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tablas de Contingencia y Árboles — Matemáticas Aplicadas (2º Bach.)</title>
+
+  <!-- Fuentes (con fallback automático) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Inter:wght@300;400;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- MathJax: configuración ANTES, carga UNA sola vez -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      options: { renderActions: { addMenu: [] } }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root{
+      --bg:#FDFBF7;
+      --text:#0f172a;
+      --ink:#1f2937;
+      --muted:#475569;
+
+      --card:#ffffff;
+      --radius:18px;
+      --max:1040px;
+
+      --indigo:#4f46e5;
+      --indigo-2:#312e81;
+      --amber:#d97706;
+      --red:#ef4444;
+      --green:#16a34a;
+
+      --grid-dot: rgba(15, 23, 42, .10);
+      --shadow: 0 18px 35px rgba(15,23,42,.10);
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.55;
+      overflow-x:hidden;
+
+      /* Fondo cuaderno */
+      background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    :focus-visible{
+      outline: 3px solid rgba(79,70,229,.35);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .page{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(18px, 3.2vw, 46px);
+    }
+
+    h1,h2,h3,h4{
+      font-family: Fraunces, ui-serif, Georgia, "Times New Roman", Times, serif;
+      letter-spacing: -0.02em;
+      margin: 0;
+      color: var(--text);
+    }
+
+    .handwritten{
+      font-family: Kalam, "Comic Sans MS", "Segoe Print", cursive;
+      color: var(--amber);
+      font-weight: 700;
+      display:inline-block;
+      transform: rotate(-1deg);
+      letter-spacing:.2px;
+    }
+
+    header{
+      border-bottom: 2px solid rgba(15,23,42,.20);
+      padding-bottom: 18px;
+      margin-bottom: 34px;
+    }
+
+    h1{
+      margin-top: 10px;
+      font-size: clamp(30px, 4.2vw, 52px);
+      line-height: 1.08;
+      text-shadow: 2px 2px 0 var(--bg), 4px 4px 0 rgba(15,23,42,.08);
+    }
+
+    .lead{
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 90ch;
+    }
+
+    section{ margin: 0 0 44px; }
+
+    .paper{
+      background: var(--card);
+      border: 1px solid rgba(15,23,42,.12);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .pad{ padding: clamp(14px, 2.2vw, 22px); }
+
+    .hr{
+      height: 0;
+      border: none;
+      border-top: 2px dashed rgba(15,23,42,.22);
+      margin: 40px 0;
+    }
+
+    /* Badge */
+    .section-title{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .badge{
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--indigo-2);
+      background: rgba(79,70,229,.12);
+      border: 1px solid rgba(79,70,229,.18);
+      padding: 5px 10px;
+      border-radius: 999px;
+      letter-spacing: .04em;
+      white-space: nowrap;
+    }
+
+    /* Graph paper general */
+    .graph-paper{
+      background-color: #ffffff;
+      background-image:
+        linear-gradient(rgba(15,23,42,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,23,42,.08) 1px, transparent 1px);
+      background-size: 20px 20px;
+      border: 2px solid rgba(15,23,42,.82);
+      box-shadow: 4px 4px 0 rgba(15,23,42,.82);
+      border-radius: 16px;
+    }
+
+    /* Tabla de contingencia */
+    .table-wrap{
+      overflow-x:auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    table{
+      width:100%;
+      border-collapse: collapse;
+      min-width: 640px;
+    }
+    th, td{
+      padding: 12px 12px;
+      border: 1px solid rgba(15,23,42,.18);
+      text-align:center;
+      vertical-align: middle;
+    }
+    th{
+      background: rgba(15,23,42,.04);
+      font-weight: 900;
+    }
+    td{ background:#fff; }
+    .total{
+      background: rgba(248,250,252,.92);
+      font-weight: 900;
+    }
+    .corner{
+      background: rgba(226,232,240,.7);
+      font-weight: 900;
+    }
+    .sub{
+      display:block;
+      margin-top: 4px;
+      font-size: 11.5px;
+      color:#64748b;
+      font-weight: 800;
+      letter-spacing: .01em;
+    }
+
+    /* Caja clave / fórmula */
+    .key{
+      border-left: 6px solid var(--indigo);
+      background: rgba(248,250,252,.92);
+      border-radius: 0 16px 16px 0;
+      padding: clamp(14px, 2.2vw, 22px);
+      border: 1px solid rgba(15,23,42,.10);
+      border-left-width: 6px;
+    }
+    .key strong{ color:#0f172a; }
+    .key p{ margin: 0 0 8px; color:#334155; }
+
+    /* Mini-guía: cómo rellenar una tabla */
+    .steps{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    @media (max-width: 900px){
+      .steps{ grid-template-columns: 1fr; }
+    }
+    .step{
+      background: rgba(15,23,42,.03);
+      border: 1px solid rgba(15,23,42,.10);
+      border-radius: 18px;
+      padding: 14px 14px;
+    }
+    .step h3{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-weight: 900;
+      letter-spacing:-0.01em;
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+    .step p{ margin:0; color:#334155; }
+
+    /* Árboles */
+    .tree-card{
+      border: 1px solid rgba(15,23,42,.12);
+      border-radius: 18px;
+      overflow:hidden;
+      background: var(--card);
+      box-shadow: 0 14px 28px rgba(15,23,42,.08);
+    }
+    .tree-top{
+      padding: 14px 16px;
+      background: rgba(15,23,42,.03);
+      border-bottom: 1px solid rgba(15,23,42,.10);
+    }
+    .tree-top h3{
+      font-size: 20px;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+    }
+    .tree-top p{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13.5px;
+      max-width: 90ch;
+    }
+
+    .tree-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    @media (max-width: 920px){
+      .tree-grid{ grid-template-columns: 1fr; }
+    }
+    .tree-left{
+      padding: 16px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      border-right: 1px solid rgba(15,23,42,.08);
+      background:#fff;
+    }
+    @media (max-width: 920px){
+      .tree-left{ border-right:none; border-bottom: 1px solid rgba(15,23,42,.08); }
+    }
+    .tree-right{
+      padding: 16px;
+      display:flex;
+      flex-direction: column;
+      justify-content:center;
+      gap: 10px;
+    }
+
+    .calc{
+      background: rgba(15,23,42,.03);
+      border: 1px solid rgba(15,23,42,.10);
+      border-radius: 18px;
+      padding: 14px 14px;
+      color:#334155;
+      font-size: 14px;
+    }
+    .calc ul{ margin: 8px 0 0 18px; }
+    .calc li{ margin: 6px 0; }
+
+    .goal{
+      border-left: 6px solid rgba(217,119,6,.95);
+      background: rgba(253,230,138,.20);
+      border-radius: 18px;
+      padding: 14px 14px;
+      border: 1px solid rgba(217,119,6,.22);
+    }
+    .goal .tag{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-weight: 900;
+      font-size: 11px;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color:#7c2d12;
+      margin-bottom: 6px;
+    }
+    .goal p{ margin:0 0 8px; color:#7c2d12; }
+
+    /* SVG tree styles */
+    .tree-line { stroke: rgba(51,65,85,.95); stroke-width: 2; fill: none; }
+    .tree-text { font-family: Inter, system-ui, sans-serif; font-size: 13px; fill: rgba(51,65,85,.95); font-weight: 800; }
+    .tree-prob { font-family: Kalam, cursive; font-size: 12px; fill: var(--amber); }
+    .tree-node { fill: #fff; stroke: rgba(51,65,85,.95); stroke-width: 2; }
+
+    .tiny{ font-size: 12px; color:#64748b; font-weight: 800; }
+
+    /* Resumen final */
+    .summary{
+      background: rgba(30,41,59,.96);
+      color: #e2e8f0;
+      border-radius: 20px;
+      padding: clamp(16px, 2.6vw, 28px);
+      box-shadow: 0 20px 55px rgba(15,23,42,.22);
+      position: relative;
+      overflow:hidden;
+    }
+    .summary h3{
+      color:#fff;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    .summary-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+    @media (max-width: 900px){
+      .summary-grid{ grid-template-columns: 1fr; }
+    }
+    .summary h4{
+      color: rgba(165,180,252,.95);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(99,102,241,.30);
+    }
+    .summary p{ margin:0; color:#cbd5e1; font-size: 14px; }
+
+    .glow{
+      position:absolute;
+      bottom:-55px;
+      right:-55px;
+      width: 190px;
+      height: 190px;
+      background: rgba(79,70,229,.65);
+      border-radius: 999px;
+      filter: blur(34px);
+      opacity:.35;
+    }
+
+    /* NUEVO: mini quiz */
+    .check{
+      border-left: 6px solid rgba(22,163,74,.9);
+      background: rgba(220,252,231,.45);
+      border-radius: 18px;
+      padding: clamp(14px, 2.2vw, 22px);
+      border: 1px solid rgba(22,163,74,.22);
+      box-shadow: 0 14px 28px rgba(15,23,42,.08);
+    }
+    .check h3{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-weight: 900;
+      letter-spacing:-0.01em;
+      color:#14532d;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+    .q{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .q label{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(20,83,45,.18);
+      background: rgba(255,255,255,.55);
+      color:#14532d;
+      font-weight: 700;
+      cursor:pointer;
+    }
+    .q input{ margin-top: 3px; }
+    .btn{
+      margin-top: 8px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(20,83,45,.18);
+      background: rgba(255,255,255,.75);
+      font-weight: 900;
+      color:#14532d;
+      cursor:pointer;
+      width: fit-content;
+    }
+    .result{
+      margin-top: 10px;
+      font-weight: 900;
+      color:#14532d;
+    }
+
+    /* MathJax ajuste */
+    mjx-container[jax="CHTML"]{ font-size: 1.02em; }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <header>
+      <span class="handwritten">Tema 3.4</span>
+      <h1>Tablas de Contingencia y Árboles</h1>
+      <p class="lead">
+        Dos herramientas visuales para organizar información cuando aparecen probabilidades <strong>conjuntas</strong>,
+        <strong>marginales</strong> y <strong>condicionadas</strong>. Si sabes “leer” una tabla o un árbol, el problema se vuelve mecánico.
+      </p>
+    </header>
+
+    <!-- 1) TABLAS -->
+    <section>
+      <div class="section-title">
+        <h2 style="font-size: clamp(22px, 2.8vw, 34px);">1. Tablas de contingencia</h2>
+        <span class="badge">Estructura</span>
+      </div>
+
+      <p style="margin:0 0 14px; font-size:18px; color:#334155;">
+        Cruzan dos variables (por ejemplo, $A$ / $A^c$ frente a $B$ / $B^c$). Sirven para ver de un vistazo:
+        <strong>conjuntas</strong> (cruces) y <strong>marginales</strong> (totales).
+      </p>
+
+      <div class="graph-paper pad table-wrap">
+        <table aria-label="Tabla general de contingencia A y B">
+          <thead>
+            <tr>
+              <th class="corner">Variables</th>
+              <th>$B$ <span class="sub">Ocurre</span></th>
+              <th>$B^c$ <span class="sub">No ocurre</span></th>
+              <th class="total">Total <span class="sub">marginal</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>$A$ <span class="sub">Ocurre</span></th>
+              <td>$P(A\cap B)$ <span class="sub">conjunta</span></td>
+              <td>$P(A\cap B^c)$</td>
+              <td class="total">$P(A)$</td>
+            </tr>
+            <tr>
+              <th>$A^c$ <span class="sub">No ocurre</span></th>
+              <td>$P(A^c\cap B)$</td>
+              <td>$P(A^c\cap B^c)$</td>
+              <td class="total">$P(A^c)$</td>
+            </tr>
+            <tr>
+              <th class="total">Total <span class="sub">marginal</span></th>
+              <td class="total">$P(B)$</td>
+              <td class="total">$P(B^c)$</td>
+              <td class="total" style="background: rgba(79,70,229,.10);">1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="key" style="margin-top: 14px;">
+        <p style="margin:0;">
+          <strong>Clave:</strong> de una tabla se sacan condicionadas “sin pensar demasiado”.
+          Por ejemplo, “dentro de $B$”, la fracción que también cumple $A$:
+        </p>
+        $$ P(A\mid B)=\frac{P(A\cap B)}{P(B)} \qquad (P(B)>0) $$
+      </div>
+
+      <!-- NUEVO: guía rápida -->
+      <div class="steps" aria-label="Guía rápida para rellenar tablas">
+        <div class="step">
+          <h3>Paso 1: completa los cruces</h3>
+          <p>
+            Los cuatro interiores son <strong>conjuntas</strong>:
+            $P(A\cap B)$, $P(A\cap B^c)$, $P(A^c\cap B)$, $P(A^c\cap B^c)$.
+          </p>
+        </div>
+        <div class="step">
+          <h3>Paso 2: totales por filas y columnas</h3>
+          <p>
+            Marginales: $P(A)=P(A\cap B)+P(A\cap B^c)$, y análogo para $B$. La esquina final vale 1.
+          </p>
+        </div>
+      </div>
+
+      <!-- NUEVO: ejemplo corto de tabla con números -->
+      <div class="paper pad" style="margin-top: 14px;">
+        <h3 style="font-size: 20px; margin-bottom: 8px;">Mini-ejemplo numérico (para entrenar)</h3>
+        <p style="margin:0 0 10px; color:#334155;">
+          En una clase: $P(A)=0{,}6$ (aprueba) y $P(B)=0{,}5$ (entrega trabajos). Además $P(A\cap B)=0{,}35$.
+          Completa lo que falta y calcula $P(A\mid B)$.
+        </p>
+        <div class="graph-paper pad table-wrap" style="box-shadow:none; border-width:1px;">
+          <table aria-label="Mini tabla numérica">
+            <thead>
+              <tr>
+                <th class="corner">—</th>
+                <th>$B$</th>
+                <th>$B^c$</th>
+                <th class="total">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>$A$</th>
+                <td>$0{,}35$</td>
+                <td>$0{,}25$</td>
+                <td class="total">$0{,}60$</td>
+              </tr>
+              <tr>
+                <th>$A^c$</th>
+                <td>$0{,}15$</td>
+                <td>$0{,}25$</td>
+                <td class="total">$0{,}40$</td>
+              </tr>
+              <tr>
+                <th class="total">Total</th>
+                <td class="total">$0{,}50$</td>
+                <td class="total">$0{,}50$</td>
+                <td class="total" style="background: rgba(79,70,229,.10);">1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="tiny" style="margin:10px 0 0;">
+          Aquí $P(A\mid B)=\dfrac{0{,}35}{0{,}50}=0{,}70$.
+        </p>
+      </div>
+    </section>
+
+    <hr class="hr" />
+
+    <!-- 2) ARBOLES -->
+    <section>
+      <h2 style="font-size: clamp(22px, 2.8vw, 34px); margin-bottom: 12px;">2. Diagramas de árbol</h2>
+      <p style="margin:0 0 14px; font-size:18px; color:#334155;">
+        Ideales para procesos <strong>secuenciales</strong> (etapas). Cada camino se obtiene <strong>multiplicando</strong> probabilidades.
+        Si hay dependencia, se usan condicionadas: $P(B\mid A)$.
+      </p>
+
+      <div class="key">
+        <p style="margin:0;">
+          <strong>Reglas del árbol:</strong>
+        </p>
+        <ul>
+          <li>En cada nodo, las ramas que salen <strong>suman 1</strong>.</li>
+          <li>La probabilidad de un camino es el <strong>producto</strong> de sus ramas.</li>
+          <li>Un evento tipo “al menos uno” suele resolverse mejor con el <strong>contrario</strong>.</li>
+        </ul>
+      </div>
+
+      <!-- Ejemplo 1 -->
+      <article class="tree-card" style="margin-top: 14px;">
+        <div class="tree-top">
+          <h3>🔥 Ejemplo 1: Incendios y negligencias</h3>
+          <p>
+            El 40% de los incendios son por negligencia ($N$). Suponemos dos incendios independientes.
+          </p>
+        </div>
+
+        <div class="tree-grid">
+          <div class="tree-left">
+            <svg width="360" height="260" viewBox="0 0 360 260" role="img" aria-label="Árbol de dos incendios con negligencia">
+              <!-- primera bifurcación -->
+              <path d="M 24 130 L 130 60" class="tree-line"/>
+              <path d="M 24 130 L 130 205" class="tree-line"/>
+              <text x="70" y="88" class="tree-prob" transform="rotate(-24 70,88)">0.4</text>
+              <text x="70" y="180" class="tree-prob" transform="rotate(24 70,180)">0.6</text>
+
+              <!-- segunda bifurcación desde N -->
+              <path d="M 130 60 L 250 30" class="tree-line"/>
+              <path d="M 130 60 L 250 95" class="tree-line"/>
+              <text x="190" y="38" class="tree-prob">0.4</text>
+              <text x="190" y="92" class="tree-prob">0.6</text>
+
+              <!-- segunda bifurcación desde Nc -->
+              <path d="M 130 205 L 250 170" class="tree-line"/>
+              <path d="M 130 205 L 250 235" class="tree-line"/>
+              <text x="190" y="178" class="tree-prob">0.4</text>
+              <text x="190" y="234" class="tree-prob">0.6</text>
+
+              <circle cx="24" cy="130" r="4" class="tree-node"/>
+
+              <text x="135" y="65" class="tree-text">N</text>
+              <text x="135" y="210" class="tree-text">Nᶜ</text>
+
+              <text x="258" y="35" class="tree-text">N (0.16)</text>
+              <text x="258" y="100" class="tree-text">Nᶜ (0.24)</text>
+              <text x="258" y="175" class="tree-text">N (0.24)</text>
+              <text x="258" y="240" class="tree-text">Nᶜ (0.36)</text>
+            </svg>
+          </div>
+
+          <div class="tree-right">
+            <div class="calc">
+              <strong>Productos por caminos:</strong>
+              <ul>
+                <li>$P(N,N)=0.4\cdot 0.4=0.16$</li>
+                <li>$P(N,N^c)=0.4\cdot 0.6=0.24$</li>
+                <li>$P(N^c,N)=0.6\cdot 0.4=0.24$</li>
+                <li>$P(N^c,N^c)=0.6\cdot 0.6=0.36$</li>
+              </ul>
+            </div>
+
+            <div class="goal">
+              <div class="tag">Objetivo</div>
+              <p style="font-weight:900;">Probabilidad de “al menos una negligencia”</p>
+              $$ P(\ge 1)=1-P(N^c,N^c)=1-0.36=\mathbf{0.64} $$
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ejemplo 2 -->
+      <article class="tree-card" style="margin-top: 14px;">
+        <div class="tree-top">
+          <h3>📱 Ejemplo 2: Fallos de fábrica</h3>
+          <p>
+            La probabilidad de fallo es $P(F)=0.0002$ (0.02%). Consideramos dos unidades independientes.
+          </p>
+        </div>
+
+        <div class="tree-grid">
+          <div class="tree-left">
+            <svg width="360" height="260" viewBox="0 0 360 260" role="img" aria-label="Árbol de dos unidades con fallo muy raro">
+              <path d="M 24 130 L 130 60" class="tree-line"/>
+              <path d="M 24 130 L 130 205" class="tree-line"/>
+              <text x="52" y="90" class="tree-prob" transform="rotate(-24 52,90)">0.0002</text>
+              <text x="52" y="178" class="tree-prob" transform="rotate(24 52,178)">0.9998</text>
+
+              <path d="M 130 60 L 250 30" class="tree-line"/>
+              <path d="M 130 60 L 250 95" class="tree-line"/>
+
+              <path d="M 130 205 L 250 170" class="tree-line"/>
+              <path d="M 130 205 L 250 235" class="tree-line"/>
+
+              <circle cx="24" cy="130" r="4" class="tree-node"/>
+
+              <text x="135" y="65" class="tree-text" style="fill: var(--red);">Fallo</text>
+              <text x="135" y="210" class="tree-text" style="fill: var(--green);">OK</text>
+
+              <text x="258" y="35" class="tree-text">F,F</text>
+              <text x="258" y="100" class="tree-text">F,OK</text>
+              <text x="258" y="175" class="tree-text">OK,F</text>
+              <text x="258" y="240" class="tree-text">OK,OK</text>
+            </svg>
+          </div>
+
+          <div class="tree-right">
+            <div class="calc">
+              <p style="margin:0 0 8px;">
+                Dos fallos seguidos:
+              </p>
+              $$ P(F,F)=0.0002^2=4\times 10^{-8} $$
+              <p class="tiny" style="margin:8px 0 0;">
+                En sucesos raros conviene usar el contrario:
+                “al menos un fallo” = $1 - P(\text{ningún fallo})$.
+              </p>
+            </div>
+
+            <div class="goal" style="background: rgba(15,23,42,.03); border-color: rgba(15,23,42,.10); border-left-color: rgba(79,70,229,.65);">
+              <div class="tag" style="color:#0f172a;">Cálculo rápido</div>
+              <p style="font-weight:900; color:#0f172a;">Probabilidad de “al menos un fallo”</p>
+              $$ P(\ge 1)=1-P(OK,OK)=$$$$1-(0.9998)^2\approx 1-0.9996=0.0004 $$
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- NUEVO: mini-ejemplo con dependencia (condicionada) -->
+      <article class="paper pad" style="margin-top: 14px;">
+        <h3 style="font-size: 20px; margin-bottom: 8px;">Mini-ejemplo con condicionadas (dependencia)</h3>
+        <p style="margin:0; color:#334155;">
+          Supón que $P(A)=0{,}3$, $P(B\mid A)=0{,}8$ y $P(B\mid A^c)=0{,}2$.
+          Entonces el árbol permite calcular $P(B)$ por <strong>probabilidad total</strong>:
+        </p>
+        <div class="graph-paper pad" style="margin-top: 10px;">
+          $$ P(B)=P(B\mid A)P(A)+P(B\mid A^c)P(A^c)=0.8\cdot 0.3+0.2\cdot 0.7=0.38 $$
+        </div>
+        <p class="tiny" style="margin: 10px 0 0;">
+          Este patrón aparece muchísimo en problemas de test médico, fallos con “reparación”, o decisiones en dos etapas.
+        </p>
+      </article>
+    </section>
+
+    <!-- NUEVO: autoevaluación rápida -->
+    <section class="check" aria-label="Autoevaluación rápida">
+      <h3>✅ Autoevaluación rápida</h3>
+      <p style="margin:0; color:#14532d; font-weight:700;">
+        Marca una opción por pregunta y corrige.
+      </p>
+
+      <form id="quiz" class="q">
+        <label>
+          <input type="radio" name="q1" value="ok" />
+          En una tabla, los totales por fila/columna son probabilidades marginales.
+        </label>
+        <label>
+          <input type="radio" name="q2" value="ok" />
+          En un árbol, la probabilidad de un camino se obtiene multiplicando ramas.
+        </label>
+        <label>
+          <input type="radio" name="q3" value="bad" />
+          En un árbol, las ramas que salen de un nodo pueden sumar distinto de 1.
+        </label>
+        <label>
+          <input type="radio" name="q3" value="ok" />
+          En un árbol, las ramas que salen de un nodo deben sumar 1.
+        </label>
+
+        <button type="button" class="btn" id="checkBtn">Corregir</button>
+        <div class="result" id="quizResult" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section class="summary">
+      <div class="glow" aria-hidden="true"></div>
+      <h3>En resumen: ¿cuándo usar qué?</h3>
+
+      <div class="summary-grid">
+        <div>
+          <h4>Usa tabla de contingencia</h4>
+          <p>
+            Cuando tienes datos cruzados por dos categorías (población: H/M vs Fuma/No) y quieres
+            conjuntas, marginales o condicionadas simples.
+          </p>
+        </div>
+        <div>
+          <h4>Usa diagrama de árbol</h4>
+          <p>
+            Cuando hay etapas (primero…, después…) o cuando la segunda probabilidad depende de la primera:
+            $P(B\mid A)$ y $P(B\mid A^c)$.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('checkBtn');
+      const out = document.getElementById('quizResult');
+
+      function getVal(name){
+        const sel = document.querySelector('input[name="'+name+'"]:checked');
+        return sel ? sel.value : null;
+      }
+
+      btn.addEventListener('click', () => {
+        const q1 = getVal('q1');
+        const q2 = getVal('q2');
+        const q3 = getVal('q3');
+
+        if(!q1 || !q2 || !q3){
+          out.textContent = "Completa todas antes de corregir.";
+          return;
+        }
+
+        const ok = (q1 === 'ok') + (q2 === 'ok') + (q3 === 'ok');
+        if(ok === 3){
+          out.textContent = "Perfecto: 3/3. Sabes cuándo usar tablas y árboles.";
+        }else if(ok === 2){
+          out.textContent = "Bien: 2/3. Repasa especialmente la regla “ramas suman 1” y el producto de caminos.";
+        }else{
+          out.textContent = "A revisar: 1/3 o 0/3. Vuelve a la guía de reglas del árbol y a la lectura de marginales.";
+        }
+      });
+    })();
+  </script>
+</body>
+
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</html>

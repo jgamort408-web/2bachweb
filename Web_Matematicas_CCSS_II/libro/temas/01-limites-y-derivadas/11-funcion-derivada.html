@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.11. Función derivada · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t01-e11">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">1.11. Función derivada</h1>
+    <p class="lead" data-content-role="introduction">La derivada mide cómo cambia una cantidad en un instante o en un nivel de producción. Nace de comparar cambios en intervalos cada vez más pequeños.</p>
+    <div class="learning-goals"><p data-content-role="objectives"><strong>Al terminar podrás:</strong> distinguir cambio total, tasa media y derivada; calcular una derivada por definición e interpretar su signo y sus unidades.</p><p data-content-role="prerequisites"><strong>Antes:</strong> pendiente de una recta, expansión de cuadrados y límites. <a href="10-continuidad.html">Repasar continuidad</a>.</p></div>
+    <section data-content-role="definition">
+      <h2>1. Tasa de variación media</h2>
+      <p>Si pasamos de \(x=a\) a \(x=a+h\), el incremento de entrada es \(h\), y el de salida es \(f(a+h)-f(a)\). Para \(h\ne0\):</p>
+      <div class="definition"><p>\[\operatorname{TVM}_{[a,a+h]}=\frac{f(a+h)-f(a)}{h}.\]</p><p>Es la pendiente de la recta <strong>secante</strong> que pasa por \((a,f(a))\) y \((a+h,f(a+h))\). Aquí la notación indica los dos extremos, también cuando \(h&lt;0\).</p></div>
+      <p>Para \(f(x)=x^2\), de 2 a 3 el cambio total es \(9-4=5\) y la tasa media es \(5/(3-2)=5\). De 2 a 2,1, el cambio total es \(4,41-4=0,41\), pero la tasa media es \(0,41/0,1=4,1\).</p>
+      <p data-content-role="warning">No confundas el incremento de la función con su tasa de variación: hay que dividir por el cambio de la variable independiente.</p>
+    </section>
+    <section data-content-role="definition">
+      <h2>2. El límite que define la derivada</h2>
+      <div class="definition"><p>En un punto interior \(a\), la derivada es el límite <strong>finito</strong>:</p><p>\[f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}h.\]</p><p>Si existe, \(f\) es derivable en \(a\). El valor \(h=0\) no se sustituye en el cociente: se estudia el límite con \(h\ne0\).</p></div>
+      <p>La pendiente de la secante se aproxima a la de la <strong>tangente</strong>. La derivada también es una tasa de cambio instantánea; su unidad es «unidad de salida por unidad de entrada».</p>
+      <p>Una tangente puede atravesar la curva. Lo que la caracteriza aquí es su pendiente local, no que toque la gráfica una única vez.</p>
+    </section>
+    <section id="ejemplos" data-content-role="worked-example">
+      <h2>3. Derivar el cuadrado por definición</h2>
+      <ol class="worked-steps"><li>Para \(f(x)=x^2\), \(f(a+h)=(a+h)^2=a^2+2ah+h^2\).</li><li>Restamos <em>todo</em> \(f(a)\): \(f(a+h)-f(a)=2ah+h^2\).</li><li>Para \(h\ne0\), \((2ah+h^2)/h=2a+h\).</li><li>Tomamos el límite: \(f'(a)=\lim_{h\to0}(2a+h)=2a\).</li></ol>
+      <p>Si dejamos variar el punto, obtenemos la <strong>función derivada</strong> \(f'(x)=2x\). En cambio, \(f'(2)=4\) es un número: la pendiente en un punto concreto.</p>
+      <p>El dominio de la derivada puede ser más pequeño que el de la función. Por ejemplo, el valor absoluto está definido en todo \(\mathbb R\), pero no es derivable en 0, como veremos en el siguiente epígrafe.</p>
+    </section>
+    <section id="explorador" data-content-role="visualization">
+      <h2>4. Acerca la secante a la tangente</h2>
+      <p>Elige el punto \(a\), una función y la magnitud de \(h\). La tabla muestra las pendientes de las secantes por izquierda y por derecha. Compara el cuadrado con el valor absoluto en 0.</p>
+      <div class="activity" data-derivative-explorer>
+        <p><label for="derivative-function">Función</label> <select id="derivative-function"><option value="square">Cuadrado: f(x) = x²</option><option value="absolute">Valor absoluto: f(x) = |x|</option></select></p>
+        <p><label for="derivative-point">Punto a</label> <select id="derivative-point"><option value="-2">−2</option><option value="-1">−1</option><option value="0">0</option><option value="1">1</option><option value="2" selected>2</option></select></p>
+        <p><label for="derivative-distance">Aproximación: 1 = distancia 0,1; 4 = distancia 0,0001</label> <input id="derivative-distance" type="range" min="1" max="4" step="1" value="1"></p>
+        <div data-derivative-formula>\[\begin{aligned}\frac{(a+h)^2-a^2}{h}&=2a+h\\ f'(a)&=2a.\end{aligned}\]</div>
+        <figure><svg width="100%" viewBox="0 0 480 300" role="img" aria-labelledby="derivative-graph-title derivative-graph-description">
+          <title id="derivative-graph-title">Curva y rectas secantes</title><desc id="derivative-graph-description">El gráfico se completa al activar el explorador. La tabla ofrece los mismos valores de pendiente.</desc>
+          <defs><clipPath id="derivative-clip"><rect x="35" y="15" width="430" height="250"/></clipPath></defs>
+          <path d="M35 260H465 M250 15V265" fill="none" stroke="#8792a2"/><text x="452" y="280">x</text><text x="260" y="28">y</text><text x="254" y="279">0</text>
+          <g clip-path="url(#derivative-clip)">
+            <path data-derivative-curve fill="none" stroke="#1746a2" stroke-width="3"/>
+            <path data-derivative-tangent fill="none" stroke="#172033" stroke-width="2"/>
+            <path data-derivative-left-line fill="none" stroke="#9a3412" stroke-width="2" stroke-dasharray="7 4"/>
+            <path data-derivative-right-line fill="none" stroke="#166534" stroke-width="2" stroke-dasharray="2 4"/>
+            <circle data-derivative-point r="5" fill="#172033"/>
+          </g>
+        </svg><figcaption data-content-role="caption">Curva azul continua; secante izquierda a trazos largos, derecha a puntos; tangente negra cuando existe. Cerca del límite, las rectas pueden superponerse. La tabla permite distinguir sus pendientes.</figcaption></figure>
+        <div class="table-scroll"><table><caption data-content-role="caption">Cocientes incrementales a ambos lados</caption><thead><tr><th scope="col">Lado</th><th scope="col">h</th><th scope="col">Pendiente</th></tr></thead><tbody>
+          <tr><th scope="row">Izquierda</th><td data-derivative-left-h>−0,1</td><td data-derivative-left-slope>3,9</td></tr>
+          <tr><th scope="row">Derecha</th><td data-derivative-right-h>0,1</td><td data-derivative-right-slope>4,1</td></tr>
+        </tbody></table></div>
+        <p data-derivative-summary role="status">En a=2, las pendientes se acercan a 4 por ambos lados.</p>
+      </div>
+      <p>Los datos sugieren el resultado; el límite lo demuestra. Para el cuadrado se utiliza la expresión exacta \(2a+h\), evitando la resta de números casi iguales.</p>
+    </section>
+    <section data-content-role="worked-example">
+      <h2 id="coste-marginal">5. Interpretación económica: coste marginal</h2>
+      <p>Supongamos un modelo continuo \(C(q)=100+5q+0,02q^2\), con coste en euros y producción \(q\ge0\) en unidades. Por definición:</p>
+      <p>\[\frac{C(q+h)-C(q)}h=5+0{,}04q+0{,}02h\longrightarrow C'(q)=5+0{,}04q.\]</p>
+      <p>En \(q=50\), el coste marginal es \(C'(50)=7\) euros por unidad. Estima el coste de producir una unidad adicional cerca de ese nivel. El incremento exacto de 50 a 51 es \(C(51)-C(50)=7,02\) €: derivada e incremento discreto no son exactamente iguales.</p>
+      <p>Si \(f'(x)&gt;0\) en todo un intervalo, \(f\) es estrictamente creciente allí; si \(f'(x)&lt;0\), es decreciente. Estas afirmaciones requieren derivabilidad en el intervalo. Un valor aislado \(f'(a)=0\) no basta para declarar un máximo o un mínimo: \(x^3\) tiene derivada 0 en 0 y sigue creciendo.</p>
+    </section>
+    <section id="practica" data-content-role="guided-practice">
+      <h2>6. Tu turno</h2><p>Calcula por definición la derivada de \(f(x)=3x+2\) en cualquier punto \(a\).</p>
+      <details data-content-role="hint"><summary>Pista 1</summary><p>Escribe \(f(a+h)=3(a+h)+2\) y \(f(a)=3a+2\).</p></details>
+      <details data-content-role="hint"><summary>Pista 2</summary><p>Al restar desaparecen \(3a\) y 2; queda \(3h\).</p></details>
+      <details data-content-role="solution"><summary>Solución razonada</summary><p>Para \(h\ne0\), el cociente incremental es \(3h/h=3\). Su límite es 3, de modo que \(f'(a)=3\). Una recta mantiene su pendiente en todos sus puntos.</p></details>
+      <div class="activity" data-content-role="self-check" data-quiz="t01-e11"></div>
+    </section>
+    <section data-content-role="summary"><h2>7. Resumen</h2><ul><li>La tasa media es una pendiente de secante; la derivada es su límite finito.</li><li>\(f'(a)\) es un valor; \(f'(x)\), una función.</li><li>Interpreta signo y unidades y distingue una aproximación marginal de un incremento exacto.</li></ul><p data-content-role="related-links"><a href="12-derivadas-laterales.html">Continuar: cuando los dos lados dan pendientes distintas</a>.</p></section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.1 Variable Aleatoria</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            /* COLORES */
+            --bg-body: #f1f5f9;
+            --primary: #4f46e5;
+            --secondary: #0f172a;
+            
+            /* ACENTOS */
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-purple: #8b5cf6;
+            --accent-amber: #f59e0b;
+            
+            --text-main: #334155;
+            --text-light: #64748b;
+            
+            --radius: 16px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* TIPOGRAFÍA */
+        h1, h2, h3, h4 { 
+            font-family: 'Outfit', sans-serif; 
+            color: var(--secondary); 
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .badge {
+            display: inline-block;
+            background-color: #e0e7ff;
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            border: 1px solid #c7d2fe;
+            box-shadow: 0 2px 5px rgba(79, 70, 229, 0.1);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* TARJETAS GENÉRICAS */
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background-color: var(--card-color, var(--primary));
+        }
+
+        /* INTRODUCCIÓN */
+        .intro-text {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+        }
+
+        .definition-box {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1rem;
+        }
+
+        .math-display {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-top: 1rem;
+            color: var(--secondary);
+        }
+
+        /* SECCIONES */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        /* GRID LAYOUTS */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* PARÁMETROS ESTADÍSTICOS */
+        .stat-card {
+            background: rgba(255,255,255,0.8);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.2s;
+        }
+        .stat-card:hover { transform: translateY(-3px); }
+
+        .stat-title {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .formula-box {
+            background: #f1f5f9;
+            padding: 0.75rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 1rem;
+            border: 1px dashed #cbd5e1;
+        }
+
+        /* NOTA FLOTANTE */
+        .note-highlight {
+            background-color: #fffbeb; /* Amber 50 */
+            border: 1px solid #fcd34d;
+            color: #92400e;
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.95rem;
+        }
+
+        /* EJEMPLO EXPRESS */
+        .example-card {
+            background-color: #1e293b; /* Slate 800 */
+            color: #f1f5f9;
+            border-radius: var(--radius);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .example-card h3 { color: white; margin-bottom: 1.5rem; border-bottom: 1px solid #334155; padding-bottom: 1rem; }
+        
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .calc-box {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Colores específicos */
+        .c-blue { --card-color: var(--accent-blue); }
+        .c-green { --card-color: var(--accent-green); }
+        .c-purple { --card-color: var(--accent-purple); }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--text-light);
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 2rem; }
+            .badge { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <span class="badge">Unidad 4.1</span>
+            <h1>Variable Aleatoria</h1>
+            <p class="subtitle">Del suceso cualitativo al valor numérico</p>
+        </header>
+
+        <section class="card c-blue">
+            <p class="intro-text">
+                Hasta ahora hablábamos de sucesos como "salir cara" o "sacar oros". Para realizar estadística avanzada, necesitamos traducir esos resultados a <strong>números</strong>.
+            </p>
+            
+            <div class="definition-box">
+                <h4 style="font-weight: 700; color: var(--secondary); margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Definición Formal</h4>
+                <p>Una <strong>variable aleatoria ($X$)</strong> es una función que asocia un número real a cada resultado del espacio muestral de un experimento aleatorio.</p>
+                <div class="math-display">
+                    $$X: E \rightarrow \mathbb{R}$$
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: var(--text-light); font-style: italic;">
+                La variable actúa como un puente entre el mundo físico y el matemático.
+            </p>
+        </section>
+
+        <h2 class="section-title"><span>#</span> Función de Probabilidad</h2>
+        
+        <div class="grid-2">
+            <div class="card c-purple" style="margin-bottom: 0;">
+                <h4 class="stat-title">Notación Matemática</h4>
+                <p style="font-size: 0.95rem;">Si el experimento tiene resultados finitos $E = \{x_1, \dots, x_n\}$, asignamos una probabilidad $p_i$ a cada valor:</p>
+                <div class="formula-box" style="background: white;">
+                    $$P(X = x_i) = p_i$$
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-light);">
+                    Conjunto de pares: <br> $X = \{(x_1, p_1), \dots, (x_n, p_n)\}$
+                </p>
+            </div>
+
+            <div class="card c-green" style="margin-bottom: 0;">
+                <h4 class="stat-title">Condiciones Obligatorias</h4>
+                <ul style="list-style: none; margin-top: 1rem;">
+                    <li style="margin-bottom: 1rem; padding-left: 1rem; border-left: 3px solid var(--accent-green);">
+                        <strong>Rango 0-1:</strong><br> La probabilidad siempre está acotada.
+                        $$0 \le p_i \le 1$$
+                    </li>
+                    <li style="padding-left: 1rem; border-left: 3px solid var(--accent-green);">
+                        <strong>Totalidad:</strong><br> La suma de todas las probabilidades es 1.
+                        $$\sum p_i = 1$$
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title"><span>#</span> Parámetros Estadísticos</h2>
+
+        <div class="note-highlight">
+            <span style="font-size: 1.5rem;">⚠️</span>
+            <div>
+                <strong>¡Importante!</strong> A diferencia de la estadística descriptiva (muestras), aquí trabajamos con la <strong>población teórica total</strong>.
+            </div>
+        </div>
+
+        <div class="grid-3">
+            <div class="stat-card">
+                <div class="stat-title">1. Media ($\mu$)</div>
+                <p style="font-size: 0.85rem; color: var(--text-light);">Es el "centro de gravedad". El valor esperado promedio.</p>
+                <div class="formula-box">
+                    $$\mu = \sum x_i \cdot p_i$$
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-title">2. Varianza ($\sigma^2$)</div>
+                <p style="font-size: 0.85rem; color: var(--text-light);">Mide la dispersión. Fórmula rápida de cálculo:</p>
+                <div class="formula-box">
+                    $$\sigma^2 = \sum (x_i^2 \cdot p_i) - \mu^2$$
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-title">3. Desv. Típica ($\sigma$)</div>
+                <p style="font-size: 0.85rem; color: var(--text-light);">Raíz de la varianza para volver a las unidades originales.</p>
+                <div class="formula-box">
+                    $$\sigma = \sqrt{\sigma^2}$$
+                </div>
+            </div>
+        </div>
+
+        <section class="example-card">
+            <h3>Ejemplo Express: Un Dado Perfecto 🎲</h3>
+            
+            <div class="example-grid">
+                <div>
+                    <p style="margin-bottom: 0.5rem;"><strong>Variable $X$:</strong> Resultado de lanzar un dado.</p>
+                    <ul style="list-style: disc; margin-left: 1.5rem; font-size: 0.9rem; color: #cbd5e1; margin-bottom: 1.5rem;">
+                        <li>Espacio: $\{1, 2, 3, 4, 5, 6\}$</li>
+                        <li>Probabilidad ($p_i$): $1/6$ cada uno.</li>
+                    </ul>
+                    
+                    <div style="border-top: 1px solid #334155; padding-top: 1rem;">
+                        <p style="color: #818cf8; font-weight: bold; font-size: 0.9rem;">Cálculo de la Media ($\mu$):</p>
+                        <div style="font-family: 'Times New Roman'; margin-top: 0.5rem;">
+                            $$1\cdot\frac{1}{6} + \dots + 6\cdot\frac{1}{6} = \mathbf{3.5}$$
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calc-box">
+                    <p style="font-family: monospace; color: #818cf8; font-size: 0.8rem; margin-bottom: 0.5rem;">// CÁLCULO DE VARIANZA</p>
+                    
+                    <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">1. Suma de cuadrados ($\sum x_i^2 \cdot p_i$):</p>
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        $$\frac{1^2 + \dots + 6^2}{6} \approx 15.17$$
+                    </div>
+
+                    <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">2. Restar media al cuadrado ($\mu^2$):</p>
+                    <div style="text-align: center; font-weight: bold; color: #fff;">
+                        $$\sigma^2 = 15.17 - 3.5^2 = \mathbf{2.92}$$
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            MathMastery Digital Notebook &copy; 2024
+        </footer>
+
+    </div>
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

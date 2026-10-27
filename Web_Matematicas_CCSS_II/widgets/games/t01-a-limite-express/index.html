@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Límite Express</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="widget.js"></script>
+</head>
+<body data-widget-id="t01-a-limite-express">
+  <main>
+    <h1 data-content-role="lesson-title">Límite Express</h1>
+    <p>Diez preguntas, cuatro niveles y rondas especiales. Calcula límites, lee gráficas y elige el método.</p>
+    <details><summary>Cómo jugar y puntuar</summary><p>Avanzas por sustitución, laterales y racionales, indeterminaciones y elección del método. Cada tres preguntas acertadas, la siguiente es especial y contiene una indeterminación; no añade preguntas a las diez de la sesión.</p><p>Un acierto al primer intento suma 100 puntos; tras reintentar, 60; si has usado pista, 50. Los errores no restan. La racha cuenta preguntas acertadas consecutivamente, también con reintento; se rompe al agotar los intentos o el tiempo.</p><p>Practica sin reloj o elige 20 segundos por pregunta con pausa. El reloj espera a que carguen las fórmulas. Tras dos errores o al agotarse el tiempo aparece la solución; tú decides cuándo continuar. No se guarda un historial.</p></details>
+    <section data-mode><h2>Elige el ritmo</h2><button type="button" data-start="practice">Practicar sin reloj</button> <button type="button" data-start="challenge">Reto: 20 segundos</button></section>
+    <section class="activity" data-game hidden>
+      <p data-progress data-content-role="activity-progress"></p>
+      <p data-score></p>
+      <div data-clock hidden><svg viewBox="0 0 52 52" width="52" height="52" aria-hidden="true"><circle cx="26" cy="26" r="22" fill="none" stroke="#e1e4e8" stroke-width="4"/><circle data-ring cx="26" cy="26" r="22" fill="none" stroke="#1746a2" stroke-width="4" pathLength="100" stroke-dasharray="100" transform="rotate(-90 26 26)"/></svg><p data-time role="timer" aria-live="off"></p><button type="button" data-pause>Pausar</button><p data-clock-notice role="status"></p></div>
+      <form data-answer novalidate><fieldset><legend data-question data-content-role="question"></legend><div data-graph hidden></div><div data-options></div><button type="submit" data-check>Comprobar</button></fieldset></form>
+      <div class="feedback" data-feedback role="status" data-content-role="feedback"></div>
+      <div class="actions"><button type="button" data-hint>Ver pista</button><button type="button" data-next hidden>Siguiente pregunta</button></div>
+    </section>
+    <section data-summary hidden><h2>Sesión terminada</h2><p data-total role="status"></p><div data-levels></div><button type="button" data-restart>Elegir modo y empezar otra sesión</button></section>
+    <noscript><p>Esta actividad necesita JavaScript para generar y corregir las preguntas.</p></noscript>
+  </main>
+</body>
+</html>

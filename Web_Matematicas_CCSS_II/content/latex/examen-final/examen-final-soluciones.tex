@@ -1,0 +1,88 @@
+\documentclass[11pt]{article}
+\input{estilo.tex}
+\hypersetup{pdftitle={Examen final - Soluciones revisadas}}
+\begin{document}
+
+\section*{Ejercicio 1(a,b,c): parámetros y representación}
+\textbf{Solucionario elaborado en esta edición:} F005 no contiene soluciones. Se conservan los cuatro ejercicios activos, 10 puntos y 55 minutos. El anexo comentado no puntúa.
+\begin{enumerate}[label=(\alph*)]
+\item Continuidad en 1: $a+b+2=2$, luego $a+b=0$. Derivabilidad: $2a+b=-4/2^2=-1$. Se obtiene $\boxed{a=-1,b=1}$.
+\item Para esos parámetros, el dominio es todo $\mathbb R$. Las derivadas son $1-2x$ si $x<1$ y $-4/(x+1)^2$ si $x>1$; ambas coinciden en $f'(1)=-1$.
+
+Crece en $(-\infty,1/2)$ y decrece en $(1/2,\infty)$; máximo absoluto $\boxed{(1/2,9/4)}$. No tiene mínimo absoluto, pues la rama polinómica tiende a $-\infty$ por la izquierda.
+
+Curvatura negativa para $x<1$ y positiva para $x>1$. Hay inflexión $(1,2)$ por el cambio de curvatura y continuidad, aunque $f''(1)$ no existe: los valores laterales son $-2$ y $1$.
+\item Esbozo elaborado; el cero $x=2$ del polinomio no pertenece a su rama. El único corte con OX es $(-1,0)$; con OY, $(0,2)$. La rama derecha se aproxima a $y=0$.
+\end{enumerate}
+\begin{center}\begin{tikzpicture}\begin{axis}[revision,xmin=-2,xmax=5,ymin=-4,ymax=3]
+\addplot[blue,thick,domain=-2:1]{-x^2+x+2};\addplot[blue,thick,domain=1:5]{4/(x+1)};
+\addplot[only marks] coordinates {(-1,0)(0,2)(.5,2.25)(1,2)};
+\end{axis}\end{tikzpicture}\end{center}
+\clearpage
+\section*{Ejercicio 1(d): área por tramos}
+La región cerrada por la gráfica, OX y la recta $x=2$ comienza en el cero válido $x=-1$. La función es positiva en $(-1,2]$ y hay que cambiar de expresión en 1:
+\[
+A=\int_{-1}^{1}(-x^2+x+2)\,dx+\int_1^2\frac4{x+1}\,dx.
+\]
+\[
+\int_{-1}^{1}(-x^2+x+2)\,dx
+=\left[-\frac{x^3}{3}+\frac{x^2}{2}+2x\right]_{-1}^1=\frac{10}{3}.
+\]
+\[
+\int_1^2\frac4{x+1}\,dx=4\ln(3/2).
+\]
+\[
+\boxed{A=\frac{10}{3}+4\ln(3/2)\approx4,95519377\text{ unidades}^2}.
+\]
+No se usa el polinomio entre 1 y 2 ni se parte del cero 2 obtenido al extenderlo fuera de su intervalo.
+\clearpage
+\section*{Ejercicio 2: dos primitivas y sus dominios}
+Los cambios propuestos son opcionales y se utilizan aquí para mostrar la estructura.
+\begin{enumerate}[label=(\alph*)]
+\item Para $t=5x^2-7$, $dt=10x\,dx$ y
+\[
+\int\frac{2x}{\sqrt{5x^2-7}}\,dx=\frac15\int t^{-1/2}\,dt
+=\boxed{\frac25\sqrt{5x^2-7}+C}.
+\]
+Dominio real del integrando: $x<-\sqrt{7/5}$ o $x>\sqrt{7/5}$. En cada intervalo puede elegirse una constante independiente. La derivación recupera $2x/\sqrt{5x^2-7}$.
+\item Para $t=x^3-6x+5$, $dt=3(x^2-2)\,dx$:
+\[
+\int\frac{x^2-2}{x^3-6x+5}\,dx=\boxed{\frac13\ln|x^3-6x+5|+C}.
+\]
+El denominador se factoriza como $(x-1)(x^2+x-5)$ y se anula en $1$ y $(-1\pm\sqrt{21})/2$. Se excluyen esos tres puntos y se trabaja por intervalos; el valor absoluto evita restringir injustificadamente el dominio a denominador positivo.
+\end{enumerate}
+\clearpage
+\section*{Ejercicio 3: tangente y asíntotas}
+Para $h(x)=1/x$, el dominio es $\mathbb R\setminus\{0\}$. En $x=1$, $h(1)=1$ y $h'(1)=-1$:
+\[
+\boxed{y-1=-(x-1)\iff y=-x+2}.
+\]
+Por los límites laterales $h(x)\to-\infty$ en $0^-$ y $+\infty$ en $0^+$, hay asíntota vertical $\boxed{x=0}$. En ambos infinitos $h\to0$: asíntota horizontal $\boxed{y=0}$.
+\clearpage
+\section*{Ejercicio 4: modelo de rentabilidad}
+Se resuelve únicamente el modelo matemático del enunciado; $x$ y $R$ se expresan en millones de euros.
+\begin{enumerate}[label=(\alph*)]
+\item Dominio $[1,6]$. Cada rama es polinómica y en 2:
+\[
+\lim_{x\to2^-}R=x-2\to0,\qquad R(2)=-4+20-16=0.
+\]
+La función es continua en todo el dominio, incluidos los extremos por el lado admisible. No es derivable en 2: pendientes laterales 1 y 6, aunque ese estudio no se exige.
+\item En $[1,2)$, $R=x-2<0$. En $[2,6]$, $R=9-(x-5)^2$ y alcanza su máximo absoluto $\boxed{R(5)=9}$. La cantidad del modelo que maximiza es $\boxed{5\text{ millones de euros}}$ y el valor máximo, 9 millones.
+
+La segunda rama se anula en 2 y 8, pero 8 queda fuera del dominio. Rentabilidad positiva exactamente para $\boxed{x\in(2,6]}$. En 2 es cero; no se incluye el extremo 2 ni se amplía el dominio hasta 8.
+\end{enumerate}
+\clearpage
+\section*{Anexo no evaluable: acciones}
+Ejercicio comentado en F005; se elabora su solución sin añadirlo a los 10 puntos. \textbf{M36:} rótulo comentado de 1 punto frente a apartados que suman 2,5; esta discrepancia queda señalada, sin fijar una ponderación nueva.
+\begin{enumerate}[label=(\alph*)]
+\item $v'(t)=(t-2)(t-3)$. Crece en $[0,2]$ y $[3,6]$; decrece en $[2,3]$. Se indican intervalos separados, no un único conjunto ordenado de crecimiento.
+\item Integrando e imponiendo $v(0)=10$,
+\[
+\boxed{v(t)=t^3/3-5t^2/2+6t+10},\qquad0\leq t\leq6.
+\]
+\item $v(2)=44/3$ y $v(4)=46/3$. El cambio por acción es $2/3$ euros. Para 3000 acciones,
+\[ \boxed{2000\text{ euros de ganancia}}. \]
+No se añaden comisiones ni otros costes no dados.
+\item Para una sola compra seguida de una sola venta en $0\leq s\leq t\leq6$, el mínimo disponible es $v(0)=10$ y el máximo es $v(6)=28$. Se alcanza la diferencia máxima comprando en 0 y vendiendo en 6: $\boxed{18\text{ euros por acción}}$, 54000 euros para 3000 acciones, bajo el modelo sin costes.
+\end{enumerate}
+\end{document}

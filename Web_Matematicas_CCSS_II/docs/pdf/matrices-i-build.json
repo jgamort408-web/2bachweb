@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 1,
+  "mathematics": {
+    "passed": true,
+    "examProblems": 3,
+    "operationsReviewed": 5,
+    "operationsToChoose": 4,
+    "inverseMethods": [
+      "row-reduction",
+      "adjugate"
+    ],
+    "twoSidedInverseChecked": true,
+    "originalEquationResidualZero": true,
+    "undefinedOperationsChecked": 2,
+    "lastExercise": "nilpotent exponent 2025"
+  },
+  "documents": [
+    {
+      "id": "matrices-i-examen",
+      "pages": 1,
+      "bytes": 34753,
+      "sha256": "65a138a80eabed4f956afb6e73ffeaadf515358e462edebaa0efa0d5c8517141",
+      "title": "Matrices I - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 12,
+      "characters": 976
+    },
+    {
+      "id": "matrices-i-soluciones",
+      "pages": 3,
+      "bytes": 37038,
+      "sha256": "969b83f5811097d1c62cc535ff274f188c179d5663e3983dc532f8789a39123d",
+      "title": "Matrices I - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 14,
+      "characters": 2599
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-20",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/matrices-i/estilo.tex",
+      "sha256": "364be029c8c4ee7faddb623f6a0920beb33d35c07821d434ad0272079666b927"
+    },
+    {
+      "path": "content/latex/matrices-i/logo-al-andalus.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    },
+    {
+      "path": "content/latex/matrices-i/matrices-i-examen.tex",
+      "sha256": "072cf0e81d45bf384abf3cf53a3cb884c8c3ffe731050a9fe37f332ee6f15823"
+    },
+    {
+      "path": "content/latex/matrices-i/matrices-i-soluciones.tex",
+      "sha256": "3792a14fd01ef4c2982a9882d08e9fc85db390e347b87d9985140cf0db7beb6b"
+    },
+    {
+      "path": "content/latex/matrices-i/provenance.json",
+      "sha256": "b56e832849c206371b7e8555af13bd1037c227067bf35ae17868b1c87561d593"
+    }
+  ]
+}

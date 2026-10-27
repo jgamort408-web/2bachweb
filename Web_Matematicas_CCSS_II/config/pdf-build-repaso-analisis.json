@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-22",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "batchId": "175-repaso-analisis",
+  "sourceDirectory": "content/latex/repaso-analisis",
+  "report": "docs/pdf/repaso-analisis-build.json",
+  "mathematics": "repaso-analisis",
+  "documents": [
+    {
+      "id": "repaso-analisis-examen",
+      "source": "content/latex/repaso-analisis/repaso-analisis-examen.tex",
+      "output": "output/pdf/repaso-analisis-examen.pdf",
+      "expectedPages": 4,
+      "title": "Repaso de Análisis - Exámenes 1 y 2 - Examen revisado",
+      "forbiddenText": [
+        "£",
+        "ü"
+      ],
+      "requiredText": [
+        "Examen 1: 10 puntos",
+        "Examen 2: 10 puntos",
+        "tendencia explicitada"
+      ]
+    },
+    {
+      "id": "repaso-analisis-soluciones",
+      "source": "content/latex/repaso-analisis/repaso-analisis-soluciones.tex",
+      "output": "output/pdf/repaso-analisis-soluciones.pdf",
+      "expectedPages": 8,
+      "title": "Repaso de Análisis - Exámenes 1 y 2 - Soluciones revisadas",
+      "forbiddenText": [
+        "£",
+        "ü"
+      ],
+      "requiredText": [
+        "M32/M33",
+        "M35",
+        "8 horas"
+      ]
+    }
+  ]
+}

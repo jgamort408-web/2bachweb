@@ -1,0 +1,80 @@
+\documentclass[11pt]{article}
+\input{estilo.tex}
+\hypersetup{pdftitle={Matrices I - Soluciones revisadas}}
+\begin{document}
+\section*{Matrices I: soluciones}
+Solucionario elaborado en esta revisión a partir de F014. El ZIP original no incluía soluciones.
+\section*{Ejercicio 1(a): producto, diferencia e inversa}
+Las dimensiones son $A:2\times3$, $B:3\times2$ y $C:2\times2$. Por tanto $AB-C$ está definida y es cuadrada.
+\[
+AB=\begin{pmatrix}-2&0\\6&-1\end{pmatrix},\qquad
+M=AB-C=\begin{pmatrix}-3&-2\\4&2\end{pmatrix}.
+\]
+Por ejemplo, $(AB)_{21}=2\cdot2+(-1)(-2)+0\cdot0=6$.
+\[\det M=(-3)\cdot2-(-2)\cdot4=2\neq0.\]
+Existe inversa y, por la fórmula de orden 2,
+\[
+\boxed{M^{-1}=\frac12\begin{pmatrix}2&2\\-4&-3\end{pmatrix}
+=\begin{pmatrix}1&1\\-2&-3/2\end{pmatrix}}.
+\]
+\textbf{Comprobación:} $MM^{-1}=M^{-1}M=I_2$.
+\section*{Ejercicio 1(b): ecuación matricial}
+Multiplicamos por la inversa \textbf{a la izquierda}, respetando el orden:
+\[MX=C^t\quad\Longrightarrow\quad X=M^{-1}C^t.\]
+Como $C$ es simétrica, $C^t=C$, y
+\[
+X=\begin{pmatrix}1&1\\-2&-3/2\end{pmatrix}
+\begin{pmatrix}1&2\\2&-3\end{pmatrix}
+=\boxed{\begin{pmatrix}3&-1\\-5&1/2\end{pmatrix}}.
+\]
+\textbf{Comprobación en la ecuación original:}
+\[
+\begin{pmatrix}-3&-2\\4&2\end{pmatrix}
+\begin{pmatrix}3&-1\\-5&1/2\end{pmatrix}
+=\begin{pmatrix}1&2\\2&-3\end{pmatrix}=C^t.
+\]
+La solución es única porque $M$ es invertible.
+\clearpage
+\section*{Ejercicio 2: operaciones y dimensiones}
+Se muestran las cinco respuestas para consulta. En el examen se deben elegir \textbf{solo cuatro}; la puntuación total del ejercicio es 2,5 puntos.
+
+Aquí $A,B$ son $2\times2$, $C$ es $2\times1$ y $D$ es $1\times2$. Cada operación utiliza las matrices del ejercicio 2.
+\subsection*{1. $A+BC$}
+El producto $BC$ existe y es $2\times1$, pero no se puede sumar a una matriz $2\times2$. La operación completa \textbf{no está definida}.
+\subsection*{2. $AC+BD^t$}
+\[
+AC=\begin{pmatrix}8\\-17\end{pmatrix},\qquad BD^t=\begin{pmatrix}-4\\8\end{pmatrix}.
+\]
+Ambos son $2\times1$, luego
+\[\boxed{AC+BD^t=\begin{pmatrix}4\\-9\end{pmatrix}}.\]
+\subsection*{3. $B^2+CD$}
+\[
+B^2=\begin{pmatrix}4&0\\-8&4\end{pmatrix},\qquad
+CD=\begin{pmatrix}-6&6\\-2&2\end{pmatrix}.
+\]
+Los dos sumandos son $2\times2$:
+\[\boxed{B^2+CD=\begin{pmatrix}-2&6\\-10&6\end{pmatrix}}.\]
+\subsection*{4. $|5A|$}
+Las barras indican determinante. Como $A$ es de orden 2,
+\[|5A|=5^2|A|=25\bigl(3\cdot1-(-1)(-6)\bigr)=25(-3)=\boxed{-75}.\]
+\subsection*{5. $|D^t|$}
+$D^t$ es $2\times1$ y no es cuadrada. Su determinante \textbf{no está definido}; no debe confundirse con un determinante nulo.
+\clearpage
+\section*{Ejercicio 3: potencia de una matriz nilpotente}
+Sea
+\[
+N=I_3-A=\begin{pmatrix}0&-5&-6\\0&0&-7\\0&0&0\end{pmatrix}.
+\]
+Calculamos sus primeras potencias:
+\[
+N^2=\begin{pmatrix}0&0&35\\0&0&0\\0&0&0\end{pmatrix},\qquad
+N^3=\begin{pmatrix}0&0&0\\0&0&0\\0&0&0\end{pmatrix}.
+\]
+El único término no nulo de $N^2$ es $(N^2)_{13}=(-5)(-7)=35$. Al multiplicar una vez más por $N$, también desaparece ese término.
+
+Como $N^3=0$ y $N^2\neq0$, $N$ es nilpotente de índice 3. Para todo entero $k\geq3$, $N^k=0$.
+\[
+\boxed{(I_3-A)^{2025}=\begin{pmatrix}0&0&0\\0&0&0\\0&0&0\end{pmatrix}}.
+\]
+Se conserva el exponente \textbf{2025} del enunciado original. No hace falta calcular 2025 productos: basta demostrar que la tercera potencia es nula.
+\end{document}

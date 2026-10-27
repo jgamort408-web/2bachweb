@@ -1,0 +1,13 @@
+@import url("../../shared/widget-base.css");
+
+/* Distribución mínima; no afecta a los SVG de MathJax. */
+[hidden] { display: none !important; }
+main { max-width: 52rem; margin-inline: auto; }
+body { overflow-wrap: anywhere; }
+fieldset { min-width: 0; }
+legend { max-width: 100%; }
+figure { margin: 1rem 0; }
+figure > svg { display: block; width: 100%; height: auto; }
+button { font: inherit; padding: .5rem .75rem; }
+table { border-collapse: collapse; }
+th, td { padding: .3rem; text-align: start; }

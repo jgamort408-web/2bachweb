@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2.2. Funciones polinómicas · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t02-e02">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">2.2. Funciones polinómicas</h1>
+    <p class="lead" data-content-role="introduction">El grado y el coeficiente principal anticipan los extremos de una gráfica polinómica. Sus raíces explican dónde toca o cruza el eje, y la derivada permite completar el recorrido entre esos puntos.</p>
+    <div class="learning-goals"><p data-content-role="objectives"><strong>Al terminar podrás:</strong> reconocer el término dominante, estudiar ceros y signo, clasificar extremos e interpretar un modelo de beneficio con unidades y restricciones.</p><p data-content-role="prerequisites"><strong>Antes de empezar:</strong> repasa el <a href="01-esquema-general-para-representar-una-funcion.html">esquema de representación</a>, la factorización y la <a href="../01-limites-y-derivadas/14-tabla-de-derivadas.html">derivada de potencias</a>.</p></div>
+    <nav class="inline-links" aria-label="En esta lección"><ul><li><a href="#conceptos">Grado y extremos</a></li><li><a href="#raices">Raíces y signo</a></li><li><a href="#ejemplos">Estudio completo</a></li><li><a href="#beneficio">Beneficio</a></li><li><a href="#taller">Práctica con datos nuevos</a></li><li><a href="#test">Test</a></li><li><a href="#tarjetas">Tarjetas</a></li></ul></nav>
+    <section id="conceptos" data-content-role="explanation"><h2>1. Qué información aporta el grado</h2>
+      <div class="definition" data-content-role="definition"><p>Un polinomio no nulo se escribe como</p><p>\[P(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0,\qquad a_n\ne0.\]</p><p>Los exponentes son enteros no negativos. El <strong>grado</strong> es \(n\), el <strong>coeficiente principal</strong> es \(a_n\) y \(a_0=P(0)\) es el término independiente. Simplifica antes de identificar el grado.</p></div>
+      <p>Por ejemplo, \(4-2x^5+3x^2\) tiene grado 5 y coeficiente principal −2. Una constante no nula tiene grado 0; al polinomio nulo no le asignamos grado en este curso. Expresiones como \(1/x\), \(\sqrt{x}\) o \(2^x\) no son polinomios en \(x\).</p>
+      <p>Todo polinomio tiene dominio \(\mathbb R\), es continuo y derivable en todo él. Un contexto puede restringir ese dominio: que la expresión admita números negativos no implica que sean cantidades válidas de producción.</p>
+      <h3>El término dominante describe los infinitos</h3>
+      <p>Para \(n\geq1\), al dividir por \(a_nx^n\), los términos de menor grado tienden a cero y \(P(x)/(a_nx^n)\to1\). Por eso basta estudiar \(a_nx^n\) para obtener los límites en los infinitos.</p>
+      <div class="table-scroll"><table><caption>Límites para polinomios de grado positivo</caption><thead><tr><th scope="col">Grado</th><th scope="col">Coeficiente principal</th><th scope="col">\(x\to-\infty\)</th><th scope="col">\(x\to+\infty\)</th></tr></thead><tbody><tr><th scope="row">Par</th><td>Positivo</td><td>\(+\infty\)</td><td>\(+\infty\)</td></tr><tr><th scope="row">Par</th><td>Negativo</td><td>\(-\infty\)</td><td>\(-\infty\)</td></tr><tr><th scope="row">Impar</th><td>Positivo</td><td>\(-\infty\)</td><td>\(+\infty\)</td></tr><tr><th scope="row">Impar</th><td>Negativo</td><td>\(+\infty\)</td><td>\(-\infty\)</td></tr></tbody></table></div>
+      <p>El grado par no significa que la función sea par: \(x^2+x\) tiene grado par, pero no es simétrica respecto al eje Y. La simetría se comprueba sustituyendo \(-x\).</p>
+      <p>Los polinomios no tienen asíntotas verticales. Los de grado al menos 2 tampoco tienen horizontales ni oblicuas: al restar una recta sigue dominando un término de grado al menos 2. Las funciones constantes y de grado 1 se representan directamente como rectas.</p>
+    </section>
+    <section id="raices" data-content-role="method"><h2>2. Raíces, multiplicidad y extremos</h2>
+      <p>Una raíz real \(a\) cumple \(P(a)=0\). Si \(P(x)=(x-a)^mQ(x)\), con \(Q(a)\ne0\), decimos que tiene multiplicidad \(m\).</p>
+      <ul><li><strong>Multiplicidad impar:</strong> el signo cambia al atravesar la raíz; la gráfica cruza el eje X.</li><li><strong>Multiplicidad par:</strong> el signo no cambia; la gráfica toca el eje y queda al mismo lado cerca de la raíz.</li></ul>
+      <p>Un polinomio no nulo de grado \(n\) tiene como máximo \(n\) raíces reales distintas. Puede tener menos: \(x^4+1\) no tiene ninguna. Un polinomio real de grado impar tiene al menos una raíz real porque es continuo y sus extremos tienen signos opuestos.</p>
+      <p>Para el signo, factoriza cuando sea posible y divide la recta por las raíces reales. Para la monotonía, deriva y estudia el signo de \(P\prime\). Si \(n\geq1\), la derivada tiene grado \(n-1\): puede haber como máximo \(n-1\) extremos relativos, pero no tienen por qué aparecer todos.</p>
+      <div class="key-idea" data-content-role="warning">Una raíz de \(P\) es un corte con X; una raíz de \(P\prime\) es candidata a extremo. No son lo mismo. Además, \(x^3\) cruza el eje en 0 con derivada cero y sin máximo ni mínimo.</div>
+    </section>
+    <section id="ejemplos" data-content-role="worked-example"><h2>3. Estudio completo con una raíz doble</h2>
+      <p>Considera \(p(x)=(x+1)^2(x-2)=x^3-3x-2\).</p>
+      <ol class="worked-steps"><li><strong>Dominio y continuidad:</strong> \(\mathbb R\); no hay discontinuidades ni asíntotas.</li>
+      <li><strong>Cortes:</strong> \((-1,0)\), raíz doble, y \((2,0)\), raíz simple. Con Y corta en \((0,-2)\). No es par ni impar respecto a los ejes originales.</li>
+      <li><strong>Signo:</strong> \((x+1)^2\) es positivo salvo en −1; por tanto manda el signo de \(x-2\). La función es negativa en \((-\infty,-1)\cup(-1,2)\), cero en −1 y 2, y positiva en \((2,+\infty)\).</li>
+      <li><strong>Infinitos:</strong> domina \(x^3\); a la izquierda tiende a \(-\infty\) y a la derecha a \(+\infty\).</li>
+      <li><strong>Derivada:</strong> \(p\prime(x)=3x^2-3=3(x-1)(x+1)\). Es positiva fuera de [−1,1] y negativa entre −1 y 1.</li></ol>
+      <div class="table-scroll"><table><caption>Monotonía de la cúbica</caption><thead><tr><th scope="col">Intervalo</th><th scope="col">\(p\prime\)</th><th scope="col">Comportamiento</th></tr></thead><tbody><tr><th scope="row">\((-\infty,-1)\)</th><td>+</td><td>Crece</td></tr><tr><th scope="row">\((-1,1)\)</th><td>−</td><td>Decrece</td></tr><tr><th scope="row">\((1,+\infty)\)</th><td>+</td><td>Crece</td></tr></tbody></table></div>
+      <p>Máximo relativo en \((-1,0)\), donde pasa de crecer a decrecer; mínimo relativo en \((1,-4)\), donde ocurre lo contrario. No hay extremos absolutos en \(\mathbb R\). El recorrido es \(\mathbb R\): por continuidad, toma todos los valores entre los extremos infinitos.</p>
+      <figure class="polynomial-figure"><svg viewBox="0 0 560 340" width="560" height="340" role="img" aria-labelledby="poly-title poly-desc"><title id="poly-title">Raíz doble y raíz simple de x al cubo menos 3x menos 2</title><desc id="poly-desc">La curva sube desde abajo a la izquierda hasta tocar el eje en (−1,0), baja al mínimo (1,−4) y vuelve a subir cruzando el eje en (2,0). Corta el eje vertical en (0,−2). La tabla y el estudio describen el recorrido completo.</desc><path d="M30 150H530M260 20V310" stroke="#202020" fill="none"/><path d="M160 145V155M360 145V155M460 145V155M255 190H265M255 230H265" stroke="#202020"/><g font-size="15" fill="#202020"><text x="535" y="145">x</text><text x="270" y="20">y</text><text x="153" y="174">−1</text><text x="268" y="170">0</text><text x="357" y="174">1</text><text x="457" y="174">2</text><text x="230" y="195">−2</text><text x="230" y="235">−4</text><text x="110" y="135">(−1,0)</text><text x="370" y="245">(1,−4)</text></g><path data-polynomial-curve stroke="#1746a2" stroke-width="3" fill="none"/><circle cx="160" cy="150" r="5" fill="#754000"/><circle cx="460" cy="150" r="5" fill="#1746a2"/><rect x="355" y="225" width="10" height="10" fill="#754000"/></svg><figcaption data-content-role="caption">En −1 toca el eje desde abajo; en 2 lo cruza. Una unidad horizontal ocupa 100 unidades del dibujo y una vertical, 20: no midas pendientes por los ángulos. Las ramas continúan fuera de la ventana.</figcaption></figure>
+      <noscript><p>La curva necesita JavaScript; las coordenadas y el recorrido están descritos en el estudio.</p></noscript>
+      <details data-content-role="explanation"><summary>Comprueba con la lección anterior</summary><p>Este polinomio es \(x^3-3x\) menos 2. Conserva la derivada y las abscisas de los extremos, pero todas las ordenadas bajan dos unidades. Las traslaciones se estudiarán con detalle en 2.7.</p></details>
+    </section>
+    <section id="beneficio" data-content-role="worked-example"><h2>4. Interpretar un beneficio y respetar su dominio</h2>
+      <p>Una empresa usa el modelo didáctico \(B(q)=-2q^2+24q-40\), donde \(q\) es la producción en toneladas y \(B\), el beneficio en <strong>cientos de euros</strong>. Su capacidad limita el modelo a \(0\leq q\leq10\). Se admiten cantidades no enteras de toneladas.</p>
+      <p><strong>Equilibrio:</strong> \(B(q)=-2(q-2)(q-10)\), así que el beneficio es cero en 2 y 10 toneladas. Hay pérdidas si \(0\leq q<2\), y beneficio positivo si \(2<q<10\).</p>
+      <p><strong>Mejor resultado:</strong> \(B\prime(q)=-4q+24\) se anula en 6. El beneficio crece de 0 a 6 y decrece de 6 a 10. Para comparar los extremos absolutos del intervalo, evaluamos también sus bordes:</p>
+      <div class="table-scroll"><table><caption>Comparación de candidatos en el dominio permitido</caption><thead><tr><th scope="col">Producción q (toneladas)</th><th scope="col">B(q) (cientos de euros)</th><th scope="col">Interpretación</th></tr></thead><tbody><tr><th scope="row">0</th><td>−40</td><td>Pérdida de 4000 €</td></tr><tr><th scope="row">6</th><td>32</td><td>Beneficio de 3200 €</td></tr><tr><th scope="row">10</th><td>0</td><td>Equilibrio</td></tr></tbody></table></div>
+      <p>El máximo absoluto del modelo es <strong>3200 € al producir 6 toneladas</strong>; el mínimo es −4000 € en 0. La parábola completa no tiene mínimo absoluto en \(\mathbb R\), pero sí lo tiene en el intervalo cerrado del problema. No interpretes sus valores fuera de [0,10] como predicciones válidas.</p>
+      <details data-content-role="guided-practice"><summary>Ahora cambia la capacidad: solo se pueden producir hasta 4 toneladas</summary><p>Antes de abrir la solución, decide si q=6 sigue siendo admisible.</p><details data-content-role="solution"><summary>Ver solución</summary><p>En [0,4], \(B\prime(q)>0\): el beneficio crece en todo el intervalo. El máximo está en el extremo q=4 y vale \(B(4)=24\), es decir, 2400 €. No se acepta q=6 porque queda fuera del nuevo dominio.</p></details></details>
+    </section>
+    <section id="taller" data-content-role="guided-practice"><h2>5. Taller: reconoce los extremos con datos nuevos</h2><p>Seis polinomios de grados 1 a 6. Indica primero el límite a la izquierda y después el de la derecha. Dispones de pista y reintento, sin reloj. Al empezar otra sesión cambian los coeficientes; las variantes no se cuentan como preguntas nuevas del banco fijo.</p><div class="activity" data-polynomial-practice></div></section>
+    <section id="test" data-content-role="self-check"><h2>6. Comprueba lo aprendido</h2><div class="activity" data-quiz="t02-e02"></div></section>
+    <section data-content-role="common-errors"><h2>7. Errores frecuentes</h2><ul><li>Identificar el grado por el último término escrito en vez de por el mayor exponente.</li><li>Confundir grado par con función par.</li><li>Creer que toda raíz cambia el signo o que hay tantas raíces reales distintas como indica el grado.</li><li>Clasificar un extremo sin estudiar la derivada a ambos lados.</li><li>Olvidar comparar los extremos del intervalo y convertir las unidades del resultado.</li></ul></section>
+    <section id="resumen" data-content-role="summary"><h2>8. Resumen</h2><p>Término dominante para los infinitos; factores para ceros y signo; derivada para crecimiento y extremos. Comprueba siempre el dominio del contexto y distingue raíces de la función, raíces de la derivada y extremos absolutos.</p></section>
+    <section id="tarjetas"><h2>9. Tarjetas de repaso</h2><div class="activity" data-flashcards="t02-e02"></div></section>
+    <section data-content-role="related-links"><h2>Continúa</h2><p><a href="index.html">Índice del tema 2</a> · <a href="../../../test/index.html?tema=t02">Test del tema</a> · <a href="03-funciones-racionales.html">2.3. Funciones racionales</a></p></section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

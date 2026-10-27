@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.14. Tabla de derivadas · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t01-e14">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">1.14. Tabla de derivadas</h1>
+    <p class="lead" data-content-role="introduction">Una tabla ahorra repetir la definición en cada ejercicio. Para usarla bien hay que reconocer la función, comprobar su dominio y distinguirla de una composición.</p>
+    <div class="learning-goals"><p data-content-role="objectives"><strong>Al terminar podrás:</strong> derivar funciones elementales, interpretar sus fórmulas y detectar cuándo hace falta un factor adicional.</p><p data-content-role="prerequisites"><strong>Antes:</strong> potencias, exponenciales, logaritmos y <a href="11-funcion-derivada.html">definición de derivada</a>. En trigonometría trabajaremos en radianes.</p></div>
+    <section data-content-role="rule">
+      <h2>1. Constantes, potencias y raíces</h2>
+      <div class="table-scroll"><table><caption data-content-role="caption">Fórmulas con las condiciones de uso</caption><thead><tr><th scope="col" aria-label="Función">\(f\)</th><th scope="col" aria-label="Derivada">\(f\prime\)</th><th scope="col">Condición</th></tr></thead><tbody>
+        <tr><td>\(c\), constante</td><td>\(0\)</td><td>En todo \(\mathbb R\).</td></tr>
+        <tr><td>\(x\)</td><td>\(1\)</td><td>En todo \(\mathbb R\).</td></tr>
+        <tr><td>\(x^n\)</td><td>\(nx^{n-1}\)</td><td>n entero positivo: todo \(\mathbb R\). n entero negativo: \(x\ne0\).</td></tr>
+        <tr><td>\(x^\alpha\)</td><td>\(\alpha x^{\alpha-1}\)</td><td>Para cualquier exponente real fijo, válida en \(x&gt;0\). Otros puntos requieren estudiar el exponente y el dominio.</td></tr>
+        <tr><td>\(\sqrt{x}\)</td><td>\(\dfrac1{2\sqrt{x}}\)</td><td>Derivada finita para \(x&gt;0\); la función también existe en 0.</td></tr>
+        <tr><td>\(\dfrac1x\)</td><td>\(-\dfrac1{x^2}\)</td><td>\(x\ne0\).</td></tr>
+      </tbody></table></div>
+      <p>La regla del cuadrado ya se justificó por definición: \((x^2)'=2x\). Una constante tiene derivada cero porque su incremento siempre es cero, y una recta de pendiente 1 tiene derivada 1.</p>
+      <p>Ejemplos: \((x^5)'=5x^4\), \((x^{-3})'=-3x^{-4}\) y \((x^{3/2})'=(3/2)\sqrt{x}\) para \(x&gt;0\). En \(x=0\), la última función tiene derivada derecha 0, que se comprueba aparte.</p>
+      <p data-content-role="warning">No confundas el dominio de la función con el de su derivada. \(\sqrt{x}\) es continua en 0, pero su cociente incremental derecho \(1/\sqrt{h}\) diverge; no tiene allí derivada finita.</p>
+    </section>
+    <section data-content-role="rule">
+      <h2>2. Exponenciales y logaritmos</h2>
+      <div class="table-scroll"><table><caption data-content-role="caption">La base importa</caption><thead><tr><th scope="col" aria-label="Función">\(f\)</th><th scope="col" aria-label="Derivada">\(f\prime\)</th><th scope="col">Condición</th></tr></thead><tbody>
+        <tr><td>\(e^x\)</td><td>\(e^x\)</td><td>Todo x real.</td></tr>
+        <tr><td>\(A^x\)</td><td>\(A^x\ln A\)</td><td>\(A&gt;0\), base constante; \(A=1\) da derivada 0.</td></tr>
+        <tr><td>\(\ln x\)</td><td>\(\dfrac1x\)</td><td>\(x&gt;0\).</td></tr>
+        <tr><td>\(\log_A x\)</td><td>\(\dfrac1{x\ln A}\)</td><td>\(x&gt;0,\ A&gt;0,\ A\ne1\).</td></tr>
+      </tbody></table></div>
+      <p>Por ejemplo, \((3^x)'=3^x\ln3\), mientras que \((x^3)'=3x^2\). En una exponencial varía el exponente; en una potencia elemental varía la base.</p>
+      <p>La fórmula del logaritmo en base A se entiende con el cambio de base: \(\log_A x=\ln x/\ln A\). El denominador es una constante.</p>
+      <p>La derivada de \(e^x\) es positiva, por lo que la función crece. Si \(0&lt;A&lt;1\), entonces \(\ln A&lt;0\) y \(A^x\) decrece. El signo de la fórmula encaja con la forma de la gráfica.</p>
+    </section>
+    <section data-content-role="rule">
+      <h2>3. Trigonometría que aparece en los materiales</h2>
+      <p>El examen local incluye seno y coseno. Sus argumentos se miden en <strong>radianes</strong> para aplicar estas fórmulas:</p>
+      <div class="table-scroll"><table><caption data-content-role="caption">Derivadas trigonométricas básicas</caption><thead><tr><th scope="col" aria-label="Función">\(f\)</th><th scope="col" aria-label="Derivada">\(f\prime\)</th><th scope="col">Dominio de la fórmula</th></tr></thead><tbody>
+        <tr><td>\(\sin x\)</td><td>\(\cos x\)</td><td>Todo \(\mathbb R\).</td></tr>
+        <tr><td>\(\cos x\)</td><td>\(-\sin x\)</td><td>Todo \(\mathbb R\).</td></tr>
+        <tr><td>\(\tan x\)</td><td>\(\dfrac1{\cos^2x}\)</td><td>\(\cos x\ne0\).</td></tr>
+      </tbody></table></div>
+      <p>Como comprobación, el seno tiene pendiente 1 en 0, y el coseno tiene pendiente 0 allí. No se debe olvidar el signo menos al derivar el coseno.</p>
+    </section>
+    <section id="ejemplos" data-content-role="worked-example">
+      <h2>4. Reconoce el interior antes de usar la tabla</h2>
+      <p>Las fórmulas anteriores tienen x como argumento. Si en su lugar aparece una función \(u(x)\), se multiplica por \(u'(x)\): es la <strong>regla de la cadena</strong>, que se estudiará con más detalle en 1.16.</p>
+      <div class="definition"><p>\[\big(F(u(x))\big)'=F'(u(x))\,u'(x).\]</p><p>Se exige que u sea derivable y F sea derivable en los valores de u correspondientes.</p></div>
+      <ol class="worked-steps" data-content-role="worked-steps"><li>En \(e^{3x}\), el interior es \(u=3x\), con \(u'=3\). La derivada es \(3e^{3x}\).</li><li>En \(\ln(2x+1)\), el interior tiene derivada 2. La derivada es \(2/(2x+1)\), válida en el dominio original \(x&gt;-1/2\).</li><li>En \(\sqrt{3x+1}\), la derivada es \(3/(2\sqrt{3x+1})\) para \(x&gt;-1/3\). El extremo \(x=-1/3\) no tiene derivada finita.</li></ol>
+      <p data-content-role="warning">Que la expresión de la derivada se pueda evaluar fuera del dominio original no amplía el dominio de la función que estás derivando.</p>
+    </section>
+    <section data-content-role="method">
+      <h2>5. Una rutina para estudiar la tabla</h2>
+      <ol><li>Nombra la familia: potencia, exponencial, logaritmo o trigonométrica.</li><li>Localiza la variable: ¿está en la base, el exponente o dentro de otra expresión?</li><li>Escribe la fórmula y su condición de dominio.</li><li>Si hay composición, identifica el factor de la derivada interior.</li><li>Comprueba un signo o un valor sencillo que tenga sentido geométrico.</li></ol>
+      <p>No basta memorizar una lista: comparar \(x^3\), \(3^x\) y \(e^{3x}\) ayuda a evitar tres errores distintos.</p>
+    </section>
+    <section id="practica" data-content-role="guided-practice">
+      <h2>6. Tu turno</h2><p>Deriva \(f(x)=x^{-2}\) y \(g(x)=\log_{10}x\). Indica dónde son válidas las fórmulas.</p>
+      <details data-content-role="hint"><summary>Pista 1</summary><p>En la potencia, multiplica por −2 y resta 1 al exponente.</p></details>
+      <details data-content-role="hint"><summary>Pista 2</summary><p>El logaritmo decimal incorpora la constante \(\ln10\) en el denominador.</p></details>
+      <details data-content-role="solution"><summary>Solución razonada</summary><p>\(f'(x)=-2x^{-3}=-2/x^3\) para \(x\ne0\). Para g, \(g'(x)=1/(x\ln10)\) y se mantiene \(x&gt;0\).</p></details>
+      <div class="activity" data-content-role="self-check" data-quiz="t01-e14"></div>
+    </section>
+    <section data-content-role="summary"><h2>7. Resumen</h2><ul><li>Reconoce la familia antes de derivar.</li><li>Respeta dominios, bases de logaritmos y radianes.</li><li>Si el argumento no es x, comprueba la derivada interior.</li></ul><p data-content-role="related-links"><a href="15-reglas-de-derivacion.html">Continuar: combinar funciones con sumas, productos y cocientes</a>.</p></section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

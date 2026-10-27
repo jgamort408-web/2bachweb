@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-22",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "batchId": "174-inferencia-recopilacion",
+  "sourceDirectory": "content/latex/inferencia-recopilacion",
+  "report": "docs/pdf/inferencia-recopilacion-build.json",
+  "mathematics": "inferencia-recopilacion",
+  "documents": [
+    {
+      "id": "inferencia-recopilacion-examen",
+      "source": "content/latex/inferencia-recopilacion/inferencia-recopilacion-examen.tex",
+      "output": "output/pdf/inferencia-recopilacion-examen.pdf",
+      "expectedPages": 3,
+      "title": "Inferencia - Recopilación I y II - Examen revisado",
+      "forbiddenText": [
+        "£"
+      ],
+      "requiredText": [
+        "18 puntos nominales"
+      ]
+    },
+    {
+      "id": "inferencia-recopilacion-soluciones",
+      "source": "content/latex/inferencia-recopilacion/inferencia-recopilacion-soluciones.tex",
+      "output": "output/pdf/inferencia-recopilacion-soluciones.pdf",
+      "expectedPages": 5,
+      "title": "Inferencia - Recopilación I y II - Soluciones revisadas",
+      "forbiddenText": [
+        "£"
+      ],
+      "requiredText": [
+        "18 puntos nominales",
+        "Corrección M27",
+        "Precisión editorial M28"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+@import url('../../shared/widget-base.css');
+.pair-board { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+.pair-board fieldset { min-width: 0; padding: .6rem; }
+.pair-card { display: block; border: 1px solid currentColor; margin-block: .6rem; padding: .6rem; min-width: 0; cursor: pointer; }
+.pair-card > span, .pair-card > small { display: block; }
+.pair-card input { width: 1.2rem; height: 1.2rem; margin-inline-end: .5rem; }
+.pair-card:has(input:checked) { outline: 3px solid currentColor; outline-offset: 2px; }
+.pair-card:has(input:disabled) { border-style: dashed; cursor: default; }
+[data-feedback] li { margin-block: .75rem; }
+@media (max-width:48rem) { .pair-board { grid-template-columns: 1fr; } }

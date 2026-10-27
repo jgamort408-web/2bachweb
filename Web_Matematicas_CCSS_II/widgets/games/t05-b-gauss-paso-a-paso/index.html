@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+  <script src="../../../assets/js/core/content-gate.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Gauss paso a paso</title><link rel="stylesheet" href="style.css"><script type="module" src="widget.js"></script></head>
+<body data-widget-id="t05-b-gauss-paso-a-paso"><main>
+<h1 data-content-role="lesson-title">Gauss paso a paso</h1>
+<p data-content-role="lead">Transforma seis sistemas con operaciones sobre filas. Elige tu ruta, llega a una forma escalonada y clasifica el resultado.</p>
+<details><summary>Cómo jugar y cómo se puntúa</summary><p>Se admiten distintas rutas: intercambia dos filas, multiplica una fila por un factor no nulo o suma un múltiplo de otra. La operación se aplica también a B. Los pivotes deben avanzar a la derecha, con ceros debajo y filas nulas al final; no tienen que valer uno.</p><p>El factor admite enteros o fracciones como −2 o 1/2. Tras simplificar, su numerador debe estar entre −9 y 9 y su denominador entre 1 y 9. Se permiten hasta 30 pasos en la ruta y fracciones con numerador y denominador de hasta un millón. Si alcanzas un límite, puedes deshacer o reiniciar el reto.</p><p>Una vez escalonada, selecciona SCD, SCI o SI. Obtienes 100 puntos por acertar al primer intento, 50 al segundo y 0 tras dos errores. Una entrada inválida o comprobar antes de escalonar no consume intentos. Las pistas son gratuitas. Ver la ruta resuelta activa asistencia y ese reto vale 0 puntos, aunque lo reinicies. Máximo: 600 puntos.</p><p>Deshacer y reiniciar conservan los intentos de clasificación y el uso de asistencia. Se cuentan las operaciones válidas que has aplicado, incluso si después las deshaces; no se penaliza seguir un camino diferente ni más largo. No hay reloj. Usa Tab, flechas y Enter. La sesión se pierde al recargar; solo se guardan preferencias de lectura.</p></details>
+<div class="activity" data-game>
+<label>Retos resueltos <progress data-meter max="6" value="0"></progress></label><p data-progress aria-live="polite" data-content-role="activity-progress"></p>
+<div data-board></div>
+<fieldset data-row-controls><legend>Transforma la matriz ampliada</legend>
+<div class="row-controls">
+<label>Operación <select data-operation><option value="add">Sumar un múltiplo de otra fila</option><option value="swap">Intercambiar filas</option><option value="scale">Multiplicar una fila</option></select></label>
+<label>Fila de destino <select data-target></select></label>
+<label>Otra fila <select data-source></select></label>
+<label>Factor <input data-factor type="text" inputmode="text" value="-2" autocomplete="off" spellcheck="false" aria-describedby="factor-help"></label>
+</div><p id="factor-help">Ejemplos: −2, 1/2. Al intercambiar no se usa factor; al multiplicar no se usa otra fila.</p>
+<div class="actions"><button type="button" data-apply>Aplicar operación</button><button type="button" data-undo>Deshacer</button><button type="button" data-reset>Reiniciar reto</button><button type="button" data-hint>Pista para el siguiente paso</button><button type="button" data-reveal>Ver ruta resuelta (sin puntos)</button></div></fieldset>
+<p data-status role="status"></p>
+<fieldset data-classification><legend>Cuando esté escalonada, ¿qué tipo de sistema es?</legend>
+<label><input type="radio" name="kind" value="SCD"> SCD · Una solución</label>
+<label><input type="radio" name="kind" value="SCI"> SCI · Infinitas soluciones</label>
+<label><input type="radio" name="kind" value="SI"> SI · Ninguna solución</label>
+</fieldset>
+<div class="feedback" data-feedback role="status" data-content-role="feedback"></div>
+<div class="actions"><button type="button" data-check>Comprobar reto</button><button type="button" data-next hidden>Siguiente reto</button></div>
+</div>
+<p><a href="../../../libro/temas/05-sistemas-de-ecuaciones/05-sistemas-equivalentes.html#explorador">Taller libre de filas</a> · <a href="../../../libro/temas/05-sistemas-de-ecuaciones/08-resolucion-de-sistemas-metodo-de-gauss.html">Método de Gauss</a> · <a href="../../../libro/temas/05-sistemas-de-ecuaciones/index.html#repaso">Repaso del tema 5</a></p>
+<p><a href="../../../libro/temas/05-sistemas-de-ecuaciones/index.html#ruta-juegos">Recorrido del tema 5</a></p>
+<noscript><p>El juego necesita JavaScript; puedes estudiar los ejemplos resueltos del libro.</p></noscript>
+</main></body></html>

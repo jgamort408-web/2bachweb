@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Álgebra de sucesos</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="widget.js"></script>
+</head>
+<body data-widget-id="t07-a-algebra-de-sucesos">
+  <main>
+    <h1>Álgebra de sucesos</h1>
+    <p>Construye el suceso resultado seleccionando los números correctos del espacio muestral. Cada partida plantea ocho retos con conjuntos nuevos.</p>
+    <details><summary>Cómo jugar</summary><p>Lee los sucesos A y B. Marca todos los resultados que pertenecen a la operación indicada y pulsa Comprobar. Hay dos intentos por reto: 100 puntos al primero y 50 al segundo. La pista no penaliza. Si fallas dos veces, verás la solución. No hay reloj y puedes usar teclado. Los puntos se reinician al recargar.</p></details>
+    <section data-game aria-label="Juego de álgebra de sucesos">
+      <p data-progress role="status" aria-live="polite"></p>
+      <label>Avance <progress data-meter max="8" value="0"></progress></label>
+      <div data-question></div>
+      <fieldset data-options><legend>Selecciona todos los resultados del suceso pedido</legend><div data-choices></div></fieldset>
+      <p data-feedback role="status" aria-live="polite"></p>
+      <p class="actions"><button type="button" data-check>Comprobar</button> <button type="button" data-hint>Ver pista</button> <button type="button" data-next hidden>Siguiente reto</button> <button type="button" data-restart hidden>Nueva partida</button></p>
+    </section>
+    <p><a href="../../../libro/temas/07-probabilidad/02-algebra-de-sucesos.html">Repasar álgebra de sucesos</a> · <a href="../../../libro/temas/07-probabilidad/index.html">Volver al tema 7</a></p>
+    <noscript><p>El juego necesita JavaScript. Puedes repasar las operaciones de sucesos en el enlace anterior.</p></noscript>
+  </main>
+</body>
+</html>

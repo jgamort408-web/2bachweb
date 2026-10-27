@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 4: Distribución Muestral y Teorema Central del Límite</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            /* PALETA LAB / ECO-SCIENCE */
+            --bg-body: #ecfdf5;       /* Mint Cream */
+            --primary: #047857;       /* Emerald Green */
+            --primary-dark: #064e3b;  /* Deep Forest */
+            --secondary: #0f172a;     /* Slate Dark */
+            
+            --accent: #d97706;        /* Amber Gold */
+            --accent-bg: #fffbeb;
+            --accent-light: #fde68a;
+            
+            --text-main: #334155;
+            --text-light: #64748b;
+            
+            --radius: 8px;            
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --border: 1px solid #d1fae5;
+            
+            /* Interactive Adventure Colors */
+            --adv-bg: #f8fafc;
+            --adv-border: #cbd5e1;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            background-image: radial-gradient(#047857 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+
+        h1, h2, h3, h4 { 
+            font-family: 'Outfit', sans-serif; 
+            color: var(--secondary); 
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        header {
+            background: white;
+            padding: 2rem;
+            border-bottom: 4px solid var(--primary);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .badge {
+            background: var(--secondary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* TARJETAS TÉCNICAS */
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-left: 5px solid var(--primary);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .section-tag {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .formula-box {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            padding: 1.5rem;
+            border-radius: 6px;
+            text-align: center;
+            margin: 1.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        /* EJEMPLO RESUELTO */
+        .example-box {
+            background: var(--accent-bg);
+            border: 1px solid var(--accent-light);
+            border-left: 5px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            margin-bottom: 2rem;
+        }
+
+        .example-box h3 { color: #92400e; margin-bottom: 1rem; }
+
+        /* AVENTURA INTERACTIVA */
+        .adventure-container {
+            background: var(--secondary);
+            color: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            margin-top: 3rem;
+        }
+
+        .adv-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .adv-step {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .adv-step.active { display: block; }
+
+        .adv-question {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .adv-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .adv-btn {
+            background: #1e293b;
+            color: white;
+            border: 2px solid #475569;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+        }
+
+        .adv-btn:hover { background: #334155; border-color: var(--primary); }
+        
+        .adv-feedback {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .adv-feedback.success {
+            background: #064e3b;
+            border: 1px solid #047857;
+        }
+
+        .adv-feedback.error {
+            background: #7f1d1d;
+            border: 1px solid #b91c1c;
+            animation: shake 0.4s ease;
+        }
+
+        .btn-continue {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            font-family: 'Outfit', sans-serif;
+            display: none;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <header>
+            <span class="badge">BLOQUE 2.1</span>
+            <h1 style="margin-top: 0.5rem; color: var(--primary-dark);">Distribución Muestral y TCL</h1>
+            <p style="color: var(--text-light); margin-top: 0.5rem;">El puente matemático entre la muestra y la población global.</p>
+        </header>
+
+        <section class="card">
+            <span class="section-tag">01. MARCO TEÓRICO</span>
+            <h2>¿Qué es la distribución muestral?</h2>
+            <p style="margin-top: 1rem;">En estadística, la <strong>distribución muestral</strong> es lo que resulta al considerar todas las muestras posibles que se pueden tomar de una población.</p>
+            <p style="margin-top: 1rem;">Su objetivo es generalizar correctamente los resultados de la muestra a la población y, así, inferir o predecir el comportamiento de la población a partir del conocimiento de esta muestra. Permite calcular la probabilidad (dada una sola muestra) de acercarse al parámetro de la población que se pretende estudiar.</p>
+            
+            <div style="text-align: center; margin: 2rem 0;">
+                            </div>
+
+            <h3 style="margin-top: 2rem;">El Teorema Central del Límite (TCL)</h3>
+            <p style="margin-top: 1rem;">Sea una distribución normal con una media $\mu$ y una desviación típica $\sigma$, es decir, $N(\mu, \sigma)$. Al extraer muestras de tamaño $n$ y calcular sus medias, obtenemos una nueva distribución.</p>
+            
+            <div style="background: #f8fafc; border-left: 4px solid var(--primary); padding: 1.5rem; margin-top: 1.5rem;">
+                <p>Según el <strong>teorema central del límite</strong>, la distribución de las medias de las muestras de tamaño $n$ cumple que:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 1rem; line-height: 1.8;">
+                    <li>Tiene la misma media, $\mu$, que la población total.</li>
+                    <li>Su desviación típica es $\frac{\sigma}{\sqrt{n}}$; por consiguiente, disminuye al aumentar $n$.</li>
+                    <li>Cuando $n \ge 30$, la distribución se aproxima a la distribución normal.</li>
+                </ul>
+            </div>
+            
+            <div class="formula-box">
+                Distribución de las Medias Muestrales: $\bar{X} \sim N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)$
+            </div>
+        </section>
+
+        <section class="example-box">
+            <span class="section-tag" style="color: #92400e;">02. CASO PRÁCTICO RESUELTO</span>
+            <h3>Control de Calidad: Peso del Café</h3>
+            <p>Una máquina empaqueta bolsas de café. El peso de las bolsas sigue una distribución normal con una media de 500 gramos y una desviación típica de 15 gramos; es decir, $N(500, 15)$.</p>
+            
+            <div style="margin-top: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #fcd34d;">
+                <strong>a) Probabilidad Individual:</strong> Si se elige una bolsa al azar, ¿cuál es la probabilidad de que pese menos de 495 gramos?
+                <p style="margin-top: 0.5rem; color: #78350f;">Al igual que en el caso del tiempo de espera del banco estudiado en la unidad anterior, se trabaja con un solo individuo. Tipificamos usando $\sigma = 15$:</p>
+                $$Z = \frac{x - \mu}{\sigma} = \frac{495 - 500}{15} = -0.33$$
+                $$P(X < 495) = P(Z < -0.33) = 1 - P(Z \le 0.33) = 1 - 0.6293 = \mathbf{0.3707 \ (37.07\%)}$$
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <strong>b) Probabilidad Muestral:</strong> Si se escoge una muestra al azar de 25 bolsas, ¿cuál es la probabilidad de que el peso <em>medio</em> de esa muestra sea inferior a 495 gramos?
+                <p style="margin-top: 0.5rem; color: #78350f;">En este caso, tenemos una distribución de medias. Por tanto, debemos usar el teorema central del límite para encontrar los nuevos parámetros. La nueva desviación es $\frac{\sigma}{\sqrt{n}}$:</p>
+                $$\bar{X} \sim N\left(500, \frac{15}{\sqrt{25}}\right) = N(500, 3)$$
+                <p style="margin-top: 0.5rem; color: #78350f;">Ahora, ya podemos seguir el mismo proceso que antes:</p>
+                $$Z = \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{n}}} = \frac{495 - 500}{3} = -1.67$$
+                $$P(\bar{X} < 495) = P(Z < -1.67) = 1 - P(Z \le 1.67) = 1 - 0.9525 = \mathbf{0.0475 \ (4.75\%)}$$
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #78350f; font-style: italic;">*Nota: Fíjate cómo la variabilidad disminuye radicalmente al tomar una muestra en lugar de un individuo aislado. Es mucho más difícil que 25 bolsas juntas tengan una media baja, a que una sola bolsa salga baja.</p>
+        </section>
+
+        <section class="adventure-container">
+            <div class="adv-header">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <h2 style="color: white; margin: 0;">Aventura Estadística: Operación Bombilla</h2>
+            </div>
+
+            <p style="color: #94a3b8; margin-bottom: 2rem;">Te han contratado como analista jefe en una fábrica de componentes electrónicos. Tu trabajo es asegurar que un lote específico cumpla con los estándares de calidad antes de ser enviado a un cliente exigente. Deberás tomar las decisiones matemáticas correctas para avanzar.</p>
+
+            <div id="step1" class="adv-step active">
+                <div style="background: #0f172a; padding: 1.5rem; border-radius: 6px; border-left: 4px solid var(--primary); margin-bottom: 1.5rem;">
+                    <strong>EL INFORME:</strong> La fábrica produce bombillas LED cuya vida útil sigue una distribución normal con una <strong>media de 1200 horas</strong> y una <strong>desviación típica de 80 horas</strong>. Tu equipo extrae una muestra aleatoria de <strong>64 bombillas</strong> para analizarlas.
+                </div>
+                <div class="adv-question">
+                    Paso 1: Antes de calcular probabilidades, debes definir la distribución muestral de las medias. ¿Cuál es el modelo correcto a utilizar según el Teorema Central del Límite?
+                </div>
+                <div class="adv-options">
+                    <button class="adv-btn" onclick="checkAnswer(1, false)">A) $N(1200, 80)$</button>
+                    <button class="adv-btn" onclick="checkAnswer(1, true)">B) $N(1200, 10)$</button>
+                    <button class="adv-btn" onclick="checkAnswer(1, false)">C) $N(1200, 1.25)$</button>
+                </div>
+                <div id="fb1" class="adv-feedback"></div>
+                <button id="next1" class="btn-continue" onclick="nextStep(2)">Continuar al Paso 2 ➔</button>
+            </div>
+
+            <div id="step2" class="adv-step">
+                <div style="background: #0f172a; padding: 1.5rem; border-radius: 6px; border-left: 4px solid var(--primary); margin-bottom: 1.5rem;">
+                    <strong>ACTUALIZACIÓN:</strong> ¡Correcto! La distribución de la media muestral es $\bar{X} \sim N(1200, 10)$ porque la nueva desviación es $\frac{\sigma}{\sqrt{n}} = \frac{80}{\sqrt{64}} = \frac{80}{8} = 10$.
+                </div>
+                <div class="adv-question">
+                    Paso 2: El cliente rechazará el pedido si la vida media de la muestra de 64 bombillas es inferior a 1180 horas. Para averiguar la probabilidad de que esto ocurra, necesitas <strong>tipificar</strong> la variable. ¿Cuál es el cálculo correcto del valor Z?
+                </div>
+                <div class="adv-options">
+                    <button class="adv-btn" onclick="checkAnswer(2, false)">A) $Z = \frac{1180 - 1200}{80} = -0.25$</button>
+                    <button class="adv-btn" onclick="checkAnswer(2, true)">B) $Z = \frac{1180 - 1200}{10} = -2.00$</button>
+                    <button class="adv-btn" onclick="checkAnswer(2, false)">C) $Z = \frac{1200 - 1180}{10} = 2.00$</button>
+                </div>
+                <div id="fb2" class="adv-feedback"></div>
+                <button id="next2" class="btn-continue" onclick="nextStep(3)">Continuar al Paso 3 ➔</button>
+            </div>
+
+            <div id="step3" class="adv-step">
+                <div style="background: #0f172a; padding: 1.5rem; border-radius: 6px; border-left: 4px solid var(--primary); margin-bottom: 1.5rem;">
+                    <strong>ACTUALIZACIÓN:</strong> ¡Exacto! $Z = -2.00$. Has tipificado correctamente utilizando la desviación de la distribución muestral, no la de la población general.
+                </div>
+                <div class="adv-question">
+                    Paso 3: Ahora debes calcular el riesgo final: $P(Z < -2.00)$. 
+                    <br><span style="font-size: 0.9rem; color: #94a3b8;">(Recuerda la simetría de la campana: $P(Z < -z) = 1 - P(Z \le z)$. Asume que $P(Z \le 2.00) = 0.9772$).</span>
+                    <br><br>¿Cuál es la probabilidad de que el cliente rechace el lote?
+                </div>
+                <div class="adv-options">
+                    <button class="adv-btn" onclick="checkAnswer(3, false)">A) $97.72\%$</button>
+                    <button class="adv-btn" onclick="checkAnswer(3, false)">B) $47.72\%$</button>
+                    <button class="adv-btn" onclick="checkAnswer(3, true)">C) $2.28\%$</button>
+                </div>
+                <div id="fb3" class="adv-feedback"></div>
+                <button id="next3" class="btn-continue" onclick="finishAdventure()">Ver Informe Final ➔</button>
+            </div>
+
+            <div id="step4" class="adv-step" style="text-align: center;">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" style="margin: 0 auto 1rem auto;">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <h2>¡Misión Cumplida!</h2>
+                <p style="color: #94a3b8; margin: 1rem 0 2rem 0; font-size: 1.1rem;">
+                    Has calculado correctamente que la probabilidad de que la media de la muestra sea inferior a 1180 horas es de tan solo el <strong>2.28%</strong>. El lote es muy seguro para ser enviado.
+                </p>
+                <div style="background: #1e293b; padding: 1.5rem; border-radius: 6px; text-align: left; font-size: 0.95rem; color: #cbd5e1;">
+                    <strong>Resumen del procedimiento utilizado:</strong>
+                    <ol style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.6;">
+                        <li>Identificar que se pide una probabilidad sobre la <em>media de una muestra</em>, no sobre un individuo.</li>
+                        <li>Aplicar el Teorema Central del Límite para obtener la nueva desviación típica ($\sigma / \sqrt{n}$).</li>
+                        <li>Tipificar el valor usando la nueva distribución.</li>
+                        <li>Calcular el área en la distribución normal estándar ($Z$).</li>
+                    </ol>
+                </div>
+                <button class="btn-continue" style="display: inline-block; margin-top: 2rem;" onclick="location.reload()">Reiniciar Aventura</button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+        function checkAnswer(step, isCorrect) {
+            const fb = document.getElementById('fb' + step);
+            const btn = document.getElementById('next' + step);
+            
+            fb.style.display = 'block';
+            fb.className = 'adv-feedback ' + (isCorrect ? 'success' : 'error');
+            
+            if (isCorrect) {
+                fb.innerHTML = "<strong>¡Decisión Matemática Correcta!</strong> Excelente análisis.";
+                btn.style.display = 'inline-block';
+            } else {
+                if (step === 1) {
+                    fb.innerHTML = "<strong>Error:</strong> Recuerda que la desviación típica de la distribución de las medias muestrales es $\\frac{\\sigma}{\\sqrt{n}}$. Revisa tus cálculos.";
+                } else if (step === 2) {
+                    fb.innerHTML = "<strong>Error:</strong> Para tipificar la media muestral, debes usar la desviación típica que calculaste en el paso 1 ($10$), no la desviación de la población general ($80$). Además, fíjate en el orden del numerador: $\\bar{x} - \\mu$.";
+                } else if (step === 3) {
+                    fb.innerHTML = "<strong>Error:</strong> Estás buscando el área en la cola izquierda ($< -2.00$). Como la tabla da áreas hacia la izquierda de valores positivos, debes hacer $1 - 0.9772$.";
+                }
+                btn.style.display = 'none';
+            }
+            
+            if (window.MathJax) MathJax.typesetPromise([fb]);
+        }
+
+        function nextStep(step) {
+            document.querySelectorAll('.adv-step').forEach(el => el.classList.remove('active'));
+            document.getElementById('step' + step).classList.add('active');
+        }
+
+        function finishAdventure() {
+            document.querySelectorAll('.adv-step').forEach(el => el.classList.remove('active'));
+            document.getElementById('step4').classList.add('active');
+        }
+    </script>
+</body>
+</html>

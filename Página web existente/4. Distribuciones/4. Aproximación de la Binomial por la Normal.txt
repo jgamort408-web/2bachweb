@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4.3 Distribución Normal + Aproximación de la Binomial</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+    };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root{
+      /* Paleta pálida: mezcla rojo + verde (mints/roses) */
+      --bg-body: #f7fbf9;           /* muy claro verdoso */
+      --primary: #b45362;           /* rojo apagado */
+      --primary-dark: #7f2d3a;      /* rojo oscuro suave */
+      --secondary: #0f172a;         /* azul pizarra */
+
+      --mint: #2f8f74;              /* verde apagado */
+      --mint-dark: #1f6b57;
+
+      --accent-light: #fce9ee;      /* rosa pálido */
+      --accent-mint: #e6f4ef;       /* verde pálido */
+      --accent-stroke: #c98b96;     /* contorno rosado suave */
+
+      --text-main: #334155;
+      --text-light: #64748b;
+
+      --radius: 16px;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    body{
+      font-family:'Plus Jakarta Sans', sans-serif;
+      background-color:var(--bg-body);
+      color:var(--text-main);
+      line-height:1.6;
+      padding:2rem;
+
+      /* cuadrícula sutil */
+      background-image:
+        linear-gradient(#e7f3ee 1px, transparent 1px),
+        linear-gradient(90deg, #f4dbe1 1px, transparent 1px);
+      background-size: 42px 42px;
+    }
+
+    h1,h2,h3,h4{
+      font-family:'Outfit', sans-serif;
+      color:var(--secondary);
+      line-height:1.2;
+    }
+
+    .container{max-width:1000px;margin:0 auto;}
+
+    header{text-align:center;margin-bottom:3rem;}
+
+    .badge{
+      display:inline-block;
+      background-color:white;
+      color:var(--primary);
+      padding:0.5rem 1rem;
+      border-radius:50px;
+      font-size:0.9rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      margin-bottom:1rem;
+      border:1px solid #f0c4cd;
+      box-shadow:0 4px 6px rgba(180,83,98,0.10);
+    }
+
+    h1{
+      font-size:clamp(2rem, 5vw, 3.5rem);
+      font-weight:900;
+      margin-bottom:0.5rem;
+      color:var(--primary-dark);
+    }
+
+    .subtitle{
+      font-size:1.15rem;
+      color:var(--text-light);
+      max-width:780px;
+      margin:0 auto;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.92);
+      border:1px solid #e2e8f0;
+      border-radius:var(--radius);
+      padding:2rem;
+      box-shadow:0 4px 6px -1px rgba(0,0,0,0.05);
+      margin-bottom:2rem;
+      position:relative;
+    }
+
+    .card::before{
+      content:'';
+      position:absolute;
+      top:0;left:0;right:0;
+      height:4px;
+      background: linear-gradient(90deg, var(--primary), var(--mint));
+      border-top-left-radius:var(--radius);
+      border-top-right-radius:var(--radius);
+    }
+
+    .definition-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:2rem;
+    }
+    @media(min-width:860px){
+      .definition-grid{grid-template-columns:1.25fr 0.75fr;}
+    }
+
+    .formula-display{
+      background: linear-gradient(90deg, #0f172a, #10221c);
+      color:white;
+      padding:1.2rem;
+      border-radius:12px;
+      text-align:center;
+      font-size:1.05rem;
+      margin-top:0.75rem;
+      box-shadow:0 10px 20px rgba(0,0,0,0.18);
+    }
+
+    .note{
+      border-left:4px solid transparent;
+      border-image: linear-gradient(180deg, var(--primary), var(--mint)) 1;
+      padding-left:1rem;
+      margin-top:1rem;
+    }
+
+    .mini{font-size:0.92rem;color:var(--text-light);}
+
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap:1.5rem;
+      margin-bottom:2rem;
+    }
+
+    .prop-card{
+      background:white;
+      border:1px solid #e6eef3;
+      border-radius:12px;
+      padding:1.5rem;
+    }
+
+    .prop-title{font-weight:900;margin-bottom:0.4rem;color:var(--primary-dark);}
+    .prop-desc{font-size:0.92rem;color:var(--text-light);margin-bottom:0.8rem;}
+
+    .pill{
+      display:inline-block;
+      padding:0.25rem 0.6rem;
+      border-radius:999px;
+      border:1px solid #e7c6cd;
+      background:#fff;
+      color:var(--primary-dark);
+      font-weight:900;
+      font-size:0.82rem;
+      margin-right:0.35rem;
+    }
+    .pill.mint{
+      border-color:#cfe9df;
+      color:var(--mint-dark);
+    }
+
+    .empirical-section{
+      background:white;
+      border-radius:var(--radius);
+      padding:2rem;
+      box-shadow:0 10px 25px -5px rgba(0,0,0,0.08);
+      margin-bottom:2rem;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap:2rem;
+      align-items:start;
+    }
+
+    .stat-row{
+      display:flex;
+      align-items:center;
+      gap:1rem;
+      margin-bottom:1rem;
+      padding:1rem;
+      background: linear-gradient(90deg, rgba(252,233,238,0.8), rgba(230,244,239,0.8));
+      border-radius:12px;
+      border:1px solid #e9e4e6;
+    }
+
+    .stat-circle{
+      width:56px;height:56px;
+      background: linear-gradient(180deg, var(--primary), var(--mint));
+      color:white;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      font-size:0.9rem;
+      flex-shrink:0;
+      box-shadow:0 6px 14px rgba(15,23,42,0.10);
+    }
+
+    .controls{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:0.9rem;
+      margin-top:1rem;
+      padding:1rem;
+      border-radius:14px;
+      background: linear-gradient(90deg, rgba(252,233,238,0.7), rgba(230,244,239,0.7));
+      border:1px solid #e9e4e6;
+    }
+    @media(min-width:860px){
+      .controls{grid-template-columns: repeat(2, 1fr);}
+    }
+
+    .control{
+      background:white;
+      border:1px solid #e2e8f0;
+      border-radius:12px;
+      padding:0.9rem;
+    }
+    .control label{
+      display:flex;
+      justify-content:space-between;
+      font-weight:800;
+      color:var(--secondary);
+      margin-bottom:0.4rem;
+      font-size:0.95rem;
+    }
+    input[type="range"]{
+      width:100%;
+      accent-color: var(--mint);
+    }
+    .readout{
+      font-family:"Times New Roman", serif;
+      color:var(--text-light);
+      font-size:0.95rem;
+    }
+
+    .svg-wrap{
+      width:100%;
+      background:white;
+      border:1px solid #e2e8f0;
+      border-radius:14px;
+      padding:0.75rem;
+      overflow:hidden;
+    }
+
+    /* SVG styles */
+    .axis{stroke:#94a3b8;stroke-width:1.5;}
+    .gridline{stroke:#e2e8f0;stroke-width:1;}
+    .dashed{stroke:#94a3b8;stroke-width:1.2;stroke-dasharray:5 4;}
+
+    /* Curvas: rojo para binomial (discreto), verde para normal (continuo) */
+    .curve-normal{fill:none;stroke:var(--mint);stroke-width:3;stroke-linecap:round;}
+    .curve-cdf{fill:none;stroke:#0f172a;stroke-width:2.5;stroke-linecap:round;opacity:0.9;}
+    .binom-bars{fill: rgba(180,83,98,0.28); stroke: rgba(180,83,98,0.75); stroke-width:1.0;}
+    .shade-normal{fill: rgba(47,143,116,0.22); stroke:none;}
+    .shade-cdf{fill: rgba(15,23,42,0.08); stroke:none;}
+
+    .lbl{font-family:"Times New Roman", serif;font-size:13px;fill:#64748b;}
+    .lblStrong{font-family:"Outfit", sans-serif;font-size:12px;fill:#0f172a;font-weight:900;}
+
+    footer{
+      text-align:center;
+      margin-top:3rem;
+      color:var(--text-light);
+      font-size:0.85rem;
+    }
+
+    @media (max-width:600px){
+      body{padding:1rem;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">Unidad 4.4</span>
+      <h1>Normal + Aproximación de la Binomial</h1>
+      <p class="subtitle">
+        Mezclamos <strong>discreto (binomial)</strong> y <strong>continuo (normal)</strong> para ver la idea:
+        cuando $n$ es grande, la binomial “se parece” a una normal.
+        <br/>
+        <span class="pill">Rojo</span> Binomial (barras) &nbsp; <span class="pill mint">Verde</span> Normal (curva y áreas)
+      </p>
+    </header>
+
+    <!-- BLOQUE 1: Normal (repaso breve) -->
+    <section class="card">
+      <div class="definition-grid">
+        <div>
+          <h3 style="margin-bottom:0.8rem;">1) Recordatorio: normal = áreas</h3>
+          <p style="margin-bottom:0.8rem;">
+            En la normal, la probabilidad se interpreta como <strong>área</strong> bajo la densidad $f(x)$.
+            La función acumulada $F(x)$ te da directamente $P(X\le x)$:
+          </p>
+
+          <div class="note">
+            <strong style="color:var(--primary-dark); display:block; margin-bottom:0.35rem;">
+              Densidad vs Distribución
+            </strong>
+            <p class="mini" style="margin-bottom:0.5rem;">
+              <span class="pill mint">Densidad</span> $f(x)$ (forma de campana).
+              <br/>
+              <span class="pill">Acumulada</span> $F(x)=\int_{-\infty}^{x}f(t)\,dt$ (probabilidad acumulada).
+            </p>
+            <div class="formula-display">
+              $$X\sim N(\mu,\sigma)\qquad
+              f(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac12\left(\frac{x-\mu}{\sigma}\right)^2}
+              \qquad
+              F(x)=P(X\le x)$$
+            </div>
+          </div>
+
+          <p class="mini" style="margin-top:0.8rem;">
+            Estandarización:
+            $$Z=\frac{X-\mu}{\sigma}\sim N(0,1)\quad\Rightarrow\quad P(X\le x)=\Phi\!\left(\frac{x-\mu}{\sigma}\right).$$
+          </p>
+        </div>
+
+        <div>
+          <h4 style="margin-bottom:0.7rem; font-size:0.95rem; text-transform:uppercase; color:var(--text-light); text-align:center;">
+            PDF y CDF (precisas)
+          </h4>
+          <div class="svg-wrap">
+            <svg id="svgPDFSmall" viewBox="0 0 420 210" width="100%"></svg>
+          </div>
+          <div class="svg-wrap" style="margin-top:0.8rem;">
+            <svg id="svgCDFSmall" viewBox="0 0 420 210" width="100%"></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUE 2: Aproximación Binomial -> Normal -->
+    <section class="empirical-section">
+      <h3 style="margin-bottom:0.5rem; text-align:center;">2) Aproximación de la Binomial con la Normal</h3>
+      <p class="mini" style="text-align:center; margin-bottom:1.2rem;">
+        Si $X\sim \mathrm{Bin}(n,p)$, entonces para $n$ grande la distribución de $X$ se aproxima por una normal:
+        $$X \approx N\big(\mu=np,\ \sigma=\sqrt{np(1-p)}\big).$$
+        La binomial es <strong>discreta</strong> (barras rojas) y la normal es <strong>continua</strong> (curva verde).
+      </p>
+
+      <div class="grid-3" style="margin-bottom:1.5rem;">
+        <div class="prop-card">
+          <div class="prop-title">Condición típica</div>
+          <p class="prop-desc">Para que “se parezcan”:</p>
+          <div style="font-family:'Times New Roman'; font-size:1.05rem;">
+            $$np\ge 5\quad\text{y}\quad n(1-p)\ge 5$$
+          </div>
+          <p class="mini" style="margin-top:0.5rem;">
+            (Cuanto más grande, mejor.)
+          </p>
+        </div>
+
+        <div class="prop-card">
+          <div class="prop-title">Parámetros</div>
+          <p class="prop-desc">Media y desviación para la aproximación:</p>
+          <div style="font-family:'Times New Roman'; font-size:1.05rem;">
+            $$\mu=np,\qquad \sigma=\sqrt{np(1-p)}$$
+          </div>
+        </div>
+
+        <div class="prop-card">
+          <div class="prop-title">Corrección de continuidad</div>
+          <p class="prop-desc">Clave para que el área “encaje” con las barras:</p>
+          <div style="font-family:'Times New Roman'; font-size:1.05rem;">
+            $$P(X=k)\approx P(k-\tfrac12 \le Y \le k+\tfrac12)$$
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <div class="svg-wrap">
+            <svg id="svgBinomVsNormal" viewBox="0 0 680 320" width="100%"></svg>
+          </div>
+          <p class="mini" style="margin-top:0.6rem;">
+            Barras rojas: $P(X=k)$ (binomial). Curva verde: densidad normal aproximada.
+            El sombreado verde muestra la probabilidad aproximada (área) tras la corrección de continuidad.
+          </p>
+
+          <div class="svg-wrap" style="margin-top:0.9rem;">
+            <svg id="svgApproxCDF" viewBox="0 0 680 320" width="100%"></svg>
+          </div>
+          <p class="mini" style="margin-top:0.6rem;">
+            Acumulada aproximada: comparamos $P(X\le K)$ con $P(Y\le K+0.5)$.
+          </p>
+        </div>
+
+        <div>
+          <div class="controls">
+            <div class="control">
+              <label><span>$n$</span> <span id="nVal" class="readout"></span></label>
+              <input id="n" type="range" min="10" max="200" step="1" value="50">
+              <div class="mini">Tamaño de la muestra (más grande ⇒ mejor aproximación).</div>
+            </div>
+
+            <div class="control">
+              <label><span>$p$</span> <span id="pVal" class="readout"></span></label>
+              <input id="p" type="range" min="0.05" max="0.95" step="0.01" value="0.50">
+              <div class="mini">Probabilidad de éxito.</div>
+            </div>
+
+            <div class="control">
+              <label><span>$K$ (umbral)</span> <span id="KVal" class="readout"></span></label>
+              <input id="K" type="range" min="0" max="200" step="1" value="30">
+              <div class="mini">Calculamos $P(X\le K)$ y su aproximación.</div>
+            </div>
+
+            <div class="control" style="grid-column: 1 / -1;">
+              <label><span>Modo (intervalo)</span> <span id="modeVal" class="readout"></span></label>
+              <input id="mode" type="range" min="0" max="1" step="1" value="0">
+              <div class="mini">
+                0: acumulada $P(X\le K)$ · 1: intervalo $P(A\le X\le B)$ (con corrección).
+              </div>
+            </div>
+
+            <div class="control">
+              <label><span>$A$</span> <span id="AVal" class="readout"></span></label>
+              <input id="A" type="range" min="0" max="200" step="1" value="20">
+              <div class="mini">Límite inferior (modo intervalo).</div>
+            </div>
+
+            <div class="control">
+              <label><span>$B$</span> <span id="BVal" class="readout"></span></label>
+              <input id="B" type="range" min="0" max="200" step="1" value="40">
+              <div class="mini">Límite superior (modo intervalo).</div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:1rem; padding:1.25rem;">
+            <h4 style="margin-bottom:0.6rem;">Lecturas (binomial vs normal)</h4>
+            <div class="mini" id="readouts" style="line-height:1.8;"></div>
+          </div>
+
+          <div class="card" style="margin-top:1rem; padding:1.25rem;">
+            <h4 style="margin-bottom:0.6rem;">Cómo se hace en 3 pasos</h4>
+            <div class="note" style="margin-top:0;">
+              <ol style="padding-left:1.2rem;">
+                <li>
+                  Calcula $\mu=np$ y $\sigma=\sqrt{np(1-p)}$.
+                </li>
+                <li>
+                  Aplica <strong>corrección de continuidad</strong>:
+                  <ul style="padding-left:1.2rem;">
+                    <li>$P(X\le K)\approx P(Y\le K+0.5)$</li>
+                    <li>$P(A\le X\le B)\approx P(A-0.5\le Y\le B+0.5)$</li>
+                  </ul>
+                </li>
+                <li>
+                  Estandariza y usa $\Phi$:
+                  $$P(Y\le x)=\Phi\!\left(\frac{x-\mu}{\sigma}\right).$$
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      MathMastery Digital Notebook &copy; 2026
+    </footer>
+  </div>
+
+  <script>
+    // =========================
+    // erf + normal CDF/PDF
+    // =========================
+    function erf(x){
+      const sign = x >= 0 ? 1 : -1;
+      x = Math.abs(x);
+      const a1=0.254829592, a2=-0.284496736, a3=1.421413741, a4=-1.453152027, a5=1.061405429;
+      const p=0.3275911;
+      const t=1/(1+p*x);
+      const y=1-(((((a5*t+a4)*t+a3)*t+a2)*t+a1)*t)*Math.exp(-x*x);
+      return sign*y;
+    }
+    function phi(z){ return 0.5*(1+erf(z/Math.SQRT2)); }
+    function normalPDF(x, mu, sigma){
+      const z=(x-mu)/sigma;
+      return (1/(sigma*Math.sqrt(2*Math.PI)))*Math.exp(-0.5*z*z);
+    }
+    function normalCDF(x, mu, sigma){
+      return phi((x-mu)/sigma);
+    }
+
+    // =========================
+    // Binomial PMF (estable) por recurrencia
+    // =========================
+    function binomPMFArray(n, p){
+      // Devuelve array pmf[k] = P(X=k) para k=0..n
+      const q = 1 - p;
+      const pmf = new Array(n+1).fill(0);
+
+      // p0 = q^n
+      let pk = Math.pow(q, n);
+      pmf[0] = pk;
+
+      // recurrencia: P(k+1)=P(k)*((n-k)/(k+1))*(p/q)
+      const ratio = p / q;
+      for(let k=0;k<n;k++){
+        pk = pk * ((n-k)/(k+1)) * ratio;
+        pmf[k+1] = pk;
+      }
+      return pmf;
+    }
+
+    function sumRange(arr, a, b){
+      const aa = Math.max(0, Math.min(a,b));
+      const bb = Math.min(arr.length-1, Math.max(a,b));
+      let s=0;
+      for(let k=aa;k<=bb;k++) s += arr[k];
+      return s;
+    }
+
+    // =========================
+    // SVG helpers
+    // =========================
+    function el(name, attrs={}){
+      const node = document.createElementNS("http://www.w3.org/2000/svg", name);
+      for(const [k,v] of Object.entries(attrs)) node.setAttribute(k,v);
+      return node;
+    }
+    function clearSVG(svg){ while(svg.firstChild) svg.removeChild(svg.firstChild); }
+    function mapper(xmin, xmax, ymin, ymax, W, H, pad){
+      return {
+        X: x => pad + (x-xmin)*(W-2*pad)/(xmax-xmin),
+        Y: y => (H-pad) - (y-ymin)*(H-2*pad)/(ymax-ymin)
+      };
+    }
+    function pathFromPoints(points){
+      if(!points.length) return "";
+      let d = `M ${points[0][0].toFixed(2)} ${points[0][1].toFixed(2)}`;
+      for(let i=1;i<points.length;i++){
+        d += ` L ${points[i][0].toFixed(2)} ${points[i][1].toFixed(2)}`;
+      }
+      return d;
+    }
+
+    // =========================
+    // Draw small PDF/CDF (normal)
+    // =========================
+    function drawPDFSmall(svg, mu, sigma){
+      const W=420,H=210,pad=40;
+      const xmin = mu - 4*sigma, xmax = mu + 4*sigma;
+      const ymax = normalPDF(mu, mu, sigma)*1.2;
+      const m = mapper(xmin, xmax, 0, ymax, W, H, pad);
+      clearSVG(svg);
+
+      // grid
+      for(let i=0;i<=6;i++){
+        const x=xmin+i*(xmax-xmin)/6;
+        svg.appendChild(el("line",{x1:m.X(x),y1:pad,x2:m.X(x),y2:H-pad,class:"gridline"}));
+      }
+      svg.appendChild(el("line",{x1:pad,y1:H-pad,x2:W-pad,y2:H-pad,class:"axis"}));
+      svg.appendChild(el("line",{x1:pad,y1:pad,x2:pad,y2:H-pad,class:"axis"}));
+
+      // curve
+      const N=160, pts=[];
+      for(let i=0;i<=N;i++){
+        const x=xmin+i*(xmax-xmin)/N;
+        pts.push([m.X(x), m.Y(normalPDF(x,mu,sigma))]);
+      }
+      svg.appendChild(el("path",{d:pathFromPoints(pts), class:"curve-normal"}));
+
+      // mu and +-sigma
+      [mu-sigma, mu, mu+sigma].forEach((x,idx)=>{
+        svg.appendChild(el("line",{x1:m.X(x),y1:pad,x2:m.X(x),y2:H-pad,class:"dashed"}));
+      });
+      svg.appendChild(el("text",{x:pad,y:22,class:"lblStrong"})).textContent="Densidad f(x)";
+    }
+
+    function drawCDFSmall(svg, mu, sigma){
+      const W=420,H=210,pad=40;
+      const xmin = mu - 4*sigma, xmax = mu + 4*sigma;
+      const m = mapper(xmin, xmax, 0, 1, W, H, pad);
+      clearSVG(svg);
+
+      for(let i=0;i<=6;i++){
+        const x=xmin+i*(xmax-xmin)/6;
+        svg.appendChild(el("line",{x1:m.X(x),y1:pad,x2:m.X(x),y2:H-pad,class:"gridline"}));
+      }
+      svg.appendChild(el("line",{x1:pad,y1:H-pad,x2:W-pad,y2:H-pad,class:"axis"}));
+      svg.appendChild(el("line",{x1:pad,y1:pad,x2:pad,y2:H-pad,class:"axis"}));
+
+      const N=160, pts=[];
+      for(let i=0;i<=N;i++){
+        const x=xmin+i*(xmax-xmin)/N;
+        pts.push([m.X(x), m.Y(normalCDF(x,mu,sigma))]);
+      }
+      svg.appendChild(el("path",{d:pathFromPoints(pts), class:"curve-cdf"}));
+      svg.appendChild(el("text",{x:pad,y:22,class:"lblStrong"})).textContent="Acumulada F(x)";
+    }
+
+    // =========================
+    // Draw binomial bars + normal curve + shaded continuity correction
+    // =========================
+    function drawBinomVsNormal(svg, n, p, mode, K, A, B){
+      const W=680,H=320,pad=52;
+      clearSVG(svg);
+
+      const pmf = binomPMFArray(n, p);
+      const mu = n*p;
+      const sigma = Math.sqrt(n*p*(1-p));
+
+      // x-range: 0..n, but pad around mean for nicer look
+      const xmin = 0, xmax = n;
+
+      // y-range based on max of pmf and normal pdf near mean (scaled to bars)
+      let maxP = 0;
+      for(let k=0;k<=n;k++) if(pmf[k]>maxP) maxP=pmf[k];
+      // normal pdf is density; to compare with bar heights, multiply by 1 (bin width)
+      const maxD = normalPDF(mu, mu, sigma);
+      const ymax = Math.max(maxP, maxD) * 1.25;
+
+      const m = mapper(xmin, xmax, 0, ymax, W, H, pad);
+
+      // grid
+      for(let i=0;i<=8;i++){
+        const x=xmin+i*(xmax-xmin)/8;
+        svg.appendChild(el("line",{x1:m.X(x),y1:pad,x2:m.X(x),y2:H-pad,class:"gridline"}));
+      }
+      for(let j=0;j<=4;j++){
+        const y=j*ymax/4;
+        svg.appendChild(el("line",{x1:pad,y1:m.Y(y),x2:W-pad,y2:m.Y(y),class:"gridline"}));
+      }
+
+      // axes
+      svg.appendChild(el("line",{x1:pad,y1:H-pad,x2:W-pad,y2:H-pad,class:"axis"}));
+      svg.appendChild(el("line",{x1:pad,y1:pad,x2:pad,y2:H-pad,class:"axis"}));
+
+      // bars (binomial)
+      const barW = (W-2*pad) / (xmax-xmin+1);
+      for(let k=0;k<=n;k++){
+        const xLeft = m.X(k) - barW*0.45;
+        const h = (H-pad) - m.Y(pmf[k]);
+        svg.appendChild(el("rect",{
+          x:xLeft, y: (H-pad)-h, width: barW*0.9, height:h,
+          class:"binom-bars"
+        }));
+      }
+
+      // normal curve (density), draw across 0..n
+      const N=320, pts=[];
+      for(let i=0;i<=N;i++){
+        const x = xmin + i*(xmax-xmin)/N;
+        const y = normalPDF(x, mu, sigma); // density
+        pts.push([m.X(x), m.Y(y)]);
+      }
+      svg.appendChild(el("path",{d:pathFromPoints(pts), class:"curve-normal"}));
+
+      // shading for continuity correction
+      let x1, x2;
+      if(mode===0){
+        // P(X<=K) ~ P(Y<=K+0.5): shade from xmin to K+0.5 under normal (conceptually)
+        x1 = xmin;
+        x2 = Math.min(xmax, K + 0.5);
+      }else{
+        // interval A..B => [A-0.5, B+0.5]
+        const aa = Math.min(A,B), bb = Math.max(A,B);
+        x1 = Math.max(xmin, aa - 0.5);
+        x2 = Math.min(xmax, bb + 0.5);
+      }
+
+      const shadePts = [];
+      shadePts.push([m.X(x1), m.Y(0)]);
+      const Ns=220;
+      for(let i=0;i<=Ns;i++){
+        const x = x1 + i*(x2-x1)/Ns;
+        shadePts.push([m.X(x), m.Y(normalPDF(x, mu, sigma))]);
+      }
+      shadePts.push([m.X(x2), m.Y(0)]);
+      svg.appendChild(el("path",{d:pathFromPoints(shadePts)+" Z", class:"shade-normal"}));
+
+      // guide lines and labels
+      svg.appendChild(el("text",{x:pad,y:24,class:"lblStrong"})).textContent="Binomial (barras) vs Normal (curva) + corrección de continuidad";
+
+      // mu line
+      svg.appendChild(el("line",{x1:m.X(mu),y1:pad,x2:m.X(mu),y2:H-pad,class:"dashed"}));
+      svg.appendChild(el("text",{x:m.X(mu)-10,y:H-pad+22,class:"lbl"})).textContent="μ=np";
+
+      // draw x2 marker
+      svg.appendChild(el("line",{x1:m.X(x2),y1:pad,x2:m.X(x2),y2:H-pad,class:"dashed"}));
+      svg.appendChild(el("text",{x:m.X(x2)-20,y:pad+16,class:"lbl"})).textContent=(mode===0? "K+0.5" : "B+0.5");
+
+      if(mode===1){
+        svg.appendChild(el("line",{x1:m.X(x1),y1:pad,x2:m.X(x1),y2:H-pad,class:"dashed"}));
+        svg.appendChild(el("text",{x:m.X(x1)-20,y:pad+16,class:"lbl"})).textContent="A-0.5";
+      }
+    }
+
+    // =========================
+    // Draw CDF comparison for cumulative
+    // =========================
+    function drawApproxCDF(svg, n, p, K){
+      const W=680,H=320,pad=52;
+      clearSVG(svg);
+
+      const pmf = binomPMFArray(n, p);
+      const mu = n*p;
+      const sigma = Math.sqrt(n*p*(1-p));
+
+      const xmin=0, xmax=n;
+      const m = mapper(xmin, xmax, 0, 1, W, H, pad);
+
+      // grid
+      for(let i=0;i<=8;i++){
+        const x=xmin+i*(xmax-xmin)/8;
+        svg.appendChild(el("line",{x1:m.X(x),y1:pad,x2:m.X(x),y2:H-pad,class:"gridline"}));
+      }
+      for(let j=0;j<=5;j++){
+        const y=j/5;
+        svg.appendChild(el("line",{x1:pad,y1:m.Y(y),x2:W-pad,y2:m.Y(y),class:"gridline"}));
+        svg.appendChild(el("text",{x:14,y:m.Y(y)+4,class:"lbl"})).textContent=y.toFixed(1);
+      }
+
+      // axes
+      svg.appendChild(el("line",{x1:pad,y1:H-pad,x2:W-pad,y2:H-pad,class:"axis"}));
+      svg.appendChild(el("line",{x1:pad,y1:pad,x2:pad,y2:H-pad,class:"axis"}));
+
+      // Binomial CDF (step)
+      const stepPts = [];
+      let acc = 0;
+      stepPts.push([m.X(0), m.Y(0)]);
+      for(let k=0;k<=n;k++){
+        const x = k;
+        const y0 = acc;
+        acc += pmf[k];
+        const y1 = acc;
+
+        // horizontal at y0 until x
+        stepPts.push([m.X(x), m.Y(y0)]);
+        // vertical jump
+        stepPts.push([m.X(x), m.Y(y1)]);
+      }
+      svg.appendChild(el("path",{d:pathFromPoints(stepPts), fill:"none", stroke:"rgba(180,83,98,0.85)", "stroke-width":"2.4"}));
+
+      // Normal CDF curve
+      const N=320, pts=[];
+      for(let i=0;i<=N;i++){
+        const x=xmin+i*(xmax-xmin)/N;
+        pts.push([m.X(x), m.Y(normalCDF(x, mu, sigma))]);
+      }
+      svg.appendChild(el("path",{d:pathFromPoints(pts), class:"curve-cdf"}));
+
+      // marker at K and K+0.5
+      const xMark = Math.min(xmax, K);
+      const xCont = Math.min(xmax, K+0.5);
+      const Fbin = (function(){
+        let s=0;
+        for(let i=0;i<=Math.min(n,K);i++) s += pmf[i];
+        return s;
+      })();
+      const Fnorm = normalCDF(xCont, mu, sigma);
+
+      // shade conceptual until K+0.5
+      const shadePts = [
+        [m.X(xmin), m.Y(0)],
+        [m.X(xmin), m.Y(1)],
+        [m.X(xCont), m.Y(1)],
+        [m.X(xCont), m.Y(0)]
+      ];
+      svg.appendChild(el("path",{d:pathFromPoints(shadePts)+" Z", class:"shade-cdf"}));
+
+      // guide lines
+      svg.appendChild(el("line",{x1:m.X(xCont),y1:H-pad,x2:m.X(xCont),y2:m.Y(Fnorm),class:"dashed"}));
+      svg.appendChild(el("line",{x1:pad,y1:m.Y(Fnorm),x2:m.X(xCont),y2:m.Y(Fnorm),class:"dashed"}));
+
+      // points
+      svg.appendChild(el("circle",{cx:m.X(xCont),cy:m.Y(Fnorm),r:4.5,fill:"rgba(15,23,42,0.85)"}));
+
+      // labels
+      svg.appendChild(el("text",{x:pad,y:24,class:"lblStrong"})).textContent="Acumulada: Binomial (escalón) vs Normal (S) con corrección K+0.5";
+      svg.appendChild(el("text",{x:m.X(xMark)-6,y:H-pad+22,class:"lbl"})).textContent="K";
+      svg.appendChild(el("text",{x:m.X(xCont)-20,y:pad+16,class:"lbl"})).textContent="K+0.5";
+
+      svg.appendChild(el("text",{x:pad+6,y:m.Y(Fnorm)-8,class:"lbl"})).textContent=`Normal: F(K+0.5) ≈ ${Fnorm.toFixed(4)}`;
+      svg.appendChild(el("text",{x:pad+6,y:m.Y(Fbin)+14,class:"lbl"})).textContent=`Binomial: P(X≤K) = ${Fbin.toFixed(4)}`;
+    }
+
+    // =========================
+    // UI wiring
+    // =========================
+    const $ = (id)=>document.getElementById(id);
+
+    const inputs = {
+      n: $("n"),
+      p: $("p"),
+      K: $("K"),
+      mode: $("mode"),
+      A: $("A"),
+      B: $("B")
+    };
+
+    const labels = {
+      nVal: $("nVal"),
+      pVal: $("pVal"),
+      KVal: $("KVal"),
+      modeVal: $("modeVal"),
+      AVal: $("AVal"),
+      BVal: $("BVal"),
+      readouts: $("readouts")
+    };
+
+    const svgPDFSmall = $("svgPDFSmall");
+    const svgCDFSmall = $("svgCDFSmall");
+    const svgBinomVsNormal = $("svgBinomVsNormal");
+    const svgApproxCDF = $("svgApproxCDF");
+
+    function clamp(v, lo, hi){ return Math.max(lo, Math.min(hi, v)); }
+
+    function render(){
+      const n = parseInt(inputs.n.value, 10);
+      const p = parseFloat(inputs.p.value);
+      const K = parseInt(inputs.K.value, 10);
+      const mode = parseInt(inputs.mode.value, 10);
+      let A = parseInt(inputs.A.value, 10);
+      let B = parseInt(inputs.B.value, 10);
+
+      // keep A,B,K within [0,n]
+      const KK = clamp(K, 0, n);
+      A = clamp(A, 0, n);
+      B = clamp(B, 0, n);
+
+      // update max for sliders dependent on n
+      inputs.K.max = n;
+      inputs.A.max = n;
+      inputs.B.max = n;
+
+      labels.nVal.textContent = n;
+      labels.pVal.textContent = p.toFixed(2);
+      labels.KVal.textContent = KK;
+      labels.AVal.textContent = A;
+      labels.BVal.textContent = B;
+      labels.modeVal.textContent = mode===0 ? "Acumulada" : "Intervalo";
+
+      const mu = n*p;
+      const sigma = Math.sqrt(n*p*(1-p));
+
+      const pmf = binomPMFArray(n, p);
+      const q = 1-p;
+
+      const cond1 = n*p;
+      const cond2 = n*q;
+
+      // exact binomial probs
+      let Pbin, Pnorm;
+      if(mode===0){
+        // P(X <= K)
+        Pbin = sumRange(pmf, 0, KK);
+        // continuity: Y <= K+0.5
+        Pnorm = normalCDF(KK + 0.5, mu, sigma);
+      }else{
+        const aa = Math.min(A,B);
+        const bb = Math.max(A,B);
+        Pbin = sumRange(pmf, aa, bb);
+        Pnorm = normalCDF(bb + 0.5, mu, sigma) - normalCDF(aa - 0.5, mu, sigma);
+      }
+
+      const ok = (cond1>=5 && cond2>=5);
+      const zK = ( (KK + 0.5) - mu) / sigma;
+
+      labels.readouts.innerHTML = `
+        <div><strong>Parámetros de la normal aproximada:</strong> $\\mu=np=${mu.toFixed(3)}$, $\\sigma=\\sqrt{np(1-p)}=${sigma.toFixed(3)}$</div>
+        <div><strong>Condición:</strong> $np=${cond1.toFixed(2)}$, $n(1-p)=${cond2.toFixed(2)}$ → ${ok ? "<strong style='color:var(--mint-dark)'>OK</strong>" : "<strong style='color:var(--primary-dark)'>mejorable</strong>"} </div>
+        <div style="margin-top:0.4rem;">
+          <span class="pill">Binomial</span>
+          ${mode===0
+            ? `$P(X\\le K)=${Pbin.toFixed(5)}$`
+            : `$P(${Math.min(A,B)}\\le X\\le ${Math.max(A,B)})=${Pbin.toFixed(5)}$`
+          }
+        </div>
+        <div>
+          <span class="pill mint">Normal (corr.)</span>
+          ${mode===0
+            ? `$P(Y\\le K+0.5)=${Pnorm.toFixed(5)}$ &nbsp; (aquí $z=\\frac{K+0.5-\\mu}{\\sigma}=${zK.toFixed(3)}$)`
+            : `$P(A-0.5\\le Y\\le B+0.5)=${Pnorm.toFixed(5)}$`
+          }
+        </div>
+        <div class="mini" style="margin-top:0.4rem;">
+          Diferencia (error absoluto): $\\lvert ${Pbin.toFixed(5)} - ${Pnorm.toFixed(5)}\\rvert = ${Math.abs(Pbin-Pnorm).toFixed(5)}$.
+        </div>
+      `;
+
+      // redraw
+      drawPDFSmall(svgPDFSmall, 0, 1);
+      drawCDFSmall(svgCDFSmall, 0, 1);
+      drawBinomVsNormal(svgBinomVsNormal, n, p, mode, KK, A, B);
+      drawApproxCDF(svgApproxCDF, n, p, KK);
+
+      if(window.MathJax && MathJax.typesetPromise){
+        MathJax.typesetPromise([labels.readouts]);
+      }
+    }
+
+    Object.values(inputs).forEach(inp => inp.addEventListener("input", render));
+    render();
+  </script>
+
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

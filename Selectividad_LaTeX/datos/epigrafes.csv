@@ -1,0 +1,87 @@
+﻿epigrafe_id,tema_id,nombre
+T01.1,T01,Límite de una función
+T01.2,T01,Límites laterales
+T01.3,T01,Operaciones con el infinito
+T01.4,T01,Límites infinitos en un punto finito
+T01.5,T01,Límites finitos en el infinito
+T01.6,T01,Límites infinitos en el infinito
+T01.7,T01,Operaciones con límites de funciones
+T01.8,T01,Cálculo de límites sencillos
+T01.9,T01,Indeterminaciones
+T01.10,T01,Continuidad
+T01.11,T01,Función derivada
+T01.12,T01,Derivadas laterales
+T01.13,T01,Ecuaciones de las rectas tangente y normal
+T01.14,T01,Tabla de derivadas
+T01.15,T01,Reglas de derivación
+T01.16,T01,Regla de la cadena
+T01.17,T01,Continuidad de las funciones derivables
+T01.18,T01,Regla de L'Hôpital. Aplicación al cálculo de límites
+T02.1,T02,Esquema general para representar una función
+T02.2,T02,Funciones polinómicas
+T02.3,T02,Funciones racionales
+T02.4,T02,Funciones exponenciales
+T02.5,T02,Funciones logarítmicas
+T02.6,T02,Funciones a trozos. Valor absoluto
+T02.7,T02,Traslaciones
+T02.8,T02,Expansión y contracción
+T02.9,T02,Optimización de funciones
+T03.1,T03,Integral indefinida
+T03.2,T03,Integrales inmediatas
+T03.3,T03,Integrales casi inmediatas
+T03.4,T03,Métodos de integración
+T03.5,T03,Integral definida
+T03.6,T03,Teorema fundamental del cálculo
+T03.7,T03,Regla de Barrow
+T03.8,T03,Aplicaciones de la integral
+T04.1,T04,"Matrices: definición, características y tipos"
+T04.2,T04,Operaciones con matrices
+T04.3,T04,Producto de matrices
+T04.4,T04,Potencia de una matriz
+T04.5,T04,Comparación de matrices. Matriz simétrica y matriz antisimétrica
+T04.6,T04,Determinante de una matriz
+T04.7,T04,Propiedades de los determinantes
+T04.8,T04,Desarrollo de un determinante
+T04.9,T04,Matriz inversa y matriz adjunta
+T04.10,T04,Rango de una matriz
+T04.11,T04,Ecuaciones matriciales
+T04.12,T04,Grafos y matriz de adyacencia asociada
+T05.1,T05,Sistemas de ecuaciones lineales
+T05.2,T05,Solución de un sistema de ecuaciones
+T05.3,T05,Clasificación de sistemas de ecuaciones según sus soluciones
+T05.4,T05,Notación matricial de un sistema de ecuaciones
+T05.5,T05,Sistemas equivalentes
+T05.6,T05,Teorema de Rouché-Frobenius
+T05.7,T05,Resolución de sistemas. Matriz inversa
+T05.8,T05,Resolución de sistemas. Método de Gauss
+T05.9,T05,Resolución de sistemas. Regla de Cramer
+T05.10,T05,Sistemas homogéneos
+T05.11,T05,Discusión de sistemas con parámetros
+T06.1,T06,Inecuaciones lineales con dos incógnitas
+T06.2,T06,Sistemas de inecuaciones lineales con dos incógnitas
+T06.3,T06,Programación lineal
+T06.4,T06,Solución de un problema de programación lineal
+T06.5,T06,Problemas de programación lineal
+T07.1,T07,Sucesos. Regla de Laplace
+T07.2,T07,Álgebra de sucesos
+T07.3,T07,Tablas de contingencia
+T07.4,T07,Frecuencias
+T07.5,T07,Axiomática de Kolmogórov
+T07.6,T07,Propiedades de la probabilidad
+T07.7,T07,Experimentos compuestos
+T07.8,T07,Probabilidad condicionada
+T07.9,T07,Probabilidad total
+T07.10,T07,Teorema de Bayes
+T08.1,T08,Variable aleatoria
+T08.2,T08,Distribución binomial
+T08.3,T08,Distribución normal
+T08.4,T08,Aproximación de la distribución binomial a la distribución normal
+T09.1,T09,Estadística inferencial
+T09.2,T09,Muestreo
+T09.3,T09,Técnicas de muestreo
+T09.4,T09,Distribución muestral. Teorema central del límite
+T09.5,T09,Estimación puntual y estimación por intervalos
+T09.6,T09,Intervalos de probabilidad o intervalos característicos
+T09.7,T09,Intervalos de confianza
+T09.8,T09,Tamaño de la muestra. Error cometido
+T09.9,T09,Ficha técnica de encuestas

@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "pairId": "recuperacion-inferencia",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-21",
+  "sources": [
+    {
+      "sourceId": "F009",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Examen Resuelto Recuperación.zip",
+      "zipSha256": "b935278309137eed26efd796c14fe87377553cffa6ffb6583fa53021e3611f25",
+      "entry": "main.tex",
+      "texSha256": "8679c25e61286c7c440e4c950688e6cbb9d632dfbfc83e0dbf14fd3cb51f048b"
+    }
+  ],
+  "assets": [
+    {
+      "path": "logo-al-andalus.png",
+      "sourceId": "F009",
+      "entry": "Logo AL-ANDALUS.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    }
+  ],
+  "solutionOrigin": "Soluciones originales revisadas; apartado 6(b) elaborado al estar incompleto en el original",
+  "preserved": {
+    "durationMinutes": 55,
+    "calculatorAllowed": true,
+    "exercisePoints": [
+      2.5,
+      2.5,
+      2.5,
+      2.5,
+      2.5,
+      2.5,
+      2.5,
+      2.5,
+      2.5
+    ],
+    "nominalPoints": 22.5,
+    "selectionRule": null,
+    "expressionPointsIncludedPerExercise": 0.5,
+    "partPoints": [
+      [
+        1.5,
+        1
+      ],
+      [
+        0.5,
+        1,
+        1
+      ],
+      [
+        0.5,
+        0.5,
+        1,
+        0.5
+      ],
+      [
+        0.7,
+        0.8,
+        1
+      ],
+      [
+        1.5,
+        1
+      ],
+      [
+        1,
+        1.5
+      ],
+      [
+        1,
+        0.75,
+        0.75
+      ],
+      [
+        1.2,
+        1.3
+      ],
+      [
+        1,
+        1.5
+      ]
+    ]
+  },
+  "corrections": [
+    "M04",
+    "M05",
+    "M23",
+    "M24",
+    "M25",
+    "M26"
+  ],
+  "normalConvention": "N(mu,sigma); varianza declarada aparte",
+  "modelAssumptions": "Muestreo aleatorio con independencia para inferencia; muestreo sin reemplazamiento de llaves; elección uniforme de latas",
+  "answers": {
+    "patients": {
+      "data": [
+        "8",
+        "9.2",
+        "10",
+        "8.5",
+        "12",
+        "9",
+        "11.3",
+        "7",
+        "8.5",
+        "8.3",
+        "7.6",
+        "9",
+        "9.4",
+        "10.5",
+        "8.9",
+        "6.8"
+      ],
+      "sum": "144",
+      "mean": "9",
+      "variance": 4,
+      "confidence": 0.975,
+      "interval": [
+        7.879298636197527,
+        10.120701363802473
+      ],
+      "sampleSize": 121
+    },
+    "berries": {
+      "data": [
+        "12.3",
+        "10",
+        "9.1",
+        "11",
+        "10.5",
+        "11.8",
+        "9.9",
+        "11.5",
+        "10.9",
+        "13"
+      ],
+      "sum": "110",
+      "mean": "11",
+      "variance": 9,
+      "confidence": 0.97,
+      "interval": [
+        8.941271503525394,
+        13.058728496474606
+      ],
+      "sampleSize": 19,
+      "strictMargin": true
+    },
+    "stars": {
+      "mean": "351/50",
+      "margin": "49/50",
+      "newMarginTable": "21/25"
+    },
+    "keys": {
+      "both": "118/267",
+      "atLeastOne": "238/267",
+      "exactlyOne": "40/89"
+    },
+    "cans": {
+      "expiring": "6/25",
+      "colaGivenNot": "41/114"
+    },
+    "linear": {
+      "vertices": [
+        [
+          "1",
+          "3"
+        ],
+        [
+          "3",
+          "2"
+        ],
+        [
+          "4",
+          "4"
+        ],
+        [
+          "2",
+          "7"
+        ]
+      ],
+      "minimum": "5",
+      "point": [
+        "1",
+        "3"
+      ]
+    },
+    "analysis": {
+      "a": -2,
+      "b": 24,
+      "maximum": [
+        "-1/2",
+        "5"
+      ],
+      "minimum": [
+        "1/2",
+        "3"
+      ],
+      "primitiveConstant": -8,
+      "area": "32/3"
+    },
+    "matrices": {
+      "X": [
+        [
+          6,
+          5
+        ],
+        [
+          -2,
+          -2
+        ]
+      ],
+      "Y": [
+        [
+          "1",
+          "5/2"
+        ],
+        [
+          "-1",
+          "-3"
+        ]
+      ]
+    }
+  }
+}

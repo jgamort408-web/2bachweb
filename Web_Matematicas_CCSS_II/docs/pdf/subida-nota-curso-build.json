@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 1,
+  "mathematics": {
+    "passed": true,
+    "exercises": 4,
+    "integerCakePlans": 1345,
+    "cakeOptimum": [
+      20,
+      40,
+      680
+    ],
+    "dualBound": "680",
+    "busSum": "30.9",
+    "busMean": "3.09",
+    "busInterval": [
+      1.7175143356835965,
+      4.462485664316404
+    ],
+    "busSampleSize": 62,
+    "M01CounterexampleVerified": true
+  },
+  "documents": [
+    {
+      "id": "subida-nota-curso-examen",
+      "pages": 4,
+      "bytes": 32213,
+      "sha256": "c68e6cfbcd4e4f6e8b994e036f6aaea3becbe1ad61d353ed4c1435b2164c5659",
+      "title": "Subida de nota de curso - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 11,
+      "characters": 3330
+    },
+    {
+      "id": "subida-nota-curso-soluciones",
+      "pages": 4,
+      "bytes": 46818,
+      "sha256": "772b379e92a134ff92f7391371c677ef5778517c5c4c3d94194c38d959544e65",
+      "title": "Subida de nota de curso - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 13,
+      "characters": 5056
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-22",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/subida-nota-curso/estilo.tex",
+      "sha256": "cc41dd6592995d36828493a18435e0694b8a5664ded541ef4d2e47e1580f3b8c"
+    },
+    {
+      "path": "content/latex/subida-nota-curso/provenance.json",
+      "sha256": "60786b28efa22ac1ad4a9c8b86c64a6dc813a687f9dbae44832ca8ebf4a576b3"
+    },
+    {
+      "path": "content/latex/subida-nota-curso/subida-nota-curso-examen.tex",
+      "sha256": "ab4ad35086a0af3d6ba24b245bfe958d824f1c9fbdfee3f052e115f9399b9837"
+    },
+    {
+      "path": "content/latex/subida-nota-curso/subida-nota-curso-soluciones.tex",
+      "sha256": "be64ab6581c25e5366c43e1e554cc93c7277b871227e120df22e5cba4534211f"
+    }
+  ]
+}

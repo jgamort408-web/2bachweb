@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>8. Distribuciones de probabilidad · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+  <script type="module" src="../../../assets/js/learning/worked-problems.js"></script>
+  <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+</head>
+<body data-page-id="t08">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">8. Distribuciones de probabilidad</h1>
+    <p data-content-role="lead">De los sucesos a las variables aleatorias: modelos para estudiar el azar con las distribuciones binomial y normal.</p>
+    <p data-content-role="orientation">Esta presentación organiza el recorrido del tema. La lección 8.1 ya incluye definición, probabilidades y el ejemplo del dado. La lección 8.2 incorpora condiciones binomiales y dos ejemplos resueltos. La lección 8.3 incorpora densidad, acumulada, tipificación y un explorador. También están disponibles la aproximación normal, los 21 ejercicios resueltos y las 19 tarjetas revisadas.</p>
+    <nav aria-label="Apartados de la presentación" data-content-role="related-links"><a href="#recorrido">Recorrido</a> · <a href="#objetivos">Objetivos</a> · <a href="#ejercicios">Ejercicios</a> · <a href="#tarjetas">Tarjetas</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+    <p data-content-role="key-idea">La campana de Gauss es la forma característica de la densidad de la distribución normal.</p>
+
+    <section id="recorrido" data-content-role="explanation"><h2>Recorrido del tema</h2>
+      <ol data-source-itinerary>
+        <li data-source-section="4.1"><h3><a href="01-variable-aleatoria.html">8.1. Variable aleatoria</a></h3>
+          <p>Definición y diferencia entre variables discretas y continuas. Contar y medir ayudan a orientarse: las discretas toman valores en un conjunto finito o numerable; los modelos continuos que estudiaremos se describen mediante una densidad.</p>
+          <p data-content-role="status">Contenido parcial disponible: definición, distribución discreta finita, parámetros y ejemplo resuelto. La clasificación completa sigue pendiente.</p>
+        </li>
+        <li data-source-section="4.2"><h3><a href="02-distribucion-binomial.html">8.2. Distribución binomial</a></h3>
+          <p>Contar los éxitos en un número fijo de ensayos de Bernoulli independientes, con dos resultados posibles por ensayo y la misma probabilidad de éxito.</p>
+          <p data-intro-formula="binomial">\(X\sim B(n,p)\)</p>
+          <p>\(n\) es el número de ensayos y \(p\) la probabilidad de éxito en cada uno. «Éxito» nombra el resultado que se cuenta; no significa necesariamente algo favorable.</p>
+          <p data-content-role="status">Contenido parcial disponible: condiciones, fórmula, parámetros y dos ejemplos resueltos.</p>
+        </li>
+        <li data-source-section="4.3"><h3><a href="03-distribucion-normal.html">8.3. Distribución normal</a></h3>
+          <p>La campana de Gauss, la tipificación y el uso de la tabla de la normal estándar \(N(0,1)\).</p>
+          <p data-intro-formula="normal">\(X\sim N(\mu,\sigma)\)</p>
+          <p data-content-role="key-idea">En este tema, el segundo parámetro es la desviación típica \(\sigma&gt;0\), y \(\mu\) es la media. Otros textos escriben \(N(\mu,\sigma^2)\) usando la varianza como segundo parámetro: hay que comprobar siempre la convención.</p>
+          <p data-content-role="status">Contenido parcial disponible: teoría, tipificación y explorador de densidad y acumulada.</p>
+        </li>
+        <li data-source-section="4.4"><h3><a href="04-aproximacion-de-la-distribucion-binomial-a-la-distribucion-normal.html">8.4. Aproximación de la binomial a la normal</a></h3>
+          <p>Teorema de De Moivre–Laplace y corrección de continuidad para aproximar probabilidades binomiales mediante una normal.</p>
+          <p data-content-role="warning">Un número grande de ensayos no basta por sí solo. También importa la probabilidad de éxito: hay que revisar los éxitos y fracasos esperados, \(np\) y \(n(1-p)\), y el intervalo cuya probabilidad se quiere aproximar.</p>
+          <p data-content-role="status">Lección parcial disponible con comparador de seis controles y cuatro gráficos.</p>
+        </li>
+        <li data-source-section="4.5"><h3><a href="#ejercicios">Ejercicios resueltos</a></h3>
+          <p>Una relación de problemas para practicar la elección del modelo y el cálculo de probabilidades.</p>
+          <p data-content-role="status">Integrados 21 ejercicios del original, con seis resultados finales corregidos y pasos visibles bajo demanda.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="objetivos" data-content-role="objectives"><h2>Objetivos de aprendizaje</h2>
+      <ul data-source-objectives>
+        <li>Operar con distribuciones de probabilidad e interpretar sus resultados.</li>
+        <li>Clasificar variables aleatorias en discretas y continuas.</li>
+        <li>Identificar situaciones que pueden modelizarse mediante una binomial o una normal y comprobar sus supuestos.</li>
+        <li>Calcular probabilidades utilizando tablas y fórmulas adecuadas.</li>
+        <li>Aplicar la aproximación de la binomial a la normal cuando sus condiciones lo permitan, utilizando la corrección de continuidad.</li>
+      </ul>
+    </section>
+    <section id="ejercicios" data-content-role="practice"><h2>Ejercicios resueltos</h2>
+<p>Los 21 ejercicios proceden del archivo original de Distribuciones. Elige uno para estudiar sus pasos. Todas las soluciones permanecen disponibles sin JavaScript.</p>
+<p>Se han contrastado los resultados con cálculos independientes. Las cifras corregidas se señalan junto a cada solución; los decimales son aproximaciones.</p>
+<div data-worked-problems>
+<div data-exercise-controls hidden><label for="t08-exercise-select">Mostrar ejercicio</label><select id="t08-exercise-select" data-exercise-select><option value="all">Todos los ejercicios</option>
+<option value="1">1. Binomial (lanzamiento de dados)</option>
+<option value="2">2. Binomial (moneda equilibrada)</option>
+<option value="3">3. Binomial (piezas defectuosas)</option>
+<option value="4">4. Binomial (resultados de un examen)</option>
+<option value="5">5. Binomial (campaña publicitaria)</option>
+<option value="6">6. Binomial (al menos un éxito)</option>
+<option value="7">7. Binomial (cola derecha)</option>
+<option value="8">8. Normal tipificada (alturas)</option>
+<option value="9">9. Normal (intervalo con tipificación)</option>
+<option value="10">10. Normal (cola derecha)</option>
+<option value="11">11. Percentil en una normal (umbral de nota)</option>
+<option value="12">12. Probabilidad de estar dentro de tolerancia</option>
+<option value="13">13. Error de medida (valor absoluto)</option>
+<option value="14">14. Normal (cola izquierda, caso práctico)</option>
+<option value="15">15. Normal (probabilidad entre dos valores)</option>
+<option value="16">16. Normal tipificada (trabajar directamente con Z)</option>
+<option value="17">17. Aproximación Binomial→Normal (control de calidad)</option>
+<option value="18">18. Aproximación Binomial→Normal (encuesta)</option>
+<option value="19">19. Aproximación Binomial→Normal (moneda)</option>
+<option value="20">20. Aproximación Binomial→Normal (sensibilidad de test)</option>
+<option value="21">21. Aproximación Binomial→Normal (fallos de conexión)</option>
+</select><p data-exercise-status role="status" aria-live="polite"></p></div>
+<h3>Binomial</h3>
+<article id="ejercicio-1" data-exercise="1" data-source-id="binomial_dados_10_exactamente_3_seises" data-content-role="worked-example"><h4>1. Binomial (lanzamiento de dados)</h4><div>Se lanza un dado equilibrado \(n=10\) veces. Sea \(X\) el número de veces que sale un seis. Calcula la probabilidad de que salga exactamente 3 veces: \(P(X=3)\).</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 1</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Identificar la distribución binomial</h5><p>Cada lanzamiento es un experimento de Bernoulli con:</p><ul><li>\(n=10\)</li><li>\(p=\frac{1}{6}\) (probabilidad de sacar un seis)</li></ul><p>Por tanto, \(X\sim\mathrm{Bin}(10,\tfrac{1}{6})\).</p></section>
+<section data-content-role="worked-step"><h5>Paso 2: Escribir la fórmula de la binomial</h5>\[P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}.\]</section>
+<section data-content-role="worked-step"><h5>Paso 3: Sustituir valores</h5>\[P(X=3)=\binom{10}{3}\left(\frac{1}{6}\right)^3\left(\frac{5}{6}\right)^7.\]</section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[P(X=3)\approx 0.155\]</p>
+</details></article>
+<article id="ejercicio-2" data-exercise="2" data-source-id="binomial_moneda_20_menos_8_caras" data-content-role="worked-example"><h4>2. Binomial (moneda equilibrada)</h4><div>Se lanza una moneda equilibrada \(n=20\) veces. Sea \(X\) el número de caras obtenidas. Calcula la probabilidad de que salgan menos de 8 caras: \(P(X<8)\).</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 2</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Definir la variable aleatoria</h5><p>Cada lanzamiento tiene probabilidad \(p=0.5\) de cara.</p><p>Luego \(X\sim\mathrm{Bin}(20,0.5)\).</p></section>
+<section data-content-role="worked-step"><h5>Paso 2: Expresar la probabilidad pedida</h5><p>"Menos de 8" significa:</p>\[P(X<8)=P(X\le 7)=\sum_{k=0}^{7}P(X=k).\]</section>
+<section data-content-role="worked-step"><h5>Paso 3: Aplicar la fórmula binomial</h5><p>Usando la expresión general:</p>\[P(X\le 7)=\sum_{k=0}^{7}\binom{20}{k}(0.5)^k(0.5)^{20-k}.\]</section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[P(X<8)\approx 0{,}1316\]</p>
+</details></article>
+<article id="ejercicio-3" data-exercise="3" data-source-id="binomial_defectos_50_0_04_al_menos_3" data-content-role="worked-example"><h4>3. Binomial (piezas defectuosas)</h4><div>Un \(4\%\) de las piezas fabricadas es defectuoso. Se seleccionan \(n=50\) piezas al azar. Sea \(X\) el número de defectuosas. Calcula la probabilidad de que haya al menos 3 defectuosas: \(P(X\ge 3)\).</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 3</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Modelo binomial</h5><p>Cada pieza puede ser defectuosa con probabilidad \(p=0.04\).</p><p>Por tanto, \(X\sim\mathrm{Bin}(50,0.04)\).</p></section>
+<section data-content-role="worked-step"><h5>Paso 2: Usar el complemento</h5><p>Es más sencillo calcular el complemento:</p>\[P(X\ge 3)=1-P(X\le 2).\]</section>
+<section data-content-role="worked-step"><h5>Paso 3: Calcular las probabilidades pequeñas</h5>\[P(X\le 2)=P(0)+P(1)+P(2)\]<p>donde:</p>\[P(k)=\binom{50}{k}(0.04)^k(0.96)^{50-k}.\]</section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[P(X\ge3)\approx 0{,}3233\]</p>
+<p data-content-role="warning">Corrección del original: El valor 0,239 del original no coincide con 1−P(X≤2).</p>
+</details></article>
+<article id="ejercicio-4" data-exercise="4" data-source-id="binomial_examen_30_0_7_entre_18_24" data-content-role="worked-example"><h4>4. Binomial (resultados de un examen)</h4><div>Un estudiante tiene probabilidad \(0.7\) de acertar una pregunta tipo test. El examen tiene \(n=30\) preguntas. Sea \(X\) el número de respuestas correctas. Calcula \(P(18\le X\le 24)\).</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 4</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Identificar el modelo</h5><p>\(X\sim\mathrm{Bin}(30,0.7)\).</p></section>
+<section data-content-role="worked-step"><h5>Paso 2: Expresar la probabilidad como suma</h5>\[P(18\le X\le 24)=\sum_{k=18}^{24}P(X=k).\]</section>
+<section data-content-role="worked-step"><h5>Paso 3: Aplicar la fórmula binomial</h5><p>Usamos:</p>\[P(X=k)=\binom{30}{k}(0.7)^k(0.3)^{30-k}.\]</section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[P(18\le X\le24)\approx 0{,}8389\]</p>
+<p data-content-role="warning">Corrección del original: El valor 0,609 del original no coincide con la suma de k=18 a 24.</p>
+</details></article>
+<article id="ejercicio-5" data-exercise="5" data-source-id="binomial_publicidad_100_0_15_exactamente_20" data-content-role="worked-example"><h4>5. Binomial (campaña publicitaria)</h4><div>El \(15\%\) de los usuarios hace clic en un anuncio. Se muestran \(n=100\) anuncios. Sea \(X\) el número de clics. Calcula la probabilidad de obtener exactamente 20 clics.</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 5</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Definir la variable aleatoria</h5><p>\(X\sim\mathrm{Bin}(100,0.15)\).</p></section>
+<section data-content-role="worked-step"><h5>Paso 2: Aplicar la fórmula binomial</h5>\[P(X=20)=\binom{100}{20}(0.15)^{20}(0.85)^{80}.\]</section>
+<section data-content-role="worked-step"><h5>Paso 3: Interpretación</h5><p>Este valor representa la probabilidad exacta de obtener 20 clics en 100 anuncios mostrados.</p></section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[P(X=20)\approx 0{,}0402\]</p>
+</details></article>
+<article id="ejercicio-6" data-exercise="6" data-source-id="binomial_encuesta_12_0_4_al_menos_1" data-content-role="worked-example"><h4>6. Binomial (al menos un éxito)</h4><div>La probabilidad de que una persona responda una encuesta es \(0.4\). Se llama a \(n=12\) personas. Sea \(X\) el número de respuestas obtenidas. Calcula la probabilidad de que al menos una persona responda.</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 6</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Identificar la binomial</h5><p>\(X\sim\mathrm{Bin}(12,0.4)\).</p></section>
+<section data-content-role="worked-step"><h5>Paso 2: Usar el complemento</h5><p>"Al menos una" es el complemento de "ninguna":</p>\[P(X\ge 1)=1-P(X=0).\]</section>
+<section data-content-role="worked-step"><h5>Paso 3: Calcular la probabilidad</h5>\[P(X=0)=\binom{12}{0}(0.4)^0(0.6)^{12}=(0.6)^{12}.\]</section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[P(X\ge 1)\approx 0.998\]</p>
+</details></article>
+<article id="ejercicio-7" data-exercise="7" data-source-id="binomial_control_8_0_25_mas_que_3" data-content-role="worked-example"><h4>7. Binomial (cola derecha)</h4><div>Un sistema falla con probabilidad \(0.25\) en cada intento. Se realizan \(n=8\) intentos independientes. Sea \(X\) el número de fallos. Calcula la probabilidad de que haya más de 3 fallos: \(P(X>3)\).</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 7</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Modelo binomial</h5><p>\(X\sim\mathrm{Bin}(8,0.25)\).</p></section>
+<section data-content-role="worked-step"><h5>Paso 2: Expresar la probabilidad pedida</h5>\[P(X>3)=P(X\ge 4)=1-P(X\le 3).\]</section>
+<section data-content-role="worked-step"><h5>Paso 3: Calcular con la fórmula binomial</h5><p>Se calcula:</p>\[P(X\le 3)=\sum_{k=0}^{3}\binom{8}{k}(0.25)^k(0.75)^{8-k}.\]</section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[P(X>3)\approx 0{,}1138\]</p>
+</details></article>
+<h3>Distribución normal</h3>
+<article id="ejercicio-8" data-exercise="8" data-source-id="normal_tipificada_alturas_170_6_menor_160" data-content-role="worked-example"><h4>8. Normal tipificada (alturas)</h4><div>Las alturas de un grupo de estudiantes se distribuyen como \(X\sim N(170,6)\). Aproxima la probabilidad de que un estudiante mida menos de \(160\) cm: \(P(X<160)\).</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 8</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Identificar la distribución y los datos</h5><p>Tenemos \(X\sim N(\mu,\sigma)\) con:</p><ul><li>\(\mu=170\)</li><li>\(\sigma=6\)</li><li>Queremos \(P(X<160)\).</li></ul></section>
+<section data-content-role="worked-step"><h5>Paso 2: Tipificar (pasar a la normal estándar)</h5><p>Definimos \(Z=\dfrac{X-\mu}{\sigma}\sim N(0,1)\).</p><p>Para \(x=160\):</p>\[z=\frac{160-170}{6}=\frac{-10}{6}\approx -1.667.\]</section>
+<section data-content-role="worked-step"><h5>Paso 3: Calcular con la tabla \(\Phi\)</h5><p>Entonces:</p>\[P(X<160)=P\left(Z<-1.667\right)=\Phi(-1.667)=1-\Phi(1.667).\]<p>Con tabla/calculadora: \(\Phi(1.667)\approx 0.952\).</p>\[1-0.952=0.048.\]</section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[P(X<160)\approx 0.048\ (4.8\%)\]</p>
+</details></article>
+<article id="ejercicio-9" data-exercise="9" data-source-id="normal_tipificada_pesos_72_8_entre_60_80" data-content-role="worked-example"><h4>9. Normal (intervalo con tipificación)</h4><div>El peso de un tipo de paquete se distribuye como \(X\sim N(72,8)\). Calcula \(P(60\le X\le 80)\).</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 9</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Datos del problema</h5><p>\(X\sim N(\mu,\sigma)\) con \(\mu=72\) y \(\sigma=8\).</p><p>Buscamos \(P(60\le X\le 80)\).</p></section>
+<section data-content-role="worked-step"><h5>Paso 2: Tipificar los extremos</h5><p>Tipificamos \(Z=\dfrac{X-72}{8}\).</p>\[z_1=\frac{60-72}{8}=-1.5,\qquad z_2=\frac{80-72}{8}=1.\]</section>
+<section data-content-role="worked-step"><h5>Paso 3: Usar \(\Phi\) y restar</h5><p>Entonces:</p>\[P(60\le X\le 80)=P(-1.5\le Z\le 1)=\Phi(1)-\Phi(-1.5).\]<p>Valores típicos: \(\Phi(1)\approx 0.8413\) y \(\Phi(-1.5)\approx 0.0668\).</p>\[0.8413-0.0668=0.7745.\]</section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[P(60\le X\le 80)\approx 0.7745\]</p>
+</details></article>
+<article id="ejercicio-10" data-exercise="10" data-source-id="normal_tipificada_tiempos_25_4_mayor_33" data-content-role="worked-example"><h4>10. Normal (cola derecha)</h4><div>El tiempo de espera en una consulta se modeliza como \(X\sim N(25,4)\). Calcula \(P(X>33)\).</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 10</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Identificar datos</h5><p>\(\mu=25\), \(\sigma=4\) y queremos \(P(X>33)\).</p></section>
+<section data-content-role="worked-step"><h5>Paso 2: Tipificar el valor 33</h5>\[z=\frac{33-25}{4}=\frac{8}{4}=2.\]</section>
+<section data-content-role="worked-step"><h5>Paso 3: Convertir a cola derecha con \(\Phi\)</h5><p>Como es cola derecha:</p>\[P(X>33)=P(Z>2)=1-\Phi(2).\]<p>Con tabla/calculadora: \(\Phi(2)\approx 0.9772\).</p>\[1-0.9772=0.0228.\]</section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[P(X>33)\approx 0.0228\ (2.28\%)\]</p>
+</details></article>
+<article id="ejercicio-11" data-exercise="11" data-source-id="normal_tipificada_notas_5_1_2_percentil_90" data-content-role="worked-example"><h4>11. Percentil en una normal (umbral de nota)</h4><div>Las notas de un examen se distribuyen como \(X\sim N(5,1.2)\). ¿Qué nota \(c\) hay que sacar para estar en el 10\% superior? (Es decir, encontrar \(c\) tal que \(P(X\ge c)=0.10\)).</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 11</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Plantear el percentil</h5><p>Queremos el punto de corte \(c\) con:</p>\[P(X\ge c)=0.10\quad\Longleftrightarrow\quad P(X\le c)=0.90.\]</section>
+<section data-content-role="worked-step"><h5>Paso 2: Pasar a \(Z\) y usar el valor crítico</h5><p>Tipificamos \(Z=\dfrac{X-\mu}{\sigma}\), con \(\mu=5\) y \(\sigma=1.2\).</p><p>Necesitamos \(z\) tal que \(\Phi(z)=0.90\).</p><p>De tablas: \(z_{0.90}\approx 1.282\).</p></section>
+<section data-content-role="worked-step"><h5>Paso 3: Deshacer la tipificación</h5><p>Si \(\dfrac{c-5}{1.2}=1.282\), entonces:</p>\[c=5+1.2\cdot 1.282=5+1.5384\approx 6.54.\]</section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[c\approx 6.54\]</p>
+</details></article>
+<article id="ejercicio-12" data-exercise="12" data-source-id="normal_tipificada_fabricacion_10_0_2_entre_9_7_10_3" data-content-role="worked-example"><h4>12. Probabilidad de estar dentro de tolerancia</h4><div>El diámetro de una pieza sigue \(X\sim N(10,0.2)\). Calcula la probabilidad de que esté dentro de la tolerancia \([9.7,10.3]\).</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 12</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Datos y probabilidad pedida</h5><p>\(\mu=10\), \(\sigma=0.2\).</p><p>Buscamos \(P(9.7\le X\le 10.3)\).</p></section>
+<section data-content-role="worked-step"><h5>Paso 2: Tipificar extremos</h5>\[z_1=\frac{9.7-10}{0.2}=\frac{-0.3}{0.2}=-1.5,\qquad z_2=\frac{10.3-10}{0.2}=\frac{0.3}{0.2}=1.5.\]</section>
+<section data-content-role="worked-step"><h5>Paso 3: Calcular con \(\Phi\)</h5>\[P(9.7\le X\le 10.3)=\Phi(1.5)-\Phi(-1.5).\]<p>Con valores típicos: \(\Phi(1.5)\approx 0.9332\) y \(\Phi(-1.5)\approx 0.0668\).</p>\[0.9332-0.0668=0.8664.\]</section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[P(9.7\le X\le 10.3)\approx 0.8664\]</p>
+</details></article>
+<article id="ejercicio-13" data-exercise="13" data-source-id="normal_tipificada_errores_0_0_03_mayor_abs_0_05" data-content-role="worked-example"><h4>13. Error de medida (valor absoluto)</h4><div>El error de una medición se modeliza como \(X\sim N(0,0.03)\). Calcula \(P(|X|>0.05)\).</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 13</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Interpretar el valor absoluto</h5><p>\(|X|>0.05\) significa \(X<-0.05\) o \(X>0.05\).</p><p>Por simetría (media 0):</p>\[P(|X|>0.05)=2\,P(X>0.05).\]</section>
+<section data-content-role="worked-step"><h5>Paso 2: Tipificar 0.05</h5><p>Con \(\mu=0\), \(\sigma=0.03\):</p>\[z=\frac{0.05-0}{0.03}=\frac{0.05}{0.03}\approx 1.667.\]</section>
+<section data-content-role="worked-step"><h5>Paso 3: Calcular cola derecha con \(\Phi\)</h5>\[P(X>0.05)=P(Z>1.667)=1-\Phi(1.667).\]<p>Con tabla/calculadora: \(\Phi(1.667)\approx 0.952\).</p>\[P(X>0.05)\approx 1-0.952=0.048.\]<p>Entonces:</p>\[P(|X|>0.05)\approx 2\cdot 0.048=0.096.\]</section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[P(|X|>0.05)\approx 0.096\ (9.6\%)\]</p>
+</details></article>
+<article id="ejercicio-14" data-exercise="14" data-source-id="normal_tipificada_consumo_200_30_menor_150" data-content-role="worked-example"><h4>14. Normal (cola izquierda, caso práctico)</h4><div>El consumo diario de agua (en litros) en un hogar sigue \(X\sim N(200,30)\). Calcula \(P(X\le 150)\).</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 14</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Datos</h5><p>\(\mu=200\), \(\sigma=30\), queremos \(P(X\le 150)\).</p></section>
+<section data-content-role="worked-step"><h5>Paso 2: Tipificar</h5>\[z=\frac{150-200}{30}=\frac{-50}{30}\approx -1.667.\]</section>
+<section data-content-role="worked-step"><h5>Paso 3: Usar \(\Phi\)</h5>\[P(X\le 150)=\Phi(-1.667)=1-\Phi(1.667).\]<p>Con \(\Phi(1.667)\approx 0.952\):</p>\[1-0.952=0.048.\]</section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[P(X\le 150)\approx 0.048\]</p>
+</details></article>
+<article id="ejercicio-15" data-exercise="15" data-source-id="normal_tipificada_reparto_45_7_mas_entre_40_55" data-content-role="worked-example"><h4>15. Normal (probabilidad entre dos valores)</h4><div>El tiempo de reparto (en minutos) se distribuye como \(X\sim N(45,7)\). Calcula \(P(40\le X\le 55)\).</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 15</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Datos</h5><p>\(\mu=45\), \(\sigma=7\) y queremos \(P(40\le X\le 55)\).</p></section>
+<section data-content-role="worked-step"><h5>Paso 2: Tipificar límites</h5>\[z_1=\frac{40-45}{7}=\frac{-5}{7}\approx -0.714,\qquad z_2=\frac{55-45}{7}=\frac{10}{7}\approx 1.429.\]</section>
+<section data-content-role="worked-step"><h5>Paso 3: Calcular con \(\Phi\)</h5>\[P(40\le X\le 55)=\Phi(1.429)-\Phi(-0.714).\]<p>Con tabla/calculadora: \(\Phi(1.429)\approx 0.923\) y \(\Phi(-0.714)\approx 0.237\).</p>\[0.923-0.237=0.686.\]</section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[P(40\le X\le 55)\approx 0.686\]</p>
+</details></article>
+<article id="ejercicio-16" data-exercise="16" data-source-id="normal_tipificada_z_directa_intervalo" data-content-role="worked-example"><h4>16. Normal tipificada (trabajar directamente con Z)</h4><div>Sea \(Z\sim N(0,1)\). Calcula \(P(-0.8\le Z\le 1.25)\).</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 16</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Identificar que ya es normal estándar</h5><p>Como \(Z\sim N(0,1)\), no hace falta tipificar. Solo usamos \(\Phi\).</p></section>
+<section data-content-role="worked-step"><h5>Paso 2: Expresar como diferencia de acumuladas</h5>\[P(-0.8\le Z\le 1.25)=\Phi(1.25)-\Phi(-0.8).\]</section>
+<section data-content-role="worked-step"><h5>Paso 3: Calcular con tabla/calculadora</h5><p>Valores típicos: \(\Phi(1.25)\approx 0.8944\) y \(\Phi(-0.8)\approx 0.2119\).</p>\[0.8944-0.2119=0.6825.\]</section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[P(-0.8\le Z\le 1.25)\approx 0.6825\]</p>
+</details></article>
+<h3>Aproximación binomial-normal</h3>
+<article id="ejercicio-17" data-exercise="17" data-source-id="aprox_binomial_normal_control_calidad_200" data-content-role="worked-example"><h4>17. Aproximación Binomial→Normal (control de calidad)</h4><div>En una fábrica, el \(2\%\) de las piezas sale defectuosa. Se inspeccionan \(n=200\) piezas. Sea \(X\) el número de defectuosas. Aproxima mediante la normal la probabilidad de que haya como mucho 6 defectuosas: \(P(X\le 6)\).</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 17</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Identificar el modelo y comprobar condiciones</h5><p>Modelizamos \(X\sim\mathrm{Bin}(n,p)\) con \(n=200\) y \(p=0.02\).</p><ul><li>\(np=200\cdot 0.02=4\)</li><li>\(n(1-p)=200\cdot 0.98=196\)</li></ul><p><strong>Condición:</strong> \(np\ge 5\) y \(n(1-p)\ge 5\) es la regla típica. Aquí <strong>\(np=4\) no cumple del todo</strong>, así que la aproximación será <em>algo justa</em>, pero la hacemos igualmente como pide el ejercicio.</p></section>
+<section data-content-role="worked-step"><h5>Paso 2: Pasar a la normal y aplicar corrección de continuidad</h5><p>Aproximamos:</p>\[X\approx Y\sim N(\mu,\sigma),\quad \mu=np=4,\quad \sigma=\sqrt{np(1-p)}=\sqrt{200\cdot 0.02\cdot 0.98}=\sqrt{3.92}\approx 1.980.\]<p>Como es una acumulada:</p>\[P(X\le 6)\approx P\big(Y\le 6+0.5\big)=P(Y\le 6.5).\]</section>
+<section data-content-role="worked-step"><h5>Paso 3: Estandarizar y calcular con \(\Phi\)</h5><p>Estandarizamos:</p>\[z=\frac{6.5-\mu}{\sigma}=\frac{6.5-4}{1.980}=\frac{2.5}{1.980}\approx 1.263.\]<p>Por tanto:</p>\[P(X\le 6)\approx \Phi(1.263)\approx 0.897.\]</section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[P(X\le 6)\approx 0.897\]</p>
+</details></article>
+<article id="ejercicio-18" data-exercise="18" data-source-id="aprox_binomial_normal_encuesta_400" data-content-role="worked-example"><h4>18. Aproximación Binomial→Normal (encuesta)</h4><div>En una ciudad se estima que el \(55\%\) de los ciudadanos está a favor de una medida. En una encuesta de \(n=400\) personas, sea \(X\) el número de personas a favor. Aproxima con la normal la probabilidad de que haya al menos 230 a favor: \(P(X\ge 230)\).</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 18</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Identificar el modelo y comprobar condiciones</h5><p>\(X\sim\mathrm{Bin}(n,p)\) con \(n=400\) y \(p=0.55\).</p><ul><li>\(np=400\cdot 0.55=220\)</li><li>\(n(1-p)=400\cdot 0.45=180\)</li></ul><p>Se cumple de sobra (\(\ge 5\)), así que la aproximación es adecuada.</p></section>
+<section data-content-role="worked-step"><h5>Paso 2: Pasar a la normal y aplicar corrección de continuidad</h5><p>Aproximamos:</p>\[X\approx Y\sim N(\mu,\sigma),\quad \mu=np=220,\quad \sigma=\sqrt{np(1-p)}=\sqrt{400\cdot 0.55\cdot 0.45}=\sqrt{99}\approx 9.950.\]<p>Como es “al menos 230”:</p>\[P(X\ge 230)=P(X>229)\approx P\big(Y\ge 229.5\big).\]</section>
+<section data-content-role="worked-step"><h5>Paso 3: Estandarizar y calcular con \(\Phi\)</h5><p>Estandarizamos el límite:</p>\[z=\frac{229.5-220}{9.950}=\frac{9.5}{9.950}\approx 0.955.\]<p>Entonces:</p>\[P(Y\ge 229.5)=1-\Phi(0.955)\approx 1-0.830=0.170.\]</section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[P(X\ge 230)\approx 0.170\]</p>
+</details></article>
+<article id="ejercicio-19" data-exercise="19" data-source-id="aprox_binomial_normal_lanzamientos_moneda_500" data-content-role="worked-example"><h4>19. Aproximación Binomial→Normal (moneda)</h4><div>Se lanza una moneda equilibrada \(n=500\) veces. Sea \(X\) el número de caras. Aproxima con la normal la probabilidad de que el número de caras esté entre 230 y 270 (ambos incluidos): \(P(230\le X\le 270)\).</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 19</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Identificar el modelo y comprobar condiciones</h5><p>\(X\sim\mathrm{Bin}(n,p)\) con \(n=500\) y \(p=0.5\).</p><ul><li>\(np=500\cdot 0.5=250\)</li><li>\(n(1-p)=500\cdot 0.5=250\)</li></ul><p>Se cumple la orientación para aproximar; la precisión de la probabilidad pedida se comprueba con el resultado.</p></section>
+<section data-content-role="worked-step"><h5>Paso 2: Pasar a la normal y aplicar corrección de continuidad</h5><p>Aproximamos:</p>\[X\approx Y\sim N(\mu,\sigma),\quad \mu=np=250,\quad \sigma=\sqrt{np(1-p)}=\sqrt{500\cdot 0.5\cdot 0.5}=\sqrt{125}\approx 11.180.\]<p>Al ser intervalo con extremos incluidos:</p>\[P(230\le X\le 270)\approx P(229.5\le Y\le 270.5).\]</section>
+<section data-content-role="worked-step"><h5>Paso 3: Estandarizar y calcular con \(\Phi\)</h5><p>Estandarizamos ambos límites:</p>\[z_1=\frac{229.5-250}{11.180}=\frac{-20.5}{11.180}\approx -1.834,\qquad z_2=\frac{270.5-250}{11.180}=\frac{20.5}{11.180}\approx 1.834.\]<p>Entonces:</p>\[P(229.5\le Y\le 270.5)=\Phi(1.834)-\Phi(-1.834).\]<p>Usando simetría \(\Phi(-z)=1-\Phi(z)\):</p>\[\Phi(1.834)-\Phi(-1.834)=\Phi(1.834)-\big(1-\Phi(1.834)\big)=2\Phi(1.834)-1.\]<p>Con el límite sin redondear: \(z=20.5/\sqrt{125}\approx1.8336\). Entonces \(\Phi(z)\approx0.96664\).</p>\[2\cdot0.96664-1\approx0.93328.\]</section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[P(230\le X\le270)\approx 0{,}9333\]</p>
+<p data-content-role="warning">Corrección del original: El valor 0,934 procede de redondear la tabla demasiado pronto; el cálculo sin ese redondeo da 0,9333.</p>
+</details></article>
+<article id="ejercicio-20" data-exercise="20" data-source-id="aprox_binomial_normal_medicina_150" data-content-role="worked-example"><h4>20. Aproximación Binomial→Normal (sensibilidad de test)</h4><div>Un test médico detecta correctamente una enfermedad con probabilidad \(p=0.9\). Se realizan \(n=150\) tests independientes. Sea \(X\) el número de detecciones correctas. Aproxima con la normal la probabilidad de que haya menos de 130 detecciones correctas: \(P(X<130)\).</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 20</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Identificar el modelo y comprobar condiciones</h5><p>\(X\sim\mathrm{Bin}(n,p)\) con \(n=150\) y \(p=0.9\).</p><ul><li>\(np=150\cdot 0.9=135\)</li><li>\(n(1-p)=150\cdot 0.1=15\)</li></ul><p>Ambas cantidades superan 5, así que se cumple la orientación para aproximar.</p></section>
+<section data-content-role="worked-step"><h5>Paso 2: Pasar a la normal y aplicar corrección de continuidad</h5><p>Aproximamos:</p>\[X\approx Y\sim N(\mu,\sigma),\quad \mu=np=135,\quad \sigma=\sqrt{np(1-p)}=\sqrt{150\cdot 0.9\cdot 0.1}=\sqrt{13.5}\approx 3.674.\]<p>“Menos de 130” significa \(X\le 129\) y con continuidad:</p>\[P(X<130)=P(X\le 129)\approx P(Y\le 129.5).\]</section>
+<section data-content-role="worked-step"><h5>Paso 3: Estandarizar y calcular con \(\Phi\)</h5><p>Estandarizamos:</p>\[z=\frac{129.5-135}{3.674}=\frac{-5.5}{3.674}\approx -1.497.\]<p>Entonces:</p>\[P(Y\le 129.5)=\Phi(-1.497)=1-\Phi(1.497).\]<p>Con tabla/calculadora: \(\Phi(1.497)\approx 0.933\).</p>\[1-0.933=0.067.\]</section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[P(X<130)\approx 0.067\]</p>
+</details></article>
+<article id="ejercicio-21" data-exercise="21" data-source-id="aprox_binomial_normal_conexion_120_0_3" data-content-role="worked-example"><h4>21. Aproximación Binomial→Normal (fallos de conexión)</h4><div>Una red tiene probabilidad \(p=0.3\) de que una conexión falle. Se observan \(n=120\) conexiones independientes. Sea \(X\) el número de fallos. Aproxima con la normal la probabilidad de que haya entre 30 y 45 fallos (incluidos): \(P(30\le X\le 45)\).</div><details data-solution><summary>Ver resolución paso a paso del ejercicio 21</summary>
+<section data-content-role="worked-step"><h5>Paso 1: Identificar el modelo y comprobar condiciones</h5><p>\(X\sim\mathrm{Bin}(n,p)\) con \(n=120\) y \(p=0.3\).</p><ul><li>\(np=120\cdot 0.3=36\)</li><li>\(n(1-p)=120\cdot 0.7=84\)</li></ul><p>Se cumple con holgura, la aproximación es adecuada.</p></section>
+<section data-content-role="worked-step"><h5>Paso 2: Pasar a la normal y aplicar corrección de continuidad</h5><p>Aproximamos:</p>\[X\approx Y\sim N(\mu,\sigma),\quad \mu=np=36,\quad \sigma=\sqrt{np(1-p)}=\sqrt{120\cdot 0.3\cdot 0.7}=\sqrt{25.2}\approx 5.020.\]<p>Intervalo con extremos incluidos:</p>\[P(30\le X\le 45)\approx P(29.5\le Y\le 45.5).\]</section>
+<section data-content-role="worked-step"><h5>Paso 3: Estandarizar y calcular con \(\Phi\)</h5><p>Estandarizamos:</p>\[z_1=\frac{29.5-36}{5.020}=\frac{-6.5}{5.020}\approx -1.295,\qquad z_2=\frac{45.5-36}{5.020}=\frac{9.5}{5.020}\approx 1.892.\]<p>Entonces:</p>\[P(29.5\le Y\le 45.5)=\Phi(1.892)-\Phi(-1.295).\]<p>Con tabla/calculadora: \(\Phi(1.892)\approx 0.971\), \(\Phi(-1.295)\approx 0.098\).</p>\[0.971-0.098=0.873.\]</section>
+<p data-content-role="key-idea"><strong>Resultado:</strong> \[P(30\le X\le 45)\approx 0.873\]</p>
+</details></article>
+</div>
+    </section>
+    <section id="tarjetas" data-content-role="review"><h2>Tarjetas de repaso</h2>
+      <p>Las 19 tarjetas originales revisadas cubren conceptos, binomial, normal, tipificación y aproximación. Intenta responder antes de mostrar la respuesta; puedes filtrar por categoría.</p>
+      <div class="activity" data-flashcards="t08"></div>
+      <p><a href="../../../tarjetas/index.html?tema=t08">Abrir el mazo del tema 8 en el visor general</a>.</p>
+    </section>
+    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2>
+      <p>Están integrados los siete archivos originales del tema 8. Las lecciones 8.1–8.4 mantienen estado parcial por las carencias señaladas en cada una.</p>
+      <p>La presentación original no incluye una tabla normal ni preguntas autocorregibles. Los juegos previstos también están en preparación. La relación de 21 problemas resueltos ya se ofrece arriba.</p>
+    </section>
+    <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="../07-probabilidad/index.html">Tema 7: probabilidad (en preparación)</a> · <a href="../../apoyos/estadistica-bidimensional.html">Apoyo de estadística bidimensional</a> · <a href="../../index.html">Volver al libro</a></nav>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

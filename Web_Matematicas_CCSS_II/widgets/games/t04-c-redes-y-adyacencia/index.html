@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+  <script src="../../../assets/js/core/content-gate.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Redes y adyacencia</title><link rel="stylesheet" href="style.css"><script type="module" src="widget.js"></script></head>
+<body data-widget-id="t04-c-redes-y-adyacencia"><main>
+<h1 data-content-role="lesson-title">Redes y adyacencia</h1>
+<p data-content-role="lead">Conecta ciudades y traduce entre sus mapas y matrices. Seis retos: tres del grafo a la matriz y tres en sentido contrario.</p>
+<details><summary>Cómo jugar y cómo se puntúa</summary><p>Las dos primeras redes tienen tres vértices y conexiones en ambos sentidos. Las dos siguientes tienen cuatro vértices y flechas; las dos últimas son no dirigidas y tienen al menos un vértice aislado. Las conexiones cambian en cada sesión y pueden repetirse. El orden de los vértices siempre aparece indicado.</p><p>Una entrada 1 significa conexión directa de la fila a la columna; 0 significa que no existe esa conexión directa, aunque podría existir un recorrido con más pasos. No hay lazos ni conexiones múltiples. En redes no dirigidas, la matriz debe ser simétrica.</p><p>Dos intentos por reto: 100 puntos al primero, 50 al segundo y 0 tras dos errores, con solución explicada. Máximo: 600 puntos. Las pistas no penalizan y se cuentan una vez por reto. No hay reloj. Puedes comprobar una matriz completamente nula cuando la red no tenga conexiones.</p><p>Usa Tab, flechas, Enter y Espacio. Mover los nodos solo cambia su posición visual; no necesitas arrastrar para responder. La tabla permite completar todos los retos con teclado. Respuestas y puntuación solo duran esta visita; la recarga las reinicia. Se conservan las preferencias de lectura.</p></details>
+<div class="activity" data-game>
+<label>Redes completadas <progress data-meter max="6" value="0"></progress></label>
+<p data-progress aria-live="polite" data-content-role="activity-progress"></p>
+<div data-question data-content-role="question"></div>
+<div data-network>
+<p data-editor-help></p><div data-figure></div><p data-connections></p>
+<p data-editor-status role="status"></p>
+</div>
+<fieldset data-options><legend data-legend></legend><div data-grid class="table-scroll" tabindex="0" role="region" aria-label="Tabla de conexiones; desplazamiento horizontal"></div></fieldset>
+<div data-feedback class="feedback" role="status" data-content-role="feedback"></div>
+<div class="actions"><button type="button" data-check>Comprobar red</button><button type="button" data-hint>Ver pista</button><button type="button" data-next hidden>Siguiente red</button></div>
+</div>
+<p><a href="../../../libro/temas/04-matrices-y-determinantes/12-grafos-y-matriz-de-adyacencia-asociada.html">Repasar grafos y adyacencia</a> · <a href="../../../libro/temas/04-matrices-y-determinantes/index.html#repaso">Repaso del tema 4</a></p>
+<noscript><p>El juego necesita JavaScript. Consulta los ejemplos resueltos del libro en los enlaces anteriores.</p></noscript>
+</main></body></html>

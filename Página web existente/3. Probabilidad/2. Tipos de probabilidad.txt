@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asignación de Probabilidades — Matemáticas Aplicadas (2º Bach.)</title>
+
+  <!-- Fuentes (con fallback automático) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Inter:wght@300;400;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- MathJax: configuración ANTES, carga UNA sola vez -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      options: { renderActions: { addMenu: [] } }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root{
+      --bg:#FDFBF7;
+      --text:#0f172a;
+      --muted:#475569;
+      --ink:#1f2937;
+
+      --card:#ffffff;
+      --radius:18px;
+      --max:1040px;
+
+      --indigo:#4f46e5;
+      --indigo-2:#312e81;
+      --amber:#d97706;
+      --cyan:#06b6d4;
+
+      --grid-dot: rgba(15, 23, 42, .10);
+      --shadow: 0 18px 35px rgba(15,23,42,.10);
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.55;
+      overflow-x:hidden;
+      touch-action: manipulation;
+
+      /* Fondo cuaderno */
+      background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    :focus-visible{
+      outline: 3px solid rgba(79,70,229,.35);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .page{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(18px, 3.2vw, 46px);
+    }
+
+    .handwritten{
+      font-family: Kalam, "Comic Sans MS", "Segoe Print", cursive;
+      color: var(--amber);
+      font-weight: 700;
+      display:inline-block;
+      transform: rotate(-1deg);
+      letter-spacing:.2px;
+    }
+
+    h1,h2,h3{
+      font-family: Fraunces, ui-serif, Georgia, "Times New Roman", Times, serif;
+      letter-spacing: -0.02em;
+      margin: 0;
+      color: var(--text);
+    }
+
+    header{
+      border-bottom: 2px solid rgba(15,23,42,.20);
+      padding-bottom: 18px;
+      margin-bottom: 34px;
+    }
+
+    h1{
+      margin-top: 10px;
+      font-size: clamp(30px, 4.2vw, 52px);
+      line-height: 1.08;
+      text-shadow: 2px 2px 0 var(--bg), 4px 4px 0 rgba(15,23,42,.08);
+    }
+
+    .lead{
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 80ch;
+    }
+
+    section{ margin: 0 0 44px; }
+
+    .paper{
+      background: var(--card);
+      border: 1px solid rgba(15,23,42,.12);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .pad{ padding: clamp(14px, 2.2vw, 22px); }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 860px){
+      .grid2{ grid-template-columns: 1fr; }
+    }
+
+    .callout{
+      background: var(--card);
+      border: 1px solid rgba(15,23,42,.12);
+      border-left: 6px solid var(--indigo);
+      border-radius: var(--radius);
+      box-shadow: 0 14px 28px rgba(15,23,42,.08);
+      padding: clamp(14px, 2.2vw, 22px);
+    }
+
+    .pill{
+      background: rgba(15,23,42,.03);
+      border: 1px solid rgba(15,23,42,.10);
+      border-radius: 16px;
+      padding: 14px 14px;
+    }
+    .pill h3{
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+    .pill p{ margin: 0; color:#334155; }
+
+    .highlight-blue{
+      background: linear-gradient(120deg, rgba(165,243,252,.95) 0%, rgba(165,243,252,.95) 100%);
+      background-repeat:no-repeat;
+      background-size: 100% 42%;
+      background-position: 0 88%;
+      padding: 0 .12em;
+      border-radius: 8px;
+    }
+    .highlight-yellow{
+      background: linear-gradient(120deg, rgba(253,230,138,.95) 0%, rgba(253,230,138,.95) 100%);
+      background-repeat:no-repeat;
+      background-size: 100% 42%;
+      background-position: 0 88%;
+      padding: 0 .12em;
+      border-radius: 8px;
+    }
+
+    .hr{
+      height: 0;
+      border: none;
+      border-top: 2px dashed rgba(15,23,42,.22);
+      margin: 40px 0;
+    }
+
+    /* “Graph paper” para fórmulas */
+    .graph-paper{
+      background-color: #ffffff;
+      background-image:
+        linear-gradient(rgba(15,23,42,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,23,42,.08) 1px, transparent 1px);
+      background-size: 20px 20px;
+      border: 2px solid rgba(15,23,42,.82);
+      box-shadow: 4px 4px 0 rgba(15,23,42,.82);
+      border-radius: 16px;
+    }
+
+    /* Definiciones matemáticas */
+    .math-def{
+      border-left: 6px solid var(--indigo);
+      background: rgba(248,250,252,.9);
+      border-radius: 0 16px 16px 0;
+      padding: clamp(14px, 2.2vw, 22px);
+      border: 1px solid rgba(15,23,42,.10);
+      border-left-width: 6px;
+    }
+    .math-def .label{
+      font-weight: 900;
+      color:#334155;
+      margin-bottom: 6px;
+    }
+    .math-def p{ margin: 0 0 10px; color:#334155; }
+    .math-box{
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 16px;
+    }
+
+    /* Ejemplos */
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .two-col{ grid-template-columns: 1fr; }
+    }
+
+    .example h3{
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .smallnote{
+      margin: 0 0 12px;
+      color:#64748b;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .ex-list{
+      list-style:none;
+      padding:0;
+      margin: 0;
+      display:grid;
+      gap: 10px;
+    }
+    .ex-item{
+      background: var(--card);
+      border: 1px solid rgba(15,23,42,.12);
+      border-radius: 16px;
+      padding: 12px 12px;
+      box-shadow: 0 10px 20px rgba(15,23,42,.06);
+    }
+    .ex-item strong{ color:#0f172a; }
+    .ex-item .math{
+      margin-top: 8px;
+    }
+
+    /* Caso empírico */
+    .case{
+      position: relative;
+      overflow:hidden;
+      border-radius: 18px;
+      border: 1px solid rgba(217,119,6,.25);
+      background: rgba(253,230,138,.22);
+      padding: clamp(14px, 2.2vw, 22px);
+    }
+    .case .icon{
+      position:absolute;
+      top: 10px;
+      right: 14px;
+      font-size: 42px;
+      opacity: .18;
+      user-select:none;
+    }
+    .case h3{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-weight: 900;
+      color: #7c2d12;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+      font-size: 18px;
+    }
+    .case p{
+      margin: 0 0 10px;
+      color: #7c2d12;
+    }
+    .case .result{
+      background: rgba(255,255,255,.55);
+      border: 1px solid rgba(124,45,18,.18);
+      border-radius: 16px;
+      padding: 12px 12px;
+    }
+    .case .note{
+      margin-top: 8px;
+      font-size: 12px;
+      color: rgba(124,45,18,.85);
+      font-style: italic;
+    }
+
+    /* Ley de los grandes números */
+    .flex{
+      display:flex;
+      gap: 16px;
+      align-items:center;
+    }
+    @media (max-width: 920px){
+      .flex{ flex-direction: column; align-items: stretch; }
+    }
+    .flex .wide{ flex: 1 1 auto; }
+    .flex .narrow{ flex: 0 0 320px; }
+    .sticky-quote{
+      text-align:center;
+      transform: rotate(1deg);
+      padding: 14px 14px;
+    }
+    .sticky-quote .handwritten{
+      font-size: 18px;
+      display:block;
+    }
+
+    /* Bloque práctica */
+    .section-title{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .badge{
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--indigo-2);
+      background: rgba(79,70,229,.12);
+      border: 1px solid rgba(79,70,229,.18);
+      padding: 5px 10px;
+      border-radius: 999px;
+      letter-spacing: .04em;
+    }
+
+    .task{
+      border: 1px solid rgba(15,23,42,.12);
+      border-radius: 18px;
+      overflow:hidden;
+      background: var(--card);
+      box-shadow: 0 14px 28px rgba(15,23,42,.08);
+    }
+    .task .top{
+      padding: 12px 14px;
+      background: rgba(15,23,42,.03);
+      border-bottom: 1px solid rgba(15,23,42,.10);
+      font-weight: 800;
+      color:#0f172a;
+    }
+    details.sol{
+      padding: 12px 14px;
+    }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      font-weight: 900;
+      color: var(--indigo);
+      padding: 6px 0;
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 10px;
+      user-select:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    .chev{
+      transition: transform .18s ease;
+      opacity:.55;
+      font-weight: 900;
+    }
+    details[open] summary{ color: #1d4ed8; }
+    details[open] .chev{ transform: rotate(180deg); opacity:.75; }
+
+    .sol-body{
+      margin-top: 10px;
+      padding-left: 12px;
+      border-left: 3px solid rgba(79,70,229,.18);
+      color:#334155;
+    }
+    .sol-body p{ margin: 0 0 8px; }
+    .sol-body ul{ margin: 8px 0 8px 18px; }
+
+    /* Errores típicos */
+    .warn{
+      border-left: 6px solid #ef4444;
+      background: rgba(254,226,226,.55);
+      border-radius: 18px;
+      padding: clamp(14px, 2.2vw, 22px);
+      border: 1px solid rgba(239,68,68,.22);
+      box-shadow: 0 14px 28px rgba(15,23,42,.08);
+    }
+    .warn h3{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-weight: 900;
+      color:#7f1d1d;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+    .warn ul{
+      margin: 0;
+      padding-left: 18px;
+      color:#7f1d1d;
+    }
+    .warn li{ margin: 10px 0; }
+
+    /* MathJax ajuste */
+    mjx-container[jax="CHTML"]{ font-size: 1.02em; }
+
+    @media (prefers-reduced-motion: reduce){
+      .rotate-1 { transform: none !important; }
+      .rotate-slight { transform: none !important; }
+      .sticky-quote { transform: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <header>
+      <span class="handwritten">Tema 3.2</span>
+      <h1>Asignación de Probabilidades</h1>
+      <p class="lead">
+        ¿Cómo convertimos la incertidumbre en un número? Comparamos el ideal teórico (simetría) con la realidad empírica (datos).
+      </p>
+    </header>
+
+    <section>
+      <p style="margin:0 0 14px; font-size:18px; color:#334155;">
+        Para medir cuán posible es que ocurra un suceso, asignamos un número usando dos enfoques que se conectan gracias
+        a la <strong>Ley de los Grandes Números</strong>.
+      </p>
+
+      <div class="grid2">
+        <article class="pill paper pad" style="border:1px solid rgba(15,23,42,.12);">
+          <h3 style="color: var(--indigo);">Probabilidad teórica</h3>
+          <p>
+            Basada en lógica y simetría (por ejemplo, un dado perfecto). Supone que los resultados son
+            <span class="highlight-blue"><strong>equiprobables</strong></span>.
+          </p>
+        </article>
+
+        <article class="pill paper pad" style="border:1px solid rgba(15,23,42,.12);">
+          <h3 style="color: var(--amber);">Probabilidad empírica</h3>
+          <p>
+            Basada en experimentación y <span class="highlight-yellow"><strong>frecuencias relativas</strong></span>.
+            Se usa cuando no hay simetría clara (por ejemplo, tasas de accidentes).
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <hr class="hr" />
+
+    <section>
+      <h2 style="font-size: clamp(22px, 2.8vw, 34px); margin-bottom: 12px;">1. Probabilidad teórica: Regla de Laplace</h2>
+
+      <div class="math-def">
+        <div class="label">Definición (equiprobabilidad)</div>
+        <p>
+          Si todos los sucesos elementales del espacio muestral $E$ tienen la misma probabilidad, para un suceso $A$:
+        </p>
+        <div class="graph-paper math-box">
+          $$ P(A) = \frac{\text{número de casos favorables a } A}{\text{número de casos posibles}} $$
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top: 18px;">
+        <article class="example">
+          <h3>Ejemplo: dado perfecto</h3>
+          <p class="smallnote">Espacio muestral $E=\{1,2,3,4,5,6\}$</p>
+          <ul class="ex-list">
+            <li class="ex-item">
+              <strong>Sacar un 3:</strong> $A=\{3\}$
+              <div class="math">
+                $$ P(A)=\frac{1}{6} $$
+              </div>
+            </li>
+            <li class="ex-item">
+              <strong>Sacar par:</strong> $B=\{2,4,6\}$
+              <div class="math">
+                $$ P(B)=\frac{3}{6}=\frac{1}{2} $$
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article class="example">
+          <h3>Ejemplo: baraja española (40 cartas)</h3>
+          <p class="smallnote">4 palos, 10 cartas por palo (sin 8 ni 9)</p>
+          <ul class="ex-list">
+            <li class="ex-item">
+              <strong>Sacar copas:</strong> hay 10 copas.
+              <div class="math">
+                $$ P(A)=\frac{10}{40}=\frac{1}{4} $$
+              </div>
+            </li>
+            <li class="ex-item">
+              <strong>Sacar caballo:</strong> hay 4 caballos.
+              <div class="math">
+                $$ P(B)=\frac{4}{40}=\frac{1}{10} $$
+              </div>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2 style="font-size: clamp(22px, 2.8vw, 34px); margin-bottom: 12px;">2. Probabilidad empírica: datos reales</h2>
+      <p style="margin:0 0 12px; color:#334155; font-size:18px;">
+        Cuando no podemos asumir equiprobabilidad (biología, sociología, economía…), usamos la
+        <strong>frecuencia relativa</strong> observada tras $n$ repeticiones.
+      </p>
+
+      <div class="math-def" style="margin-bottom: 14px;">
+        $$ f_n(A)=\frac{n_A}{n}\quad \Rightarrow \quad P(A)\approx f_n(A) $$
+      </div>
+
+      <div class="case">
+        <div class="icon" aria-hidden="true">✋</div>
+        <h3>Estudio de caso: ¿zurdo o diestro?</h3>
+        <p>Se examinan $n=10\,000$ recién nacidos y se observa que $n_A=850$ son zurdos.</p>
+        <div class="result">
+          $$ P(\text{zurdo})\approx \frac{850}{10\,000}=0{,}085=\mathbf{8{,}5\%} $$
+        </div>
+        <div class="note">Dependemos de los datos: no hay una simetría “a priori” que justifique Laplace.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2 style="font-size: clamp(22px, 2.8vw, 34px); margin-bottom: 12px;">3. Ley de los Grandes Números</h2>
+
+      <div class="flex">
+        <div class="wide">
+          <p style="margin:0; font-size:18px; color:#334155;">
+            Es el puente entre teoría y realidad. En términos intuitivos (Bernoulli), si repetimos un experimento muchas veces,
+            la frecuencia relativa $f_n(A)$ tiende a estabilizarse y acercarse a la probabilidad “verdadera” $P(A)$.
+            Por eso, en la práctica, las estimaciones mejoran cuando aumenta el tamaño de la muestra.
+          </p>
+        </div>
+
+        <div class="narrow">
+          <div class="graph-paper sticky-quote pad">
+            <span class="handwritten">“A la larga, el azar tiene sus reglas.”</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="hr" />
+
+    <section>
+      <div class="section-title">
+        <h2 style="font-size: clamp(22px, 2.8vw, 34px);">Ejemplos resueltos paso a paso</h2>
+        <span class="badge">Práctica</span>
+      </div>
+
+      <div style="display:grid; gap: 14px;">
+
+        <article class="task">
+          <div class="top">
+            <strong>Ejercicio 1:</strong> Dado no trucado. Probabilidad de obtener un número mayor que 4.
+          </div>
+          <details class="sol">
+            <summary>
+              Ver solución detallada
+              <span class="chev" aria-hidden="true">▼</span>
+            </summary>
+            <div class="sol-body">
+              <p>1) Espacio muestral: $E=\{1,2,3,4,5,6\}$ (6 casos posibles).</p>
+              <p>2) Suceso $A$ (“mayor que 4”): $A=\{5,6\}$ (2 casos favorables).</p>
+              <p>3) Regla de Laplace:</p>
+              $$ P(A)=\frac{2}{6}=\frac{1}{3} $$
+            </div>
+          </details>
+        </article>
+
+        <article class="task">
+          <div class="top">
+            <strong>Ejercicio 2:</strong> Baraja española. Probabilidad de sacar <strong>Rey o Copa</strong>.
+          </div>
+          <details class="sol">
+            <summary>
+              Ver solución detallada
+              <span class="chev" aria-hidden="true">▼</span>
+            </summary>
+            <div class="sol-body">
+              <p>Unión de sucesos $R\cup C$. Hay que evitar el doble conteo.</p>
+              <ul>
+                <li>Reyes ($R$): 4 cartas.</li>
+                <li>Copas ($C$): 10 cartas.</li>
+                <li>Intersección ($R\cap C$): Rey de Copas (1 carta).</li>
+              </ul>
+              <p>Casos favorables:</p>
+              $$ \#(R\cup C)=4+10-1=13 $$
+              <p>Por Laplace:</p>
+              $$ P(R\cup C)=\frac{13}{40} $$
+            </div>
+          </details>
+        </article>
+
+        <article class="task">
+          <div class="top">
+            <strong>Ejercicio 3 (empírico):</strong> Encuesta de zurdos (24 de 200 alumnos).
+          </div>
+          <details class="sol">
+            <summary>
+              Ver solución detallada
+              <span class="chev" aria-hidden="true">▼</span>
+            </summary>
+            <div class="sol-body">
+              <p>Al ser datos reales, usamos frecuencia relativa:</p>
+              $$ f_n=\frac{24}{200}=\frac{12}{100}=0{,}12 $$
+              <p>Estimación de probabilidad: <strong>12%</strong>.</p>
+            </div>
+          </details>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="warn" aria-label="Errores típicos a evitar">
+      <h3>
+        <span aria-hidden="true">⚠️</span>
+        Errores típicos a evitar
+      </h3>
+      <ul>
+        <li>
+          <strong>Falacia del 50%:</strong> que haya dos opciones (pasa/no pasa) no implica $1/2$.
+          Solo vale si son equiprobables.
+        </li>
+        <li>
+          <strong>Doble conteo:</strong> en uniones ($A\cup B$), no sumes sin más; resta la intersección si procede.
+        </li>
+        <li>
+          <strong>Muestra pequeña:</strong> una racha corta no cambia $P$; la frecuencia se vuelve estable con $n$ grande.
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

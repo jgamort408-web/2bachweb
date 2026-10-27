@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+\input{estilo.tex}
+\hypersetup{pdftitle={Programación lineal II - Soluciones revisadas}}
+\begin{document}
+\section*{Ejercicio 1: baterías y beneficio máximo}
+
+Sean $x$ las baterías A e $y$ las baterías B. El modelo es
+\[
+\max Z=130x+140y,\qquad
+\begin{cases}x+y\geq10,\\y-x\leq10,\\3x+2y\leq120,\\x\geq0,\quad y\geq0.\end{cases}
+\]
+La tercera restricción procede de dividir $150x+100y\leq6\,000$ entre 50. Los beneficios del enunciado ya son beneficios unitarios: no se restan de nuevo los gastos de producción.
+
+Las intersecciones factibles y sus valores son
+\begin{center}
+\begin{tabular}{c|r}
+Vértice & $Z$ (euros)\\\hline
+$(0,10)$ & $1\,400$\\
+$(10,0)$ & $1\,300$\\
+$(40,0)$ & $5\,200$\\
+$(20,30)$ & $6\,800$
+\end{tabular}
+\end{center}
+La intersección de $y=x+10$ y $3x+2y=120$ da $5x=100$, luego $(x,y)=(20,30)$.
+
+\textbf{Certificado para toda la región:}
+\[Z=54(3x+2y)+32(y-x)\leq54\cdot120+32\cdot10=6\,800.\]
+En $(20,30)$ se alcanza la igualdad y se cumplen $x+y=50\geq10$, $y-x=10$ y $150x+100y=6\,000$. Así,
+\[\boxed{20\text{ baterías A},\quad30\text{ baterías B},\quad Z_{\max}=6\,800\text{ euros}}.\]
+El óptimo es entero y único, pues la igualdad exige simultáneamente las dos rectas anteriores.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[revision,height=5.2cm,xmin=-2,xmax=44,ymin=-2,ymax=36,xtick={0,10,20,30,40},ytick={0,10,20,30},xlabel={Baterías A ($x$)},ylabel={Baterías B ($y$)}]
+\addplot[fill=gray!20,draw=black,thick] coordinates {(0,10) (10,0) (40,0) (20,30)} -- cycle;
+\addplot[only marks,mark=*,mark size=2pt] coordinates {(0,10) (10,0) (40,0) (20,30)};
+\node[anchor=south] at (axis cs:20,30) {\small óptimo $(20,30)$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\clearpage
+\section*{Ejercicio 2: misiones, solo formulación}
+Este ejercicio pide \textbf{formular, sin resolver}. Sean $x$ las misiones de Observación de la Tierra e $y$ los programas de Transporte Espacial.
+\subsection*{Función objetivo}
+\[\max F(x,y)=0{,}6x+0{,}4y=\frac35x+\frac25y.\]
+La función objetivo es la que da el enunciado; no representa por sí misma una cantidad de euros.
+\subsection*{Restricciones del presupuesto y la inversión}
+El gasto total no puede superar 2,4 millones:
+\[200\,000x+100\,000y\leq2\,400\,000\quad\Longleftrightarrow\quad2x+y\leq24.\]
+Debe \textbf{superar}, y no igualar, 2 millones:
+\[200\,000x+100\,000y>2\,000\,000\quad\Longleftrightarrow\quad2x+y>20.\]
+\subsection*{Restricciones de las cantidades}
+Al menos cuatro misiones: $x\geq4$. El número de misiones no supera la mitad de los programas: $x\leq y/2$, equivalente a $y\geq2x$.
+\subsection*{Modelo completo}
+\[
+\boxed{\begin{gathered}
+\max\ F(x,y)=\frac35x+\frac25y\\
+2x+y\leq24,\qquad2x+y>20,\\
+x\geq4,\qquad y\geq2x,\\
+x,y\in\mathbb Z_{\geq0}.
+\end{gathered}}
+\]
+Para el modelo continuo utilizado en representación gráfica, se relaja la integralidad a cantidades reales no negativas. Las decisiones finales de misiones y programas son enteras. En ese caso $2x+y>20$ equivale a $2x+y\geq21$.
+
+La formulación termina aquí: no se calculan vértices ni óptimos, conforme a lo solicitado en el examen.
+\clearpage
+\section*{Ejercicio 3: recinto y mínimo}
+
+La región está definida por
+\[x+4y\geq5,\quad x+2y\geq4,\quad7x+5y\leq35,\quad x\geq0.\]
+Al intersectar rectas frontera y descartar puntos que incumplen alguna restricción, obtenemos:
+\begin{center}
+\begin{tabular}{c|c|c}
+Vértice & Fronteras que se cortan & $F=2x+y$\\\hline
+$(0,2)$ & $x=0$, $x+2y=4$ & $2$\\
+$(3,1/2)$ & $x+4y=5$, $x+2y=4$ & $13/2$\\
+$(5,0)$ & $x+4y=5$, $7x+5y=35$ & $10$\\
+$(0,7)$ & $x=0$, $7x+5y=35$ & $7$
+\end{tabular}
+\end{center}
+Por ejemplo, restando $x+2y=4$ de $x+4y=5$, resulta $y=1/2$ y después $x=3$. Todos los vértices indicados cumplen las cuatro restricciones.
+
+\textbf{Certificado del mínimo para toda la región:}
+\[F=\frac12(x+2y)+\frac32x\geq\frac12\cdot4+0=2.\]
+La igualdad exige $x=0$ y $x+2y=4$, es decir, $(0,2)$, que es factible. Por tanto,
+\[\boxed{F_{\min}=2\quad\text{únicamente en }(0,2)}.\]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[revision,height=5.8cm,xmin=-0.5,xmax=5.8,ymin=-0.5,ymax=7.8,xtick={0,1,2,3,4,5},ytick={0,2,4,6,7}]
+\addplot[fill=gray!20,draw=black,thick] coordinates {(0,2) (3,0.5) (5,0) (0,7)} -- cycle;
+\addplot[densely dotted,domain=0:5] {(5-x)/4};
+\addplot[dashed,domain=0:5] {(4-x)/2};
+\addplot[domain=0:5] {(35-7*x)/5};
+\addplot[only marks,mark=*,mark size=1.7pt] coordinates {(0,2) (3,0.5) (5,0) (0,7)};
+\node[anchor=west] at (axis cs:0.15,2.1) {\small mínimo $(0,2)$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+El contorno del polígono está incluido. No se añade $y\geq0$ como hipótesis: se deduce de las restricciones del recinto.
+\clearpage
+\section*{Anexo documental: frutos rojos}
+\textbf{Material conservado de F020. No forma parte del examen F022, no añade puntos y no sustituye a su ejercicio 2.}
+\subsection*{Enunciado de la variante}
+Una frutería vende surtidos A y B. Cada A contiene 75 g de arándanos y 100 g de frambuesas, y se vende a 2,40 euros. Cada B contiene 75 g de arándanos y 50 g de frambuesas, y se vende a 1,80 euros. Se dispone de 3,75 kg de arándanos y 4 kg de frambuesas. La cantidad de surtidos A vendidos es menor o igual al doble de la de B.
+
+El original pide formular, \textbf{sin resolver}, un problema para maximizar el ``beneficio''.
+\subsection*{Qué se puede formular con los datos disponibles}
+Sean $x$ los surtidos A e $y$ los B. Convertimos a gramos: $3{,}75$ kg son $3\,750$ g y $4$ kg son $4\,000$ g.
+\begin{align*}
+75x+75y\leq3\,750&\quad\Longleftrightarrow\quad x+y\leq50,\\
+100x+50y\leq4\,000&\quad\Longleftrightarrow\quad2x+y\leq80,\\
+x&\leq2y.
+\end{align*}
+La función calculable con precios de venta es la de \textbf{ingresos}:
+\[
+\boxed{\begin{gathered}
+\max\ I(x,y)=2{,}40x+1{,}80y\\
+x+y\leq50,\qquad2x+y\leq80,\\
+x\leq2y,\qquad x,y\in\mathbb Z_{\geq0}.
+\end{gathered}}
+\]
+El modelo continuo sustituye la integralidad por $x,y\geq0$ reales.
+\subsection*{Mejora pendiente del enunciado original}
+Los precios de venta no son beneficios netos. Para maximizar el beneficio neto faltan costes o márgenes unitarios, o una hipótesis explícita que permita ignorar costes variables. No se inventan esos datos. Otra corrección posible sería pedir \textbf{ingresos máximos} en el enunciado.
+
+No se resuelve el modelo ni se incorpora esta variante a la puntuación del examen.
+\end{document}

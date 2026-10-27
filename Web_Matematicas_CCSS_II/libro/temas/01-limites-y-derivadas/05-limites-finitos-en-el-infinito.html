@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.5. Límites finitos en el infinito · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t01-e05">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">1.5. Límites finitos en el infinito</h1>
+    <p class="lead" data-content-role="introduction">Una variable puede aumentar indefinidamente mientras los valores de la función se acercan a una cantidad concreta.</p>
+    <div class="learning-goals"><p data-content-role="objectives"><strong>Al terminar podrás:</strong> calcular límites racionales en ambos infinitos, identificar asíntotas horizontales e interpretar modelos de saturación.</p><p data-content-role="prerequisites"><strong>Antes:</strong> potencias, cocientes, grados de polinomios y la diferencia entre límite y valor alcanzado.</p></div>
+    <section data-content-role="context">
+      <h2>1. Un modelo de difusión</h2>
+      <p>Una campaña se modeliza mediante \(N(t)=1200t/(t+4)\), donde \(t\ge0\) es el número de semanas y \(N(t)\) es una estimación continua del número de personas alcanzadas. No obliga a que la predicción sea un entero.</p>
+      <p>A las 4 semanas, el modelo da 600 personas; a las 12, 900; a las 36, 1080. El número sigue aumentando, pero se acerca a 1200.</p>
+      <div class="definition" data-content-role="definition"><p>\(\lim_{x\to+\infty}f(x)=L\) significa que, para valores de \(x\) suficientemente grandes, \(f(x)\) permanece tan cerca de \(L\) como queramos. En \(x\to-\infty\), consideramos valores negativos cada vez menores.</p></div>
+      <p>La recta <strong>\(y=L\) es una asíntota horizontal</strong> por el extremo donde se cumple ese límite. Los extremos positivo y negativo se estudian por separado.</p>
+    </section>
+    <section data-content-role="worked-example">
+      <h2>2. Ejemplo resuelto: divide por la potencia dominante</h2>
+      <p>Calcula \(\lim_{x\to+\infty}(3x^2-2x+1)/(2x^2+5)\).</p>
+      <ol class="worked-steps" data-content-role="worked-steps">
+        <li><strong>Identifica la forma.</strong> Numerador y denominador crecen sin cota. La forma \(\infty/\infty\) no da el resultado.</li>
+        <li><strong>Transforma.</strong> Divide todos los términos del numerador y del denominador por \(x^2\), que no es cero para los valores grandes que estudiamos:
+          \[\frac{3x^2-2x+1}{2x^2+5}=\frac{3-2/x+1/x^2}{2+5/x^2}.\]</li>
+        <li><strong>Calcula.</strong> Las fracciones con \(x\) o \(x^2\) en el denominador tienden a cero. Queda \(3/2\).</li>
+        <li><strong>Comprueba el otro extremo.</strong> También cuando \(x\to-\infty\), \(1/x\to0\) y \(1/x^2\to0\). El límite vuelve a ser \(3/2\).</li>
+        <li><strong>Interpreta.</strong> Hay una asíntota horizontal \(y=3/2\) en ambos extremos.</li>
+      </ol>
+    </section>
+    <section data-content-role="rule">
+      <h2>3. Regla de los grados para cocientes de polinomios</h2>
+      <p>Sean \(P\) y \(Q\) polinomios no nulos, de grados \(m,n\), y coeficientes principales \(a_m,b_n\), ambos distintos de cero. Para \(|x|\) grande:</p>
+      <p>\[\frac{P(x)}{Q(x)}\ \text{se comporta como}\ \frac{a_m}{b_n}x^{m-n}.\]</p>
+      <div class="table-scroll"><table><caption data-content-role="caption">Comparación de grados después de simplificar los polinomios</caption><thead><tr><th scope="col">Grados</th><th scope="col">Resultado en cada extremo</th><th scope="col">Ejemplo</th></tr></thead><tbody>
+        <tr><td>\(m&lt;n\)</td><td>Límite 0</td><td>\((2x+1)/(x^2+4)\to0\)</td></tr>
+        <tr><td>\(m=n\)</td><td>Límite \(a_m/b_n\)</td><td>\((3x^2+1)/(2x^2+5)\to3/2\)</td></tr>
+        <tr><td>\(m&gt;n\)</td><td>No es finito: estudiar signo y paridad de \(x^{m-n}\)</td><td>\(x^3/(x^2+1)\): \(+\infty\) a la derecha y \(-\infty\) a la izquierda</td></tr>
+      </tbody></table></div>
+      <p>Esta regla se refiere a <strong>cocientes de polinomios</strong>. No la apliques sin transformar si aparecen raíces, logaritmos o exponenciales.</p>
+    </section>
+    <section data-content-role="worked-example">
+      <h2>4. Una raíz exige mirar el signo de x</h2>
+      <p>El examen local propone, en su apartado 3(c), \((5x+7)/\sqrt{2x^2+3}\) cuando \(x\to+\infty\). Estudiamos además el extremo negativo para detectar un error frecuente.</p>
+      <p>Para \(x\ne0\), podemos escribir:</p>
+      <p>\[\sqrt{2x^2+3}=|x|\sqrt{2+\frac3{x^2}}.\]</p>
+      <p>La raíz de \(x^2\) es \(|x|\), no siempre \(x\). Así:</p>
+      <p>\[\frac{5x+7}{\sqrt{2x^2+3}}=\frac{x}{|x|}\,\frac{5+7/x}{\sqrt{2+3/x^2}}.\]</p>
+      <ul><li>Cuando \(x\to+\infty\), \(x/|x|=1\), y el límite es \(5/\sqrt2\).</li><li>Cuando \(x\to-\infty\), \(x/|x|=-1\), y el límite es \(-5/\sqrt2\).</li></ul>
+      <p>Esta función tiene dos asíntotas horizontales distintas: \(y=5/\sqrt2\) hacia la derecha y \(y=-5/\sqrt2\) hacia la izquierda.</p>
+    </section>
+    <section data-content-role="visualization">
+      <h2>5. Explora la saturación</h2>
+      <p>En el modelo \(N(t)=Mt/(t+4)\), \(M&gt;0\) es el nivel al que se aproxima la campaña. Cambia \(M\) y observa tanto el alcance como lo que falta para ese nivel.</p>
+      <div class="activity" data-saturation>
+        <label for="saturation-level">Nivel de saturación M, en personas estimadas</label>
+        <input id="saturation-level" type="range" min="400" max="2000" step="100" value="1200">
+        <p data-saturation-summary role="status">M = 1200. La asíntota horizontal es y = 1200.</p>
+        <div class="table-scroll"><table><caption data-content-role="caption">Alcance previsto y diferencia respecto al nivel de saturación</caption><thead><tr><th scope="col">Semanas t</th><th scope="col">N(t)</th><th scope="col">M − N(t)</th></tr></thead><tbody>
+          <tr><th scope="row">4</th><td data-saturation-value="4">600</td><td data-saturation-gap="4">600</td></tr>
+          <tr><th scope="row">12</th><td data-saturation-value="12">900</td><td data-saturation-gap="12">300</td></tr>
+          <tr><th scope="row">36</th><td data-saturation-value="36">1080</td><td data-saturation-gap="36">120</td></tr>
+          <tr><th scope="row">396</th><td data-saturation-value="396">1188</td><td data-saturation-gap="396">12</td></tr>
+        </tbody></table></div>
+      </div>
+      <p>\[N(t)=M-\frac{4M}{t+4}.\]</p>
+      <p>Como \(4M/(t+4)\to0\), el límite es \(M\). Para todo \(t\ge0\) finito, la diferencia sigue siendo positiva: este modelo <strong>no alcanza exactamente M</strong>. La predicción a largo plazo depende de mantener los supuestos del modelo; no garantiza un resultado real de una campaña.</p>
+    </section>
+    <section data-content-role="warning">
+      <h2>6. Una asíntota horizontal se puede cruzar</h2>
+      <p>La asíntota describe el comportamiento en un extremo; no es una barrera. Por ejemplo, \(f(x)=x/(x^2+1)\) tiene asíntota \(y=0\) en ambos extremos y la cruza en \(x=0\), pues cambia de signo y \(f(0)=0\).</p>
+      <p>Tampoco confundas una asíntota horizontal \(y=L\) con una vertical \(x=a\).</p>
+    </section>
+    <section id="practica" data-content-role="guided-practice">
+      <h2>7. Tu turno</h2><p>Calcula los límites en \(+\infty\) y \(-\infty\) de \((4x^2-3)/(2x^2+x)\) e identifica la asíntota horizontal.</p>
+      <details data-content-role="hint"><summary>Pista 1</summary><p>Los grados coinciden. Puedes anticipar el cociente de coeficientes principales, pero justifícalo.</p></details>
+      <details data-content-role="hint"><summary>Pista 2</summary><p>Divide por \(x^2\): \((4-3/x^2)/(2+1/x)\).</p></details>
+      <details data-content-role="solution"><summary>Solución razonada</summary><p>En ambos extremos, las fracciones \(3/x^2\) y \(1/x\) tienden a cero. El resultado es \(4/2=2\); la asíntota horizontal es \(y=2\). Los posibles puntos excluidos del dominio no alteran este cálculo en los extremos.</p></details>
+      <div class="activity" data-content-role="self-check" data-quiz="t01-e05"></div>
+    </section>
+    <section data-content-role="summary"><h2>8. Resumen</h2><ul><li>Divide por la potencia dominante para justificar la regla de grados.</li><li>Estudia los dos extremos; en expresiones con raíces pueden dar límites diferentes.</li><li>Un límite finito no obliga a alcanzar ese valor ni impide cruzar su asíntota.</li></ul>
+      <p data-content-role="related-links"><a href="06-limites-infinitos-en-el-infinito.html">Continuar: funciones que crecen o decrecen sin cota</a> · <a href="../../../test/index.html?tema=t01">Test de repaso</a></p>
+    </section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

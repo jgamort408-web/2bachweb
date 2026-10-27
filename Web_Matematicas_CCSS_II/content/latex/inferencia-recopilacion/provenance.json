@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "pairId": "inferencia-recopilacion",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-22",
+  "sources": [
+    {
+      "sourceId": "F010",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Inferencia Estadística (EXAMEN I y II).zip",
+      "zipSha256": "78a2aa44f8cff6db8186394ed530eff7695a4b80bbae47ad2ebec0ca3e84cafc",
+      "entry": "main.tex",
+      "texSha256": "f6801b6f803bdb2b8325e0a6777b9016db1810de97540beee2c01a1137fb85a8"
+    }
+  ],
+  "assets": [
+    {
+      "path": "logo-al-andalus.png",
+      "sourceId": "F010",
+      "entry": "Logo AL-ANDALUS.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    }
+  ],
+  "solutionOrigin": "Soluciones originales revisadas con cotejo de enunciados y desarrollos compartidos",
+  "preserved": {
+    "durationMinutes": 55,
+    "calculatorAllowed": true,
+    "exercisePoints": [
+      4,
+      4,
+      4,
+      4,
+      2
+    ],
+    "partPoints": [
+      [
+        2.5,
+        1.5
+      ],
+      [
+        2.5,
+        1.5
+      ],
+      [
+        2.5,
+        1.5
+      ],
+      [
+        2.5,
+        1.5
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "nominalPoints": 18,
+    "selectionRule": null,
+    "expressionPointsIncludedPerExercise": 0.5
+  },
+  "correspondences": [
+    {
+      "exercise": 1,
+      "reviewedPair": "inferencia-i",
+      "reviewedExercise": 1,
+      "statementMatches": true
+    },
+    {
+      "exercise": 2,
+      "reviewedPair": "inferencia-ii",
+      "reviewedExercise": 1,
+      "statementMatches": true
+    },
+    {
+      "exercise": 3,
+      "reviewedPair": "inferencia-i",
+      "reviewedExercise": 2,
+      "statementMatches": true
+    },
+    {
+      "exercise": 4,
+      "reviewedPair": "inferencia-ii",
+      "reviewedExercise": 2,
+      "statementMatches": true
+    },
+    {
+      "exercise": 5,
+      "reviewedPair": "inferencia-i",
+      "reviewedExercise": 3,
+      "statementMatches": true
+    }
+  ],
+  "corrections": [
+    "M27",
+    "M28",
+    "M31"
+  ],
+  "answers": {
+    "expense": null
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-20",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "batchId": "166-matrices-i",
+  "sourceDirectory": "content/latex/matrices-i",
+  "report": "docs/pdf/matrices-i-build.json",
+  "mathematics": "matrices-i",
+  "documents": [
+    {
+      "id": "matrices-i-examen",
+      "source": "content/latex/matrices-i/matrices-i-examen.tex",
+      "output": "output/pdf/matrices-i-examen.pdf",
+      "expectedPages": 1,
+      "title": "Matrices I - Examen revisado",
+      "forbiddenText": [
+        "£"
+      ],
+      "requiredText": [
+        "cuatro de las cinco operaciones",
+        "¿Tiene inversa"
+      ]
+    },
+    {
+      "id": "matrices-i-soluciones",
+      "source": "content/latex/matrices-i/matrices-i-soluciones.tex",
+      "output": "output/pdf/matrices-i-soluciones.pdf",
+      "expectedPages": 3,
+      "title": "Matrices I - Soluciones revisadas",
+      "forbiddenText": [
+        "£"
+      ],
+      "requiredText": [
+        "El ZIP original no incluía soluciones.",
+        "solo cuatro"
+      ]
+    }
+  ]
+}

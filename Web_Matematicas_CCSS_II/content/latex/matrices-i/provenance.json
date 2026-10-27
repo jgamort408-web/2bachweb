@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "pairId": "matrices-i",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-20",
+  "sources": [
+    {
+      "sourceId": "F014",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Matrices I.zip",
+      "zipSha256": "5ef92e741a94ff41eca3be78f0b18e863a2257b2a900c652b174ecf0c6b2062c",
+      "entry": "main.tex",
+      "texSha256": "a864154057fb2f99cfbfe0cc719d2db0b624033d7b2e929f4b0b4a231af22418"
+    }
+  ],
+  "assets": [
+    {
+      "path": "logo-al-andalus.png",
+      "sourceId": "F014",
+      "entry": "Logo AL-ANDALUS.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    }
+  ],
+  "solutionOrigin": "Elaborado en esta revisión a partir del examen; el ZIP no incluye soluciones",
+  "preserved": {
+    "durationMinutes": 55,
+    "calculatorAllowed": true,
+    "exercisePoints": [
+      5,
+      2.5,
+      2.5
+    ],
+    "firstExerciseParts": [
+      3,
+      2
+    ],
+    "operationsOffered": 5,
+    "operationsToChoose": 4
+  },
+  "corrections": [],
+  "answers": {
+    "M": [
+      [
+        -3,
+        -2
+      ],
+      [
+        4,
+        2
+      ]
+    ],
+    "determinant": "2",
+    "inverse": [
+      [
+        "1",
+        "1"
+      ],
+      [
+        "-2",
+        "-3/2"
+      ]
+    ],
+    "X": [
+      [
+        "3",
+        "-1"
+      ],
+      [
+        "-5",
+        "1/2"
+      ]
+    ],
+    "operations": {
+      "sumDefined": false,
+      "column": [
+        [
+          "4"
+        ],
+        [
+          "-9"
+        ]
+      ],
+      "square": [
+        [
+          "-2",
+          "6"
+        ],
+        [
+          "-10",
+          "6"
+        ]
+      ],
+      "scaledDeterminant": "-75",
+      "rectangularDeterminantDefined": false
+    },
+    "nilpotentSquare": [
+      [
+        0,
+        0,
+        35
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "powerExponent": 2025
+  }
+}

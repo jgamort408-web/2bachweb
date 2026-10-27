@@ -1,0 +1,9 @@
+@import url("../../shared/widget-base.css");
+
+/* Distribución neutra; fórmulas y tipografía conservan la base compartida. */
+[hidden] { display: none !important; }
+main { max-width: 52rem; margin-inline: auto; }
+fieldset { min-width: 0; }
+legend { max-width: 100%; }
+[data-content-role="worked-steps"] { padding-inline-start: 1.5rem; }
+[data-content-role="worked-steps"] li { margin-block: .6rem; }

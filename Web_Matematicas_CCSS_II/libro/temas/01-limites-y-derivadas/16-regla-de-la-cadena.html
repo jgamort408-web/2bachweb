@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.16. Regla de la cadena · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t01-e16">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">1.16. Regla de la cadena</h1>
+    <p class="lead" data-content-role="introduction">Una composición encadena transformaciones. Su derivada debe recoger el cambio de la función exterior y el de su argumento interior.</p>
+    <div class="learning-goals"><p data-content-role="objectives"><strong>Al terminar podrás:</strong> identificar capas, derivar composiciones y combinar cadena, producto y cociente sin perder factores ni dominios.</p><p data-content-role="prerequisites"><strong>Antes:</strong> <a href="14-tabla-de-derivadas.html">tabla de derivadas</a> y <a href="15-reglas-de-derivacion.html">reglas de derivación</a>.</p></div>
+    <section data-content-role="definition"><h2>1. Exterior e interior</h2>
+      <div class="definition"><p>Si g es derivable en x y F es derivable en g(x), entonces:</p><p>\[\big(F(g(x))\big)'=F'(g(x))\,g'(x).\]</p></div>
+      <p>Deriva la exterior manteniendo su argumento y multiplica por la derivada interior. En \(y=(3x+1)^4\), el interior es \(g(x)=3x+1\), y la exterior \(F(u)=u^4\):</p><p>\[y'=4(3x+1)^3\cdot3=12(3x+1)^3.\]</p>
+      <p>Si la producción q depende del tiempo t y el coste C depende de q, entonces \(\frac{dC}{dt}=C'(q(t))q'(t)\). Las unidades lo explican: euros/unidad multiplicado por unidades/hora da euros/hora.</p>
+      <p data-content-role="warning">Una composición no es un producto: \(e^{x^2}\) tiene derivada \(2xe^{x^2}\); \(x^2e^x\) necesita la regla del producto.</p>
+    </section>
+    <section data-content-role="method"><h2>2. Trabajar con varias capas</h2>
+      <p>En \(y=\ln(1+e^{x^2})\), primero se eleva x al cuadrado, se aplica la exponencial, se suma 1 y se toma el logaritmo.</p>
+      <ol class="worked-steps" data-content-role="worked-steps"><li>El logaritmo aporta \(1/(1+e^{x^2})\).</li><li>La suma interior aporta la derivada de \(e^{x^2}\); la constante deriva a 0.</li><li>La exponencial aporta \(e^{x^2}\) y el cuadrado, \(2x\).</li></ol>
+      <p>\[y'=\frac{2xe^{x^2}}{1+e^{x^2}}.\]</p><p>El dominio es todo \(\mathbb R\), porque el argumento del logaritmo es siempre positivo. Para comprobar el resultado, localiza la contribución de cada capa variable.</p>
+    </section>
+    <section id="examen" data-content-role="worked-example"><h2>3. Del examen: tres composiciones directas</h2>
+      <p>Estos ejemplos corresponden a 2(b), 2(d) y 2(e) del examen local. Los argumentos trigonométricos se expresan en radianes.</p>
+      <h3>2(b). Cuadrado del seno</h3><p>\(f(x)=\sin^2x=(\sin x)^2\). Exterior: cuadrado. Interior: seno.</p><p>\[f'(x)=2\sin x\cos x.\]</p><p>Es distinta de \(\sin(x^2)\), cuya derivada es \(2x\cos(x^2)\). Ambas funciones están definidas en todo \(\mathbb R\).</p>
+      <h3>2(d). Exponencial de un polinomio</h3><p>En \(f(x)=e^{3x^2-x+2}\), el interior tiene derivada \(6x-1\):</p><p>\[f'(x)=(6x-1)e^{3x^2-x+2}.\]</p><p>Dominio de función y derivada: todo \(\mathbb R\).</p>
+      <h3>2(e). Coseno de un polinomio</h3><p>En \(f(x)=\cos(x^2+2x)\), el coseno aporta un signo menos y el interior tiene derivada \(2x+2\):</p><p>\[f'(x)=-(2x+2)\sin(x^2+2x).\]</p><p>No olvides el signo menos de la derivada del coseno. El dominio es todo \(\mathbb R\).</p>
+    </section>
+    <section data-content-role="worked-example"><h2>4. Del examen: potencia de un cociente</h2>
+      <p>El apartado 2(a) pide derivar:</p><p>\[f(x)=\left(\frac{3x^2-5}{2x+3}\right)^3,\qquad x\ne-\frac32.\]</p>
+      <ol class="worked-steps" data-content-role="worked-steps"><li>Llamamos \(u=(3x^2-5)/(2x+3)\). La exterior da \(f'=3u^2u'\).</li><li>Para u usamos la regla del cociente:\[u'=\frac{6x(2x+3)-2(3x^2-5)}{(2x+3)^2}.\]</li><li>El numerador se simplifica a \(6x^2+18x+10\). Sustituyendo:\[f'=\frac{3(3x^2-5)^2(6x^2+18x+10)}{(2x+3)^4}.\]</li></ol>
+      <p>Se conserva \(x\ne-3/2\). La potencia exterior no elimina la exclusión del denominador.</p>
+    </section>
+    <section data-content-role="worked-example"><h2>5. Del examen: logaritmo y raíz en el denominador</h2>
+      <p>En 2(f), \(f(x)=x^2/\sqrt{1+2\ln x}\). Primero el dominio: \(x&gt;0\) y \(1+2\ln x&gt;0\), porque la raíz está en el denominador. Por tanto, \(x&gt;e^{-1/2}\).</p>
+      <p>Escribimos \(v=1+2\ln x\), con \(v'=2/x\), y \(f=x^2v^{-1/2}\). Aplicamos producto y cadena:</p>
+      <p>\[\begin{aligned}f'&=2xv^{-1/2}-\tfrac12x^2v^{-3/2}\,\tfrac2x\\&=\frac{2x}{\sqrt v}-\frac{x}{v^{3/2}}\\&=\frac{x(1+4\ln x)}{(1+2\ln x)^{3/2}}.\end{aligned}\]</p>
+      <p>La igualdad final usa \(2v-1=1+4\ln x\). El dominio de la derivada sigue siendo \(x&gt;e^{-1/2}\).</p>
+    </section>
+    <section id="practica" data-content-role="guided-practice"><h2>6. Tu turno</h2><p>Deriva \(f(x)=\ln(1+x^2)\) e indica el dominio.</p>
+      <details data-content-role="hint"><summary>Pista 1</summary><p>La exterior es el logaritmo y el interior, \(1+x^2\).</p></details><details data-content-role="hint"><summary>Pista 2</summary><p>La derivada interior es \(2x\) y el argumento siempre es positivo.</p></details>
+      <details data-content-role="solution"><summary>Solución razonada</summary><p>\(f'(x)=2x/(1+x^2)\), para todo x real. Escribir solo \(1/(1+x^2)\) omitiría el factor interior.</p></details>
+      <div class="activity" data-content-role="self-check" data-quiz="t01-e16"></div>
+    </section>
+    <section data-content-role="summary"><h2>7. Resumen</h2><ul><li>Identifica la operación exterior y avanza hacia el interior.</li><li>Incluye la derivada de cada capa variable.</li><li>Combina cadena, producto y cociente según la estructura.</li><li>Comprueba el dominio antes de empezar y consérvalo.</li></ul><p data-content-role="related-links"><a href="17-continuidad-de-las-funciones-derivables.html">Continuar: qué garantiza la derivabilidad</a>.</p></section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

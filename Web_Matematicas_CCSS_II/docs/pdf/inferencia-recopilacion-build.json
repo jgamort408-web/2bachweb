@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 1,
+  "mathematics": {
+    "passed": true,
+    "originalStatementsMatched": 5,
+    "exercises": 5,
+    "parts": 10,
+    "nominalPoints": 18,
+    "commonInferenceVerified": true,
+    "selectionRuleMissing": true
+  },
+  "documents": [
+    {
+      "id": "inferencia-recopilacion-examen",
+      "pages": 3,
+      "bytes": 34088,
+      "sha256": "2201e62b47dc128f64b5ac1f50dee77ac3a5a9366bc58dd16e481b044dcd665d",
+      "title": "Inferencia - Recopilación I y II - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 7,
+      "characters": 3973
+    },
+    {
+      "id": "inferencia-recopilacion-soluciones",
+      "pages": 5,
+      "bytes": 42721,
+      "sha256": "097ed18601de179ebe8f423dc33284aad33bc99c6494883e408b27c161cfc8e3",
+      "title": "Inferencia - Recopilación I y II - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 12,
+      "characters": 8020
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-22",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/inferencia-recopilacion/estilo.tex",
+      "sha256": "63841e0b3cb308225dd2689bbd51bf37d4660ce8aa18e4745e55c9573d469392"
+    },
+    {
+      "path": "content/latex/inferencia-recopilacion/inferencia-recopilacion-examen.tex",
+      "sha256": "ab851cbec0ef710d8f26069730c0cb75e952cf7f2736e4c825cddb2e3e66e8cb"
+    },
+    {
+      "path": "content/latex/inferencia-recopilacion/inferencia-recopilacion-soluciones.tex",
+      "sha256": "7b21f4b76e1d66b720f7deabe9480a2f1fc71322ae6eeed26e163500eabf9de0"
+    },
+    {
+      "path": "content/latex/inferencia-recopilacion/logo-al-andalus.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    },
+    {
+      "path": "content/latex/inferencia-recopilacion/provenance.json",
+      "sha256": "3539de071e8efa8015cac6df113280f0bc1608bfe93a2b190fbca0396a315cc5"
+    }
+  ]
+}

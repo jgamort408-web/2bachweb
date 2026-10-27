@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syllabus 2024 | Estadística Aplicada</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           CSS PURO Y ROBUSTO (Sin Frameworks)
+           ========================================= */
+        :root {
+            /* Paleta de Colores Moderna */
+            --bg-body: #f8fafc;
+            --primary: #2563eb;       /* Azul Royal */
+            --primary-dark: #1e40af;
+            --secondary: #0f172a;     /* Slate Dark */
+            --accent-1: #3b82f6;      /* Azul claro */
+            --accent-2: #8b5cf6;      /* Violeta */
+            --accent-3: #10b981;      /* Esmeralda */
+            
+            --surface: #ffffff;
+            --text-main: #334155;
+            --text-light: #64748b;
+            
+            /* Sombras Suaves (Apple Style) */
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+            
+            /* Espaciado */
+            --radius: 16px;
+        }
+
+        /* Reset Básico */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            /* Fondo sutil */
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.1) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        /* Tipografía */
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; color: var(--secondary); }
+        
+        /* Contenedor Principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Estilo "Hero" */
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--accent-2));
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive sin media queries */
+            font-weight: 800;
+            background: -webkit-linear-gradient(0deg, var(--secondary), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Grid System (Automático) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        /* Tarjetas Estilo Cristal */
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px); /* Efecto cristal */
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Barra de color superior en tarjetas */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 6px;
+            background: var(--card-color, var(--text-light));
+        }
+
+        .trimestre-label {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--text-light);
+            opacity: 0.5;
+            letter-spacing: 0.05em;
+        }
+
+        /* Lista de Temas */
+        .topic-list {
+            list-style: none;
+            margin-top: 2rem;
+            flex-grow: 1; /* Empuja el contenido para llenar altura */
+        }
+
+        .topic-item {
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            border-left: 3px solid #e2e8f0;
+            transition: border-color 0.2s;
+        }
+
+        .card:hover .topic-item { border-left-color: var(--card-color); }
+
+        .topic-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .topic-desc {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .highlight-text {
+            color: var(--card-color);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 5rem;
+            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 2rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Utilidades de color específicas */
+        .t1 { --card-color: #ec4899; } /* Pink */
+        .t2 { --card-color: #6366f1; } /* Indigo */
+        .t3 { --card-color: #10b981; } /* Emerald */
+
+        /* Media Query para Móviles */
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 2.2rem; }
+            .card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <span class="badge">Curso 2025-2026</span>
+            <h1>Estadística & Matemáticas</h1>
+            <p class="subtitle">Itinerario avanzado de análisis de datos, modelado estocástico e inferencia.</p>
+        </header>
+
+        <main class="grid">
+            
+            <article class="card t1">
+                <span class="trimestre-label">Trimestre 01</span>
+                <ul class="topic-list">
+                    <li class="topic-item">
+                        <div class="topic-title">01. Programación Lineal</div>
+                        <p class="topic-desc"><span class="highlight-text">Optimización.</span> Maximización de beneficios y gestión de restricciones.</p>
+                    </li>
+                    <li class="topic-item">
+                        <div class="topic-title">02. Estadística 2D</div>
+                        <p class="topic-desc"><span class="highlight-text">Correlación.</span> Análisis de variables conjuntas y regresión lineal.</p>
+                    </li>
+                    <li class="topic-item">
+                        <div class="topic-title">03. Probabilidad</div>
+                        <p class="topic-desc"><span class="highlight-text">Teoría de la Medida.</span> Teorema de Bayes y probabilidad total.</p>
+                    </li>
+                </ul>
+            </article>
+
+            <article class="card t2">
+                <span class="trimestre-label">Trimestre 02</span>
+                <ul class="topic-list">
+                    <li class="topic-item">
+                        <div class="topic-title">04.2 Modelos Discretos</div>
+                        <p class="topic-desc"><span class="highlight-text">Binomial.</span> Modelado de éxitos/fracasos en entornos controlados.</p>
+                    </li>
+                    <li class="topic-item">
+                        <div class="topic-title">04.3 Distribución Normal</div>
+                        <p class="topic-desc"><span class="highlight-text">Campana de Gauss.</span> La piedra angular de la estadística moderna.</p>
+                    </li>
+                    <li class="topic-item" style="border:none; margin-top: 3rem;">
+                        <div style="background: var(--bg-body); padding: 1rem; border-radius: 8px; font-size: 0.9rem; color: var(--primary); font-weight: 600; text-align: center;">
+                            ✦ Conexión Fundamental ✦
+                        </div>
+                    </li>
+                </ul>
+            </article>
+
+            <article class="card t3">
+                <span class="trimestre-label">Trimestre 03</span>
+                <ul class="topic-list">
+                    <li class="topic-item">
+                        <div class="topic-title">05. Inferencia Estadística</div>
+                        <p class="topic-desc"><span class="highlight-text">El Gran Salto.</span> De la muestra a la población general.</p>
+                    </li>
+                    <li class="topic-item">
+                        <div class="topic-title">Conceptos Clave</div>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+                            <span style="font-size: 0.75rem; background: #d1fae5; color: #065f46; padding: 2px 8px; border-radius: 4px;">Muestreo</span>
+                            <span style="font-size: 0.75rem; background: #d1fae5; color: #065f46; padding: 2px 8px; border-radius: 4px;">Estimación</span>
+                            <span style="font-size: 0.75rem; background: #d1fae5; color: #065f46; padding: 2px 8px; border-radius: 4px;">Confianza</span>
+                        </div>
+                    </li>
+                    <li class="topic-item" style="border-left-color: var(--secondary);">
+                        <div class="topic-title">Objetivo Final</div>
+                        <p class="topic-desc">Capacidad crítica para analizar datos reales.</p>
+                    </li>
+                </ul>
+            </article>
+
+        </main>
+
+        <footer>
+            <p>"La estadística es la gramática de la ciencia." — Karl Pearson</p>
+        </footer>
+
+    </div>
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+</body>
+</html>

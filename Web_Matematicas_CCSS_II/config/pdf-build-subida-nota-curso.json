@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-22",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "batchId": "176-subida-nota-curso",
+  "sourceDirectory": "content/latex/subida-nota-curso",
+  "report": "docs/pdf/subida-nota-curso-build.json",
+  "mathematics": "subida-nota-curso",
+  "documents": [
+    {
+      "id": "subida-nota-curso-examen",
+      "source": "content/latex/subida-nota-curso/subida-nota-curso-examen.tex",
+      "output": "output/pdf/subida-nota-curso-examen.pdf",
+      "expectedPages": 4,
+      "title": "Subida de nota de curso - Examen revisado",
+      "forbiddenText": [
+        "£",
+        "ü"
+      ],
+      "requiredText": [
+        "Bloque D",
+        "1 hora y 30 minutos"
+      ]
+    },
+    {
+      "id": "subida-nota-curso-soluciones",
+      "source": "content/latex/subida-nota-curso/subida-nota-curso-soluciones.tex",
+      "output": "output/pdf/subida-nota-curso-soluciones.pdf",
+      "expectedPages": 4,
+      "title": "Subida de nota de curso - Soluciones revisadas",
+      "forbiddenText": [
+        "£",
+        "ü"
+      ],
+      "requiredText": [
+        "Corrección M01",
+        "Corrección M37",
+        "Corrección M38"
+      ]
+    }
+  ]
+}

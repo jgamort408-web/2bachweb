@@ -1,0 +1,61 @@
+\documentclass[11pt]{article}
+\input{estilo.tex}
+\hypersetup{pdftitle={Inferencia II - Soluciones revisadas}}
+\begin{document}
+\section*{Ejercicio 1: intervalo de una proporción}
+Soluciones revisadas desde F012. Se preservan todos los datos. Los cuantiles positivos se escriben $z_c=\Phi^{-1}((1+c)/2)$; las aproximaciones de tabla se identifican como tales.
+\begin{enumerate}[label=(\alph*)]\item La proporción observada es $\widehat p=410/500=0,82$. Los recuentos de éxito y fracaso son 410 y 90; permiten el intervalo normal aproximado del original (Wald):
+\[IC=\widehat p\pm z_c\sqrt{\frac{\widehat p(1-\widehat p)}{n}}.\]
+Con confianza $c=0,95$, $z_c\approx1,95996398$ y error estándar $s_e\approx0,01718139$. Por tanto,
+\[IC=\boxed{(0,78632510;\ 0,85367490)}.\]
+En porcentaje, aproximadamente 78,6325\% a 85,3675\%. Los extremos redondeados del original son compatibles con este resultado.
+El procedimiento tiene cobertura aproximada bajo el modelo de muestreo; no se asigna una probabilidad posterior a la proporción fija. Se supone independencia aproximada de las observaciones. El tamaño poblacional no está dado: no se inventa una corrección por población finita y debe revisarse si la fracción de muestreo fuera importante.
+\item Se conserva la estimación $\widehat p$ como valor de planificación. El error debe ser inferior a $0,04$ (cuatro puntos porcentuales). No es un porcentaje relativo de $\widehat p$.
+\[q=\frac{z_c^2\widehat p(1-\widehat p)}{E^2}\approx434,43220978.\]
+Se exige $n>q$, por lo que $n_{\min}=\lfloor q\rfloor+1$. La fórmula conserva la desigualdad estricta incluso si $q$ fuese entero.
+\[\boxed{n_{\min}=435}.\]
+Con 434 observaciones el margen es 0,04001991; con 435, 0,03997389. Solo el segundo cumple la cota.
+Los valores intermedios del original se recalculan sin redondeo prematuro; sus tamaños finales 435 se mantienen. Este tamaño corresponde al margen normal planificado usando la estimación dada; no garantiza ese margen para todo valor real desconocido de la proporción.
+\end{enumerate}
+\clearpage\section*{Ejercicio 2: media con desviación conocida}
+\textbf{Corrección M27:} los nueve precios conservados suman $1620$, no $1630$. La media es $1620/9=180$ euros. El original mezcla esa media correcta con una suma y un intervalo final incoherentes.
+Se supone muestreo aleatorio independiente de la población normal. Con desviación poblacional conocida, la media muestral es normal exacta, incluso para $n=9$. Se usa $N(\mu,\sigma)$, con desviación típica como segundo parámetro:
+\[\bar X\sim N\left(\mu,\frac{100}{\sqrt{9}}\right).\]
+\begin{enumerate}[label=(\alph*)]\item Para confianza del 95\%, $z_c=\Phi^{-1}(0,975)\approx1,95996398$,
+\[E=z_c\frac{100}{\sqrt{9}}\approx65,33213282.\]
+\[IC=\boxed{(114,66786718;\ 245,33213282)}\text{ euros}.\]
+Con tabla $z_c\approx1,96$, el intervalo es $(114,66666667;245,33333333)$ euros, que a dos decimales da $(114,67;245,33)$. Se sustituyen los extremos 245,32 y la conclusión final $(115,78;246,44)$ del original. No se conserva un intervalo desplazado por la suma errónea.
+\item Para confianza del 99\%, $z_c=\Phi^{-1}(0,995)\approx2,57582930$ y
+\[q=\left(\frac{z_c\,100}{50}\right)^2\approx26,53958640.\]
+Como se pide no superar 50 euros, $n\geq q$ y $n_{\min}=\lceil q\rceil$.
+\[\boxed{n_{\min}=27}.\]
+El margen con 26 es 50,51616878; con 27 es 49,57185806. Se confirma el menor entero admisible y se conserva el tamaño final original.
+\end{enumerate}
+\clearpage
+\section*{Ejercicio 3: afijación y diseño muestral}
+Este ejercicio figura en las dos variantes con los mismos datos; se conserva en ambas para que cada examen y solucionario sean autónomos.
+\begin{enumerate}[label=(\alph*)]
+\item La población total es $N=4800+2200+3000+2000=12000$. La fracción de muestreo en Ingeniería es
+\[
+f=\frac{60}{3000}=\frac1{50},\qquad n=Nf=\boxed{240}.
+\]
+\[
+\begin{array}{l|r|r}
+\text{Estrato}&N_h&n_h=N_h/50\\\hline
+\text{Ciencias Sociales}&4800&96\\
+\text{Ciencias de la Salud}&2200&44\\
+\text{Ingeniería}&3000&60\\
+\text{Humanidades}&2000&40\\\hline
+\text{Total}&12000&240
+\end{array}
+\]
+Las asignaciones son enteras y suman 240: no hace falta inventar una regla de redondeo. La afijación determina cuántos seleccionar por estrato; no especifica por sí sola cómo se selecciona a cada persona.
+\item Un diseño probabilístico utiliza un mecanismo aleatorio con probabilidades de inclusión conocidas y positivas para los integrantes de la población de estudio. Por ejemplo: a partir de un listado completo de cada facultad, elegir por sorteo sin reemplazamiento exactamente los 96, 44, 60 y 40 estudiantes indicados.
+
+Un diseño no probabilístico no permite establecer esas probabilidades de inclusión a partir del diseño. Por ejemplo: entrevistar a las primeras personas disponibles a la salida de la biblioteca, aunque se completen cuotas por facultad.
+
+\textbf{Precisión editorial M28:} el muestreo probabilístico permite estimar el error de muestreo con métodos adecuados al diseño y fundamentar la inferencia. No garantiza automáticamente mayor precisión en cualquier estudio ni ausencia de sesgo: importan el tamaño, la variabilidad, el marco de selección, la no respuesta y la medición. La estratificación puede mejorar la precisión en condiciones apropiadas; la proporcionalidad por sí sola no lo asegura.
+
+Para este estudio, se recomienda el sorteo estratificado descrito porque evita limitarse a quienes usan la biblioteca y permite conocer el mecanismo de selección. No se cuantifica una mejora de precisión que los datos del enunciado no permiten calcular.
+\end{enumerate}
+\end{document}

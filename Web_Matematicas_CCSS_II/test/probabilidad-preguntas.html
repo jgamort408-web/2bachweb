@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Preguntas de Probabilidad · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <script type="module" src="../assets/js/app.js"></script>
+</head>
+<body data-page-id="t07-questions">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="page-title">Sesenta preguntas de Probabilidad</h1>
+    <p data-content-role="lead">Versión de lectura de nueve ideas de las autoevaluaciones originales y cincuenta y una preguntas base de ampliación. Piensa la respuesta antes de abrir cada solución. Esta página funciona sin JavaScript.</p>
+    <p data-content-role="source">Adaptación de las autoevaluaciones incluidas en «3. Axiomática de Kolmogorov.txt», «4. Tablas de contingencia y diagramas de árboles.txt» y «5. Probabilidad total y Teorema de Bayes.txt»; ampliaciones basadas también en «1. Introducción a la probabilidad.txt» y «2. Tipos de probabilidad.txt». <a href="../libro/temas/07-probabilidad/index.html">Volver al tema 7</a> · <a href="index.html?tema=t07">Hacer el test con corrección</a>.</p>
+    <section id="axiomas" data-content-role="practice"><h2>Axiomas y sucesos</h2>
+      <article data-content-id="question:q-t07-original-01"><h3>1. Si \(A\) y \(B\) son incompatibles, ¿cómo calculas \(P(A\cup B)\)?</h3><details><summary>Ver respuesta</summary><p>\(P(A\cup B)=P(A)+P(B)\). No hay intersección que restar.</p></details></article>
+      <article data-content-id="question:q-t07-original-02"><h3>2. ¿Qué relación cumple el contrario \(A^c\)?</h3><details><summary>Ver respuesta</summary><p>\(P(A^c)=1-P(A)\), porque \(A\) y \(A^c\) son incompatibles y forman el espacio completo.</p></details></article>
+      <article data-content-id="question:q-t07-original-03"><h3>3. Si solo hay «sí» y «no», ¿son sus probabilidades necesariamente \(1/2\)?</h3><details><summary>Ver respuesta</summary><p>No. Suman 1, pero solo valen \(1/2\) cada una si son equiprobables.</p></details></article>
+    </section>
+    <section id="tablas" data-content-role="practice"><h2>Tablas y árboles</h2>
+      <article data-content-id="question:q-t07-original-04"><h3>4. ¿Qué significan los totales de filas y columnas de una tabla de contingencia?</h3><details><summary>Ver respuesta</summary><p>Son valores marginales: frecuencias si la tabla cuenta casos, probabilidades si ya está normalizada. Resumen una característica sin fijar la otra.</p></details></article>
+      <article data-content-id="question:q-t07-original-05"><h3>5. ¿Cómo se calcula la probabilidad de un camino completo en un árbol?</h3><details><summary>Ver respuesta</summary><p>Multiplicando sus ramas; las posteriores pueden depender de lo ocurrido antes.</p></details></article>
+      <article data-content-id="question:q-t07-original-06"><h3>6. ¿Cuánto suman las ramas completas que salen de un nodo?</h3><details><summary>Ver respuesta</summary><p>Suman 1, porque cubren todas las opciones posibles desde ese nodo.</p></details></article>
+    </section>
+    <section id="bayes" data-content-role="practice"><h2>Probabilidad total y Bayes</h2>
+      <article data-content-id="question:q-t07-original-07"><h3>7. Si buscas \(P(B)\) combinando escenarios de una partición, ¿qué usas?</h3><details><summary>Ver respuesta</summary><p>Probabilidad total: \(P(B)=\sum_i P(A_i)P(B\mid A_i)\).</p></details></article>
+      <article data-content-id="question:q-t07-original-08"><h3>8. Si ya ocurrió \(B\), ¿cómo hallas la probabilidad de que la causa fuera \(A_2\)?</h3><details><summary>Ver respuesta</summary><p>Con Bayes: \(P(A_2\mid B)=P(A_2)P(B\mid A_2)/P(B)\), siempre que \(P(B)>0\).</p></details></article>
+      <article data-content-id="question:q-t07-original-09"><h3>9. Al invertir una condición, ¿qué denominador no puedes omitir?</h3><details><summary>Ver respuesta</summary><p>La probabilidad de lo observado: \(P(A\mid B)=P(A\cap B)/P(B)\), si \(P(B)>0\).</p></details></article>
+    </section>
+    <section id="ampliaciones-laplace" data-content-role="practice"><h2>Ampliaciones base: sucesos y Laplace</h2>
+      <article data-content-id="question:q-t07-base-10"><h3>10. ¿Cuál es el espacio muestral de un dado equilibrado de seis caras?</h3><details><summary>Ver respuesta</summary><p>\(E=\{1,2,3,4,5,6\}\). Incluye todos los resultados elementales de la cara superior; los pares forman solo un suceso.</p></details></article>
+      <article data-content-id="question:q-t07-base-11"><h3>11. ¿Cuál es la probabilidad de obtener un 7 en ese dado?</h3><details><summary>Ver respuesta</summary><p>Es \(0\): el 7 no pertenece al espacio muestral. Se trata del suceso imposible.</p></details></article>
+      <article data-content-id="question:q-t07-base-12"><h3>12. ¿Basta contar los cuatro sectores de tamaños diferentes de una ruleta para aplicar Laplace?</h3><details><summary>Ver respuesta</summary><p>No. Hay que justificar la equiprobabilidad de los resultados elementales; tener cuatro sectores no les da automáticamente probabilidad \(1/4\).</p></details></article>
+    </section>
+    <section id="ampliaciones-sucesos" data-content-role="practice"><h2>Ampliaciones base: álgebra de sucesos</h2>
+      <article data-content-id="question:q-t07-base-13"><h3>13. ¿Qué significa «no ocurre A ni B»?</h3><details><summary>Ver respuesta</summary><p>\(A^c\cap B^c=(A\cup B)^c\). Deben faltar ambos sucesos; es una ley de De Morgan.</p></details></article>
+      <article data-content-id="question:q-t07-base-14"><h3>14. Si \(A=\{2,4,6\}\) y \(B=\{4,5,6\}\), ¿qué resultados están en A sin B?</h3><details><summary>Ver respuesta</summary><p>Solo \(\{2\}\), porque 4 y 6 pertenecen también a B. Así, \(A\setminus B=\{2\}\).</p></details></article>
+      <article data-content-id="question:q-t07-base-15"><h3>15. En una baraja española de 40 cartas, ¿cuál es la probabilidad de rey o copa?</h3><details><summary>Ver respuesta</summary><p>Hay 4 reyes y 10 copas, con una carta común: el rey de copas. Por tanto, \(P(R\cup C)=(4+10-1)/40=13/40\).</p></details></article>
+    </section>
+    <section id="ampliaciones-tablas" data-content-role="practice"><h2>Ampliaciones base: tablas de contingencia</h2>
+      <p>Ejemplo hipotético: \(A\) significa aprobar y \(B\), entregar trabajos. La tabla muestra probabilidades conjuntas y marginales.</p>
+      <table><caption>Probabilidades de aprobar y entregar trabajos</caption><thead><tr><th scope="col">Suceso</th><th scope="col">\(B\)</th><th scope="col">\(B^c\)</th><th scope="col">Total</th></tr></thead><tbody><tr><th scope="row">\(A\)</th><td>0,35</td><td>0,25</td><td>0,60</td></tr><tr><th scope="row">\(A^c\)</th><td>0,15</td><td>0,25</td><td>0,40</td></tr><tr><th scope="row">Total</th><td>0,50</td><td>0,50</td><td>1</td></tr></tbody></table>
+      <article data-content-id="question:q-t07-base-16"><h3>16. ¿Cuál es \(P(A\cup B)\)?</h3><details><summary>Ver respuesta</summary><p>\(0{,}35+0{,}25+0{,}15=0{,}75\). También puedes restar la casilla «ni A ni B» de 1.</p></details></article>
+      <article data-content-id="question:q-t07-base-17"><h3>17. Entre quienes aprueban, ¿qué proporción entrega trabajos?</h3><details><summary>Ver respuesta</summary><p>\(P(B\mid A)=0{,}35/0{,}60=7/12\). El denominador es el total de quienes aprueban.</p></details></article>
+      <article data-content-id="question:q-t07-base-18"><h3>18. ¿Son independientes \(A\) y \(B\)?</h3><details><summary>Ver respuesta</summary><p>No: \(P(A\cap B)=0{,}35\), mientras \(P(A)P(B)=0{,}60\cdot0{,}50=0{,}30\).</p></details></article>
+    </section>
+    <section id="ampliaciones-frecuencias" data-content-role="practice"><h2>Ampliaciones base: frecuencias</h2>
+      <article data-content-id="question:q-t07-base-19"><h3>19. En un ejemplo didáctico hay 850 personas zurdas entre 10 000. ¿Cuál es la frecuencia relativa?</h3><details><summary>Ver respuesta</summary><p>\(850/10\,000=0{,}085=8{,}5\%\). Describe este registro hipotético; no demuestra por sí sola una proporción poblacional.</p></details></article>
+      <p>En otro registro ficticio, las categorías de tareas completadas tienen orden natural:</p>
+      <table><caption>Tareas completadas en diez registros ficticios</caption><thead><tr><th scope="col">Tareas completadas</th><th scope="col">0</th><th scope="col">1</th><th scope="col">2</th><th scope="col">Total</th></tr></thead><tbody><tr><th scope="row">Frecuencia absoluta</th><td>2</td><td>3</td><td>5</td><td>10</td></tr></tbody></table>
+      <article data-content-id="question:q-t07-base-20"><h3>20. ¿Cuál es la frecuencia relativa acumulada de completar como máximo una tarea?</h3><details><summary>Ver respuesta</summary><p>\((2+3)/10=1/2\). Se acumulan las categorías de cero y una tarea.</p></details></article>
+      <article data-content-id="question:q-t07-base-21"><h3>21. En veinte lanzamientos de un dado ideal aparece el seis cuatro veces. ¿Qué diferencia hay entre frecuencia y probabilidad teórica?</h3><details><summary>Ver respuesta</summary><p>La frecuencia observada es \(4/20=1/5\); la probabilidad del seis para el dado ideal equilibrado sigue siendo \(1/6\).</p></details></article>
+    </section>
+    <section id="ampliaciones-axiomas" data-content-role="practice"><h2>Ampliaciones base: axiomas</h2>
+      <article data-content-id="question:q-t07-base-22"><h3>22. Un modelo asigna −0,1; 0,4 y 0,7 a tres resultados incompatibles y exhaustivos. ¿Es válido aunque sumen 1?</h3><details><summary>Ver respuesta</summary><p>No. La no negatividad exige que cada probabilidad sea al menos cero. La normalización por sí sola no basta.</p></details></article>
+      <article data-content-id="question:q-t07-base-23"><h3>23. Tres resultados incompatibles y exhaustivos tienen probabilidades 0,2; 0,3 y \(x\). ¿Qué vale \(x\)?</h3><details><summary>Ver respuesta</summary><p>\(0{,}2+0{,}3+x=1\), así que \(x=0{,}5\). Se usan la aditividad y la normalización.</p></details></article>
+      <article data-content-id="question:q-t07-base-24"><h3>24. ¿Por qué \(P(\varnothing)=0\) es una consecuencia de los axiomas?</h3><details><summary>Ver respuesta</summary><p>\(E\cup\varnothing=E\) y son incompatibles. Por aditividad, \(P(E)=P(E)+P(\varnothing)\); al restar \(P(E)\) queda \(P(\varnothing)=0\).</p></details></article>
+    </section>
+    <section id="ampliaciones-propiedades" data-content-role="practice"><h2>Ampliaciones base: propiedades</h2>
+      <article data-content-id="question:q-t07-base-25"><h3>25. Si \(P(A)=0{,}72\), ¿cuánto vale \(P(A^c)\)?</h3><details><summary>Ver respuesta</summary><p>\(P(A^c)=1-0{,}72=0{,}28\). El suceso y su contrario forman el seguro.</p></details></article>
+      <article data-content-id="question:q-t07-base-26"><h3>26. Si \(A\subseteq B\), ¿pueden valer \(P(A)=0{,}68\) y \(P(B)=0{,}55\)?</h3><details><summary>Ver respuesta</summary><p>No. Por monotonía, \(P(A)\leq P(B)\). El conjunto que contiene a otro no puede tener menor probabilidad.</p></details></article>
+      <article data-content-id="question:q-t07-base-27"><h3>27. Si \(P(A)=0{,}55\), \(P(B)=0{,}42\) y \(P(A\cap B)=0{,}17\), ¿cuánto vale \(P(A\cup B)\)?</h3><details><summary>Ver respuesta</summary><p>\(0{,}55+0{,}42-0{,}17=0{,}80\). Se resta el solape contado dos veces.</p></details></article>
+    </section>
+    <section id="ampliaciones-compuestos" data-content-role="practice"><h2>Ampliaciones base: experimentos compuestos</h2>
+      <article data-content-id="question:q-t07-base-28"><h3>28. Dos incendios independientes tienen cada uno probabilidad hipotética 0,4 de negligencia. ¿Cuál es la probabilidad de negligencia en exactamente uno?</h3><details><summary>Ver respuesta</summary><p>Hay dos caminos incompatibles: negligencia solo en el primero o solo en el segundo. Por independencia, \(0{,}4\cdot0{,}6+0{,}6\cdot0{,}4=0{,}48\).</p></details></article>
+      <article data-content-id="question:q-t07-base-29"><h3>29. Una urna didáctica tiene 2 bolas rojas y 1 azul. Se hacen dos extracciones con reemplazamiento. ¿Cuál es la probabilidad de dos rojas?</h3><details><summary>Ver respuesta</summary><p>Al devolver la primera bola, la segunda rama roja vuelve a ser \(2/3\). Así, \(P(RR)=(2/3)(2/3)=4/9\).</p></details></article>
+      <article data-content-id="question:q-t07-base-30"><h3>30. En la misma urna se extraen dos bolas sin reemplazamiento. ¿Cuál es la probabilidad de al menos una roja?</h3><details><summary>Ver respuesta</summary><p>Es \(1\). Solo hay una bola azul, por lo que no pueden salir dos azules sin devolver la primera.</p></details></article>
+    </section>
+    <section id="ampliaciones-condicionada" data-content-role="practice"><h2>Ampliaciones base: probabilidad condicionada</h2>
+      <article data-content-id="question:q-t07-base-31"><h3>31. Si \(P(A\cap B)=0{,}18\) y \(P(B)=0{,}30\), ¿cuánto vale \(P(A\mid B)\)?</h3><details><summary>Ver respuesta</summary><p>\(P(A\mid B)=0{,}18/0{,}30=0{,}60\). El denominador es la probabilidad de la condición \(B\).</p></details></article>
+      <article data-content-id="question:q-t07-base-32"><h3>32. Si \(P(A)=0{,}40\) y \(P(B\mid A)=0{,}30\), ¿cuánto vale \(P(A\cap B)\)?</h3><details><summary>Ver respuesta</summary><p>Por la regla del producto, \(P(A\cap B)=0{,}40\cdot0{,}30=0{,}12\).</p></details></article>
+      <article data-content-id="question:q-t07-base-33"><h3>33. Si \(P(B)=0\), ¿está definida \(P(A\mid B)\) mediante el cociente habitual?</h3><details><summary>Ver respuesta</summary><p>No. La fórmula \(P(A\mid B)=P(A\cap B)/P(B)\) exige \(P(B)>0\); de lo contrario, habría una división entre cero.</p></details></article>
+    </section>
+    <section id="ampliaciones-total" data-content-role="practice"><h2>Ampliaciones base: probabilidad total</h2>
+      <article data-content-id="question:q-t07-base-34"><h3>34. En un dado de seis caras, ¿forman \(\{1,2\},\{3,4\},\{5,6\}\) una partición?</h3><details><summary>Ver respuesta</summary><p>Sí. Los grupos no se solapan y juntos reúnen los seis resultados del espacio muestral.</p></details></article>
+      <article data-content-id="question:q-t07-base-35"><h3>35. Una máquina hipotética produce el 70 % de las piezas con 2 % de defectos; otra, el 30 % con 5 %. ¿Cuál es la probabilidad total de defecto?</h3><details><summary>Ver respuesta</summary><p>\(0{,}70\cdot0{,}02+0{,}30\cdot0{,}05=0{,}014+0{,}015=0{,}029\). Es el 2,9 % del modelo didáctico, no una tasa observada de fábrica.</p></details></article>
+      <article data-content-id="question:q-t07-base-36"><h3>36. Si \(P(A)=0{,}3\), \(P(B\mid A)=0{,}8\) y \(P(B\mid A^c)=0{,}2\), ¿cuánto vale \(P(B^c)\)?</h3><details><summary>Ver respuesta</summary><p>Primero, \(P(B)=0{,}3\cdot0{,}8+0{,}7\cdot0{,}2=0{,}38\). Por el complementario, \(P(B^c)=0{,}62\).</p></details></article>
+    </section>
+    <section id="ampliaciones-bayes" data-content-role="practice"><h2>Ampliaciones base: teorema de Bayes</h2>
+      <article data-content-id="question:q-t07-base-37"><h3>37. Si las dos máquinas anteriores producen el 70 % y el 30 % con tasas de defecto 2 % y 5 %, ¿qué probabilidad hay de que una pieza defectuosa proceda de la segunda?</h3><details><summary>Ver respuesta</summary><p>El camino segunda máquina y defecto vale \(0{,}30\cdot0{,}05=0{,}015\), y el total de defectos vale \(0{,}029\). Por Bayes, la respuesta es \(0{,}015/0{,}029=15/29\approx0{,}5172\).</p></details></article>
+      <article data-content-id="question:q-t07-base-38"><h3>38. En un ejemplo didáctico, el 5 % del correo es spam; cierta palabra aparece en el 80 % del spam y en el 10 % del correo normal. Si aparece la palabra, ¿qué probabilidad hay de spam?</h3><details><summary>Ver respuesta</summary><p>La palabra aparece con probabilidad \(0{,}05\cdot0{,}80+0{,}95\cdot0{,}10=0{,}135\). El camino spam y palabra vale 0,04. Por tanto, \(P(\text{spam}\mid\text{palabra})=0{,}04/0{,}135=8/27\approx0{,}2963\), no 0,80.</p></details></article>
+      <article data-content-id="question:q-t07-base-39"><h3>39. Tres causas forman una partición y aportan 0,06; 0,03 y 0,01 a un resultado \(B\). Observado \(B\), ¿qué probabilidad corresponde a la segunda causa?</h3><details><summary>Ver respuesta</summary><p>\(P(B)=0{,}06+0{,}03+0{,}01=0{,}10\). La segunda causa aporta 0,03, así que su probabilidad posterior es \(0{,}03/0{,}10=0{,}30\). Este reparto es una ampliación hipotética.</p></details></article>
+    </section>
+    <section id="repaso-integrado" data-content-role="practice"><h2>Repaso integrado: una tabla, seis preguntas</h2>
+      <p>Se elige una ficha al azar entre 200 solicitudes ficticias, todas igualmente probables. La tabla clasifica el canal y si figura como resuelta. Los recuentos no representan datos reales.</p>
+      <div class="math-scroll" tabindex="0"><table><caption>Doscientas fichas ficticias por canal y resolución</caption><thead><tr><th scope="col">Canal</th><th scope="col">Resuelta</th><th scope="col">No resuelta</th><th scope="col">Total</th></tr></thead><tbody><tr><th scope="row">Web</th><td>90</td><td>30</td><td>120</td></tr><tr><th scope="row">Teléfono</th><td>40</td><td>40</td><td>80</td></tr><tr><th scope="row">Total</th><td>130</td><td>70</td><td>200</td></tr></tbody></table></div>
+      <article data-content-id="question:q-t07-base-40"><h3>40. ¿Qué probabilidad hay de elegir una ficha resuelta?</h3><details><summary>Ver respuesta</summary><p>\(130/200=13/20=0{,}65\). Se usa el total de la columna resuelta entre las 200 fichas.</p></details></article>
+      <article data-content-id="question:q-t07-base-41"><h3>41. ¿Qué probabilidad hay de elegir una ficha web y no resuelta?</h3><details><summary>Ver respuesta</summary><p>\(30/200=3/20=0{,}15\). Es una casilla conjunta; no se condiciona a web.</p></details></article>
+      <article data-content-id="question:q-t07-base-42"><h3>42. Entre las fichas del canal teléfono, ¿qué proporción está resuelta?</h3><details><summary>Ver respuesta</summary><p>\(P(R\mid T)=40/80=1/2\). El grupo de referencia son las 80 fichas telefónicas.</p></details></article>
+      <article data-content-id="question:q-t07-base-43"><h3>43. Entre las fichas resueltas, ¿qué proporción procede del canal teléfono?</h3><details><summary>Ver respuesta</summary><p>\(P(T\mid R)=40/130=4/13\). La condición cambia el denominador a las 130 fichas resueltas.</p></details></article>
+      <article data-content-id="question:q-t07-base-44"><h3>44. ¿Qué probabilidad hay de elegir una ficha web o resuelta?</h3><details><summary>Ver respuesta</summary><p>\((120+130-90)/200=160/200=0{,}80\). Se resta una vez la casilla web y resuelta, contada en ambos márgenes.</p></details></article>
+      <article data-content-id="question:q-t07-base-45"><h3>45. ¿Son independientes «web» y «resuelta» en este modelo?</h3><details><summary>Ver respuesta</summary><p>No. \(P(W\cap R)=90/200=0{,}45\), mientras \(P(W)P(R)=(120/200)(130/200)=0{,}39\).</p></details></article>
+    </section>
+    <section id="dos-dados" data-content-role="practice"><h2>Repaso integrado: dos dados distinguibles</h2>
+      <p>Los dos dados son equilibrados, tienen seis caras y se distinguen por su orden. Cada uno de los 36 pares ordenados es equiprobable.</p>
+      <article data-content-id="question:q-t07-base-46"><h3>46. ¿Cuántos resultados elementales tiene el lanzamiento de los dos dados?</h3><details><summary>Ver respuesta</summary><p>(6\cdot6=36) pares ordenados, porque cada cara del primer dado se combina con las seis del segundo.</p></details></article>
+      <article data-content-id="question:q-t07-base-47"><h3>47. ¿Qué probabilidad hay de que la suma sea 7?</h3><details><summary>Ver respuesta</summary><p>Los pares favorables son (1,6), (2,5), (3,4), (4,3), (5,2) y (6,1): (6/36=1/6).</p></details></article>
+      <article data-content-id="question:q-t07-base-48"><h3>48. ¿Qué probabilidad hay de sumar 7 y obtener par en el primer dado?</h3><details><summary>Ver respuesta</summary><p>Los pares (2,5), (4,3) y (6,1) cumplen ambas condiciones. Su probabilidad conjunta es (3/36=1/12).</p></details></article>
+      <article data-content-id="question:q-t07-base-49"><h3>49. Si ya se sabe que la suma es 7, ¿qué probabilidad hay de que el primer dado sea par?</h3><details><summary>Ver respuesta</summary><p>De los seis pares que suman 7, tres empiezan por número par: (3/6=1/2).</p></details></article>
+      <article data-content-id="question:q-t07-base-50"><h3>50. ¿Son independientes «suma 7» y «primer dado par»?</h3><details><summary>Ver respuesta</summary><p>Sí: la probabilidad conjunta es (3/36=1/12) y el producto de marginales vale ((1/6)(1/2)=1/12).</p></details></article>
+    </section>
+    <section id="urna-sin-reemplazamiento" data-content-role="practice"><h2>Repaso integrado: urna sin reemplazamiento</h2>
+      <p>Una urna didáctica contiene tres bolas rojas y dos azules. Se extraen dos sin devolver la primera.</p>
+      <article data-content-id="question:q-t07-base-51"><h3>51. ¿Qué probabilidad hay de que la primera bola sea roja?</h3><details><summary>Ver respuesta</summary><p>Hay tres rojas de cinco bolas al inicio: (3/5).</p></details></article>
+      <article data-content-id="question:q-t07-base-52"><h3>52. Si la primera fue roja, ¿qué probabilidad hay de que la segunda sea azul?</h3><details><summary>Ver respuesta</summary><p>Quedan dos azules entre cuatro bolas: (2/4=1/2).</p></details></article>
+      <article data-content-id="question:q-t07-base-53"><h3>53. ¿Qué probabilidad hay de sacar primero roja y después azul?</h3><details><summary>Ver respuesta</summary><p>Se multiplican las ramas: ((3/5)(2/4)=3/10).</p></details></article>
+      <article data-content-id="question:q-t07-base-54"><h3>54. ¿Qué probabilidad hay de obtener exactamente una roja?</h3><details><summary>Ver respuesta</summary><p>Se suman los órdenes roja-azul y azul-roja: ((3/5)(2/4)+(2/5)(3/4)=3/5).</p></details></article>
+      <article data-content-id="question:q-t07-base-55"><h3>55. ¿Qué probabilidad hay de obtener al menos una roja?</h3><details><summary>Ver respuesta</summary><p>El contrario es sacar dos azules, con probabilidad ((2/5)(1/4)=1/10). La respuesta es (1-1/10=9/10).</p></details></article>
+    </section>
+    <section id="dos-canales" data-content-role="practice"><h2>Repaso integrado: probabilidad total y Bayes</h2>
+      <p>Modelo ficticio de dos canales, A y B. «Urgente» es una etiqueta didáctica; los valores no describen datos observados.</p>
+      <div class="math-scroll" tabindex="0"><table><caption>Modelo ficticio: canal y etiqueta urgente</caption><thead><tr><th scope="col">Canal</th><th scope="col">Peso del canal</th><th scope="col">Proporción urgente dentro del canal</th></tr></thead><tbody><tr><th scope="row">A</th><td>0,60</td><td>0,10</td></tr><tr><th scope="row">B</th><td>0,40</td><td>0,30</td></tr></tbody></table></div>
+      <article data-content-id="question:q-t07-base-56"><h3>56. ¿Qué probabilidad conjunta tienen «canal A» y «urgente»?</h3><details><summary>Ver respuesta</summary><p>(P(A\cap U)=0{,}60\cdot0{,}10=0{,}06).</p></details></article>
+      <article data-content-id="question:q-t07-base-57"><h3>57. ¿Qué probabilidad total tiene la etiqueta urgente?</h3><details><summary>Ver respuesta</summary><p>(P(U)=0{,}60\cdot0{,}10+0{,}40\cdot0{,}30=0{,}06+0{,}12=0{,}18).</p></details></article>
+      <article data-content-id="question:q-t07-base-58"><h3>58. Si la etiqueta es urgente, ¿qué probabilidad hay de que proceda de B?</h3><details><summary>Ver respuesta</summary><p>(P(B\mid U)=0{,}12/0{,}18=2/3). El denominador reúne ambos canales urgentes.</p></details></article>
+      <article data-content-id="question:q-t07-base-59"><h3>59. Si la etiqueta es urgente, ¿qué probabilidad hay de que proceda de A?</h3><details><summary>Ver respuesta</summary><p>(P(A\mid U)=0{,}06/0{,}18=1/3).</p></details></article>
+      <article data-content-id="question:q-t07-base-60"><h3>60. ¿Cómo cambia la probabilidad de B al conocer que la etiqueta es urgente?</h3><details><summary>Ver respuesta</summary><p>Pasa de (P(B)=0{,}40) a (P(B\mid U)=2/3). La etiqueta es más frecuente dentro de B que de A.</p></details></article>
+    </section>
+    <section id="alcance" data-content-role="warning"><h2>Alcance</h2><p>Las primeras nueve ideas proceden de tres autoevaluaciones locales. Las preguntas 10–60 son ampliaciones base nuevas, diferenciadas de los originales y de las variantes automáticas de las lecciones. La versión interactiva añade distractores, pistas y explicaciones. Esta lectura conserva una respuesta para cada idea y queda pendiente de validación con lector de pantalla.</p></section>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

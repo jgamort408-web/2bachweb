@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>6.2. Sistemas de inecuaciones lineales con dos incógnitas · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t06-e02">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">6.2. Sistemas de inecuaciones lineales con dos incógnitas</h1>
+    <p data-content-role="lead">Un sistema impone varias condiciones simultáneas. Su solución es la zona común donde se superponen los semiplanos de todas las restricciones.</p>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#sistema">Sistema y región factible</a> · <a href="#interseccion">Gráfico</a> · <a href="#vertices">Vértices</a> · <a href="#tipos">Tipos de región</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+    <section id="sistema" data-content-role="definition"><h2>Sistema y región factible</h2>
+    <p>Ya no buscamos solo un lado de una recta, sino la intersección de las zonas que cumplen todas las inecuaciones. Esa intersección se llama <strong>región factible</strong>.</p>
+    <p>El ejemplo es:</p>
+    <p>\[\begin{cases}x+y\le60 &amp; \text{(restricción 1)},\\x\le40 &amp; \text{(restricción 2)},\\x\ge0,\quad y\ge0 &amp; \text{(no negatividad)}.\end{cases}\]</p>
+    <p>En este sistema, la no negatividad es una condición expresa: trabajamos en el primer cuadrante. Un punto debe cumplir las cuatro desigualdades a la vez.</p>
+    </section>
+    <section id="interseccion" data-content-role="visualization"><h2>Región factible: la intersección</h2>
+    <figure>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 330" width="640" role="img" aria-labelledby="region-title region-desc" data-source-diagram>
+      <title id="region-title">Intersección de x más y menor o igual que sesenta y x menor o igual que cuarenta en el primer cuadrante</title>
+      <desc id="region-desc">La recta descendente pasa por (0,60) y (60,0). La frontera vertical es x=40. Su zona común, con x e y no negativos, es el cuadrilátero de vértices (0,0), (40,0), (40,20) y (0,60). Todos sus bordes están incluidos.</desc>
+      <defs>
+        <pattern id="r1-rayas" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M0 9L9 0" stroke="#aaa" stroke-width=".7"/></pattern>
+        <pattern id="r2-rayas" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0 5H10" stroke="#aaa" stroke-width=".7"/></pattern>
+      </defs>
+      <rect x="20" y="20" width="300" height="280" fill="white" stroke="#aaa"/>
+      <path data-region-one d="M40 280L40 40L280 280Z" fill="url(#r1-rayas)"/>
+      <path data-region-two d="M40 280L40 20L200 20L200 280Z" fill="url(#r2-rayas)"/>
+      <path data-feasible d="M40 280L200 280L200 200L40 40Z" fill="#ddd" stroke="#111" stroke-width="3"/>
+      <path data-boundary-one d="M40 40L280 280" fill="none" stroke="#222" stroke-width="2"/>
+      <path data-boundary-two d="M200 20V280" fill="none" stroke="#222" stroke-width="2"/>
+      <path d="M20 280H326M40 306V14" fill="none" stroke="#222" stroke-width="1.5"/>
+      <g stroke="#555"><path d="M120 277V283M200 277V283M280 277V283M37 200H43M37 120H43M37 40H43"/></g>
+      <g fill="#111"><circle data-vertex="A" cx="40" cy="280" r="3.5"/><circle data-vertex="B" cx="200" cy="280" r="3.5"/><circle data-vertex="C" cx="200" cy="200" r="3.5"/><circle data-vertex="D" cx="40" cy="40" r="3.5"/></g>
+      <g font-family="system-ui,sans-serif" font-size="12" fill="#111">
+        <text x="25" y="295">0</text><text x="112" y="295">20</text><text x="192" y="295">40</text><text x="272" y="295">60</text>
+        <text x="18" y="204">20</text><text x="18" y="124">40</text><text x="18" y="44">60</text>
+        <text x="332" y="284">x</text><text x="36" y="12">y</text>
+        <text x="46" y="274">A</text><text x="207" y="274">B</text><text x="207" y="198">C (40,20)</text><text x="47" y="36">D (0,60)</text>
+        <text x="209" y="59">x = 40</text><text x="225" y="155">x + y = 60</text>
+        <text x="71" y="233">Región factible</text>
+      </g>
+    </svg>
+    <figcaption data-content-role="caption">Se muestran \(x+y\le60\) con rayado oblicuo y \(x\le40\) con rayado horizontal, ambos dentro del primer cuadrante. La zona común aparece en gris. La franja de rayado horizontal continúa hacia arriba, fuera de la ventana; el marco no añade ninguna restricción. Las fronteras continuas están incluidas porque las desigualdades admiten la igualdad.</figcaption>
+    </figure>
+    </section>
+    <section id="vertices" data-content-role="explanation"><h2>Los vértices</h2>
+    <p>Son las esquinas de la región factible. Se obtienen al cruzar rectas frontera y comprobar que el punto cumple <strong>todas</strong> las restricciones; no todos los cruces pertenecen a la región.</p>
+    <p>En el ejemplo, los vértices son:</p>
+    <p>\[A=(0,0),\quad B=(40,0),\quad C=(40,20),\quad D=(0,60).\]</p>
+    <details data-content-role="solution"><summary>Comprobar las esquinas del ejemplo</summary>
+    <ul><li>A es el cruce de los ejes y cumple \(0+0\le60\) y \(0\le40\).</li>
+    <li>B cumple \(x=40,\ y=0\), luego \(x+y=40\le60\).</li>
+    <li>C se obtiene de \(x=40\) y \(x+y=60\): \(y=20\).</li>
+    <li>D se obtiene de \(x=0\) y \(x+y=60\): \(y=60\).</li></ul>
+    <p>Los cuatro puntos tienen coordenadas no negativas. El cruce \((60,0)\) de la recta oblicua con el eje x no es un vértice factible, porque incumple \(x\le40\).</p>
+    </details>
+    <div data-content-role="warning"><h3>¿El óptimo está siempre en un vértice?</h3>
+    <p>Para una <strong>función objetivo lineal</strong> sobre un polígono factible <strong>no vacío, cerrado y acotado</strong>, existen máximo y mínimo, y al menos un vértice alcanza cada extremo. El óptimo puede alcanzarse también en todo un lado; no tiene por qué ser único.</p>
+    <p>No basta con dibujar una región para decidir qué punto es óptimo: hace falta especificar qué función se maximiza o minimiza. En este ejemplo todavía no se ha dado una función objetivo.</p>
+    </div>
+    </section>
+    <section id="tipos" data-content-role="comparison"><h2>Tipos de región factible</h2>
+    <h3>Acotada</h3><p>Cabe dentro de un rectángulo de tamaño finito. En los casos habituales con área, forma un polígono; también puede reducirse a un segmento o a un punto. Para garantizar máximo y mínimo de una función lineal, además debe ser <strong>cerrada y no vacía</strong>. Acotada no significa por sí sola cerrada: las desigualdades estrictas pueden excluir la frontera.</p>
+    <h3>No acotada</h3><p>Se extiende indefinidamente en alguna dirección. Puede tener o no máximo o mínimo: depende de la función objetivo y de las restricciones. No se puede decidir solo por el tamaño de la región.</p>
+    <p data-content-role="warning">Si los semiplanos no tienen ningún punto común, la región factible está vacía: el sistema no tiene solución y no hay ningún punto factible que optimizar.</p>
+    </section>
+    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2><p>Práctica autocorregible y explorador interactivo pendientes. Se conserva el ejemplo gráfico; los ejercicios resueltos adicionales se incorporarán en su apartado.</p></section>
+    <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="01-inecuaciones-lineales-con-dos-incognitas.html">Anterior: inecuaciones</a> · <a href="index.html">Volver al tema 6</a> · <a href="03-programacion-lineal.html">Siguiente: programación lineal (contenido parcial)</a></nav>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

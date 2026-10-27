@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 1,
+  "mathematics": {
+    "passed": true,
+    "separateExams": 2,
+    "derivativeEvaluations": 15,
+    "temperatureRoots": [
+      2,
+      10
+    ],
+    "positiveHours": 8,
+    "vaccineConclusionConditionalOnOriginalSolutionCriteria": true
+  },
+  "documents": [
+    {
+      "id": "repaso-analisis-examen",
+      "pages": 4,
+      "bytes": 33986,
+      "sha256": "bd089c5f5bda81d32ddc167b317d5dc433418e045f20ed5f31c46ba47e0fc240",
+      "title": "Repaso de Análisis - Exámenes 1 y 2 - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 12,
+      "characters": 2906
+    },
+    {
+      "id": "repaso-analisis-soluciones",
+      "pages": 8,
+      "bytes": 61346,
+      "sha256": "dd168d297608d26f87db5b1f8fe58d4c5a9f5b9d22b315453af844bdc6ff4493",
+      "title": "Repaso de Análisis - Exámenes 1 y 2 - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 15,
+      "characters": 6666
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-22",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/repaso-analisis/estilo.tex",
+      "sha256": "3ae619c08653d11dc27c4c8ec62c6af40a4aa510a3f47187e9727dd0fbffce36"
+    },
+    {
+      "path": "content/latex/repaso-analisis/provenance.json",
+      "sha256": "72014424044aabcace5552250f8486f6080e5e71fdda32c472c7892f3bce816a"
+    },
+    {
+      "path": "content/latex/repaso-analisis/repaso-analisis-examen.tex",
+      "sha256": "06a3d1e39300d78fb2441af9c712ecf1ce5a254cf4729336ec450ed33d6458d8"
+    },
+    {
+      "path": "content/latex/repaso-analisis/repaso-analisis-soluciones.tex",
+      "sha256": "6a1df536a9b7b31ebd7e45251bda2ec3d76310e91e747cc8778ed1fe1d673f60"
+    }
+  ]
+}

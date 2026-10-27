@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards: Distribuciones de Probabilidad</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-body: #ecfdf5;       /* Emerald 50 */
+            --primary: #059669;       /* Emerald 600 */
+            --primary-dark: #047857;
+            --secondary: #064e3b;     /* Emerald 950 */
+            --accent: #d97706;        /* Amber */
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --card-front: #ffffff;
+            --card-back: #064e3b;
+            
+            --radius: 16px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            padding: 2rem;
+            min-height: 100vh;
+            background-image: radial-gradient(#6ee7b7 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* HEADER */
+        header { text-align: center; margin-bottom: 3rem; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--secondary); margin-bottom: 0.5rem; }
+        p.subtitle { color: var(--text-light); font-size: 1.1rem; }
+
+        /* FILTROS */
+        .filter-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+        .filter-btn {
+            background: white; border: 1px solid #6ee7b7; padding: 0.5rem 1.2rem;
+            border-radius: 50px; cursor: pointer; font-family: 'Inter', sans-serif;
+            font-weight: 600; font-size: 0.9rem; color: var(--text-light); transition: all 0.2s ease;
+        }
+        .filter-btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
+        .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3); }
+
+        /* GRID */
+        .flashcard-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+
+        /* CARTA 3D */
+        .flashcard { background-color: transparent; width: 100%; height: 260px; perspective: 1000px; cursor: pointer; }
+        .flashcard-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; }
+        .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+        
+        .flashcard-front, .flashcard-back {
+            position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden;
+            border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.5rem;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+
+        .flashcard-front { background-color: var(--card-front); border: 1px solid #d1fae5; border-bottom: 4px solid var(--primary); }
+        .fc-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .fc-category { position: absolute; top: 15px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); background: #ecfdf5; padding: 2px 8px; border-radius: 4px; }
+        .fc-question { font-size: 1.1rem; font-weight: 700; color: var(--secondary); line-height: 1.4; }
+        .fc-hint { position: absolute; bottom: 15px; font-size: 0.75rem; color: var(--primary); font-weight: 600; opacity: 0.7; }
+
+        .flashcard-back { background-color: var(--card-back); color: white; transform: rotateY(180deg); border: 1px solid var(--secondary); overflow-y: auto; }
+        .fc-answer { font-size: 1rem; line-height: 1.6; }
+        .flashcard-back::-webkit-scrollbar { width: 4px; }
+        .flashcard-back::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
+
+        mjx-container { color: white !important; }
+        .flashcard-front mjx-container { color: var(--secondary) !important; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>🔔 Distribuciones de Probabilidad</h1>
+            <p class="subtitle">Variables Aleatorias: Binomial y Normal</p>
+        </header>
+
+        <div class="filter-container" id="filters">
+            <button class="filter-btn active" onclick="filterCards('all', this)">Todas</button>
+            <button class="filter-btn" onclick="filterCards('Conceptos', this)">Conceptos</button>
+            <button class="filter-btn" onclick="filterCards('Binomial', this)">Distribución Binomial</button>
+            <button class="filter-btn" onclick="filterCards('Normal', this)">Distribución Normal</button>
+            <button class="filter-btn" onclick="filterCards('Tipificación', this)">Uso de Tabla Z</button>
+            <button class="filter-btn" onclick="filterCards('Aproximación', this)">Aproximación B → N</button>
+        </div>
+
+        <div class="flashcard-grid" id="grid"></div>
+
+    </div>
+
+    <script>
+        const cardsData = [
+            // --- CONCEPTOS ---
+            { category: "Conceptos", icon: "🎲", question: "¿Variable Aleatoria Discreta?", answer: "Solo toma valores aislados (números enteros). Se cuentan. <br>Ej: Nº de hijos, caras en moneda." },
+            { category: "Conceptos", icon: "📏", question: "¿Variable Aleatoria Continua?", answer: "Toma cualquier valor en un intervalo (números reales). Se miden. <br>Ej: Altura, Tiempo, Peso." },
+            { category: "Conceptos", icon: "📊", question: "¿Función de Probabilidad vs Densidad?", answer: "<strong>Masa (Discreta):</strong> $P(X=k)$.<br><strong>Densidad (Continua):</strong> Área bajo la curva (la probabilidad de un punto exacto es 0)." },
+
+            // --- BINOMIAL ---
+            { category: "Binomial", icon: "✅", question: "Definición Binomial $B(n, p)$", answer: "Repetimos $n$ veces un experimento con solo dos resultados: Éxito ($p$) o Fracaso ($q=1-p$)." },
+            { category: "Binomial", icon: "📝", question: "Fórmula de Probabilidad $P(X=k)$", answer: "$$P(X=k) = \\binom{n}{k} \\cdot p^k \\cdot q^{n-k}$$" },
+            { category: "Binomial", icon: "🔢", question: "Número Combinatorio $\\binom{n}{k}$", answer: "$$\\binom{n}{k} = \\frac{n!}{k! \\cdot (n-k)!}$$ <br> (Formas de ordenar los éxitos)." },
+            { category: "Binomial", icon: "🎯", question: "Parámetros: Media y Desviación", answer: "Media: $$\\mu = n \\cdot p$$ <br> Desviación: $$\\sigma = \\sqrt{n \\cdot p \\cdot q}$$" },
+            
+            // --- NORMAL ---
+            { category: "Normal", icon: "🔔", question: "Definición Normal $N(\\mu, \\sigma)$", answer: "Distribución continua simétrica en forma de campana de Gauss. Está determinada por su media y desviación." },
+            { category: "Normal", icon: "⭐", question: "Normal Estándar $Z \\sim N(0, 1)$", answer: "Es la Normal tabulada. Tiene media $\\mu = 0$ y desviación $\\sigma = 1$." },
+            { category: "Normal", icon: "🔳", question: "Área bajo la curva", answer: "El área total bajo la campana es siempre <strong>1</strong> (100% probabilidad). Es simétrica respecto a la media." },
+
+            // --- TIPIFICACIÓN Y TABLA ---
+            { category: "Tipificación", icon: "🔄", question: "Fórmula de Tipificación ($Z$)", answer: "$$Z = \\frac{X - \\mu}{\\sigma}$$ <br> Convierte cualquier Normal en $N(0,1)$ para usar la tabla." },
+            { category: "Tipificación", icon: "📈", question: "Lectura Directa: $P(Z \\le k)$", answer: "Se busca directamente en la tabla si $k$ es positivo." },
+            { category: "Tipificación", icon: "📉", question: "Caso Mayor Que: $P(Z > k)$", answer: "Es el suceso contrario: $$1 - P(Z \\le k)$$" },
+            { category: "Tipificación", icon: "🪞", question: "Caso Negativo: $P(Z \\le -k)$", answer: "Por simetría, es igual al área de la cola derecha positiva: $$P(Z \\ge k) = 1 - P(Z \\le k)$$" },
+            { category: "Tipificación", icon: "↔️", question: "Intervalo: $P(a < Z < b)$", answer: "$$P(Z \\le b) - P(Z \\le a)$$ <br> (Área grande menos área pequeña)." },
+
+            // --- APROXIMACIÓN ---
+            { category: "Aproximación", icon: "🤝", question: "Teorema De Moivre-Laplace", answer: "Una Binomial $B(n,p)$ se parece a una Normal si $n$ es grande." },
+            { category: "Aproximación", icon: "🚧", question: "Condiciones de Aproximación", answer: "$$n \\cdot p \\ge 5 \\quad \\text{y} \\quad n \\cdot q \\ge 5$$" },
+            { category: "Aproximación", icon: "🔧", question: "Ajuste de Parámetros", answer: "La nueva Normal tendrá: $$\\mu = n \\cdot p$$ $$\\sigma = \\sqrt{n \\cdot p \\cdot q}$$" },
+            { category: "Aproximación", icon: "📏", question: "Corrección de Continuidad (Yates)", answer: "Al pasar de Discreta a Continua, ampliamos el punto: <br> $P(X=k) \\to P(k-0.5 < X < k+0.5)$ <br> $P(X \\le k) \\to P(X \\le k+0.5)$" }
+        ];
+
+        const grid = document.getElementById('grid');
+
+        function renderCards(filter = 'all') {
+            grid.innerHTML = '';
+            const filteredData = filter === 'all' ? cardsData : cardsData.filter(card => card.category === filter);
+
+            filteredData.forEach(card => {
+                const el = document.createElement('div');
+                el.className = 'flashcard';
+                el.onclick = function() { this.classList.toggle('flipped'); };
+                el.innerHTML = `
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="fc-category">${card.category}</span>
+                            <div class="fc-icon">${card.icon}</div>
+                            <div class="fc-question">${card.question}</div>
+                            <div class="fc-hint">Clic para ver respuesta</div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div class="fc-answer">${card.answer}</div>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(el);
+            });
+
+            if (window.MathJax) MathJax.typesetPromise();
+        }
+
+        window.filterCards = function(category, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderCards(category);
+        };
+
+        renderCards('all');
+    </script>
+
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

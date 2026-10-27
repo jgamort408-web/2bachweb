@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 3: Técnicas de Muestreo en Detalle</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            /* PALETA LAB / ECO-SCIENCE */
+            --bg-body: #ecfdf5;       /* Mint Cream */
+            --primary: #047857;       /* Emerald Green */
+            --primary-dark: #064e3b;  /* Deep Forest */
+            --secondary: #0f172a;     /* Slate Dark */
+            
+            --accent: #d97706;        /* Amber Gold */
+            --accent-bg: #fffbeb;
+            
+            --text-main: #334155;
+            --text-light: #64748b;
+            
+            --radius: 8px;            
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --border: 1px solid #d1fae5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            background-image: radial-gradient(#047857 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+
+        h1, h2, h3, h4 { 
+            font-family: 'Outfit', sans-serif; 
+            color: var(--secondary); 
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        header {
+            background: white;
+            padding: 2rem;
+            border-bottom: 4px solid var(--primary);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-content h1 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .badge {
+            background: var(--secondary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* SECCIONES Y TARJETAS */
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .characteristics-box {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .characteristics-box ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .characteristics-box li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .characteristics-box li.no-prob {
+            border-left-color: var(--accent);
+        }
+
+        .method-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .method-card {
+                flex-direction: row;
+            }
+        }
+
+        .method-visual {
+            background: #f8fafc;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #e2e8f0;
+            min-width: 250px;
+        }
+
+        @media (min-width: 768px) {
+            .method-visual {
+                border-bottom: none;
+                border-right: 1px solid #e2e8f0;
+            }
+        }
+
+        .method-content {
+            padding: 2rem;
+            flex-grow: 1;
+        }
+
+        .method-title {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .method-title.accent {
+            color: var(--accent);
+        }
+
+        .example-box {
+            margin-top: 1.5rem;
+            background: #f1f5f9;
+            border-left: 4px solid var(--secondary);
+            padding: 1rem 1.5rem;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.95rem;
+        }
+
+        .example-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: bold;
+            font-size: 0.8rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .alert-box {
+            background: var(--accent-bg);
+            border: 1px solid #fcd34d;
+            border-left: 5px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            margin-top: 3rem;
+            color: #78350f;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        
+        <header>
+            <div class="header-content">
+                <span class="badge">TEORÍA DETALLADA</span>
+                <h1>Catálogo de Técnicas de Muestreo</h1>
+                <p style="color: var(--text-light);">Análisis profundo de los métodos probabilísticos y no probabilísticos.</p>
+            </div>
+        </header>
+
+        <h2 class="section-title">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Técnicas Probabilísticas
+        </h2>
+        
+        <div class="characteristics-box">
+            <p style="margin-bottom: 1rem; font-weight: 500;">Las técnicas probabilísticas se caracterizan por estos rasgos:</p>
+            <ul>
+                <li><strong style="color: var(--primary);">1.</strong> La elección de los elementos de la muestra se realiza al azar.</li>
+                <li><strong style="color: var(--primary);">2.</strong> Todos los elementos de la población tienen una probabilidad conocida y no nula de ser elegidos.</li>
+                <li><strong style="color: var(--primary);">3.</strong> Es posible estimar el error muestral.</li>
+                <li><strong style="color: var(--primary);">4.</strong> Sus resultados se pueden extrapolar a la población.</li>
+            </ul>
+        </div>
+
+        <article class="method-card">
+            <div class="method-visual">
+                
+                <svg viewBox="0 0 100 100" width="120">
+                    <rect x="20" y="30" width="60" height="60" rx="4" fill="#cbd5e1" />
+                    <path d="M 20 30 L 80 30 L 70 90 L 30 90 Z" fill="#94a3b8" />
+                    <circle cx="50" cy="60" r="8" fill="#ffffff" />
+                    <text x="50" y="64" font-family="monospace" font-size="10" text-anchor="middle" fill="#0f172a">7</text>
+                    <circle cx="35" cy="45" r="6" fill="#f1f5f9" />
+                    <circle cx="65" cy="75" r="6" fill="#f1f5f9" />
+                    <path d="M 50 10 Q 70 10 50 30" fill="none" stroke="#047857" stroke-width="2" stroke-dasharray="2,2" marker-start="url(#arrow-green)"/>
+                    <circle cx="50" cy="10" r="8" fill="#047857" />
+                    <text x="50" y="14" font-family="monospace" font-size="10" text-anchor="middle" fill="#ffffff">3</text>
+                </svg>
+            </div>
+            <div class="method-content">
+                <h3 class="method-title">Muestreo Aleatorio Simple</h3>
+                <p>El principio básico es que todos los elementos de la población tienen la misma probabilidad de ser seleccionados que los demás. Se suele escoger la muestra por sorteo directo entre todos los elementos de la población.</p>
+                
+                <div class="example-box">
+                    <span class="example-title">Ejemplo del apunte</span>
+                    <ol style="margin-left: 1.2rem; margin-bottom: 0.5rem;">
+                        <li>Se enumeran todos los elementos del marco muestral.</li>
+                        <li>En una urna, se introducen papeles numerados del 1 al $N$, donde $N$ corresponde al total de elementos de la población.</li>
+                        <li>Se seleccionan, uno a uno, $n$ papeles de la urna, donde $n$ es el tamaño de la muestra.</li>
+                    </ol>
+                    <p style="font-size: 0.85rem; color: var(--text-light);">Si se extrae el papel con el número 1, implica que se ha seleccionado el primer elemento del marco muestral.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="method-card">
+            <div class="method-visual">
+                
+                <svg viewBox="0 0 200 60" width="100%">
+                    <line x1="10" y1="30" x2="190" y2="30" stroke="#cbd5e1" stroke-width="2" />
+                    <circle cx="20" cy="30" r="4" fill="#94a3b8" />
+                    <circle cx="50" cy="30" r="6" fill="#047857" /> <circle cx="80" cy="30" r="4" fill="#94a3b8" />
+                    <circle cx="110" cy="30" r="4" fill="#94a3b8" />
+                    <circle cx="140" cy="30" r="6" fill="#047857" /> <circle cx="170" cy="30" r="4" fill="#94a3b8" />
+                    
+                    <path d="M 50 20 Q 95 0 140 20" fill="none" stroke="#047857" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow-green)"/>
+                    <text x="95" y="10" font-family="monospace" font-size="10" text-anchor="middle" fill="#047857">+ k</text>
+                </svg>
+            </div>
+            <div class="method-content">
+                <h3 class="method-title">Muestreo Sistemático</h3>
+                <p>Similar al aleatorio simple, salvo que en vez de elegir todos los elementos extrayendo números al azar, se selecciona el <strong>primer elemento al azar</strong> y luego se selecciona el resto a <strong>intervalos espaciados</strong> de la lista de la población.</p>
+                
+                <div class="example-box">
+                    <span class="example-title">Ejemplo del apunte</span>
+                    <p>En una población de 1000 personas se desea crear una muestra de 20.</p>
+                    <p>Como $\frac{1000}{20} = 50$, se escoge un número al azar entre los 50 primeros; por ejemplo, el 8.</p>
+                    <p>Los demás elementos resultarán tras sumar al número escogido el intervalo (50). Así, la muestra estará formada por los números <strong>8, 58, 108, 158... 958</strong>.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="method-card">
+            <div class="method-visual">
+                
+                <svg viewBox="0 0 120 120" width="120">
+                    <rect x="10" y="10" width="45" height="100" fill="#fca5a5" rx="4" opacity="0.3"/>
+                    <circle cx="32" cy="30" r="5" fill="#ef4444" />
+                    <circle cx="32" cy="60" r="8" fill="#ef4444" stroke="#fff" stroke-width="2"/>
+                    <circle cx="32" cy="90" r="5" fill="#ef4444" />
+                    <rect x="65" y="10" width="45" height="100" fill="#93c5fd" rx="4" opacity="0.3"/>
+                    <circle cx="87" cy="30" r="8" fill="#3b82f6" stroke="#fff" stroke-width="2"/>
+                    <circle cx="87" cy="60" r="5" fill="#3b82f6" />
+                    <circle cx="87" cy="90" r="8" fill="#3b82f6" stroke="#fff" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="method-content">
+                <h3 class="method-title">Muestreo Estratificado</h3>
+                <p>La población se subdivide en <strong>estratos</strong>. Los estratos son subgrupos de la población que se caracterizan porque sus integrantes son <strong>homogéneos</strong>, mientras que los elementos de los diferentes estratos son heterogéneos entre sí.</p>
+                <p>Los estratos deben ser creados de tal forma que cada elemento de la población pertenezca a un solo estrato y que todo elemento pertenezca a algún estrato (son excluyentes y exhaustivos).</p>
+                <p style="margin-top: 0.5rem; font-weight: 500; color: var(--primary-dark);">Una vez definidos los estratos, se procede a extraer una muestra aleatoria simple de cada uno de ellos.</p>
+            </div>
+        </article>
+
+        <article class="method-card">
+            <div class="method-visual">
+                
+                <svg viewBox="0 0 120 120" width="120">
+                    <circle cx="35" cy="35" r="22" fill="#d1fae5" stroke="#047857" stroke-width="2" />
+                    <circle cx="25" cy="30" r="4" fill="#ef4444" />
+                    <circle cx="45" cy="30" r="4" fill="#3b82f6" />
+                    <circle cx="35" cy="45" r="4" fill="#eab308" />
+                    
+                    <circle cx="85" cy="35" r="22" fill="none" stroke="#cbd5e1" stroke-width="2" />
+                    <circle cx="75" cy="30" r="4" fill="#ef4444" opacity="0.4"/>
+                    <circle cx="95" cy="30" r="4" fill="#3b82f6" opacity="0.4"/>
+                    <circle cx="85" cy="45" r="4" fill="#eab308" opacity="0.4"/>
+
+                    <circle cx="60" cy="85" r="22" fill="none" stroke="#cbd5e1" stroke-width="2" />
+                    <circle cx="50" cy="80" r="4" fill="#ef4444" opacity="0.4"/>
+                    <circle cx="70" cy="80" r="4" fill="#3b82f6" opacity="0.4"/>
+                    <circle cx="60" cy="95" r="4" fill="#eab308" opacity="0.4"/>
+                </svg>
+            </div>
+            <div class="method-content">
+                <h3 class="method-title">Muestreo por Conglomerados o Áreas</h3>
+                <p>La población se subdivide en conglomerados. Frente a los estratos, los conglomerados son subgrupos que se caracterizan porque sus integrantes son <strong>heterogéneos</strong>, mientras que los elementos de los diferentes conglomerados son homogéneos entre sí. También son excluyentes y exhaustivos.</p>
+                <div class="example-box" style="border-left-color: var(--primary);">
+                    <strong style="color: var(--primary-dark);">Ventaja principal:</strong>
+                    <p>Este tipo de muestreo reduce costes, haciendo que el proceso de toma de muestras sea más eficiente que el del muestreo estratificado, ya que <strong>disminuye los tiempos de desplazamiento</strong> del encuestador.</p>
+                </div>
+            </div>
+        </article>
+
+        <h2 class="section-title" style="margin-top: 4rem;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <span style="color: var(--accent);">Técnicas No Probabilísticas</span>
+        </h2>
+
+        <div class="characteristics-box" style="border-color: #fde68a;">
+            <p style="margin-bottom: 1rem; font-weight: 500;">Las técnicas no probabilísticas presentan estas características:</p>
+            <ul>
+                <li class="no-prob"><strong style="color: var(--accent);">1.</strong> La elección no se realiza al azar, sino de forma consciente (según el juicio de quien lleva a cabo el estudio).</li>
+                <li class="no-prob"><strong style="color: var(--accent);">2.</strong> No es posible estimar el error muestral.</li>
+                <li class="no-prob"><strong style="color: var(--accent);">3.</strong> Sus resultados no se pueden extrapolar a la población.</li>
+                <li class="no-prob"><strong style="color: var(--accent);">4.</strong> Ofrece la ventaja de que su coste es inferior al de los métodos probabilísticos.</li>
+            </ul>
+        </div>
+
+        <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
+            
+            <article class="method-card" style="flex-direction: column; margin-bottom: 0;">
+                <div class="method-content">
+                    <h3 class="method-title accent">1. Muestreo por Conveniencia</h3>
+                    <p>Los elementos de la muestra se seleccionan de una manera conveniente, atendiendo al interés de la investigación.</p>
+                    <div class="example-box">
+                        <span class="example-title">Ejemplo del apunte</span>
+                        <p>Nos interesa hacer un estudio acerca de la experiencia de compra en cierto centro comercial. Para ello, lo mejor es estar fuera del establecimiento y entrevistar a las personas que salgan de él. Así tendremos la seguridad de que las personas encuestadas cumplen el requisito.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="method-card" style="flex-direction: column; margin-bottom: 0;">
+                <div class="method-content">
+                    <h3 class="method-title accent">2. Muestreo por Juicio</h3>
+                    <p>Se confía en la experiencia del encuestador para seleccionar los elementos de la muestra.</p>
+                    <div class="example-box">
+                        <span class="example-title">Ejemplo del apunte</span>
+                        <p>Interesa hacer una investigación encuestando a desempleados de los niveles socioeconómicos bajo y medio-bajo. Queda a criterio del encuestador determinar qué casos cumplen los requisitos.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="method-card" style="flex-direction: column; margin-bottom: 0;">
+                <div class="method-content">
+                    <h3 class="method-title accent">3. Muestreo por Cuotas</h3>
+                    <p>Es una especie de muestreo estratificado, pero no probabilístico, en el sentido de que se extraen muestras de distintos segmentos de la población y se establece una cuota (cantidad fija) de elementos a seleccionar de cada grupo. Por lo general, proporcionales a la composición de la población. El encuestador selecciona (haciendo a veces un muestreo por juicio) hasta completar las cuotas.</p>
+                    <div class="example-box">
+                        <span class="example-title">Ejemplo del apunte</span>
+                        <p>Estudio de tramos etarios: 18-20 (35%), 21-23 (38%) y 24-25 (27%). Para una muestra de 100, se seleccionará a 35, 38 y 27 individuos respectivamente de cada tramo.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="method-card" style="flex-direction: column; margin-bottom: 0;">
+                <div class="method-content">
+                    <h3 class="method-title accent">4. Muestreo de Bola de Nieve</h3>
+                    <p>También llamado muestreo por referidos, se utiliza cuando la población de interés es muy pequeña y/o resulta difícil contactar con ella.</p>
+                    <div class="example-box">
+                        <span class="example-title">Ejemplo del apunte</span>
+                        <p>Estudio sobre inmigrantes que se encuentran en España estudiando en la universidad. Al ser difícil localizarlos, se contacta con uno, para que este contacte con otra persona en su misma situación y así sucesivamente.</p>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="alert-box">
+            <h4 style="color: #92400e; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                Nota Final Importante
+            </h4>
+            <p>Es importante señalar que los muestreos probabilísticos son <strong>mucho más fiables</strong> que los no probabilísticos, pero no siempre es posible llevarlos a cabo, ya que requieren más tiempo y dinero que estos últimos.</p>
+        </div>
+
+    </main>
+
+    <svg style="width:0;height:0;position:absolute;">
+        <defs>
+            <marker id="arrow-green" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                <polygon points="0 0, 6 3, 0 6" fill="#047857" />
+            </marker>
+        </defs>
+    </svg>
+
+</body>
+</html>

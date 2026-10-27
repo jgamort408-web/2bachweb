@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "pairId": "inferencia-i",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-22",
+  "sources": [
+    {
+      "sourceId": "F011",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Inferencia Estadística (EXAMEN I).zip",
+      "zipSha256": "421e696b40e2e186b7a833e846fc4d1608a7b9008ac91a1927af7f7535d43ef3",
+      "entry": "main.tex",
+      "texSha256": "513bc5d62e6d3c0e9b6a5fbe414ab0b4c8a660a72dad882140cab18f91c40eb0"
+    }
+  ],
+  "assets": [
+    {
+      "path": "logo-al-andalus.png",
+      "sourceId": "F011",
+      "entry": "Logo AL-ANDALUS.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    }
+  ],
+  "solutionOrigin": "Soluciones originales revisadas; datos y ejercicio compartido conservados",
+  "preserved": {
+    "durationMinutes": 55,
+    "calculatorAllowed": true,
+    "exercisePoints": [
+      4,
+      4,
+      2
+    ],
+    "partPoints": [
+      [
+        2.5,
+        1.5
+      ],
+      [
+        2.5,
+        1.5
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "suggestedMinutes": [
+      20,
+      20,
+      10
+    ],
+    "expressionPointsIncludedPerExercise": 0.5
+  },
+  "corrections": [
+    "M28"
+  ],
+  "normalConvention": "N(mu,sigma), segundo parámetro desviación típica",
+  "answers": {
+    "proportion": {
+      "n": 250,
+      "successes": 90,
+      "confidence": 0.97,
+      "interval": [
+        0.2941206881128126,
+        0.42587931188718736
+      ],
+      "planningConfidence": 0.99,
+      "error": 0.05,
+      "strict": false,
+      "sampleSize": 612,
+      "bound": 611.4720707501147
+    },
+    "mean": {
+      "data": null,
+      "value": 60,
+      "sigma": 3,
+      "n": 25,
+      "confidence": 0.95,
+      "interval": [
+        58.82402160927597,
+        61.17597839072403
+      ],
+      "planningConfidence": 0.99,
+      "error": 1,
+      "strict": true,
+      "sampleSize": 60,
+      "bound": 59.71406940919089
+    },
+    "strata": {
+      "populations": [
+        4800,
+        2200,
+        3000,
+        2000
+      ],
+      "knownIndex": 2,
+      "knownSample": 60,
+      "sampleSize": 240,
+      "allocation": [
+        96,
+        44,
+        60,
+        40
+      ]
+    }
+  }
+}

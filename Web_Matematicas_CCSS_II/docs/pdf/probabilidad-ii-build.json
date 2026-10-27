@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 1,
+  "mathematics": {
+    "passed": true,
+    "exercises": 4,
+    "parts": 10,
+    "independent": false,
+    "enumerationMethods": [
+      "finite equiprobable event atoms",
+      "individual student enumeration",
+      "joint dryer probabilities"
+    ],
+    "answers": {
+      "events": [
+        "3/20",
+        "7/20",
+        "3/10"
+      ],
+      "independent": false,
+      "newspapers": [
+        "11/20",
+        "27/82"
+      ],
+      "students": [
+        "208",
+        "360",
+        "71/100",
+        "45/71"
+      ],
+      "dryers": [
+        "23/50",
+        "1/3"
+      ]
+    }
+  },
+  "documents": [
+    {
+      "id": "probabilidad-ii-examen",
+      "pages": 2,
+      "bytes": 32956,
+      "sha256": "7b765091643cce013efd75056750a98f5cb9c77297f071c531788a6219ffe791",
+      "title": "Probabilidad II - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 9,
+      "characters": 2081
+    },
+    {
+      "id": "probabilidad-ii-soluciones",
+      "pages": 4,
+      "bytes": 30254,
+      "sha256": "28f84ef37a89fdf20dd4a9f8c647910ad78621bf02b1e35b61dd5d43a8f16006",
+      "title": "Probabilidad II - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 9,
+      "characters": 2331
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-21",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/probabilidad-ii/estilo.tex",
+      "sha256": "947272abc2c5661ec5e4ee85e46f6bae866ceaefaca55767db6b5225962a5ea7"
+    },
+    {
+      "path": "content/latex/probabilidad-ii/logo-al-andalus.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    },
+    {
+      "path": "content/latex/probabilidad-ii/probabilidad-ii-examen.tex",
+      "sha256": "60beec1e2d0ee685b85a526b4975bedd1f01db6e4cc8f3f378db877f37f6aaa6"
+    },
+    {
+      "path": "content/latex/probabilidad-ii/probabilidad-ii-soluciones.tex",
+      "sha256": "28e423e9bcd89fabfa8a313e183afb9eae0c4b23a6184c0711319e3b6f0b8328"
+    },
+    {
+      "path": "content/latex/probabilidad-ii/provenance.json",
+      "sha256": "528c062c30153f61d4183625e119bac08e142c14478212c8fbf67121636689c8"
+    }
+  ]
+}

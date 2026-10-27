@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>6.3. Programación lineal · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t06-e03">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">6.3. Programación lineal</h1>
+    <p data-content-role="lead">Un problema de programación lineal reúne tres piezas: las decisiones que puedes tomar, la función que quieres optimizar y las condiciones que debes cumplir.</p>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#anatomia">Las tres piezas</a> · <a href="#flujo">Diagrama</a> · <a href="#no-negatividad">No negatividad</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+    <section id="anatomia" data-content-role="explanation"><h2>Anatomía de un problema</h2>
+    <p>Identifica cada pieza en el enunciado antes de intentar resolverlo.</p>
+    <section id="variables" data-content-role="definition"><h3>1. Variables</h3><p>Son las incógnitas: lo que tú decides. Define qué representa cada una.</p><p>Ejemplo de la fuente:</p><p>\[x=\text{número de sillas},\qquad y=\text{número de mesas}.\]</p></section>
+    <section id="objetivo" data-content-role="definition"><h3>2. Función objetivo</h3><p>Es la fórmula de la meta: la cantidad que quieres maximizar o minimizar. En dos variables puede escribirse:</p><p>\[Z=ax+by.\]</p><p>Los coeficientes \(a\) y \(b\) son datos del modelo; \(x\) e \(y\) son las variables de decisión. El enunciado debe indicar si buscas el máximo o el mínimo.</p></section>
+    <section id="restricciones" data-content-role="definition"><h3>3. Restricciones</h3><p>Son las condiciones lineales que limitan las decisiones y los recursos disponibles. Se expresan mediante inecuaciones o, cuando corresponde, igualdades lineales.</p><p>La fuente presenta este esquema de inecuaciones:</p><p>\[\text{sujeto a }\begin{cases}\dots\le\dots\\\dots\ge\dots\end{cases}\]</p><p>«s.a.» significa «sujeto a». Los puntos suspensivos representan datos todavía no especificados: este esquema no es un sistema numérico que se pueda resolver.</p></section>
+    </section>
+    <section id="flujo" data-content-role="visualization"><h2>Flujo de información</h2>
+    <figure>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 310" width="400" role="img" aria-labelledby="modelo-title modelo-desc" data-source-diagram>
+      <title id="modelo-title">Variables, restricciones y objetivo</title>
+      <desc id="modelo-desc">Las variables representan decisiones; las restricciones filtran las decisiones permitidas; la función objetivo compara esas decisiones para maximizar o minimizar la cantidad elegida.</desc>
+      <defs><marker id="modelo-flecha" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="currentColor"/></marker></defs>
+      <g fill="white" stroke="currentColor" stroke-width="2"><rect data-flow-node="variables" x="20" y="10" width="260" height="70" rx="4"/><rect data-flow-node="restricciones" x="20" y="115" width="260" height="70" rx="4"/><rect data-flow-node="objetivo" x="20" y="220" width="260" height="70" rx="4"/></g>
+      <g fill="currentColor" font-family="system-ui,sans-serif" text-anchor="middle" font-size="17"><text x="150" y="40">VARIABLES (x, y)</text><text x="150" y="64">Decisiones</text><text x="150" y="145">RESTRICCIONES</text><text x="150" y="169">Límites / Filtro</text><text x="150" y="250">OBJETIVO (Z)</text><text x="150" y="274">Maximizar / Minimizar</text></g>
+      <g stroke="currentColor" stroke-width="2" marker-end="url(#modelo-flecha)"><path data-flow-arrow d="M150 82V111"/><path data-flow-arrow d="M150 187V216"/></g>
+    </svg>
+    <figcaption data-content-role="caption">Variables: decisiones. Restricciones: límites que determinan cuáles son admisibles. Objetivo: qué maximizar o minimizar entre las decisiones admisibles.</figcaption>
+    </figure>
+    </section>
+    <section id="no-negatividad" data-content-role="warning"><h2>No negatividad: depende de las variables</h2>
+    <p>No puedes fabricar «−5 sillas» ni comprar una cantidad de «−3 kilos» de harina. Cuando las variables representan cantidades producidas o compradas, deben ser no negativas.</p>
+    <p>Para el ejemplo en que \(x\) e \(y\) cuentan sillas y mesas, corresponde exigir:</p><p>\[x\ge0,\qquad y\ge0.\]</p>
+    <p>Con estas condiciones trabajamos en el <strong>primer cuadrante, incluidos los ejes</strong>.</p>
+    <p><strong>No es una regla universal para cualquier variable.</strong> El signo permitido se decide a partir de su definición y del enunciado. No añadas restricciones de no negatividad si no están justificadas por el modelo.</p>
+    </section>
+    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2><p>El material contiene la estructura del modelo y ejemplos de significado de variables. No proporciona un problema numérico completo para formular y resolver. La práctica autocorregible y el explorador interactivo están pendientes.</p></section>
+    <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="02-sistemas-de-inecuaciones-lineales-con-dos-incognitas.html">Anterior: sistemas de inecuaciones</a> · <a href="index.html">Volver al tema 6</a> · <a href="04-solucion-de-un-problema-de-programacion-lineal.html">Siguiente: método gráfico (contenido parcial)</a></nav>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

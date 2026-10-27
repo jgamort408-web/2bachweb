@@ -1,0 +1,43 @@
+\documentclass[11pt]{article}
+\input{estilo.tex}
+\hypersetup{pdftitle={Probabilidad I - Soluciones revisadas}}
+\begin{document}
+\renewcommand{\arraystretch}{2.2}
+\section*{Ejercicio 1: sucesos y condicionamiento}
+Soluciones revisadas a partir de F018. Se conservan todos los datos y los cuatro ejercicios, aunque solo dos de las tres opcionales se evalúan.
+
+La tabla de probabilidades conjuntas completa permite comprobar los marginales y los complementos:
+\[
+\begin{array}{c|cc|c}
+ & B & B^c & \text{Total}\\\hline
+ A & \dfrac{3}{20} & \dfrac{1}{10} & \dfrac{1}{4}\\
+ A^c & \dfrac{9}{20} & \dfrac{3}{10} & \dfrac{3}{4}\\\hline
+ \text{Total} & \dfrac{3}{5} & \dfrac{2}{5} & 1
+\end{array}
+\]
+\begin{enumerate}[label=(\alph*)]
+\item $P(A\cap B)=P(A)-P(A\cap B^c)=\boxed{\frac{3}{20}}$.
+\item $P(A^c\cap B)=P(B)-P(A\cap B)=\boxed{\frac{9}{20}}$.
+\item $P(A\mid B)=P(A\cap B)/P(B)=\boxed{\frac{1}{4}}$, con $P(B)>0$.
+\item $P(A)P(B)=\frac{3}{20}=\frac{3}{20}=P(A\cap B)$: sí son independientes.
+\end{enumerate}
+\clearpage\section*{Ejercicio 2: lectura de diarios}
+\begin{enumerate}[label=(\alph*)]
+\item Por inclusión-exclusión, $P(A\cup B)=P(A)+P(B)-P(A\cap B)=\frac{37}{100}$. Por complemento, $P((A\cup B)^c)=\boxed{\frac{63}{100}}$, es decir, 63\%.
+\item Se condiciona entre quienes no leen B; no entre toda la población. $P(B^c)=\frac{87}{100}>0$ y $P(A\cap B^c)=\frac{6}{25}$. Por tanto,\[P(A\mid B^c)=\frac{P(A\cap B^c)}{P(B^c)}=\boxed{\frac{8}{29}}\approx 0,2759.\]
+\end{enumerate}\clearpage\section*{Ejercicio 3: alumnado y aprobados}
+La selección es uniforme entre las 700 personas matriculadas. Sea $S$ el suceso aprobar.
+\[\begin{array}{c|rr|r}&S&S^c&\text{Total}\\\hline\text{Hombres}&126&84&210\\\text{Mujeres}&343&147&490\\\hline\text{Total}&469&231&700\end{array}\]
+\begin{enumerate}[label=(\alph*)]\item Por recuento directo,\[P(S)=\frac{469}{700}=\boxed{\frac{67}{100}}=0,6700.\]
+La probabilidad total da el mismo resultado: $P(S)=P(H)P(S\mid H)+P(M)P(S\mid M)$.
+\item Entre quienes aprueban, $P(M\mid S)=\boxed{\frac{49}{67}}\approx 0,7313$. Bayes confirma el cociente: $P(M)P(S\mid M)/P(S)$.
+\end{enumerate}
+Corrección de redondeo: el original indica 0,7314; $343/469=49/67\approx 0,731343\ldots$ se redondea a 0,7313 con cuatro decimales.
+\clearpage\section*{Ejercicio 4: secaderos y Reserva}
+Se interpreta la elección como uniforme entre todos los jamones, conforme al cálculo original. No se elige primero un secadero con probabilidad $1/2$. Si esa fuera la intención, habría que precisar el enunciado y cambiar el modelo. Sea $R$ el suceso ser de Reserva.
+\[\begin{array}{c|cc|c}&R&R^c&\text{Total}\\\hline A&\dfrac{1}{6}&\dfrac{1}{2}&\dfrac{2}{3}\\ B&\dfrac{4}{15}&\dfrac{1}{15}&\dfrac{1}{3}\\\hline\text{Total}&\dfrac{13}{30}&\dfrac{17}{30}&1\end{array}\]
+\begin{enumerate}[label=(\alph*)]\item Por probabilidad total,\[P(R^c)=(1-P(B))(1-P(R\mid A))+P(B)(1-P(R\mid B))=\boxed{\frac{17}{30}}\approx 0,5667.\]
+\item Como $P(R)=\frac{13}{30}>0$, Bayes da\[P(A\mid R)=\frac{P(A)P(R\mid A)}{P(R)}=\boxed{\frac{5}{13}}\approx 0,3846.\]
+\end{enumerate}
+Se conservan las fracciones exactas y se redondea solo el resultado final.
+\end{document}

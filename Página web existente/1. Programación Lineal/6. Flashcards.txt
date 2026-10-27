@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards: Programación Lineal</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-body: #f8fafc;
+            --primary: #0284c7;       /* Sky Blue 600 */
+            --primary-dark: #0369a1;
+            --secondary: #0f172a;     /* Slate Dark */
+            --accent: #ec4899;        /* Pink (para diferenciar de Estadística) */
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --card-front: #ffffff;
+            --card-back: #1e293b;
+            
+            --radius: 16px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* HEADER */
+        header { text-align: center; margin-bottom: 3rem; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--secondary); margin-bottom: 0.5rem; }
+        p.subtitle { color: var(--text-light); font-size: 1.1rem; }
+
+        /* FILTROS */
+        .filter-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+        .filter-btn {
+            background: white; border: 1px solid #cbd5e1; padding: 0.5rem 1.2rem;
+            border-radius: 50px; cursor: pointer; font-family: 'Inter', sans-serif;
+            font-weight: 600; font-size: 0.9rem; color: var(--text-light); transition: all 0.2s ease;
+        }
+        .filter-btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
+        .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3); }
+
+        /* GRID */
+        .flashcard-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+
+        /* CARTA 3D */
+        .flashcard { background-color: transparent; width: 100%; height: 260px; perspective: 1000px; cursor: pointer; }
+        .flashcard-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; }
+        .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+        
+        .flashcard-front, .flashcard-back {
+            position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden;
+            border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.5rem;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+
+        .flashcard-front { background-color: var(--card-front); border: 1px solid #e2e8f0; border-bottom: 4px solid var(--primary); }
+        .fc-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .fc-category { position: absolute; top: 15px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); background: #f1f5f9; padding: 2px 8px; border-radius: 4px; }
+        .fc-question { font-size: 1.1rem; font-weight: 700; color: var(--secondary); line-height: 1.4; }
+        .fc-hint { position: absolute; bottom: 15px; font-size: 0.75rem; color: var(--primary); font-weight: 600; opacity: 0.7; }
+
+        .flashcard-back { background-color: var(--card-back); color: white; transform: rotateY(180deg); border: 1px solid var(--secondary); overflow-y: auto; }
+        .fc-answer { font-size: 1rem; line-height: 1.6; }
+        .flashcard-back::-webkit-scrollbar { width: 4px; }
+        .flashcard-back::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
+
+        /* MathJax fix inside cards */
+        mjx-container { color: white !important; }
+        .flashcard-front mjx-container { color: var(--secondary) !important; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>📐 Programación Lineal</h1>
+            <p class="subtitle">Flashcards de Conceptos, Planteamiento y Resolución Gráfica</p>
+        </header>
+
+        <div class="filter-container" id="filters">
+            <button class="filter-btn active" onclick="filterCards('all', this)">Todas</button>
+            <button class="filter-btn" onclick="filterCards('Definiciones', this)">Definiciones</button>
+            <button class="filter-btn" onclick="filterCards('Planteamiento', this)">Traducción (Lenguaje)</button>
+            <button class="filter-btn" onclick="filterCards('Región Factible', this)">Región Factible</button>
+            <button class="filter-btn" onclick="filterCards('Teoremas y Métodos', this)">Teoremas</button>
+            <button class="filter-btn" onclick="filterCards('Casos Especiales', this)">Casos Raros</button>
+        </div>
+
+        <div class="flashcard-grid" id="grid"></div>
+
+    </div>
+
+    <script>
+        const cardsData = [
+            // --- DEFINICIONES ---
+            { category: "Definiciones", icon: "🎯", question: "¿Qué es la Función Objetivo?", answer: "Es la ecuación $$f(x,y) = ax + by$$ que queremos <strong>Maximizar</strong> (beneficios) o <strong>Minimizar</strong> (costes)." },
+            { category: "Definiciones", icon: "🚧", question: "¿Qué son las Restricciones?", answer: "Es el conjunto de inecuaciones lineales que limitan los valores posibles de $x$ e $y$." },
+            { category: "Definiciones", icon: "✅", question: "Restricciones de No Negatividad", answer: "Casi siempre obligatorias: $$x \\ge 0, \\quad y \\ge 0$$ (No podemos producir cantidades negativas)." },
+            
+            // --- PLANTEAMIENTO (TRADUCCIÓN) ---
+            { category: "Planteamiento", icon: "🗣️", question: "Traduce: 'Como mínimo 100 unidades'", answer: "$$x + y \\ge 100$$" },
+            { category: "Planteamiento", icon: "🗣️", question: "Traduce: 'Como máximo 500 euros'", answer: "$$x + y \\le 500$$" },
+            { category: "Planteamiento", icon: "⚖️", question: "Traduce: 'El doble de A que de B'", answer: "Cuidado, suele ser contraintuitivo: $$x \\ge 2y$$ (Si hay 10 de B, debe haber al menos 20 de A)." },
+            { category: "Planteamiento", icon: "⚖️", question: "Traduce: 'A no supera a B en más de 20'", answer: "$$x - y \\le 20$$ (La diferencia no pasa de 20)." },
+            { category: "Planteamiento", icon: "🧮", question: "Traduce: 'La mitad de A es al menos B'", answer: "$$\\frac{x}{2} \\ge y \\quad \\text{ó} \\quad x \\ge 2y$$" },
+            
+            // --- REGIÓN FACTIBLE ---
+            { category: "Región Factible", icon: "🔷", question: "¿Qué es la Región Factible?", answer: "Es el polígono formado por la intersección de todas las restricciones. Contiene todas las soluciones válidas." },
+            { category: "Región Factible", icon: "📍", question: "¿Cómo se dibuja una recta?", answer: "Despeja $y$ o haz tabla de valores. Puntos clave: si $x=0 \\to y=?$ y si $y=0 \\to x=?$." },
+            { category: "Región Factible", icon: "🎨", question: "¿Hacia dónde sombreo la inecuación?", answer: "Prueba el punto $(0,0)$. Si cumple la inecuación, sombrea hacia el origen. Si no, hacia el otro lado." },
+            { category: "Región Factible", icon: "🔗", question: "¿Cómo hallo los Vértices?", answer: "Resolviendo el <strong>Sistema de Ecuaciones</strong> ($2\\times2$) formado por las dos rectas que se cruzan en ese punto." },
+
+            // --- TEOREMAS Y MÉTODOS ---
+            { category: "Teoremas y Métodos", icon: "👑", question: "Teorema Fundamental de la P.L.", answer: "Si existe una solución óptima única, esta se encuentra siempre en un <strong>Vértice</strong> de la región factible." },
+            { category: "Teoremas y Métodos", icon: "📝", question: "Método Analítico (Evaluación)", answer: "Calcula las coordenadas de todos los vértices y sustitúyelos en $Z = ax + by$. Quédate con el mejor valor." },
+            { category: "Teoremas y Métodos", icon: "📏", question: "Método Gráfico (Líneas de Nivel)", answer: "Dibuja la recta de la función objetivo. Desplázala paralelamente hasta tocar el último punto de la región factible." },
+
+            // --- CASOS ESPECIALES ---
+            { category: "Casos Especiales", icon: "♾️", question: "¿Región No Acotada?", answer: "El polígono está abierto. Puede tener Mínimo, pero generalmente no tiene Máximo (tiende a infinito)." },
+            { category: "Casos Especiales", icon: "👯", question: "¿Infinitas Soluciones?", answer: "Ocurre si la Función Objetivo es <strong>paralela</strong> a uno de los lados del polígono. Todo el segmento es solución." },
+            { category: "Casos Especiales", icon: "🚫", question: "¿Solución Infactible?", answer: "Cuando las restricciones son contradictorias (ej: $x \\le 5$ y $x \\ge 10$). No hay región común." },
+            { category: "Casos Especiales", icon: "🔢", question: "¿Solución Entera?", answer: "Si el problema exige números enteros (ej: coches) y el vértice sale decimal, buscamos puntos enteros cercanos <strong>dentro</strong> de la región." }
+        ];
+
+        const grid = document.getElementById('grid');
+
+        function renderCards(filter = 'all') {
+            grid.innerHTML = '';
+            const filteredData = filter === 'all' ? cardsData : cardsData.filter(card => card.category === filter);
+
+            filteredData.forEach(card => {
+                const el = document.createElement('div');
+                el.className = 'flashcard';
+                el.onclick = function() { this.classList.toggle('flipped'); };
+                el.innerHTML = `
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="fc-category">${card.category}</span>
+                            <div class="fc-icon">${card.icon}</div>
+                            <div class="fc-question">${card.question}</div>
+                            <div class="fc-hint">Clic para ver respuesta</div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div class="fc-answer">${card.answer}</div>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(el);
+            });
+
+            if (window.MathJax) MathJax.typesetPromise();
+        }
+
+        window.filterCards = function(category, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderCards(category);
+        };
+
+        renderCards('all');
+    </script>
+
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

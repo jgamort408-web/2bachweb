@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-20",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "batchId": "161",
+  "sourceDirectory": "content/latex/subida-nota-t1-general",
+  "report": "docs/pdf/subida-nota-t1-general-build.json",
+  "mathematics": "subida-nota-t1-general",
+  "documents": [
+    {
+      "id": "subida-nota-t1-general-examen",
+      "source": "content/latex/subida-nota-t1-general/subida-nota-t1-general-examen.tex",
+      "output": "output/pdf/subida-nota-t1-general-examen.pdf",
+      "expectedPages": 1,
+      "title": "Subida de nota T1 - Examen revisado"
+    },
+    {
+      "id": "subida-nota-t1-general-soluciones",
+      "source": "content/latex/subida-nota-t1-general/subida-nota-t1-general-soluciones.tex",
+      "output": "output/pdf/subida-nota-t1-general-soluciones.pdf",
+      "expectedPages": 5,
+      "title": "Subida de nota T1 - Soluciones revisadas"
+    }
+  ]
+}

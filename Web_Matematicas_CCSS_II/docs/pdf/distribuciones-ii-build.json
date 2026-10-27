@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 1,
+  "mathematics": {
+    "passed": true,
+    "parts": 7,
+    "exactLargeTail": "195502002776089668985812682849821004909558639524564083433988583254257/7888609052210118054117285652827862296732064351090230047702789306640625",
+    "normalApproximation": 0.02623974977962332,
+    "quantile": 83.73047631764221,
+    "independentMethods": [
+      "exact Bernoulli convolution",
+      "binomial coefficients",
+      "Simpson Gaussian quadrature",
+      "erfc"
+    ]
+  },
+  "documents": [
+    {
+      "id": "distribuciones-ii-examen",
+      "pages": 1,
+      "bytes": 29586,
+      "sha256": "b824c5fa8a220c178c6cedddfa5037d12bf0cb9af0ff545531d27ade617fda57",
+      "title": "Distribuciones II - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 7,
+      "characters": 1436
+    },
+    {
+      "id": "distribuciones-ii-soluciones",
+      "pages": 3,
+      "bytes": 38017,
+      "sha256": "fae075bb4e6c5bc601c445a808aa2e913eebe255c887a079cb99870e12dc64f6",
+      "title": "Distribuciones II - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 12,
+      "characters": 3377
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-20",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/distribuciones-ii/distribuciones-ii-examen.tex",
+      "sha256": "018849e566038d9ef9a5adc99f2bdd09f2fc13f7ddfa017a9c884a9b016cfa5a"
+    },
+    {
+      "path": "content/latex/distribuciones-ii/distribuciones-ii-soluciones.tex",
+      "sha256": "3c73b7ad8c93cf8f3e30f1d552fc01520d98417f041aaec6663d7f3a15afb699"
+    },
+    {
+      "path": "content/latex/distribuciones-ii/estilo.tex",
+      "sha256": "8cabbff0cfefc81c1192efeacfd17aa6658a15385a2e6f3701fe89835a1ec625"
+    },
+    {
+      "path": "content/latex/distribuciones-ii/logo-al-andalus.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    },
+    {
+      "path": "content/latex/distribuciones-ii/provenance.json",
+      "sha256": "70965ca83c4a68bb415e28e84faa93f9c37c4764e1cd926a1fdeb7aed633147c"
+    }
+  ]
+}

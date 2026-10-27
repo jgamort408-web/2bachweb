@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 2,
+  "mathematics": {
+    "parts": 4,
+    "passed": true,
+    "areaLogarithm": 0.3364722366212129,
+    "areaQuadrature": 0.336472236621213
+  },
+  "documents": [
+    {
+      "id": "recuperacion-t1-examen",
+      "pages": 1,
+      "bytes": 34071,
+      "sha256": "26a786b9d6b1da02fc3933aec2257854e1068acc994450487a5232742f5f1af5",
+      "title": "Recuperación T1 - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 10,
+      "characters": 1157
+    },
+    {
+      "id": "recuperacion-t1-soluciones",
+      "pages": 4,
+      "bytes": 56830,
+      "sha256": "16bc2395c3d3b7b82e29d707a7740d46328f891696453ab645f82102f13a848b",
+      "title": "Recuperación T1 - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 18,
+      "characters": 3502
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-20",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/recuperacion-t1/estilo.tex",
+      "sha256": "5eed4a249189e4055e65125f08b183b79174dc98d0d4cff2fc19d405a5fed1f2"
+    },
+    {
+      "path": "content/latex/recuperacion-t1/logo-al-andalus.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    },
+    {
+      "path": "content/latex/recuperacion-t1/provenance.json",
+      "sha256": "11ebb353c4bd19cf99896b3b3f692a36cd13ea19701e1deccd1ba98fb626874b"
+    },
+    {
+      "path": "content/latex/recuperacion-t1/recuperacion-t1-examen.tex",
+      "sha256": "2c482944a0e58fbb3ea8f016ce6b48be679ddf611345a5be3e7b3a206cf4909e"
+    },
+    {
+      "path": "content/latex/recuperacion-t1/recuperacion-t1-soluciones.tex",
+      "sha256": "bbd3ee0f1905710dad00b9ed3d3816bdd437277aaa579ef4a578912ed3c2e34c"
+    }
+  ]
+}

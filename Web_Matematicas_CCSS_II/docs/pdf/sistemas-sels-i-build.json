@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 2,
+  "mathematics": {
+    "parts": 4,
+    "passed": true,
+    "exactParameterCases": 79,
+    "singularRanks": [
+      2,
+      3
+    ],
+    "triangular": [
+      "2",
+      "-1/2",
+      "2"
+    ],
+    "tablets": [
+      180,
+      120,
+      100
+    ],
+    "lambdaZero": [
+      22,
+      -7,
+      -13
+    ]
+  },
+  "documents": [
+    {
+      "id": "sistemas-sels-i-examen",
+      "pages": 1,
+      "bytes": 33091,
+      "sha256": "c8a9f7d6e2225c511f0fc01bbaec5ab31ec57802fcf55efc9539712d363e8a37",
+      "title": "Sistemas de ecuaciones I - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 8,
+      "characters": 1307
+    },
+    {
+      "id": "sistemas-sels-i-soluciones",
+      "pages": 4,
+      "bytes": 37456,
+      "sha256": "9795f079822ed98a772d1a5613a1fd0b3c65ae85253c887a6bd4814b9b23a84a",
+      "title": "Sistemas de ecuaciones I - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 12,
+      "characters": 3547
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-20",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/sistemas-sels-i/estilo.tex",
+      "sha256": "c9d3f597b5b4a16d1e6d7bde2151cf143aa340d94ca5b44ae8bbea6363a47afe"
+    },
+    {
+      "path": "content/latex/sistemas-sels-i/logo-al-andalus.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    },
+    {
+      "path": "content/latex/sistemas-sels-i/provenance.json",
+      "sha256": "578435339dab8b7ec2a3dbc6209414b90206a0ed6e4b484578e692a131b3d05b"
+    },
+    {
+      "path": "content/latex/sistemas-sels-i/sistemas-sels-i-examen.tex",
+      "sha256": "51caa1bc46f384b268155ef458a8c7d2ec5751a2c6249cb191a2c84a9bae4a88"
+    },
+    {
+      "path": "content/latex/sistemas-sels-i/sistemas-sels-i-soluciones.tex",
+      "sha256": "8ef97223d160ab7210c1f6dfd108e24538b06ea93af62681d8496f33834a1d08"
+    }
+  ]
+}

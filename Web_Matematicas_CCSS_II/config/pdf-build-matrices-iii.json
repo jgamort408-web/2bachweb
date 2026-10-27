@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-20",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "batchId": "167",
+  "sourceDirectory": "content/latex/matrices-iii",
+  "report": "docs/pdf/matrices-iii-build.json",
+  "mathematics": "matrices-iii",
+  "documents": [
+    {
+      "id": "matrices-iii-examen",
+      "source": "content/latex/matrices-iii/matrices-iii-examen.tex",
+      "output": "output/pdf/matrices-iii-examen.pdf",
+      "expectedPages": 1,
+      "title": "Matrices III - Examen revisado",
+      "forbiddenText": [
+        "£"
+      ],
+      "requiredText": [
+        "cuatro de las cinco operaciones"
+      ]
+    },
+    {
+      "id": "matrices-iii-soluciones",
+      "source": "content/latex/matrices-iii/matrices-iii-soluciones.tex",
+      "output": "output/pdf/matrices-iii-soluciones.pdf",
+      "expectedPages": 3,
+      "title": "Matrices III - Soluciones revisadas",
+      "forbiddenText": [
+        "£"
+      ],
+      "requiredText": [
+        "El ZIP original no incluía soluciones.",
+        "solo cuatro"
+      ]
+    }
+  ]
+}

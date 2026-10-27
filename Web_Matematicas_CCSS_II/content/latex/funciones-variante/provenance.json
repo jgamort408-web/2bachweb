@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "pairId": "funciones-variante",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-20",
+  "sources": [
+    {
+      "sourceId": "F006",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Examen Funciones (Copy).zip",
+      "zipSha256": "2a217343147627f9eb07b98367e8886802d9c95b417401911ee19053a65b3915",
+      "entry": "main.tex",
+      "texSha256": "d763250fc2ad0dbd73057219e1edbc505c9e1286fd4e65dc25bbeb66782c4ea0"
+    }
+  ],
+  "assets": [
+    {
+      "path": "logo-al-andalus.png",
+      "sourceId": "F006",
+      "entry": "Logo AL-ANDALUS.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    }
+  ],
+  "solutionOrigin": "Elaborado en esta revisión; ZIP sin solucionario",
+  "preserved": {
+    "durationMinutes": 55,
+    "calculatorAllowed": true,
+    "exercisePoints": [
+      4,
+      3,
+      3
+    ],
+    "partPoints": [
+      1,
+      1,
+      1,
+      1,
+      3,
+      1.5,
+      1.5
+    ]
+  },
+  "corrections": [],
+  "dormantVariant": "El ejercicio bursátil comentado en ambos ZIP se conserva una vez en anexo no evaluable de funciones-principal; no se trasladan sus puntuaciones comentadas inconsistentes",
+  "answers": {
+    "hole": [
+      "2",
+      "1/3"
+    ],
+    "verticalAsymptotes": [
+      3,
+      5
+    ],
+    "horizontalAsymptote": 0,
+    "stockCriticalPoints": [
+      10,
+      20
+    ],
+    "piecewiseMinima": [
+      [
+        -1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "piecewiseMaxima": [
+      [
+        -2,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        1
+      ]
+    ]
+  }
+}

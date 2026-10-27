@@ -1,0 +1,400 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-22",
+  "packages": 30,
+  "reviewed": 30,
+  "pending": 0,
+  "reviewedResources": 48,
+  "records": [
+    {
+      "sourceId": "F001",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2 CCSS - EXAMEN SUBIDA NOTA CURSO.zip",
+      "zipSha256": "ba842a7f68de7ef1f50626a32f96cbf0ed049f8c1651c98b95a2afb95998dde5",
+      "status": "reviewed",
+      "pairId": "subida-nota-curso",
+      "provenance": "content/latex/subida-nota-curso/provenance.json",
+      "report": "docs/pdf/subida-nota-curso-build.json",
+      "resources": [
+        "subida-nota-curso-examen",
+        "subida-nota-curso-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F002",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Distribuciones de Probabilidad (2).zip",
+      "zipSha256": "84f9de67e2eff60568e9f8d5ec67ecca6196b949e4be101fd3f7a054076b0c4d",
+      "status": "reviewed",
+      "pairId": "distribuciones-ii",
+      "provenance": "content/latex/distribuciones-ii/provenance.json",
+      "report": "docs/pdf/distribuciones-ii-build.json",
+      "resources": [
+        "distribuciones-ii-examen",
+        "distribuciones-ii-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F003",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Distribuciones de Probabilidad.zip",
+      "zipSha256": "a98ad640eba4fc1d4b52c148fe11aa2721bee8561e45569676dca071520ba8eb",
+      "status": "reviewed",
+      "pairId": "distribuciones-i",
+      "provenance": "content/latex/distribuciones-i/provenance.json",
+      "report": "docs/pdf/distribuciones-i-build.json",
+      "resources": [
+        "distribuciones-i-examen",
+        "distribuciones-i-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F004",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Ejercicios repaso.zip",
+      "zipSha256": "62d40763dec82b38c415d03e99d7adbefdfd5c2c507c2f9c1a516ca36f5a5526",
+      "status": "reviewed",
+      "pairId": "repaso-analisis",
+      "provenance": "content/latex/repaso-analisis/provenance.json",
+      "report": "docs/pdf/repaso-analisis-build.json",
+      "resources": [
+        "repaso-analisis-examen",
+        "repaso-analisis-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F005",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Examen Final.zip",
+      "zipSha256": "7a202e65dc946ff87bd5645511dcc064664edb4cb44304507473606a369217ad",
+      "status": "reviewed",
+      "pairId": "examen-final",
+      "provenance": "content/latex/examen-final/provenance.json",
+      "report": "docs/pdf/examen-final-build.json",
+      "resources": [
+        "examen-final-examen",
+        "examen-final-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F006",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Examen Funciones (Copy).zip",
+      "zipSha256": "2a217343147627f9eb07b98367e8886802d9c95b417401911ee19053a65b3915",
+      "status": "reviewed",
+      "pairId": "funciones-variante",
+      "provenance": "content/latex/funciones-variante/provenance.json",
+      "report": "docs/pdf/funciones-variante-build.json",
+      "resources": [
+        "funciones-variante-examen",
+        "funciones-variante-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F007",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Examen Funciones.zip",
+      "zipSha256": "b77e2dbb3827999889f5f2c7b0affe5dca0aaf2419b969112fe3af9f057563d4",
+      "status": "reviewed",
+      "pairId": "funciones-principal",
+      "provenance": "content/latex/funciones-principal/provenance.json",
+      "report": "docs/pdf/funciones-principal-build.json",
+      "resources": [
+        "funciones-principal-examen",
+        "funciones-principal-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F008",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Examen Límites y Derivadas.zip",
+      "zipSha256": "fb6f8bc4ef563cffc8e21984bd84af7b31ccec33cecc4bc33da6b16350018789",
+      "status": "reviewed",
+      "pairId": "limites-derivadas",
+      "provenance": "content/latex/limites-derivadas/provenance.json",
+      "report": "docs/pdf/limites-derivadas-build.json",
+      "resources": [
+        "limites-derivadas-examen",
+        "limites-derivadas-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F009",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Examen Resuelto Recuperación.zip",
+      "zipSha256": "b935278309137eed26efd796c14fe87377553cffa6ffb6583fa53021e3611f25",
+      "status": "reviewed",
+      "pairId": "recuperacion-inferencia",
+      "provenance": "content/latex/recuperacion-inferencia/provenance.json",
+      "report": "docs/pdf/recuperacion-inferencia-build.json",
+      "resources": [
+        "recuperacion-inferencia-examen",
+        "recuperacion-inferencia-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F010",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Inferencia Estadística (EXAMEN I y II).zip",
+      "zipSha256": "78a2aa44f8cff6db8186394ed530eff7695a4b80bbae47ad2ebec0ca3e84cafc",
+      "status": "reviewed",
+      "pairId": "inferencia-recopilacion",
+      "provenance": "content/latex/inferencia-recopilacion/provenance.json",
+      "report": "docs/pdf/inferencia-recopilacion-build.json",
+      "resources": [
+        "inferencia-recopilacion-examen",
+        "inferencia-recopilacion-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F011",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Inferencia Estadística (EXAMEN I).zip",
+      "zipSha256": "421e696b40e2e186b7a833e846fc4d1608a7b9008ac91a1927af7f7535d43ef3",
+      "status": "reviewed",
+      "pairId": "inferencia-i",
+      "provenance": "content/latex/inferencia-i/provenance.json",
+      "report": "docs/pdf/inferencia-i-build.json",
+      "resources": [
+        "inferencia-i-examen",
+        "inferencia-i-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F012",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Inferencia Estadística (EXAMEN II).zip",
+      "zipSha256": "a13a4afe6251cd8e8e4f5f71f00a47283f02bba62af191910183ee958740f321",
+      "status": "reviewed",
+      "pairId": "inferencia-ii",
+      "provenance": "content/latex/inferencia-ii/provenance.json",
+      "report": "docs/pdf/inferencia-ii-build.json",
+      "resources": [
+        "inferencia-ii-examen",
+        "inferencia-ii-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F013",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Inferencia Estadística.zip",
+      "zipSha256": "ee37bfc98c0aa745f771a01e3dc8c57470d9abae1a7f577c5ef492f8338e735d",
+      "status": "reviewed",
+      "pairId": "inferencia-general",
+      "provenance": "content/latex/inferencia-general/provenance.json",
+      "report": "docs/pdf/inferencia-general-build.json",
+      "resources": [
+        "inferencia-general-examen",
+        "inferencia-general-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F014",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Matrices I.zip",
+      "zipSha256": "5ef92e741a94ff41eca3be78f0b18e863a2257b2a900c652b174ecf0c6b2062c",
+      "status": "reviewed",
+      "pairId": "matrices-i",
+      "provenance": "content/latex/matrices-i/provenance.json",
+      "report": "docs/pdf/matrices-i-build.json",
+      "resources": [
+        "matrices-i-examen",
+        "matrices-i-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F015",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Matrices II.zip",
+      "zipSha256": "f0ea5b28522e880e53f4d3d1d98b822556c9c3c97486a5dec7618c7a9c341784",
+      "status": "reviewed",
+      "pairId": "matrices-ii",
+      "provenance": "content/latex/matrices-ii/provenance.json",
+      "report": "docs/pdf/matrices-ii-build.json",
+      "resources": [
+        "matrices-ii-examen",
+        "matrices-ii-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F016",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Matrices III.zip",
+      "zipSha256": "76a79d5e3589df15e3c4ff3586899c2e731f7d3c099060e7c39561990ff4d603",
+      "status": "reviewed",
+      "pairId": "matrices-iii",
+      "provenance": "content/latex/matrices-iii/provenance.json",
+      "report": "docs/pdf/matrices-iii-build.json",
+      "resources": [
+        "matrices-iii-examen",
+        "matrices-iii-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F017",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Probabilidad (2).zip",
+      "zipSha256": "01605b51559e32d2439ad571afd98c45868172af849d79202b95ff425dfe3dc2",
+      "status": "reviewed",
+      "pairId": "probabilidad-ii",
+      "provenance": "content/latex/probabilidad-ii/provenance.json",
+      "report": "docs/pdf/probabilidad-ii-build.json",
+      "resources": [
+        "probabilidad-ii-examen",
+        "probabilidad-ii-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F018",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Probabilidad.zip",
+      "zipSha256": "e51a757562a6c04f7048d9ebc04aa49a7756f1dc3866dbb613bac78a1ac357ad",
+      "status": "reviewed",
+      "pairId": "probabilidad-i",
+      "provenance": "content/latex/probabilidad-i/provenance.json",
+      "report": "docs/pdf/probabilidad-i-build.json",
+      "resources": [
+        "probabilidad-i-examen",
+        "probabilidad-i-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F019",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Programación Lineal (Soluciones 1).zip",
+      "zipSha256": "5bac0d3fde1f5943f40875da667e660b97e1c3d92941bc8af972443efcf8f22f",
+      "status": "reviewed",
+      "pairId": "programacion-lineal-i",
+      "provenance": "content/latex/programacion-lineal-i/provenance.json",
+      "report": "docs/pdf/programacion-lineal-i-build.json",
+      "resources": [
+        "programacion-lineal-i-examen",
+        "programacion-lineal-i-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F020",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Programación Lineal (Soluciones 2).zip",
+      "zipSha256": "b402df5c604f64253bdf595f8f754a7a588e0aa322d1917b4e6bb978baa3b32a",
+      "status": "reviewed",
+      "pairId": "programacion-lineal-ii",
+      "provenance": "content/latex/programacion-lineal-ii/provenance.json",
+      "report": "docs/pdf/programacion-lineal-ii-build.json",
+      "resources": [
+        "programacion-lineal-ii-examen",
+        "programacion-lineal-ii-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F021",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Programación Lineal 1.zip",
+      "zipSha256": "0a4f4ef32b5054bae94d898e8e0a793450085b2c558e53cab9c717cd0d9c16eb",
+      "status": "reviewed",
+      "pairId": "programacion-lineal-i",
+      "provenance": "content/latex/programacion-lineal-i/provenance.json",
+      "report": "docs/pdf/programacion-lineal-i-build.json",
+      "resources": [
+        "programacion-lineal-i-examen",
+        "programacion-lineal-i-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F022",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Programación Lineal 2.zip",
+      "zipSha256": "a33b41c877d9d8746d29e20f608cd284a799b2dae9249013220f608b906598bf",
+      "status": "reviewed",
+      "pairId": "programacion-lineal-ii",
+      "provenance": "content/latex/programacion-lineal-ii/provenance.json",
+      "report": "docs/pdf/programacion-lineal-ii-build.json",
+      "resources": [
+        "programacion-lineal-ii-examen",
+        "programacion-lineal-ii-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F023",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Recuperación T1 Soluciones.zip",
+      "zipSha256": "f5f648c8defdd27e725d6aa12381ac4cd46b604ddcef258ba92bce7ed071f47d",
+      "status": "reviewed",
+      "pairId": "recuperacion-t1",
+      "provenance": "content/latex/recuperacion-t1/provenance.json",
+      "report": "docs/pdf/recuperacion-t1-build.json",
+      "resources": [
+        "recuperacion-t1-examen",
+        "recuperacion-t1-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F024",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Recuperación T1.zip",
+      "zipSha256": "fe9c6c519bce835b1944be291879abd2697e35bc83eda452b2a3f26968899732",
+      "status": "reviewed",
+      "pairId": "recuperacion-t1",
+      "provenance": "content/latex/recuperacion-t1/provenance.json",
+      "report": "docs/pdf/recuperacion-t1-build.json",
+      "resources": [
+        "recuperacion-t1-examen",
+        "recuperacion-t1-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F025",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - SELs I (SOLUCIONES).zip",
+      "zipSha256": "d50003e00cf8b3ca7e0921624917d21f6ff7933b33b31d0e73aec62dcb4bbe37",
+      "status": "reviewed",
+      "pairId": "sistemas-sels-i",
+      "provenance": "content/latex/sistemas-sels-i/provenance.json",
+      "report": "docs/pdf/sistemas-sels-i-build.json",
+      "resources": [
+        "sistemas-sels-i-examen",
+        "sistemas-sels-i-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F026",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - SELs I.zip",
+      "zipSha256": "75751acf28b08e36cf44543af62feaf2e151592a1f3564e7db6f5342cfee8ea3",
+      "status": "reviewed",
+      "pairId": "sistemas-sels-i",
+      "provenance": "content/latex/sistemas-sels-i/provenance.json",
+      "report": "docs/pdf/sistemas-sels-i-build.json",
+      "resources": [
+        "sistemas-sels-i-examen",
+        "sistemas-sels-i-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F027",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - SELs II (SOLUCIONES).zip",
+      "zipSha256": "058eb70e2b68d9e7a35c6cbbc00d523fe0ff86f7a947ce4e57a85916935f85ff",
+      "status": "reviewed",
+      "pairId": "sistemas-sels-ii",
+      "provenance": "content/latex/sistemas-sels-ii/provenance.json",
+      "report": "docs/pdf/sistemas-sels-ii-build.json",
+      "resources": [
+        "sistemas-sels-ii-examen",
+        "sistemas-sels-ii-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F028",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - SELs II.zip",
+      "zipSha256": "f9f839c211ea1419fef4382c4ecd1dfd262d57231f03b054abb593e6491f3326",
+      "status": "reviewed",
+      "pairId": "sistemas-sels-ii",
+      "provenance": "content/latex/sistemas-sels-ii/provenance.json",
+      "report": "docs/pdf/sistemas-sels-ii-build.json",
+      "resources": [
+        "sistemas-sels-ii-examen",
+        "sistemas-sels-ii-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F029",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Subida de nota T1 General Soluciones.zip",
+      "zipSha256": "fde4c7d23e55aaee2e4c4c312bd1d1a3afeff8220e940109de43e7ab2b0608eb",
+      "status": "reviewed",
+      "pairId": "subida-nota-t1-general",
+      "provenance": "content/latex/subida-nota-t1-general/provenance.json",
+      "report": "docs/pdf/subida-nota-t1-general-build.json",
+      "resources": [
+        "subida-nota-t1-general-examen",
+        "subida-nota-t1-general-soluciones"
+      ]
+    },
+    {
+      "sourceId": "F030",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Subida de nota T1 General.zip",
+      "zipSha256": "7c1b938086ca97fe6f8c0e0e0b33555d44f5cf98db59da3a032c72227c28534e",
+      "status": "reviewed",
+      "pairId": "subida-nota-t1-general",
+      "provenance": "content/latex/subida-nota-t1-general/provenance.json",
+      "report": "docs/pdf/subida-nota-t1-general-build.json",
+      "resources": [
+        "subida-nota-t1-general-examen",
+        "subida-nota-t1-general-soluciones"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.3 La Covarianza</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-body: #f5f3ff;
+            --primary: #4c1d95;
+            --primary-light: #8b5cf6;
+            --secondary: #1e1b4b;
+            --accent: #d946ef;
+            --success: #10b981; /* Verde para positivo */
+            --danger: #ef4444;  /* Rojo para negativo */
+            --text-main: #334155;
+            --text-light: #64748b;
+            --radius: 12px;
+            --shadow: 0 10px 15px -3px rgba(76, 29, 149, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            background-image: 
+                linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; color: var(--secondary); line-height: 1.2; }
+        .container { max-width: 950px; margin: 0 auto; }
+
+        /* TARJETAS */
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-top: 4px solid var(--primary);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        /* LAYOUT DEFINICIÓN */
+        .def-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .formula-card {
+            background: var(--secondary);
+            color: white;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Etiqueta "Pro Tip" para la fórmula rápida */
+        .tag-pro {
+            position: absolute;
+            top: 0; right: 0;
+            background: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 0.3rem 0.8rem;
+            border-bottom-left-radius: 8px;
+        }
+
+        /* DASHBOARD DE INTERPRETACIÓN */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .stat-box:hover { transform: translateY(-5px); }
+
+        .stat-icon { font-size: 2rem; margin-bottom: 0.5rem; display: block; }
+        .stat-value { font-family: 'Times New Roman', serif; font-size: 1.2rem; font-weight: bold; }
+        .stat-desc { font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem; }
+
+        /* Colores condicionales */
+        .box-pos { border-bottom: 4px solid var(--success); }
+        .text-pos { color: var(--success); }
+        
+        .box-neg { border-bottom: 4px solid var(--danger); }
+        .text-neg { color: var(--danger); }
+        
+        .box-zero { border-bottom: 4px solid #94a3b8; }
+        .text-zero { color: #64748b; }
+
+        /* SVG LÓGICA DE CUADRANTES */
+        .quadrant-bg { fill-opacity: 0.1; }
+        .q-pos { fill: var(--success); }
+        .q-neg { fill: var(--danger); }
+        
+        .math-sign {
+            font-family: monospace;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-anchor: middle;
+            opacity: 0.6;
+        }
+
+        /* ALERTA LIMITACIÓN */
+        .alert-box {
+            background: #fff1f2; /* Red 50 */
+            border-left: 4px solid var(--danger);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        @media (max-width: 768px) {
+            .def-grid { grid-template-columns: 1fr; }
+            body { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+
+        <section class="card">
+            <h2 style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <span style="color: var(--accent);">⚙️</span> 2.3 Medidas Conjuntas: La Covarianza
+            </h2>
+            
+            <div class="def-grid">
+                <div>
+                    <p style="margin-bottom: 1rem;">
+                        La varianza ($\sigma^2$) medía cómo variaba una variable consigo misma. La <strong>Covarianza ($S_{xy}$ o $\sigma_{xy}$)</strong> mide cómo varían dos variables <strong>conjuntamente</strong>.
+                    </p>
+                    <p style="font-size: 0.95rem; color: var(--text-light);">
+                        Es el promedio de los productos de las desviaciones respecto a las medias.
+                    </p>
+                </div>
+
+                <div class="formula-card">
+                    <div class="tag-pro">PARA EXÁMENES</div>
+                    <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #a5b4fc; margin-bottom: 0.5rem;">Fórmula de Cálculo Rápido</p>
+                    <div style="font-size: 1.4rem; margin-bottom: 1rem;">
+                        $$S_{xy} = \frac{\sum x_i \cdot y_i}{N} - \bar{x} \cdot \bar{y}$$
+                    </div>
+                    <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 0.5rem; font-size: 0.9rem; color: #e0e7ff;">
+                        Media de los productos $-$ Producto de las medias
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card" style="border-top-color: var(--accent);">
+            <h3 style="margin-bottom: 1.5rem; color: var(--secondary);">¿Por qué funciona? La Lógica de los Signos</h3>
+            
+            <div class="def-grid">
+                <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1rem; text-align: center;">
+                    <h4 style="font-size: 0.8rem; color: var(--text-light); margin-bottom: 0.5rem;">Contribución a la Covarianza</h4>
+                    <svg viewBox="0 0 200 200" width="100%">
+                        <rect x="100" y="10" width="90" height="90" class="quadrant-bg q-pos" /> <rect x="10" y="100" width="90" height="90" class="quadrant-bg q-pos" /> <rect x="10" y="10" width="90" height="90" class="quadrant-bg q-neg" />  <rect x="100" y="100" width="90" height="90" class="quadrant-bg q-neg" /> <line x1="100" y1="10" x2="100" y2="190" stroke="#4c1d95" stroke-width="2" stroke-dasharray="4" />
+                        <line x1="10" y1="100" x2="190" y2="100" stroke="#4c1d95" stroke-width="2" stroke-dasharray="4" />
+                        <text x="100" y="200" font-size="10" text-anchor="middle" fill="#4c1d95">Media x̄</text>
+                        <text x="195" y="105" font-size="10" fill="#4c1d95">ȳ</text>
+
+                        <text x="145" y="55" class="math-sign" fill="#10b981">(+)·(+) = +</text>
+                        <text x="55" y="145" class="math-sign" fill="#10b981">(-)·(-) = +</text>
+                        <text x="55" y="55" class="math-sign" fill="#ef4444">(-)·(+) = -</text>
+                        <text x="145" y="145" class="math-sign" fill="#ef4444">(+)·(-) = -</text>
+                    </svg>
+                </div>
+
+                <div>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; display: flex; gap: 10px;">
+                            <span style="color: var(--success); font-weight: bold;">🟢 Zona Verde:</span> 
+                            <div>
+                                Puntos donde X e Y crecen o decrecen <strong>a la vez</strong>. Suman valor positivo a la covarianza.
+                            </div>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 10px;">
+                            <span style="color: var(--danger); font-weight: bold;">🔴 Zona Roja:</span> 
+                            <div>
+                                Puntos donde una variable crece y la otra baja. Restan valor a la covarianza.
+                            </div>
+                        </li>
+                    </ul>
+                    <p style="font-size: 0.9rem; background: #f1f5f9; padding: 0.8rem; border-radius: 8px;">
+                        <strong>Conclusión:</strong> El signo de $S_{xy}$ nos dice qué fuerza "gana" (la nube verde o la nube roja).
+                    </p>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="stat-box box-pos">
+                    <span class="stat-icon">📈</span>
+                    <div class="stat-value text-pos">$S_{xy} > 0$</div>
+                    <div class="stat-desc">Relación Directa<br>(X sube, Y sube)</div>
+                </div>
+
+                <div class="stat-box box-neg">
+                    <span class="stat-icon">📉</span>
+                    <div class="stat-value text-neg">$S_{xy} < 0$</div>
+                    <div class="stat-desc">Relación Inversa<br>(X sube, Y baja)</div>
+                </div>
+
+                <div class="stat-box box-zero">
+                    <span class="stat-icon">🌫️</span>
+                    <div class="stat-value text-zero">$S_{xy} \approx 0$</div>
+                    <div class="stat-desc">Incorrelación<br>(Nube dispersa)</div>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <div style="font-size: 1.5rem;">🛑</div>
+                <div>
+                    <strong style="color: var(--danger); display: block; margin-bottom: 0.2rem;">El Problema de la Covarianza</strong>
+                    <p style="font-size: 0.95rem; color: var(--text-main);">
+                        La covarianza <strong>depende de las unidades</strong>. Si mides la altura en metros, te dará un número pequeño (ej: 0.15). Si la mides en centímetros, te dará uno enorme (ej: 1500). <br>
+                        <em>No sirve para comparar la fuerza de la relación, solo la dirección.</em>
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

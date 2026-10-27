@@ -1,0 +1,134 @@
+\documentclass[11pt]{article}
+\input{estilo.tex}
+\hypersetup{pdftitle={Programación lineal I - Soluciones revisadas}}
+\begin{document}
+\section*{Programación lineal I: soluciones}
+Se sigue el orden del examen: ejercicio 1 obligatorio y \textbf{solo uno} entre 2 y 3. Cada ejercicio vale 5 puntos; la puntuación máxima es 10.
+\section*{Ejercicio 1: recinto y mínimo}
+La región está definida por
+\[x+4y\geq5,\quad x+2y\geq4,\quad7x+5y\leq35,\quad x\geq0.\]
+Al intersectar rectas frontera y descartar puntos que incumplen alguna restricción, obtenemos:
+\begin{center}
+\begin{tabular}{c|c|c}
+Vértice & Fronteras que se cortan & $F=2x+y$\\\hline
+$(0,2)$ & $x=0$, $x+2y=4$ & $2$\\
+$(3,1/2)$ & $x+4y=5$, $x+2y=4$ & $13/2$\\
+$(5,0)$ & $x+4y=5$, $7x+5y=35$ & $10$\\
+$(0,7)$ & $x=0$, $7x+5y=35$ & $7$
+\end{tabular}
+\end{center}
+Por ejemplo, restando $x+2y=4$ de $x+4y=5$, resulta $y=1/2$ y después $x=3$. Todos los vértices indicados cumplen las cuatro restricciones.
+
+\textbf{Certificado del mínimo para toda la región:}
+\[F=\frac12(x+2y)+\frac32x\geq\frac12\cdot4+0=2.\]
+La igualdad exige $x=0$ y $x+2y=4$, es decir, $(0,2)$, que es factible. Por tanto,
+\[\boxed{F_{\min}=2\quad\text{únicamente en }(0,2)}.\]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[revision,height=5.8cm,xmin=-0.5,xmax=5.8,ymin=-0.5,ymax=7.8,xtick={0,1,2,3,4,5},ytick={0,2,4,6,7}]
+\addplot[fill=gray!20,draw=black,thick] coordinates {(0,2) (3,0.5) (5,0) (0,7)} -- cycle;
+\addplot[densely dotted,domain=0:5] {(5-x)/4};
+\addplot[dashed,domain=0:5] {(4-x)/2};
+\addplot[domain=0:5] {(35-7*x)/5};
+\addplot[only marks,mark=*,mark size=1.7pt] coordinates {(0,2) (3,0.5) (5,0) (0,7)};
+\node[anchor=west] at (axis cs:0.15,2.1) {\small mínimo $(0,2)$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+El contorno del polígono está incluido. No se añade $y\geq0$ como hipótesis: se deduce de las restricciones del recinto.
+\clearpage
+\section*{Ejercicio 2: misiones y programas}
+Sean $x$ las misiones e $y$ los programas. Dividiendo los importes por 100\,000 euros, el modelo es
+\[
+\max F=\frac35x+\frac25y,\qquad
+\begin{cases}2x+y\leq24,\\2x+y>20,\\x\geq4,\\y\geq2x.\end{cases}
+\]
+Las cantidades finales son enteras no negativas. El modelo continuo ayuda a representar y resolver el problema; el óptimo obtenido también es entero.
+
+\textbf{Frontera estricta.} El enunciado dice ``superar'' 2 millones: la desigualdad correcta es $2x+y>20$. Los puntos con inversión exactamente igual a 2 millones quedan excluidos.
+
+La \textbf{clausura} de la región se obtiene sustituyendo temporalmente $>$ por $\geq$ para localizar sus esquinas:
+\begin{center}
+\begin{tabular}{c|c|c}
+Esquina de la clausura & Valor de $F$ & \textquestiondown{}Pertenece a la región?\\\hline
+$(4,12)$ & $36/5=7{,}2$ & No: inversión igual a 2 millones\\
+$(4,16)$ & $44/5=8{,}8$ & Sí\\
+$(6,12)$ & $42/5=8{,}4$ & Sí\\
+$(5,10)$ & $7$ & No: inversión igual a 2 millones
+\end{tabular}
+\end{center}
+Se obtienen de intersectar $x=4$, $y=2x$ y las dos rectas de inversión. Por ejemplo, con $x=4$ y $2x+y=24$, resulta $y=16$.
+
+\textbf{No basta con evaluar esquinas excluidas.} Para garantizar un máximo alcanzado en la región original, comprobamos para cualquier punto factible:
+\[
+F=\frac25(2x+y)-\frac15x
+\leq\frac25\cdot24-\frac15\cdot4=\frac{44}5.
+\]
+La igualdad exige $2x+y=24$ y $x=4$, por lo que $y=16$.
+\[\boxed{x=4,\qquad y=16,\qquad F_{\max}=8{,}8}.\]
+\textbf{Comprobación:} la inversión es $200\,000\cdot4+100\,000\cdot16=2\,400\,000$ euros, superior a 2 millones y dentro del presupuesto. Hay al menos 4 misiones y $4\leq16/2$.
+\clearpage
+\section*{Ejercicio 2: representación y cantidades enteras}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[revision,height=8cm,xmin=3.5,xmax=6.8,ymin=8.5,ymax=17.5,xtick={4,5,6},ytick={10,12,14,16},xlabel={Misiones ($x$)},ylabel={Programas ($y$)}]
+\addplot[fill=gray!20,draw=none] coordinates {(4,12) (4,16) (6,12) (5,10)} -- cycle;
+\addplot[thick] coordinates {(4,12) (4,16) (6,12) (5,10)};
+\addplot[dashed,thick] coordinates {(4,12) (5,10)};
+\addplot[only marks,mark=o,mark size=3pt,mark options={fill=white,solid}] coordinates {(4,12) (5,10)};
+\addplot[only marks,mark=*,mark size=2.3pt] coordinates {(4,16) (6,12)};
+\node[anchor=south west] at (axis cs:4,16) {\small óptimo $(4,16)$};
+\node[anchor=north west] at (axis cs:5,10) {\small $(5,10)$ excluido};
+\node[anchor=north east] at (axis cs:4,12) {\small $(4,12)$};
+\node[anchor=west] at (axis cs:6,12) {\small $(6,12)$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+El segmento discontinuo $2x+y=20$ \textbf{no pertenece} a la región; sus dos extremos se marcan con círculos vacíos. Las otras aristas están incluidas, salvo esos extremos.
+
+Para cantidades enteras, $2x+y>20$ equivale a $2x+y\geq21$. De $y\geq2x$ y $2x+y\leq24$ se deduce $x\leq6$; junto a $x\geq4$, solo hay tres valores posibles:
+\begin{center}
+\begin{tabular}{c|c}
+Misiones & Programas enteros factibles\\\hline
+$4$ & $13,14,15,16$\\
+$5$ & $11,12,13,14$\\
+$6$ & $12$
+\end{tabular}
+\end{center}
+Son nueve posibilidades. El punto $(4,16)$ es entero y alcanza la cota superior ya demostrada; también es el óptimo del problema con cantidades enteras.
+\clearpage
+\section*{Ejercicio 3: baterías y beneficio máximo}
+Sean $x$ las baterías A e $y$ las baterías B. El modelo es
+\[
+\max Z=130x+140y,\qquad
+\begin{cases}x+y\geq10,\\y-x\leq10,\\3x+2y\leq120,\\x\geq0,\quad y\geq0.\end{cases}
+\]
+La tercera restricción procede de dividir $150x+100y\leq6\,000$ entre 50. Los beneficios del enunciado ya son beneficios unitarios: no se restan de nuevo los gastos de producción.
+
+Las intersecciones factibles y sus valores son
+\begin{center}
+\begin{tabular}{c|r}
+Vértice & $Z$ (euros)\\\hline
+$(0,10)$ & $1\,400$\\
+$(10,0)$ & $1\,300$\\
+$(40,0)$ & $5\,200$\\
+$(20,30)$ & $6\,800$
+\end{tabular}
+\end{center}
+La intersección de $y=x+10$ y $3x+2y=120$ da $5x=100$, luego $(x,y)=(20,30)$.
+
+\textbf{Certificado para toda la región:}
+\[Z=54(3x+2y)+32(y-x)\leq54\cdot120+32\cdot10=6\,800.\]
+En $(20,30)$ se alcanza la igualdad y se cumplen $x+y=50\geq10$, $y-x=10$ y $150x+100y=6\,000$. Así,
+\[\boxed{20\text{ baterías A},\quad30\text{ baterías B},\quad Z_{\max}=6\,800\text{ euros}}.\]
+El óptimo es entero y único, pues la igualdad exige simultáneamente las dos rectas anteriores.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[revision,height=5.2cm,xmin=-2,xmax=44,ymin=-2,ymax=36,xtick={0,10,20,30,40},ytick={0,10,20,30},xlabel={Baterías A ($x$)},ylabel={Baterías B ($y$)}]
+\addplot[fill=gray!20,draw=black,thick] coordinates {(0,10) (10,0) (40,0) (20,30)} -- cycle;
+\addplot[only marks,mark=*,mark size=2pt] coordinates {(0,10) (10,0) (40,0) (20,30)};
+\node[anchor=south] at (axis cs:20,30) {\small óptimo $(20,30)$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{document}

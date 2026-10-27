@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 1,
+  "mathematics": {
+    "passed": true,
+    "newSolution": true,
+    "areaQuadrature": 4.955193765765991,
+    "areaExactApproximation": 4.955193765765991,
+    "stockGain": 2000,
+    "stockOptimalGain": 54000,
+    "annexNonAssessable": true
+  },
+  "documents": [
+    {
+      "id": "examen-final-examen",
+      "pages": 3,
+      "bytes": 33968,
+      "sha256": "30377cd09cdbc65d68a32b4985bfddff9001a17267e0f501113e42c2483cbeed",
+      "title": "Examen final - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 11,
+      "characters": 3298
+    },
+    {
+      "id": "examen-final-soluciones",
+      "pages": 6,
+      "bytes": 49232,
+      "sha256": "8a4d35e8fbf69ca6bae5d05e087a60bf9dba2a2676cca820831a32c3b94fd349",
+      "title": "Examen final - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 14,
+      "characters": 4760
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-22",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/examen-final/estilo.tex",
+      "sha256": "a2615608824b4f4cbe05a3216610233ccfd1ef42884cbcbdb26ae93911a87203"
+    },
+    {
+      "path": "content/latex/examen-final/examen-final-examen.tex",
+      "sha256": "eabb01b5cb79be17ff1e21a64776f4f2ee70c17bcf3384d5a2cc7e0a7633d5e6"
+    },
+    {
+      "path": "content/latex/examen-final/examen-final-soluciones.tex",
+      "sha256": "c87acf743a5cf3d6ef42234044088525bb18e25cc049edf4a7ac02497adbf1a9"
+    },
+    {
+      "path": "content/latex/examen-final/logo-al-andalus.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    },
+    {
+      "path": "content/latex/examen-final/provenance.json",
+      "sha256": "666d575b90cd724c253743176cc6d3a3291358965d5c644e5d4886afc1ac1e5e"
+    }
+  ]
+}

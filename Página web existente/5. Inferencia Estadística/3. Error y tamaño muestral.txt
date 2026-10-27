@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.3 Error y Tamaño Muestral</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-body: #ecfdf5;       
+            --primary: #047857;       
+            --primary-dark: #064e3b;  
+            --secondary: #0f172a;     
+            --accent: #d97706;        
+            --accent-light: #fffbeb;
+            
+            /* Color especial para "Diseño/Cálculo" */
+            --blueprint: #2563eb;     
+            --blueprint-bg: #eff6ff;
+
+            --text-main: #334155;
+            --text-light: #64748b;
+            
+            --radius: 8px;            
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            background-image: radial-gradient(#047857 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; color: var(--secondary); line-height: 1.2; }
+        .container { max-width: 950px; margin: 0 auto; }
+
+        /* HEADER */
+        .header-bar {
+            background: white;
+            padding: 1.5rem;
+            border-bottom: 4px solid var(--blueprint); /* Azul para cálculo */
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .header-num {
+            background: var(--blueprint);
+            color: white;
+            font-weight: 800;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 1.2rem;
+        }
+
+        /* TARJETAS */
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2.5rem;
+        }
+
+        /* ANATOMÍA DEL ERROR (SVG) */
+        .error-anatomy {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 1rem;
+            border: 1px dashed #cbd5e1;
+        }
+        
+        .interval-line { stroke: var(--secondary); stroke-width: 2; }
+        .center-point { fill: var(--primary); }
+        .error-arrow { stroke: var(--accent); stroke-width: 1.5; marker-end: url(#arrow); }
+        .bracket { stroke: #64748b; stroke-width: 1; fill: none; }
+
+        /* BLUEPRINT BOX (CÁLCULO N) */
+        .blueprint-box {
+            background: var(--blueprint-bg);
+            border: 2px solid var(--blueprint);
+            padding: 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background-image: linear-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .blueprint-title {
+            background: var(--blueprint);
+            color: white;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        /* RELACIONES (TRADE-OFFS) */
+        .trade-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .trade-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .trade-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+
+        .trade-icon { font-size: 2rem; margin-bottom: 0.5rem; display: block; }
+
+        /* ALERTA REDONDEO */
+        .rounding-alert {
+            background: #fff7ed;
+            border-left: 5px solid #c2410c;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        @media (max-width: 768px) {
+            .trade-grid { grid-template-columns: 1fr; }
+            body { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+
+        <div class="header-bar">
+            <div class="header-num">5.3</div>
+            <div>
+                <h1 style="font-size: 1.5rem; margin: 0;">Error y Tamaño Muestral</h1>
+                <span style="font-size: 0.9rem; color: var(--text-light);">Diseñando el estudio estadístico</span>
+            </div>
+        </div>
+
+        <section class="card">
+            <h2>El Error Máximo Admisible ($E$)</h2>
+            <p>
+                El "Error" no significa que nos hayamos equivocado. Es el <strong>radio</strong> de nuestro intervalo de confianza. Es la distancia máxima que aceptamos desviarnos de la verdadera media poblacional.
+            </p>
+
+            <div class="error-anatomy">
+                <svg viewBox="0 0 400 120" width="100%">
+                    <defs>
+                        <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#d97706" />
+                        </marker>
+                    </defs>
+
+                    <line x1="20" y1="80" x2="380" y2="80" class="interval-line" stroke="#e2e8f0" stroke-width="1" />
+
+                    <line x1="100" y1="80" x2="300" y2="80" class="interval-line" stroke="#0f172a" />
+                    
+                    <line x1="100" y1="70" x2="100" y2="90" stroke="#0f172a" stroke-width="2" /> <line x1="300" y1="70" x2="300" y2="90" stroke="#0f172a" stroke-width="2" /> <circle cx="200" cy="80" r="4" class="center-point" />
+                    <text x="200" y="110" text-anchor="middle" font-weight="bold" fill="#047857">x̄ (Muestra)</text>
+
+                    <line x1="200" y1="50" x2="290" y2="50" class="error-arrow" />
+                    <text x="250" y="40" text-anchor="middle" font-weight="bold" fill="#d97706" font-size="14">E</text>
+                    
+                    <line x1="200" y1="50" x2="110" y2="50" class="error-arrow" />
+                    <text x="150" y="40" text-anchor="middle" font-weight="bold" fill="#d97706" font-size="14">E</text>
+
+                    <text x="200" y="20" text-anchor="middle" font-size="10" fill="#64748b">Amplitud Total = 2 · E</text>
+                </svg>
+            </div>
+
+            <div style="text-align: center; font-size: 1.2rem; background: #fffbeb; padding: 1rem; border-radius: 8px;">
+                $$E = z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}$$
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Planificando el Estudio: ¿A cuántos preguntamos?</h2>
+            <p style="margin-bottom: 1.5rem;">
+                Esta es la pregunta más importante (y la que más cae en examen). Si queremos un Error máximo concreto ($E$) con una Confianza dada, ¿cuál debe ser el tamaño de la muestra ($n$)?
+            </p>
+
+            <div class="blueprint-box">
+                <span class="blueprint-title">HERRAMIENTA DE DISEÑO</span>
+                <p style="font-size: 0.9rem; margin-bottom: 1rem; color: #1e3a8a;">Despejando 'n' de la fórmula del error...</p>
+                
+                
+
+                <div style="font-size: 2rem; color: #1e3a8a; margin-bottom: 1rem;">
+                    $$n = \left( \frac{z_{\alpha/2} \cdot \sigma}{E} \right)^2$$
+                </div>
+                
+                <p style="font-size: 0.85rem; color: #64748b;">
+                    Recuerda elevar todo el paréntesis al cuadrado.
+                </p>
+            </div>
+
+            <div class="rounding-alert">
+                <div style="font-size: 2rem;">🚧</div>
+                <div>
+                    <strong style="color: #c2410c;">Regla de Oro: El Redondeo</strong>
+                    <p style="font-size: 0.95rem; margin-top: 0.5rem; color: #7c2d12;">
+                        El tamaño muestral se refiere a "personas" o "cosas". No puedes encuestar a 45.1 personas.
+                        <br>
+                        <strong>Siempre se redondea HACIA ARRIBA</strong>, aunque el decimal sea bajo.
+                    </p>
+                    <div style="background: white; padding: 0.5rem 1rem; border-radius: 4px; display: inline-block; margin-top: 0.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; border: 1px solid #fdba74;">
+                        Ej: n = 34.02  ➜  n = 35
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>El Coste de la Precisión</h2>
+            <p>En estadística, nada es gratis. Existe una tensión constante entre estos tres factores:</p>
+
+            <div class="trade-grid">
+                <div class="trade-card">
+                    <span class="trade-icon">🎯</span>
+                    <strong style="display:block; margin-bottom:0.5rem;">Quiero Menos Error</strong>
+                    <p style="font-size:0.85rem; color:var(--text-light);">
+                        Para reducir $E$, necesito aumentar mucho el tamaño de la muestra ($n$).
+                        <br><span style="color:var(--primary); font-weight:bold;">↑ Coste</span>
+                    </p>
+                </div>
+
+                <div class="trade-card">
+                    <span class="trade-icon">🛡️</span>
+                    <strong style="display:block; margin-bottom:0.5rem;">Quiero Más Confianza</strong>
+                    <p style="font-size:0.85rem; color:var(--text-light);">
+                        Si subo el nivel (ej: al 99%), $z_{\alpha/2}$ crece, y el intervalo se ensancha (más error).
+                        <br><span style="color:var(--accent); font-weight:bold;">↑ Incertidumbre</span>
+                    </p>
+                </div>
+
+                <div class="trade-card">
+                    <span class="trade-icon">💰</span>
+                    <strong style="display:block; margin-bottom:0.5rem;">Tengo poco Presupuesto</strong>
+                    <p style="font-size:0.85rem; color:var(--text-light);">
+                        Si $n$ es pequeño, el error $E$ se dispara. Mi estudio será poco preciso.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+@import url('../../shared/widget-base.css');
+[data-options] { min-width: 0; margin-block: 1rem; }
+.chamber-option { display: block; border: 1px solid currentColor; padding: .65rem; margin-block: .6rem; cursor: pointer; }
+.chamber-option input { width: 1.2rem; height: 1.2rem; margin-inline-end: .5rem; }
+.chamber-option:has(input:checked) { outline: 3px solid currentColor; outline-offset: 2px; }
+[data-options]:disabled .chamber-option { border-style: dashed; cursor: default; }
+[data-feedback] li { margin-block: 1rem; }
+[data-meter] { max-width: 100%; }
+[data-room-map] { padding-inline-start: 1.5rem; }
+[data-room-map] [aria-current] { font-weight: bold; text-decoration: underline; }

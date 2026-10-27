@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "pairId": "subida-nota-curso",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-22",
+  "sources": [
+    {
+      "sourceId": "F001",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2 CCSS - EXAMEN SUBIDA NOTA CURSO.zip",
+      "zipSha256": "ba842a7f68de7ef1f50626a32f96cbf0ed049f8c1651c98b95a2afb95998dde5",
+      "entry": "main.tex",
+      "texSha256": "27e5d119b02b3738a5e42f2211f233e35067d38d6cddf3c936002fb6229817c3"
+    }
+  ],
+  "assets": [],
+  "solutionOrigin": "Soluciones originales revisadas y gráfica del recinto elaborada",
+  "preserved": {
+    "durationMinutes": 90,
+    "exercisePoints": [
+      2.5,
+      2.5,
+      2.5,
+      2.5
+    ],
+    "partPoints": [
+      [
+        1.3,
+        1.2
+      ],
+      null,
+      [
+        0.5,
+        2
+      ],
+      [
+        1.25,
+        1.25
+      ]
+    ],
+    "expressionPointsIncludedPerExercise": 0.25,
+    "calculatorRestrictions": "No programables, no gráficas, sin almacenamiento ni transmisión de datos",
+    "answerOnSeparatePaper": true,
+    "selectionRule": "Solo primer ejercicio físicamente respondido por bloque"
+  },
+  "corrections": [
+    "M01",
+    "M37",
+    "M38"
+  ],
+  "answers": {
+    "continuityParameter": 5,
+    "derivativesAtJoin": [
+      0,
+      -1
+    ],
+    "counterexample": [
+      "3/2",
+      "1/4",
+      "2",
+      "1"
+    ],
+    "cakeVertices": [
+      [
+        0,
+        0
+      ],
+      [
+        40,
+        0
+      ],
+      [
+        20,
+        40
+      ],
+      [
+        8,
+        46
+      ],
+      [
+        0,
+        46
+      ]
+    ],
+    "cakeOptimum": [
+      20,
+      40,
+      680
+    ],
+    "probabilities": [
+      "1/10",
+      "7/10",
+      "9/10",
+      "1/5"
+    ],
+    "busData": [
+      "4.7",
+      "2.1",
+      "3.6",
+      "5.4",
+      "0",
+      "4.2",
+      "4",
+      "-0.2",
+      "1.9",
+      "5.2"
+    ],
+    "busSum": "309/10",
+    "busMean": "309/100",
+    "busInterval": [
+      1.7175143356835965,
+      4.462485664316404
+    ],
+    "busSampleSize": 62
+  }
+}

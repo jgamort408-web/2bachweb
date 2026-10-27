@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "pairId": "distribuciones-ii",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-20",
+  "sources": [
+    {
+      "sourceId": "F002",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Distribuciones de Probabilidad (2).zip",
+      "zipSha256": "84f9de67e2eff60568e9f8d5ec67ecca6196b949e4be101fd3f7a054076b0c4d",
+      "entry": "main.tex",
+      "texSha256": "716d48120451dfe76e53c1194ab734e4f04b50587bac0e8a3019419ef47dc316"
+    }
+  ],
+  "assets": [
+    {
+      "path": "logo-al-andalus.png",
+      "sourceId": "F002",
+      "entry": "Logo AL-ANDALUS.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    }
+  ],
+  "solutionOrigin": "Revisión de las soluciones incluidas mediante printanswers en main.tex; examen separado sin respuestas",
+  "preserved": {
+    "durationMinutes": 55,
+    "calculatorAllowed": true,
+    "exercisePoints": [
+      4,
+      4,
+      2
+    ],
+    "firstTwoPartPoints": [
+      1.5,
+      1.5,
+      1
+    ],
+    "expressionPointsIncludedPerExercise": 0.5
+  },
+  "corrections": [
+    "M02"
+  ],
+  "normalConvention": "N(mu,sigma), segundo parámetro desviación típica como en los cálculos originales",
+  "modelAssumptions": "Independencia y probabilidad constante para el modelo binomial; muestra sin población finita especificada",
+  "answers": {
+    "smallBinomial": {
+      "n": 8,
+      "p": "1/5",
+      "threshold": 6,
+      "zero": "65536/390625",
+      "upperTail": "481/390625",
+      "atLeastOne": "325089/390625"
+    },
+    "normal": {
+      "mu": 70,
+      "sigma": 15,
+      "low": 60,
+      "high": 90,
+      "below": 50,
+      "quantileProbability": 0.82,
+      "interval": 0.6562962427272092,
+      "lowerTail": 0.09121121972586782,
+      "quantile": 83.73047631764221
+    },
+    "largeBinomial": {
+      "n": 100,
+      "p": "3/5",
+      "threshold": 70,
+      "exactUpperTail": "195502002776089668985812682849821004909558639524564083433988583254257/7888609052210118054117285652827862296732064351090230047702789306640625",
+      "normalApproximation": 0.02623974977962332,
+      "continuityThreshold": 69.5
+    }
+  }
+}

@@ -1,0 +1,16 @@
+@import url('../../shared/widget-base.css');
+[data-options] { min-inline-size: 0; margin-block: 1rem; }
+.classifier-option { display: block; border: 1px solid currentColor; padding: .65rem; margin-block: .6rem; cursor: pointer; }
+.classifier-option input { width: 1.2rem; height: 1.2rem; margin-inline-end: .5rem; }
+.classifier-option:has(input:checked) { outline: 3px solid currentColor; outline-offset: 2px; }
+[data-options]:disabled .classifier-option { border-style: dashed; cursor: default; }
+[data-feedback] li { margin-block: 1rem; }
+[data-meter] { max-width: 100%; }
+.classifier-graph { margin: 0; }
+.classifier-graph svg { display: block; width: 100%; max-width: 28rem; height: auto; margin-inline: auto; }
+.classifier-graph text { fill: currentColor; font: 12px sans-serif; }
+.classifier-graph .grid { stroke: currentColor; stroke-width: .5; opacity: .16; }
+.classifier-graph .axis { stroke: currentColor; stroke-width: 1; }
+.classifier-graph .recta { stroke: currentColor; }
+.classifier-graph .recta-0 { stroke-width: 5; opacity: .45; }
+.classifier-graph .recta-1 { stroke-width: 2; stroke-dasharray: 8 5; }

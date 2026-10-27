@@ -1,0 +1,10 @@
+﻿incidencia_id,fuente_id,ejercicio_id,pagina,tipo,descripcion,estado
+INC-001,,,,metadatos,La carpeta matematicas_aplicadas mezcla varios cursos; nombres y capas de texto no bastan para confirmar año.,abierta
+INC-002,,,,formato_heredado,"12 DOC de 2012 requieren conversión de copia y cotejo visual, conservando los originales.",abierta
+INC-003,,,,escaneado,Seis PDF de 2009 carecen de texto extraíble; separar visualmente enunciados y criterios antes de indexar.,abierta
+INC-004,SRC-9DA5CEBDAB8C,,,metadatos,Se detectaron capas de texto con cursos antiguos en la carpeta mixta. El año se confirma por la cabecera visible; comprobar titular_junio_EXAMEN 5-ANDALUCÍA.pdf antes de asignar examen.,abierta
+INC-005,,,,documento_combinado,"Los seis PDF de 2008 contienen examen y criterios juntos. La clasificación automática por nombre priorizó criterios; deben incluirse como candidatos a transcripción, sin copiar ahora sus respuestas.",abierta
+INC-006,SRC-2A3EF72FCF2C,SEL-D0006-OB-E01,2,literal_original,El apartado b imprime matrix. Se conserva literalmente sin añadir sic ni corregir a matriz en el fragmento. Revisión editorial futura; no impide cotejar la fidelidad del enunciado.,abierta
+INC-007,SRC-96B68DD7D4B7,SEL-D0015-BB-E03,1,literal_original,"El apartado a imprime (1 puntos). Se conserva literalmente, sin sic ni corrección a punto en el fragmento. Revisión editorial futura; no impide cotejar la fidelidad.",abierta
+INC-008,SRC-FDA8A00F6EC5,SEL-D0020-OB-E03,1,literal_original,"Los criterios del ejercicio B3 rotulan a), b), b) para 1/1/0.5 puntos; el examen imprime a), b), c). Se conserva a/b/c del examen en el enunciado, sin trasladar la errata de criterios ni alterar sus bytes. Discrepancia editorial de la fuente auxiliar, no de la transcripción.",abierta
+INC-009,SRC-B5829DA89593,SEL-D0022-OA-E04,1,hipotesis_no_explicita,"A4b pide reconstruir inscritos de estratos desde una muestra estratificada, sin explicitar afijación proporcional. Se conserva literalmente; no se añade la hipótesis ni se resuelve. Revisar la suficiencia de datos y explicitar el supuesto al abordar la futura solución docente.",abierta

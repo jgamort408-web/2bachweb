@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.7. Operaciones con límites de funciones · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t01-e07">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">1.7. Operaciones con límites de funciones</h1>
+    <p class="lead" data-content-role="introduction">Puedes combinar límites conocidos si compruebas las condiciones de cada propiedad. La clave es saber cuándo la sustitución está justificada.</p>
+    <div class="learning-goals"><p data-content-role="objectives"><strong>Al terminar podrás:</strong> aplicar las reglas de suma, producto, cociente, potencia y composición, y detectar cuándo una regla no permite concluir.</p><p data-content-role="prerequisites"><strong>Antes:</strong> límites laterales, operaciones algebraicas y formas indeterminadas. <a href="03-operaciones-con-el-infinito.html">Repasar las indeterminaciones</a>.</p></div>
+    <section data-content-role="context">
+      <h2>1. Combinar modelos</h2>
+      <p>Si el ingreso de una actividad se aproxima a 120 € y el coste a 80 €, su beneficio se aproxima a 40 €. La resta de los límites refleja la resta de las dos funciones, siempre que nos refiramos a la misma aproximación de la variable.</p>
+      <p>De forma parecida, si la cantidad vendida tiende a 20 unidades y el precio por unidad a 6 €, el ingreso total tiende a \(20\cdot6=120\) €. Los límites y sus unidades deben corresponder a las magnitudes que estás combinando.</p>
+    </section>
+    <section data-content-role="rule">
+      <h2>2. Propiedades para límites finitos</h2>
+      <p>Supongamos que \(f(x)\to L\) y \(g(x)\to M\), con \(L,M\in\mathbb R\), cuando \(x\) se aproxima al mismo punto o extremo y por el mismo lado, si se especifica uno. Las funciones y las operaciones deben estar definidas en el entorno considerado.</p>
+      <div class="table-scroll"><table><caption data-content-role="caption">Reglas que permiten calcular sin conocer las fórmulas completas de f y g</caption><thead><tr><th scope="col">Operación</th><th scope="col">Límite</th><th scope="col">Condición adicional</th></tr></thead><tbody>
+        <tr><td>\(f+g\), \(f-g\)</td><td>\(L+M\), \(L-M\)</td><td>Ninguna, además de las hipótesis indicadas.</td></tr>
+        <tr><td>\(cf\)</td><td>\(cL\)</td><td>\(c\) es una constante real.</td></tr>
+        <tr><td>\(fg\)</td><td>\(LM\)</td><td>Ambos límites son finitos.</td></tr>
+        <tr><td>\(f/g\)</td><td>\(L/M\)</td><td><strong>\(M\ne0\)</strong>.</td></tr>
+        <tr><td>\(f^n\)</td><td>\(L^n\)</td><td>\(n\) entero positivo; para exponentes enteros negativos se exige además \(L\ne0\).</td></tr>
+        <tr><td>\(\sqrt[n]{f}\)</td><td>\(\sqrt[n]{L}\)</td><td>Raíz definida: si \(n\) es par, \(f\ge0\) en la aproximación y \(L\ge0\).</td></tr>
+      </tbody></table></div>
+      <p><strong>Por qué importa el denominador.</strong> Si \(M\ne0\), los valores de \(g\) suficientemente próximos al límite se mantienen separados de cero. Si \(M=0\), el cociente puede tener comportamientos muy diferentes y esta regla no decide el resultado.</p>
+      <p data-content-role="warning">Estas reglas no autorizan a sustituir infinitos como si fueran números reales. Para límites infinitos debes comprobar los signos y las formas del <a href="03-operaciones-con-el-infinito.html">epígrafe 1.3</a>.</p>
+    </section>
+    <section data-content-role="worked-example">
+      <h2>3. Ejemplo resuelto: combinar dos límites</h2>
+      <p>Sabemos que \(f(x)\to2\) y \(g(x)\to-3\). Calcula el límite de \((2f-3g)/(f^2+g)\).</p>
+      <ol class="worked-steps" data-content-role="worked-steps">
+        <li><strong>Numerador.</strong> \(2f-3g\to2\cdot2-3(-3)=13\).</li>
+        <li><strong>Denominador.</strong> \(f^2+g\to2^2-3=1\).</li>
+        <li><strong>Comprueba la condición.</strong> El denominador tiene límite 1, distinto de cero.</li>
+        <li><strong>Aplica la regla del cociente.</strong> El límite buscado es \(13/1=13\).</li>
+      </ol>
+      <p>No necesitamos saber \(f(a)\) ni \(g(a)\). Las reglas utilizan los límites de las funciones, no sus valores puntuales.</p>
+    </section>
+    <section data-content-role="definition">
+      <h2>4. Composición y sustitución directa</h2>
+      <div class="definition"><p>Si \(g(x)\to L\), la función exterior \(h\) es <strong>continua en L</strong> y \(g(x)\) toma valores del dominio de \(h\) en el entorno estudiado, entonces:</p><p>\[\lim h(g(x))=h(L).\]</p></div>
+      <p>Una función es continua en un punto cuando su límite allí coincide con su valor. La definición completa se desarrollará en 1.10. Por ahora, usamos que los polinomios son continuos en todos los reales; los cocientes, donde el denominador no es cero; el logaritmo, en argumentos positivos; y la raíz cuadrada, en argumentos no negativos, respetando el lado disponible en un extremo.</p>
+      <p><strong>Ejemplo:</strong> cuando \(x\to2\), \(x^2+5\to9\). Como la raíz cuadrada es continua en 9, \(\sqrt{x^2+5}\to3\).</p>
+      <p><strong>Ejemplo:</strong> cuando \(x\to0\), \(2x+1\to1&gt;0\), luego \(\ln(2x+1)\to\ln1=0\). La expresión está definida en un entorno de 0.</p>
+      <h3>Si la función exterior no es continua</h3>
+      <p>Sea \(h(t)=0\) si \(t\le0\), y \(h(t)=1\) si \(t&gt;0\). Para \(g(x)=x^2\), tenemos \(g(x)\to0\) cuando \(x\to0\), pero \(h(g(x))=1\) para todo \(x\ne0\).</p>
+      <p>Por tanto, \(\lim_{x\to0}h(x^2)=1\), mientras que \(h(0)=0\). Sustituir dentro de la función exterior sin comprobar continuidad daría una respuesta incorrecta.</p>
+    </section>
+    <section data-content-role="warning">
+      <h2>5. No poder aplicar una regla no significa que el límite no exista</h2>
+      <p>En \(\lim_{x\to1}(x^2-1)/(x-1)\), ambos límites parciales valen 0. La regla del cociente no se aplica, pero al factorizar y simplificar para \(x\ne1\), queda \(x+1\), con límite 2.</p>
+      <p>Tampoco puedes afirmar que una suma no tiene límite porque sus sumandos no lo tengan. Cuando \(x\to0\), \(1/x\) y \(-1/x\) no tienen límites bilaterales, pero su suma es idénticamente 0 para \(x\ne0\) y sí tiene límite 0.</p>
+    </section>
+    <section data-content-role="method">
+      <h2>6. Orden de trabajo</h2>
+      <ol><li>Comprueba dominio, punto y lado de aproximación.</li><li>Identifica los límites de las partes.</li><li>Revisa las condiciones de la operación: denominador, raíz, logaritmo o función exterior.</li><li>Si se cumplen, sustituye y opera. Si no, transforma o estudia los laterales.</li><li>Justifica la propiedad usada y escribe el resultado con su notación de límite.</li></ol>
+    </section>
+    <section id="practica" data-content-role="guided-practice">
+      <h2>7. Tu turno</h2><p>Si \(f\to3\) y \(g\to2\), calcula \(\lim(f^2-g)/(f+g)\).</p>
+      <details data-content-role="hint"><summary>Pista 1</summary><p>Calcula por separado los límites del numerador y del denominador.</p></details>
+      <details data-content-role="hint"><summary>Pista 2</summary><p>El denominador tiende a \(3+2=5\). Comprueba que no es cero.</p></details>
+      <details data-content-role="solution"><summary>Solución razonada</summary><p>El numerador tiende a \(3^2-2=7\) y el denominador a 5. La regla del cociente da \(7/5\).</p></details>
+      <div class="activity" data-content-role="self-check" data-quiz="t01-e07"></div>
+    </section>
+    <section data-content-role="summary"><h2>8. Resumen</h2><ul><li>Las propiedades tienen hipótesis; compruébalas antes de operar.</li><li>La sustitución directa está justificada por la continuidad de la expresión en el punto.</li><li>Si una regla no es aplicable, busca otra vía: eso no demuestra que el límite no exista.</li></ul><p data-content-role="related-links"><a href="08-calculo-de-limites-sencillos.html">Continuar: calcular límites paso a paso</a> · <a href="../../../tarjetas/index.html?tema=t01">Repasar con tarjetas</a></p></section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

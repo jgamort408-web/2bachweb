@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-21",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "batchId": "171-probabilidad-ii",
+  "sourceDirectory": "content/latex/probabilidad-ii",
+  "report": "docs/pdf/probabilidad-ii-build.json",
+  "mathematics": "probabilidad-ii",
+  "documents": [
+    {
+      "id": "probabilidad-ii-examen",
+      "source": "content/latex/probabilidad-ii/probabilidad-ii-examen.tex",
+      "output": "output/pdf/probabilidad-ii-examen.pdf",
+      "expectedPages": 2,
+      "title": "Probabilidad II - Examen revisado",
+      "forbiddenText": [
+        "£"
+      ]
+    },
+    {
+      "id": "probabilidad-ii-soluciones",
+      "source": "content/latex/probabilidad-ii/probabilidad-ii-soluciones.tex",
+      "output": "output/pdf/probabilidad-ii-soluciones.pdf",
+      "expectedPages": 4,
+      "title": "Probabilidad II - Soluciones revisadas",
+      "forbiddenText": [
+        "£"
+      ]
+    }
+  ]
+}

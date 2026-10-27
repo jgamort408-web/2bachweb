@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2. Representación de funciones · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t02">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1>2. Representación de funciones</h1>
+    <p class="lead">Reúne dominio, límites y derivadas para construir gráficas y entender qué cuentan sobre una función.</p>
+    <p data-content-role="orientation">Las nueve lecciones incluyen ejemplos, exploradores, 60 preguntas base y 54 tarjetas. Tras recorrerlas, combina lo aprendido en el <a href="#repaso">repaso integrado</a>. Puedes avanzar por bloques y consultar las soluciones cuando lo necesites.</p>
+    <h2>Recorrido del tema</h2><div data-topic-index="t02"></div>
+    <h2>Elige cómo repasar</h2><p><a href="../../../test/index.html?tema=t02">Test de representación</a> · <a href="../../../tarjetas/index.html?tema=t02">Tarjetas del tema 2</a> · <a href="../01-limites-y-derivadas/index.html">Repasar límites y derivadas</a></p>
+
+    <p><a href="../../../laboratorios/juegos/t02-a-construye-la-grafica.html">Practicar jugando: Construye la gráfica</a> · <a href="../../../laboratorios/juegos/t02-b-transforma-la-funcion.html">Transforma la función</a> · <a href="../../../laboratorios/juegos/t02-c-optimiza.html">Optimiza</a></p>
+    <section id="ruta-juegos" data-content-role="orientation"><h2>De la teoría a los juegos</h2><ol><li>Después de 2.1–2.4, usa Construye la gráfica para relacionar fichas y curvas.</li><li>Después de 2.7–2.8, usa Transforma la función para practicar el orden de los movimientos.</li><li>Después de 2.9, usa Optimiza para justificar decisiones con restricciones y unidades.</li></ol><p>Puedes volver a las lecciones desde cada juego. No hay un requisito de puntuación para continuar.</p></section>
+    <section id="repaso" data-content-role="guided-practice">
+      <h2>Repaso integrado: de la expresión a la interpretación</h2>
+      <p>Prepara papel y lápiz. Para cada problema, escribe primero el dominio; después calcula y explica qué significa el resultado. Las soluciones se abren por separado. Las respuestas del test solo se mantienen durante esta visita.</p>
+      <nav aria-label="Bloques del repaso"><a href="#repaso-hueco">Huecos y transformaciones</a> · <a href="#repaso-logaritmo">Dominio y gráfica</a> · <a href="#repaso-tramos">Optimización por tramos</a> · <a href="#test-repaso">Test breve</a></nav>
+      <article id="repaso-hueco" data-content-role="worked-example">
+        <h3>1. Transformar también el hueco</h3>
+        <p>Sea \(F(u)=(u^2-1)/(u-1)\). Estudia el dominio, recorrido, cortes y monotonía de \(g(x)=-2F(3-x)+4\). Describe su gráfica sin perder información al simplificar.</p>
+        <details data-content-role="hint"><summary>Pista del problema 1</summary><p>El argumento 3−x no puede valer 1. Separa la expresión simplificada del dominio.</p></details>
+        <details data-content-role="solution"><summary>Solución del problema 1</summary>
+          <p>F(u)=u+1 solo para u≠1. La condición 3−x≠1 da x≠2, y en ese dominio:</p><p>\[g(x)=-2(4-x)+4=2x-4.\]</p>
+          <p>La gráfica es la recta y=2x−4 con un <strong>hueco en (2,0)</strong>. Dominio: \(\mathbb R\setminus\{2\}\); recorrido: \(\mathbb R\setminus\{0\}\). Corta Y en (0,−4), pero no X: la única abscisa que anularía la expresión está excluida. El límite en 2 vale 0, por lo que no hay asíntota vertical.</p>
+          <p>Su derivada vale 2. Es creciente en cada intervalo del dominio y, en este caso, también en todo el dominio: para cualesquiera x₁&lt;x₂ admisibles, g(x₂)−g(x₁)=2(x₂−x₁)&gt;0. No tiene extremos. Para dibujarla, marca el corte con Y, usa pendiente 2 y deja vacío el punto (2,0).</p>
+          <p>Comprueba el hueco con la transformación de puntos: el punto ausente (u,v)=(1,2) se lleva a (x,y)=(3−u,−2v+4)=(2,0).</p>
+        </details>
+        <p>Refuerzo: <a href="03-funciones-racionales.html">huecos</a>, <a href="07-traslaciones.html">traslaciones</a> y <a href="08-expansion-y-contraccion.html">reflexiones y escalas</a>.</p>
+      </article>
+      <article id="repaso-logaritmo" data-content-role="worked-example">
+        <h3>2. Dos logaritmos, un solo dominio</h3>
+        <p>Estudia \(h(x)=\ln(4-x)-\ln x\): dominio, cortes, límites en la frontera, monotonía y recorrido. Explica cómo sería su gráfica.</p>
+        <details data-content-role="hint"><summary>Pista del problema 2</summary><p>Intersecta 4−x&gt;0 y x&gt;0. No evalúes el logaritmo en los extremos del dominio.</p></details>
+        <details data-content-role="solution"><summary>Solución del problema 2</summary>
+          <p>El dominio es (0,4). Es continua en ese intervalo. No corta Y, ya que 0 está excluido. Para el corte con X, ln(4−x)=ln x implica 4−x=x: el único cero es (2,0).</p>
+          <p>\[\lim_{x\to0^+}h(x)=+\infty,\qquad \lim_{x\to4^-}h(x)=-\infty.\]</p><p>Hay asíntotas verticales x=0 y x=4, aproximadas desde el interior del dominio. No se estudian ramas exteriores, porque no existen.</p>
+          <p>\[h\prime(x)=-\frac1{4-x}-\frac1x=-\frac4{x(4-x)}&lt;0\quad(0&lt;x&lt;4).\]</p>
+          <p>Es estrictamente decreciente y no tiene extremos. Por continuidad y los dos límites, su recorrido es todo ℝ. Es positiva en (0,2), negativa en (2,4). El esbozo baja desde +∞ junto a 0, pasa por (2,0) y se aproxima a −∞ junto a 4.</p>
+          <p>Como comprobación, h(1)=ln 3 y h(3)=−ln 3; además h(4−x)=−h(x), simetría central respecto a (2,0).</p>
+        </details>
+        <p>Refuerzo: <a href="01-esquema-general-para-representar-una-funcion.html">método de estudio</a> y <a href="05-funciones-logaritmicas.html">logaritmos</a>.</p>
+      </article>
+      <article id="repaso-tramos" data-content-role="worked-example">
+        <h3>3. El mejor resultado puede estar en otro tramo</h3>
+        <p>Un modelo didáctico de beneficio B, en euros, depende de una cantidad q en toneladas:</p>
+        <p>\[B(q)=\begin{cases}-q^2+8q,&0\le q\le3,\\-2q^2+14q-9,&3&lt;q\le6.\end{cases}\]</p>
+        <p>Comprueba la unión y encuentra máximo y mínimo absolutos. Resuelve para toneladas divisibles y después para toneladas enteras.</p>
+        <details data-content-role="hint"><summary>Pista del problema 3</summary><p>Valida cada raíz de la derivada dentro de su tramo. Compara la unión, los extremos y los candidatos interiores.</p></details>
+        <details data-content-role="solution"><summary>Solución del problema 3</summary>
+          <p>El dominio es [0,6]. En 3, las dos fórmulas valen 15, igual que B(3): hay continuidad. Las pendientes laterales son 8−2·3=2 y 14−4·3=2: también es derivable en la unión.</p>
+          <p>En el primer tramo B′=8−2q se anula en 4, que está <strong>fuera de ese tramo</strong>; no se acepta. En el segundo, B′=14−4q se anula en 3,5, que sí es válido.</p>
+          <ul><li>B(0)=0 €.</li><li>B(3)=15 €.</li><li>B(3,5)=15,5 €.</li><li>B(6)=3 €.</li></ul>
+          <p>La función crece hasta 3,5 y decrece después. El máximo absoluto es <strong>15,50 € en 3,5 t</strong> y el mínimo es 0 € en 0 t. El valor 16 que daría la primera fórmula en 4 es inválido: allí corresponde la segunda y B(4)=15.</p>
+          <p>Si solo se admiten enteros, compara las cantidades 0,1,2,3,4,5,6: sus beneficios son 0,7,12,15,15,11,3 €. El máximo entero es <strong>15 € tanto en 3 t como en 4 t</strong>; el mínimo sigue en 0. Se indica el empate, sin elegir arbitrariamente una cantidad.</p>
+        </details>
+        <p>Refuerzo: <a href="06-funciones-a-trozos-valor-absoluto.html">funciones a trozos</a> y <a href="09-optimizacion-de-funciones.html">optimización</a>.</p>
+      </article>
+    </section>
+    <section id="test-repaso" data-content-role="self-check"><h2>Seis decisiones para comprobar lo aprendido</h2><p>También encontrarás estas preguntas en el test completo de 60 preguntas. Tras un error, lee la explicación y vuelve al bloque relacionado.</p><div class="activity" data-quiz="review-t02"></div></section>
+    <section data-content-role="summary"><h2>Antes de seguir</h2><ul><li>¿Has conservado las restricciones al simplificar o transformar?</li><li>¿Has distinguido huecos, saltos y asíntotas?</li><li>¿Tus conclusiones de monotonía se aplican al intervalo correcto?</li><li>¿Has validado cada candidato con el tramo, las unidades y el tipo de cantidad?</li></ul><p><a href="../../../test/index.html?tema=t02">Recorrer las 60 preguntas</a> · <a href="../../../tarjetas/index.html?tema=t02">Repasar las 54 tarjetas</a></p></section>
+    <p><a href="../03-integrales/01-integral-indefinida.html">Continuar con 3.1. Integral indefinida</a></p>
+    <script type="module" src="../../../assets/js/learning/indexes.js"></script>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

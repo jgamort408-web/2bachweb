@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "pairId": "distribuciones-i",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-20",
+  "sources": [
+    {
+      "sourceId": "F003",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Distribuciones de Probabilidad.zip",
+      "zipSha256": "a98ad640eba4fc1d4b52c148fe11aa2721bee8561e45569676dca071520ba8eb",
+      "entry": "main.tex",
+      "texSha256": "a0fd3f1bd11cf9399c6d496498779a9d9b38c93ec81c68e56cf9a13a70fb4a57"
+    }
+  ],
+  "assets": [
+    {
+      "path": "logo-al-andalus.png",
+      "sourceId": "F003",
+      "entry": "Logo AL-ANDALUS.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    }
+  ],
+  "solutionOrigin": "Revisión de las soluciones incluidas mediante printanswers en main.tex; examen separado sin respuestas",
+  "preserved": {
+    "durationMinutes": 55,
+    "calculatorAllowed": true,
+    "exercisePoints": [
+      4,
+      4,
+      2
+    ],
+    "firstTwoPartPoints": [
+      1.5,
+      1.5,
+      1
+    ],
+    "expressionPointsIncludedPerExercise": 0.5
+  },
+  "corrections": [
+    "M03"
+  ],
+  "normalConvention": "N(mu,sigma), segundo parámetro desviación típica como en los cálculos originales",
+  "modelAssumptions": "Independencia y probabilidad constante para el modelo binomial; muestra sin población finita especificada",
+  "answers": {
+    "smallBinomial": {
+      "n": 6,
+      "p": "1/4",
+      "threshold": 5,
+      "zero": "729/4096",
+      "upperTail": "19/4096",
+      "atLeastOne": "3367/4096"
+    },
+    "normal": {
+      "mu": 85,
+      "sigma": 20,
+      "low": 80,
+      "high": 120,
+      "below": 75,
+      "quantileProbability": 0.8023,
+      "interval": 0.5586471688191066,
+      "lowerTail": 0.30853753872598694,
+      "quantile": 101.99730526842029
+    },
+    "largeBinomial": {
+      "n": 50,
+      "p": "1/2",
+      "threshold": 30,
+      "exactUpperTail": "7129717217071/70368744177664",
+      "normalApproximation": 0.10154589378858396,
+      "continuityThreshold": 29.5
+    }
+  }
+}

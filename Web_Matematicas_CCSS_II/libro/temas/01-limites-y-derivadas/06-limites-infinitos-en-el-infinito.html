@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.6. Límites infinitos en el infinito · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t01-e06">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">1.6. Límites infinitos en el infinito</h1>
+    <p class="lead" data-content-role="introduction">Para entender los extremos de una función, identifica qué término domina y cómo cambia su signo.</p>
+    <div class="learning-goals"><p data-content-role="objectives"><strong>Al terminar podrás:</strong> estudiar polinomios, cocientes y funciones elementales en ambos infinitos, justificando el signo final.</p><p data-content-role="prerequisites"><strong>Antes:</strong> reglas de signos, potencias pares e impares y comparación de grados.</p></div>
+    <section data-content-role="definition">
+      <h2>1. Dos comportamientos que debes distinguir</h2>
+      <p>\(\lim_{x\to+\infty}f(x)=+\infty\) significa que, para \(x\) suficientemente grande, \(f(x)\) supera cualquier cota. Si el resultado es \(-\infty\), la función queda por debajo de cualquier cota negativa.</p>
+      <p>En \(x\to-\infty\) recorremos valores negativos cada vez menores. No debes copiar automáticamente el resultado obtenido en \(+\infty\).</p>
+    </section>
+    <section data-content-role="rule">
+      <h2>2. En un polinomio domina la mayor potencia</h2>
+      <p>Para \(P(x)=a_nx^n+\cdots+a_1x+a_0\), con \(a_n\ne0\) y \(n\ge1\), factoriza:</p>
+      <p>\[P(x)=x^n\left(a_n+\frac{a_{n-1}}x+\cdots+\frac{a_0}{x^n}\right).\]</p>
+      <p>El paréntesis tiende a \(a_n\). Por ello, el signo final se obtiene del coeficiente principal y de \(x^n\).</p>
+      <div class="table-scroll"><table><caption data-content-role="caption">Extremos de un polinomio de grado positivo</caption><thead><tr><th scope="col">Grado</th><th scope="col">Coeficiente principal</th><th scope="col">\(x\to-\infty\)</th><th scope="col">\(x\to+\infty\)</th></tr></thead><tbody>
+        <tr><td>Par</td><td>Positivo</td><td>\(+\infty\)</td><td>\(+\infty\)</td></tr>
+        <tr><td>Par</td><td>Negativo</td><td>\(-\infty\)</td><td>\(-\infty\)</td></tr>
+        <tr><td>Impar</td><td>Positivo</td><td>\(-\infty\)</td><td>\(+\infty\)</td></tr>
+        <tr><td>Impar</td><td>Negativo</td><td>\(+\infty\)</td><td>\(-\infty\)</td></tr>
+      </tbody></table></div>
+      <p data-content-role="warning">Primero reduce términos semejantes: \(x^3-x^3+2x=2x\). No puedes usar grado 3 después de que los términos cúbicos se hayan cancelado. Un polinomio constante tiene límite finito y no entra en esta tabla.</p>
+    </section>
+    <section data-content-role="worked-example">
+      <h2>3. Ejemplo resuelto: un grado impar con signo negativo</h2>
+      <p>Estudia \(P(x)=-2x^3+5x^2-7\).</p>
+      <ol class="worked-steps" data-content-role="worked-steps">
+        <li><strong>Localiza el término dominante.</strong> Es \(-2x^3\), no \(5x^2\), aunque 5 sea mayor que 2.</li>
+        <li><strong>Justifica.</strong> \(P(x)=x^3(-2+5/x-7/x^3)\). El paréntesis tiende a \(-2\).</li>
+        <li><strong>Hacia la derecha.</strong> \(x^3\to+\infty\); al multiplicar por un factor próximo a \(-2\), el resultado es \(-\infty\).</li>
+        <li><strong>Hacia la izquierda.</strong> \(x^3\to-\infty\); negativo por negativo da \(+\infty\).</li>
+      </ol>
+      <p>\[\lim_{x\to-\infty}P(x)=+\infty,\qquad\lim_{x\to+\infty}P(x)=-\infty.\]</p>
+    </section>
+    <section data-content-role="worked-example">
+      <h2>4. Cocientes con mayor grado en el numerador</h2>
+      <p>Para \(R(x)=(-3x^3+2)/(2x^2+1)\), la diferencia de grados es 1. Una transformación exacta permite ver el comportamiento:</p>
+      <p>\[R(x)=x\,\frac{-3+2/x^3}{2+1/x^2}.\]</p>
+      <p>El cociente de la derecha tiende a \(-3/2\). Por tanto, \(R(x)\to-\infty\) cuando \(x\to+\infty\), y \(R(x)\to+\infty\) cuando \(x\to-\infty\).</p>
+      <p><strong>Regla:</strong> si la diferencia de grados es \(d&gt;0\), estudia \((a_m/b_n)x^d\). No basta con decir «el numerador tiene mayor grado, luego da más infinito».</p>
+      <p>Estos límites descartan asíntotas horizontales. La existencia y el cálculo de una posible asíntota oblicua se estudiarán en la representación de funciones.</p>
+    </section>
+    <section data-content-role="explanation">
+      <h2>5. Funciones elementales</h2>
+      <div class="table-scroll"><table><caption data-content-role="caption">Comportamientos básicos; respeta siempre el dominio</caption><thead><tr><th scope="col">Función</th><th scope="col">En \(+\infty\)</th><th scope="col">En \(-\infty\)</th></tr></thead><tbody>
+        <tr><td>\(e^x\)</td><td>\(+\infty\)</td><td>0</td></tr><tr><td>\(e^{-x}\)</td><td>0</td><td>\(+\infty\)</td></tr>
+        <tr><td>\(\ln x\)</td><td>\(+\infty\)</td><td>No se estudia en los reales: \(x&gt;0\)</td></tr>
+        <tr><td>\(\sqrt{x}\)</td><td>\(+\infty\)</td><td>No se estudia en los reales: \(x\ge0\)</td></tr>
+      </tbody></table></div>
+      <p>El logaritmo y la raíz crecen despacio, pero siguen creciendo sin cota. En cambio, una función acotada no tiene por qué tener límite: \(\sin x\) oscila y no se acerca a un único valor cuando \(x\to+\infty\).</p>
+      <h3>Comparar velocidades de crecimiento</h3>
+      <p>Para una base \(b&gt;1\) y un entero fijo \(n\ge1\), la exponencial crece más deprisa que la potencia: \(\lim_{x\to+\infty}x^n/b^x=0\). Se usa aquí como propiedad de crecimiento; su <a href="18-regla-de-l-hopital-aplicacion-al-calculo-de-limites.html#crecimientos">justificación mediante L’Hôpital</a> está desarrollada en 1.18.</p>
+      <p>Así se resuelve el apartado 3(b) del examen local:</p>
+      <p>\[3^x-x^5=3^x\left(1-\frac{x^5}{3^x}\right)\longrightarrow+\infty.\]</p>
+      <p>El factor entre paréntesis tiende a 1. El resultado se debe a la comparación de crecimientos, no a una supuesta regla que asigne un valor a \(\infty-\infty\).</p>
+    </section>
+    <section data-content-role="context">
+      <h2>6. Interpreta el modelo sin extrapolar a ciegas</h2>
+      <p>Si un modelo de beneficio es \(B(q)=-q^2+40q-100\), en euros, con \(q\ge0\) unidades vendidas, su término principal es \(-q^2\). Matemáticamente, \(\lim_{q\to+\infty}B(q)=-\infty\): según ese modelo, las pérdidas terminarían creciendo sin cota.</p>
+      <p>No significa que una empresa pueda vender cantidades arbitrarias ni que el modelo siga siendo válido a esa escala. Tampoco interpretamos \(q\to-\infty\) como ventas reales, aunque podamos estudiar el polinomio abstracto en ese extremo.</p>
+    </section>
+    <section data-content-role="method"><h2>7. Método para los extremos</h2><ol><li>Comprueba el dominio y el extremo solicitado.</li><li>Simplifica y localiza el término o crecimiento dominante.</li><li>Factoriza o divide para justificar por qué los demás términos no cambian el resultado.</li><li>Combina signo y paridad. Escribe cada extremo por separado.</li><li>Interpreta el resultado dentro del dominio y del contexto.</li></ol></section>
+    <section id="practica" data-content-role="guided-practice">
+      <h2>8. Tu turno</h2><p>Calcula los límites de \(F(x)=(2x^4-x)/(x^2+1)\) en ambos infinitos.</p>
+      <details data-content-role="hint"><summary>Pista 1</summary><p>La diferencia de grados es 2, que es par.</p></details>
+      <details data-content-role="hint"><summary>Pista 2</summary><p>Escribe \(F(x)=x^2(2-1/x^3)/(1+1/x^2)\).</p></details>
+      <details data-content-role="solution"><summary>Solución razonada</summary><p>El cociente tiende a 2 y \(x^2\to+\infty\) tanto a la izquierda como a la derecha. Ambos límites son \(+\infty\). No hay asíntota horizontal.</p></details>
+      <div class="activity" data-content-role="self-check" data-quiz="t01-e06"></div>
+    </section>
+    <section data-content-role="summary"><h2>9. Resumen y errores frecuentes</h2><ul><li>Domina el grado, no el coeficiente numérico más grande.</li><li>La potencia impar cambia de signo entre extremos; la par no.</li><li>Mayor grado en el numerador indica divergencia, pero su signo debe justificarse.</li><li>Respeta el dominio: no calcules un límite real de \(\ln x\) en \(-\infty\).</li></ul>
+      <p data-content-role="related-links"><a href="../../../test/index.html?tema=t01">Test del tema 1</a> · <a href="../../../laboratorios/juegos/t01-a-limite-express.html">Límite Express</a> · <a href="index.html">Índice del tema</a></p>
+    </section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

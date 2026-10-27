@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.1 Variable Bidimensional</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-body: #f5f3ff;
+            --primary: #4c1d95;
+            --primary-light: #8b5cf6;
+            --secondary: #1e1b4b;
+            --accent: #d946ef;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --radius: 12px;
+            --shadow: 0 10px 15px -3px rgba(76, 29, 149, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            background-image: 
+                linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; color: var(--secondary); line-height: 1.2; }
+        .container { max-width: 950px; margin: 0 auto; }
+
+        /* HEADER */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid rgba(76, 29, 149, 0.1);
+            padding-bottom: 1rem;
+        }
+        .section-num {
+            background: var(--primary);
+            color: white;
+            font-weight: 800;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 6px rgba(76, 29, 149, 0.2);
+        }
+
+        /* TARJETAS */
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-top: 4px solid var(--primary);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        /* COMPARATIVA TIPOS DE DATOS */
+        .data-type-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .data-type-box {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .data-code {
+            font-family: monospace;
+            background: #1e1b4b;
+            color: #a5b4fc;
+            padding: 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            display: block;
+        }
+
+        /* TABLA DE DOBLE ENTRADA (ESTILOS AVANZADOS) */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin: 2rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            background: white;
+        }
+
+        th, td { padding: 1rem; text-align: center; border: 1px solid #f1f5f9; }
+
+        /* Cabeceras */
+        .th-corner { background: var(--secondary); color: white; }
+        .th-col { background: #eff6ff; color: #1e3a8a; font-weight: bold; } /* Azul suave */
+        .th-row { background: #faf5ff; color: #581c87; font-weight: bold; } /* Violeta suave */
+
+        /* Datos */
+        .td-data { color: var(--text-light); }
+        .td-data strong { color: var(--text-main); }
+
+        /* Marginales */
+        .td-marg-x { background: #f3e8ff; color: #6b21a8; font-weight: bold; border-left: 2px solid #d8b4fe; }
+        .td-marg-y { background: #e0f2fe; color: #0369a1; font-weight: bold; border-top: 2px solid #7dd3fc; }
+        .td-total { background: var(--accent); color: white; font-weight: 800; font-size: 1.1rem; }
+
+        /* EXTRACCIÓN MARGINALES */
+        .extraction-arrow {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #cbd5e1;
+            margin: 1rem 0;
+        }
+
+        .marginals-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .marginal-card {
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px dashed;
+        }
+        
+        .marg-x-style { background: #faf5ff; border-color: #d8b4fe; }
+        .marg-y-style { background: #f0f9ff; border-color: #7dd3fc; }
+
+        @media (max-width: 768px) {
+            .data-type-grid, .marginals-grid { grid-template-columns: 1fr; }
+            body { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+
+        <div class="section-header">
+            <div class="section-num">2.1</div>
+            <h2>La Variable Bidimensional</h2>
+        </div>
+
+        <section class="card">
+            <p>
+                Una variable bidimensional $(X, Y)$ estudia dos características de cada individuo de la población al mismo tiempo. Dependiendo de la cantidad de datos ($N$), los organizamos de dos formas:
+            </p>
+
+            <div class="data-type-grid">
+                <div class="data-type-box">
+                    <h4 style="color: var(--primary);">1. Serie Simple</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">
+                        Pocos datos ($N < 20$). Se presentan como una lista de pares.
+                    </p>
+                    <code class="data-code">
+                        (5, 6), (7, 5), (6, 8), (4, 4), (9, 8)
+                    </code>
+                </div>
+
+                <div class="data-type-box" style="border-color: var(--primary-light);">
+                    <h4 style="color: var(--accent);">2. Tabla de Doble Entrada</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">
+                        Muchos datos ($N$ grande). Se agrupan frecuencias. Las filas son $X$ y las columnas $Y$.
+                    </p>
+                    <div style="margin-top:1rem; display:grid; grid-template-columns: repeat(3, 1fr); gap:2px;">
+                        <div style="background:#e2e8f0; height:10px;"></div>
+                        <div style="background:#e2e8f0; height:10px;"></div>
+                        <div style="background:#d946ef; height:10px;"></div>
+                        <div style="background:#e2e8f0; height:10px;"></div>
+                        <div style="background:#4c1d95; height:10px;"></div>
+                        <div style="background:#e2e8f0; height:10px;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3 style="margin-bottom: 1rem; color: var(--secondary);">La Tabla de Contingencia</h3>
+            <p style="margin-bottom: 1.5rem;">
+                Ejemplo: Se ha preguntado a 50 familias el número de hijos ($X$) y el número de días a la semana que hacen deporte juntos ($Y$).
+            </p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="th-corner">X \ Y</th> <th class="th-col">0 días</th>
+                            <th class="th-col">1 día</th>
+                            <th class="th-col">2 días</th>
+                            <th class="td-marg-x">Marginal X ($n_{i\cdot}$)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="th-row">1 hijo</td>
+                            <td class="td-data">5</td>
+                            <td class="td-data">7</td>
+                            <td class="td-data">3</td>
+                            <td class="td-marg-x">15</td>
+                        </tr>
+                        <tr>
+                            <td class="th-row">2 hijos</td>
+                            <td class="td-data">2</td>
+                            <td class="td-data"><strong>12</strong></td>
+                            <td class="td-data">6</td>
+                            <td class="td-marg-x">20</td>
+                        </tr>
+                        <tr>
+                            <td class="th-row">3 hijos</td>
+                            <td class="td-data">1</td>
+                            <td class="td-data">4</td>
+                            <td class="td-data">10</td>
+                            <td class="td-marg-x">15</td>
+                        </tr>
+                        <tr>
+                            <td class="td-marg-y">Marginal Y ($n_{\cdot j}$)</td>
+                            <td class="td-marg-y">8</td>
+                            <td class="td-marg-y">23</td>
+                            <td class="td-marg-y">19</td>
+                            <td class="td-total">N = 50</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="background: #fff; padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent); margin-top: 2rem;">
+                <strong style="color: var(--secondary);">🔍 ¿Qué significa el 12 central?</strong>
+                <p style="color: var(--text-light); margin-top: 0.5rem;">
+                    Significa que hay <strong>12 familias</strong> que tienen exactamente 2 hijos ($x_2$) Y hacen deporte 1 día ($y_2$). Es la frecuencia conjunta $n_{22}$.
+                </p>
+            </div>
+
+            <div class="extraction-arrow">⬇️</div>
+
+            <h3 style="text-align: center; margin-bottom: 1.5rem; font-size: 1.1rem;">De lo complejo a lo simple: Distribuciones Marginales</h3>
+            
+            <div class="marginals-grid">
+                <div class="marginal-card marg-x-style">
+                    <h4 style="color: #6b21a8; margin-bottom: 0.5rem;">Distribución Marginal de X</h4>
+                    <p style="font-size: 0.85rem; margin-bottom: 1rem;">Olvidamos el deporte ($Y$) y solo contamos hijos ($X$). Sumamos las filas.</p>
+                    <table style="font-size: 0.85rem;">
+                        <tr style="background: #d8b4fe; color: white;"><th>$x_i$ (Hijos)</th><th>$n_{i\cdot}$ (Freq)</th></tr>
+                        <tr><td>1</td><td>15</td></tr>
+                        <tr><td>2</td><td>20</td></tr>
+                        <tr><td>3</td><td>15</td></tr>
+                        <tr style="font-weight: bold;"><td>Total</td><td>50</td></tr>
+                    </table>
+                    <div style="margin-top: 1rem; font-size: 0.8rem; color: #6b21a8;">
+                        $\bar{x} = \frac{1\cdot15 + 2\cdot20 + 3\cdot15}{50} = 2$ hijos
+                    </div>
+                </div>
+
+                <div class="marginal-card marg-y-style">
+                    <h4 style="color: #0369a1; margin-bottom: 0.5rem;">Distribución Marginal de Y</h4>
+                    <p style="font-size: 0.85rem; margin-bottom: 1rem;">Olvidamos los hijos ($X$) y solo contamos días ($Y$). Sumamos las columnas.</p>
+                    <table style="font-size: 0.85rem;">
+                        <tr style="background: #7dd3fc; color: white;"><th>$y_j$ (Días)</th><th>$n_{\cdot j}$ (Freq)</th></tr>
+                        <tr><td>0</td><td>8</td></tr>
+                        <tr><td>1</td><td>23</td></tr>
+                        <tr><td>2</td><td>19</td></tr>
+                        <tr style="font-weight: bold;"><td>Total</td><td>50</td></tr>
+                    </table>
+                    <div style="margin-top: 1rem; font-size: 0.8rem; color: #0369a1;">
+                        $\bar{y} = \frac{0\cdot8 + 1\cdot23 + 2\cdot19}{50} = 1.22$ días
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

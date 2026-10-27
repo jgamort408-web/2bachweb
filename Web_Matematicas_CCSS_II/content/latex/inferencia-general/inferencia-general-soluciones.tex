@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+\input{estilo.tex}
+\hypersetup{pdftitle={Inferencia - Examen general - Soluciones revisadas}}
+\begin{document}
+Se conservan los cuatro ejercicios de 2,5 puntos. Los tres primeros coinciden en datos y preguntas con ejercicios de F011/F012, pero mantienen aquí sus apartados de 1,5 y 1 punto.
+\section*{Ejercicio 1}
+Solución original de F013 revisada; datos y preguntas cotejados con F011. Se preservan todos los datos. Los cuantiles positivos se escriben $z_c=\Phi^{-1}((1+c)/2)$; las aproximaciones de tabla se identifican como tales.
+\begin{enumerate}[label=(\alph*)]\item La proporción observada es $\widehat p=90/250=0,36$. Los recuentos de éxito y fracaso son 90 y 160; permiten el intervalo normal aproximado del original (Wald):
+\[IC=\widehat p\pm z_c\sqrt{\frac{\widehat p(1-\widehat p)}{n}}.\]
+Con confianza $c=0,97$, $z_c\approx2,17009038$ y error estándar $s_e\approx0,03035787$. Por tanto,
+\[IC=\boxed{(0,29412069;\ 0,42587931)}.\]
+En porcentaje, aproximadamente 29,4121\% a 42,5879\%. Los extremos redondeados del original son compatibles con este resultado.
+El procedimiento tiene cobertura aproximada bajo el modelo de muestreo; no se asigna una probabilidad posterior a la proporción fija. Se supone independencia aproximada de las observaciones. El tamaño poblacional no está dado: no se inventa una corrección por población finita y debe revisarse si la fracción de muestreo fuera importante.
+\item Se conserva la estimación $\widehat p$ como valor de planificación. El error no debe superar $0,05$ (cinco puntos porcentuales). No es un porcentaje relativo de $\widehat p$.
+\[q=\frac{z_c^2\widehat p(1-\widehat p)}{E^2}\approx611,47207075.\]
+Se exige $n\geq q$, por lo que $n_{\min}=\lceil q\rceil$.
+\[\boxed{n_{\min}=612}.\]
+Con 611 observaciones el margen es 0,05001931; con 612, 0,04997843. Solo el segundo cumple la cota.
+Los valores intermedios del original se recalculan sin redondeo prematuro; sus tamaños finales 612 se mantienen. Este tamaño corresponde al margen normal planificado usando la estimación dada; no garantiza ese margen para todo valor real desconocido de la proporción.
+\end{enumerate}
+\clearpage
+\section*{Ejercicio 2}
+Solución original de F013 revisada; datos y preguntas cotejados con F012. Se preservan todos los datos. Los cuantiles positivos se escriben $z_c=\Phi^{-1}((1+c)/2)$; las aproximaciones de tabla se identifican como tales.
+\begin{enumerate}[label=(\alph*)]\item La proporción observada es $\widehat p=410/500=0,82$. Los recuentos de éxito y fracaso son 410 y 90; permiten el intervalo normal aproximado del original (Wald):
+\[IC=\widehat p\pm z_c\sqrt{\frac{\widehat p(1-\widehat p)}{n}}.\]
+Con confianza $c=0,95$, $z_c\approx1,95996398$ y error estándar $s_e\approx0,01718139$. Por tanto,
+\[IC=\boxed{(0,78632510;\ 0,85367490)}.\]
+En porcentaje, aproximadamente 78,6325\% a 85,3675\%. Los extremos redondeados del original son compatibles con este resultado.
+El procedimiento tiene cobertura aproximada bajo el modelo de muestreo; no se asigna una probabilidad posterior a la proporción fija. Se supone independencia aproximada de las observaciones. El tamaño poblacional no está dado: no se inventa una corrección por población finita y debe revisarse si la fracción de muestreo fuera importante.
+\item Se conserva la estimación $\widehat p$ como valor de planificación. El error debe ser inferior a $0,04$ (cuatro puntos porcentuales). No es un porcentaje relativo de $\widehat p$.
+\[q=\frac{z_c^2\widehat p(1-\widehat p)}{E^2}\approx434,43220978.\]
+Se exige $n>q$, por lo que $n_{\min}=\lfloor q\rfloor+1$. La fórmula conserva la desigualdad estricta incluso si $q$ fuese entero.
+\[\boxed{n_{\min}=435}.\]
+Con 434 observaciones el margen es 0,04001991; con 435, 0,03997389. Solo el segundo cumple la cota.
+Los valores intermedios del original se recalculan sin redondeo prematuro; sus tamaños finales 435 se mantienen. Este tamaño corresponde al margen normal planificado usando la estimación dada; no garantiza ese margen para todo valor real desconocido de la proporción.
+\end{enumerate}
+\clearpage
+\section*{Ejercicio 3}
+Se supone muestreo aleatorio independiente de la población normal. Con desviación poblacional conocida, la media muestral es normal exacta, incluso para $n=25$. Se usa $N(\mu,\sigma)$, con desviación típica como segundo parámetro:
+\[\bar X\sim N\left(\mu,\frac{3}{\sqrt{25}}\right).\]
+\begin{enumerate}[label=(\alph*)]\item Para confianza del 95\%, $z_c=\Phi^{-1}(0,975)\approx1,95996398$,
+\[E=z_c\frac{3}{\sqrt{25}}\approx1,17597839.\]
+\[IC=\boxed{(58,82402161;\ 61,17597839)}\text{ gramos}.\]
+Con tabla $z_c\approx1,96$, se obtiene exactamente el intervalo impreso en el original: $(58,824;61,176)$ gramos. La diferencia con el cálculo anterior es únicamente la aproximación del cuantil.
+\item Para confianza del 99\%, $z_c=\Phi^{-1}(0,995)\approx2,57582930$ y
+\[q=\left(\frac{z_c\,3}{1}\right)^2\approx59,71406941.\]
+Como se pide error inferior a 1 gramo, $n>q$ y $n_{\min}=\lfloor q\rfloor+1$.
+\[\boxed{n_{\min}=60}.\]
+El margen con 59 es 1,00603324; con 60 es 0,99761440. Se confirma el menor entero admisible y se conserva el tamaño final original.
+\end{enumerate}
+\clearpage
+\section*{Ejercicio 4}
+
+\textbf{Gasto de fin de semana.} Se mantiene $\sigma=6$ euros y se usa $N(\mu,\sigma)$ con desviación típica como segundo parámetro. Se supone muestreo independiente conforme al modelo normal del original.
+\begin{enumerate}[label=(\alph*)]
+\item Con los extremos impresos,
+\[
+\bar x=\frac{24,47+26,43}{2}=\boxed{25,45\text{ euros}},\qquad E=\frac{26,43-24,47}{2}=0,98.
+\]
+Usando el cuantil de tabla $z_c=1,96$ y tratando esos extremos como exactos,
+\[
+\sqrt n=\frac{1,96\cdot6}{0,98}=12,\qquad\boxed{n=144}.
+\]
+\textbf{Precisión editorial M30:} este es el resultado pretendido bajo esa convención. Si los extremos están redondeados a céntimos, no determinan de forma única el tamaño. Con centro 25,45 y cuantil sin redondear $\Phi^{-1}(0,975)$, los tamaños 143, 144 y 145 producen extremos que se redondean a $(24,47;26,43)$.
+
+Por tanto, 144 se conserva como respuesta de tabla, no como deducción única de datos redondeados. También el centro es 25,45 con la precisión impresa; no se afirma una media verdadera exacta más allá de esa precisión. El enunciado debe precisar su convención si pretende una respuesta única.
+\item Para otra muestra de tamaño 49 y confianza del 97\%,
+\[
+E=\Phi^{-1}(0,985)\frac6{\sqrt{49}}\approx\boxed{1,86007747\text{ euros}}.
+\]
+Con tabla $z_c\approx2,17$, el cálculo es $E=2,17\cdot6/7=1,86$ euros.
+
+\textbf{Corrección M29:} el valor intermedio 1,8609 del original no resulta de esa multiplicación. Se conserva el resultado final 1,86 a dos decimales. No se sustituye la nueva media muestral por la de la muestra anterior: no se ha dado.
+\end{enumerate}
+
+\end{document}

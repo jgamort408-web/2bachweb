@@ -1,0 +1,247 @@
+\documentclass[11pt]{article}
+\input{estilo.tex}
+\hypersetup{pdftitle={Recuperación de Inferencia y repaso - Soluciones revisadas}}
+\begin{document}
+
+\section*{Ejercicio 1: espera de pacientes}
+Soluciones revisadas desde F009. Se conservan los nueve ejercicios y sus puntuaciones originales; falta una regla de selección o conversión de los 22,5 puntos nominales. Se utiliza la normal con \textbf{desviación típica} como segundo parámetro: $N(\mu,\sigma)$. Las varianzas se declaran por separado.
+
+Para la inferencia se asume muestreo aleatorio con observaciones independientes, como requiere el modelo usado en el original. El enunciado de pacientes no describe el procedimiento de selección: esta condición debe comprobarse en una aplicación real.
+\begin{enumerate}[label=(\alph*)]
+\item La varianza conocida es $\sigma^2=4$, luego $\sigma=2$ minutos. La suma exacta de los 16 datos es
+\[
+\sum x_i=144,\qquad \bar x=144/16=\boxed{9\text{ minutos}}.
+\]
+\textbf{Corrección M04:} el original suma 137 y obtiene 8,5625; ambos valores se sustituyen por los de los datos conservados.
+
+Para confianza $c=0,975$, se usa el cuantil positivo $z_c=\Phi^{-1}((1+c)/2)=\Phi^{-1}(0,9875)\approx2,24140273$.
+\[
+E=z_c\frac{2}{\sqrt{16}}\approx1,12070136,\qquad
+IC=\boxed{(7,87929864;\ 10,12070136)}\text{ min}.
+\]
+Con el cuantil de tabla $z_c\approx2,24$, se obtiene $(7,88;10,12)$ minutos. El procedimiento produce intervalos que cubren la media fija en el 97,5\% de muestras repetidas bajo el modelo; no asigna una probabilidad a esa media después de observar los datos.
+\item Para confianza del 90\%, $z_c=\Phi^{-1}(0,95)\approx1,64485363$. Se exige $E\leq0,3$:
+\[
+n\geq\left(\frac{z_c\,2}{0,3}\right)^2\approx120,24638
+\quad\Longrightarrow\quad\boxed{n_{\min}=121}.
+\]
+Con 120 pacientes el margen es aproximadamente 0,30031 minutos; con 121, 0,29907. Esto confirma la minimalidad. El cuantil de tabla 1,645 lleva al mismo entero.
+\end{enumerate}
+\clearpage
+\section*{Ejercicio 2: precio de las frambuesas}
+La varianza poblacional es 9, por lo que $\sigma=3$ euros. No se sustituye por una desviación muestral ni se usa una distribución t.
+\begin{enumerate}[label=(\alph*)]
+\item Bajo muestreo independiente de la población normal,
+\[
+\bar X\sim N\left(\mu,\frac{3}{\sqrt{10}}\right),\qquad
+\operatorname{Var}(\bar X)=\frac9{10}.
+\]
+La distribución es normal exacta para cualquier tamaño, no una justificación asintótica por tamaño grande. El original escribe $N(\mu,9/10)$ usando varianza como segundo parámetro; aquí se hace explícita una sola convención para evitar confundir varianza con desviación típica.
+\item La suma de los precios conservados es $110$ euros y $\bar x=110/10=\boxed{11}$ euros.
+
+\textbf{Corrección M05:} se reemplazan la suma 109, la media 10,9 y el intervalo desplazado del original.
+\[
+z_c=\Phi^{-1}(0,985)\approx2,17009038,\quad
+E=z_c\frac3{\sqrt{10}}\approx2,05872850.
+\]
+\[
+IC_{97\%}=\boxed{(8,94127150;\ 13,05872850)}\text{ euros}.
+\]
+Con tabla $z_c\approx2,17$, el margen es aproximadamente 2,05864276 y los extremos son
+\[ (8,94135724;13,05864276). \]
+A dos decimales, ambos métodos dan $(8,94;13,06)$ euros.
+\item Se pide estrictamente $E<1,5$, por lo que
+\[
+n>\left(\frac{z_c\,3}{1,5}\right)^2\approx18,83717.
+\]
+El menor entero admisible es $\boxed{19}$. El margen con 18 es aproximadamente 1,53449 euros y con 19, 1,49356 euros. Para una cota estricta se usa $\lfloor q\rfloor+1$, incluso si $q$ fuese entero; no se transforma sin más en una desigualdad no estricta.
+\end{enumerate}
+\clearpage
+\section*{Ejercicio 3: longitud de estrellas de mar}
+Los extremos del intervalo se interpretan con la precisión que presenta el enunciado.
+\begin{enumerate}[label=(\alph*)]
+\item La media muestral es el punto medio:
+\[
+\bar x=\frac{6,04+8}{2}=\boxed{7,02\text{ cm}}.
+\]
+\item El margen observado es la semiamplitud:
+\[
+E=\frac{8-6,04}{2}=\boxed{0,98\text{ cm}}.
+\]
+Es compatible, al redondear, con el cuantil del 95\%: $\Phi^{-1}(0,975)\,3/6\approx0,979982$ cm.
+\item Manteniendo confianza y desviación típica, el margen es proporcional a $1/\sqrt n$. Con el cuantil de tabla 1,96:
+\[
+E_{49}=1,96\frac3{7}=\boxed{0,84\text{ cm}}.
+\]
+Sin redondear el cuantil, $E_{49}\approx0,83998456$ cm. También $E_{49}/E_{36}=\sqrt{36/49}=6/7$. No se deduce una nueva media muestral al cambiar de muestra.
+\item A tamaño y desviación típica fijos, aumentar la confianza aumenta el cuantil positivo y, por tanto, el margen y la amplitud del intervalo. Se refiere al margen del procedimiento, no al error efectivo desconocido de una estimación concreta.
+\end{enumerate}
+\clearpage
+\section*{Ejercicio 4: llaves sin reemplazamiento}
+Se eligen dos llaves distintas entre 90. Hay $\binom{90}{2}=4005$ parejas equiprobables; no son dos ensayos independientes.
+\begin{enumerate}[label=(\alph*)]
+\item Para que ambas funcionen:
+\[
+P(2\text{ válidas})=\frac{\binom{60}{2}}{\binom{90}{2}}
+=\frac{60}{90}\frac{59}{89}=\boxed{\frac{118}{267}}\approx0,4419.
+\]
+El original indica 0,440: se corrige el valor decimal conservando su expresión exacta.
+\item Por complemento de ninguna válida:
+\[
+P(\text{alguna válida})=1-\frac{\binom{30}{2}}{\binom{90}{2}}
+=1-\frac{29}{267}=\boxed{\frac{238}{267}}\approx0,8914.
+\]
+No se resta un complemento ya redondeado a 0,108: eso produce el 0,892 del original.
+\item Para exactamente una válida hay $60\cdot30$ parejas:
+\[
+P(1\text{ válida})=\frac{60\cdot30}{4005}
+=\boxed{\frac{40}{89}}\approx0,4494.
+\]
+La cuenta ordenada da lo mismo: $\frac{60}{90}\frac{30}{89}+\frac{30}{90}\frac{60}{89}$. Las probabilidades de cero, una y dos válidas suman 1.
+\end{enumerate}
+\clearpage
+\section*{Ejercicio 5: refrescos y probabilidad condicionada}
+Se conserva el año \textbf{2021} como dato histórico del ejercicio; no se sustituye por la fecha actual. ``No caduca en 2021'' significa fuera de ese año, no necesariamente que esté en condiciones de consumo hoy.
+
+Hay 10\,000 latas de cada sabor. Sea $C$ el suceso caducar en 2021.
+\[
+\begin{array}{c|rr|r}
+ &C&C^c&\text{Total}\\\hline
+\text{Cola}&1800&8200&10000\\
+\text{Naranja}&2400&7600&10000\\
+\text{Limón}&3000&7000&10000\\\hline
+\text{Total}&7200&22800&30000
+\end{array}
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Con elección uniforme entre las latas,
+\[
+P(C)=\frac{7200}{30000}=\boxed{\frac6{25}=0,24}.
+\]
+\item Condicionando en las 22\,800 que no caducan en ese año,
+\[
+P(\text{cola}\mid C^c)=\frac{8200}{22800}
+=\boxed{\frac{41}{114}}\approx0,3596.
+\]
+La selección se hace entre todas las latas; no se inventa otro mecanismo de muestreo.
+\end{enumerate}
+\clearpage
+\section*{Ejercicio 6(a): formular, sin resolver}
+Sean $x$ e $y$ las horas de funcionamiento de las cadenas A y B. Se mantiene la exigencia del enunciado de formular \textbf{sin resolver} este modelo:
+\[
+\boxed{\min Z=1200x+1500y}
+\]
+\[
+\begin{aligned}
+10x+7y&\geq400 &&\text{(lavadoras)},\\
+5x+6y&\geq280 &&\text{(frigoríficos)},\\
+x&\leq2y &&\text{(límite relativo de horas)},\\
+x,y&\geq0. &&\text{(horas no negativas)}
+\end{aligned}
+\]
+Las variables son horas continuas. El enunciado no exige enteros ni impone una cota diaria: no se añaden esas condiciones.
+
+Como comprobación de coherencia, no como solución óptima, $(x,y)=(20,30)$ satisface todas las restricciones: produce 410 lavadoras y 280 frigoríficos, y $20\leq60$. Los coeficientes del objetivo son costes por hora y los de las restricciones son producciones por hora.
+\clearpage
+\section*{Ejercicio 6(b): recinto y mínimo}
+\textbf{Solución completada en esta edición:} el original deja este apartado pendiente de representación gráfica.
+
+Las fronteras son $y=(7-x)/2$, $y=4x-1$, $y=2x-4$ e $y=(20-3x)/2$, además de los ejes. La región es el cuadrilátero sombreado, con sus fronteras incluidas.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=0.86\linewidth,height=7cm,axis lines=middle,xmin=0,xmax=5,ymin=0,ymax=9,tick label style={font=\small},xlabel={$x$},ylabel={$y$},grid=major,legend style={at={(0.5,-0.18)},anchor=north,font=\small,legend columns=2}]
+\addplot[fill=blue!15,draw=blue!70!black,thick] coordinates {(1,3)(3,2)(4,4)(2,7)(1,3)};
+\addlegendentry{Región factible}
+\addplot[domain=0:5,thin] {(7-x)/2};\addlegendentry{$x+2y=7$}
+\addplot[domain=0:2.5,thin,dashed] {4*x-1};\addlegendentry{$4x-y=1$}
+\addplot[domain=0:5,thin,dotted] {2*x-4};\addlegendentry{$2x-y=4$}
+\addplot[domain=0:5,thin,dashdotted] {(20-3*x)/2};\addlegendentry{$3x+2y=20$}
+\addplot[only marks,mark=*,blue] coordinates {(1,3)(3,2)(4,4)(2,7)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\[
+\begin{array}{c|c|c}
+\text{Vértice}&\text{Fronteras activas}&F=2x+y\\\hline
+(1,3)&x+2y=7,\ 4x-y=1&5\\
+(3,2)&x+2y=7,\ 2x-y=4&8\\
+(4,4)&2x-y=4,\ 3x+2y=20&12\\
+(2,7)&4x-y=1,\ 3x+2y=20&11
+\end{array}
+\]
+Se han descartado intersecciones que incumplen alguna desigualdad. Por linealidad sobre este polígono compacto, el mínimo se alcanza en un vértice: $\boxed{F_{\min}=5\text{ en }(1,3)}$. Es único: en las dos aristas incidentes los valores aumentan desde ese vértice.
+\clearpage
+\section*{Ejercicio 7: parámetros, extremos y primitiva}
+\begin{enumerate}[label=(\alph*)]
+\item Para pasar por $(2,36)$ y ser estacionaria allí:
+\[
+8a+2b=32,\qquad12a+b=0
+\quad\Longrightarrow\quad\boxed{a=-2,\ b=24}.
+\]
+Además $f''(2)=6a\cdot2=-24<0$, lo que confirma un máximo relativo; imponer solo $f'(2)=0$ no bastaría en general.
+\item Ahora $a=4$, $b=-3$ son datos distintos: $f(x)=4x^3-3x+4$ y $f'(x)=12x^2-3$. Los puntos críticos son $x=\pm1/2$.
+
+La función crece en $(-\infty,-1/2)$ y en $(1/2,\infty)$; decrece en $(-1/2,1/2)$. No se afirma crecimiento sobre la unión como si fuese un único intervalo.
+\[
+f(-1/2)=-1/2+3/2+4=5,\qquad
+f(1/2)=1/2-3/2+4=3.
+\]
+\textbf{Corrección M24:} máximo relativo $\boxed{(-1/2,5)}$ y mínimo relativo $\boxed{(1/2,3)}$. El original da ordenadas 4 y 2; el cubo conserva el signo de su argumento.
+\item Una primitiva es $F(x)=x^4-\frac32x^2+4x+C$. Como $F(2)=18+C=10$, se obtiene $C=-8$:
+\[
+\boxed{F(x)=x^4-\frac32x^2+4x-8}.
+\]
+Al derivar se recupera $f$ y al evaluar en 2 se obtiene 10.
+\end{enumerate}
+\clearpage
+\section*{Ejercicio 8: derivadas y área}
+\begin{enumerate}[label=(\alph*)]
+\item Para $f(x)=(x^2-5)^2e^{3x}$, definida en $\mathbb R$, producto y cadena dan
+\[
+\boxed{f'(x)=e^{3x}(x^2-5)\bigl(4x+3(x^2-5)\bigr)}.
+\]
+Para $g(x)=\ln(x^3-5x)/(1-x^2)$, se exige $x^3-5x>0$ y $x\ne\pm1$. Su dominio real es
+\[
+(-\sqrt5,-1)\cup(-1,0)\cup(\sqrt5,\infty).
+\]
+Se aplica $(u/v)'=(u'v-uv')/v^2$:
+\[
+\boxed{g'(x)=\frac{\dfrac{3x^2-5}{x^3-5x}(1-x^2)+2x\ln(x^3-5x)}{(1-x^2)^2}}.
+\]
+Se corrige la notación intermedia del original, que inserta erróneamente ``$(u/v)'=$'' dentro del numerador; la expresión final del original sí usa correctamente la regla.
+\item $h(x)=-x^2+2x+3=-(x+1)(x-3)$ se anula en $-1$ y $3$, y es positiva entre ambas raíces. Por tanto, el área geométrica es
+\[
+A=\int_{-1}^{3}h(x)\,dx
+=\left[-\frac{x^3}{3}+x^2+3x\right]_{-1}^{3}
+=9-(-5/3)=\boxed{\frac{32}{3}\text{ unidades}^2}.
+\]
+No se integran regiones infinitas fuera del intervalo que cierra la parábola con el eje.
+\end{enumerate}
+\clearpage
+\section*{Ejercicio 9: ecuaciones matriciales}
+Las matrices son cuadradas, invertibles y del mismo orden, conforme a los productos e hipótesis del enunciado.
+\begin{enumerate}[label=(\alph*)]
+\item De $B=AX$ y $A=BY$ resulta $A=AXY$. Multiplicando por $A^{-1}$ a la izquierda, $XY=I$. Análogamente $B=BYX$ y $YX=I$. Por tanto,
+\[
+\boxed{X=Y^{-1}}.
+\]
+Se usa asociatividad y cancelación lateral, sin intercambiar factores arbitrariamente.
+\item Para las matrices dadas, $\det A=1$ y $\det B=-2$. Entonces
+\[
+A^{-1}=\begin{pmatrix}3&-2\\-1&1\end{pmatrix},\qquad
+B^{-1}=\begin{pmatrix}1/2&1/2\\0&-1\end{pmatrix}.
+\]
+\[
+\boxed{X=A^{-1}B=\begin{pmatrix}6&5\\-2&-2\end{pmatrix}},\qquad
+\boxed{Y=B^{-1}A=\begin{pmatrix}1&5/2\\-1&-3\end{pmatrix}}.
+\]
+Comprobaciones directas:
+\[
+AX=\begin{pmatrix}2&1\\0&-1\end{pmatrix}=B,\qquad
+BY=\begin{pmatrix}1&2\\1&3\end{pmatrix}=A,
+\]
+\[
+XY=YX=\begin{pmatrix}1&0\\0&1\end{pmatrix}.
+\]
+\end{enumerate}
+\end{document}

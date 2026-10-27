@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 1,
+  "mathematics": {
+    "passed": true,
+    "parts": 7,
+    "exactLargeTail": "7129717217071/70368744177664",
+    "normalApproximation": 0.10154589378858396,
+    "quantile": 101.99730526842029,
+    "independentMethods": [
+      "exact Bernoulli convolution",
+      "binomial coefficients",
+      "Simpson Gaussian quadrature",
+      "erfc"
+    ]
+  },
+  "documents": [
+    {
+      "id": "distribuciones-i-examen",
+      "pages": 1,
+      "bytes": 29711,
+      "sha256": "94d44b1587e5b7a48ac22b99d12bfc740f2785c4ddcb07f16ace433373249dd2",
+      "title": "Distribuciones I - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 7,
+      "characters": 1551
+    },
+    {
+      "id": "distribuciones-i-soluciones",
+      "pages": 3,
+      "bytes": 36391,
+      "sha256": "d78cb4d0344089af5b82fa7136a26f2f3d6f911b0908c84d8afef2c2d2edd638",
+      "title": "Distribuciones I - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 12,
+      "characters": 3024
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-20",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/distribuciones-i/distribuciones-i-examen.tex",
+      "sha256": "6464808418300dab7923dd7fa900b73b5921b767fca1101a67e55fdfeac9c4d2"
+    },
+    {
+      "path": "content/latex/distribuciones-i/distribuciones-i-soluciones.tex",
+      "sha256": "3735f6f6e0d4b9c32432cfb7f133977a6f64358ac84247cfdc62fc3b0da91026"
+    },
+    {
+      "path": "content/latex/distribuciones-i/estilo.tex",
+      "sha256": "ca67405a5a2bc4b3f63afe41c5cc8825175bab3e02bfde169b603b8b5f5acfaa"
+    },
+    {
+      "path": "content/latex/distribuciones-i/logo-al-andalus.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    },
+    {
+      "path": "content/latex/distribuciones-i/provenance.json",
+      "sha256": "8e8128b24900e15fb920982ba8a0d3905f8d4abb7d9a24d7168b634d36e0cddc"
+    }
+  ]
+}

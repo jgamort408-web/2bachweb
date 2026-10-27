@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Criterios de Evaluación y Competencias</title>
+
+  <!-- ÚNICO EXTERNO PERMITIDO: Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Inter:wght@300;400;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#FDFBF7;
+      --ink:#334155;
+      --title:#0f172a;
+      --muted:#64748b;
+
+      --border:#1e293b;
+      --grid:rgba(15,23,42,.09);
+
+      --card:#ffffff;
+      --shadow: 4px 4px 0 var(--border);
+      --shadowHover: 6px 6px 0 var(--border);
+      --radius: 16px;
+
+      --indigo:#4f46e5;  --indigoBg:#eef2ff;
+      --emerald:#059669; --emeraldBg:#ecfdf5;
+      --amber:#d97706;   --amberBg:#fffbeb;
+      --slate:#475569;   --slateBg:#f1f5f9;
+      --pink:#db2777;    --pinkBg:#fdf2f8;
+      --cyan:#0891b2;    --cyanBg:#ecfeff;
+      --fuchsia:#a21caf; --fuchsiaBg:#fdf4ff;
+      --orange:#ea580c;  --orangeBg:#fff7ed;
+      --rose:#e11d48;    --roseBg:#fff1f2;
+
+      --badgeBorder: rgba(15,23,42,.12);
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--ink);
+      background-color: var(--bg);
+      /* cuaderno */
+      background-image: radial-gradient(var(--grid) 1px, transparent 1px);
+      background-size: 28px 28px;
+      touch-action: manipulation;
+    }
+
+    .page{
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px;
+    }
+    @media (min-width: 768px){
+      .page{ padding: 48px; }
+    }
+
+    h1,h2,h3{
+      font-family: Fraunces, ui-serif, Georgia, "Times New Roman", Times, serif;
+      letter-spacing:-0.02em;
+      margin:0;
+      color: var(--title);
+    }
+
+    .handwritten{
+      font-family: Kalam, "Comic Sans MS", "Segoe Print", cursive;
+      color: var(--amber);
+      font-weight: 700;
+      display:inline-block;
+      transform: rotate(-1deg);
+    }
+
+    .header{
+      text-align:center;
+      margin-bottom: 40px;
+      padding-bottom: 18px;
+      border-bottom: 2px solid rgba(15,23,42,.10);
+    }
+    .header h1{
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-weight: 900;
+      font-size: clamp(2.1rem, 5vw, 3.7rem);
+      line-height: 1.02;
+    }
+    .header p{
+      margin: 12px auto 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .legend{
+      margin: 18px auto 0;
+      max-width: 820px;
+      display:flex;
+      gap: 10px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(15,23,42,.12);
+      background: rgba(255,255,255,.72);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #334155;
+      box-shadow: 0 1px 0 rgba(15,23,42,.06);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    @media (min-width: 768px){
+      .grid{ grid-template-columns: 1fr 1fr; gap: 26px; }
+    }
+    @media (min-width: 1100px){
+      .grid{ grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    .card{
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      transition: transform .18s ease, box-shadow .18s ease;
+      display:flex;
+      flex-direction:column;
+      min-height: 100%;
+    }
+    .card:hover{
+      transform: translate(-2px,-2px);
+      box-shadow: var(--shadowHover);
+    }
+
+    .cardTop{
+      padding: 16px 18px;
+      border-bottom: 2px solid rgba(15,23,42,.06);
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+    }
+    .kicker{
+      font-size: .82rem;
+      font-weight: 900;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      opacity: .95;
+      display:block;
+      font-family: Fraunces, ui-serif, Georgia, "Times New Roman", Times, serif;
+    }
+    .cardTitle{
+      font-size: 1.18rem;
+      font-weight: 900;
+      line-height: 1.12;
+    }
+    .emoji{
+      font-size: 1.6rem;
+      line-height: 1;
+      user-select:none;
+      margin-top: 2px;
+    }
+
+    .cardBody{
+      padding: 16px 18px 18px;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+
+    .subhead{
+      margin:0;
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color:#94a3b8;
+    }
+
+    .criteria{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      font-size: .96rem;
+      line-height: 1.48;
+      color:#334155;
+    }
+    .critRow{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+    }
+    .critNum{
+      font-weight: 900;
+      border-radius: 9px;
+      padding: 2px 9px;
+      display:inline-block;
+      line-height: 1.45;
+      white-space:nowrap;
+      border: 1px solid rgba(15,23,42,.10);
+      background: rgba(79,70,229,.10);
+      color:#0f172a;
+    }
+
+    details{
+      margin-top: 2px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(15,23,42,.08);
+    }
+    summary{
+      cursor:pointer;
+      list-style:none;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      user-select:none;
+      padding: 10px 10px;
+      border-radius: 12px;
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      background: rgba(15,23,42,.04);
+      border: 1px solid rgba(15,23,42,.08);
+      transition: background .15s ease, border-color .15s ease;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details[open] summary{
+      background: rgba(79,70,229,.07);
+      border-color: rgba(79,70,229,.22);
+    }
+
+    .expand{
+      width: 18px;
+      height: 18px;
+      transition: transform .18s ease;
+      flex: 0 0 auto;
+      opacity: .9;
+    }
+    details[open] .expand{ transform: rotate(180deg); }
+
+    .foundation{
+      margin-top: 10px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: .95rem;
+    }
+
+    .badges{
+      margin-top: 10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px;
+    }
+    .badge{
+      display:inline-block;
+      font-size: .74rem;
+      font-weight: 900;
+      padding: .20rem .55rem;
+      border-radius: 999px;
+      border: 1px solid var(--badgeBorder);
+      user-select:none;
+      white-space:nowrap;
+    }
+    .b-stem{ background:#dbeafe; color:#1e40af; }
+    .b-cd{ background:#fae8ff; color:#86198f; }
+    .b-cpsaa{ background:#dcfce7; color:#166534; }
+    .b-ce{ background:#ffedd5; color:#9a3412; }
+    .b-cc{ background:#f1f5f9; color:#475569; }
+
+    /* Temas por competencia */
+    .t-indigo{ --accent: var(--indigo); --accentBg: var(--indigoBg); }
+    .t-emerald{ --accent: var(--emerald); --accentBg: var(--emeraldBg); }
+    .t-amber{ --accent: var(--amber); --accentBg: var(--amberBg); }
+    .t-slate{ --accent: var(--slate); --accentBg: var(--slateBg); }
+    .t-pink{ --accent: var(--pink); --accentBg: var(--pinkBg); }
+    .t-cyan{ --accent: var(--cyan); --accentBg: var(--cyanBg); }
+    .t-fuchsia{ --accent: var(--fuchsia); --accentBg: var(--fuchsiaBg); }
+    .t-orange{ --accent: var(--orange); --accentBg: var(--orangeBg); }
+    .t-rose{ --accent: var(--rose); --accentBg: var(--roseBg); }
+
+    .cardTop.themed{ background: var(--accentBg); }
+    .cardTop.themed .kicker{ color: var(--accent); }
+    .cardTop.themed .cardTitle{ color: #0f172a; }
+
+    .cardBody .critNum.themed{
+      background: color-mix(in srgb, var(--accent) 14%, transparent);
+      border-color: color-mix(in srgb, var(--accent) 25%, rgba(15,23,42,.10));
+    }
+    /* Fallback si color-mix no existe */
+    @supports not (color: color-mix(in srgb, black 50%, white)){
+      .cardBody .critNum.themed{ background: rgba(79,70,229,.10); border-color: rgba(15,23,42,.10); }
+    }
+
+    .summaryAccent{ color: var(--accent); }
+    details[open] summary.summaryAccent{
+      background: color-mix(in srgb, var(--accent) 8%, rgba(15,23,42,.03));
+      border-color: color-mix(in srgb, var(--accent) 22%, rgba(15,23,42,.08));
+    }
+    @supports not (color: color-mix(in srgb, black 50%, white)){
+      details[open] summary.summaryAccent{ background: rgba(79,70,229,.07); border-color: rgba(79,70,229,.22); }
+    }
+
+    /* Accesibilidad */
+    :focus-visible{
+      outline: 3px solid rgba(79,70,229,.35);
+      outline-offset: 3px;
+      border-radius: 12px;
+    }
+
+    /* Impresión */
+    @media print{
+      body{ background: white; }
+      .card{ box-shadow:none; }
+      summary{ background:white; }
+      details{ border-top: 1px solid #ddd; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header class="header">
+      <span class="handwritten" style="font-size:1.15rem;">Marco evaluativo</span>
+      <h1>Competencias y Criterios</h1>
+      <p>
+        Guía dinámica para entender qué evaluamos y por qué. Despliega cada tarjeta para ver la fundamentación pedagógica.
+      </p>
+      <div class="legend">
+        <span class="pill">🧾 Criterios → evidencias</span>
+        <span class="pill">🏷️ Descriptores: STEM · CD · CPSAA · CE · CC</span>
+        <span class="pill">🧠 Metacognición: justificar y revisar</span>
+      </div>
+    </header>
+
+    <section class="grid">
+
+      <!-- COMPETENCIA 1 -->
+      <article class="card t-indigo">
+        <div class="cardTop themed">
+          <div>
+            <span class="kicker">Competencia 1</span>
+            <h2 class="cardTitle">Modelización y Resolución</h2>
+          </div>
+          <div class="emoji">🧩</div>
+        </div>
+        <div class="cardBody">
+          <p class="subhead">Criterios de evaluación</p>
+          <ul class="criteria">
+            <li class="critRow">
+              <span class="critNum themed">1.1</span>
+              <span>Manejar estrategias y herramientas (incluidas digitales) para modelizar problemas, seleccionando las más eficientes.</span>
+            </li>
+            <li class="critRow">
+              <span class="critNum themed">1.2</span>
+              <span>Obtener todas las posibles soluciones describiendo el procedimiento utilizado.</span>
+            </li>
+          </ul>
+          <details>
+            <summary class="summaryAccent">
+              Fundamentación y descriptores
+              <svg class="expand" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="foundation">
+              La modelización es el eje: formular el problema, identificar datos, traducir a lenguaje matemático y elegir estrategias (analogía, ensayo-error, descomposición, estimación).
+              <div class="badges">
+                <span class="badge b-stem">STEM1-3</span>
+                <span class="badge b-cd">CD2, CD5</span>
+                <span class="badge b-cpsaa">CPSAA4-5</span>
+                <span class="badge b-ce">CE3</span>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- COMPETENCIA 2 -->
+      <article class="card t-emerald">
+        <div class="cardTop themed">
+          <div>
+            <span class="kicker">Competencia 2</span>
+            <h2 class="cardTitle">Verificación y Argumentación</h2>
+          </div>
+          <div class="emoji">✅</div>
+        </div>
+        <div class="cardBody">
+          <p class="subhead">Criterios de evaluación</p>
+          <ul class="criteria">
+            <li class="critRow">
+              <span class="critNum themed">2.1</span>
+              <span>Demostrar la validez matemática utilizando el razonamiento y la argumentación.</span>
+            </li>
+            <li class="critRow">
+              <span class="critNum themed">2.2</span>
+              <span>Seleccionar la solución más adecuada según contexto (sostenibilidad, equidad...).</span>
+            </li>
+          </ul>
+          <details>
+            <summary class="summaryAccent">
+              Fundamentación y descriptores
+              <svg class="expand" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="foundation">
+              Potencia la reflexión crítica: justificar, revisar, autoevaluarse y considerar perspectivas éticas y sociales además de la corrección matemática.
+              <div class="badges">
+                <span class="badge b-stem">STEM1-2</span>
+                <span class="badge b-cd">CD3</span>
+                <span class="badge b-cpsaa">CPSAA4</span>
+                <span class="badge b-cc">CC3</span>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- COMPETENCIA 3 -->
+      <article class="card t-amber">
+        <div class="cardTop themed">
+          <div>
+            <span class="kicker">Competencia 3</span>
+            <h2 class="cardTitle">Investigación y Conjeturas</h2>
+          </div>
+          <div class="emoji">💡</div>
+        </div>
+        <div class="cardBody">
+          <p class="subhead">Criterios de evaluación</p>
+          <ul class="criteria">
+            <li class="critRow">
+              <span class="critNum themed">3.1</span>
+              <span>Formular, razonar y justificar conjeturas y problemas de forma autónoma.</span>
+            </li>
+            <li class="critRow">
+              <span class="critNum themed">3.2</span>
+              <span>Integrar herramientas tecnológicas en la investigación matemática.</span>
+            </li>
+          </ul>
+          <details>
+            <summary class="summaryAccent">
+              Fundamentación y descriptores
+              <svg class="expand" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="foundation">
+              Probar o refutar conjeturas fomenta la curiosidad: el alumnado construye conocimiento y desarrolla pensamiento flexible.
+              <div class="badges">
+                <span class="badge b-stem">STEM1-2</span>
+                <span class="badge b-cd">CD1-3, CD5</span>
+                <span class="badge b-ce">CE3</span>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- COMPETENCIA 4 -->
+      <article class="card t-slate">
+        <div class="cardTop themed">
+          <div>
+            <span class="kicker">Competencia 4</span>
+            <h2 class="cardTitle">Pensamiento Computacional</h2>
+          </div>
+          <div class="emoji">💻</div>
+        </div>
+        <div class="cardBody">
+          <p class="subhead">Criterios de evaluación</p>
+          <ul class="criteria">
+            <li class="critRow">
+              <span class="critNum themed">4.1</span>
+              <span>Interpretar y resolver situaciones modificando, creando y generalizando algoritmos.</span>
+            </li>
+          </ul>
+          <details>
+            <summary class="summaryAccent">
+              Fundamentación y descriptores
+              <svg class="expand" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="foundation">
+              Abstracción para descomponer problemas complejos en tareas simples codificables. Automatización y verificación de modelos.
+              <div class="badges">
+                <span class="badge b-stem">STEM1-3</span>
+                <span class="badge b-cd">CD2-3, CD5</span>
+                <span class="badge b-ce">CE3</span>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- COMPETENCIA 5 -->
+      <article class="card t-pink">
+        <div class="cardTop themed">
+          <div>
+            <span class="kicker">Competencia 5</span>
+            <h2 class="cardTitle">Conexiones Matemáticas</h2>
+          </div>
+          <div class="emoji">🔗</div>
+        </div>
+        <div class="cardBody">
+          <p class="subhead">Criterios de evaluación</p>
+          <ul class="criteria">
+            <li class="critRow">
+              <span class="critNum themed">5.1</span>
+              <span>Demostrar una visión integrada conectando diferentes ideas matemáticas.</span>
+            </li>
+            <li class="critRow">
+              <span class="critNum themed">5.2</span>
+              <span>Resolver problemas aplicando conexiones entre distintos bloques de saberes.</span>
+            </li>
+          </ul>
+          <details>
+            <summary class="summaryAccent">
+              Fundamentación y descriptores
+              <svg class="expand" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="foundation">
+              Percibir las matemáticas como un todo. Transferir ideas entre contextos (geometría ↔ álgebra, probabilidad ↔ estadística).
+              <div class="badges">
+                <span class="badge b-stem">STEM1, STEM3</span>
+                <span class="badge b-cd">CD2-3</span>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- COMPETENCIA 6 -->
+      <article class="card t-cyan">
+        <div class="cardTop themed">
+          <div>
+            <span class="kicker">Competencia 6</span>
+            <h2 class="cardTitle">Interdisciplinariedad</h2>
+          </div>
+          <div class="emoji">🌍</div>
+        </div>
+        <div class="cardBody">
+          <p class="subhead">Criterios de evaluación</p>
+          <ul class="criteria">
+            <li class="critRow">
+              <span class="critNum themed">6.1</span>
+              <span>Resolver problemas conectando matemáticas con el mundo real y otras áreas.</span>
+            </li>
+            <li class="critRow">
+              <span class="critNum themed">6.2</span>
+              <span>Valorar la contribución matemática al progreso y retos de la sociedad.</span>
+            </li>
+          </ul>
+          <details>
+            <summary class="summaryAccent">
+              Fundamentación y descriptores
+              <svg class="expand" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="foundation">
+              Transferir el conocimiento matemático a otras materias y comprender su impacto histórico y social.
+              <div class="badges">
+                <span class="badge b-stem">STEM1-2</span>
+                <span class="badge b-cc">CC4</span>
+                <span class="badge b-ce">CE2-3</span>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- COMPETENCIA 7 -->
+      <article class="card t-fuchsia">
+        <div class="cardTop themed">
+          <div>
+            <span class="kicker">Competencia 7</span>
+            <h2 class="cardTitle">Representación</h2>
+          </div>
+          <div class="emoji">📊</div>
+        </div>
+        <div class="cardBody">
+          <p class="subhead">Criterios de evaluación</p>
+          <ul class="criteria">
+            <li class="critRow">
+              <span class="critNum themed">7.1</span>
+              <span>Representar ideas seleccionando las tecnologías más adecuadas.</span>
+            </li>
+            <li class="critRow">
+              <span class="critNum themed">7.2</span>
+              <span>Usar diversas formas de representación para compartir información.</span>
+            </li>
+          </ul>
+          <details>
+            <summary class="summaryAccent">
+              Fundamentación y descriptores
+              <svg class="expand" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="foundation">
+              Visualizar ideas, examinar relaciones y comunicar. Distintas representaciones aportan información diferente.
+              <div class="badges">
+                <span class="badge b-stem">STEM3</span>
+                <span class="badge b-cd">CD1, CD2, CD5</span>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- COMPETENCIA 8 -->
+      <article class="card t-orange">
+        <div class="cardTop themed">
+          <div>
+            <span class="kicker">Competencia 8</span>
+            <h2 class="cardTitle">Comunicación Matemática</h2>
+          </div>
+          <div class="emoji">🗣️</div>
+        </div>
+        <div class="cardBody">
+          <p class="subhead">Criterios de evaluación</p>
+          <ul class="criteria">
+            <li class="critRow">
+              <span class="critNum themed">8.1</span>
+              <span>Comunicar empleando el soporte, terminología y rigor apropiados.</span>
+            </li>
+            <li class="critRow">
+              <span class="critNum themed">8.2</span>
+              <span>Reconocer y emplear el lenguaje matemático con precisión.</span>
+            </li>
+          </ul>
+          <details>
+            <summary class="summaryAccent">
+              Fundamentación y descriptores
+              <svg class="expand" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="foundation">
+              Expresar hechos e ideas de forma veraz y precisa. Indispensable para consolidar el pensamiento y evaluar procedimientos.
+              <div class="badges">
+                <span class="badge b-stem">STEM2, STEM4</span>
+                <span class="badge b-cd">CD3</span>
+                <span class="badge b-cc">CCL1, CCL3</span>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- COMPETENCIA 9 -->
+      <article class="card t-rose">
+        <div class="cardTop themed">
+          <div>
+            <span class="kicker">Competencia 9</span>
+            <h2 class="cardTitle">Destrezas Socioafectivas</h2>
+          </div>
+          <div class="emoji">❤️</div>
+        </div>
+        <div class="cardBody">
+          <p class="subhead">Criterios de evaluación</p>
+          <ul class="criteria">
+            <li class="critRow">
+              <span class="critNum themed">9.1</span>
+              <span>Gestionar emociones y aceptar el error como parte del aprendizaje.</span>
+            </li>
+            <li class="critRow">
+              <span class="critNum themed">9.2</span>
+              <span>Mostrar una actitud positiva y perseverante ante la crítica razonada.</span>
+            </li>
+            <li class="critRow">
+              <span class="critNum themed">9.3</span>
+              <span>Trabajar en equipos heterogéneos fomentando relaciones saludables.</span>
+            </li>
+          </ul>
+          <details>
+            <summary class="summaryAccent">
+              Fundamentación y descriptores
+              <svg class="expand" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="foundation">
+              Bienestar y resiliencia: empatía, escucha activa, gestión del estrés. Reduce bloqueo y mejora la perseverancia.
+              <div class="badges">
+                <span class="badge b-cpsaa">CPSAA1, CPSAA3</span>
+                <span class="badge b-stem">STEM5</span>
+                <span class="badge b-cc">CC2-3</span>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

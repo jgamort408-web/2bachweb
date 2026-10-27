@@ -1,0 +1,7 @@
+@import url('../../shared/widget-base.css');
+[data-case] { border:1px solid currentColor; border-radius:.5rem; padding:.75rem; margin-block:1rem; }
+[data-case] ul { padding-inline-start:1.5rem; }
+[data-case] li { margin-block:.35rem; }
+[data-answer] { display:block; max-width:10rem; padding:.4rem; }
+[data-feedback] { min-height:2rem; }
+progress { max-width:100%; }

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.12. Derivadas laterales · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t01-e12">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">1.12. Derivadas laterales</h1>
+    <p class="lead" data-content-role="introduction">Una función puede llegar al mismo punto desde ambos lados y hacerlo con pendientes diferentes. Para detectar una esquina, hay que estudiar el cambio desde cada lado.</p>
+    <div class="learning-goals"><p data-content-role="objectives"><strong>Al terminar podrás:</strong> decidir la derivabilidad en una unión, interpretar esquinas y cúspides y distinguir continuidad de derivabilidad.</p><p data-content-role="prerequisites"><strong>Antes:</strong> <a href="10-continuidad.html">continuidad</a>, funciones a trozos y <a href="11-funcion-derivada.html">cociente incremental</a>.</p></div>
+    <section data-content-role="definition">
+      <h2>1. Dos límites para una misma derivada</h2>
+      <div class="definition"><p>\[f'_-(a)=\lim_{h\to0^-}\frac{f(a+h)-f(a)}h,\qquad f'_+(a)=\lim_{h\to0^+}\frac{f(a+h)-f(a)}h.\]</p><p>En un punto interior del dominio, \(f\) es derivable si ambos límites existen, son <strong>finitos</strong> y coinciden. Ese valor común es \(f'(a)\).</p></div>
+      <p>En ambos cocientes se resta el mismo valor real \(f(a)\). No se sustituye ese valor por el que tendría la prolongación de una rama que no incluye el punto.</p>
+      <p>En un extremo del dominio se puede estudiar la derivada lateral disponible; no se exige una derivada bilateral fuera del dominio. Por ejemplo, \(x^2\) restringida a \([0,+\infty)\) tiene derivada derecha 0 en el origen.</p>
+    </section>
+    <section id="ejemplos" data-content-role="worked-example">
+      <h2>2. Una esquina: el valor absoluto</h2>
+      <p>La función \(f(x)=|x|\) es continua en 0: sus dos límites valen \(0=f(0)\). Para estudiar derivabilidad:</p>
+      <p>\[\frac{f(0+h)-f(0)}h=\frac{|h|}{h}=\begin{cases}-1,&h&lt;0,\\1,&h&gt;0.\end{cases}\]</p>
+      <p>Por tanto, \(f'_-(0)=-1\) y \(f'_+(0)=1\). No hay una única pendiente tangente, así que no existe \(f'(0)\). La gráfica tiene una esquina.</p>
+      <p><a href="11-funcion-derivada.html#explorador">Compruébalo en el explorador</a>: selecciona valor absoluto y \(a=0\). Acercar más las secantes no elimina la diferencia entre −1 y 1.</p>
+      <h3>Una cúspide y una tangente vertical</h3>
+      <p>Para \(g(x)=|x|^{2/3}\), el cociente en 0 es \(|h|^{2/3}/h\). Tiende a \(-\infty\) por la izquierda y a \(+\infty\) por la derecha: aparece una cúspide.</p>
+      <p>Para \(r(x)=\sqrt[3]{x}\), el cociente es \(1/|h|^{2/3}\), que tiende a \(+\infty\) por ambos lados. Hay tangente vertical, pero no una derivada real finita en 0. <strong>Dos pendientes infinitas no cumplen la definición de derivabilidad usada aquí.</strong></p>
+    </section>
+    <section data-content-role="method">
+      <h2>3. En las uniones: primero continuidad</h2>
+      <ol><li>Calcula \(f(a)\) y los dos límites de la función.</li><li>Si no es continua en \(a\), ya sabes que no es derivable.</li><li>Si es continua, estudia los cocientes incrementales por ambos lados.</li><li>Compara sus límites finitos.</li></ol>
+      <p>Cuando cada rama admite una prolongación derivable hasta el punto y coincide allí con \(f(a)\), se pueden comparar las derivadas de esas prolongaciones. No conviene saltarse la comprobación de continuidad.</p>
+      <p data-content-role="warning">Contraejemplo: \(f(x)=x\) si \(x&lt;0\), y \(f(x)=x+1\) si \(x\ge0\). Las fórmulas de las ramas tienen pendiente 1, pero \(f\) tiene un salto en 0. Como \(f(0)=1\), el cociente izquierdo real es \((h-1)/h=1-1/h\), que tiende a \(+\infty\), no a 1.</p>
+    </section>
+    <section id="examen" data-content-role="worked-example">
+      <h2>4. Del examen: continuidad y derivabilidad en 0</h2>
+      <p>Retomamos la pregunta 1(a) del examen local:</p>
+      <p>\[f(x)=\begin{cases}x^2+ax+2,&x\le0,\\\dfrac{x+b}{x-1},&x&gt;0.\end{cases}\]</p>
+      <ol class="worked-steps">
+        <li><strong>Continuidad.</strong> \(f(0)=2\), límite izquierdo 2 y derecho \(-b\). Debe ser \(b=-2\).</li>
+        <li><strong>Cociente izquierdo.</strong> Para \(h&lt;0\): \[\frac{h^2+ah+2-2}{h}=h+a\longrightarrow a.\]</li>
+        <li><strong>Cociente derecho.</strong> Con \(b=-2\), para \(h&gt;0\) cerca de 0: \[\frac{\dfrac{h-2}{h-1}-2}{h}=\frac{-h}{h(h-1)}=-\frac1{h-1}\longrightarrow1.\]</li>
+        <li><strong>Igualdad.</strong> Debe ser \(a=1\). La respuesta conjunta es \(\boxed{a=1,\ b=-2}\) y la derivada en 0 vale 1.</li>
+      </ol>
+      <p>El cálculo usa la definición, por lo que no necesita anticipar la regla de derivación de un cociente. La exclusión de \(x=1\) del dominio se mantiene; hemos estudiado la unión en 0.</p>
+    </section>
+    <section data-content-role="rule">
+      <h2>5. Derivable implica continua</h2>
+      <p>Si el cociente incremental tiende a un número finito \(f'(a)\), entonces, para \(h\ne0\):</p>
+      <p>\[f(a+h)-f(a)=\frac{f(a+h)-f(a)}h\,h\longrightarrow f'(a)\cdot0=0.\]</p>
+      <p>De ahí \(\lim_{h\to0}f(a+h)=f(a)\): la función es continua. El camino inverso falla, como muestra \(|x|\) en 0.</p>
+      <p>En un modelo de coste, una unión continua puede tener un cambio brusco de coste marginal: no se produce un salto de coste, pero sí cambia la pendiente.</p>
+    </section>
+    <section id="practica" data-content-role="guided-practice">
+      <h2>6. Tu turno: dos parámetros, dos condiciones</h2>
+      <p>Encuentra \(m,n\) para que \(p(x)=x^2\) si \(x\le1\), y \(p(x)=mx+n\) si \(x&gt;1\), sea continua y derivable en 1.</p>
+      <details data-content-role="hint"><summary>Pista 1</summary><p>La continuidad exige \(m+n=1\).</p></details>
+      <details data-content-role="hint"><summary>Pista 2</summary><p>El cociente izquierdo del cuadrado es \(2+h\). Con la continuidad ya impuesta, el derecho de la recta es \(m\).</p></details>
+      <details data-content-role="solution"><summary>Solución razonada</summary><p>Las derivadas laterales coinciden si \(m=2\). Al sustituir en \(m+n=1\), resulta \(n=-1\). Así se satisfacen tanto la continuidad como la derivabilidad, y \(p'(1)=2\).</p></details>
+      <div class="activity" data-content-role="self-check" data-quiz="t01-e12"></div>
+    </section>
+    <section data-content-role="summary"><h2>7. Resumen</h2><ul><li>Comprueba continuidad y compara las dos pendientes laterales finitas.</li><li>Las esquinas, cúspides y tangentes verticales no tienen derivada real finita en el punto.</li><li>Ser derivable implica ser continua; ser continua no basta.</li></ul><p data-content-role="related-links"><a href="13-ecuaciones-de-las-rectas-tangente-y-normal.html">Siguiente epígrafe: rectas tangente y normal</a> · <a href="../../../test/index.html?tema=t01">Repasar lo aprendido</a>.</p></section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

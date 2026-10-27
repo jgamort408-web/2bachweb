@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.2. Límites laterales · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t01-e02">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">1.2. Límites laterales</h1>
+    <p class="lead" data-content-role="introduction">Una función puede comportarse de manera distinta antes y después de un valor. Los límites laterales permiten estudiar cada lado por separado.</p>
+    <div class="learning-goals"><p data-content-role="objectives"><strong>Al terminar podrás:</strong> calcular ambos laterales, decidir si existe el límite bilateral e interpretar saltos y comportamientos infinitos.</p><p data-content-role="prerequisites"><strong>Requisito:</strong> distinguir el valor de una función de su límite. <a href="01-limite-de-una-funcion.html">Repasar 1.1</a>.</p></div>
+    <section>
+      <h2>1. Izquierda y derecha se refieren a la variable</h2>
+      <p>\[\lim_{x\to a^-}f(x)=L_-,\qquad \lim_{x\to a^+}f(x)=L_+.\]</p>
+      <p>Por la <strong>izquierda</strong> usamos valores \(x&lt;a\); por la <strong>derecha</strong>, valores \(x&gt;a\). El superíndice no dice que \(f(x)\) sea negativo o positivo. Por ejemplo, \(1{,}99\) está a la izquierda de 2 aunque sea positivo.</p>
+      <div class="definition" data-content-role="definition"><p>Si la función está definida en un entorno perforado de \(a\), existe un límite bilateral finito \(L\) si y solo si los dos límites laterales son finitos y coinciden:</p><p>\[\lim_{x\to a}f(x)=L\quad\Longleftrightarrow\quad L_-=L_+=L.\]</p></div>
+      <p>Si los laterales son diferentes, no los promediamos: <strong>no existe el límite bilateral</strong>. El valor que tenga la función justo en \(a\) no puede corregir esa diferencia.</p>
+    </section>
+    <section>
+      <h2>2. Ejemplo resuelto: un cambio de tarifa</h2>
+      <p>Una tarifa ficticia de un servicio depende del consumo \(x\), en unidades, y cambia al llegar a 10 unidades:</p>
+      <p>\[C(x)=\begin{cases}2x+5,&0\le x&lt;10,\\2x+8,&x\ge10.\end{cases}\]</p>
+      <ol class="worked-steps" data-content-role="worked-steps">
+        <li><strong>Comprender.</strong> Buscamos el coste en euros justo antes y justo después de 10. No es una tarifa real, sino un modelo con salto.</li>
+        <li><strong>Elegir ramas.</strong> Si \(x&lt;10\), usamos \(2x+5\). Si \(x&gt;10\), usamos \(2x+8\).</li>
+        <li><strong>Calcular.</strong> \(\lim_{x\to10^-}C(x)=25\) y \(\lim_{x\to10^+}C(x)=28\). Cada rama es un polinomio y su límite se calcula por sustitución.</li>
+        <li><strong>Comparar.</strong> Como \(25\ne28\), no existe \(\lim_{x\to10}C(x)\).</li>
+        <li><strong>Interpretar.</strong> La tarifa tiene un salto de 3 €. Además, \(C(10)=28\), porque la segunda rama incluye el punto 10. Esto no cambia los laterales.</li>
+      </ol>
+      <div class="table-scroll"><table><caption data-content-role="caption">El salto de la tarifa</caption><thead><tr><th scope="col">Consumo</th><th scope="col">9,99</th><th scope="col">9,999</th><th scope="col">10</th><th scope="col">10,001</th></tr></thead><tbody><tr><th scope="row">Coste (€)</th><td>24,98</td><td>24,998</td><td>28</td><td>28,002</td></tr></tbody></table></div>
+    </section>
+    <section>
+      <h2>3. Laterales iguales, valor puntual distinto</h2>
+      <p>Considera</p><p>\[f(x)=\begin{cases}x+1,&x&lt;2,\\7,&x=2,\\5-x,&x&gt;2.\end{cases}\]</p>
+      <p>Por la izquierda usamos \(x+1\) y obtenemos 3. Por la derecha usamos \(5-x\) y también obtenemos 3. Luego \(\lim_{x\to2}f(x)=3\), aunque \(f(2)=7\).</p>
+      <p><strong>Lectura gráfica:</strong> las dos ramas se aproximan al mismo hueco \((2,3)\); un punto lleno en \((2,7)\) indica el valor puntual. Esta discontinuidad es evitable: cambiar solo \(f(2)\) a 3 la elimina.</p>
+      <h3>Un parámetro que une dos ramas</h3>
+      <p>Si \(g(x)=x+1\) para \(x&lt;2\) y \(g(x)=2x+k\) para \(x\ge2\), ¿qué valor de \(k\) permite que exista el límite en 2?</p>
+      <p>El lateral izquierdo vale 3 y el derecho vale \(4+k\). Deben coincidir: \(3=4+k\), así que <strong>\(k=-1\)</strong>. Para ese valor, \(g(2)=3\) y la función es además continua en 2.</p>
+    </section>
+    <section>
+      <h2>4. Laterales infinitos y extremos del dominio</h2>
+      <p>Para \(r(x)=1/x\), el denominador se acerca a cero con signos distintos:</p>
+      <p>\[\lim_{x\to0^-}\frac1x=-\infty,\qquad\lim_{x\to0^+}\frac1x=+\infty.\]</p>
+      <p>No hay un único límite bilateral, ni siquiera como infinito con signo. La recta \(x=0\) es una asíntota vertical: basta que algún lateral tienda a \(+\infty\) o a \(-\infty\).</p>
+      <p>En cambio, para \(s(x)=1/x^2\), los dos laterales son \(+\infty\), y escribimos \(\lim_{x\to0}1/x^2=+\infty\). Esto expresa un límite infinito, no un valor real finito.</p>
+      <p>Para \(u(x)=\sqrt{x}\), el dominio es \([0,+\infty)\). En 0 solo podemos aproximarnos por la derecha dentro de su dominio: \(\lim_{x\to0^+}\sqrt{x}=0\). No inventamos valores reales de la raíz para \(x&lt;0\). En este curso indicaremos explícitamente el lado en los extremos del dominio.</p>
+    </section>
+    <section>
+      <h2>5. Método para funciones a trozos</h2>
+      <ol><li>Marca el punto de unión \(a\).</li><li>Elige la expresión que se usa para \(x&lt;a\), en valores próximos, y calcula el lateral izquierdo.</li><li>Haz lo mismo con la expresión para \(x&gt;a\).</li><li>Compara los resultados, incluyendo sus signos si son infinitos.</li><li>Calcula por separado \(f(a)\) si te lo piden. Para estudiar continuidad, compáralo con el límite.</li></ol>
+      <p class="key-idea" data-content-role="warning">El signo «igual» de una rama decide \(f(a)\), pero para un lateral importa qué expresión se usa <strong>al acercarse</strong> al punto.</p>
+    </section>
+    <section>
+      <h2>6. Practica con ayuda</h2>
+      <p>Sea \(q(x)=3x\) si \(x&lt;1\) y \(q(x)=x+2\) si \(x\ge1\). Calcula los laterales, el límite y \(q(1)\).</p>
+      <details data-content-role="hint"><summary>Pista 1: separa los dos lados</summary><p>Por la izquierda se usa \(3x\). Por la derecha se usa \(x+2\).</p></details>
+      <details data-content-role="hint"><summary>Pista 2: calcula antes de comparar</summary><p>Sustituye 1 en cada polinomio y comprueba si ambos resultados son iguales.</p></details>
+      <details data-content-role="solution"><summary>Solución e interpretación</summary><p>Ambos laterales valen 3, por lo que el límite bilateral vale 3. La segunda rama incluye 1: \(q(1)=1+2=3\). Coinciden valor y límite; la función es continua en 1.</p></details>
+      <div data-content-role="self-check" data-quiz="lateral-basics" class="activity"></div>
+    </section>
+    <section>
+      <h2>7. Errores frecuentes y resumen</h2>
+      <ul><li>No confundas \(a^-\) con «resultado negativo».</li><li>No uses la rama del punto aislado para calcular los laterales.</li><li>No hagas la media de dos laterales diferentes.</li><li>No concluyas continuidad solo porque ambos laterales coinciden: falta comprobar el valor puntual.</li></ul>
+      <p><strong>La secuencia clave es:</strong> elegir rama → calcular cada lateral → comparar → estudiar aparte el valor puntual.</p>
+      <p><a href="../../../test/index.html?tema=t01">Comprobar con el test inicial</a> · <a href="../../../tarjetas/index.html?tema=t01">Repasar con tarjetas</a> · <a href="../../../laboratorios/juegos/t01-a-limite-express.html">Practicar con Límite Express</a></p>
+    </section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

@@ -1,0 +1,198 @@
+[
+  {
+    "id": "t01-a-limite-express",
+    "title": "Límite Express",
+    "topicId": "t01",
+    "hostPageId": "game-t01-a-limite-express",
+    "path": "widgets/games/t01-a-limite-express/index.html"
+  },
+  {
+    "id": "t01-b-continuidad-repara-la-funcion",
+    "title": "Continuidad: repara la función",
+    "topicId": "t01",
+    "hostPageId": "game-t01-b-continuidad-repara-la-funcion",
+    "path": "widgets/games/t01-b-continuidad-repara-la-funcion/index.html"
+  },
+  {
+    "id": "t01-c-derivada-detective",
+    "title": "Derivada Detective",
+    "topicId": "t01",
+    "hostPageId": "game-t01-c-derivada-detective",
+    "path": "widgets/games/t01-c-derivada-detective/index.html"
+  },
+  {
+    "id": "t01-d-tangente-sprint",
+    "title": "Tangente Sprint",
+    "topicId": "t01",
+    "hostPageId": "game-t01-d-tangente-sprint",
+    "path": "widgets/games/t01-d-tangente-sprint/index.html"
+  },
+  {
+    "id": "t02-a-construye-la-grafica",
+    "title": "Construye la gráfica",
+    "topicId": "t02",
+    "hostPageId": "game-t02-a-construye-la-grafica",
+    "path": "widgets/games/t02-a-construye-la-grafica/index.html"
+  },
+  {
+    "id": "t02-b-transforma-la-funcion",
+    "title": "Transforma la función",
+    "topicId": "t02",
+    "hostPageId": "game-t02-b-transforma-la-funcion",
+    "path": "widgets/games/t02-b-transforma-la-funcion/index.html"
+  },
+  {
+    "id": "t02-c-optimiza",
+    "title": "Optimiza",
+    "topicId": "t02",
+    "hostPageId": "game-t02-c-optimiza",
+    "path": "widgets/games/t02-c-optimiza/index.html"
+  },
+  {
+    "id": "t03-a-parejas-de-primitivas",
+    "title": "Parejas de primitivas",
+    "topicId": "t03",
+    "hostPageId": "game-t03-a-parejas-de-primitivas",
+    "path": "widgets/games/t03-a-parejas-de-primitivas/index.html"
+  },
+  {
+    "id": "t03-b-metodo-correcto",
+    "title": "Método correcto",
+    "topicId": "t03",
+    "hostPageId": "game-t03-b-metodo-correcto",
+    "path": "widgets/games/t03-b-metodo-correcto/index.html"
+  },
+  {
+    "id": "t03-c-area-por-tramos",
+    "title": "Área por tramos",
+    "topicId": "t03",
+    "hostPageId": "game-t03-c-area-por-tramos",
+    "path": "widgets/games/t03-c-area-por-tramos/index.html"
+  },
+  {
+    "id": "t04-a-matrix-ops",
+    "title": "Matrix Ops",
+    "topicId": "t04",
+    "hostPageId": "game-t04-a-matrix-ops",
+    "path": "widgets/games/t04-a-matrix-ops/index.html"
+  },
+  {
+    "id": "t04-b-la-camara-del-determinante",
+    "title": "La cámara del determinante",
+    "topicId": "t04",
+    "hostPageId": "game-t04-b-la-camara-del-determinante",
+    "path": "widgets/games/t04-b-la-camara-del-determinante/index.html"
+  },
+  {
+    "id": "t04-c-redes-y-adyacencia",
+    "title": "Redes y adyacencia",
+    "topicId": "t04",
+    "hostPageId": "game-t04-c-redes-y-adyacencia",
+    "path": "widgets/games/t04-c-redes-y-adyacencia/index.html"
+  },
+  {
+    "id": "t05-a-clasificador-de-sistemas",
+    "title": "Clasificador de sistemas",
+    "topicId": "t05",
+    "hostPageId": "game-t05-a-clasificador-de-sistemas",
+    "path": "widgets/games/t05-a-clasificador-de-sistemas/index.html"
+  },
+  {
+    "id": "t05-b-gauss-paso-a-paso",
+    "title": "Gauss paso a paso",
+    "topicId": "t05",
+    "hostPageId": "game-t05-b-gauss-paso-a-paso",
+    "path": "widgets/games/t05-b-gauss-paso-a-paso/index.html"
+  },
+  {
+    "id": "t05-c-elige-el-metodo",
+    "title": "Elige el método",
+    "topicId": "t05",
+    "hostPageId": "game-t05-c-elige-el-metodo",
+    "path": "widgets/games/t05-c-elige-el-metodo/index.html"
+  },
+  {
+    "id": "t06-a-pinta-la-region-factible",
+    "title": "Pinta la región factible",
+    "topicId": "t06",
+    "hostPageId": "game-t06-a-pinta-la-region-factible",
+    "path": "widgets/games/t06-a-pinta-la-region-factible/index.html"
+  },
+  {
+    "id": "t06-b-cazador-de-vertices",
+    "title": "Cazador de vértices",
+    "topicId": "t06",
+    "hostPageId": "game-t06-b-cazador-de-vertices",
+    "path": "widgets/games/t06-b-cazador-de-vertices/index.html"
+  },
+  {
+    "id": "t06-c-fabrica-de-modelos",
+    "title": "Fábrica de modelos",
+    "topicId": "t06",
+    "hostPageId": "game-t06-c-fabrica-de-modelos",
+    "path": "widgets/games/t06-c-fabrica-de-modelos/index.html"
+  },
+  {
+    "id": "t07-a-algebra-de-sucesos",
+    "title": "Álgebra de sucesos",
+    "topicId": "t07",
+    "hostPageId": "game-t07-a-algebra-de-sucesos",
+    "path": "widgets/games/t07-a-algebra-de-sucesos/index.html"
+  },
+  {
+    "id": "t07-b-arbol-de-probabilidad",
+    "title": "Árbol de probabilidad",
+    "topicId": "t07",
+    "hostPageId": "game-t07-b-arbol-de-probabilidad",
+    "path": "widgets/games/t07-b-arbol-de-probabilidad/index.html"
+  },
+  {
+    "id": "t07-c-detective-bayes",
+    "title": "Detective Bayes",
+    "topicId": "t07",
+    "hostPageId": "game-t07-c-detective-bayes",
+    "path": "widgets/games/t07-c-detective-bayes/index.html"
+  },
+  {
+    "id": "t08-a-binomial-factory",
+    "title": "Binomial Factory",
+    "topicId": "t08",
+    "hostPageId": "game-t08-a-binomial-factory",
+    "path": "widgets/games/t08-a-binomial-factory/index.html"
+  },
+  {
+    "id": "t08-b-normal-slider",
+    "title": "Normal Slider",
+    "topicId": "t08",
+    "hostPageId": "game-t08-b-normal-slider",
+    "path": "widgets/games/t08-b-normal-slider/index.html"
+  },
+  {
+    "id": "t08-c-correccion-de-continuidad",
+    "title": "Corrección de continuidad",
+    "topicId": "t08",
+    "hostPageId": "game-t08-c-correccion-de-continuidad",
+    "path": "widgets/games/t08-c-correccion-de-continuidad/index.html"
+  },
+  {
+    "id": "t09-a-disena-la-muestra",
+    "title": "Diseña la muestra",
+    "topicId": "t09",
+    "hostPageId": "game-t09-a-disena-la-muestra",
+    "path": "widgets/games/t09-a-disena-la-muestra/index.html"
+  },
+  {
+    "id": "t09-b-constructor-de-intervalos",
+    "title": "Constructor de intervalos",
+    "topicId": "t09",
+    "hostPageId": "game-t09-b-constructor-de-intervalos",
+    "path": "widgets/games/t09-b-constructor-de-intervalos/index.html"
+  },
+  {
+    "id": "t09-c-auditor-de-encuestas",
+    "title": "Auditor de encuestas",
+    "topicId": "t09",
+    "hostPageId": "game-t09-c-auditor-de-encuestas",
+    "path": "widgets/games/t09-c-auditor-de-encuestas/index.html"
+  }
+]

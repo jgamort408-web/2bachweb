@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards: Probabilidad</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-body: #fff1f2;       /* Rose 50 */
+            --primary: #e11d48;       /* Rose 600 */
+            --primary-dark: #be123c;
+            --secondary: #4c0519;     /* Rose 950 */
+            --accent: #f59e0b;        /* Amber */
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --card-front: #ffffff;
+            --card-back: #4c0519;
+            
+            --radius: 16px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            padding: 2rem;
+            min-height: 100vh;
+            background-image: radial-gradient(#fda4af 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* HEADER */
+        header { text-align: center; margin-bottom: 3rem; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--secondary); margin-bottom: 0.5rem; }
+        p.subtitle { color: var(--text-light); font-size: 1.1rem; }
+
+        /* FILTROS */
+        .filter-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+        .filter-btn {
+            background: white; border: 1px solid #fda4af; padding: 0.5rem 1.2rem;
+            border-radius: 50px; cursor: pointer; font-family: 'Inter', sans-serif;
+            font-weight: 600; font-size: 0.9rem; color: var(--text-light); transition: all 0.2s ease;
+        }
+        .filter-btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
+        .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); box-shadow: 0 4px 10px rgba(225, 29, 72, 0.3); }
+
+        /* GRID */
+        .flashcard-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+
+        /* CARTA 3D */
+        .flashcard { background-color: transparent; width: 100%; height: 260px; perspective: 1000px; cursor: pointer; }
+        .flashcard-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; }
+        .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+        
+        .flashcard-front, .flashcard-back {
+            position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden;
+            border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.5rem;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+
+        .flashcard-front { background-color: var(--card-front); border: 1px solid #fecdd3; border-bottom: 4px solid var(--primary); }
+        .fc-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .fc-category { position: absolute; top: 15px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); background: #ffe4e6; padding: 2px 8px; border-radius: 4px; }
+        .fc-question { font-size: 1.1rem; font-weight: 700; color: var(--secondary); line-height: 1.4; }
+        .fc-hint { position: absolute; bottom: 15px; font-size: 0.75rem; color: var(--primary); font-weight: 600; opacity: 0.7; }
+
+        .flashcard-back { background-color: var(--card-back); color: white; transform: rotateY(180deg); border: 1px solid var(--secondary); overflow-y: auto; }
+        .fc-answer { font-size: 1rem; line-height: 1.6; }
+        .flashcard-back::-webkit-scrollbar { width: 4px; }
+        .flashcard-back::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
+
+        mjx-container { color: white !important; }
+        .flashcard-front mjx-container { color: var(--secondary) !important; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>🎲 Cálculo de Probabilidades</h1>
+            <p class="subtitle">Sucesos, Teorema de Bayes y Probabilidad Total</p>
+        </header>
+
+        <div class="filter-container" id="filters">
+            <button class="filter-btn active" onclick="filterCards('all', this)">Todas</button>
+            <button class="filter-btn" onclick="filterCards('Conceptos Básicos', this)">Conceptos</button>
+            <button class="filter-btn" onclick="filterCards('Operaciones', this)">Operaciones y Leyes</button>
+            <button class="filter-btn" onclick="filterCards('Condicionada', this)">Condicionada</button>
+            <button class="filter-btn" onclick="filterCards('Teoremas Clave', this)">Bayes y Total</button>
+            <button class="filter-btn" onclick="filterCards('Trucos', this)">Trucos de Lenguaje</button>
+        </div>
+
+        <div class="flashcard-grid" id="grid"></div>
+
+    </div>
+
+    <script>
+        const cardsData = [
+            // --- CONCEPTOS BÁSICOS ---
+            { category: "Conceptos Básicos", icon: "🎲", question: "Regla de Laplace", answer: "Solo para sucesos equiprobables: $$P(A) = \\frac{\\text{Casos Favorables}}{\\text{Casos Totales}}$$" },
+            { category: "Conceptos Básicos", icon: "🚫", question: "¿Qué son Sucesos Incompatibles?", answer: "Sucesos que <strong>no pueden ocurrir a la vez</strong>. Su intersección es vacía: $$P(A \\cap B) = 0$$" },
+            { category: "Conceptos Básicos", icon: "🔗", question: "¿Qué son Sucesos Independientes?", answer: "Cuando lo que pase en uno no afecta al otro. Se cumple que: $$P(A \\cap B) = P(A) \\cdot P(B)$$" },
+            { category: "Conceptos Básicos", icon: "🌓", question: "Suceso Contrario ($A^c$ o $\\bar{A}$)", answer: "Lo que falta para llegar al total. $$P(\\bar{A}) = 1 - P(A)$$" },
+
+            // --- OPERACIONES ---
+            { category: "Operaciones", icon: "∪", question: "Probabilidad de la Unión ($A \\cup B$)", answer: "$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$ <small>(Restamos la intersección para no contarla doble)</small>" },
+            { category: "Operaciones", icon: "🧠", question: "Leyes de Morgan (1)", answer: "El contrario de la unión es la intersección de contrarios: $$P(\\overline{A \\cup B}) = P(\\bar{A} \\cap \\bar{B})$$" },
+            { category: "Operaciones", icon: "🧠", question: "Leyes de Morgan (2)", answer: "El contrario de la intersección es la unión de contrarios: $$P(\\overline{A \\cap B}) = P(\\bar{A} \\cup \\bar{B})$$" },
+            { category: "Operaciones", icon: "➖", question: "Diferencia ($A - B$)", answer: "Solo A (sin B): $$P(A - B) = P(A) - P(A \\cap B)$$ <br> También es $P(A \\cap \\bar{B})$." },
+
+            // --- CONDICIONADA ---
+            { category: "Condicionada", icon: "🤔", question: "Probabilidad Condicionada", answer: "Probabilidad de A sabiendo que ha pasado B: $$P(A|B) = \\frac{P(A \\cap B)}{P(B)}$$" },
+            { category: "Condicionada", icon: "✖️", question: "Regla del Producto (Prob. Compuesta)", answer: "Despejando de la condicionada: $$P(A \\cap B) = P(A) \\cdot P(B|A)$$" },
+            
+            // --- TEOREMAS CLAVE ---
+            { category: "Teoremas Clave", icon: "🌳", question: "Probabilidad Total (Árbol)", answer: "Sumar todas las ramas que llevan al suceso: $$P(B) = \\sum P(A_i) \\cdot P(B|A_i)$$" },
+            { category: "Teoremas Clave", icon: "🔙", question: "Teorema de Bayes", answer: "Probabilidad 'hacia atrás' (Causa dado el Efecto): $$P(A_i|B) = \\frac{P(A_i) \\cdot P(B|A_i)}{P(B)}$$" },
+            
+            // --- TRUCOS DE LENGUAJE ---
+            { category: "Trucos", icon: "🗣️", question: "Traduce: 'Al menos uno'", answer: "Es el contrario de 'Ninguno': $$P(\\ge 1) = 1 - P(\\text{Ninguno})$$" },
+            { category: "Trucos", icon: "🗣️", question: "Traduce: 'Sabiendo que...', 'Dado que...'", answer: "Es una <strong>Probabilidad Condicionada</strong>. Lo que sabes va en el denominador." },
+            { category: "Trucos", icon: "🗣️", question: "Diferencia: 'A y B' vs 'A o B'", answer: "'A y B' es Intersección ($\\cap$). <br> 'A o B' es Unión ($\\cup$)." },
+            { category: "Trucos", icon: "⚠️", question: "¿Incompatibles vs Independientes?", answer: "No es lo mismo. <br>Incompatibles: $P(A \\cap B) = 0$. <br>Independientes: $P(A \\cap B) = P(A)P(B)$." }
+        ];
+
+        const grid = document.getElementById('grid');
+
+        function renderCards(filter = 'all') {
+            grid.innerHTML = '';
+            const filteredData = filter === 'all' ? cardsData : cardsData.filter(card => card.category === filter);
+
+            filteredData.forEach(card => {
+                const el = document.createElement('div');
+                el.className = 'flashcard';
+                el.onclick = function() { this.classList.toggle('flipped'); };
+                el.innerHTML = `
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="fc-category">${card.category}</span>
+                            <div class="fc-icon">${card.icon}</div>
+                            <div class="fc-question">${card.question}</div>
+                            <div class="fc-hint">Clic para ver respuesta</div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div class="fc-answer">${card.answer}</div>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(el);
+            });
+
+            if (window.MathJax) MathJax.typesetPromise();
+        }
+
+        window.filterCards = function(category, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderCards(category);
+        };
+
+        renderCards('all');
+    </script>
+
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

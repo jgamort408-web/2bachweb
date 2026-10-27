@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "pairId": "sistemas-sels-i",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-20",
+  "sources": [
+    {
+      "sourceId": "F025",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - SELs I (SOLUCIONES).zip",
+      "zipSha256": "d50003e00cf8b3ca7e0921624917d21f6ff7933b33b31d0e73aec62dcb4bbe37",
+      "entry": "main.tex",
+      "texSha256": "579a0817fe78c6011a298b725837e5d76f0813897e4411e8f9d1496ca8dd2119"
+    },
+    {
+      "sourceId": "F026",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - SELs I.zip",
+      "zipSha256": "75751acf28b08e36cf44543af62feaf2e151592a1f3564e7db6f5342cfee8ea3",
+      "entry": "main.tex",
+      "texSha256": "ae984db154c1fbd396b605caae2e042be514e8fc1fc052788740168add1f4ac2"
+    }
+  ],
+  "assets": [
+    {
+      "path": "logo-al-andalus.png",
+      "sourceId": "F026",
+      "entry": "Logo AL-ANDALUS.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    }
+  ],
+  "preserved": {
+    "durationMinutes": 55,
+    "points": [
+      2,
+      4,
+      2.5,
+      1.5
+    ],
+    "exerciseMinutes": [
+      9,
+      23,
+      23
+    ],
+    "calculatorAllowed": true
+  },
+  "corrections": [],
+  "clarifications": [
+    "Contradicción explícita para lambda=1",
+    "Sustitución de todas las soluciones",
+    "Interpretación de los importes unitarios como precios de venta para el modelo de recaudación"
+  ],
+  "answers": {
+    "triangular": [
+      "2",
+      "-1/2",
+      "2"
+    ],
+    "tablets": [
+      180,
+      120,
+      100
+    ],
+    "determinant": "lambda-1",
+    "singularParameter": 1,
+    "singularRanks": [
+      2,
+      3
+    ],
+    "lambdaZero": [
+      22,
+      -7,
+      -13
+    ]
+  }
+}

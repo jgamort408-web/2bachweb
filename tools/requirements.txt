@@ -1,0 +1,5 @@
+# Dependencias de Python para las comprobaciones de PDF (web y Selectividad).
+# Instalación: python -m pip install -r tools/requirements.txt
+pypdf>=4
+pypdfium2>=4
+pdfplumber>=0.10

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 1,
+  "mathematics": {
+    "passed": true,
+    "examProblems": 3,
+    "hole": [
+      "2",
+      "1/3"
+    ],
+    "verticalAsymptotes": [
+      3,
+      5
+    ],
+    "stockCriticalPoints": [
+      10,
+      20
+    ],
+    "globalConvexityRejected": true,
+    "endpointConventionExplicit": true
+  },
+  "documents": [
+    {
+      "id": "funciones-variante-examen",
+      "pages": 1,
+      "bytes": 31519,
+      "sha256": "d0ab2b23ee4d3939754dea76f18238563aa568c2fc78144f181839e2213f2bb5",
+      "title": "Funciones: variante - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 11,
+      "characters": 991
+    },
+    {
+      "id": "funciones-variante-soluciones",
+      "pages": 3,
+      "bytes": 44323,
+      "sha256": "1a1210a9468f9831cb6be60aec3f9d8321291e913e8b98ad32eb759ec8029591",
+      "title": "Funciones: variante - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 12,
+      "characters": 2791
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-20",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/funciones-variante/estilo.tex",
+      "sha256": "f603368d78b49310ab47c0869fabc6518c755badc5d48223a1e2cfa5d9ff69b4"
+    },
+    {
+      "path": "content/latex/funciones-variante/funciones-variante-examen.tex",
+      "sha256": "b87e35009f1c60c1a4e882fc710cf804ebbd82ba440fcfbc1bf8fa64de7e20af"
+    },
+    {
+      "path": "content/latex/funciones-variante/funciones-variante-soluciones.tex",
+      "sha256": "1e1f76a448e56cca6f7df499db1df64715d695a9822565c78f06e2741b0f98e0"
+    },
+    {
+      "path": "content/latex/funciones-variante/logo-al-andalus.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    },
+    {
+      "path": "content/latex/funciones-variante/provenance.json",
+      "sha256": "7efe2d3c957c7788217a347a45e95325f1e4a29dbae752fe44ff47565c9c72f9"
+    }
+  ]
+}

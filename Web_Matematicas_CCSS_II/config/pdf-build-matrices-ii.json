@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-20",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "batchId": "166-matrices-ii",
+  "sourceDirectory": "content/latex/matrices-ii",
+  "report": "docs/pdf/matrices-ii-build.json",
+  "mathematics": "matrices-ii",
+  "documents": [
+    {
+      "id": "matrices-ii-examen",
+      "source": "content/latex/matrices-ii/matrices-ii-examen.tex",
+      "output": "output/pdf/matrices-ii-examen.pdf",
+      "expectedPages": 1,
+      "title": "Matrices II - Examen revisado",
+      "forbiddenText": [
+        "£"
+      ],
+      "requiredText": [
+        "cuatro de las cinco operaciones"
+      ]
+    },
+    {
+      "id": "matrices-ii-soluciones",
+      "source": "content/latex/matrices-ii/matrices-ii-soluciones.tex",
+      "output": "output/pdf/matrices-ii-soluciones.pdf",
+      "expectedPages": 3,
+      "title": "Matrices II - Soluciones revisadas",
+      "forbiddenText": [
+        "£"
+      ],
+      "requiredText": [
+        "El ZIP original no incluía soluciones.",
+        "solo cuatro"
+      ]
+    }
+  ]
+}

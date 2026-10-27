@@ -1,0 +1,7 @@
+@import url('../../shared/widget-base.css');
+fieldset { min-inline-size: 0; margin-block: 1rem; }
+.classifier-option { display: flex; align-items: baseline; gap: .6rem; padding: .7rem; margin-block: .6rem; border: 1px solid currentColor; }
+.classifier-option input { flex-shrink: 0; }
+.classifier-option:has(input:checked) { outline: 3px solid currentColor; outline-offset: 2px; }
+[data-meter] { max-width: 100%; }
+[data-feedback] li { margin-block: .75rem; }

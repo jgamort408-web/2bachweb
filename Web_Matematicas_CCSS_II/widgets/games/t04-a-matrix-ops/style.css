@@ -1,0 +1,8 @@
+@import url('../../shared/widget-base.css');
+[data-options] { min-width: 0; margin-block: 1rem; }
+.matrix-option { display: block; border: 1px solid currentColor; padding: .65rem; margin-block: .6rem; cursor: pointer; }
+.matrix-option input { width: 1.2rem; height: 1.2rem; margin-inline-end: .5rem; }
+.matrix-option:has(input:checked) { outline: 3px solid currentColor; outline-offset: 2px; }
+[data-options]:disabled .matrix-option { border-style: dashed; cursor: default; }
+[data-feedback] li { margin-block: 1rem; }
+[data-meter] { max-width: 100%; }

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>5. Sistemas de ecuaciones · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t05">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1>5. Sistemas de ecuaciones</h1>
+    <p class="lead" data-content-role="lead">Expresa varias condiciones como igualdades y busca valores que las cumplan simultáneamente.</p>
+    <p data-content-role="orientation">Disponibles 5.1–5.11: conceptos, soluciones, clasificación, notación, equivalencia, Rouché–Frobenius, inversa, Gauss, Cramer, sistemas homogéneos y discusión con parámetros. Incluyen ejemplos, nueve exploradores, un taller de filas, entrenamiento con variantes, sesenta y seis preguntas y sesenta y seis tarjetas. Reúne lo aprendido en el <a href="#repaso">repaso integrado de cuatro bloques</a> y su test de once decisiones. Ya está disponible <a href="../../../laboratorios/juegos/t05-a-clasificador-de-sistemas.html">Clasificador de sistemas</a>. También puedes practicar <a href="../../../laboratorios/juegos/t05-b-gauss-paso-a-paso.html">Gauss paso a paso</a>. Completa la práctica con <a href="../../../laboratorios/juegos/t05-c-elige-el-metodo.html">Elige el método</a>. Sigue el <a href="#ruta-juegos">recorrido de práctica con los tres juegos</a>. La revisión global de accesibilidad sigue pendiente.</p>
+    <h2>Recorrido del tema</h2><div data-topic-index="t05"></div>
+    <p><a href="../../../test/index.html?tema=t05">Test disponible de sistemas</a> · <a href="../../../tarjetas/index.html?tema=t05">Tarjetas de sistemas</a> · <a href="../04-matrices-y-determinantes/index.html#repaso">Repasar matrices</a></p>
+
+    <nav aria-label="Contenido del repaso"><a href="#repaso">Problemas integrados</a> · <a href="#test-repaso">Test de once decisiones</a> · <a href="#antes-de-seguir">Revisión final</a></nav>
+    <section id="ruta-juegos" data-content-role="orientation"><h2>Practicar jugando</h2>
+    <p>Elige el juego que te ayude con lo que estás estudiando. El orden es orientativo: puedes entrar en cualquiera sin completar los otros ni alcanzar una puntuación mínima. Cada sesión empieza de cero; las respuestas y los puntos duran solo esa visita.</p>
+    <ol>
+      <li><h3>1. Reconocer el conjunto solución</h3><p>Después de 5.2–5.6, <a href="../../../laboratorios/juegos/t05-a-clasificador-de-sistemas.html">jugar a Clasificador de sistemas</a>: doce retos con ecuaciones, matrices escalonadas, rectas y rangos. Decide si hay una, infinitas o ninguna solución.</p><p>Si confundes rectas coincidentes y paralelas, vuelve a <a href="02-solucion-de-un-sistema-de-ecuaciones.html#explorador">rectas y conjunto solución</a>. Si dudas entre SCI y SI, repasa <a href="06-teorema-de-rouche-frobenius.html">la comparación de rangos</a>. Para leer matrices escalonadas, consulta <a href="08-resolucion-de-sistemas-metodo-de-gauss.html">la introducción a Gauss</a>.</p></li>
+      <li><h3>2. Transformar conservando soluciones</h3><p>Después de 5.5 y 5.8, <a href="../../../laboratorios/juegos/t05-b-gauss-paso-a-paso.html">practicar Gauss paso a paso</a>: seis sistemas con operaciones de filas, historial y deshacer. Escalona y clasifica; se aceptan distintas rutas y pivotes que no valen uno.</p><p>Si una operación cambia las soluciones, revisa <a href="05-sistemas-equivalentes.html#explorador">el taller de operaciones equivalentes</a>. Si quedan variables libres o aparece una contradicción, vuelve a <a href="08-resolucion-de-sistemas-metodo-de-gauss.html#explorador">la resolución por Gauss</a>. Las pistas preparan una operación; consultar la ruta resuelta activa asistencia y ese reto no da puntos, aunque lo reinicies.</p></li>
+      <li><h3>3. Elegir y justificar una estrategia</h3><p>Después de 5.7–5.11, <a href="../../../laboratorios/juegos/t05-c-elige-el-metodo.html">jugar a Elige el método</a>: seis situaciones para comparar Gauss, Cramer y la inversa. Se aceptan las alternativas válidas ofrecidas y se explica cuál ahorra trabajo.</p><p>Si dudas sobre las condiciones, consulta <a href="07-resolucion-de-sistemas-matriz-inversa.html">la inversa</a> y <a href="09-resolucion-de-sistemas-regla-de-cramer.html">Cramer</a>. Para los casos especiales, revisa <a href="10-sistemas-homogeneos.html">sistemas homogéneos</a> y <a href="11-discusion-de-sistemas-con-parametros.html">valores críticos de un parámetro</a>.</p></li>
+    </ol>
+    <p>Los tres juegos tienen pistas y dos intentos para la respuesta final; después puedes revisar la explicación y continuar. No hay reloj. Puedes usar el teclado y los ajustes de lectura. Las puntuaciones pertenecen a cada juego y no se suman como nota del tema.</p>
+    <p>Termina con el <a href="#repaso">repaso integrado</a> y el <a href="#test-repaso">test de síntesis</a>. Justifica los procedimientos en papel y comprueba las soluciones en las ecuaciones originales. Para interpretar los datos, vuelve a <a href="01-sistemas-de-ecuaciones-lineales.html">la modelización de condiciones</a> y a <a href="04-notacion-matricial-de-un-sistema-de-ecuaciones.html">la notación matricial</a>.</p>
+    </section>
+
+    <section id="repaso" data-content-role="guided-practice">
+    <h2>Repaso integrado: de las condiciones a las soluciones</h2>
+    <p>Trabaja cada bloque en papel antes de abrir su solución. Define las incógnitas, justifica las operaciones y termina comprobando las ecuaciones y las restricciones del contexto. Las pistas y soluciones se pueden abrir con teclado; no hay límite de tiempo.</p>
+    <article id="repaso-modelo" data-content-role="worked-example">
+    <h3>Bloque 1. Recaudación y comparación de métodos</h3>
+    <p>Una actividad vende 90 entradas: normales a 8 € y reducidas a 5 €. La recaudación es de 600 €. Calcula cuántas se vendieron de cada tipo, escribe la forma matricial y compara Gauss, inversa y Cramer. Después decide si una recaudación de 601 €, manteniendo los demás datos, sería posible.</p>
+    <details data-content-role="hint"><summary>Pista del bloque 1</summary><p>Usa x para las normales e y para las reducidas. La primera ecuación cuenta entradas; la segunda suma euros. Elimina x restando ocho veces la primera ecuación a la segunda. Al interpretar el resultado, recuerda que las cantidades son enteras.</p></details>
+    <details data-content-role="solution"><summary>Solución del bloque 1</summary>
+    <p>Las incógnitas son números enteros no negativos. El sistema y su forma matricial son</p>
+    <p>\[\begin{cases}x+y=90\\8x+5y=600\end{cases},\qquad
+    \underbrace{\begin{pmatrix}1&amp;1\\8&amp;5\end{pmatrix}}_A
+    \underbrace{\begin{pmatrix}x\\y\end{pmatrix}}_X=
+    \underbrace{\begin{pmatrix}90\\600\end{pmatrix}}_B.\]</p>
+    <p><strong>Gauss.</strong> La operación \(F_2\leftarrow F_2-8F_1\) conserva todas las soluciones:</p>
+    <p>\[\left(\begin{array}{cc|c}1&amp;1&amp;90\\8&amp;5&amp;600\end{array}\right)
+    \longrightarrow\left(\begin{array}{cc|c}1&amp;1&amp;90\\0&amp;-3&amp;-120\end{array}\right).\]</p>
+    <p>De −3y=−120 sale y=40; sustituyendo hacia atrás, x=50. Hay dos pivotes: \(\operatorname{rg}(A)=\operatorname{rg}(A|B)=2=n\), por lo que es SCD.</p>
+    <p><strong>Inversa.</strong> \(\det(A)=5-8=-3\ne0\), de modo que</p>
+    <p>\[A^{-1}=-\frac13\begin{pmatrix}5&amp;-1\\-8&amp;1\end{pmatrix},\qquad
+    X=A^{-1}B=-\frac13\begin{pmatrix}450-600\\-720+600\end{pmatrix}
+    =\begin{pmatrix}50\\40\end{pmatrix}.\]</p>
+    <p><strong>Cramer.</strong> Sustituimos cada columna por B, conservando la otra:</p>
+    <p>\[\Delta_x=\begin{vmatrix}90&amp;1\\600&amp;5\end{vmatrix}=-150,\quad
+    \Delta_y=\begin{vmatrix}1&amp;90\\8&amp;600\end{vmatrix}=-120,\quad
+    x=\frac{-150}{-3}=50,\quad y=\frac{-120}{-3}=40.\]</p>
+    <p><strong>Comprobación.</strong> 50+40=90 entradas y 8·50+5·40=600 €. Se cumplen las dos condiciones y las restricciones enteras. Las rectas son secantes y su intersección es (50,40). Gauss requiere una eliminación sencilla; la inversa sería útil si se repitiera A con muchos vectores B; Cramer es manejable por ser de orden 2.</p>
+    <p><strong>Si se recaudaran 601 €:</strong> la matriz A sigue siendo invertible, así que el sistema sigue siendo SCD sobre los reales. Ahora \(y=119/3,\ x=151/3\), que verifican ambas ecuaciones. No son cantidades enteras de entradas. Por tanto, esos datos no describen una venta posible con los precios fijados; redondear destruiría las igualdades.</p>
+    </details>
+    <p>Refuerzo: <a href="01-sistemas-de-ecuaciones-lineales.html">5.1. Modelización</a> · <a href="04-notacion-matricial-de-un-sistema-de-ecuaciones.html">5.4. Notación</a> · <a href="07-resolucion-de-sistemas-matriz-inversa.html">5.7. Inversa</a> · <a href="09-resolucion-de-sistemas-regla-de-cramer.html">5.9. Cramer</a>.</p>
+    </article>
+    <article id="repaso-familia" data-content-role="worked-example">
+    <h3>Bloque 2. Inventario, variable libre y una condición adicional</h3>
+    <p>Un almacén prepara 12 cajas de tres tipos. Cada caja de tipo x pesa 2 kg, cada una de tipo y pesa 1 kg y cada una de tipo z pesa 3 kg; el peso total es 22 kg. Describe todas las soluciones reales y todas las distribuciones enteras no negativas. Estudia después qué ocurre al añadir \(3x+2y+4z=34\), o al sustituir ese total por 35.</p>
+    <details data-content-role="hint"><summary>Pista del bloque 2</summary><p>Plantea x+y+z=12 y 2x+y+3z=22. La operación F₂−2F₁ deja −y+z=−2. Compara la nueva tercera ecuación con la suma de las dos originales.</p></details>
+    <details data-content-role="solution"><summary>Solución del bloque 2</summary>
+    <p>\[\left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;12\\2&amp;1&amp;3&amp;22\end{array}\right)
+    \xrightarrow{F_2\leftarrow F_2-2F_1}
+    \left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;12\\0&amp;-1&amp;1&amp;-2\end{array}\right).\]</p>
+    <p>El menor de las columnas x,y vale −1. A tiene dos filas, así que su rango es exactamente 2. La ampliada también tiene rango 2: hay dos pivotes para tres incógnitas. Es SCI con una variable libre.</p>
+    <p>Tomando \(z=t\), resulta \(y=t+2\) y \(x=10-2t\):</p>
+    <p>\[S=\{(10-2t,t+2,t):t\in\mathbb R\}.\]</p>
+    <p>Se comprueba \(10-2t+t+2+t=12\) y \(2(10-2t)+(t+2)+3t=22\). Las restricciones del almacén exigen t entero, t≥0 y 10−2t≥0. Por tanto \(t\in\{0,1,2,3,4,5\}\); hay seis distribuciones posibles:</p>
+    <p>\[(10,2,0),\ (8,3,1),\ (6,4,2),\ (4,5,3),\ (2,6,4),\ (0,7,5).\]</p>
+    <p>La tercera ecuación con total 34 es exactamente F₁+F₂. Añadirla conserva todas las soluciones: al restar F₁ y F₂ de F₃ queda 0=0. Los dos rangos siguen siendo 2 y el sistema continúa siendo SCI, aunque ahora haya tres ecuaciones.</p>
+    <p>Con total 35, la misma operación deja 0=1. El rango de A sigue siendo 2, mientras que el de la ampliada pasa a 3: es SI. El número de ecuaciones por sí solo no permite clasificar un sistema.</p>
+    </details>
+    <p>Refuerzo: <a href="03-clasificacion-de-sistemas-de-ecuaciones-segun-sus-soluciones.html">5.3. Clasificación</a> · <a href="05-sistemas-equivalentes.html">5.5. Equivalencia</a> · <a href="06-teorema-de-rouche-frobenius.html">5.6. Rangos</a> · <a href="08-resolucion-de-sistemas-metodo-de-gauss.html">5.8. Gauss</a>.</p>
+    </article>
+    <article id="repaso-parametro" data-content-role="worked-example">
+    <h3>Bloque 3. La misma matriz, dos discusiones diferentes</h3>
+    <p>Discute para todos los valores reales de λ el sistema</p>
+    <p>\[\begin{cases}x+y+z=3\\x+\lambda y+z=\lambda+2\\x+y+\lambda z=4.\end{cases}\]</p>
+    <p>Resuelve los casos compatibles. Después cambia únicamente el último término independiente de 4 a λ+2 y repite la discusión. Explica por qué conocer solo el determinante de A no permite decidir qué ocurre en el valor crítico.</p>
+    <details data-content-role="hint"><summary>Pista del bloque 3</summary><p>Resta F₁ a F₂ y a F₃. Estas operaciones son válidas para todo λ. Separa λ=1 antes de dividir por λ−1 y revisa el término independiente de la última fila.</p></details>
+    <details data-content-role="solution"><summary>Solución del bloque 3</summary>
+    <p>En ambos sistemas, \(\det(A)=(\lambda-1)^2\). En el primero, las operaciones indicadas dan</p>
+    <p>\[\begin{cases}x+y+z=3\\(\lambda-1)y=\lambda-1\\(\lambda-1)z=1.\end{cases}\]</p>
+    <ul><li><strong>λ≠1:</strong> A es invertible, ambos rangos son 3 y es SCD. Se obtiene \(y=1,\ z=1/(\lambda-1)\) y \(x=2-1/(\lambda-1)\).</li><li><strong>λ=1:</strong> aparece 0=1. A tiene todas sus filas iguales, así que su rango es 1; la ampliada tiene dos filas independientes, rango 2. Es SI.</li></ul>
+    <p>Para el caso compatible, escribimos \(u=1/(\lambda-1)\). La solución es (2−u,1,u) y los primeros miembros originales valen 3, λ+2 y \(3+(\lambda-1)u=4\), respectivamente.</p>
+    <p>Al cambiar el último término independiente a λ+2, la tercera ecuación transformada pasa a ser \((\lambda-1)z=\lambda-1\):</p>
+    <ul><li><strong>λ≠1:</strong> ambos rangos son 3: SCD con (x,y,z)=(1,1,1). Los primeros miembros son 3, λ+2, λ+2.</li><li><strong>λ=1:</strong> solo queda x+y+z=3. Ambos rangos son 1: SCI con \((x,y,z)=(3-s-t,s,t)\), donde s y t son reales independientes. La suma es siempre 3.</li></ul>
+    <p>Estos casos son disjuntos y cubren todos los valores reales. La raíz doble 1 es un solo valor crítico. Aunque A es idéntica en las dos familias, B cambia la compatibilidad en λ=1. Gauss y Rouché–Frobenius resuelven esa diferencia; dividir directamente por el determinante cero no tendría sentido.</p>
+    </details>
+    <p>Refuerzo: <a href="06-teorema-de-rouche-frobenius.html">5.6. Compatibilidad</a> · <a href="11-discusion-de-sistemas-con-parametros.html#explorador">5.11. Discusión y explorador</a>.</p>
+    </article>
+    <article id="repaso-homogeneo" data-content-role="worked-example">
+    <h3>Bloque 4. Cambios que conservan dos condiciones</h3>
+    <p>Tres partidas de un presupuesto didáctico contienen 12, 9 y 6 unidades. Se proponen cambios x,y,z que conserven tanto el total como el indicador «dos veces la primera partida menos la segunda más la tercera». Determina todos los cambios posibles y cuáles dejan las tres cantidades finales no negativas. Da un cambio no trivial y compruébalo.</p>
+    <details data-content-role="hint"><summary>Pista del bloque 4</summary><p>Las variaciones deben cumplir x+y+z=0 y 2x−y+z=0. Distingue esos cambios de las cantidades finales (12+x,9+y,6+z). Puedes usar z=3s para escribir una dirección con coordenadas enteras.</p></details>
+    <details data-content-role="solution"><summary>Solución del bloque 4</summary>
+    <p>\[\begin{cases}x+y+z=0\\2x-y+z=0.\end{cases}\quad
+    F_2\leftarrow F_2-2F_1:\quad -3y-z=0.\]</p>
+    <p>El menor de las dos primeras columnas vale −3; los rangos de A y de la ampliada son 2. Como hay tres incógnitas, es SCI. La columna nula B garantiza la compatibilidad. A es rectangular y no tiene determinante ordinario.</p>
+    <p>Con z=3s resulta y=−s y x=−2s:</p>
+    <p>\[(x,y,z)=s(-2,-1,3),\qquad s\in\mathbb R.\]</p>
+    <p>Esta parametrización es completa: todo valor real de z se obtiene tomando s=z/3. La dirección satisface −2−1+3=0 y 2(−2)−(−1)+3=0. s=0 da la solución trivial; cualquier s distinto de cero da un cambio no trivial.</p>
+    <p>Las cantidades finales son \((12-2s,9-s,6+3s)\). La no negatividad exige s≤6, s≤9 y s≥−2, por lo que</p>
+    <p>\[-2\le s\le6.\]</p>
+    <p>Para s=2, el cambio es (−4,−2,6) y el nuevo reparto es (8,7,12). El total sigue siendo 27, y el indicador sigue siendo \(2\cdot8-7+12=21=2\cdot12-9+6\). El sistema homogéneo describe los cambios, no el reparto final. Si las unidades fueran indivisibles, además s tendría que ser entero, porque la segunda cantidad final es 9−s.</p>
+    </details>
+    <p>Refuerzo: <a href="02-solucion-de-un-sistema-de-ecuaciones.html">5.2. Conjunto solución</a> · <a href="10-sistemas-homogeneos.html#explorador">5.10. Sistemas homogéneos</a>.</p>
+    </article>
+    </section>
+    <section id="test-repaso" data-content-role="self-check"><h2>Once decisiones para repasar</h2><p>Una pregunta de cada epígrafe, seleccionada entre las 66 del tema. Puedes pedir pistas y corregir respuestas. El resumen corresponde solo a esta visita.</p><div class="activity" data-quiz="review-t05"></div></section>
+    <section id="antes-de-seguir" data-content-role="summary"><h2>Antes de seguir</h2><ul><li>¿Cumple tu solución todas las ecuaciones originales?</li><li>¿Has mantenido el orden de las incógnitas y operado también sobre B?</li><li>¿Las operaciones son reversibles para los valores considerados?</li><li>¿Comparas los rangos con el número de incógnitas?</li><li>¿Has comprobado las condiciones de inversa y Cramer?</li><li>¿Describes todas las soluciones cuando hay variables libres?</li><li>¿Has separado todos los valores críticos antes de dividir?</li><li>¿Las cantidades cumplen las unidades, signos y restricciones enteras del problema?</li></ul><p><a href="../../../test/index.html?tema=t05">Recorrer las 66 preguntas</a> · <a href="../../../tarjetas/index.html?tema=t05">Repasar las 66 tarjetas</a> · <a href="#repaso">Volver a los problemas</a></p><p>Practica con <a href="../../../laboratorios/juegos/t05-a-clasificador-de-sistemas.html">el juego de clasificación</a> y con los exploradores de las lecciones. Continúa con <a href="../../../laboratorios/juegos/t05-b-gauss-paso-a-paso.html">el juego de operaciones de Gauss</a>. Compara estrategias en <a href="../../../laboratorios/juegos/t05-c-elige-el-metodo.html">el juego de elección del método</a>.</p></section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+
+    <script type="module" src="../../../assets/js/learning/indexes.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

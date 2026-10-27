@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de Problemas</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            /* COLORES (Tema Indigo/Violeta) */
+            --bg-body: #f8fafc;
+            --primary: #6366f1; /* Indigo 500 */
+            --primary-dark: #4338ca;
+            --secondary: #0f172a;
+            
+            --accent-bg: #e0e7ff;
+            --border-color: #cbd5e1;
+            
+            --text-main: #334155;
+            --text-light: #64748b;
+            
+            --radius: 12px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            /* Fondo de papel milimetrado sutil */
+            background-image: 
+                linear-gradient(#e2e8f0 1px, transparent 1px),
+                linear-gradient(90deg, #e2e8f0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        h1, h2, h3, h4 { 
+            font-family: 'Outfit', sans-serif; 
+            color: var(--secondary); 
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        header { text-align: center; margin-bottom: 3rem; }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* PANEL DE CONTROL (SELECTOR) */
+        .control-panel {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .control-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .select-wrapper {
+            position: relative;
+        }
+
+        /* Select personalizado para reemplazar Tailwind */
+        select {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            padding-right: 2.5rem;
+            font-size: 1rem;
+            font-family: inherit;
+            color: var(--text-main);
+            background-color: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            appearance: none; /* Quitar flecha por defecto */
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: white;
+        }
+
+        /* Flecha personalizada */
+        .select-arrow {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+
+        /* CONTENEDOR DEL EJERCICIO */
+        #exerciseContainer {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        #exerciseContainer.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hidden { display: none; }
+
+        /* SECCIÓN ENUNCIADO */
+        .statement-section { margin-bottom: 3rem; }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .badge-tag {
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+
+        .statement-card {
+            background: #eef2ff; /* Indigo 50 */
+            border-left: 5px solid var(--primary);
+            padding: 2rem;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            box-shadow: var(--shadow);
+        }
+
+        /* PASOS (STEPS) */
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .step-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .step-header {
+            background: #f8fafc;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .step-title {
+            font-weight: 700;
+            color: var(--secondary);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .step-badge {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .step-content {
+            padding: 1.5rem;
+            color: var(--text-main);
+        }
+
+        /* CONCLUSIÓN */
+        .conclusion-card {
+            margin-top: 3rem;
+            background: #f0fdf4; /* Green 50 */
+            border: 1px solid #bbf7d0;
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .conclusion-label {
+            display: block;
+            color: #15803d; /* Green 700 */
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .conclusion-text {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        /* Estilos generales para listas dentro de los pasos */
+        ul { margin-left: 1.5rem; margin-bottom: 1rem; list-style: disc; }
+        li { margin-bottom: 0.5rem; }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 2rem; }
+            .step-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        
+        <header>
+            <h1>Laboratorio de Problemas</h1>
+            <p class="subtitle">Selecciona un ejercicio para ver su resolución detallada.</p>
+        </header>
+
+        <div class="control-panel">
+            <label for="exerciseSelect" class="control-label">
+                Problemas Disponibles:
+            </label>
+            <div class="select-wrapper">
+                <select id="exerciseSelect">
+                    <option value="" disabled selected>-- Elige un problema --</option>
+                </select>
+                <div class="select-arrow">▼</div>
+            </div>
+        </div>
+
+        <div id="exerciseContainer" class="hidden">
+            
+            <section class="statement-section">
+                <div class="section-header">
+                    <span class="badge-tag">Enunciado</span>
+                    <h2 id="exTitle" style="font-size: 1.5rem; font-weight: 700;"></h2>
+                </div>
+                <div id="exStatement" class="statement-card"></div>
+            </section>
+
+            <section>
+                <div class="section-header" style="margin-bottom: 1.5rem;">
+                    <span style="font-size: 1.5rem;">💡</span>
+                    <h3 style="font-size: 1.3rem; font-weight: 700;">Resolución Paso a Paso</h3>
+                </div>
+                
+                <div id="exSteps" class="steps-container"></div>
+                
+                <div id="exConclusion" class="conclusion-card hidden"></div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <script>
+        // =================================================================
+        // DATOS DE EJEMPLO (Sin cambios en la lógica de datos)
+        // =================================================================
+        const ejercicios = [
+  {
+    "id": "binomial_dados_10_exactamente_3_seises",
+    "title": "Binomial (lanzamiento de dados)",
+    "statement": "Se lanza un dado equilibrado $n=10$ veces. Sea $X$ el número de veces que sale un seis. Calcula la probabilidad de que salga exactamente 3 veces: $P(X=3)$.",
+    "steps": [
+      {
+        "title": "Paso 1: Identificar la distribución binomial",
+        "content": "<p>Cada lanzamiento es un experimento de Bernoulli con:</p><ul><li>$n=10$</li><li>$p=\\frac{1}{6}$ (probabilidad de sacar un seis)</li></ul><p>Por tanto, $X\\sim\\mathrm{Bin}(10,\\tfrac{1}{6})$.</p>"
+      },
+      {
+        "title": "Paso 2: Escribir la fórmula de la binomial",
+        "content": "$$P(X=k)=\\binom{n}{k}p^k(1-p)^{n-k}.$$"
+      },
+      {
+        "title": "Paso 3: Sustituir valores",
+        "content": "$$P(X=3)=\\binom{10}{3}\\left(\\frac{1}{6}\\right)^3\\left(\\frac{5}{6}\\right)^7.$$"
+      }
+    ],
+    "conclusion": "$$P(X=3)\\approx 0.155$$"
+  },
+  {
+    "id": "binomial_moneda_20_menos_8_caras",
+    "title": "Binomial (moneda equilibrada)",
+    "statement": "Se lanza una moneda equilibrada $n=20$ veces. Sea $X$ el número de caras obtenidas. Calcula la probabilidad de que salgan menos de 8 caras: $P(X<8)$.",
+    "steps": [
+      {
+        "title": "Paso 1: Definir la variable aleatoria",
+        "content": "<p>Cada lanzamiento tiene probabilidad $p=0.5$ de cara.</p><p>Luego $X\\sim\\mathrm{Bin}(20,0.5)$.</p>"
+      },
+      {
+        "title": "Paso 2: Expresar la probabilidad pedida",
+        "content": "<p>\"Menos de 8\" significa:</p>$$P(X<8)=P(X\\le 7)=\\sum_{k=0}^{7}P(X=k).$$"
+      },
+      {
+        "title": "Paso 3: Aplicar la fórmula binomial",
+        "content": "<p>Usando la expresión general:</p>$$P(X\\le 7)=\\sum_{k=0}^{7}\\binom{20}{k}(0.5)^k(0.5)^{20-k}.$$"
+      }
+    ],
+    "conclusion": "$$P(X<8)\\approx 0.131$$"
+  },
+  {
+    "id": "binomial_defectos_50_0_04_al_menos_3",
+    "title": "Binomial (piezas defectuosas)",
+    "statement": "Un $4\\%$ de las piezas fabricadas es defectuoso. Se seleccionan $n=50$ piezas al azar. Sea $X$ el número de defectuosas. Calcula la probabilidad de que haya al menos 3 defectuosas: $P(X\\ge 3)$.",
+    "steps": [
+      {
+        "title": "Paso 1: Modelo binomial",
+        "content": "<p>Cada pieza puede ser defectuosa con probabilidad $p=0.04$.</p><p>Por tanto, $X\\sim\\mathrm{Bin}(50,0.04)$.</p>"
+      },
+      {
+        "title": "Paso 2: Usar el complemento",
+        "content": "<p>Es más sencillo calcular el complemento:</p>$$P(X\\ge 3)=1-P(X\\le 2).$$"
+      },
+      {
+        "title": "Paso 3: Calcular las probabilidades pequeñas",
+        "content": "$$P(X\\le 2)=P(0)+P(1)+P(2)$$<p>donde:</p>$$P(k)=\\binom{50}{k}(0.04)^k(0.96)^{50-k}.$$"
+      }
+    ],
+    "conclusion": "$$P(X\\ge 3)\\approx 0.239$$"
+  },
+  {
+    "id": "binomial_examen_30_0_7_entre_18_24",
+    "title": "Binomial (resultados de un examen)",
+    "statement": "Un estudiante tiene probabilidad $0.7$ de acertar una pregunta tipo test. El examen tiene $n=30$ preguntas. Sea $X$ el número de respuestas correctas. Calcula $P(18\\le X\\le 24)$.",
+    "steps": [
+      {
+        "title": "Paso 1: Identificar el modelo",
+        "content": "<p>$X\\sim\\mathrm{Bin}(30,0.7)$.</p>"
+      },
+      {
+        "title": "Paso 2: Expresar la probabilidad como suma",
+        "content": "$$P(18\\le X\\le 24)=\\sum_{k=18}^{24}P(X=k).$$"
+      },
+      {
+        "title": "Paso 3: Aplicar la fórmula binomial",
+        "content": "<p>Usamos:</p>$$P(X=k)=\\binom{30}{k}(0.7)^k(0.3)^{30-k}.$$"
+      }
+    ],
+    "conclusion": "$$P(18\\le X\\le 24)\\approx 0.609$$"
+  },
+  {
+    "id": "binomial_publicidad_100_0_15_exactamente_20",
+    "title": "Binomial (campaña publicitaria)",
+    "statement": "El $15\\%$ de los usuarios hace clic en un anuncio. Se muestran $n=100$ anuncios. Sea $X$ el número de clics. Calcula la probabilidad de obtener exactamente 20 clics.",
+    "steps": [
+      {
+        "title": "Paso 1: Definir la variable aleatoria",
+        "content": "<p>$X\\sim\\mathrm{Bin}(100,0.15)$.</p>"
+      },
+      {
+        "title": "Paso 2: Aplicar la fórmula binomial",
+        "content": "$$P(X=20)=\\binom{100}{20}(0.15)^{20}(0.85)^{80}.$$"
+      },
+      {
+        "title": "Paso 3: Interpretación",
+        "content": "<p>Este valor representa la probabilidad exacta de obtener 20 clics en 100 anuncios mostrados.</p>"
+      }
+    ],
+    "conclusion": "$$P(X=20)\\approx 0.041$$"
+  },
+  {
+    "id": "binomial_encuesta_12_0_4_al_menos_1",
+    "title": "Binomial (al menos un éxito)",
+    "statement": "La probabilidad de que una persona responda una encuesta es $0.4$. Se llama a $n=12$ personas. Sea $X$ el número de respuestas obtenidas. Calcula la probabilidad de que al menos una persona responda.",
+    "steps": [
+      {
+        "title": "Paso 1: Identificar la binomial",
+        "content": "<p>$X\\sim\\mathrm{Bin}(12,0.4)$.</p>"
+      },
+      {
+        "title": "Paso 2: Usar el complemento",
+        "content": "<p>\"Al menos una\" es el complemento de \"ninguna\":</p>$$P(X\\ge 1)=1-P(X=0).$$"
+      },
+      {
+        "title": "Paso 3: Calcular la probabilidad",
+        "content": "$$P(X=0)=\\binom{12}{0}(0.4)^0(0.6)^{12}=(0.6)^{12}.$$"
+      }
+    ],
+    "conclusion": "$$P(X\\ge 1)\\approx 0.998$$"
+  },
+  {
+    "id": "binomial_control_8_0_25_mas_que_3",
+    "title": "Binomial (cola derecha)",
+    "statement": "Un sistema falla con probabilidad $0.25$ en cada intento. Se realizan $n=8$ intentos independientes. Sea $X$ el número de fallos. Calcula la probabilidad de que haya más de 3 fallos: $P(X>3)$.",
+    "steps": [
+      {
+        "title": "Paso 1: Modelo binomial",
+        "content": "<p>$X\\sim\\mathrm{Bin}(8,0.25)$.</p>"
+      },
+      {
+        "title": "Paso 2: Expresar la probabilidad pedida",
+        "content": "$$P(X>3)=P(X\\ge 4)=1-P(X\\le 3).$$"
+      },
+      {
+        "title": "Paso 3: Calcular con la fórmula binomial",
+        "content": "<p>Se calcula:</p>$$P(X\\le 3)=\\sum_{k=0}^{3}\\binom{8}{k}(0.25)^k(0.75)^{8-k}.$$"
+      }
+    ],
+    "conclusion": "$$P(X>3)\\approx 0.113$$"
+  },
+  {
+    "id": "normal_tipificada_alturas_170_6_menor_160",
+    "title": "Normal tipificada (alturas)",
+    "statement": "Las alturas de un grupo de estudiantes se distribuyen como $X\\sim N(170,6)$. Aproxima la probabilidad de que un estudiante mida menos de $160$ cm: $P(X<160)$.",
+    "steps": [
+      {
+        "title": "Paso 1: Identificar la distribución y los datos",
+        "content": "<p>Tenemos $X\\sim N(\\mu,\\sigma)$ con:</p><ul><li>$\\mu=170$</li><li>$\\sigma=6$</li><li>Queremos $P(X<160)$.</li></ul>"
+      },
+      {
+        "title": "Paso 2: Tipificar (pasar a la normal estándar)",
+        "content": "<p>Definimos $Z=\\dfrac{X-\\mu}{\\sigma}\\sim N(0,1)$.</p><p>Para $x=160$:</p>$$z=\\frac{160-170}{6}=\\frac{-10}{6}\\approx -1.667.$$"
+      },
+      {
+        "title": "Paso 3: Calcular con la tabla $\\Phi$",
+        "content": "<p>Entonces:</p>$$P(X<160)=P\\left(Z<-1.667\\right)=\\Phi(-1.667)=1-\\Phi(1.667).$$<p>Con tabla/calculadora: $\\Phi(1.667)\\approx 0.952$.</p>$$1-0.952=0.048.$$"
+      }
+    ],
+    "conclusion": "$$P(X<160)\\approx 0.048\\ (4.8\\%)$$"
+  },
+  {
+    "id": "normal_tipificada_pesos_72_8_entre_60_80",
+    "title": "Normal (intervalo con tipificación)",
+    "statement": "El peso de un tipo de paquete se distribuye como $X\\sim N(72,8)$. Calcula $P(60\\le X\\le 80)$.",
+    "steps": [
+      {
+        "title": "Paso 1: Datos del problema",
+        "content": "<p>$X\\sim N(\\mu,\\sigma)$ con $\\mu=72$ y $\\sigma=8$.</p><p>Buscamos $P(60\\le X\\le 80)$.</p>"
+      },
+      {
+        "title": "Paso 2: Tipificar los extremos",
+        "content": "<p>Tipificamos $Z=\\dfrac{X-72}{8}$.</p>$$z_1=\\frac{60-72}{8}=-1.5,\\qquad z_2=\\frac{80-72}{8}=1.$$"
+      },
+      {
+        "title": "Paso 3: Usar $\\Phi$ y restar",
+        "content": "<p>Entonces:</p>$$P(60\\le X\\le 80)=P(-1.5\\le Z\\le 1)=\\Phi(1)-\\Phi(-1.5).$$<p>Valores típicos: $\\Phi(1)\\approx 0.8413$ y $\\Phi(-1.5)\\approx 0.0668$.</p>$$0.8413-0.0668=0.7745.$$"
+      }
+    ],
+    "conclusion": "$$P(60\\le X\\le 80)\\approx 0.7745$$"
+  },
+  {
+    "id": "normal_tipificada_tiempos_25_4_mayor_33",
+    "title": "Normal (cola derecha)",
+    "statement": "El tiempo de espera en una consulta se modeliza como $X\\sim N(25,4)$. Calcula $P(X>33)$.",
+    "steps": [
+      {
+        "title": "Paso 1: Identificar datos",
+        "content": "<p>$\\mu=25$, $\\sigma=4$ y queremos $P(X>33)$.</p>"
+      },
+      {
+        "title": "Paso 2: Tipificar el valor 33",
+        "content": "$$z=\\frac{33-25}{4}=\\frac{8}{4}=2.$$"
+      },
+      {
+        "title": "Paso 3: Convertir a cola derecha con $\\Phi$",
+        "content": "<p>Como es cola derecha:</p>$$P(X>33)=P(Z>2)=1-\\Phi(2).$$<p>Con tabla/calculadora: $\\Phi(2)\\approx 0.9772$.</p>$$1-0.9772=0.0228.$$"
+      }
+    ],
+    "conclusion": "$$P(X>33)\\approx 0.0228\\ (2.28\\%)$$"
+  },
+  {
+    "id": "normal_tipificada_notas_5_1_2_percentil_90",
+    "title": "Percentil en una normal (umbral de nota)",
+    "statement": "Las notas de un examen se distribuyen como $X\\sim N(5,1.2)$. ¿Qué nota $c$ hay que sacar para estar en el 10\\% superior? (Es decir, encontrar $c$ tal que $P(X\\ge c)=0.10$).",
+    "steps": [
+      {
+        "title": "Paso 1: Plantear el percentil",
+        "content": "<p>Queremos el punto de corte $c$ con:</p>$$P(X\\ge c)=0.10\\quad\\Longleftrightarrow\\quad P(X\\le c)=0.90.$$"
+      },
+      {
+        "title": "Paso 2: Pasar a $Z$ y usar el valor crítico",
+        "content": "<p>Tipificamos $Z=\\dfrac{X-\\mu}{\\sigma}$, con $\\mu=5$ y $\\sigma=1.2$.</p><p>Necesitamos $z$ tal que $\\Phi(z)=0.90$.</p><p>De tablas: $z_{0.90}\\approx 1.282$.</p>"
+      },
+      {
+        "title": "Paso 3: Deshacer la tipificación",
+        "content": "<p>Si $\\dfrac{c-5}{1.2}=1.282$, entonces:</p>$$c=5+1.2\\cdot 1.282=5+1.538\\approx 6.54.$$"
+      }
+    ],
+    "conclusion": "$$c\\approx 6.54$$"
+  },
+  {
+    "id": "normal_tipificada_fabricacion_10_0_2_entre_9_7_10_3",
+    "title": "Probabilidad de estar dentro de tolerancia",
+    "statement": "El diámetro de una pieza sigue $X\\sim N(10,0.2)$. Calcula la probabilidad de que esté dentro de la tolerancia $[9.7,10.3]$.",
+    "steps": [
+      {
+        "title": "Paso 1: Datos y probabilidad pedida",
+        "content": "<p>$\\mu=10$, $\\sigma=0.2$.</p><p>Buscamos $P(9.7\\le X\\le 10.3)$.</p>"
+      },
+      {
+        "title": "Paso 2: Tipificar extremos",
+        "content": "$$z_1=\\frac{9.7-10}{0.2}=\\frac{-0.3}{0.2}=-1.5,\\qquad z_2=\\frac{10.3-10}{0.2}=\\frac{0.3}{0.2}=1.5.$$"
+      },
+      {
+        "title": "Paso 3: Calcular con $\\Phi$",
+        "content": "$$P(9.7\\le X\\le 10.3)=\\Phi(1.5)-\\Phi(-1.5).$$<p>Con valores típicos: $\\Phi(1.5)\\approx 0.9332$ y $\\Phi(-1.5)\\approx 0.0668$.</p>$$0.9332-0.0668=0.8664.$$"
+      }
+    ],
+    "conclusion": "$$P(9.7\\le X\\le 10.3)\\approx 0.8664$$"
+  },
+  {
+    "id": "normal_tipificada_errores_0_0_03_mayor_abs_0_05",
+    "title": "Error de medida (valor absoluto)",
+    "statement": "El error de una medición se modeliza como $X\\sim N(0,0.03)$. Calcula $P(|X|>0.05)$.",
+    "steps": [
+      {
+        "title": "Paso 1: Interpretar el valor absoluto",
+        "content": "<p>$|X|>0.05$ significa $X<-0.05$ o $X>0.05$.</p><p>Por simetría (media 0):</p>$$P(|X|>0.05)=2\\,P(X>0.05).$$"
+      },
+      {
+        "title": "Paso 2: Tipificar 0.05",
+        "content": "<p>Con $\\mu=0$, $\\sigma=0.03$:</p>$$z=\\frac{0.05-0}{0.03}=\\frac{0.05}{0.03}\\approx 1.667.$$"
+      },
+      {
+        "title": "Paso 3: Calcular cola derecha con $\\Phi$",
+        "content": "$$P(X>0.05)=P(Z>1.667)=1-\\Phi(1.667).$$<p>Con tabla/calculadora: $\\Phi(1.667)\\approx 0.952$.</p>$$P(X>0.05)\\approx 1-0.952=0.048.$$<p>Entonces:</p>$$P(|X|>0.05)\\approx 2\\cdot 0.048=0.096.$$"
+      }
+    ],
+    "conclusion": "$$P(|X|>0.05)\\approx 0.096\\ (9.6\\%)$$"
+  },
+  {
+    "id": "normal_tipificada_consumo_200_30_menor_150",
+    "title": "Normal (cola izquierda, caso práctico)",
+    "statement": "El consumo diario de agua (en litros) en un hogar sigue $X\\sim N(200,30)$. Calcula $P(X\\le 150)$.",
+    "steps": [
+      {
+        "title": "Paso 1: Datos",
+        "content": "<p>$\\mu=200$, $\\sigma=30$, queremos $P(X\\le 150)$.</p>"
+      },
+      {
+        "title": "Paso 2: Tipificar",
+        "content": "$$z=\\frac{150-200}{30}=\\frac{-50}{30}\\approx -1.667.$$"
+      },
+      {
+        "title": "Paso 3: Usar $\\Phi$",
+        "content": "$$P(X\\le 150)=\\Phi(-1.667)=1-\\Phi(1.667).$$<p>Con $\\Phi(1.667)\\approx 0.952$:</p>$$1-0.952=0.048.$$"
+      }
+    ],
+    "conclusion": "$$P(X\\le 150)\\approx 0.048$$"
+  },
+  {
+    "id": "normal_tipificada_reparto_45_7_mas_entre_40_55",
+    "title": "Normal (probabilidad entre dos valores)",
+    "statement": "El tiempo de reparto (en minutos) se distribuye como $X\\sim N(45,7)$. Calcula $P(40\\le X\\le 55)$.",
+    "steps": [
+      {
+        "title": "Paso 1: Datos",
+        "content": "<p>$\\mu=45$, $\\sigma=7$ y queremos $P(40\\le X\\le 55)$.</p>"
+      },
+      {
+        "title": "Paso 2: Tipificar límites",
+        "content": "$$z_1=\\frac{40-45}{7}=\\frac{-5}{7}\\approx -0.714,\\qquad z_2=\\frac{55-45}{7}=\\frac{10}{7}\\approx 1.429.$$"
+      },
+      {
+        "title": "Paso 3: Calcular con $\\Phi$",
+        "content": "$$P(40\\le X\\le 55)=\\Phi(1.429)-\\Phi(-0.714).$$<p>Con tabla/calculadora: $\\Phi(1.429)\\approx 0.923$ y $\\Phi(-0.714)\\approx 0.237$.</p>$$0.923-0.237=0.686.$$"
+      }
+    ],
+    "conclusion": "$$P(40\\le X\\le 55)\\approx 0.686$$"
+  },
+  {
+    "id": "normal_tipificada_z_directa_intervalo",
+    "title": "Normal tipificada (trabajar directamente con Z)",
+    "statement": "Sea $Z\\sim N(0,1)$. Calcula $P(-0.8\\le Z\\le 1.25)$.",
+    "steps": [
+      {
+        "title": "Paso 1: Identificar que ya es normal estándar",
+        "content": "<p>Como $Z\\sim N(0,1)$, no hace falta tipificar. Solo usamos $\\Phi$.</p>"
+      },
+      {
+        "title": "Paso 2: Expresar como diferencia de acumuladas",
+        "content": "$$P(-0.8\\le Z\\le 1.25)=\\Phi(1.25)-\\Phi(-0.8).$$"
+      },
+      {
+        "title": "Paso 3: Calcular con tabla/calculadora",
+        "content": "<p>Valores típicos: $\\Phi(1.25)\\approx 0.8944$ y $\\Phi(-0.8)\\approx 0.2119$.</p>$$0.8944-0.2119=0.6825.$$"
+      }
+    ],
+    "conclusion": "$$P(-0.8\\le Z\\le 1.25)\\approx 0.6825$$"
+  },
+  {
+    "id": "aprox_binomial_normal_control_calidad_200",
+    "title": "Aproximación Binomial→Normal (control de calidad)",
+    "statement": "En una fábrica, el $2\\%$ de las piezas sale defectuosa. Se inspeccionan $n=200$ piezas. Sea $X$ el número de defectuosas. Aproxima mediante la normal la probabilidad de que haya como mucho 6 defectuosas: $P(X\\le 6)$.",
+    "steps": [
+      {
+        "title": "Paso 1: Identificar el modelo y comprobar condiciones",
+        "content": "<p>Modelizamos $X\\sim\\mathrm{Bin}(n,p)$ con $n=200$ y $p=0.02$.</p><ul><li>$np=200\\cdot 0.02=4$</li><li>$n(1-p)=200\\cdot 0.98=196$</li></ul><p><strong>Condición:</strong> $np\\ge 5$ y $n(1-p)\\ge 5$ es la regla típica. Aquí <strong>$np=4$ no cumple del todo</strong>, así que la aproximación será <em>algo justa</em>, pero la hacemos igualmente como pide el ejercicio.</p>"
+      },
+      {
+        "title": "Paso 2: Pasar a la normal y aplicar corrección de continuidad",
+        "content": "<p>Aproximamos:</p>$$X\\approx Y\\sim N(\\mu,\\sigma),\\quad \\mu=np=4,\\quad \\sigma=\\sqrt{np(1-p)}=\\sqrt{200\\cdot 0.02\\cdot 0.98}=\\sqrt{3.92}\\approx 1.980.$$<p>Como es una acumulada:</p>$$P(X\\le 6)\\approx P\\big(Y\\le 6+0.5\\big)=P(Y\\le 6.5).$$"
+      },
+      {
+        "title": "Paso 3: Estandarizar y calcular con $\\Phi$",
+        "content": "<p>Estandarizamos:</p>$$z=\\frac{6.5-\\mu}{\\sigma}=\\frac{6.5-4}{1.980}=\\frac{2.5}{1.980}\\approx 1.263.$$<p>Por tanto:</p>$$P(X\\le 6)\\approx \\Phi(1.263)\\approx 0.897.$$"
+      }
+    ],
+    "conclusion": "$$P(X\\le 6)\\approx 0.897$$"
+  },
+  {
+    "id": "aprox_binomial_normal_encuesta_400",
+    "title": "Aproximación Binomial→Normal (encuesta)",
+    "statement": "En una ciudad se estima que el $55\\%$ de los ciudadanos está a favor de una medida. En una encuesta de $n=400$ personas, sea $X$ el número de personas a favor. Aproxima con la normal la probabilidad de que haya al menos 230 a favor: $P(X\\ge 230)$.",
+    "steps": [
+      {
+        "title": "Paso 1: Identificar el modelo y comprobar condiciones",
+        "content": "<p>$X\\sim\\mathrm{Bin}(n,p)$ con $n=400$ y $p=0.55$.</p><ul><li>$np=400\\cdot 0.55=220$</li><li>$n(1-p)=400\\cdot 0.45=180$</li></ul><p>Se cumple de sobra ($\\ge 5$), así que la aproximación es adecuada.</p>"
+      },
+      {
+        "title": "Paso 2: Pasar a la normal y aplicar corrección de continuidad",
+        "content": "<p>Aproximamos:</p>$$X\\approx Y\\sim N(\\mu,\\sigma),\\quad \\mu=np=220,\\quad \\sigma=\\sqrt{np(1-p)}=\\sqrt{400\\cdot 0.55\\cdot 0.45}=\\sqrt{99}\\approx 9.950.$$<p>Como es “al menos 230”:</p>$$P(X\\ge 230)=P(X>229)\\approx P\\big(Y\\ge 229.5\\big).$$"
+      },
+      {
+        "title": "Paso 3: Estandarizar y calcular con $\\Phi$",
+        "content": "<p>Estandarizamos el límite:</p>$$z=\\frac{229.5-220}{9.950}=\\frac{9.5}{9.950}\\approx 0.955.$$<p>Entonces:</p>$$P(Y\\ge 229.5)=1-\\Phi(0.955)\\approx 1-0.830=0.170.$$"
+      }
+    ],
+    "conclusion": "$$P(X\\ge 230)\\approx 0.170$$"
+  },
+  {
+    "id": "aprox_binomial_normal_lanzamientos_moneda_500",
+    "title": "Aproximación Binomial→Normal (moneda)",
+    "statement": "Se lanza una moneda equilibrada $n=500$ veces. Sea $X$ el número de caras. Aproxima con la normal la probabilidad de que el número de caras esté entre 230 y 270 (ambos incluidos): $P(230\\le X\\le 270)$.",
+    "steps": [
+      {
+        "title": "Paso 1: Identificar el modelo y comprobar condiciones",
+        "content": "<p>$X\\sim\\mathrm{Bin}(n,p)$ con $n=500$ y $p=0.5$.</p><ul><li>$np=500\\cdot 0.5=250$</li><li>$n(1-p)=500\\cdot 0.5=250$</li></ul><p>Se cumple perfectamente, la aproximación es muy buena.</p>"
+      },
+      {
+        "title": "Paso 2: Pasar a la normal y aplicar corrección de continuidad",
+        "content": "<p>Aproximamos:</p>$$X\\approx Y\\sim N(\\mu,\\sigma),\\quad \\mu=np=250,\\quad \\sigma=\\sqrt{np(1-p)}=\\sqrt{500\\cdot 0.5\\cdot 0.5}=\\sqrt{125}\\approx 11.180.$$<p>Al ser intervalo con extremos incluidos:</p>$$P(230\\le X\\le 270)\\approx P(229.5\\le Y\\le 270.5).$$"
+      },
+      {
+        "title": "Paso 3: Estandarizar y calcular con $\\Phi$",
+        "content": "<p>Estandarizamos ambos límites:</p>$$z_1=\\frac{229.5-250}{11.180}=\\frac{-20.5}{11.180}\\approx -1.834,\\qquad z_2=\\frac{270.5-250}{11.180}=\\frac{20.5}{11.180}\\approx 1.834.$$<p>Entonces:</p>$$P(229.5\\le Y\\le 270.5)=\\Phi(1.834)-\\Phi(-1.834).$$<p>Usando simetría $\\Phi(-z)=1-\\Phi(z)$:</p>$$\\Phi(1.834)-\\Phi(-1.834)=\\Phi(1.834)-\\big(1-\\Phi(1.834)\\big)=2\\Phi(1.834)-1.$$<p>Con tabla/calculadora: $\\Phi(1.834)\\approx 0.967$.</p>$$2\\cdot 0.967-1=0.934.$$"
+      }
+    ],
+    "conclusion": "$$P(230\\le X\\le 270)\\approx 0.934$$"
+  },
+  {
+    "id": "aprox_binomial_normal_medicina_150",
+    "title": "Aproximación Binomial→Normal (sensibilidad de test)",
+    "statement": "Un test médico detecta correctamente una enfermedad con probabilidad $p=0.9$. Se realizan $n=150$ tests independientes. Sea $X$ el número de detecciones correctas. Aproxima con la normal la probabilidad de que haya menos de 130 detecciones correctas: $P(X<130)$.",
+    "steps": [
+      {
+        "title": "Paso 1: Identificar el modelo y comprobar condiciones",
+        "content": "<p>$X\\sim\\mathrm{Bin}(n,p)$ con $n=150$ y $p=0.9$.</p><ul><li>$np=150\\cdot 0.9=135$</li><li>$n(1-p)=150\\cdot 0.1=15$</li></ul><p>Ambas cantidades son mayores que 5, por tanto la aproximación es válida.</p>"
+      },
+      {
+        "title": "Paso 2: Pasar a la normal y aplicar corrección de continuidad",
+        "content": "<p>Aproximamos:</p>$$X\\approx Y\\sim N(\\mu,\\sigma),\\quad \\mu=np=135,\\quad \\sigma=\\sqrt{np(1-p)}=\\sqrt{150\\cdot 0.9\\cdot 0.1}=\\sqrt{13.5}\\approx 3.674.$$<p>“Menos de 130” significa $X\\le 129$ y con continuidad:</p>$$P(X<130)=P(X\\le 129)\\approx P(Y\\le 129.5).$$"
+      },
+      {
+        "title": "Paso 3: Estandarizar y calcular con $\\Phi$",
+        "content": "<p>Estandarizamos:</p>$$z=\\frac{129.5-135}{3.674}=\\frac{-5.5}{3.674}\\approx -1.497.$$<p>Entonces:</p>$$P(Y\\le 129.5)=\\Phi(-1.497)=1-\\Phi(1.497).$$<p>Con tabla/calculadora: $\\Phi(1.497)\\approx 0.933$.</p>$$1-0.933=0.067.$$"
+      }
+    ],
+    "conclusion": "$$P(X<130)\\approx 0.067$$"
+  },
+  {
+    "id": "aprox_binomial_normal_conexion_120_0_3",
+    "title": "Aproximación Binomial→Normal (fallos de conexión)",
+    "statement": "Una red tiene probabilidad $p=0.3$ de que una conexión falle. Se observan $n=120$ conexiones independientes. Sea $X$ el número de fallos. Aproxima con la normal la probabilidad de que haya entre 30 y 45 fallos (incluidos): $P(30\\le X\\le 45)$.",
+    "steps": [
+      {
+        "title": "Paso 1: Identificar el modelo y comprobar condiciones",
+        "content": "<p>$X\\sim\\mathrm{Bin}(n,p)$ con $n=120$ y $p=0.3$.</p><ul><li>$np=120\\cdot 0.3=36$</li><li>$n(1-p)=120\\cdot 0.7=84$</li></ul><p>Se cumple con holgura, la aproximación es adecuada.</p>"
+      },
+      {
+        "title": "Paso 2: Pasar a la normal y aplicar corrección de continuidad",
+        "content": "<p>Aproximamos:</p>$$X\\approx Y\\sim N(\\mu,\\sigma),\\quad \\mu=np=36,\\quad \\sigma=\\sqrt{np(1-p)}=\\sqrt{120\\cdot 0.3\\cdot 0.7}=\\sqrt{25.2}\\approx 5.020.$$<p>Intervalo con extremos incluidos:</p>$$P(30\\le X\\le 45)\\approx P(29.5\\le Y\\le 45.5).$$"
+      },
+      {
+        "title": "Paso 3: Estandarizar y calcular con $\\Phi$",
+        "content": "<p>Estandarizamos:</p>$$z_1=\\frac{29.5-36}{5.020}=\\frac{-6.5}{5.020}\\approx -1.295,\\qquad z_2=\\frac{45.5-36}{5.020}=\\frac{9.5}{5.020}\\approx 1.892.$$<p>Entonces:</p>$$P(29.5\\le Y\\le 45.5)=\\Phi(1.892)-\\Phi(-1.295).$$<p>Con tabla/calculadora: $\\Phi(1.892)\\approx 0.971$, $\\Phi(-1.295)\\approx 0.098$.</p>$$0.971-0.098=0.873.$$"
+      }
+    ],
+    "conclusion": "$$P(30\\le X\\le 45)\\approx 0.873$$"
+  }
+]
+;
+
+        // =================================================================
+        // LÓGICA DE RENDERIZADO (Actualizada para usar clases semánticas)
+        // =================================================================
+        const selectElement = document.getElementById('exerciseSelect');
+        const container = document.getElementById('exerciseContainer');
+        const exTitle = document.getElementById('exTitle');
+        const exStatement = document.getElementById('exStatement');
+        const exSteps = document.getElementById('exSteps');
+        const exConclusion = document.getElementById('exConclusion');
+
+        // Llenar select
+        ejercicios.forEach(ex => {
+            const option = document.createElement('option');
+            option.value = ex.id;
+            option.textContent = ex.title;
+            selectElement.appendChild(option);
+        });
+
+        // Cambio de opción
+        selectElement.addEventListener('change', (e) => {
+            const selectedId = e.target.value;
+            const exercise = ejercicios.find(ex => ex.id === selectedId);
+            if (exercise) renderExercise(exercise);
+        });
+
+        function renderExercise(exercise) {
+            // Reiniciar animación css pura
+            container.classList.remove('fade-in');
+            void container.offsetWidth; // Trigger reflow
+            container.classList.add('fade-in');
+            container.classList.remove('hidden');
+
+            exTitle.innerHTML = exercise.title;
+            exStatement.innerHTML = exercise.statement;
+            exSteps.innerHTML = '';
+
+            exercise.steps.forEach((step, index) => {
+                // AQUÍ USAMOS LAS NUEVAS CLASES CSS EN LUGAR DE TAILWIND
+                const stepHTML = `
+                    <div class="step-card">
+                        <div class="step-header">
+                            <h4 class="step-title">${step.title}</h4>
+                            <span class="step-badge">Paso ${index + 1}</span>
+                        </div>
+                        <div class="step-content">
+                            ${step.content}
+                        </div>
+                    </div>
+                `;
+                exSteps.insertAdjacentHTML('beforeend', stepHTML);
+            });
+
+            if (exercise.conclusion) {
+                exConclusion.innerHTML = `
+                    <span class="conclusion-label">Solución Final</span>
+                    <div class="conclusion-text">${exercise.conclusion}</div>
+                `;
+                exConclusion.classList.remove('hidden');
+            } else {
+                exConclusion.classList.add('hidden');
+            }
+
+            // REPROCESAR MATHJAX
+            if (window.MathJax) {
+                MathJax.typesetPromise([container]).catch(err => console.log(err));
+            }
+        }
+    </script>
+
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

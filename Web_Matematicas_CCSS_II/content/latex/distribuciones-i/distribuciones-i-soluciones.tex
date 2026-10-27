@@ -1,0 +1,58 @@
+\documentclass[11pt]{article}
+\input{estilo.tex}
+\hypersetup{pdftitle={Distribuciones I - Soluciones revisadas}}
+\begin{document}
+\section*{Ejercicio 1: baloncesto y binomial}
+Soluciones revisadas a partir de las incluidas en F003. Se conserva el modelo binomial del original, con independencia entre ensayos y probabilidad constante. El tamaño de una población finita no está especificado.
+\[X\sim B(6,0{,}25),\qquad P(X=k)=\binom6k(0{,}25)^k(0{,}75)^{6-k}.\]
+\subsection*{(a) Ninguno practica baloncesto}
+\[P(X=0)=(0{,}75)^6=\boxed{0{,}177978515625}\approx0{,}1780.\]
+\subsection*{(b) Al menos cinco}
+\begin{align*}
+P(X=5)&=6(0{,}25)^5(0{,}75)=0{,}00439453125,\\
+P(X=6)&=(0{,}25)^6=0{,}000244140625.
+\end{align*}
+\[\boxed{P(X\geq5)=0{,}004638671875}.\]
+El original suma los términos ya redondeados y da 0,004644. Se evita ese redondeo intermedio: a cuatro cifras significativas, el resultado es 0,004639.
+\subsection*{(c) Al menos uno}
+\[P(X\geq1)=1-(0{,}75)^6=\boxed{0{,}822021484375}.\]
+A cuatro decimales, 0,8220. Se mantiene la relación exacta de complemento con el apartado (a).
+\clearpage
+\section*{Ejercicio 2: normal y umbral}
+Se interpreta $N(85,20)$ como en los cálculos originales: media 85 y desviación típica 20. Sea $Z=(X-85)/20$ y $\Phi$ la distribución acumulada de $N(0,1)$.
+\subsection*{(a) Entre 80 y 120}
+\[P(80\leq X\leq120)=\Phi(1{,}75)-\Phi(-0{,}25)\approx0{,}55864717.\]
+El porcentaje es $\boxed{55{,}864717\%}\approx55{,}86\%$. La tabla original da 0,5586, coherente con su precisión.
+\subsection*{(b) Menos de 75}
+\[P(X<75)=\Phi(-0{,}5)\approx\boxed{0{,}30853754}\approx0{,}3085.\]
+\subsection*{(c) Bonificación}
+Si el 80,23\% inferior no la recibe, el umbral satisface
+\[P(X\leq x)=0{,}8023.\]
+Con cálculo sin redondeo intermedio,
+\[z=\Phi^{-1}(0{,}8023)\approx0{,}84986526,\qquad
+\boxed{x\approx101{,}99731\text{ puntos}}.\]
+La tabla redondea $z$ a 0,85. Con esa aproximación,
+\[x\approx85+20\cdot0{,}85=85+17=\boxed{102\text{ puntos}}.\]
+\textbf{Corrección M03:} se conserva el resultado aproximado 102, pero se corrige la igualdad del original que mezcla 0,85, 0,8 y 16,8. El producto correcto es $20\cdot0{,}85=17$; todas las igualdades del desarrollo deben usar el mismo valor.
+\clearpage
+\section*{Ejercicio 3: proyectos rentables}
+Se conserva el modelo de resultados independientes con probabilidad constante:
+\[X\sim B(50,0{,}5),\quad\mu=25,\quad\sigma=\sqrt{12{,}5}.\]
+El objetivo incluye el caso de exactamente 30 proyectos rentables.
+\subsection*{Probabilidad binomial exacta}
+\[P(X\geq30)=\sum_{k=30}^{50}\binom{50}{k}(0{,}5)^{50}
+\approx\boxed{0{,}10131938}.\]
+Es aproximadamente el 10,1319\%.
+\subsection*{Aproximación normal del original}
+Aquí $np=n(1-p)=25$. Para la aproximación se introduce $Y\sim N(25,\sqrt{12{,}5})$; no se sustituye la distribución exacta de $X$ por una igualdad de modelos.
+
+Con \textbf{corrección de continuidad},
+\begin{align*}
+P(X\geq30)&\approx P(Y\geq29{,}5),\\
+z&=\frac{29{,}5-25}{\sqrt{12{,}5}}\approx1{,}27279221,\\
+P(Y\geq29{,}5)&\approx\boxed{0{,}10154589}.
+\end{align*}
+La tabla del original redondea $z$ a 1,27 y obtiene 0,1020. Es una aproximación de tabla, no el valor exacto binomial. Se conserva esa referencia identificando su precisión.
+
+La diferencia entre normal y binomial, antes de redondear, es aproximadamente 0,00022652. El modelo y los resultados son los del ejercicio, sin introducir criterios de inversión externos.
+\end{document}

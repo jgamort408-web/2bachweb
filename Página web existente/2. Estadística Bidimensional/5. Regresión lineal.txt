@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.5 Regresión Lineal</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-body: #f5f3ff;
+            --primary: #4c1d95;
+            --primary-light: #8b5cf6;
+            --secondary: #1e1b4b;
+            --accent: #d946ef; /* Magenta Neon */
+            --accent-glow: rgba(217, 70, 239, 0.4);
+            
+            --text-main: #334155;
+            --text-light: #64748b;
+            --radius: 12px;
+            --shadow: 0 10px 15px -3px rgba(76, 29, 149, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            background-image: 
+                linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; color: var(--secondary); line-height: 1.2; }
+        .container { max-width: 950px; margin: 0 auto; }
+
+        /* HEADER */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid rgba(76, 29, 149, 0.1);
+            padding-bottom: 1rem;
+        }
+        .section-num {
+            background: var(--secondary);
+            color: white;
+            font-weight: 800;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(30, 27, 75, 0.3);
+        }
+
+        /* TARJETAS */
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-top: 4px solid var(--accent); /* Magenta top border */
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        /* LAYOUT CONCEPTUAL */
+        .concept-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        /* GRÁFICO MÍNIMOS CUADRADOS */
+        .svg-residues {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1rem;
+        }
+        
+        .reg-line { stroke: var(--accent); stroke-width: 3; stroke-linecap: round; }
+        .residue-line { stroke: #ef4444; stroke-width: 1.5; stroke-dasharray: 3; }
+        .point-dot { fill: var(--secondary); }
+        .center-dot { fill: white; stroke: var(--accent); stroke-width: 2; }
+
+        /* BLOQUE MATEMÁTICO */
+        .equation-box {
+            background: var(--secondary);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.3);
+        }
+
+        .equation-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #a5b4fc;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .highlight-term { color: var(--accent); font-weight: bold; }
+
+        /* TERMINAL DE PREDICCIÓN */
+        .terminal-ui {
+            background: #1e293b;
+            border-radius: 8px;
+            padding: 1.5rem;
+            color: #38bdf8; /* Cyan text */
+            font-family: 'Courier New', monospace;
+            margin-top: 2rem;
+            border: 1px solid #334155;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+        }
+        
+        .terminal-header {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 1rem;
+        }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot-r { background: #ef4444; }
+        .dot-y { background: #f59e0b; }
+        .dot-g { background: #10b981; }
+
+        /* BARRA DE FIABILIDAD */
+        .reliability-bar {
+            height: 20px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .reliability-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ef4444, #f59e0b, #10b981);
+            width: 100%;
+        }
+        
+        .marker {
+            position: absolute;
+            top: -5px;
+            height: 30px;
+            width: 4px;
+            background: var(--secondary);
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .concept-grid { grid-template-columns: 1fr; }
+            body { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+
+        <div class="section-header">
+            <div class="section-num">2.5</div>
+            <h2>Regresión Lineal: Predicción</h2>
+        </div>
+
+        <section class="card">
+            <div class="concept-grid">
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">El Método de Mínimos Cuadrados</h3>
+                    <p style="margin-bottom: 1rem;">
+                        Si la correlación es fuerte, podemos dibujar una recta que pase "cerca" de todos los puntos. ¿Cuál es la mejor recta posible?
+                    </p>
+                    <p style="font-size: 0.95rem; color: var(--text-light);">
+                        La que hace mínima la suma de los cuadrados de los <strong>residuos</strong> (las distancias verticales rojas en el gráfico). Esa recta se llama <strong>Recta de Regresión de Y sobre X</strong>.
+                    </p>
+                </div>
+
+                <div class="svg-residues">
+                    <svg viewBox="0 0 200 150" width="100%">
+                        <line x1="10" y1="140" x2="190" y2="140" stroke="#94a3b8" stroke-width="1" />
+                        <line x1="10" y1="10" x2="10" y2="140" stroke="#94a3b8" stroke-width="1" />
+                        
+                        <line x1="30" y1="110" x2="30" y2="122" class="residue-line" />
+                        <circle cx="30" cy="110" r="3" class="point-dot" />
+                        
+                        <line x1="60" y1="90" x2="60" y2="104" class="residue-line" />
+                        <circle cx="60" cy="90" r="3" class="point-dot" />
+
+                        <line x1="100" y1="70" x2="100" y2="80" class="residue-line" />
+                        <circle cx="100" cy="70" r="3" class="point-dot" />
+
+                        <line x1="140" y1="65" x2="140" y2="56" class="residue-line" />
+                        <circle cx="140" cy="65" r="3" class="point-dot" />
+
+                        <line x1="10" y1="134" x2="180" y2="32" class="reg-line" />
+
+                        <circle cx="82" cy="90" r="4" class="center-dot" />
+                        <text x="90" y="85" font-size="10" fill="#d946ef" font-weight="bold">(x̄, ȳ)</text>
+                    </svg>
+                    <p style="text-align: center; font-size: 0.8rem; color: #ef4444; margin-top: 0.5rem;">Residuos (Errores)</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <div class="equation-box">
+                    <span class="equation-label">Ecuación Punto-Pendiente</span>
+                    <div style="font-size: 1.8rem; margin-bottom: 1rem;">
+                        
+                        $$y - \bar{y} = \frac{S_{xy}}{S_x^2} (x - \bar{x})$$
+                    </div>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">
+                        La recta pasa por el centro $(\bar{x}, \bar{y})$ y su pendiente es $\frac{Covarianza}{Varianza_x}$.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>Laboratorio de Predicción</h3>
+            <p>
+                Una vez calculada la recta, podemos usarla para estimar valores desconocidos.
+            </p>
+
+            <div class="terminal-ui">
+                <div class="terminal-header">
+                    <div class="dot dot-r"></div>
+                    <div class="dot dot-y"></div>
+                    <div class="dot dot-g"></div>
+                </div>
+                <div>
+                    <span style="color: #94a3b8;">// 1. Modelo Calculado (Ejemplo)</span><br>
+                    Recta: <span style="color: #d946ef;">y - 6 = 0.8 (x - 5)</span><br>
+                    Despejando: <span style="color: #d946ef;">y = 0.8x + 2</span><br><br>
+                    
+                    <span style="color: #94a3b8;">// 2. Predicción (Interpolación)</span><br>
+                    > Input: ¿Qué valor de Y esperamos si X = 7?<br>
+                    > Procesando: y = 0.8(7) + 2<br>
+                    > Procesando: y = 5.6 + 2<br>
+                    <span style="color: #10b981; font-weight: bold;">> Output: y = 7.6</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="card" style="border-top-color: var(--secondary);">
+            <h3 style="margin-bottom: 1rem;">¿Es fiable mi predicción?</h3>
+            <p style="margin-bottom: 1.5rem;">
+                No todas las rectas son igual de buenas. Para medir la calidad del ajuste usamos el <strong>Coeficiente de Determinación ($R^2$ o $r^2$)</strong>. Es simplemente el cuadrado del coeficiente de correlación.
+            </p>
+
+            <div style="background: white; border: 1px solid #e2e8f0; padding: 2rem; border-radius: 12px; text-align: center;">
+                <div style="font-size: 2rem; font-weight: bold; color: var(--secondary); margin-bottom: 0.5rem;">
+                    $$R^2 = r^2$$
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1.5rem;">
+                    Representa el porcentaje de la variación de Y que es explicado por X.
+                </p>
+
+                <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: bold; color: var(--text-light);">
+                    <span>0 (Pésimo)</span>
+                    <span>1 (Perfecto)</span>
+                </div>
+                <div class="reliability-bar">
+                    <div class="reliability-fill"></div>
+                    <div class="marker" style="left: 72%;"></div>
+                </div>
+                <p style="font-size: 0.9rem;">
+                    Si $r = 0.85$, entonces $R^2 \approx 0.72$. <br>
+                    <span style="color: #10b981; font-weight: bold;">El 72% de la predicción es fiable.</span>
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

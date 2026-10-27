@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>8.4. Aproximación de la distribución binomial a la distribución normal · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+  <script type="module" src="../../../assets/js/learning/binomial-normal-explorer.js"></script>
+</head>
+<body data-page-id="t08-e04">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1>8.4. Aproximación de la distribución binomial a la distribución normal</h1>
+
+    <p data-content-role="source">Adaptación revisada del comparador original «4. Aproximación de la Binomial por la Normal». <a href="index.html">Volver al tema 8</a>.</p>
+    <nav aria-label="Contenido de esta lección"><a href="#normal">Recordatorio</a> · <a href="#condiciones">Condiciones</a> · <a href="#continuidad">Corrección de continuidad</a> · <a href="#explorador">Comparador</a> · <a href="#pendiente">Pendiente</a></nav>
+    <section id="normal" data-content-role="theory"><h2>Recordatorio de la distribución normal</h2>
+      <p>La densidad describe una curva; las probabilidades son áreas bajo ella. La acumulada da directamente la probabilidad hasta un valor. En esta lección, el segundo parámetro de la normal es la desviación típica.</p>
+      <p>\[Y\sim N(\mu,\sigma),\quad f(y)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac12((y-\mu)/\sigma)^2},\quad F(y)=\int_{-\infty}^y f(t)\,dt=\Phi\left(\frac{y-\mu}{\sigma}\right).\]</p>
+      <p>Las dos vistas de la normal estándar se muestran en el comparador. Puedes ampliar el recordatorio en <a href="03-distribucion-normal.html">8.3. Distribución normal</a>.</p>
+    </section>
+    <section id="condiciones" data-content-role="theory"><h2>Cuándo aproximar una binomial</h2>
+      <p>Primero deben cumplirse los supuestos del <a href="02-distribucion-binomial.html">modelo binomial</a>: número fijo de ensayos independientes, dos resultados y probabilidad de éxito constante.</p>
+      <p>\[X\sim\operatorname{Bin}(n,p),\qquad Y\sim N\left(np,\sqrt{np(1-p)}\right).\]</p>
+      <p>La orientación utilizada en el original es \(np\ge5\) y \(n(1-p)\ge5\). Un número grande de ensayos por sí solo no basta si \(p\) está muy cerca de 0 o de 1. Cumplir esta orientación no garantiza una precisión determinada, especialmente en probabilidades de cola.</p>
+    </section>
+    <section id="continuidad" data-content-role="method"><h2>Corrección de continuidad</h2>
+      <p>La binomial solo toma valores enteros. Para aproximar su masa en el entero \(k\), se utiliza el intervalo continuo de ancho uno centrado en él.</p>
+      <p>\[P(X=k)\approx P(k-0{,}5\le Y\le k+0{,}5).\]</p>
+      <ol><li>Calcula \(\mu=np\) y \(\sigma=\sqrt{np(1-p)}\).</li><li>Corrige los límites enteros: \(P(X\le K)\approx P(Y\le K+0{,}5)\); \(P(A\le X\le B)\approx P(A-0{,}5\le Y\le B+0{,}5)\), con \(A\le B\).</li><li>Tipifica los límites con \(z=(y-\mu)/\sigma\) y utiliza la acumulada \(\Phi\); para un intervalo, resta las dos acumuladas.</li></ol>
+    </section>
+    <section id="explorador" data-content-role="explorer" data-approx-explorer><h2>Comparador binomial-normal</h2>
+      <p data-approx-loading>Los gráficos y controles requieren JavaScript. La teoría y el método de cálculo permanecen disponibles para lectura.</p>
+      <div data-approx-controls hidden><label for="approx-n">Número de ensayos n: <output data-value="n" for="approx-n">50</output></label><input id="approx-n" name="n" type="range" min="10" max="200" step="1" value="50">
+<label for="approx-p">Probabilidad de éxito p: <output data-value="p" for="approx-p">0.5</output></label><input id="approx-p" name="p" type="range" min="0.05" max="0.95" step="0.01" value="0.5">
+<label for="approx-K">Límite acumulado K: <output data-value="K" for="approx-K">30</output></label><input id="approx-K" name="K" type="range" min="0" max="200" step="1" value="30">
+<label for="approx-mode">Modo: 0 acumulada, 1 intervalo: <output data-value="mode" for="approx-mode">0</output></label><input id="approx-mode" name="mode" type="range" min="0" max="1" step="1" value="0">
+<label for="approx-A">Extremo A: <output data-value="A" for="approx-A">20</output></label><input id="approx-A" name="A" type="range" min="0" max="200" step="1" value="20">
+<label for="approx-B">Extremo B: <output data-value="B" for="approx-B">40</output></label><input id="approx-B" name="B" type="range" min="0" max="200" step="1" value="40"></div>
+      <p data-approx-status role="status" aria-live="polite"></p>
+      <div data-approx-results></div>
+      <figure class="normal-figure"><figcaption>Masa binomial y densidad normal</figcaption><div class="normal-plot-scroll" tabindex="0" role="region" aria-label="Masa binomial y densidad normal"><div id="approx-mass"></div></div></figure>
+<figure class="normal-figure"><figcaption>Acumuladas: comparación hasta K</figcaption><div class="normal-plot-scroll" tabindex="0" role="region" aria-label="Acumuladas: comparación hasta K"><div id="approx-cdf"></div></div></figure>
+<figure class="normal-figure"><figcaption>Recordatorio: densidad normal estándar</figcaption><div class="normal-plot-scroll" tabindex="0" role="region" aria-label="Recordatorio: densidad normal estándar"><div id="approx-small-pdf"></div></div></figure>
+<figure class="normal-figure"><figcaption>Recordatorio: acumulada normal estándar</figcaption><div class="normal-plot-scroll" tabindex="0" role="region" aria-label="Recordatorio: acumulada normal estándar"><div id="approx-small-cdf"></div></div></figure>
+      <p>En la primera comparación, las barras tienen ancho uno y altura igual a su probabilidad. Las barras más intensas señalan los enteros seleccionados; el rayado representa el área normal corregida. La curva normal es discontinua.</p>
+      <p>La comparación de acumuladas siempre utiliza K, también en modo intervalo: punto lleno para la binomial en K y círculo para la normal en K + 0,5. No se interpreta como probabilidad el área bajo una acumulada.</p>
+      <p>La ventana gráfica es finita; el cálculo acumulado incluye toda la cola desde menos infinito. La normal asigna algo de probabilidad fuera del soporte binomial: incluso para el intervalo completo 0…n, la aproximación puede ser menor que uno. El error mostrado es absoluto, no relativo.</p>
+    </section>
+    <section id="pendiente" data-content-role="warning"><h2>Qué queda por incorporar</h2><p>Este original contiene teoría y un comparador, pero no un banco de ejercicios, test ni tarjetas. Los archivos originales de ejercicios resueltos y flashcards se revisarán por separado. La lección mantiene el estado editorial parcial.</p></section>
+
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

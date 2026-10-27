@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 1,
+  "mathematics": {
+    "passed": true,
+    "exercises": 4,
+    "parts": 10,
+    "independent": true,
+    "enumerationMethods": [
+      "finite equiprobable event atoms",
+      "individual student enumeration",
+      "joint dryer probabilities"
+    ],
+    "answers": {
+      "events": [
+        "3/20",
+        "9/20",
+        "1/4"
+      ],
+      "independent": true,
+      "newspapers": [
+        "63/100",
+        "8/29"
+      ],
+      "students": [
+        "126",
+        "343",
+        "67/100",
+        "49/67"
+      ],
+      "dryers": [
+        "17/30",
+        "5/13"
+      ]
+    }
+  },
+  "documents": [
+    {
+      "id": "probabilidad-i-examen",
+      "pages": 2,
+      "bytes": 33372,
+      "sha256": "fed00e0f5e60816ee0627ca3511322d09f04af8ad6dac524e197cca6a0acf62d",
+      "title": "Probabilidad I - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 9,
+      "characters": 2433
+    },
+    {
+      "id": "probabilidad-i-soluciones",
+      "pages": 4,
+      "bytes": 30582,
+      "sha256": "252dfada65bc4f4c1fd5974c33269dea082b9d56eefaa46a4db79d9c4fbb17c9",
+      "title": "Probabilidad I - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 9,
+      "characters": 2450
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-21",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/probabilidad-i/estilo.tex",
+      "sha256": "50cc939edc948413ff0e28c98a1c2b8c2aed867d17f77dde2cd5430f5da5ef4b"
+    },
+    {
+      "path": "content/latex/probabilidad-i/logo-al-andalus.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    },
+    {
+      "path": "content/latex/probabilidad-i/probabilidad-i-examen.tex",
+      "sha256": "03a5ee86db4452dd639e9a63966801729a420c562e8aa0e126c170ea1c88ae5b"
+    },
+    {
+      "path": "content/latex/probabilidad-i/probabilidad-i-soluciones.tex",
+      "sha256": "abd8ef37b183c3a3513acaf1183047b2a5a856b3964322a7298e22d2f0ece5bd"
+    },
+    {
+      "path": "content/latex/probabilidad-i/provenance.json",
+      "sha256": "08e96b9e2148f23069ec8f1d70d5df83ede120aa1a5493d46fdc743109de6ce3"
+    }
+  ]
+}

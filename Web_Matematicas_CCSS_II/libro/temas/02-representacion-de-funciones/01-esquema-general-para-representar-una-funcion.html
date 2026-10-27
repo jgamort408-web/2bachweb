@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2.1. Esquema general para representar una función · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t02-e01">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">2.1. Esquema general para representar una función</h1>
+    <p class="lead" data-content-role="introduction">Una gráfica debe resumir lo que sabes de una función. El dominio indica dónde puede existir; los límites describen sus bordes y las derivadas explican cómo varía. Vamos a reunir esas piezas antes de dibujar.</p>
+    <div class="learning-goals">
+      <p data-content-role="objectives"><strong>Al terminar podrás:</strong> organizar un estudio, construir tablas de signos, clasificar extremos y comprobar si un boceto respeta los cálculos.</p>
+      <p data-content-role="prerequisites"><strong>Antes de empezar:</strong> repasa <a href="../01-limites-y-derivadas/10-continuidad.html">continuidad</a>, <a href="../01-limites-y-derivadas/04-limites-infinitos-en-un-punto-finito.html">asíntotas verticales</a>, <a href="../01-limites-y-derivadas/05-limites-finitos-en-el-infinito.html">asíntotas horizontales</a> y <a href="../01-limites-y-derivadas/15-reglas-de-derivacion.html">reglas de derivación</a>.</p>
+    </div>
+    <nav aria-label="En esta lección" class="inline-links"><ul><li><a href="#metodo">Método</a></li><li><a href="#ejemplos">Ejemplo completo</a></li><li><a href="#explorador">Gráfica por capas</a></li><li><a href="#practica">Práctica</a></li><li><a href="#resumen">Resumen</a></li><li><a href="#tarjetas">Tarjetas</a></li></ul></nav>
+    <section id="metodo" data-content-role="method">
+      <h2>1. Un orden de trabajo que da sentido a la gráfica</h2>
+      <ol class="worked-steps">
+        <li><strong>Dominio.</strong> Busca denominadores distintos de cero, radicandos de raíces pares no negativos y argumentos de logaritmos positivos. Si hay un contexto, añade sus restricciones: por ejemplo, el tiempo puede exigir \(t\geq0\). En funciones a trozos, respeta el intervalo de cada rama.</li>
+        <li><strong>Cortes, simetría y signo.</strong> Resuelve \(f(x)=0\) dentro del dominio para hallar cortes con X; calcula \((0,f(0))\) si 0 es admisible para el corte con Y. Con dominio simétrico, comprueba si \(f(-x)=f(x)\) (par) o \(f(-x)=-f(x)\) (impar). Estudia dónde \(f\) es positiva o negativa.</li>
+        <li><strong>Continuidad y límites.</strong> Revisa uniones de ramas y puntos excluidos. Calcula los límites laterales relevantes y el comportamiento cuando \(x\to\pm\infty\), si el dominio se extiende en esas direcciones. No unas gráficamente dos ramas a través de un salto o hueco.</li>
+        <li><strong>Asíntotas.</strong> \(x=a\) es vertical si algún límite lateral es infinito. \(y=L\) es horizontal cuando el límite en alguno de los infinitos es el número finito \(L\). Cuando proceda estudiar una oblicua, busca \(y=mx+b\), con \(m\ne0\), verificando \(\lim[f(x)-(mx+b)]=0\) en el infinito correspondiente. Se pueden calcular \(m=\lim f(x)/x\) y \(b=\lim(f(x)-mx)\), si ambos límites son finitos.</li>
+        <li><strong>Derivada y monotonía.</strong> Calcula \(f\prime\) donde exista. Divide el dominio con sus ceros, sus puntos de no derivabilidad y las discontinuidades. En cada intervalo, \(f\prime>0\) garantiza crecimiento y \(f\prime<0\), decrecimiento. Si \(f\prime=0\) en todo un intervalo, la función es constante allí.</li>
+        <li><strong>Extremos.</strong> En un punto interior continuo, el cambio de crecimiento a decrecimiento indica máximo relativo; el cambio inverso, mínimo relativo. Los puntos con derivada cero son candidatos, no extremos garantizados. También revisa esquinas y extremos incluidos del dominio. Para extremos absolutos compara los valores de todos los candidatos y el comportamiento en el resto del dominio.</li>
+        <li><strong>Tabla y boceto.</strong> Sitúa cortes, extremos, huecos y asíntotas; después une cada tramo respetando signo y monotonía. Usa una tabla de valores como comprobación, no como sustituto del estudio. Ajusta la escala de los ejes e indica qué parte de la función queda fuera de la ventana.</li>
+      </ol>
+      <div class="key-idea" data-content-role="warning"><strong>Dos signos distintos:</strong> \(f(x)>0\) significa que la gráfica está sobre el eje X; \(f\prime(x)>0\) describe crecimiento. Una función puede ser positiva y estar disminuyendo.</div>
+      <details data-content-role="explanation"><summary>Ampliación: curvatura e inflexión</summary><p>Si entra en tu programación, estudia \(f\prime\prime\): positiva indica curvatura hacia arriba (forma de cuenco) y negativa hacia abajo (forma de arco). Una raíz de \(f\prime\prime\) es solo candidata a inflexión: hay que comprobar cambio de curvatura en un punto de la gráfica. Por ejemplo, \(x^4\) tiene segunda derivada cero en 0, pero no cambia de curvatura allí.</p></details>
+      <p data-content-role="explanation">En un intervalo cerrado y acotado, una función continua alcanza máximo y mínimo absolutos. En un dominio abierto o no acotado no están garantizados. En modelos económicos o sociales, expresa los resultados con sus unidades y limita las conclusiones al dominio del modelo.</p>
+    </section>
+    <section id="ejemplos" data-content-role="worked-example">
+      <h2>2. Ejemplo completo: \(f(x)=x^3-3x\)</h2>
+      <h3>Dominio, simetría, cortes y signo</h3>
+      <p>Es un polinomio: su dominio es \(\mathbb R\) y es continuo en todos sus puntos. Además, \(f(-x)=-x^3+3x=-f(x)\), así que es impar y su gráfica es simétrica respecto al origen.</p>
+      <p>Factorizamos para encontrar los cortes:</p><p>\[f(x)=x(x^2-3)=0\quad\Longrightarrow\quad x=-\sqrt3,\ 0,\ \sqrt3.\]</p>
+      <p>Los cortes son \((-\sqrt3,0)\), \((0,0)\) y \((\sqrt3,0)\). El origen es también el corte con Y.</p>
+      <div class="table-scroll"><table><caption>Signo de la función; se anula en los tres puntos que separan los intervalos</caption><thead><tr><th scope="col">Intervalo</th><th scope="col">\((-\infty,-\sqrt3)\)</th><th scope="col">\((-\sqrt3,0)\)</th><th scope="col">\((0,\sqrt3)\)</th><th scope="col">\((\sqrt3,+\infty)\)</th></tr></thead><tbody><tr><th scope="row">Signo de \(f\)</th><td>−</td><td>+</td><td>−</td><td>+</td></tr></tbody></table></div>
+      <h3>Límites y asíntotas</h3>
+      <p>Domina el término cúbico:</p><p>\[\lim_{x\to-\infty}f(x)=-\infty,\qquad\lim_{x\to+\infty}f(x)=+\infty.\]</p>
+      <p>No hay asíntotas verticales porque el límite en cualquier punto finito es el valor del polinomio. Tampoco horizontales, porque los límites en los infinitos no son finitos. No hay oblicuas: para cualquier recta, \(f(x)-(mx+b)=x^3-(3+m)x-b\) conserva el término cúbico y no tiende a cero.</p>
+      <h3>Crecimiento y extremos relativos</h3>
+      <p>\[f\prime(x)=3x^2-3=3(x-1)(x+1),\qquad f\prime(x)=0\iff x=-1\ \text{o}\ x=1.\]</p>
+      <div class="table-scroll"><table><caption>Monotonía a partir del signo de la derivada</caption><thead><tr><th scope="col">Intervalo</th><th scope="col">Signo de \(f\prime\)</th><th scope="col">Comportamiento</th></tr></thead><tbody><tr><th scope="row">\((-\infty,-1)\)</th><td>+</td><td>Crece</td></tr><tr><th scope="row">\((-1,1)\)</th><td>−</td><td>Decrece</td></tr><tr><th scope="row">\((1,+\infty)\)</th><td>+</td><td>Crece</td></tr></tbody></table></div>
+      <p>En \(x=-1\), la derivada cambia de + a −: máximo relativo \((-1,f(-1))=(-1,2)\). En \(x=1\), cambia de − a +: mínimo relativo \((1,-2)\). No son absolutos en \(\mathbb R\): la función toma valores arbitrariamente grandes y arbitrariamente negativos.</p>
+      <details data-content-role="worked-steps"><summary>Curvatura de este ejemplo</summary><p>\(f\prime\prime(x)=6x\). Es negativa en \(x<0\) y positiva en \(x>0\). Hay cambio de curvatura y la función es continua en 0: \((0,0)\) es un punto de inflexión. Su pendiente es \(f\prime(0)=-3\), por lo que inflexión no significa necesariamente tangente horizontal.</p></details>
+      <p class="key-idea" data-content-role="interpretation">El boceto debe subir desde abajo a la izquierda, pasar por el primer cero, alcanzar (−1,2), bajar atravesando el origen hasta (1,−2) y volver a subir pasando por el tercer cero. No puede invertir ese recorrido sin contradecir la tabla de la derivada.</p>
+    </section>
+    <section id="explorador" data-content-role="visualization">
+      <h2>3. Construye el boceto por capas</h2>
+      <p>Activa primero los cortes, después los extremos y, por último, la curva. Anticipa por dónde debe pasar antes de mostrarla.</p>
+      <div data-function-study>
+        <div class="actions"><label><input type="checkbox" data-layer="roots" checked> Mostrar cortes</label><label><input type="checkbox" data-layer="extrema"> Mostrar extremos</label><label><input type="checkbox" data-layer="curve"> Mostrar curva</label></div>
+        <figure><svg viewBox="0 0 560 360" width="560" height="360" role="img" aria-labelledby="study-title study-description"><title id="study-title">Boceto de x al cubo menos 3x</title><desc id="study-description">Gráfica impar, con cortes en menos raíz de 3, 0 y raíz de 3. Máximo relativo en (−1,2) y mínimo relativo en (1,−2). Crece antes de −1 y después de 1; decrece entre ambos. La tabla siguiente proporciona valores. Los controles permiten mostrar las capas.</desc><g data-axes></g><text x="539" y="174">x</text><text x="290" y="20">y</text><path data-curve fill="none" stroke="#1746a2" stroke-width="3"/><g data-roots></g><g data-extrema></g></svg><figcaption data-content-role="caption">Círculos: cortes con X. Cuadrados: extremos relativos. Una unidad horizontal ocupa 90 unidades del dibujo; una vertical, 30. Esta escala facilita ver la forma, pero no sirve para medir pendientes por ángulos. La curva continúa fuera de la ventana.</figcaption></figure>
+        <p data-layer-status role="status"></p>
+        <noscript><p>Las capas necesitan JavaScript. El estudio y la tabla siguen disponibles.</p></noscript>
+      </div>
+      <div class="table-scroll"><table><caption>Valores de apoyo de \(f(x)=x^3-3x\)</caption><thead><tr><th scope="col">\(x\)</th><th scope="col">−2</th><th scope="col">−1</th><th scope="col">0</th><th scope="col">1</th><th scope="col">2</th></tr></thead><tbody><tr><th scope="row">\(f(x)\)</th><td>−2</td><td>2</td><td>0</td><td>−2</td><td>2</td></tr></tbody></table></div>
+    </section>
+    <section id="practica" data-content-role="guided-practice">
+      <h2>4. Practica: \(g(x)=x^2-4x+3\)</h2>
+      <p>Estudia dominio, cortes, signo, límites, monotonía y extremos. Dibuja un boceto y decide si el mínimo es relativo o absoluto en \(\mathbb R\).</p>
+      <details data-content-role="hint"><summary>Pista 1: dos expresiones útiles</summary><p>\(g(x)=(x-1)(x-3)=(x-2)^2-1\). La primera ayuda con los ceros; la segunda sitúa el vértice.</p></details>
+      <details data-content-role="hint"><summary>Pista 2: intervalos de monotonía</summary><p>\(g\prime(x)=2x-4\). ¿Qué signo tiene a cada lado de 2? No confundas el cero de la derivada con los ceros de la función.</p></details>
+      <details data-content-role="solution"><summary>Ver estudio completo</summary><ol class="worked-steps"><li>Dominio \(\mathbb R\), continua en todo él. Cortes con X: (1,0) y (3,0); con Y: (0,3).</li><li>\(g>0\) en \((-\infty,1)\cup(3,+\infty)\), \(g<0\) en (1,3) y se anula en 1 y 3. No es par ni impar respecto a los ejes originales, pero es simétrica respecto a la recta \(x=2\).</li><li>Los dos límites en los infinitos valen \(+\infty\). No tiene asíntotas verticales, horizontales ni oblicuas.</li><li>La derivada es negativa en \(x<2\), cero en 2 y positiva en \(x>2\). Decrece hasta el vértice y crece después.</li><li>El vértice es (2,−1). Es mínimo relativo y absoluto: \((x-2)^2-1\geq-1\) para todo real. No hay máximo absoluto. Su recorrido es \([-1,+\infty)\).</li><li>El boceto es una parábola abierta hacia arriba con los cortes anteriores. Si estudias curvatura, \(g\prime\prime=2>0\) en todo el dominio: no tiene punto de inflexión.</li></ol></details>
+      <h3>Un denominador nulo no decide por sí solo la gráfica</h3>
+      <p>Para \(r(x)=(x^2-1)/(x-1)\), conserva \(x\ne1\). Se simplifica a \(x+1\) solo en ese dominio; el límite en 1 es 2. Dibuja la recta con un <strong>hueco en (1,2)</strong>, no una asíntota vertical ni un punto relleno.</p>
+      <h3>Comprueba las ideas</h3><div class="activity" data-quiz="t02-e01" data-content-role="self-check"></div>
+    </section>
+    <section data-content-role="common-errors"><h2>5. Errores que debes evitar</h2><ul><li>Derivar antes de determinar dónde existe la función.</li><li>Confundir los ceros de \(f\) con los de \(f\prime\).</li><li>Dar un extremo solo porque \(f\prime(a)=0\): \(x^3\) demuestra que no basta.</li><li>Concluir que un máximo relativo es el mayor valor de todo el dominio.</li><li>Unir puntos a través de una discontinuidad o imponer una simetría que no has comprobado.</li><li>Suponer que una tabla finita o una ventana de la gráfica demuestra todo el comportamiento global.</li></ul></section>
+    <section id="resumen" data-content-role="summary"><h2>6. Antes de dar por terminado el dibujo</h2><ul><li>¿Respeta el dominio, los puntos excluidos y las restricciones del contexto?</li><li>¿Los cortes y el signo coinciden con la posición respecto a los ejes?</li><li>¿Las ramas se aproximan a los límites y asíntotas calculados?</li><li>¿Cada tramo crece o decrece según el signo de la derivada?</li><li>¿Has dado las dos coordenadas de los extremos y distinguido relativos de absolutos?</li></ul></section>
+    <section id="tarjetas"><h2>7. Recuerda el método</h2><div class="activity" data-flashcards="t02-e01"></div></section>
+    <section data-content-role="related-links"><h2>Continúa</h2><p><a href="index.html">Índice del tema 2</a> · <a href="../../../test/index.html?tema=t02">Test del tema 2 disponible</a> · <a href="02-funciones-polinomicas.html">2.2. Funciones polinómicas</a></p></section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

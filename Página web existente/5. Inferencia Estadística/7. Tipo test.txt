@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 3: Inferencia Estadística - Test Interactivo</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            /* PALETA LAB / ECO-SCIENCE */
+            --bg-body: #ecfdf5;       /* Mint Cream */
+            --primary: #047857;       /* Emerald Green */
+            --primary-dark: #064e3b;  /* Deep Forest */
+            --secondary: #0f172a;     /* Slate Dark */
+            
+            --accent: #d97706;        /* Amber Gold */
+            --accent-bg: #fffbeb;
+            
+            --text-main: #334155;
+            --text-light: #64748b;
+            
+            --radius: 8px;            
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --border: 1px solid #d1fae5;
+            
+            /* Colores Quiz */
+            --correct-bg: #d1fae5;
+            --correct-border: #10b981;
+            --incorrect-bg: #fee2e2;
+            --incorrect-border: #ef4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            background-image: radial-gradient(#047857 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+
+        h1, h2, h3, h4 { 
+            font-family: 'Outfit', sans-serif; 
+            color: var(--secondary); 
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* HEADER TIPO INFORME */
+        header {
+            background: white;
+            padding: 2rem;
+            border-bottom: 4px solid var(--primary);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-content h1 {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .badge {
+            background: var(--secondary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* TARJETAS TÉCNICAS */
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-left: 5px solid var(--primary);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .section-tag {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* ESTILOS ESPECÍFICOS DEL QUIZ */
+        .quiz-progress {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 1rem;
+        }
+
+        .progress-bar-container {
+            flex-grow: 1;
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            margin: 0 1rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .option-btn {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 1rem 1.5rem;
+            text-align: left;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+            transform: translateX(5px);
+        }
+
+        .option-btn.selected {
+            background: var(--bg-body);
+            border-color: var(--primary);
+            font-weight: 600;
+        }
+
+        .option-btn.correct {
+            background: var(--correct-bg);
+            border-color: var(--correct-border);
+            color: #065f46;
+        }
+
+        .option-btn.incorrect {
+            background: var(--incorrect-bg);
+            border-color: var(--incorrect-border);
+            color: #991b1b;
+            opacity: 0.7;
+        }
+
+        .option-btn:disabled {
+            cursor: not-allowed;
+        }
+
+        .option-letter {
+            font-weight: bold;
+            margin-right: 1rem;
+            color: var(--primary);
+            background: white;
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            border: 1px solid #cbd5e1;
+            flex-shrink: 0;
+        }
+
+        .feedback-box {
+            margin-top: 1.5rem;
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .feedback-box.show {
+            display: block;
+        }
+
+        .feedback-box.correct {
+            background: var(--correct-bg);
+            border: 1px solid var(--correct-border);
+            color: #065f46;
+        }
+
+        .feedback-box.incorrect {
+            background: var(--accent-bg);
+            border: 1px solid var(--accent);
+            color: #92400e;
+        }
+
+        .feedback-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .btn-next {
+            display: none;
+            margin-top: 1.5rem;
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .btn-next:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Pantalla de Resultados */
+        #results-screen {
+            display: none;
+            text-align: center;
+        }
+
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 8px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem auto;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+            background: var(--bg-body);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header { text-align: center; justify-content: center; }
+            .card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        
+        <header>
+            <div class="header-content">
+                <span class="badge">EVALUACIÓN</span>
+                <h1>Test de Inferencia y Muestreo</h1>
+                <p style="color: var(--text-light);">Comprueba tus conocimientos sobre las técnicas de investigación estadística.</p>
+            </div>
+            <div style="text-align: right; opacity: 0.6;">
+                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#047857" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <path d="M9 15L11 17L15 13"></path>
+                </svg>
+            </div>
+        </header>
+
+        <section id="start-screen" class="card" style="text-align: center;">
+            <span class="section-tag">SIMULADOR TIPO TEST</span>
+            <h2>Evaluación de Nivel Avanzado</h2>
+            <p style="margin: 1.5rem 0; color: var(--text-light); max-width: 600px; margin-inline: auto;">
+                Este test consta de <strong>20 preguntas minuciosas</strong> basadas estrictamente en los apuntes proporcionados. Se evaluará tu comprensión profunda de los tipos de muestreo (probabilísticos y no probabilísticos) y sus características formales.
+            </p>
+            <button onclick="startQuiz()" style="background: var(--primary); color: white; border: none; padding: 1rem 2rem; font-size: 1.1rem; font-weight: bold; border-radius: 6px; cursor: pointer; font-family: 'Outfit', sans-serif;">
+                Comenzar Prueba
+            </button>
+        </section>
+
+        <section id="quiz-screen" class="card" style="display: none;">
+            <div class="quiz-progress">
+                <span id="q-counter">PREGUNTA 1 / 20</span>
+                <div class="progress-bar-container">
+                    <div id="p-bar" class="progress-fill"></div>
+                </div>
+                <span id="score-counter">Aciertos: 0</span>
+            </div>
+
+            <div id="question-container">
+                <h3 id="question-text" class="question-text">Cargando pregunta...</h3>
+                <div id="options-container" class="options-grid">
+                    </div>
+            </div>
+
+            <div id="feedback" class="feedback-box">
+                <div id="feedback-title" class="feedback-title"></div>
+                <div id="feedback-text"></div>
+            </div>
+
+            <button id="btn-next" class="btn-next" onclick="nextQuestion()">Siguiente Pregunta ➔</button>
+        </section>
+
+        <section id="results-screen" class="card">
+            <span class="section-tag">INFORME DE RESULTADOS</span>
+            <h2>Test Completado</h2>
+            <p style="margin-bottom: 2rem; color: var(--text-light);">Has finalizado la evaluación técnica.</p>
+            
+            <div class="score-circle">
+                <span id="final-score">0/20</span>
+            </div>
+            
+            <h3 id="final-message" style="margin-bottom: 1rem;"></h3>
+            <p id="final-submessage" style="margin-bottom: 2rem; color: var(--text-light);"></p>
+            
+            <button onclick="location.reload()" style="background: var(--secondary); color: white; border: none; padding: 1rem 2rem; font-size: 1rem; font-weight: bold; border-radius: 6px; cursor: pointer; font-family: 'Outfit', sans-serif;">
+                Reiniciar Evaluación
+            </button>
+        </section>
+
+    </main>
+
+    <script>
+        // BASE DE DATOS DE PREGUNTAS
+        const questions = [
+            {
+                question: "¿Cuál es el propósito principal de la inferencia estadística según los apuntes?",
+                options: [
+                    "Diseñar herramientas informáticas para realizar encuestas.",
+                    "Extraer conclusiones acerca de una población a partir de los resultados obtenidos en una muestra.",
+                    "Garantizar que una muestra seleccionada no tenga ningún tipo de riesgo o error.",
+                    "Reducir el tamaño de la población estudiada al mínimo posible."
+                ],
+                correct: 1,
+                explanation: "La definición exacta del bloque 1 indica: «La inferencia estadística se ocupa de extraer conclusiones acerca de una población a partir de los resultados obtenidos en una muestra»."
+            },
+            {
+                question: "Según el texto de Estadística Inferencial, ¿qué afirmación sobre el tamaño de la muestra es rigurosamente cierta?",
+                options: [
+                    "Una cantidad muy elevada de datos siempre garantiza una mayor certeza absoluta.",
+                    "Debe coincidir exactamente con el 10% de la población total.",
+                    "Debe ser lo más grande posible independientemente del coste o tiempo.",
+                    "Una cantidad muy elevada de datos no siempre se traduce en una mayor certeza, lo importante es que estén bien elegidos y sean representativos."
+                ],
+                correct: 3,
+                explanation: "El texto afirma textualmente que «una cantidad muy elevada de datos no siempre se traduce en una mayor certeza, pues lo importante es que los datos estén bien elegidos y sean representativos»."
+            },
+            {
+                question: "A la hora de redactar una encuesta, ¿cuál es el requisito fundamental para las preguntas (según la sección 'Muestreo')?",
+                options: [
+                    "Formularlas de una manera objetiva e imparcial.",
+                    "Incluir la opinión de la mayoría para facilitar la respuesta.",
+                    "Hacerlas sutilmente persuasivas para probar una hipótesis concreta.",
+                    "Evitar preguntas sobre temas económicos o de impuestos."
+                ],
+                correct: 0,
+                explanation: "El apartado de 'Encuesta' subraya que «hay que escoger adecuadamente las preguntas de las que constará, y formularlas de una manera objetiva e imparcial», dando ejemplos de preguntas sesgadas vs correctas."
+            },
+            {
+                question: "¿Qué característica es EXCLUSIVA de las técnicas de muestreo probabilístico?",
+                options: [
+                    "Ofrecen la ventaja de que su coste es inferior a otros métodos.",
+                    "La elección de los elementos de la muestra se realiza según el juicio del investigador.",
+                    "Es posible estimar el error muestral y sus resultados se pueden extrapolar a la población.",
+                    "Reducen el tiempo necesario de investigación en comparación con métodos no probabilísticos."
+                ],
+                correct: 2,
+                explanation: "Las características 3 y 4 de las técnicas probabilísticas afirman que «es posible estimar el error muestral» y «sus resultados se pueden extrapolar a la población», algo que está negado en las no probabilísticas."
+            },
+            {
+                question: "En las técnicas de muestreo NO probabilísticas, la probabilidad de ser elegido de cada elemento de la población es...",
+                options: [
+                    "Conocida y no nula.",
+                    "Estrictamente igual para todos los estratos.",
+                    "Desconocida, ya que la elección no se realiza al azar sino de forma consciente.",
+                    "Cálculada mediante un salto sistemático."
+                ],
+                correct: 2,
+                explanation: "En las técnicas no probabilísticas, la elección «no se realiza al azar, sino de forma consciente; es decir, según el juicio de quien lleva a cabo el estudio», por lo que no hay probabilidad matemática calculable."
+            },
+            {
+                question: "En el muestreo aleatorio simple, ¿cuál es el paso inmediatamente posterior a la enumeración de todos los elementos del marco muestral?",
+                options: [
+                    "Seleccionar, uno a uno, n papeles de la urna.",
+                    "Introducir en una urna papeles numerados del 1 al N (total de la población).",
+                    "Dividir a la población en estratos excluyentes.",
+                    "Elegir un número al azar para determinar el intervalo o salto."
+                ],
+                correct: 1,
+                explanation: "Según los pasos del ejemplo: 1º Se enumeran. 2º En una urna se introducen papeles numerados del 1 al N. 3º Se seleccionan n papeles."
+            },
+            {
+                question: "En una población de N=1000 personas se desea extraer una muestra sistemática de n=20. Si el primer número al azar escogido es el 8, ¿cuál será el TERCER elemento seleccionado?",
+                options: [
+                    "58",
+                    "158",
+                    "108",
+                    "28"
+                ],
+                correct: 2,
+                explanation: "El intervalo es 1000/20 = 50. El primero es 8. El segundo es 8+50 = 58. El tercero es 58+50 = 108."
+            },
+            {
+                question: "En el muestreo estratificado, ¿cómo se caracterizan internamente y externamente los estratos?",
+                options: [
+                    "Sus integrantes son heterogéneos entre sí, pero los estratos son homogéneos entre ellos.",
+                    "Sus integrantes son homogéneos, mientras que los elementos de diferentes estratos son heterogéneos entre sí.",
+                    "Son completamente al azar y no guardan relación de homogeneidad ni heterogeneidad.",
+                    "Los integrantes son heterogéneos y los estratos también son heterogéneos entre sí."
+                ],
+                correct: 1,
+                explanation: "El texto define los estratos como subgrupos «que se caracterizan por el hecho de que sus integrantes son homogéneos, mientras que los elementos de los diferentes estratos son heterogéneos entre sí»."
+            },
+            {
+                question: "A diferencia del muestreo estratificado, en el muestreo por conglomerados o áreas los subgrupos son...",
+                options: [
+                    "Homogéneos internamente y heterogéneos entre sí.",
+                    "Heterogéneos internamente, mientras que los elementos de los diferentes conglomerados son homogéneos entre sí.",
+                    "Incompatibles con la realización de encuestas poblacionales.",
+                    "Subgrupos donde un elemento puede pertenecer a varios conglomerados a la vez."
+                ],
+                correct: 1,
+                explanation: "El texto indica expresamente: «Frente a los estratos, los conglomerados son subgrupos... que se caracterizan por el hecho de que sus integrantes son heterogéneos, mientras que los elementos de los diferentes conglomerados son homogéneos entre sí»."
+            },
+            {
+                question: "¿Cuál es una de las principales ventajas prácticas del muestreo por conglomerados mencionada en los apuntes?",
+                options: [
+                    "Elimina por completo la necesidad de azar.",
+                    "Permite que un elemento pertenezca a varios subgrupos.",
+                    "Disminuye el error muestral a cero.",
+                    "Reduce costes e incrementa la eficiencia al disminuir los tiempos de desplazamiento del encuestador."
+                ],
+                correct: 3,
+                explanation: "El último párrafo sobre conglomerados destaca: «Este tipo de muestreo reduce costes... ya que disminuye los tiempos de desplazamiento del encuestador»."
+            },
+            {
+                question: "Una empresa entrevista exclusivamente a las personas que salen de un centro comercial específico para evaluar la experiencia en ese mismo centro. ¿Qué tipo de muestreo está usando?",
+                options: [
+                    "Muestreo estratificado.",
+                    "Muestreo de bola de nieve.",
+                    "Muestreo por conveniencia.",
+                    "Muestreo aleatorio simple."
+                ],
+                correct: 2,
+                explanation: "Es el ejemplo literal de los apuntes para el 'Muestreo por conveniencia', seleccionando de manera conveniente para asegurar que cumplen el requisito."
+            },
+            {
+                question: "¿En qué consiste el 'Muestreo por juicio'?",
+                options: [
+                    "En establecer cuotas proporcionales estrictas por género y edad.",
+                    "En confiar en la experiencia y criterio del encuestador para seleccionar los elementos de la muestra.",
+                    "En someter a juicio legal la validez de la encuesta antes de lanzarla.",
+                    "En contactar primero a una persona que cumpla el perfil y pedirle referencias de otras iguales."
+                ],
+                correct: 1,
+                explanation: "Se define como: «En este caso, se confía en la experiencia del encuestador para seleccionar los elementos de la muestra» determinando él qué casos cumplen los requisitos."
+            },
+            {
+                question: "El muestreo por cuotas es descrito en el texto como una especie de versión 'no probabilística' del...",
+                options: [
+                    "Muestreo sistemático.",
+                    "Muestreo aleatorio simple.",
+                    "Muestreo estratificado.",
+                    "Muestreo por conglomerados."
+                ],
+                correct: 2,
+                explanation: "El texto indica que el muestreo por cuotas «Es una especie de muestreo estratificado, pero no probabilístico...» ya que divide en segmentos y establece una cuota fija seleccionada a veces por juicio."
+            },
+            {
+                question: "En un muestreo por cuotas, ¿cómo procede generalmente el encuestador para llegar a la cantidad exigida por estrato?",
+                options: [
+                    "Pide al ordenador que genere números aleatorios estrictos.",
+                    "Entrevista a toda la población hasta separar las cuotas a posteriori.",
+                    "Selecciona —haciendo a veces un muestreo por juicio— cada uno de los elementos hasta completar las cuotas.",
+                    "Solo selecciona individuos mediante el método de bola de nieve."
+                ],
+                correct: 2,
+                explanation: "El apunte dice: «El encuestador selecciona —haciendo, a veces, un muestreo por juicio— cada uno de los elementos hasta completar las cuotas»."
+            },
+            {
+                question: "¿Cuándo se recomienda especialmente el 'Muestreo de bola de nieve' (o por referidos)?",
+                options: [
+                    "Cuando se dispone del listado completo del marco muestral de la ciudad.",
+                    "Cuando la población de interés es muy pequeña y/o resulta difícil contactar con ella.",
+                    "Cuando se busca la máxima representatividad matemática y el menor margen de error.",
+                    "Cuando se necesita reducir los tiempos de desplazamiento encuestando manzanas de edificios completas."
+                ],
+                correct: 1,
+                explanation: "El texto especifica que el muestreo de bola de nieve «se utiliza cuando la población de interés es muy pequeña y/o resulta difícil contactar con ella»."
+            },
+            {
+                question: "Si los métodos probabilísticos son 'mucho más fiables', ¿por qué el texto argumenta que a veces se utilizan los no probabilísticos?",
+                options: [
+                    "Porque los probabilísticos no permiten extrapolar a la población.",
+                    "Porque en las ciencias sociales las matemáticas puras no aplican.",
+                    "Porque no siempre es posible llevar a cabo los probabilísticos, ya que requieren más tiempo y dinero.",
+                    "Porque los métodos no probabilísticos estiman mejor el error muestral en poblaciones pequeñas."
+                ],
+                correct: 2,
+                explanation: "El último párrafo del muestreo no probabilístico aclara: «...no siempre es posible llevarlos a cabo [los probabilísticos], ya que requieren más tiempo y dinero que estos últimos»."
+            },
+            {
+                question: "¿Cómo definen los apuntes el concepto de 'Población'?",
+                options: [
+                    "El número total de elementos que han sido extraídos para realizar una encuesta.",
+                    "El proceso riguroso que se sigue para la extracción de individuos.",
+                    "La parte de los ciudadanos totales sobre los que se ha logrado medir una característica real.",
+                    "El conjunto total de individuos susceptibles de poseer la información buscada."
+                ],
+                correct: 3,
+                explanation: "Población se define textualmente como: «el conjunto total de individuos susceptibles de poseer la información buscada. Es decir... el total de personas de las cuales se quiere conocer una característica»."
+            },
+            {
+                question: "Tanto en los estratos como en los conglomerados, el texto especifica que al formar los subgrupos en la población, estos deben ser...",
+                options: [
+                    "Excluyentes y exhaustivos.",
+                    "Numéricamente idénticos en tamaño (N constante).",
+                    "Seleccionados exclusivamente por métodos no probabilísticos.",
+                    "Completamente homogéneos tanto interna como externamente."
+                ],
+                correct: 0,
+                explanation: "Tanto en el apartado de estratificado como en el de conglomerados se remarca que la división asegura que todo elemento pertenezca a un solo grupo y no quede fuera ninguno, siendo textualmente «excluyentes y exhaustivos»."
+            },
+            {
+                question: "Una vez que se han definido correctamente los estratos en una población, ¿cuál es el método estándar indicado para extraer los individuos concretos dentro de cada estrato?",
+                options: [
+                    "Seleccionar a los individuos por juicio del investigador.",
+                    "Extraer una muestra aleatoria simple de cada uno de ellos.",
+                    "Aplicar el método de bola de nieve en cada estrato.",
+                    "Encuestar absolutamente a todos los miembros de ese estrato."
+                ],
+                correct: 1,
+                explanation: "El último párrafo de muestreo estratificado afirma: «Una vez que se definen los estratos, se procede a extraer una muestra aleatoria simple de cada uno de ellos»."
+            },
+            {
+                question: "Según el texto introductorio, si extraemos una mala elección de muestra (Apunte 2), ¿qué consecuencia directa tiene sobre el estudio?",
+                options: [
+                    "El tiempo de desplazamiento del encuestador aumentará drásticamente.",
+                    "Nos obligará a utilizar obligatoriamente métodos por conglomerados.",
+                    "Puede conducir a resultados erróneos o inexactos.",
+                    "La población total N cambiará automáticamente sus parámetros estadísticos."
+                ],
+                correct: 2,
+                explanation: "El Apunte 2 de los márgenes indica literalmente: «Una mala elección de la muestra puede conducir a resultados erróneos o inexactos»."
+            }
+        ];
+
+        // ESTADO DE LA APLICACIÓN
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let hasAnswered = false;
+
+        // ELEMENTOS DEL DOM
+        const screens = {
+            start: document.getElementById('start-screen'),
+            quiz: document.getElementById('quiz-screen'),
+            results: document.getElementById('results-screen')
+        };
+        
+        const ui = {
+            qCounter: document.getElementById('q-counter'),
+            pBar: document.getElementById('p-bar'),
+            scoreCounter: document.getElementById('score-counter'),
+            qText: document.getElementById('question-text'),
+            optionsBox: document.getElementById('options-container'),
+            feedback: document.getElementById('feedback'),
+            feedbackTitle: document.getElementById('feedback-title'),
+            feedbackText: document.getElementById('feedback-text'),
+            btnNext: document.getElementById('btn-next')
+        };
+
+        const letters = ['A', 'B', 'C', 'D'];
+
+        // LÓGICA DE CONTROL
+        function startQuiz() {
+            screens.start.style.display = 'none';
+            screens.quiz.style.display = 'block';
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const q = questions[currentQuestionIndex];
+            hasAnswered = false;
+
+            // Actualizar UI
+            ui.qCounter.textContent = `PREGUNTA ${currentQuestionIndex + 1} DE ${questions.length}`;
+            ui.pBar.style.width = `${((currentQuestionIndex) / questions.length) * 100}%`;
+            ui.scoreCounter.textContent = `Aciertos: ${score}`;
+            
+            ui.qText.innerHTML = q.question;
+            ui.feedback.className = 'feedback-box'; // reset classes
+            ui.btnNext.style.display = 'none';
+            
+            // Generar Opciones
+            ui.optionsBox.innerHTML = '';
+            q.options.forEach((optText, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.onclick = () => selectOption(index);
+                
+                btn.innerHTML = `
+                    <span class="option-letter">${letters[index]}</span>
+                    <span>${optText}</span>
+                `;
+                ui.optionsBox.appendChild(btn);
+            });
+
+            // Refrescar MathJax por si hay LaTeX
+            if (window.MathJax) MathJax.typesetPromise([ui.qText, ui.optionsBox]);
+        }
+
+        function selectOption(selectedIndex) {
+            if (hasAnswered) return;
+            hasAnswered = true;
+
+            const q = questions[currentQuestionIndex];
+            const buttons = ui.optionsBox.querySelectorAll('.option-btn');
+            
+            // Evaluar
+            const isCorrect = (selectedIndex === q.correct);
+            if (isCorrect) score++;
+
+            // Estilos a los botones
+            buttons.forEach((btn, index) => {
+                btn.disabled = true;
+                if (index === q.correct) {
+                    btn.classList.add('correct');
+                } else if (index === selectedIndex) {
+                    btn.classList.add('incorrect');
+                }
+            });
+
+            // Mostrar Feedback
+            ui.feedback.classList.add('show', isCorrect ? 'correct' : 'incorrect');
+            ui.feedbackTitle.textContent = isCorrect ? "¡Correcto!" : "Respuesta Incorrecta";
+            ui.feedbackText.innerHTML = q.explanation;
+            
+            // Actualizar score counter en vivo
+            ui.scoreCounter.textContent = `Aciertos: ${score}`;
+
+            // Botón siguiente
+            ui.btnNext.textContent = (currentQuestionIndex === questions.length - 1) ? "Ver Resultados Finales ➔" : "Siguiente Pregunta ➔";
+            ui.btnNext.style.display = 'block';
+            
+            if (window.MathJax) MathJax.typesetPromise([ui.feedbackText]);
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            screens.quiz.style.display = 'none';
+            screens.results.style.display = 'block';
+            
+            document.getElementById('final-score').textContent = `${score}/${questions.length}`;
+            
+            const msgTitle = document.getElementById('final-message');
+            const msgSub = document.getElementById('final-submessage');
+            
+            const percentage = (score / questions.length) * 100;
+            
+            if (percentage === 100) {
+                msgTitle.textContent = "¡Excelente! Nivel Experto";
+                msgTitle.style.color = "var(--primary)";
+                msgSub.textContent = "Dominas a la perfección la teoría de muestreo y las técnicas probabilísticas.";
+            } else if (percentage >= 70) {
+                msgTitle.textContent = "¡Buen trabajo! Nivel Avanzado";
+                msgTitle.style.color = "var(--primary-dark)";
+                msgSub.textContent = "Has demostrado un conocimiento sólido de los apuntes, aunque hay pequeños detalles por pulir.";
+            } else if (percentage >= 50) {
+                msgTitle.textContent = "Aprobado. Nivel Medio";
+                msgTitle.style.color = "var(--accent)";
+                msgSub.textContent = "Conoces los conceptos básicos, pero te recomendamos repasar las diferencias entre los métodos de muestreo.";
+            } else {
+                msgTitle.textContent = "Necesitas repasar la teoría";
+                msgTitle.style.color = "#ef4444";
+                msgSub.textContent = "Te sugerimos releer detenidamente la diferencia entre población y muestra y los métodos probabilísticos y no probabilísticos.";
+            }
+        }
+    </script>
+</body>
+</html>

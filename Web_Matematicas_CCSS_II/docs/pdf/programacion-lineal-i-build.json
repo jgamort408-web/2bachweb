@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 2,
+  "mathematics": {
+    "problemsReviewed": 3,
+    "problemsToAttempt": 2,
+    "passed": true,
+    "closureVertexCounts": [
+      4,
+      4,
+      4
+    ],
+    "strictEdgeExcludedCorners": 2,
+    "integerMissionCases": 9,
+    "integerBatteryCases": 686,
+    "minimumRegion": "2",
+    "maximumMissions": "44/5",
+    "maximumBatteries": "6800"
+  },
+  "documents": [
+    {
+      "id": "programacion-lineal-i-examen",
+      "pages": 2,
+      "bytes": 35917,
+      "sha256": "ad69399eeeb0078b143a63a4a16d0e3d7c6c55c7effeb57a689ed1613b445386",
+      "title": "Programación lineal I - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 8,
+      "characters": 2368
+    },
+    {
+      "id": "programacion-lineal-i-soluciones",
+      "pages": 4,
+      "bytes": 43128,
+      "sha256": "70f21def34d45ffb5e0b9489ab884d352d4de5183476225b10c8482322a844e9",
+      "title": "Programación lineal I - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 10,
+      "characters": 4463
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-20",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/programacion-lineal-i/estilo.tex",
+      "sha256": "45e98df9fefca6b1f1b7ff8afd67d901ae43ac868742cff918257d37095436b9"
+    },
+    {
+      "path": "content/latex/programacion-lineal-i/logo-al-andalus.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    },
+    {
+      "path": "content/latex/programacion-lineal-i/programacion-lineal-i-examen.tex",
+      "sha256": "7935c60b2fefdcedbf4ab2fec90f8a702eb0d37882ee80d461ec5fa879755f5d"
+    },
+    {
+      "path": "content/latex/programacion-lineal-i/programacion-lineal-i-soluciones.tex",
+      "sha256": "e95f3a91f019c08bd643ac2b5b545f20608a6012d97c209f3eb09febacb8c5c2"
+    },
+    {
+      "path": "content/latex/programacion-lineal-i/provenance.json",
+      "sha256": "5574f82f8d89abdcc22b1a2e61afd073aa0d1f249483be30008b9c4f645a7ce3"
+    }
+  ]
+}

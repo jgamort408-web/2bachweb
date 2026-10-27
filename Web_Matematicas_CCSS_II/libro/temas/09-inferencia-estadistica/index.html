@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9. Inferencia estadística · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+  <script type="module" src="../../../assets/js/learning/indexes.js"></script>
+</head>
+<body data-page-id="t09">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">9. Inferencia estadística</h1>
+    <p data-content-role="lead">Estudiar una muestra para estimar características de una población y expresar la incertidumbre de esa estimación.</p>
+    <p data-content-role="source">Esta presentación adapta «0. Presentación.txt» del bloque original de Inferencia Estadística. Sus ejemplos son didácticos. Los once archivos originales ya están revisados; consulta el estado de cada epígrafe.</p>
+    <nav aria-label="Apartados de la presentación" data-content-role="related-links"><a href="#poblacion-muestra">Población y muestra</a> · <a href="#muestreo">Técnicas</a> · <a href="#ficha">Ficha técnica</a> · <a href="#recorrido">Recorrido</a> · <a href="#problemas">Problemas</a> · <a href="#tarjetas">Tarjetas</a> · <a href="#pendiente">Pendiente</a></nav>
+
+    <section id="poblacion-muestra" data-content-role="theory"><h2>Población, muestra e inferencia</h2>
+      <p>La <strong>población</strong> es el conjunto de unidades sobre el que queremos responder una pregunta. Su tamaño suele representarse por \(N\). Una <strong>muestra</strong> es un subconjunto seleccionado para estudiarlo; su tamaño es \(n\). En muchos estudios no se observa toda la población por tiempo, coste o dificultad de acceso.</p>
+      <p>Una característica numérica de la población es un <strong>parámetro</strong>: por ejemplo, su media \(\mu\) o su desviación típica \(\sigma\). Un cálculo obtenido de la muestra es un <strong>estadístico</strong>: por ejemplo, la media muestral \(\bar{x}\) o la desviación típica muestral \(s\). El parámetro puede ser desconocido; el estadístico cambia de una muestra a otra.</p>
+      <figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 150" role="img" aria-labelledby="inferencia-esquema-titulo inferencia-esquema-desc" style="display:block;width:100%;max-width:40rem;height:auto">
+        <title id="inferencia-esquema-titulo">De la población a la muestra y de la muestra a la inferencia</title>
+        <desc id="inferencia-esquema-desc">Primero se selecciona una muestra de la población. Después, sus estadísticos permiten estimar parámetros de la población, con incertidumbre.</desc>
+        <rect x="8" y="35" width="160" height="78" rx="12" fill="none" stroke="currentColor" stroke-width="2"/><text x="88" y="66" text-anchor="middle" fill="currentColor">Población N</text><text x="88" y="91" text-anchor="middle" fill="currentColor">parámetros μ, σ</text>
+        <path d="M172 54H460" fill="none" stroke="currentColor" stroke-width="2"/><path d="M460 54l-10 -6v12z" fill="currentColor"/><text x="314" y="43" text-anchor="middle" fill="currentColor">selección</text>
+        <rect x="468" y="35" width="164" height="78" rx="12" fill="none" stroke="currentColor" stroke-width="2"/><text x="550" y="66" text-anchor="middle" fill="currentColor">Muestra n</text><text x="550" y="91" text-anchor="middle" fill="currentColor">estadísticos x̄, s</text>
+        <path d="M468 105H178" fill="none" stroke="currentColor" stroke-width="2"/><path d="M178 105l10 -6v12z" fill="currentColor"/><text x="314" y="132" text-anchor="middle" fill="currentColor">inferencia con incertidumbre</text>
+      </svg><figcaption>La selección va de población a muestra; la inferencia usa la muestra para estimar la población.</figcaption></figure>
+      <p>La inferencia no es un «salto de fe»: depende del diseño de muestreo, de los supuestos del modelo y de cómo se cuantifica el error. Una muestra grande puede seguir sesgada si su selección excluye sistemáticamente a parte de la población.</p>
+    </section>
+
+    <section id="muestreo" data-content-role="method"><h2>Cuatro técnicas de muestreo del original</h2>
+      <p>La forma de seleccionar la muestra importa tanto como su tamaño. Estas cuatro técnicas son probabilísticas cuando el mecanismo de selección permite conocer o calcular las probabilidades de inclusión.</p>
+      <dl><dt><strong>Aleatorio simple</strong></dt><dd>Se eligen unidades al azar de un marco de muestreo que las enumera. Si se toman \(n\) de \(N\) sin reemplazo, todas las muestras posibles del mismo tamaño tienen igual probabilidad.</dd>
+      <dt><strong>Sistemático</strong></dt><dd>Se ordena el marco, se elige un inicio aleatorio y después se selecciona cada cierto intervalo. \(N/n\) orienta el salto cuando la división es adecuada; una periodicidad de la lista puede introducir sesgo.</dd>
+      <dt><strong>Estratificado</strong></dt><dd>Se divide la población en estratos y se seleccionan unidades al azar dentro de cada uno. La asignación proporcional es una opción frecuente, pero no la única.</dd>
+      <dt><strong>Por conglomerados</strong></dt><dd>Se seleccionan grupos naturales al azar, como clases de un centro. En una etapa se estudian todas las unidades de los grupos elegidos; en diseños de varias etapas se toma otra muestra dentro de ellos.</dd></dl>
+      <p>Estos nombres describen cómo se selecciona la muestra. Ningún método garantiza por sí solo que no haya falta de respuesta, errores de medición o problemas de cobertura. Las ocho técnicas del archivo «6. Tipos de muestreo.txt» se explican en <a href="03-tecnicas-de-muestreo.html">9.3</a>.</p>
+    </section>
+
+    <section id="ficha" data-content-role="worked-example"><h2>Ficha técnica: ejemplo didáctico</h2>
+      <p>El original propone una ficha para mostrar qué información conviene comunicar junto con los resultados de una encuesta. Estos datos ilustran un formato; no identifican un estudio real del CIS ni una encuesta electoral concreta.</p>
+      <dl><dt>Universo o población objetivo</dt><dd>Personas mayores de 18 años residentes en España.</dd><dt>Tamaño de la muestra</dt><dd>\(n=2500\) entrevistas.</dd><dt>Diseño</dt><dd>Muestreo estratificado por comunidad autónoma y tamaño de hábitat, según el ejemplo original. Faltan detalles de selección y ponderación para evaluar el diseño.</dd><dt>Margen de error anunciado</dt><dd>\(\pm2\) puntos porcentuales para un nivel aproximado del 95,5 %. Solo coincide con el cálculo habitual para proporciones cerca de 50 %, muestreo aleatorio simple, población suficientemente grande y sin efecto de diseño: \[E\approx 2\sqrt{\frac{0{,}5(1-0{,}5)}{2500}}=0{,}02.\] Para el muestreo estratificado descrito no puede afirmarse ese margen sin conocer el diseño completo.</dd><dt>Fecha del ejemplo</dt><dd>Del 10 al 15 de octubre de 2023.</dd></dl>
+      <p>Una ficha real debería permitir evaluar a quién se quería estudiar, cómo se obtuvo la muestra, el trabajo de campo, la ponderación y qué incertidumbre se comunica. No basta con publicar una cifra de error aislada. Estos cálculos se desarrollarán en los epígrafes de estimación e intervalos.</p>
+    </section>
+
+    <section id="recorrido" data-content-role="related-links"><h2>Recorrido del tema 9</h2><p>Los nueve epígrafes ya tienen su página. <a href="01-estadistica-inferencial.html">9.1. Estadística inferencial</a>, <a href="02-muestreo.html">9.2. Muestreo</a>, <a href="04-distribucion-muestral-teorema-central-del-limite.html">9.4. Distribuciones muestrales</a>, <a href="05-estimacion-puntual-y-estimacion-por-intervalos.html">9.5. Estimación</a>, <a href="06-intervalos-de-probabilidad-o-intervalos-caracteristicos.html">9.6. Intervalos característicos</a>, <a href="07-intervalos-de-confianza.html">9.7. Intervalos de confianza</a> y <a href="08-tamano-de-la-muestra-error-cometido.html">9.8. Tamaño muestral y error</a> contienen teoría o laboratorios parciales revisados. 9.3 contiene ocho técnicas de muestreo, 9.6 explica los intervalos característicos y 9.9 guía la lectura crítica de una ficha didáctica. El estado de cada uno aparece en este índice:</p><div data-topic-index="t09"><ol><li><a href="01-estadistica-inferencial.html">9.1. Estadística inferencial</a> · Contenido parcial</li><li><a href="02-muestreo.html">9.2. Muestreo</a> · Contenido parcial</li><li><a href="03-tecnicas-de-muestreo.html">9.3. Técnicas de muestreo</a> · Contenido parcial</li><li><a href="04-distribucion-muestral-teorema-central-del-limite.html">9.4. Distribución muestral</a> · Contenido parcial</li><li><a href="05-estimacion-puntual-y-estimacion-por-intervalos.html">9.5. Estimación</a> · Contenido parcial</li><li><a href="06-intervalos-de-probabilidad-o-intervalos-caracteristicos.html">9.6. Intervalos característicos</a> · Contenido parcial</li><li><a href="07-intervalos-de-confianza.html">9.7. Intervalos de confianza</a> · Contenido parcial</li><li><a href="08-tamano-de-la-muestra-error-cometido.html">9.8. Tamaño muestral y error</a> · Contenido parcial</li><li><a href="09-ficha-tecnica-de-encuestas.html">9.9. Ficha técnica</a> · Contenido parcial</li></ol></div></section>
+    <section id="problemas" data-content-role="practice"><h2>Problemas resueltos</h2><p>Los <a href="ejercicios-resueltos.html">27 ejercicios originales de Inferencia</a> están disponibles con enunciados, resoluciones revisadas y soluciones desplegables. Puedes mostrar uno cada vez para concentrarte en el procedimiento.</p></section>
+    <section id="tarjetas" data-content-role="practice"><h2>Tarjetas de repaso</h2><p>Las <a href="../../../tarjetas/index.html?tema=t09">30 tarjetas originales de Inferencia</a> están disponibles por categoría. Intenta contestar antes de mostrar la respuesta. Las fórmulas y las condiciones estadísticas se han revisado; el mazo no registra resultados personales.</p></section>
+    <section id="test" data-content-role="practice"><h2>Test de repaso</h2><p>El <a href="../../../test/index.html?tema=t09">test original de 20 preguntas revisadas</a> se corrige automáticamente, ofrece una pista y permite un segundo intento. El resultado permanece solo durante la sesión.</p></section>
+    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2><p>Están integradas la presentación, las <a href="03-tecnicas-de-muestreo.html">ocho técnicas de muestreo de 9.3</a>, distribuciones muestrales, estimación, los ejemplos con aventuras de media y proporción muestral, error y tamaño muestral, los 27 ejercicios resueltos, las 30 tarjetas y el test de 20 preguntas. Los once archivos originales de Inferencia ya se han revisado; 9.7 incluye el laboratorio de intervalos. Los nueve epígrafes tienen contenido parcial; siguen pendientes las ampliaciones señaladas en cada lección. La ficha del ejemplo necesita los detalles del diseño para justificar un margen de error específico.</p></section>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>
+
+
+
+
+
+
+

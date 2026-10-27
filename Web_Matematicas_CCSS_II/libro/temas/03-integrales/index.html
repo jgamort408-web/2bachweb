@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3. Integrales · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t03">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1>3. Integrales</h1>
+    <p class="lead" data-content-role="introduction">Recupera funciones a partir de sus derivadas y calcula acumulaciones y áreas, cuidando límites, dominios y unidades.</p>
+    <p data-content-role="orientation">Ocho lecciones con ejemplos y exploradores, 60 preguntas base, 48 tarjetas y tres juegos. Puedes seguir el recorrido del libro, elegir una actividad en <a href="#ruta-juegos">Practicar jugando</a> o reunir lo aprendido en el <a href="#repaso">repaso integrado</a>.</p>
+    <h2>Recorrido del tema</h2><div data-topic-index="t03"></div>
+    <p><a href="../../../test/index.html?tema=t03">Test disponible de integrales</a> · <a href="../../../tarjetas/index.html?tema=t03">Tarjetas de integrales</a> · <a href="../02-representacion-de-funciones/index.html#repaso">Repasar representación de funciones</a></p>
+
+    <section id="ruta-juegos" data-content-role="orientation"><h2>Practicar jugando</h2>
+    <p>Elige según lo que quieras reforzar. El orden es una sugerencia: puedes entrar en cualquier juego sin completar un test ni conseguir puntos antes.</p>
+    <ol>
+      <li><strong>Después de 3.1–3.3:</strong> <a href="../../../laboratorios/juegos/t03-a-parejas-de-primitivas.html">Parejas de primitivas</a>. Relaciona integrandos y familias completas; comprueba la constante y los factores.</li>
+      <li><strong>Después de 3.4:</strong> <a href="../../../laboratorios/juegos/t03-b-metodo-correcto.html">Método correcto</a>. Decide una estrategia y después resuelve. Incluye dos retos de ampliación por partes.</li>
+      <li><strong>Después de 3.7–3.8:</strong> <a href="../../../laboratorios/juegos/t03-c-area-por-tramos.html">Área por tramos</a>. Marca cambios de signo, calcula las integrales parciales y obtén el área geométrica.</li>
+    </ol><p>Las pistas y soluciones están dentro de cada juego. Puedes usar teclado, ampliar el texto y cambiar el contraste. Las respuestas y puntuaciones pertenecen a la visita actual y se reinician al recargar la página.</p></section>
+    <section id="repaso" data-content-role="guided-practice"><h2>Repaso integrado: elegir, calcular e interpretar</h2><p>Trabaja primero en papel. Justifica el dominio, el procedimiento y las unidades antes de abrir cada solución. Puedes hacer los cuatro bloques por separado. El test usa doce preguntas del banco de 60; las respuestas solo se conservan durante esta visita.</p>
+    <nav aria-label="Bloques del repaso"><a href="#repaso-primitivas">Primitivas y datos</a> · <a href="#repaso-metodos">Métodos y límites</a> · <a href="#repaso-almacen">Acumulación por tramos</a> · <a href="#repaso-areas">Comparar áreas</a> · <a href="#test-repaso">Test de síntesis</a></nav>
+    <article id="repaso-primitivas" data-content-role="worked-example"><h3>1. Una primitiva debe cumplir todos los datos</h3>
+    <p>Decide si existe F derivable en ℝ con F′(x)=2x, F(0)=1 y F(1)=3. Después compara \(P(x)=2\ln(x^2+1)\) y \(Q(x)=\ln((x^2+1)^2)\): dominio, igualdad y derivadas.</p>
+    <details data-content-role="hint"><summary>Pista del bloque 1</summary><p>Una condición inicial fija C en todo un intervalo. Para los logaritmos, comprueba primero que el argumento es positivo.</p></details>
+    <details data-content-role="solution"><summary>Solución del bloque 1</summary><p>La derivada exige F=x²+C. El primer dato fija C=1, pero entonces F(1)=2, incompatible con 3. También se ve mediante Barrow:</p><p>\[F(1)-F(0)=\int_0^1 2x\,dx=1\ne3-1.\]</p><p>No podemos asignar una constante distinta a cada punto de un mismo intervalo para resolver la incompatibilidad.</p>
+    <p>En la segunda parte, x²+1&gt;0 para todo x, así que ambas funciones están definidas en ℝ. La identidad del logaritmo de una potencia da:</p><p>\[Q(x)=\ln((x^2+1)^2)=2\ln(x^2+1)=P(x),\qquad P'(x)=Q'(x)=\frac{4x}{x^2+1}.\]</p><p>No solo tienen la misma derivada: son exactamente iguales. Dos expresiones diferentes pueden representar la misma primitiva; conviene simplificar y comprobar el dominio antes de descartarlas.</p></details>
+    <p>Refuerzo: <a href="01-integral-indefinida.html">3.1. Primitivas</a>, <a href="02-integrales-inmediatas.html">3.2. Tabla</a> y <a href="03-integrales-casi-inmediatas.html">3.3. Reconocimiento de la derivada interior</a>.</p></article>
+    <article id="repaso-metodos" data-content-role="worked-example"><h3>2. Dos rutas de cálculo y una integral sin fórmula de f</h3>
+    <p>Calcula \(I=\int_0^1\frac{2x}{1+x^2}dx\) mediante una primitiva y mediante u=1+x². Calcula también \(J=\int_0^1(x+1)e^x dx\), sabiendo que \((xe^x)'=(x+1)e^x\). Por último, si f es continua, \(\int_0^2f=3\) y \(\int_2^5f=-1\), halla \(\int_5^0(2f-1)dx\).</p>
+    <details data-content-role="hint"><summary>Pista del bloque 2</summary><p>En el cambio de variable puedes evaluar en u con límites transformados, o volver a x antes de usar los originales. No mezcles ambas rutas.</p></details>
+    <details data-content-role="solution"><summary>Solución del bloque 2</summary><p>La primera ruta reconoce una primitiva válida en ℝ:</p><p>\[I=\left[\ln(1+x^2)\right]_0^1=\ln2-\ln1=\ln2.\]</p><p>La segunda cambia el diferencial y los extremos: du=2x dx; x=0 se convierte en u=1 y x=1 en u=2.</p><p>\[I=\int_1^2\frac1u\,du=\left[\ln u\right]_1^2=\ln2.\]</p><p>Escribir una integral en u entre 0 y 1 conservaría incorrectamente los límites de x. En este intervalo el cambio es creciente; no hay inversión de extremos.</p>
+    <p>Para J ya tenemos una primitiva del producto completo. No es necesario multiplicar integrales ni introducir otro método:</p><p>\[J=[xe^x]_0^1=e.\]</p>
+    <p>El tercer cálculo combina propiedades. Primero \(\int_0^5f=3-1=2\). La integral de la constante 1 en [0,5] vale 5:</p><p>\[\int_5^0(2f-1)dx=-\left(2\int_0^5f-\int_0^5 1dx\right)=-(4-5)=1.\]</p><p>No necesitamos conocer la expresión de f: los datos de acumulación y las propiedades bastan.</p></details>
+    <p>Refuerzo: <a href="04-metodos-de-integracion.html">3.4. Métodos</a>, <a href="05-integral-definida.html">3.5. Propiedades</a> y <a href="07-regla-de-barrow.html">3.7. Barrow</a>.</p></article>
+    <article id="repaso-almacen" data-content-role="worked-example"><h3>3. Existencias, máximo y variación total</h3>
+    <p>Un modelo continuo de almacén parte de 20 kg y tiene tasa neta r(t), en kg/h, durante cinco horas:</p><p>\[r(t)=\begin{cases}4-2t,&0\le t\le3,\\-2,&3&lt;t\le5.\end{cases}\]</p>
+    <p>Encuentra la cantidad Q(t), el valor final, el máximo y la variación total \(\int_0^5|r(t)|dt\). Distingue el punto donde cambia el signo del punto donde cambia la expresión.</p>
+    <details data-content-role="hint"><summary>Pista del bloque 3</summary><p>La tasa se anula en t=2 y cambia de fórmula en t=3. El segundo tramo de Q debe partir del valor alcanzado en 3.</p></details>
+    <details data-content-role="solution"><summary>Solución del bloque 3</summary><p>La cantidad acumulada es \(Q(t)=20+\int_0^t r(s)ds\). En el primer tramo:</p><p>\[Q(t)=20+4t-t^2,\qquad Q(3)=23.\]</p><p>En el segundo, partimos de 23, no de 20:</p><p>\[Q(t)=23+\int_3^t(-2)ds=29-2t,\qquad3&lt;t\le5.\]</p><p>Las dos expresiones coinciden en 3. Así Q(5)=19 kg y la variación neta es −1 kg.</p>
+    <p>Como Q′=r, Q crece hasta 2 y después disminuye. El máximo es Q(2)=24 kg; la cantidad es positiva en todo el intervalo y alcanza su mínimo de 19 kg al final.</p>
+    <p>Para la variación total hay que separar tanto el signo como la expresión:</p><p>\[\int_0^5|r|=\int_0^2(4-2t)dt-\int_2^3(4-2t)dt-\int_3^5(-2)dt=4+1+4=9\text{ kg}.\]</p><p>9 kg mide cuánto ha variado la cantidad acumulada en total. Solo coincide con los movimientos brutos si el modelo excluye entradas y salidas simultáneas que se compensen. La tasa neta por sí sola no permite reconstruir ambos flujos.</p></details>
+    <p>Refuerzo: <a href="06-teorema-fundamental-del-calculo.html">3.6. Acumulación y derivada</a> y <a href="08-aplicaciones-de-la-integral.html">3.8. Aplicaciones</a>.</p></article>
+    <article id="repaso-areas" data-content-role="worked-example"><h3>4. Lo que cambia y lo que conserva un área</h3>
+    <p>Halla el área entre f=x²+2 y g=2x+2 en [0,2]. ¿Qué ocurre si sumas p(x)=x³−7 a ambas? Después estudia el área entre u=x² y v=x²+(x−1)² en [0,2]. Finalmente, encuentra k para que \(\int_0^2(x-k)dx=0\) y calcula el área con el eje para ese k.</p>
+    <details data-content-role="hint"><summary>Pista del bloque 4</summary><p>Resta las funciones antes de integrar. Un término común se cancela y una raíz doble no obliga a cambiar el orden de las curvas.</p></details>
+    <details data-content-role="solution"><summary>Solución del bloque 4</summary><p>Los cortes de f y g son 0 y 2. En medio g−f=2x−x²≥0:</p><p>\[A=\int_0^2(2x-x^2)dx=\left[x^2-\frac{x^3}3\right]_0^2=\frac43.\]</p><p>Al sumar p a ambas, \((g+p)-(f+p)=g-f\). La distancia vertical, los cortes y el área permanecen. Como p no es constante, no se trata de una traslación rígida; la cancelación de la diferencia es la justificación.</p>
+    <p>Para u y v, la diferencia v−u=(x−1)² es no negativa a ambos lados de 1. Hay contacto, pero no intercambio de curva superior:</p><p>\[A_{uv}=\int_0^2(x-1)^2dx=\left[\frac{(x-1)^3}3\right]_0^2=\frac23.\]</p><p>Separar en 1 es válido, pero en ambos tramos se integra v−u.</p>
+    <p>La última condición da \(2-2k=0\), de donde k=1. La recta x−1 cambia de signo en 1 y forma dos triángulos de área 1/2:</p><p>\[A=-\int_0^1(x-1)dx+\int_1^2(x-1)dx=1.\]</p><p>Integral nula y área nula son afirmaciones diferentes si puede haber valores de ambos signos.</p></details>
+    <details data-content-role="extension"><summary>Si la función es continua y no negativa, ¿puede tener integral cero sin ser nula?</summary><p>No, en un intervalo cerrado de longitud positiva. Si f fuera positiva en algún punto, la continuidad garantizaría un pequeño tramo donde f es mayor que una constante positiva. Incluso si ese punto es un extremo, existe un tramo lateral con área positiva. Por tanto, su integral sería positiva.</p><p>Así, para f continua y f≥0 en [a,b], con a&lt;b, \(\int_a^bf=0\) obliga a f=0 en todo el intervalo. No elimines las hipótesis: una función que vale 1 en un único punto y 0 en los demás no es continua allí y tiene integral cero.</p></details>
+    <p>Refuerzo: <a href="08-aplicaciones-de-la-integral.html">3.8. Cortes, orden y áreas</a>.</p></article>
+    </section>
+    <section id="test-repaso" data-content-role="self-check"><h2>Doce decisiones para reunir lo aprendido</h2><p>Estas doce preguntas también forman parte del test de 60 preguntas del tema. Hay pista, dos intentos y explicación. El resumen solo corresponde a esta sesión.</p><div class="activity" data-quiz="review-t03"></div></section>
+    <section data-content-role="summary"><h2>Antes de seguir</h2><ul><li>¿Has comprobado la primitiva y la compatibilidad de todos los datos?</li><li>¿Coinciden la variable de integración y la variable de los límites?</li><li>¿Has separado los cambios de expresión y de signo que necesita el cálculo?</li><li>¿Distingues tasa, cantidad, variación neta y variación total?</li><li>¿Has justificado qué función queda arriba en cada tramo?</li></ul><p><a href="../../../test/index.html?tema=t03">Recorrer las 60 preguntas</a> · <a href="../../../tarjetas/index.html?tema=t03">Repasar las 48 tarjetas</a></p><p><a href="../../../laboratorios/juegos/t03-a-parejas-de-primitivas.html">Parejas de primitivas ya está disponible</a>. También está disponible <a href="../../../laboratorios/juegos/t03-b-metodo-correcto.html">Método correcto</a>. Después de 3.7–3.8, practica con <a href="../../../laboratorios/juegos/t03-c-area-por-tramos.html">Área por tramos</a> para distinguir integral con signo y área geométrica.</p></section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+
+    <script type="module" src="../../../assets/js/learning/indexes.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

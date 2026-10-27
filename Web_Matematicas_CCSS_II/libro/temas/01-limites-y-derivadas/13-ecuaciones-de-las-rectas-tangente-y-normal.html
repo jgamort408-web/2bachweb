@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.13. Ecuaciones de las rectas tangente y normal · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t01-e13">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">1.13. Ecuaciones de las rectas tangente y normal</h1>
+    <p class="lead" data-content-role="introduction">La derivada proporciona una pendiente. Al combinarla con el punto de la curva, podemos escribir la tangente y la recta perpendicular a ella: la normal.</p>
+    <div class="learning-goals"><p data-content-role="objectives"><strong>Al terminar podrás:</strong> obtener ambas rectas, tratar una tangente horizontal y encontrar puntos a partir de una pendiente.</p><p data-content-role="prerequisites"><strong>Antes:</strong> ecuación de una recta por un punto y <a href="11-funcion-derivada.html">derivada como pendiente</a>. Revisa la <a href="12-derivadas-laterales.html">derivabilidad en las uniones</a>.</p></div>
+    <section data-content-role="definition">
+      <h2>1. Un punto y una pendiente</h2>
+      <p>Si \(f\) es derivable en \(a\), con derivada finita, la tangente pasa por \(P=(a,f(a))\) y tiene pendiente \(m=f'(a)\).</p>
+      <div class="definition"><p><strong>Tangente:</strong></p><p>\[y-f(a)=f'(a)(x-a).\]</p><p><strong>Normal, si \(f'(a)\ne0\):</strong></p><p>\[y-f(a)=-\frac1{f'(a)}(x-a).\]</p></div>
+      <p>Dos rectas de pendientes finitas no nulas son perpendiculares cuando el producto de sus pendientes vale −1. Por eso la pendiente normal es el <strong>opuesto del inverso</strong>, no solo el opuesto.</p>
+      <p>Si \(f'(a)=0\), la tangente es horizontal: \(y=f(a)\). Su normal es vertical: \(x=a\). No hay que dividir por cero ni asignar una pendiente real a la recta vertical.</p>
+      <p data-content-role="warning">Primero comprueba que la función está definida y es derivable en el punto. Una esquina no proporciona una tangente única con esta definición. Los casos de tangente vertical necesitan un estudio específico de límites.</p>
+    </section>
+    <section id="ejemplos" data-content-role="worked-example">
+      <h2>2. Tangente y normal a una parábola</h2>
+      <p>Para \(f(x)=x^2\), calcula ambas rectas en \(a=1\).</p>
+      <ol class="worked-steps" data-content-role="worked-steps"><li><strong>Punto.</strong> \(f(1)=1\), luego \(P=(1,1)\).</li><li><strong>Pendiente.</strong> \(f'(x)=2x\), así que \(m=2\).</li><li><strong>Tangente.</strong> \(y-1=2(x-1)\), es decir, \(y=2x-1\).</li><li><strong>Normal.</strong> Su pendiente es \(-1/2\): \[y-1=-\frac12(x-1).\]</li><li><strong>Comprobación.</strong> Las dos pasan por \((1,1)\) y \(2\cdot(-1/2)=-1\).</li></ol>
+      <p>En el vértice \(a=0\), el resultado cambia de forma: la tangente es \(y=0\) y la normal es \(x=0\).</p>
+    </section>
+    <section id="explorador" data-content-role="visualization">
+      <h2>3. Mueve el punto y compara las rectas</h2>
+      <p>Explora \(f(x)=x^2\). Prueba puntos negativos, positivos y el vértice. La gráfica usa la misma escala en ambos ejes para representar correctamente la perpendicularidad.</p>
+      <div class="activity" data-tangent-explorer>
+        <p><label for="tangent-point">Punto a</label> <select id="tangent-point"><option value="-2">−2</option><option value="-1">−1</option><option value="0">0</option><option value="1" selected>1</option><option value="2">2</option></select></p>
+        <div data-tangent-formula>\[\begin{aligned}P&=(1,1)\\t:\ y-1&=2(x-1)\\n:\ y-1&=-\frac12(x-1)\end{aligned}\]</div>
+        <figure><svg width="100%" viewBox="0 0 480 400" role="img" aria-labelledby="tangent-graph-title tangent-graph-description">
+          <title id="tangent-graph-title">Parábola, tangente y normal</title><desc id="tangent-graph-description">En el punto (1,1), las pendientes de tangente y normal son 2 y −1/2. Ambas rectas pasan por ese punto.</desc>
+          <defs><clipPath id="tangent-clip"><rect x="30" y="20" width="420" height="350"/></clipPath></defs>
+          <path d="M30 290H450 M240 20V370" fill="none" stroke="#8792a2"/><text x="435" y="310">x</text><text x="250" y="30">y</text>
+          <g data-tangent-ticks></g>
+          <g clip-path="url(#tangent-clip)">
+            <path data-tangent-curve fill="none" stroke="#1746a2" stroke-width="3"/>
+            <path data-tangent-line fill="none" stroke="#172033" stroke-width="2"/>
+            <path data-normal-line fill="none" stroke="#9a3412" stroke-width="2" stroke-dasharray="7 4"/>
+            <circle data-tangent-dot r="5" fill="#172033"/>
+          </g>
+        </svg><figcaption data-content-role="caption">Parábola azul; tangente negra continua; normal marrón a trazos. El punto pertenece a las tres. Las unidades de los ejes tienen el mismo tamaño.</figcaption></figure>
+        <div class="table-scroll"><table><caption data-content-role="caption">Pendientes en el punto elegido</caption><thead><tr><th scope="col">Recta</th><th scope="col">Pendiente</th></tr></thead><tbody><tr><th scope="row">Tangente</th><td data-tangent-slope>2</td></tr><tr><th scope="row">Normal</th><td data-normal-slope>−1/2</td></tr></tbody></table></div>
+        <p data-tangent-summary role="status">Ambas rectas pasan por (1,1). El producto de sus pendientes es −1.</p>
+      </div>
+    </section>
+    <section id="examen" data-content-role="worked-example">
+      <h2>4. Del examen: tangente y normal en x=2</h2>
+      <p>En los apartados 1(b–c) del examen de Límites y Derivadas, usamos los parámetros \(a=1,\ b=-2\) obtenidos en <a href="12-derivadas-laterales.html#examen">1(a)</a>. Cerca de 2 corresponde la rama:</p>
+      <p>\[f(x)=\frac{x-2}{x-1}=1-\frac1{x-1}.\]</p>
+      <p>El punto es \(P=(2,0)\). La pendiente puede calcularse por definición sin anticipar reglas:</p>
+      <p>\[\frac{f(2+h)-f(2)}h=\frac{h/(1+h)}h=\frac1{1+h}\longrightarrow1.\]</p>
+      <p>Por tanto, las rectas son:</p><p>\[\boxed{t:\ y=x-2}\qquad\boxed{n:\ y=-x+2}.\]</p>
+      <p>Ambas pasan por \((2,0)\), y sus pendientes 1 y −1 son perpendiculares.</p>
+      <details data-content-role="explanation"><summary>Si se deja b sin fijar</summary><p>La rama derecha da \(f(2)=b+2\) y \(f'(2)=-(b+1)\). La tangente general es \(y-(b+2)=-(b+1)(x-2)\). Para \(b\ne-1\), la normal tiene pendiente \(1/(b+1)\). Si \(b=-1\), la tangente es \(y=1\) y la normal \(x=2\). Las respuestas anteriores corresponden a los parámetros de 1(a).</p></details>
+    </section>
+    <section data-content-role="worked-example">
+      <h2>5. Cuando te dan la pendiente y piden el punto</h2>
+      <p>Busca la tangente a \(f(x)=x^2\) paralela a \(y=4x+7\). Las pendientes deben coincidir: \(f'(a)=2a=4\), así que \(a=2\). El punto es \((2,4)\) y la recta es \(y-4=4(x-2)\), o \(y=4x-4\).</p>
+      <p data-content-role="warning">La recta dada solo aporta su pendiente; no es necesariamente la tangente. Una misma pendiente puede corresponder a varios puntos o a ninguno, según la función.</p>
+    </section>
+    <section id="practica" data-content-role="guided-practice">
+      <h2>6. Tu turno</h2><p>Calcula tangente y normal a \(f(x)=x^2\) en \(a=-1\).</p>
+      <details data-content-role="hint"><summary>Pista 1</summary><p>El punto es \((-1,1)\) y la pendiente tangente es \(2(-1)=-2\).</p></details>
+      <details data-content-role="hint"><summary>Pista 2</summary><p>La normal tiene pendiente \(-1/(-2)=1/2\). Recuerda que \(x-(-1)=x+1\).</p></details>
+      <details data-content-role="solution"><summary>Solución razonada</summary><p>Tangente: \(y-1=-2(x+1)\), es decir, \(y=-2x-1\). Normal: \(y-1=(x+1)/2\). Al sustituir \(x=-1\), ambas dan \(y=1\).</p></details>
+      <div class="activity" data-content-role="self-check" data-quiz="t01-e13"></div>
+    </section>
+    <section data-content-role="summary"><h2>7. Resumen</h2><ul><li>Obtén primero el punto y la derivada.</li><li>Escribe la ecuación punto-pendiente y comprueba que la recta pasa por el punto.</li><li>Una tangente horizontal tiene normal vertical; no dividas por cero.</li></ul><p data-content-role="related-links"><a href="14-tabla-de-derivadas.html">Continuar: derivadas elementales y sus condiciones</a>.</p></section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

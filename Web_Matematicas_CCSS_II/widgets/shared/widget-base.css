@@ -1,0 +1,11 @@
+@import url('../../assets/css/math.css');
+@import url('../../assets/css/learning.css');
+@import url('../../assets/css/preferences.css');
+@import url('../../assets/css/visibility.css');
+/* Base neutra de widgets. Los estilos del sitio no entran en el iframe. */
+* { box-sizing: border-box; }
+body { margin: 0; padding: 1rem; font-family: system-ui, sans-serif; line-height: 1.6; overflow-wrap: anywhere; }
+button, input, select, textarea { font: inherit; }
+button { padding: 0.5rem 0.75rem; }
+h1 { margin: 0; font-size: 1.25rem; }
+:focus-visible { outline: 3px solid #1746a2; outline-offset: 3px; }

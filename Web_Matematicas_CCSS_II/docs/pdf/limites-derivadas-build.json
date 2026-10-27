@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 1,
+  "mathematics": {
+    "passed": true,
+    "activeDerivatives": 6,
+    "annexDerivatives": 6,
+    "automaticDifferentiationCases": 58,
+    "activeLimits": 6,
+    "annexLimits": 6,
+    "parameters": [
+      "1",
+      "-2"
+    ],
+    "rocketDistancesKm": [
+      100000,
+      20000
+    ],
+    "finiteLandingClaimRejected": true,
+    "firstFourGradingRulePreserved": true
+  },
+  "documents": [
+    {
+      "id": "limites-derivadas-examen",
+      "pages": 2,
+      "bytes": 41203,
+      "sha256": "c8d0d08ab9b89e3d6acef6b0b2cc45b3273401fa4fc5fbb2a54de181118c4b0f",
+      "title": "Límites y derivadas - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 14,
+      "characters": 1707
+    },
+    {
+      "id": "limites-derivadas-soluciones",
+      "pages": 7,
+      "bytes": 57559,
+      "sha256": "e301e2c45e70f1cfa2d6d81a55148f49517ab1d458e98fc2e6175c07a217fcd2",
+      "title": "Límites y derivadas - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 17,
+      "characters": 6139
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-20",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/limites-derivadas/estilo.tex",
+      "sha256": "16e479d18ece485351525f838d84ddee1b52eb7e922971c6307588660bf84f25"
+    },
+    {
+      "path": "content/latex/limites-derivadas/limites-derivadas-examen.tex",
+      "sha256": "38393e992af38279a1319f8bce7f75afcebd24661f86470992c5162538364432"
+    },
+    {
+      "path": "content/latex/limites-derivadas/limites-derivadas-soluciones.tex",
+      "sha256": "30f3fca295954bed0b217dead922316693c7e0c553fa0827036d49be80259d60"
+    },
+    {
+      "path": "content/latex/limites-derivadas/logo-al-andalus.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    },
+    {
+      "path": "content/latex/limites-derivadas/provenance.json",
+      "sha256": "4788306f78016c4fed6492e2a5bdbb4abf83a875ac746cf13af796e342005b17"
+    }
+  ]
+}

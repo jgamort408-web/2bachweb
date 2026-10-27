@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.2 Estimación por Intervalos</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-body: #ecfdf5;       
+            --primary: #047857;       
+            --primary-dark: #064e3b;  
+            --secondary: #0f172a;     
+            --accent: #d97706;        
+            --accent-light: #fffbeb;
+            --danger: #ef4444;
+            
+            --text-main: #334155;
+            --text-light: #64748b;
+            
+            --radius: 8px;            
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            background-image: radial-gradient(#047857 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; color: var(--secondary); line-height: 1.2; }
+        .container { max-width: 950px; margin: 0 auto; }
+
+        /* HEADER */
+        .header-bar {
+            background: white;
+            padding: 1.5rem;
+            border-bottom: 4px solid var(--accent); /* Cambio a Amber para esta sección */
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .header-num {
+            background: var(--accent);
+            color: white;
+            font-weight: 800;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 1.2rem;
+        }
+
+        /* TARJETAS */
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2.5rem;
+        }
+
+        /* DIAGRAMA DE FLUJO (COMPARATIVA) */
+        .flow-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .flow-card {
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .flow-prob { background: #f0f9ff; border-color: #bae6fd; } /* Azul */
+        .flow-conf { background: #f0fdf4; border-color: #bbf7d0; } /* Verde */
+
+        .flow-arrow { font-size: 1.5rem; margin: 0.5rem 0; display: block; }
+        .flow-title { font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 1rem; }
+
+        /* GRÁFICO NORMAL SVG */
+        .normal-graph-container {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            margin: 2rem 0;
+        }
+        
+        .area-confidence { fill: rgba(4, 120, 87, 0.2); }
+        .area-alpha { fill: rgba(239, 68, 68, 0.3); }
+        .axis-line { stroke: #334155; stroke-width: 2; }
+        .curve-line { stroke: #047857; stroke-width: 2; fill: none; }
+        .critical-line { stroke: #d97706; stroke-width: 2; stroke-dasharray: 4; }
+
+        /* TABLA DE VALORES CRÍTICOS */
+        .z-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'JetBrains Mono', monospace;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .z-table th { background: var(--secondary); color: white; padding: 12px; }
+        .z-table td { background: white; border: 1px solid #e2e8f0; padding: 12px; font-weight: bold; color: var(--primary); }
+        
+        /* FORMULA BOX */
+        .formula-card {
+            background: var(--secondary);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .flow-grid { grid-template-columns: 1fr; }
+            body { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+
+        <div class="header-bar">
+            <div class="header-num">5.2</div>
+            <div>
+                <h1 style="font-size: 1.5rem; margin: 0;">Estimación por Intervalos</h1>
+                <span style="font-size: 0.9rem; color: var(--text-light);">Poniendo límites a la incertidumbre</span>
+            </div>
+        </div>
+
+        <section class="card">
+            <h2>El Cruce de Caminos</h2>
+            <p>
+                En los problemas de examen, lo primero es saber en qué dirección vas. ¿Conoces la Población o conoces la Muestra?
+            </p>
+
+            <div class="flow-grid">
+                <div class="flow-card flow-prob">
+                    <div class="flow-title" style="color: #0284c7;">1. Intervalo Característico</div>
+                    <p style="font-size: 0.9rem;">
+                        <span style="background:#fff; padding:2px 6px; border-radius:4px; border:1px solid #bae6fd;">Conozco la Población ($\mu$)</span>
+                    </p>
+                    <span class="flow-arrow">⬇️ Predigo ⬇️</span>
+                    <p style="font-size: 0.9rem;">
+                        <span style="background:#fff; padding:2px 6px; border-radius:4px; border:1px solid #bae6fd;">Dónde caerá la Muestra ($\bar{x}$)</span>
+                    </p>
+                    <p style="font-size: 0.8rem; margin-top: 1rem; color: #0369a1;">
+                        Ej: "Si la media nacional es 170, ¿entre qué valores estará la media de mi clase?"
+                    </p>
+                </div>
+
+                <div class="flow-card flow-conf">
+                    <div class="flow-title" style="color: #15803d;">2. Intervalo de Confianza</div>
+                    <p style="font-size: 0.9rem;">
+                        <span style="background:#fff; padding:2px 6px; border-radius:4px; border:1px solid #bbf7d0;">Conozco la Muestra ($\bar{x}$)</span>
+                    </p>
+                    <span class="flow-arrow">⬆️ Estimo ⬆️</span>
+                    <p style="font-size: 0.9rem;">
+                        <span style="background:#fff; padding:2px 6px; border-radius:4px; border:1px solid #bbf7d0;">Dónde está la Población ($\mu$)</span>
+                    </p>
+                    <p style="font-size: 0.8rem; margin-top: 1rem; color: #166534;">
+                        Ej: "He medido a mi clase (172). ¿Entre qué valores está la media nacional real?"
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Nivel de Confianza y Significación</h2>
+            <p>
+                No podemos estar seguros al 100% (el intervalo sería infinito: de $-\infty$ a $+\infty$). 
+                Elegimos un <strong>Nivel de Confianza ($1-\alpha$)</strong>, usualmente 95%, y asumimos un riesgo de error llamado <strong>Nivel de Significación ($\alpha$)</strong>.
+            </p>
+
+        <div class="normal-graph-container" style="background: white; border-radius: 8px; border: 1px solid #cbd5e1; padding: 1.5rem; margin: 2rem 0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+                <h4 style="text-align: center; font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-light); font-family: 'Outfit', sans-serif;">
+                    Distribución Normal Estándar N(0,1)
+                </h4>
+                
+                <svg viewBox="0 0 400 220" width="100%" style="overflow: visible;">
+                    <defs>
+                        <style>
+                            .txt-label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: bold; }
+                            .txt-math { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: bold; }
+                            .axis { stroke: #334155; stroke-width: 1.5; }
+                            .tick { stroke: #94a3b8; stroke-width: 1; }
+                        </style>
+                    </defs>
+
+                    <path d="M 20,170 L 20,168 C 50,168 80,160 100,130 L 100,170 Z" 
+                          fill="rgba(239, 68, 68, 0.2)" stroke="none" />
+
+                    <path d="M 300,170 L 300,130 C 320,160 350,168 380,168 L 380,170 Z" 
+                          fill="rgba(239, 68, 68, 0.2)" stroke="none" />
+
+                    <path d="M 100,170 L 100,130 C 130,50 160,20 200,20 C 240,20 270,50 300,130 L 300,170 Z" 
+                          fill="rgba(4, 120, 87, 0.15)" stroke="none" />
+
+                    <path d="M 20,168 C 50,168 80,160 100,130 C 130,50 160,20 200,20 C 240,20 270,50 300,130 C 320,160 350,168 380,168" 
+                          fill="none" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+                    <line x1="10" y1="170" x2="390" y2="170" class="axis" />
+                    
+                    <line x1="100" y1="170" x2="100" y2="130" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4" />
+                    <line x1="300" y1="170" x2="300" y2="130" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4" />
+                    <line x1="200" y1="170" x2="200" y2="20" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2" opacity="0.5"/>
+
+                    <text x="200" y="90" text-anchor="middle" fill="#047857" class="txt-label" style="font-size: 16px;">1 - α</text>
+                    <text x="200" y="110" text-anchor="middle" fill="#065f46" class="txt-label" style="opacity: 0.8;">Nivel de Confianza</text>
+
+                    <text x="60" y="155" text-anchor="middle" fill="#b91c1c" class="txt-label">α/2</text>
+                    <text x="340" y="155" text-anchor="middle" fill="#b91c1c" class="txt-label">α/2</text>
+                    
+                    <path d="M 60 160 L 60 165" stroke="#b91c1c" stroke-width="1" />
+                    <path d="M 340 160 L 340 165" stroke="#b91c1c" stroke-width="1" />
+
+                    <text x="100" y="195" text-anchor="middle" fill="#d97706" class="txt-math">-Z(α/2)</text>
+                    <text x="300" y="195" text-anchor="middle" fill="#d97706" class="txt-math">+Z(α/2)</text>
+                    <text x="200" y="195" text-anchor="middle" fill="#64748b" class="txt-math">0</text>
+                    
+                    <line x1="100" y1="170" x2="100" y2="175" class="tick" />
+                    <line x1="300" y1="170" x2="300" y2="175" class="tick" />
+                    <line x1="200" y1="170" x2="200" y2="175" class="tick" />
+
+                </svg>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Valores Críticos ($z_{\alpha/2}$) Comunes</h3>
+            <p style="font-size: 0.9rem;">El valor $z_{\alpha/2}$ es el número de desviaciones típicas que nos alejamos del centro. Memoriza estos tres:</p>
+            
+            <table class="z-table">
+                <thead>
+                    <tr>
+                        <th>Nivel Confianza ($1-\alpha$)</th>
+                        <th>Significación ($\alpha$)</th>
+                        <th>Valor Crítico ($z_{\alpha/2}$)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>90 %</td>
+                        <td>0.10</td>
+                        <td>1.645</td>
+                    </tr>
+                    <tr>
+                        <td style="background: #ecfdf5; color: var(--primary-dark);">95 % (Estándar)</td>
+                        <td style="background: #ecfdf5;">0.05</td>
+                        <td style="background: #ecfdf5; border: 2px solid var(--primary);">1.96</td>
+                    </tr>
+                    <tr>
+                        <td>99 %</td>
+                        <td>0.01</td>
+                        <td>2.575</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="card" style="border-left-color: var(--accent);">
+            <h2 style="color: var(--accent);">Intervalo de Confianza para la Media</h2>
+            <p>
+                Si combinamos la media muestral ($\bar{x}$) con el error estándar del TCL ($\frac{\sigma}{\sqrt{n}}$) y el factor de seguridad ($z_{\alpha/2}$), obtenemos la fórmula dorada:
+            </p>
+
+            <div class="formula-card">
+                <p style="font-size: 0.9rem; text-transform: uppercase; margin-bottom: 1rem; opacity: 0.8;">Estimación = Punto ± Error</p>
+                <div style="font-size: 1.5rem; margin-bottom: 1.5rem;">
+                    $$IC = \left( \bar{x} - z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}, \quad \bar{x} + z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}} \right)$$
+                </div>
+                
+                <div style="display: flex; justify-content: center; gap: 2rem; font-size: 0.85rem; opacity: 0.9;">
+                    <div>
+                        <strong style="color: #fbbf24;">$z_{\alpha/2}$</strong><br>Seguridad
+                    </div>
+                    <div>
+                        <strong>$\frac{\sigma}{\sqrt{n}}$</strong><br>Precisión
+                    </div>
+                    <div>
+                        <strong style="color: #fbbf24;">$E$</strong><br>Error Máximo
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: #fffbeb; padding: 1rem; border-radius: 6px; margin-top: 1.5rem; border: 1px solid #fcd34d; font-size: 0.9rem; color: #78350f;">
+                <strong>💡 Pro Tip:</strong> El término $z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}$ es el <strong>Error Máximo Admisible ($E$)</strong>. Es la mitad de la anchura total del intervalo.
+            </div>
+        </section>
+
+    </main>
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

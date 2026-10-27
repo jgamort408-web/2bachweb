@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 4: Distribución de la Proporción Muestral</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            /* PALETA LAB / ECO-SCIENCE */
+            --bg-body: #ecfdf5;       /* Mint Cream */
+            --primary: #047857;       /* Emerald Green */
+            --primary-dark: #064e3b;  /* Deep Forest */
+            --secondary: #0f172a;     /* Slate Dark */
+            
+            --accent: #d97706;        /* Amber Gold */
+            --accent-bg: #fffbeb;
+            --accent-light: #fde68a;
+            
+            --text-main: #334155;
+            --text-light: #64748b;
+            
+            --radius: 8px;            
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --border: 1px solid #d1fae5;
+            
+            /* Interactive Adventure Colors */
+            --adv-bg: #f8fafc;
+            --adv-border: #cbd5e1;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            background-image: radial-gradient(#047857 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+
+        h1, h2, h3, h4 { 
+            font-family: 'Outfit', sans-serif; 
+            color: var(--secondary); 
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        header {
+            background: white;
+            padding: 2rem;
+            border-bottom: 4px solid var(--primary);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .badge {
+            background: var(--secondary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* TARJETAS TÉCNICAS */
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-left: 5px solid var(--primary);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .section-tag {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .formula-box {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            padding: 1.5rem;
+            border-radius: 6px;
+            text-align: center;
+            margin: 1.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        .highlight-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+
+        .highlight-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            top: -2px;
+        }
+
+        /* EJEMPLO RESUELTO */
+        .example-box {
+            background: var(--accent-bg);
+            border: 1px solid var(--accent-light);
+            border-left: 5px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            margin-bottom: 2rem;
+        }
+
+        .example-box h3 { color: #92400e; margin-bottom: 1rem; }
+
+        /* AVENTURA INTERACTIVA */
+        .adventure-container {
+            background: var(--secondary);
+            color: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            margin-top: 3rem;
+        }
+
+        .adv-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .adv-step {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .adv-step.active { display: block; }
+
+        .adv-question {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .adv-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .adv-btn {
+            background: #1e293b;
+            color: white;
+            border: 2px solid #475569;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+        }
+
+        .adv-btn:hover { background: #334155; border-color: var(--primary); }
+        
+        .adv-feedback {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .adv-feedback.success {
+            background: #064e3b;
+            border: 1px solid #047857;
+        }
+
+        .adv-feedback.error {
+            background: #7f1d1d;
+            border: 1px solid #b91c1c;
+            animation: shake 0.4s ease;
+        }
+
+        .btn-continue {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            font-family: 'Outfit', sans-serif;
+            display: none;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <header>
+            <span class="badge">BLOQUE 2.2</span>
+            <h1 style="margin-top: 0.5rem; color: var(--primary-dark);">Distribución de la Proporción Muestral</h1>
+            <p style="color: var(--text-light); margin-top: 0.5rem;">Estimar porcentajes y modelizar variables de "Éxito o Fracaso".</p>
+        </header>
+
+        <section class="card">
+            <span class="section-tag">01. MARCO TEÓRICO</span>
+            <h2>Concepto de Proporción Muestral</h2>
+            <p style="margin-top: 1rem;">En muchas ocasiones, se precisa estimar una proporción o porcentaje de observaciones que cumplan una determinada característica. Esto ocurre cuando la variable aleatoria que se estudia puede tomar solo dos valores diferentes: <strong>sí (éxito) y no (fracaso)</strong>.</p>
+            
+            <p style="margin-top: 1rem;">Por ejemplo, el porcentaje de personas que votan a un partido, a las que les ha funcionado un tratamiento médico, o dispuestas a comprar un coche. En todos estos casos estamos ante una <strong>distribución binomial</strong>, $B(n,p)$.</p>
+
+            <div style="background: #f8fafc; border-left: 4px solid var(--secondary); padding: 1.5rem; margin-top: 1.5rem;">
+                <p>Dada una muestra aleatoria de tamaño $n$ en la que se producen $x$ éxitos, se deduce que la <strong>proporción de éxitos de la muestra</strong> (designada como $\hat{p}$) viene dada por:</p>
+                <div class="formula-box" style="background: white; border-color: #e2e8f0; margin: 1rem 0;">
+                    $$\hat{p} = \frac{x}{n}$$
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Aplicación del Teorema Central del Límite</h3>
+            <p style="margin-top: 1rem;">Como se ha visto anteriormente, cuando la muestra es suficientemente grande ($n \ge 30$) y cumple ciertas condiciones ($n \cdot p > 5$ y $n \cdot q > 5$), se puede aproximar a una distribución normal.</p>
+            
+            <p style="margin-top: 1rem;">Mediante el Teorema Central del Límite, se puede inferir que la distribución muestral de proporciones sigue una distribución normal con los siguientes parámetros:</p>
+            
+            <ul class="highlight-list">
+                <li>Tiene la misma media $\mu$ que la población: $\mu = p$.</li>
+                <li>Presenta una desviación típica de $\sigma = \sqrt{\frac{p \cdot q}{n}}$.</li>
+            </ul>
+            
+            <div class="formula-box">
+                Modelo de la Proporción: $\hat{P} \to N\left(p, \sqrt{\frac{p \cdot q}{n}}\right)$
+            </div>
+        </section>
+
+        <section class="example-box">
+            <span class="section-tag" style="color: #92400e;">02. CASO PRÁCTICO RESUELTO</span>
+            <h3>Hábitos de Consumo: Pequeño Comercio</h3>
+            <p>Según datos de la asociación de empresarios, el $20\%$ de las personas hace sus compras de alimentación en pequeños comercios de barrio ($p=0.20$), mientras que el $80\%$ restante compra en grandes superficies o internet ($q=0.80$). Se escoge una muestra de $50$ personas ($n=50$).</p>
+            
+            <p style="margin-top: 1rem; color: #78350f;"><strong>Paso 1: Definir la distribución</strong></p>
+            <p style="color: #78350f;">Calculamos la desviación típica usando $\sigma = \sqrt{\frac{p \cdot q}{n}}$:</p>
+            $$\sigma = \sqrt{\frac{0.20 \cdot 0.80}{50}} = \sqrt{\frac{0.16}{50}} = \sqrt{0.0032} \approx 0.057$$
+            <p style="color: #78350f;">Por tanto, la distribución es $\hat{P} \sim N(0.20, 0.057)$.</p>
+
+            <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #fcd34d;">
+                <strong>Pregunta:</strong> Determina la probabilidad de que la proporción de la muestra sea superior al 25% ($\hat{P} > 0.25$).
+                <p style="margin-top: 0.5rem; color: #78350f;">Primero, tipificamos el valor:</p>
+                $$Z = \frac{0.25 - 0.20}{0.057} = 0.88$$
+                <p style="margin-top: 0.5rem; color: #78350f;">Buscamos en la tabla de la Normal estándar:</p>
+                $$P(\hat{P} > 0.25) = P(Z > 0.88) = 1 - P(Z \le 0.88) = 1 - 0.8106 = \mathbf{0.1894 \ (18.94\%)}$$
+            </div>
+        </section>
+
+        <section class="adventure-container">
+            <div class="adv-header">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <h2 style="color: white; margin: 0;">Aventura Estadística: Lanzamiento Premium</h2>
+            </div>
+
+            <p style="color: #94a3b8; margin-bottom: 2rem;">Trabajas en el departamento de marketing de una empresa de software. Históricamente, el <strong>15%</strong> de los usuarios gratuitos acaban comprando la versión Premium de las aplicaciones que lanzáis. Acabáis de lanzar una nueva app y realizáis una encuesta a una muestra de <strong>100 usuarios</strong> elegidos al azar para predecir las ventas.</p>
+
+            <div id="step1" class="adv-step active">
+                <div style="background: #0f172a; padding: 1.5rem; border-radius: 6px; border-left: 4px solid var(--accent); margin-bottom: 1.5rem;">
+                    <strong>LOS DATOS:</strong> Parámetro poblacional $p = 0.15$. Fracaso poblacional $q = 0.85$. Tamaño de la muestra $n = 100$.
+                </div>
+                <div class="adv-question">
+                    Paso 1: Tu director te pide que definas matemáticamente el modelo predictivo. ¿Cuál es la distribución normal que aproxima las proporciones muestrales para este caso?
+                </div>
+                <div class="adv-options">
+                    <button class="adv-btn" onclick="checkAnswer(1, false)">A) $N(0.15, 0.001275)$</button>
+                    <button class="adv-btn" onclick="checkAnswer(1, true)">B) $N(0.15, 0.0357)$</button>
+                    <button class="adv-btn" onclick="checkAnswer(1, false)">C) $N(15, 1.275)$</button>
+                </div>
+                <div id="fb1" class="adv-feedback"></div>
+                <button id="next1" class="btn-continue" onclick="nextStep(2)">Continuar al Paso 2 ➔</button>
+            </div>
+
+            <div id="step2" class="adv-step">
+                <div style="background: #0f172a; padding: 1.5rem; border-radius: 6px; border-left: 4px solid var(--accent); margin-bottom: 1.5rem;">
+                    <strong>ACTUALIZACIÓN:</strong> ¡Correcto! La distribución es $N(0.15, 0.0357)$. La desviación típica se calcula como $\sigma = \sqrt{\frac{0.15 \cdot 0.85}{100}} = \sqrt{0.001275} \approx 0.0357$.
+                </div>
+                <div class="adv-question">
+                    Paso 2: Para que la campaña sea considerada un éxito rotundo y recibas un bono, necesitáis que <strong>más del 20%</strong> de la muestra afirme que va a comprar la versión Premium ($P(\hat{P} > 0.20)$). 
+                    <br><br>Primero debes tipificar este objetivo. ¿Qué valor de $Z$ le corresponde a una proporción del 0.20?
+                </div>
+                <div class="adv-options">
+                    <button class="adv-btn" onclick="checkAnswer(2, false)">A) $Z = 0.05$</button>
+                    <button class="adv-btn" onclick="checkAnswer(2, false)">B) $Z = -1.40$</button>
+                    <button class="adv-btn" onclick="checkAnswer(2, true)">C) $Z = 1.40$</button>
+                </div>
+                <div id="fb2" class="adv-feedback"></div>
+                <button id="next2" class="btn-continue" onclick="nextStep(3)">Continuar al Paso 3 ➔</button>
+            </div>
+
+            <div id="step3" class="adv-step">
+                <div style="background: #0f172a; padding: 1.5rem; border-radius: 6px; border-left: 4px solid var(--accent); margin-bottom: 1.5rem;">
+                    <strong>ACTUALIZACIÓN:</strong> ¡Muy bien! El valor tipificado es $Z = \frac{0.20 - 0.15}{0.0357} \approx 1.40$.
+                </div>
+                <div class="adv-question">
+                    Paso 3: Ya sabes que debes buscar $P(Z > 1.40)$. Al consultar las tablas de la distribución Normal Estándar, encuentras que el área acumulada hasta 1.40 es $P(Z \le 1.40) = 0.9192$.
+                    <br><br>¿Cuál es la probabilidad real de que consigas ese bono (es decir, que la muestra supere el 20%)?
+                </div>
+                <div class="adv-options">
+                    <button class="adv-btn" onclick="checkAnswer(3, false)">A) $91.92\%$</button>
+                    <button class="adv-btn" onclick="checkAnswer(3, true)">B) $8.08\%$</button>
+                    <button class="adv-btn" onclick="checkAnswer(3, false)">C) $1.40\%$</button>
+                </div>
+                <div id="fb3" class="adv-feedback"></div>
+                <button id="next3" class="btn-continue" onclick="finishAdventure()">Ver Informe Final ➔</button>
+            </div>
+
+            <div id="step4" class="adv-step" style="text-align: center;">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" style="margin: 0 auto 1rem auto;">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+                <h2>¡Análisis Completado!</h2>
+                <p style="color: #94a3b8; margin: 1rem 0 2rem 0; font-size: 1.1rem;">
+                    Has determinado que la probabilidad de que más del 20% de los encuestados decida comprar la app es de un <strong>8.08%</strong>. Es una probabilidad baja, lo que indica a tu director que necesitaréis una campaña de marketing más agresiva para alcanzar el objetivo.
+                </p>
+                <div style="background: #1e293b; padding: 1.5rem; border-radius: 6px; text-align: left; font-size: 0.95rem; color: #cbd5e1;">
+                    <strong>Resumen del procedimiento utilizado:</strong>
+                    <ol style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.6;">
+                        <li>Identificar que se trata de un problema de <em>proporciones</em> (Éxito/Fracaso).</li>
+                        <li>Calcular los parámetros del modelo normal aproximado $\mu = p$ y $\sigma = \sqrt{\frac{pq}{n}}$.</li>
+                        <li>Tipificar la proporción objetivo ($0.20$) restando la media poblacional ($0.15$) y dividiendo por $\sigma$.</li>
+                        <li>Como buscamos la probabilidad de ser "mayor que" ($>$), calcular el suceso contrario: $1 - P(Z \le 1.40)$.</li>
+                    </ol>
+                </div>
+                <button class="btn-continue" style="display: inline-block; margin-top: 2rem;" onclick="location.reload()">Reiniciar Aventura</button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+        function checkAnswer(step, isCorrect) {
+            const fb = document.getElementById('fb' + step);
+            const btn = document.getElementById('next' + step);
+            
+            fb.style.display = 'block';
+            fb.className = 'adv-feedback ' + (isCorrect ? 'success' : 'error');
+            
+            if (isCorrect) {
+                fb.innerHTML = "<strong>¡Decisión Matemática Correcta!</strong> Has aplicado bien la teoría.";
+                btn.style.display = 'inline-block';
+            } else {
+                if (step === 1) {
+                    fb.innerHTML = "<strong>Error:</strong> Recuerda que la desviación típica lleva una raíz cuadrada: $\\sigma = \\sqrt{\\frac{p \\cdot q}{n}}$. Has olvidado aplicar la raíz o has usado números enteros en vez de decimales para $p$ y $q$.";
+                } else if (step === 2) {
+                    fb.innerHTML = "<strong>Error:</strong> Para tipificar debes restar: $\\frac{\\text{Valor objetivo} - \\text{Media poblacional}}{\\sigma}$. Es decir, $\\frac{0.20 - 0.15}{0.0357}$.";
+                } else if (step === 3) {
+                    fb.innerHTML = "<strong>Error:</strong> La tabla te da la probabilidad de estar por DEBAJO de ese valor ($P(Z \\le 1.40) = 91.92\\%$). Como te piden la probabilidad de que la proporción sea MAYOR ($>$), debes calcular el área restante: $1 - 0.9192$.";
+                }
+                btn.style.display = 'none';
+            }
+            
+            if (window.MathJax) MathJax.typesetPromise([fb]);
+        }
+
+        function nextStep(step) {
+            document.querySelectorAll('.adv-step').forEach(el => el.classList.remove('active'));
+            document.getElementById('step' + step).classList.add('active');
+        }
+
+        function finishAdventure() {
+            document.querySelectorAll('.adv-step').forEach(el => el.classList.remove('active'));
+            document.getElementById('step4').classList.add('active');
+        }
+    </script>
+</body>
+</html>

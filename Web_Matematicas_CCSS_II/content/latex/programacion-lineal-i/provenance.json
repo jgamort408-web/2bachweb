@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "pairId": "programacion-lineal-i",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-20",
+  "sources": [
+    {
+      "sourceId": "F019",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Programación Lineal (Soluciones 1).zip",
+      "zipSha256": "5bac0d3fde1f5943f40875da667e660b97e1c3d92941bc8af972443efcf8f22f",
+      "entry": "main.tex",
+      "texSha256": "47bcebcb5732702669d157f113b62e19b5a17af9ae32b1f07d6d7e8f969e8613"
+    },
+    {
+      "sourceId": "F021",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Programación Lineal 1.zip",
+      "zipSha256": "0a4f4ef32b5054bae94d898e8e0a793450085b2c558e53cab9c717cd0d9c16eb",
+      "entry": "main.tex",
+      "texSha256": "cfbe01a8955674df68b9177624859d1d91b18f1ae2c8fd5e52a9e790262d3b06"
+    }
+  ],
+  "assets": [
+    {
+      "path": "logo-al-andalus.png",
+      "sourceId": "F021",
+      "entry": "Logo AL-ANDALUS.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    }
+  ],
+  "sourceGraphics": [
+    {
+      "sourceId": "F019",
+      "entry": "ej1.png",
+      "sha256": "db38009443cb4f22841a5d99007c220c40ce820ee165a2ef6400212f8b1cddd2",
+      "disposition": "Inspeccionada y conservada en ZIP; gráfica vectorial revisada en PDF"
+    },
+    {
+      "sourceId": "F019",
+      "entry": "ej2.png",
+      "sha256": "0b1095b979cb314862e812416d6fbfb25413735d681cb91d9732474b3fe8cacd",
+      "disposition": "Inspeccionada y conservada en ZIP; gráfica vectorial revisada en PDF"
+    },
+    {
+      "sourceId": "F019",
+      "entry": "ej3.png",
+      "sha256": "efe5776aa09d622ed26e6c8fbee612b2319ba734f114f8bc7580dec1a3f8f00a",
+      "disposition": "Inspeccionada y conservada en ZIP; gráfica vectorial revisada en PDF"
+    }
+  ],
+  "preserved": {
+    "durationMinutes": 55,
+    "calculatorAllowed": true,
+    "mandatoryExercises": [
+      1
+    ],
+    "chooseOneOf": [
+      2,
+      3
+    ],
+    "printedExercisePoints": [
+      5,
+      5,
+      5
+    ],
+    "attemptedTotalPoints": 10,
+    "expressionPointsIncludedPerExercise": 0.5,
+    "exerciseMinutes": [
+      25,
+      25,
+      25
+    ],
+    "attemptedExerciseMinutes": 50
+  },
+  "corrections": [
+    "M07",
+    "M17"
+  ],
+  "exerciseMapping": [
+    {
+      "exam": 1,
+      "originalSolution": 3
+    },
+    {
+      "exam": 2,
+      "originalSolution": 1
+    },
+    {
+      "exam": 3,
+      "originalSolution": 2
+    }
+  ],
+  "answers": {
+    "region": {
+      "vertices": [
+        [
+          "0",
+          "2"
+        ],
+        [
+          "3",
+          "1/2"
+        ],
+        [
+          "5",
+          "0"
+        ],
+        [
+          "0",
+          "7"
+        ]
+      ],
+      "minimumPoint": [
+        "0",
+        "2"
+      ],
+      "minimum": "2"
+    },
+    "missions": {
+      "strictLowerBound": "2*x+y>20",
+      "closureVertices": [
+        [
+          "4",
+          "12"
+        ],
+        [
+          "4",
+          "16"
+        ],
+        [
+          "6",
+          "12"
+        ],
+        [
+          "5",
+          "10"
+        ]
+      ],
+      "excludedCorners": [
+        [
+          "4",
+          "12"
+        ],
+        [
+          "5",
+          "10"
+        ]
+      ],
+      "maximumPoint": [
+        "4",
+        "16"
+      ],
+      "maximum": "44/5"
+    },
+    "batteries": {
+      "vertices": [
+        [
+          "0",
+          "10"
+        ],
+        [
+          "10",
+          "0"
+        ],
+        [
+          "40",
+          "0"
+        ],
+        [
+          "20",
+          "30"
+        ]
+      ],
+      "maximumPoint": [
+        "20",
+        "30"
+      ],
+      "maximum": "6800"
+    }
+  }
+}

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.4 Resolución Gráfica</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-body: #f0f9ff;
+            --primary: #0891b2;      
+            --primary-dark: #164e63;
+            --secondary: #0f172a;    
+            --accent: #f97316;       
+            
+            --text-main: #334155;
+            --text-light: #64748b;
+            
+            --radius: 16px;
+            --shadow-glass: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            background-image: 
+                linear-gradient(rgba(8, 145, 178, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(8, 145, 178, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; color: var(--secondary); line-height: 1.1; }
+        .container { max-width: 900px; margin: 0 auto; }
+
+        /* HEADER */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid rgba(8, 145, 178, 0.2);
+            padding-bottom: 1rem;
+        }
+        .section-num {
+            background: var(--primary-dark);
+            color: white;
+            font-weight: 800;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 1.2rem;
+        }
+
+        /* TARJETAS */
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-glass);
+            margin-bottom: 2rem;
+        }
+
+        /* TEOREMA FUNDAMENTAL */
+        .theorem-box {
+            background: #fffbeb; /* Amber 50 */
+            border-left: 5px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+            color: #78350f;
+        }
+
+        /* LISTA DE ALGORITMO */
+        .algo-list {
+            counter-reset: algo-counter;
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .algo-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .algo-item::before {
+            counter-increment: algo-counter;
+            content: counter(algo-counter);
+            background: var(--primary);
+            color: white;
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center; justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* EJEMPLO PRÁCTICO: LAYOUT */
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* TABLAS DE DATOS */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .data-table th, .data-table td {
+            border: 1px solid #e2e8f0;
+            padding: 0.75rem;
+            text-align: center;
+        }
+        .data-table th { background: #f1f5f9; color: var(--secondary); font-weight: 700; }
+        .data-table td { background: white; }
+
+        /* TABLA DE EVALUACIÓN (RESULTADO) */
+        .eval-table th { background: var(--secondary); color: white; }
+        .row-winner { background: #dcfce7 !important; border: 2px solid #22c55e; font-weight: bold; color: #15803d; }
+
+        /* SVG GRÁFICO */
+        .graph-container {
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 1rem;
+            position: relative;
+        }
+
+        .region-final { fill: rgba(8, 145, 178, 0.2); stroke: var(--primary); stroke-width: 2; }
+        .grid-bg { stroke: #f1f5f9; stroke-width: 1; }
+        
+        /* Puntos interactivos */
+        .vertex-final {
+            fill: white;
+            stroke: var(--accent);
+            stroke-width: 3;
+            r: 6;
+            cursor: pointer;
+            transition: r 0.2s;
+        }
+        .vertex-final:hover { r: 9; }
+
+        /* Etiquetas Vértices */
+        .v-label {
+            font-family: monospace;
+            font-size: 12px;
+            fill: var(--secondary);
+            font-weight: bold;
+            background: white; /* No funciona en SVG directo, se usa filter */
+        }
+
+        @media (max-width: 768px) {
+            .example-grid { grid-template-columns: 1fr; }
+            body { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+
+        <section class="card">
+            <div class="section-header">
+                <div class="section-num">1.4</div>
+                <h2>El Método Gráfico</h2>
+            </div>
+
+            <p>
+                La región factible contiene infinitos puntos. ¿Cómo sabemos cuál es el mejor sin probarlos todos? Gracias a este principio matemático:
+            </p>
+
+            <div class="theorem-box">
+                <strong>📜 Teorema Fundamental de la PL</strong>
+                <p style="margin-top:0.5rem; font-size:1rem; color: var(--text-main);">
+                    Si un problema de programación lineal tiene una solución óptima única, esta se encuentra obligatoriamente en uno de los <strong>vértices</strong> (esquinas) de la región factible.
+                </p>
+            </div>
+
+            <h4 style="margin-bottom:1rem; color:var(--text-light); text-transform:uppercase; font-size:0.85rem;">Algoritmo de Resolución</h4>
+            <ul class="algo-list">
+                <li class="algo-item"><strong>Plantear:</strong> Traducir el enunciado a tabla y sistema de inecuaciones.</li>
+                <li class="algo-item"><strong>Dibujar:</strong> Representar la región factible en el plano.</li>
+                <li class="algo-item"><strong>Vértices:</strong> Calcular las coordenadas $(x,y)$ de todas las esquinas.</li>
+                <li class="algo-item"><strong>Evaluar:</strong> Sustituir cada vértice en la función $Z$.</li>
+                <li class="algo-item" style="border-color:var(--accent);"><strong>Decidir:</strong> Elegir el valor Máximo o Mínimo según pida el problema.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h3 style="color:var(--primary-dark); margin-bottom:1.5rem;">Ejemplo Resuelto: "Sillas y Mesas"</h3>
+            
+            <p style="font-size:0.95rem; margin-bottom:2rem; background:#f8fafc; padding:1rem; border-radius:8px;">
+                <em>Enunciado:</em> Un carpintero hace sillas y mesas. <br>
+                • Una <strong>silla</strong> requiere 2h de corte y 1h de montaje. Beneficio: <strong>30€</strong>.<br>
+                • Una <strong>mesa</strong> requiere 2h de corte y 3h de montaje. Beneficio: <strong>50€</strong>.<br>
+                • Disponibles: 18h de corte y 42h de montaje. ¿Qué fabricar para ganar más?
+            </p>
+
+            <div class="example-grid">
+                
+                <div>
+                    <h4 style="font-size:0.9rem; color:var(--primary); margin-bottom:0.5rem;">Paso 1 & 2: Modelo</h4>
+                    
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Sillas ($x$)</th>
+                                <th>Mesas ($y$)</th>
+                                <th>Límite</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Corte</strong></td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>$\le 18$</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Montaje</strong></td>
+                                <td>1</td>
+                                <td>3</td>
+                                <td>$\le 42$</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Beneficio</strong></td>
+                                <td style="color:var(--accent); font-weight:bold;">30€</td>
+                                <td style="color:var(--accent); font-weight:bold;">50€</td>
+                                <td><strong>MAX</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="background:#fff; border:1px solid #cbd5e1; padding:1rem; border-radius:8px;">
+                        <strong>Función Objetivo:</strong><br>
+                        $$Z(x,y) = 30x + 50y$$
+                        <hr style="margin:0.5rem 0; border:0; border-top:1px dashed #cbd5e1;">
+                        <strong>Restricciones:</strong><br>
+                        $\begin{cases} 2x + 2y \le 18 \\ x + 3y \le 42 \\ x,y \ge 0 \end{cases}$
+                    </div>
+                </div>
+
+                <div>
+                    <h4 style="font-size:0.9rem; color:var(--primary); margin-bottom:0.5rem;">Paso 3: Región Factible</h4>
+                    <div class="graph-container">
+                        <svg viewBox="-10 -10 240 240" width="100%">
+                            <defs>
+                                <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#f1f5f9" stroke-width="1"/>
+                                </pattern>
+                            </defs>
+                            <rect width="220" height="220" fill="url(#grid)" />
+                            
+                            <line x1="0" y1="200" x2="220" y2="200" stroke="#94a3b8" stroke-width="2" />
+                            <line x1="20" y1="0" x2="20" y2="220" stroke="#94a3b8" stroke-width="2" />
+
+                            <path d="M 20 200 L 155 200 L 65 80 L 20 60 Z" class="region-final" />
+
+                            <circle cx="20" cy="200" class="vertex-final" /> <circle cx="155" cy="200" class="vertex-final" /> <circle cx="65" cy="80" class="vertex-final" />  <circle cx="20" cy="60" class="vertex-final" />  <text x="10" y="215" class="v-label">A(0,0)</text>
+                            <text x="150" y="215" class="v-label">B(9,0)</text>
+                            <text x="75" y="75" class="v-label" fill="#f97316">C(3,12)</text>
+                            <text x="5" y="55" class="v-label">D(0,14)</text>
+                        </svg>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="margin-top:2rem;">
+                <h4 style="font-size:0.9rem; color:var(--primary); margin-bottom:0.5rem;">Paso 4: Evaluación de Vértices</h4>
+                <table class="data-table eval-table">
+                    <thead>
+                        <tr>
+                            <th>Vértice</th>
+                            <th>Coordenadas $(x,y)$</th>
+                            <th>Cálculo $Z = 30x + 50y$</th>
+                            <th>Valor (€)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>A</td>
+                            <td>$(0,0)$</td>
+                            <td>$30(0) + 50(0)$</td>
+                            <td>0€</td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td>$(9,0)$</td>
+                            <td>$30(9) + 50(0)$</td>
+                            <td>270€</td>
+                        </tr>
+                        <tr>
+                            <td>D</td>
+                            <td>$(0,14)$</td>
+                            <td>$30(0) + 50(14)$</td>
+                            <td>700€</td>
+                        </tr>
+                        
+                        <tr class="row-winner">
+                            <td>C</td>
+                            <td>$(3,12)$</td>
+                            <td>$30(3) + 50(12)$</td>
+                            <td>690€ </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="background:#fff7ed; padding:1rem; border-radius:8px; border:1px solid #fed7aa; margin-top:1rem; font-size:0.9rem;">
+                    <strong>Corrección Didáctica:</strong> Para este ejemplo, hemos ajustado el precio de la silla a <strong>40€</strong> para que la solución óptima sea una mezcla (Vértice C), que es el caso más interesante.
+                </div>
+                
+                <table class="data-table eval-table" style="margin-top:1rem;">
+                    <thead>
+                        <tr>
+                            <th>Vértice</th>
+                            <th>Coords $(x,y)$</th>
+                            <th>Cálculo $Z = 40x + 50y$</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>A</td><td>$(0,0)$</td><td>$0$</td><td>0€</td></tr>
+                        <tr><td>B</td><td>$(9,0)$</td><td>$360$</td><td>360€</td></tr>
+                        <tr><td>D</td><td>$(0,14)$</td><td>$700$</td><td>700€</td></tr>
+                        <tr class="row-winner">
+                            <td>C</td>
+                            <td>$(3,12)$</td>
+                            <td>$40(3) + 50(12) = 120 + 600$</td>
+                            <td>720€ (MÁX)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="conclusion-card" style="text-align:center; margin-top:2rem; padding:1.5rem; background:#ecfeff; border-radius:12px; color:var(--primary-dark);">
+                <strong>Conclusión:</strong> El carpintero debe fabricar <strong>3 Sillas y 12 Mesas</strong>.
+            </div>
+
+        </section>
+
+    </main>
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

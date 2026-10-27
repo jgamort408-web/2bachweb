@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Probabilidad Total y Bayes — Matemáticas Aplicadas (2º Bach.)</title>
+
+  <!-- Fuentes (con fallback automático) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Inter:wght@300;400;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- MathJax: configuración ANTES, carga UNA sola vez -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      options: { renderActions: { addMenu: [] } }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root{
+      --bg:#FDFBF7;
+      --text:#0f172a;
+      --ink:#1f2937;
+      --muted:#475569;
+
+      --card:#ffffff;
+      --radius:18px;
+      --max:1040px;
+
+      --indigo:#4f46e5;
+      --indigo-2:#312e81;
+      --amber:#d97706;
+      --red:#ef4444;
+      --green:#16a34a;
+
+      --grid-dot: rgba(15, 23, 42, .10);
+      --shadow: 0 18px 35px rgba(15,23,42,.10);
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.55;
+      overflow-x:hidden;
+
+      /* Fondo cuaderno */
+      background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    :focus-visible{
+      outline: 3px solid rgba(79,70,229,.35);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .page{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(18px, 3.2vw, 46px);
+    }
+
+    h1,h2,h3,h4{
+      font-family: Fraunces, ui-serif, Georgia, "Times New Roman", Times, serif;
+      letter-spacing: -0.02em;
+      margin: 0;
+      color: var(--text);
+    }
+
+    .handwritten{
+      font-family: Kalam, "Comic Sans MS", "Segoe Print", cursive;
+      color: var(--amber);
+      font-weight: 700;
+      display:inline-block;
+      transform: rotate(-1deg);
+      letter-spacing:.2px;
+    }
+
+    header{
+      border-bottom: 2px solid rgba(15,23,42,.20);
+      padding-bottom: 18px;
+      margin-bottom: 34px;
+    }
+
+    h1{
+      margin-top: 10px;
+      font-size: clamp(30px, 4.2vw, 52px);
+      line-height: 1.08;
+      text-shadow: 2px 2px 0 var(--bg), 4px 4px 0 rgba(15,23,42,.08);
+    }
+
+    .lead{
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 92ch;
+    }
+
+    section{ margin: 0 0 44px; }
+
+    .paper{
+      background: var(--card);
+      border: 1px solid rgba(15,23,42,.12);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .pad{ padding: clamp(14px, 2.2vw, 22px); }
+
+    .hr{
+      height: 0;
+      border: none;
+      border-top: 2px dashed rgba(15,23,42,.22);
+      margin: 40px 0;
+    }
+
+    /* Graph paper */
+    .graph-paper{
+      background-color: #ffffff;
+      background-image:
+        linear-gradient(rgba(15,23,42,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,23,42,.08) 1px, transparent 1px);
+      background-size: 20px 20px;
+      border: 2px solid rgba(15,23,42,.82);
+      box-shadow: 4px 4px 0 rgba(15,23,42,.82);
+      border-radius: 16px;
+    }
+
+    /* Definición */
+    .math-def{
+      border-left: 6px solid var(--indigo);
+      background: rgba(248,250,252,.92);
+      border-radius: 0 16px 16px 0;
+      padding: clamp(14px, 2.2vw, 22px);
+      border: 1px solid rgba(15,23,42,.10);
+      border-left-width: 6px;
+      position: relative;
+    }
+    .chip{
+      position:absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 11px;
+      font-weight: 900;
+      color: var(--indigo-2);
+      background: rgba(79,70,229,.12);
+      border: 1px solid rgba(79,70,229,.18);
+      padding: 5px 10px;
+      border-radius: 999px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    /* Layout */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    @media (max-width: 920px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .box{
+      background: rgba(15,23,42,.03);
+      border: 1px solid rgba(15,23,42,.10);
+      border-radius: 18px;
+      padding: 14px 14px;
+    }
+    .box h3{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-weight: 900;
+      letter-spacing:-0.01em;
+      font-size: 16px;
+      margin-bottom: 6px;
+      color:#0f172a;
+    }
+    .box p{ margin:0; color:#334155; }
+
+    /* Details */
+    details{ border-radius: 18px; }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      font-weight: 900;
+      color: #1d4ed8;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(15,23,42,.03);
+      border: 1px solid rgba(15,23,42,.10);
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 10px;
+      user-select:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details[open] summary{
+      background: rgba(79,70,229,.12);
+      border-color: rgba(79,70,229,.18);
+      color: #3730a3;
+    }
+    .chev{
+      transition: transform .18s ease;
+      opacity:.6;
+      font-weight: 900;
+      color: currentColor;
+    }
+    details[open] .chev{ transform: rotate(180deg); opacity:.8; }
+
+    .panel{
+      padding: 12px 12px 0;
+    }
+
+    /* Bayes callout */
+    .bayes{
+      border-left: 6px solid rgba(217,119,6,.95);
+      background: rgba(253,230,138,.20);
+      border-radius: 18px;
+      padding: clamp(14px, 2.2vw, 22px);
+      border: 1px solid rgba(217,119,6,.22);
+      box-shadow: 0 14px 28px rgba(15,23,42,.08);
+    }
+    .bayes h3{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-weight: 900;
+      letter-spacing:-0.01em;
+      color:#7c2d12;
+      margin-bottom: 6px;
+      font-size: 18px;
+    }
+    .bayes p{ margin: 0 0 10px; color:#7c2d12; }
+    .bayes .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      color: rgba(124,45,18,.92);
+      margin-top: 8px;
+    }
+    .bayes .formula{
+      background: rgba(255,255,255,.6);
+      border: 1px solid rgba(124,45,18,.18);
+      border-radius: 16px;
+      padding: 12px 12px;
+      text-align:center;
+    }
+
+    /* Tarjetas ejemplo */
+    .card{
+      border: 1px solid rgba(15,23,42,.12);
+      border-radius: 18px;
+      overflow:hidden;
+      background: var(--card);
+      box-shadow: 0 14px 28px rgba(15,23,42,.08);
+    }
+    .card-top{
+      padding: 14px 16px;
+      background: rgba(15,23,42,.03);
+      border-bottom: 1px solid rgba(15,23,42,.10);
+    }
+    .card-top p{
+      margin:0;
+      color:#334155;
+      font-size: 14px;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    @media (max-width: 920px){
+      .split{ grid-template-columns: 1fr; }
+    }
+
+    .warn{
+      background: rgba(254,226,226,.55);
+      border: 1px solid rgba(239,68,68,.22);
+      border-left: 6px solid rgba(239,68,68,.95);
+      border-radius: 18px;
+      padding: 14px 14px;
+      color:#7f1d1d;
+    }
+    .warn h4{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-weight: 900;
+      letter-spacing:-0.01em;
+      font-size: 16px;
+      margin-bottom: 6px;
+      color:#7f1d1d;
+    }
+    .bar{
+      height: 12px;
+      border-radius: 999px;
+      overflow:hidden;
+      display:flex;
+      border: 1px solid rgba(15,23,42,.10);
+      background: rgba(15,23,42,.06);
+    }
+    .bar > div{ height: 100%; }
+
+    .tiny{ font-size: 12px; color:#64748b; font-weight: 800; }
+
+    /* Tabla comparativa */
+    .table-wrap{
+      overflow-x:auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    table{
+      width:100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+    th, td{
+      padding: 12px 12px;
+      border: 1px solid rgba(15,23,42,.18);
+      vertical-align: top;
+      text-align:left;
+      background:#fff;
+    }
+    th{
+      background: rgba(224,231,255,.9);
+      color: #312e81;
+      font-weight: 900;
+    }
+
+    .arrow{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      font-weight: 900;
+      font-size: 13px;
+    }
+    .arrow .a{
+      width: 22px; height: 22px;
+      border-radius: 999px;
+      display:grid; place-items:center;
+      background: rgba(15,23,42,.06);
+      border: 1px solid rgba(15,23,42,.10);
+    }
+
+    /* NUEVO: checklist de errores típicos */
+    .mistakes{
+      border-left: 6px solid rgba(79,70,229,.9);
+      background: rgba(224,231,255,.35);
+      border-radius: 18px;
+      padding: 14px 14px;
+      border: 1px solid rgba(79,70,229,.18);
+    }
+    .mistakes h3{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-weight: 900;
+      letter-spacing:-0.01em;
+      font-size: 16px;
+      margin-bottom: 8px;
+      color:#1e1b4b;
+    }
+    .mistakes ul{ margin:0; padding-left: 18px; color:#1e1b4b; }
+    .mistakes li{ margin: 8px 0; }
+
+    /* NUEVO: mini quiz */
+    .check{
+      border-left: 6px solid rgba(22,163,74,.9);
+      background: rgba(220,252,231,.45);
+      border-radius: 18px;
+      padding: clamp(14px, 2.2vw, 22px);
+      border: 1px solid rgba(22,163,74,.22);
+      box-shadow: 0 14px 28px rgba(15,23,42,.08);
+    }
+    .check h3{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-weight: 900;
+      letter-spacing:-0.01em;
+      color:#14532d;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+    .q{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .q label{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(20,83,45,.18);
+      background: rgba(255,255,255,.55);
+      color:#14532d;
+      font-weight: 700;
+      cursor:pointer;
+    }
+    .q input{ margin-top: 3px; }
+    .btn{
+      margin-top: 8px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(20,83,45,.18);
+      background: rgba(255,255,255,.75);
+      font-weight: 900;
+      color:#14532d;
+      cursor:pointer;
+      width: fit-content;
+    }
+    .result{
+      margin-top: 10px;
+      font-weight: 900;
+      color:#14532d;
+    }
+
+    /* MathJax ajuste */
+    mjx-container[jax="CHTML"]{ font-size: 1.02em; }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <header>
+      <span class="handwritten">Tema 3.5</span>
+      <h1>Probabilidad Total y Teorema de Bayes</h1>
+      <p class="lead">
+        Dos ideas centrales: con <strong>Probabilidad Total</strong> calculamos $P(B)$ sumando caminos.
+        Con <strong>Bayes</strong> invertimos el razonamiento: tras observar $B$, estimamos la causa más probable.
+      </p>
+    </header>
+
+    <!-- 1) PARTICIÓN -->
+    <section>
+      <h2 style="font-size: clamp(22px, 2.8vw, 34px); margin-bottom: 12px;">1. El concepto de partición</h2>
+
+      <div class="grid">
+        <div>
+          <p style="margin:0 0 12px; font-size:18px; color:#334155;">
+            Una <strong>partición</strong> del espacio $E$ es un conjunto de sucesos $\{A_1,\dots,A_n\}$ que separan “el mundo”
+            en casos posibles sin solape.
+          </p>
+
+          <div class="box">
+            <h3>Condiciones</h3>
+            <p style="margin:0;">
+              <strong>Incompatibles:</strong> $A_i\cap A_j=\varnothing$ si $i\ne j$. <br>
+              <strong>Exhaustivos:</strong> $A_1\cup\cdots\cup A_n=E$. <br>
+              Y, además, $P(A_i)>0$ para poder hablar de $P(\cdot\mid A_i)$.
+            </p>
+          </div>
+
+          <div class="mistakes" style="margin-top: 12px;">
+            <h3>Truco de examen</h3>
+            <ul>
+              <li>Si te dan “escenarios” (coche/metro/andando), eso suele ser la partición.</li>
+              <li>Si te dan “máquinas” o “grupos” con porcentajes, también suele ser partición.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="graph-paper pad" style="display:flex; flex-direction:column; align-items:center;">
+          <svg viewBox="0 0 300 150" width="520" height="260" role="img" aria-label="Partición del espacio E en A1, A2, A3">
+            <rect x="2" y="2" width="296" height="146" fill="rgba(248,250,252,.8)" stroke="rgba(51,65,85,.95)" stroke-width="2"/>
+            <path d="M 100 2 L 100 148" stroke="rgba(51,65,85,.95)" stroke-width="2" stroke-dasharray="6,6"/>
+            <path d="M 200 2 L 200 148" stroke="rgba(51,65,85,.95)" stroke-width="2" stroke-dasharray="6,6"/>
+
+            <text x="50" y="82" text-anchor="middle" font-family="Fraunces, serif" font-size="22" fill="#4f46e5">A₁</text>
+            <text x="150" y="82" text-anchor="middle" font-family="Fraunces, serif" font-size="22" fill="#4f46e5">A₂</text>
+            <text x="250" y="82" text-anchor="middle" font-family="Fraunces, serif" font-size="22" fill="#4f46e5">A₃</text>
+
+            <text x="150" y="132" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#64748b">
+              Partición del espacio E
+            </text>
+          </svg>
+          <div class="tiny">Cada resultado cae en exactamente uno de los $A_i$.</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="hr" />
+
+    <!-- 2) TOTAL -->
+    <section>
+      <h2 style="font-size: clamp(22px, 2.8vw, 34px); margin-bottom: 12px;">2. Teorema de la Probabilidad Total</h2>
+      <p style="margin:0 0 12px; font-size:18px; color:#334155;">
+        Si $B$ puede ocurrir dentro de cualquiera de los escenarios $A_1,\dots,A_n$, entonces $P(B)$ es la suma de los caminos:
+      </p>
+
+      <div class="math-def">
+        <span class="chip">Suma de caminos</span>
+        $$ P(B)=\sum_{i=1}^{n} P(A_i)\,P(B\mid A_i) $$
+      </div>
+
+      <div class="grid">
+        <div class="graph-paper pad">
+          <svg viewBox="0 0 300 180" width="520" height="320" role="img" aria-label="B intersecta A1, A2, A3 y se suma la contribución">
+            <rect x="0" y="0" width="300" height="180" fill="none" stroke="rgba(51,65,85,.95)" stroke-width="2"/>
+            <path d="M 100 0 L 100 180" stroke="rgba(203,213,225,.95)" stroke-width="2"/>
+            <path d="M 200 0 L 200 180" stroke="rgba(203,213,225,.95)" stroke-width="2"/>
+
+            <text x="50" y="20" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="12">A₁</text>
+            <text x="150" y="20" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="12">A₂</text>
+            <text x="250" y="20" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="12">A₃</text>
+
+            <ellipse cx="150" cy="92" rx="120" ry="52" fill="rgba(252,211,77,.30)" stroke="rgba(217,119,6,.95)" stroke-width="2"/>
+            <text x="150" y="96" text-anchor="middle" font-weight="900" fill="rgba(217,119,6,.95)" font-family="Inter, sans-serif">Suceso B</text>
+
+            <circle cx="50" cy="92" r="3" fill="rgba(217,119,6,.95)"/>
+            <text x="50" y="112" text-anchor="middle" font-size="10" fill="#64748b" font-family="Inter, sans-serif">
+              P(A₁)·P(B|A₁)
+            </text>
+          </svg>
+          <div class="tiny">Cada “trozo” de $B$ dentro de $A_i$ contribuye a $P(B)$.</div>
+        </div>
+
+        <div class="box">
+          <h3>Interpretación rápida</h3>
+          <p>
+            Si $B$ es “llegar tarde”, y la partición son medios de transporte:
+          </p>
+          <ul style="margin: 8px 0 0 18px; color:#334155;">
+            <li>$A_1$: coche</li>
+            <li>$A_2$: metro</li>
+            <li>$A_3$: andando</li>
+          </ul>
+          <p style="margin-top: 8px;">
+            Entonces $P(B)$ es una media ponderada: “lo tarde” en cada medio, ponderado por lo frecuente que es usarlo.
+          </p>
+        </div>
+      </div>
+
+      <!-- NUEVO: ejemplo numérico breve -->
+      <div class="paper pad" style="margin-top: 14px;">
+        <h3 style="font-size: 20px; margin-bottom: 8px;">Ejemplo exprés (Total)</h3>
+        <p style="margin:0 0 10px; color:#334155;">
+          Una fábrica tiene dos máquinas: $M_1$ produce el 70% y $M_2$ el 30%.
+          Defectuosas: $P(D\mid M_1)=0.02$, $P(D\mid M_2)=0.05$. ¿$P(D)$?
+        </p>
+        <div class="graph-paper pad" style="box-shadow:none; border-width:1px;">
+          $$ P(D)=0.7\cdot 0.02 + 0.3\cdot 0.05 = 0.014 + 0.015 = 0.029 $$
+        </div>
+        <div class="tiny" style="margin-top: 8px;">Un 2.9% de piezas salen defectuosas en total.</div>
+      </div>
+    </section>
+
+    <hr class="hr" />
+
+    <!-- 3) BAYES -->
+    <section>
+      <h2 style="font-size: clamp(22px, 2.8vw, 34px); margin-bottom: 12px;">3. Teorema de Bayes</h2>
+
+      <div class="bayes">
+        <h3>La probabilidad inversa</h3>
+        <p>
+          Sabemos que ha ocurrido $B$ (efecto). Preguntamos: <strong>¿qué causa $A_i$ es más probable?</strong>
+        </p>
+
+        <div class="formula">
+          $$ P(A_i\mid B)=\frac{P(A_i)\,P(B\mid A_i)}{P(B)} $$
+        </div>
+
+        <div class="mono">
+          P(causa | efecto) = [P(causa) · P(efecto | causa)] / P(efecto total)
+        </div>
+      </div>
+
+      <div class="mistakes" style="margin-top: 14px;">
+        <h3>Errores típicos</h3>
+        <ul>
+          <li>Confundir $P(A\mid B)$ con $P(B\mid A)$ (no son lo mismo).</li>
+          <li>Olvidar calcular $P(B)$ con Probabilidad Total antes de aplicar Bayes.</li>
+          <li>No revisar que $P(B)>0$.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EJEMPLO 1: TEST MÉDICO -->
+    <section>
+      <div style="display:flex; align-items:baseline; justify-content:space-between; gap: 12px; margin-bottom: 10px;">
+        <h2 style="font-size: clamp(20px, 2.5vw, 30px);">Ejemplo 1: “Paradoja” del test médico</h2>
+        <span class="handwritten" style="color: var(--red); font-size: 18px;">¡Clásico!</span>
+      </div>
+
+      <article class="card">
+        <div class="card-top">
+          <p>
+            <strong>Datos:</strong> prevalencia $P(E)=0.01$ (1%). Sensibilidad $P(+\mid E)=0.95$.
+            Especificidad $P(-\mid E^c)=0.97$ &rarr; falso positivo $P(+\mid E^c)=0.03$.
+            Si das positivo, ¿cuánto vale $P(E\mid +)$?
+          </p>
+        </div>
+
+        <details class="pad">
+          <summary>Ver análisis paso a paso <span class="chev" aria-hidden="true">▼</span></summary>
+          <div class="panel">
+            <div class="split">
+              <div>
+                <h4 style="font-size: 18px; margin-bottom: 6px;">1) Probabilidad total del positivo</h4>
+                <p class="tiny" style="margin:0 0 8px;">Positivo por enfermo real + positivo por falso positivo.</p>
+                $$ P(+)=P(E)P(+\mid E)+P(E^c)P(+\mid E^c) $$
+                $$ P(+)=0.01\cdot 0.95 + 0.99\cdot 0.03 = 0.0095 + 0.0297 = 0.0392 $$
+
+                <h4 style="font-size: 18px; margin: 12px 0 6px;">2) Bayes</h4>
+                $$ P(E\mid +)=\frac{P(E)P(+\mid E)}{P(+)}=\frac{0.0095}{0.0392}\approx \mathbf{0.242} $$
+              </div>
+
+              <div class="warn">
+                <h4>¿Solo un 24.2%?</h4>
+                <p style="margin:0 0 10px; font-size: 14px;">
+                  Aunque el test sea bueno, hay muchísima más gente sana que enferma.
+                  Un 3% de falsos positivos sobre el 99% sano genera muchos positivos “ruidosos”.
+                </p>
+
+                <div class="bar" aria-label="Barra de verdaderos y falsos positivos (aprox.)">
+                  <div style="width:24.2%; background: rgba(22,163,74,.85);"></div>
+                  <div style="width:75.8%; background: rgba(239,68,68,.75);"></div>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-top: 6px;" class="tiny">
+                  <span>Verdaderos +</span>
+                  <span>Falsos +</span>
+                </div>
+
+                <p class="tiny" style="margin-top: 10px;">
+                  Consejo: si te dan “enfermedad rara” + “test bueno”, casi seguro te piden Bayes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </details>
+      </article>
+    </section>
+
+    <!-- EJEMPLO 2: SPAM -->
+    <section>
+      <h2 style="font-size: clamp(20px, 2.5vw, 30px); margin-bottom: 10px;">Ejemplo 2: Filtro de spam</h2>
+
+      <article class="card">
+        <div class="card-top">
+          <p>
+            <strong>Contexto:</strong> $P(S)=0.05$. Una palabra sospechosa $W$ aparece en el 80% del spam y en el 10% del correo normal.
+            Si llega un mail con la palabra, calcula $P(S\mid W)$.
+          </p>
+        </div>
+
+        <details class="pad">
+          <summary>Ver cálculo <span class="chev" aria-hidden="true">▼</span></summary>
+          <div class="panel">
+            <p style="margin:0 0 8px; color:#334155;">
+              <strong>Paso 1:</strong> Probabilidad total de ver la palabra:
+            </p>
+            $$ P(W)=P(S)P(W\mid S)+P(S^c)P(W\mid S^c) $$
+            $$ P(W)=0.05\cdot 0.8 + 0.95\cdot 0.1 = 0.04 + 0.095 = 0.135 $$
+
+            <p style="margin:12px 0 8px; color:#334155;">
+              <strong>Paso 2:</strong> Bayes:
+            </p>
+            $$ P(S\mid W)=\frac{P(S)P(W\mid S)}{P(W)}=\frac{0.04}{0.135}\approx \mathbf{0.296} $$
+
+            <div class="box" style="margin-top: 10px;">
+              <h3>Conclusión</h3>
+              <p>
+                Aunque la palabra sea “muy típica” del spam, sigue siendo más probable que sea correo legítimo,
+                porque la mayoría de mails no son spam.
+              </p>
+            </div>
+          </div>
+        </details>
+      </article>
+    </section>
+
+    <!-- NUEVO: mini-check de comprensión -->
+    <section class="check" aria-label="Autoevaluación rápida">
+      <h3>✅ Autoevaluación rápida</h3>
+      <p style="margin:0; color:#14532d; font-weight:700;">
+        ¿Qué fórmula usarías en cada caso?
+      </p>
+
+      <form class="q" id="quiz">
+        <label>
+          <input type="radio" name="q1" value="ok" />
+          “¿Cuál es la probabilidad de que ocurra $B$ combinando escenarios $A_1,\dots,A_n$?” → Probabilidad Total.
+        </label>
+        <label>
+          <input type="radio" name="q2" value="ok" />
+          “Ha ocurrido $B$. ¿Qué probabilidad hay de que la causa fuera $A_2$?” → Bayes.
+        </label>
+        <label>
+          <input type="radio" name="q3" value="bad" />
+          “Ha ocurrido $B$. Primero calculo $P(A\mid B)$ como $P(A)P(B\mid A)$ (sin dividir por $P(B)$).”
+        </label>
+        <label>
+          <input type="radio" name="q3" value="ok" />
+          “En Bayes, siempre divido por $P(B)$ (calculada con Total si hace falta).”
+        </label>
+
+        <button type="button" class="btn" id="checkBtn">Corregir</button>
+        <div class="result" id="quizResult" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <!-- RESUMEN -->
+    <section>
+      <h2 style="font-size: clamp(22px, 2.8vw, 34px); margin-bottom: 12px; text-align:center;">Resumen: ¿cuándo usar cuál?</h2>
+      <div class="table-wrap paper">
+        <table aria-label="Tabla comparativa Total vs Bayes">
+          <thead>
+            <tr>
+              <th style="width: 26%;">Herramienta</th>
+              <th>Pregunta clave</th>
+              <th style="width: 28%;">Dirección</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight: 900; color: #1e1b4b;">Probabilidad Total</td>
+              <td>“¿Qué probabilidad hay de que ocurra el efecto final $B$?”</td>
+              <td>
+                <span class="arrow" style="color: var(--green);">
+                  <span class="a">→</span> Causa → Efecto
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-weight: 900; color: #7c2d12;">Teorema de Bayes</td>
+              <td>“Dado que ocurrió $B$, ¿cuál es la probabilidad de que la causa fuera $A$?”</td>
+              <td>
+                <span class="arrow" style="color: var(--red);">
+                  <span class="a">←</span> Efecto → Causa
+                </span>
+                <div class="tiny" style="margin-top: 6px;">(Inferencia hacia atrás)</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('checkBtn');
+      const out = document.getElementById('quizResult');
+
+      function getVal(name){
+        const sel = document.querySelector('input[name="'+name+'"]:checked');
+        return sel ? sel.value : null;
+      }
+
+      btn.addEventListener('click', () => {
+        const q1 = getVal('q1');
+        const q2 = getVal('q2');
+        const q3 = getVal('q3');
+
+        if(!q1 || !q2 || !q3){
+          out.textContent = "Completa todas antes de corregir.";
+          return;
+        }
+
+        const ok = (q1 === 'ok') + (q2 === 'ok') + (q3 === 'ok');
+        if(ok === 3){
+          out.textContent = "Perfecto: 3/3. Tienes claro Total (adelante) y Bayes (hacia atrás).";
+        }else if(ok === 2){
+          out.textContent = "Bien: 2/3. Repasa que Bayes siempre divide por P(B).";
+        }else{
+          out.textContent = "A revisar: 1/3 o 0/3. Vuelve a la definición de partición, Total y Bayes con calma.";
+        }
+      });
+    })();
+  </script>
+</body>
+
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</html>

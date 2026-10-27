@@ -1,0 +1,293 @@
+/* Componentes didácticos: lectura, ejemplos, actividades y listados. */
+.page-main > section, .lesson-body > section { margin-block: 2.5rem; max-width: 78ch; }
+.lead { max-width: 70ch; font-size: 1.15rem; }
+h2 { font-size: 1.4rem; line-height: 1.35; margin-block: 0 1rem; }
+h3 { font-size: 1.15rem; }
+.learning-goals, .definition, .key-idea, .activity, .course-card {
+  padding: 1.25rem; border: 1px solid var(--color-border, #d6d6d6); border-radius: 0.5rem; margin-block: 1rem;
+}
+.learning-goals, .definition { background: #f4f7fc; }
+.definition { border-inline-start: 4px solid #1746a2; }
+.key-idea { border-inline-start: 4px solid #475569; }
+.worked-steps li { margin-block: 1rem; }
+.table-scroll { overflow-x: auto; }
+table { width: 100%; }
+caption { text-align: start; font-weight: 600; padding-block: 0.5rem; }
+.lesson-index { padding-block: 0.75rem; }
+details { margin-block: 0.6rem; }
+details > :not(summary) { margin-inline: 0.75rem; }
+.activity fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.activity legend { font-weight: 600; margin-bottom: 0.75rem; max-width: 100%; }
+.answer-option { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.5rem; }
+.answer-option input { flex: 0 0 auto; }
+.answer-option > span { min-width: 0; }
+select { max-width: 100%; }
+[data-function-study] figure { margin-inline: 0; }
+[data-function-study] figure > svg { display: block; width: 100%; max-width: 35rem; height: auto; }
+[data-function-study] svg text { font: 16px system-ui, sans-serif; fill: #202020; }
+.polynomial-figure { margin-inline: 0; }
+.polynomial-figure > svg { display: block; width: 100%; max-width: 35rem; height: auto; }
+.rational-figure { margin-inline: 0; }
+.rational-figure > svg { display: block; width: 100%; max-width: 35rem; height: auto; }
+[data-rational-explorer] .actions label { max-width: 100%; }
+.feedback { border-inline-start: 3px solid currentColor; padding: 0.75rem; margin-block: 1rem; }
+.feedback:empty { display: none; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-block: 1rem; }
+button { color: #172033; background: #f4f7fc; border: 1px solid #8792a2; border-radius: 0.35rem; min-height: 2.75rem; }
+button:disabled { opacity: 0.6; cursor: default; }
+.course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: 1rem; }
+.course-card { margin: 0; }
+.badge { font-size: 0.875rem; }
+[data-limit-explorer] svg { display: block; width: 100%; max-width: 32rem; margin-inline: auto; }
+[data-limit-explorer] input { display: block; width: 100%; }
+@media print { .actions, .math-status { display: none; } details::details-content { content-visibility: visible; } }
+
+/* Aplicar el tamaño solo al gráfico, no a los SVG de MathJax. */
+.exponential-figure { margin-inline: 0; }
+.exponential-figure > svg { display: block; width: 100%; max-width: 35rem; height: auto; }
+
+.logarithmic-figure { margin-inline: 0; }
+.logarithmic-figure > svg { display: block; width: 100%; max-width: 35rem; height: auto; }
+
+.piecewise-figure { margin-inline: 0; }
+.piecewise-figure > svg { display: block; width: 100%; max-width: 35rem; height: auto; }
+
+/* Conservar las cifras al ampliar el texto; el contenedor permite desplazamiento con teclado. */
+[data-piecewise-result] table { min-width: 32rem; }
+[data-piecewise-result] td { white-space: nowrap; }
+
+.translation-figure { margin-inline: 0; }
+.translation-figure > svg { display: block; width: 100%; max-width: 35rem; height: auto; }
+[data-translation-result] table { min-width: 28rem; }
+[data-translation-result] td { white-space: nowrap; }
+
+.scaling-figure { margin-inline: 0; }
+.scaling-figure > svg { display: block; width: 100%; max-width: 35rem; height: auto; }
+[data-scaling-result] table { min-width: 28rem; }
+[data-scaling-result] td { white-space: nowrap; }
+
+.optimization-figure { margin-inline: 0; }
+.optimization-figure > svg { display: block; width: 100%; max-width: 35rem; height: auto; }
+[data-optimization-result] table { min-width: 28rem; }
+[data-optimization-result] td:first-child, [data-optimization-result] td:nth-child(2) { white-space: nowrap; }
+[data-opt-quantity] { display: block; width: 100%; max-width: 32rem; }
+
+[data-optimization-explorer] .actions > label { min-width: 0; max-width: 100%; }
+
+.primitive-figure { margin-inline:0; }
+.primitive-figure>svg { display:block; width:100%; max-width:35rem; height:auto; }
+.primitive-figure svg text { font:15px system-ui,sans-serif; fill:#202020; }
+[data-primitive-result] table { min-width:28rem; }
+[data-primitive-result] td { white-space:nowrap; }
+[data-primitive-explorer] .actions>label { min-width:0; max-width:100%; }
+[data-primitive-c] { display:block; width:100%; max-width:24rem; }
+
+[data-page-id="t03-e02"] #tabla table { min-width: 42rem; }
+
+[data-page-id="t03-e03"] #tabla table { min-width: 42rem; }
+[data-page-id="t03-e03"] #tabla th:first-child { min-width: 7.5rem; }
+
+[data-page-id="t03-e04"] #tabla table { min-width: 42rem; }
+
+.definite-figure { margin-inline: 0; }
+.definite-figure > svg { display: block; width: 100%; max-width: 35rem; height: auto; }
+.definite-figure svg text { font: 15px system-ui, sans-serif; fill: #202020; }
+[data-definite-result] table { min-width: 32rem; }
+[data-definite-explorer] .actions > label { min-width: 0; max-width: 100%; }
+[data-page-id="t03-e05"] #propiedades table { min-width: 42rem; }
+
+.fundamental-figure { margin-inline: 0; }
+.fundamental-figure > svg { display: block; width: 100%; max-width: 35rem; height: auto; }
+.fundamental-figure svg text { font: 15px system-ui, sans-serif; fill: #202020; }
+[data-fundamental-result] table { min-width: 32rem; }
+[data-fundamental-explorer] .actions > label { min-width: 0; max-width: 100%; }
+[data-fundamental-x] { display: block; width: 100%; max-width: 24rem; }
+
+/* Barrow: conservar la lectura de columnas con texto ampliado. */
+[data-barrow-result] table { min-width: 32rem; }
+[data-barrow-explorer] .actions > label { min-width: 0; max-width: 100%; }
+
+/* Áreas entre curvas: estilos locales, independientes de las fórmulas SVG. */
+.area-figure { margin-inline: 0; }
+.area-figure > svg { display: block; width: 100%; max-width: 38rem; height: auto; }
+.area-figure svg text { font: 15px system-ui, sans-serif; fill: #202020; }
+[data-area-result] table { min-width: 32rem; }
+[data-area-explorer] .actions > label { min-width: 0; max-width: 100%; }
+
+/* Editor de matrices: estilo local, independiente de los SVG de MathJax. */
+[data-matrix-grid] input { width: 4.5rem; padding: .35rem; font: inherit; }
+[data-matrix-grid] .matrix-selected { outline: 2px solid currentColor; outline-offset: -2px; }
+[data-matrix-explorer] .actions > label { min-width: 0; max-width: 100%; }
+[data-matrix-grid] th { white-space: nowrap; }
+
+/* Operaciones matriciales: controles y desplazamiento local, sin afectar a MathJax. */
+[data-matrix-operations] .actions > label { min-width: 0; max-width: 100%; }
+[data-matrix-operations] [data-alpha], [data-matrix-operations] [data-beta] { width: 4.5rem; max-width: 100%; }
+[data-operations-grid] input { width: 4.5rem; padding: .35rem; font: inherit; }
+[data-operations-grid] th { white-space: nowrap; }
+[data-matrix-operations] [data-editor] { margin-block: 1rem; }
+
+/* Producto matricial: foco fila/columna con contorno y explicación textual. */
+[data-matrix-product] .actions > label { min-width: 0; max-width: 100%; }
+[data-product-grid] input { width: 4.5rem; padding: .35rem; font: inherit; }
+[data-product-grid] th { white-space: nowrap; }
+[data-product-grid] .product-selected { outline: 2px solid currentColor; outline-offset: -2px; }
+[data-matrix-product] [data-editor] { margin-block: 1rem; }
+[data-product-cell] { max-width: 100%; }
+
+/* Potencias: editor acotado con lectura ampliada y desplazamiento local. */
+[data-matrix-power] .actions > label { min-width: 0; max-width: 100%; }
+[data-power-grid] input { width: 4.5rem; padding: .35rem; font: inherit; }
+[data-power-grid] th { white-space: nowrap; }
+
+/* Traspuesta y simetría: contorno acompañado de la posición escrita. */
+[data-matrix-symmetry] .actions > label { min-width: 0; max-width: 100%; }
+[data-symmetry-grid] input { width: 4.5rem; padding: .35rem; font: inherit; }
+[data-symmetry-grid] th { white-space: nowrap; }
+[data-symmetry-grid] .symmetry-selected { outline: 2px solid currentColor; outline-offset: -2px; }
+[data-symmetry-position] { max-width: 100%; }
+
+/* Determinantes: factores señalados con contorno y posiciones escritas. */
+[data-determinants] .actions > label { min-width: 0; max-width: 100%; }
+[data-det-grid] input { width: 4.5rem; padding: .35rem; font: inherit; }
+[data-det-grid] th { white-space: nowrap; }
+[data-det-grid] .det-selected { outline: 2px solid currentColor; outline-offset: -2px; }
+[data-det-term] { max-width: 100%; }
+
+/* Propiedades del determinante: controles y tabla, sin afectar a MathJax. */
+[data-det-properties] .actions > label { min-width: 0; max-width: 100%; }
+[data-property-grid] input { width: 4.5rem; padding: .35rem; font: inherit; }
+[data-property-grid] th { white-space: nowrap; }
+[data-property-factor] { width: 4.5rem; max-width: 100%; }
+
+/* Desarrollo: submatriz indicada por contorno y descripción de posiciones. */
+[data-det-expansion] .actions > label { min-width: 0; max-width: 100%; }
+[data-exp-grid] input { width: 4.5rem; padding: .35rem; font: inherit; }
+[data-exp-grid] th { white-space: nowrap; }
+[data-exp-grid] .exp-retained { outline: 2px solid currentColor; outline-offset: -2px; }
+
+/* Inversa: posiciones escritas y contorno, manteniendo la tipografía matemática. */
+[data-matrix-inverse] .actions > label { min-width: 0; max-width: 100%; }
+[data-inv-grid] input { width: 4.5rem; padding: .35rem; font: inherit; }
+[data-inv-grid] th { white-space: nowrap; }
+[data-inv-grid] .inv-retained { outline: 2px solid currentColor; outline-offset: -2px; }
+
+/* Rango: menores identificados con contorno y posiciones escritas. */
+[data-matrix-rank] .actions > label { min-width: 0; max-width: 100%; }
+[data-rank-grid] input { width: 4.5rem; padding: .35rem; font: inherit; }
+[data-rank-grid] th { white-space: nowrap; }
+[data-rank-grid] .rank-selected { outline: 2px solid currentColor; outline-offset: -2px; }
+
+/* Ecuaciones matriciales: editores y controles, sin modificar MathJax. */
+[data-matrix-equations] .actions > label { min-width: 0; max-width: 100%; }
+[data-eq-grids] input { width: 4.5rem; padding: .35rem; font: inherit; }
+[data-eq-grids] th { white-space: nowrap; }
+[data-eq-scalar] { width: 4.5rem; max-width: 100%; }
+
+/* Grafos: controles, red y alternativas textuales; sin cambiar el diseño global. */
+[data-graph-explorer] .actions > label { min-width: 0; max-width: 100%; }
+[data-graph-grid] input { width: 1.5rem; height: 1.5rem; cursor: pointer; }
+[data-graph-grid] th { white-space: nowrap; }
+[data-graph-figure] svg { display: block; width: 100%; max-width: 30rem; height: auto; margin: 1rem auto; }
+
+/* Sistemas: coeficientes y valores de prueba; fórmulas con el motor compartido. */
+[data-system-explorer] .actions > label { min-width: 0; max-width: 100%; }
+[data-system-input] { width: 4.5rem; padding: .35rem; font: inherit; max-width: 100%; }
+[data-system-grid] th { white-space: nowrap; }
+[data-system-candidates] { min-width: 0; display: flex; flex-wrap: wrap; gap: .75rem; }
+[data-system-candidates] label { max-width: 100%; }
+
+/* Intersecciones: gráfica cuadrada, leyenda textual y controles de teclado. */
+[data-solution-explorer] .actions > label { min-width: 0; max-width: 100%; }
+[data-solution-candidates] { display: flex; flex-wrap: wrap; gap: .75rem; }
+[data-solution-candidates] label { max-width: 100%; }
+[data-coordinate] { width: 6rem; max-width: 100%; padding: .35rem; font: inherit; }
+[data-solution-parameter] { max-width: 100%; }
+[data-solution-figure] { margin-inline: 0; }
+[data-solution-figure] svg { width: 100%; max-width: 32rem; height: auto; display: block; }
+[data-solution-figure] svg text { font-size: 16px; }
+html[data-contrast="true"] [data-solution-line] { stroke: currentColor; }
+
+[data-notation-input] { width: 4.5rem; padding: .35rem; font: inherit; max-width: 100%; }
+
+[data-notation-explorer] .actions > label { min-width: 0; max-width: 100%; }
+[data-notation-explorer] fieldset { min-width: 0; display: flex; flex-wrap: wrap; gap: .75rem; }
+[data-notation-explorer] fieldset label { max-width: 100%; }
+
+[data-equivalence-explorer] .actions > label { min-width: 0; max-width: 100%; }
+
+[data-rouche-explorer] .actions > label { min-width: 0; max-width: 100%; }
+[data-rouche-entry] { width: 4.5rem; max-width: 100%; padding: .35rem; font: inherit; }
+
+[data-inverse-system-explorer] .actions > label { min-width: 0; max-width: 100%; }
+[data-inverse-system-entry] { width: 4.5rem; max-width: 100%; padding: .35rem; font: inherit; }
+
+[data-gauss-explorer] .actions > label { min-width: 0; max-width: 100%; }
+[data-gauss-entry] { width: 4.5rem; max-width: 100%; padding: .35rem; font: inherit; }
+
+[data-cramer-explorer] .actions > label { min-width: 0; max-width: 100%; }
+[data-cramer-entry] { width: 4.5rem; max-width: 100%; padding: .35rem; font: inherit; }
+
+[data-homogeneous-explorer] .actions > label { min-width: 0; max-width: 100%; }
+[data-homogeneous-entry], [data-homogeneous-parameter] { width: 4.5rem; max-width: 100%; padding: .35rem; font: inherit; }
+
+[data-homogeneous-explorer] fieldset { min-inline-size: 0; max-width: 100%; }
+
+[data-homogeneous-explorer] th { white-space: nowrap; }
+
+[data-parameter-system-explorer] .actions > label { min-width: 0; max-width: 100%; }
+
+/* Preserve readable case headings at large text sizes; scroll remains local. */
+[data-parameter-system-explorer] th { white-space: nowrap; }
+
+/* Tablas del ejemplo original de método gráfico: lectura ampliada sin partir cada palabra. */
+[data-page-id="t06-e04"] table { min-width: 34rem; }
+
+/* Lectura de los problemas importados: tablas desplazables y espacio para el recurso externo. */
+[data-page-id="t06-e05"] table { min-width: 34rem; }
+[data-exercise] { margin-block: 2rem; }
+.geogebra-frame { height: 640px; }
+
+/* Tabla original de frecuencias: conservar legibilidad con lectura ampliada. */
+[data-page-id="bivariate"] [data-frequency-table] { min-width: 40rem; }
+[data-dimension-diagram] { color: inherit; fill: currentColor; font-family: var(--font-body); }
+
+[data-page-id="bivariate"] [data-families-table] { min-width: 36rem; }
+
+/* Esquemas originales de dispersión, con leyendas que siguen el tamaño del texto. */
+.bivariate-scatter-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+.bivariate-scatter-grid figure, [data-scatter-centre] { margin-inline: 0; min-width: 0; }
+[data-scatter] > svg, [data-scatter-centre] > svg { display: block; width: 100%; max-width: 22rem; height: auto; margin-block: 1rem; fill: currentColor; font-family: var(--font-body); }
+[data-scatter] > svg text, [data-scatter-centre] > svg text { font-size: 12px; }
+@media (max-width: 48rem) { .bivariate-scatter-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Covarianza: esquema de signos sin estilos sobre los SVG de MathJax. */
+[data-covariance-signs] { margin-inline: 0; }
+[data-covariance-signs] > svg { display: block; width: 100%; max-width: 24rem; height: auto; fill: currentColor; font-family: var(--font-body); }
+[data-covariance-signs] > svg text { font-size: 14px; }
+[data-covariance-signs] [data-cov-sign] { font-size: 24px; }
+
+/* Escala de Pearson: etiquetas completas fuera del gráfico y sin depender del color. */
+[data-pearson-scale] { margin-inline: 0; }
+[data-pearson-scale] > svg { display: block; width: 100%; max-width: 36rem; height: auto; fill: currentColor; font-family: var(--font-body); }
+[data-pearson-scale] > svg text { font-size: 18px; }
+
+/* Regresión: puntos y residuos distinguibles sin color; fórmula con estilos compartidos. */
+[data-regression-diagram] { margin-inline: 0; }
+[data-regression-diagram] > svg { display: block; width: 100%; max-width: 30rem; height: auto; fill: currentColor; font-family: var(--font-body); }
+[data-regression-diagram] > svg text { font-size: 12px; }
+
+/* Ejercicios originales: tabla legible y selector que respeta la lectura ampliada. */
+[data-worked-problems] select { max-width: 100%; width: 100%; }
+[data-bivariate-table] { min-width: 32rem; }
+
+/* Gráficos originales de normal: escalas fijas y desplazamiento local, sin afectar a MathJax. */
+.normal-figure { margin-inline: 0; }
+.normal-plot-scroll { overflow-x: auto; max-width: 100%; }
+.normal-plot-scroll > div > svg { display: block; width: 100%; min-width: 34rem; height: auto; fill: currentColor; font-family: var(--font-body); }
+.normal-plot-scroll > div > svg text { font-size: 15px; }
+[data-normal-controls] label { display: block; margin-top: 1rem; }
+[data-normal-controls] input { width: 100%; max-width: 32rem; }
+
+[data-approx-controls] label { display: block; margin-top: 1rem; }
+[data-approx-controls] input { width: 100%; max-width: 32rem; }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9.8. Tamaño de la muestra. Error cometido · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+  <script type="module" src="../../../assets/js/learning/sample-size-planner.js"></script>
+</head>
+<body data-page-id="t09-e08">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">9.8. Tamaño de la muestra. Error cometido</h1>
+    <p data-content-role="lead">El margen de un intervalo depende de la confianza, de la dispersión y del tamaño de la muestra.</p>
+    <p data-content-role="source">Adaptación revisada de «3. Error y tamaño muestral.txt». <a href="index.html">Volver al tema 9</a>.</p>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#margen">Margen</a> · <a href="#tamano">Tamaño mínimo</a> · <a href="#planificador">Calculadora</a> · <a href="#decisiones">Decisiones</a> · <a href="#pendiente">Pendiente</a></nav>
+
+    <section id="margen" data-content-role="theory"><h2>Margen de error de la media</h2>
+      <p>En el <a href="05-estimacion-puntual-y-estimacion-por-intervalos.html#media">intervalo bilateral de confianza para una media</a> con desviación típica poblacional \(\sigma\) conocida, el margen calculado es la distancia entre la media observada \(\bar x\) y cada extremo del intervalo:</p>
+      <p class="math-scroll" tabindex="0">\[IC_{1-\alpha}(\mu)=\left[\bar x-E,\;\bar x+E\right],\qquad E=z_{\alpha/2}\frac{\sigma}{\sqrt n}.\]</p>
+      <figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 145" role="img" aria-labelledby="margin-fig-title margin-fig-desc" style="display:block;width:100%;max-width:30rem;height:auto"><title id="margin-fig-title">Centro y dos márgenes de un intervalo</title><desc id="margin-fig-desc">La media muestral está en el centro. Cada extremo dista E del centro. La anchura completa del intervalo es dos E.</desc><path d="M35 82H385M70 71V93M210 66V98M350 71V93" stroke="currentColor" stroke-width="2" fill="none"/><path d="M70 52H210M210 52H350" stroke="currentColor" stroke-width="2"/><text x="140" y="44" text-anchor="middle" fill="currentColor">E</text><text x="280" y="44" text-anchor="middle" fill="currentColor">E</text><text x="70" y="113" text-anchor="middle" fill="currentColor">x̄−E</text><text x="210" y="113" text-anchor="middle" fill="currentColor">x̄</text><text x="350" y="113" text-anchor="middle" fill="currentColor">x̄+E</text><text x="210" y="137" text-anchor="middle" fill="currentColor">anchura = 2E</text></svg><figcaption>El margen es la mitad de la anchura, no la anchura total.</figcaption></figure>
+      <p><strong>Margen calculado</strong> es el valor que resulta después de fijar \(n\), \(\sigma\) y la confianza. <strong>Margen máximo admisible</strong> es la meta de precisión elegida antes de recoger datos. La palabra «máximo» describe esa meta de diseño; no garantiza que la media observada esté a menos de \(E\) de la verdadera media en toda muestra. El nivel de confianza se interpreta mediante la cobertura del procedimiento repetido.</p>
+      <p>La fórmula es exacta para observaciones independientes de población normal con \(\sigma\) conocida. En poblaciones no normales puede ser aproximada cuando proceda el teorema central del límite. Si \(\sigma\) es desconocida, la selección no es independiente o se muestrea sin reemplazo una parte importante de una población finita, hay que revisar el método.</p>
+    </section>
+
+    <section id="tamano" data-content-role="method"><h2>Elegir el tamaño mínimo de la muestra</h2>
+      <p>Para un margen objetivo positivo \(E_0\), la misma fórmula se despeja sin cambiar sus supuestos:</p>
+      <p class="math-scroll" tabindex="0">\[E\le E_0\quad\Longleftrightarrow\quad n\ge\left(\frac{z_{\alpha/2}\sigma}{E_0}\right)^2,\qquad n_{\min}=\left\lceil\left(\frac{z_{\alpha/2}\sigma}{E_0}\right)^2\right\rceil.\]</p>
+      <p>Se redondea <strong>siempre al entero superior</strong>, incluso cuando la parte decimal sea pequeña: el ejemplo simbólico original de 34,02 exige al menos 35 observaciones. No se inventan \(\sigma\), confianza o \(E_0\) que produzcan ese número, porque el original no los proporciona.</p>
+      <p>Si el cálculo da exactamente un entero, ese entero cumple el objetivo; si es menor que 1, el mínimo matemático sería 1, aunque un estudio real puede requerir un tamaño mayor por otros motivos. Una muestra grande no corrige por sí sola el sesgo de selección ni la falta de respuesta.</p>
+    </section>
+
+    <section id="planificador" data-content-role="practice"><h2>Comprueba tu diseño</h2>
+      <p>Introduce una desviación típica poblacional conocida y el margen objetivo en las mismas unidades. Elige una confianza bilateral; la calculadora aplica los valores críticos normales de <a href="05-estimacion-puntual-y-estimacion-por-intervalos.html#criticos">9.5</a>. No sustituye la revisión del método de muestreo.</p>
+      <form data-sample-size-form hidden><p><label for="size-confidence">Confianza</label> <select id="size-confidence" name="confidence"><option value="90">90 %</option><option value="95" selected>95 %</option><option value="99">99 %</option></select></p><p><label for="size-sigma">Desviación poblacional conocida \(\sigma\)</label> <input id="size-sigma" name="sigma" type="number" min="0" step="any" required inputmode="decimal"></p><p><label for="size-target">Margen objetivo \(E_0\)</label> <input id="size-target" name="targetMargin" type="number" min="0" step="any" required inputmode="decimal"></p><button type="submit">Calcular tamaño mínimo</button><p data-sample-size-output role="status" aria-live="polite"></p></form>
+      <p>Sin JavaScript, usa la fórmula anterior y redondea el resultado al entero superior. Los valores críticos son 1,645 para 90 %, 1,960 para 95 % y 2,576 para 99 %; para mayor precisión numérica, utiliza sus valores sin redondear.</p>
+    </section>
+
+    <section id="decisiones" data-content-role="reference"><h2>Confianza, precisión y coste</h2>
+      <ul><li><strong>Reducir el margen objetivo:</strong> con \(\sigma\) y confianza fijas, \(n\) crece con \(1/E_0^2\). Para reducir el margen a la mitad hace falta aproximadamente cuadruplicar el tamaño.</li><li><strong>Aumentar la confianza:</strong> con \(n\) y \(\sigma\) fijos, crece \(z_{\alpha/2}\) y el intervalo se ensancha. Para conservar el margen hay que aumentar \(n\).</li><li><strong>Limitar el presupuesto:</strong> si se reduce \(n\) manteniendo los demás factores, aumenta el margen calculado. La precisión se resiente, aunque el gasto pueda disminuir.</li></ul>
+      <p>Estas relaciones describen el margen <em>muestral</em> del modelo. No incluyen costes reales, errores de medición, no respuesta ni efecto de un diseño complejo.</p>
+    </section>
+
+    <section id="pendiente" data-content-role="warning"><h2>Qué falta</h2><p>La fuente 3 aporta fórmulas, figura, redondeo simbólico y relaciones de diseño; no contiene un problema numérico completo, banco de test ni tarjetas. Esta página se limita al caso de la media con \(\sigma\) conocida. El tamaño para proporciones y otros diseños no se desarrolla aquí y requiere fuentes y supuestos específicos. Los demás originales de Inferencia ya están integrados. El estado editorial sigue parcial.</p></section>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>
+

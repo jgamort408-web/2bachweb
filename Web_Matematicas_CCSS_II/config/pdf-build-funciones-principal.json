@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-20",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "batchId": "168-funciones-principal",
+  "sourceDirectory": "content/latex/funciones-principal",
+  "report": "docs/pdf/funciones-principal-build.json",
+  "mathematics": "funciones-principal",
+  "documents": [
+    {
+      "id": "funciones-principal-examen",
+      "source": "content/latex/funciones-principal/funciones-principal-examen.tex",
+      "output": "output/pdf/funciones-principal-examen.pdf",
+      "expectedPages": 2,
+      "title": "Funciones: examen principal - Examen revisado",
+      "forbiddenText": [
+        "£"
+      ]
+    },
+    {
+      "id": "funciones-principal-soluciones",
+      "source": "content/latex/funciones-principal/funciones-principal-soluciones.tex",
+      "output": "output/pdf/funciones-principal-soluciones.pdf",
+      "expectedPages": 6,
+      "title": "Funciones: examen principal - Soluciones revisadas",
+      "forbiddenText": [
+        "£"
+      ]
+    }
+  ]
+}

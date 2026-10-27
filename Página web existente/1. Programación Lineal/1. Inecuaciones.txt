@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.1 Inecuaciones Lineales</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-body: #f0f9ff;
+            --primary: #0891b2;      
+            --primary-dark: #164e63;
+            --secondary: #0f172a;    
+            --accent: #f97316;       
+            
+            --text-main: #334155;
+            --text-light: #64748b;
+            
+            --radius: 16px;
+            --shadow-glass: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            background-image: 
+                linear-gradient(rgba(8, 145, 178, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(8, 145, 178, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; color: var(--secondary); line-height: 1.1; }
+        .container { max-width: 900px; margin: 0 auto; }
+
+        /* TARJETAS */
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-glass);
+            margin-bottom: 2rem;
+        }
+
+        /* HEADER DE SECCIÓN */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid rgba(8, 145, 178, 0.2);
+            padding-bottom: 1rem;
+        }
+
+        .section-num {
+            background: var(--primary);
+            color: white;
+            font-weight: 800;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 1.2rem;
+        }
+
+        /* LAYOUT PARTIDO (TEXTO | GRÁFICO) */
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        /* CONTENEDOR MATEMÁTICO */
+        .math-box {
+            background: #ecfeff; /* Cyan 50 */
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        /* ESTILOS SVG (GRÁFICOS) */
+        .graph-container {
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .axis { stroke: #94a3b8; stroke-width: 2; }
+        .grid-line { stroke: #e2e8f0; stroke-width: 1; }
+        .function-line { stroke: var(--primary); stroke-width: 3; }
+        .region-fill { fill: rgba(8, 145, 178, 0.2); } /* Primary color low opacity */
+        
+        .label { font-family: monospace; font-size: 12px; fill: #64748b; }
+        .point { fill: var(--accent); }
+
+        /* LISTA DE PASOS */
+        .step-list { list-style: none; margin-top: 1.5rem; }
+        .step-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+        }
+        .step-number {
+            background: var(--secondary);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        /* VISUALIZADOR DE LÍNEAS (CONTINUA VS DISCONTINUA) */
+        .line-types {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .line-sample {
+            flex: 1;
+            background: #f1f5f9;
+            padding: 0.8rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.85rem;
+            border: 1px solid #e2e8f0;
+        }
+        .sample-stroke {
+            height: 3px;
+            background: var(--primary);
+            margin-bottom: 0.5rem;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .split-layout { grid-template-columns: 1fr; }
+            body { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+
+        <section class="card">
+            <div class="section-header">
+                <div class="section-num">1.1</div>
+                <h2>Inecuaciones Lineales</h2>
+            </div>
+
+            <div class="split-layout">
+                <div>
+                    <p>
+                        Una ecuación ($=$) define una recta exacta. Una inecuación ($\le, \ge, <, >$), en cambio, define un <strong>territorio</strong> completo.
+                    </p>
+
+                    <div class="math-box">
+                        <strong style="display:block; margin-bottom:0.5rem; color:var(--primary-dark); font-size:0.9rem; text-transform:uppercase;">Definición Algebraica</strong>
+                        $$ax + by \le c$$
+                    </div>
+
+                    <p style="font-size: 0.95rem; color: var(--text-light);">
+                        La recta frontera divide el plano en dos mitades. La inecuación "elige" uno de esos dos lados como solución.
+                    </p>
+                </div>
+
+                <div class="graph-container">
+                    <svg viewBox="0 0 300 220" width="100%">
+                        <path d="M 0 220 L 0 100 L 200 0 L 300 0 L 300 220 Z" class="region-fill" />
+
+                        <line x1="0" y1="200" x2="300" y2="200" class="axis" /> <line x1="20" y1="0" x2="20" y2="220" class="axis" />   <line x1="0" y1="110" x2="240" y2="-10" class="function-line" />
+                        
+                        <circle cx="20" cy="200" r="4" class="point" />
+                        <text x="30" y="195" class="label">P(0,0)</text>
+
+                        <text x="280" y="190" class="label">X</text>
+                        <text x="30" y="20" class="label">Y</text>
+                        <text x="100" y="150" font-family="sans-serif" font-weight="bold" fill="#0891b2" font-size="14">Zona Solución</text>
+                    </svg>
+                    <p style="text-align: center; font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem;">
+                        Ejemplo: Región $x + 2y \le 10$
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3><span style="color:var(--accent)">✦</span> Método de Resolución Gráfica</h3>
+            <p style="margin-bottom: 1.5rem; color: var(--text-light);">Cómo dibujar la solución en 3 pasos infalibles:</p>
+
+            <ul class="step-list">
+                <li class="step-item">
+                    <span class="step-number">1</span>
+                    <div>
+                        <strong>Dibujar la Frontera:</strong> Representa la recta $ax + by = c$. 
+                        <br>¿Cómo dibujo la línea?
+                        <div class="line-types">
+                            <div class="line-sample">
+                                <div class="sample-stroke"></div>
+                                <strong>Continua</strong><br>
+                                Si es $\le$ o $\ge$<br>
+                                (El borde cuenta)
+                            </div>
+                            <div class="line-sample">
+                                <div class="sample-stroke" style="background: repeating-linear-gradient(90deg,var(--primary),var(--primary) 5px,transparent 5px,transparent 10px);"></div>
+                                <strong>Discontinua</strong><br>
+                                Si es $<$ o $>$<br>
+                                (El borde NO cuenta)
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">2</span>
+                    <div>
+                        <strong>Punto de Prueba:</strong> Elige un punto fácil, normalmente el $(0,0)$.
+                        <br>Sustitúyelo en la inecuación.
+                        <div style="background: #fff; border:1px solid #e2e8f0; padding:0.5rem; border-radius:8px; margin-top:0.5rem; font-family:monospace; font-size:0.9rem;">
+                            ¿Cumple $a(0) + b(0) \le c$?
+                        </div>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">3</span>
+                    <div>
+                        <strong>Sombrear:</strong> 
+                        <ul style="list-style:disc; margin-left:1.5rem; margin-top:0.5rem; color:var(--text-main);">
+                            <li>Si cumple (Verdadero) $\rightarrow$ Sombrea el lado donde está el punto.</li>
+                            <li>Si no cumple (Falso) $\rightarrow$ Sombrea el lado contrario.</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

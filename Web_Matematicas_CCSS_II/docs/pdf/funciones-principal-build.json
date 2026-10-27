@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 1,
+  "mathematics": {
+    "passed": true,
+    "examProblems": 4,
+    "annexProblems": 1,
+    "piecewiseJoin": [
+      "2",
+      "4/3"
+    ],
+    "verticalAsymptotes": [
+      1,
+      2
+    ],
+    "temperatureMaximum": [
+      6,
+      16
+    ],
+    "hoursAboveZero": 8,
+    "powerRestorationNotUniquelyIdentified": true,
+    "annexGain": 2000,
+    "annexMaximumGain": 54000
+  },
+  "documents": [
+    {
+      "id": "funciones-principal-examen",
+      "pages": 2,
+      "bytes": 33849,
+      "sha256": "21c4ded70b4b955adefea5be0991f7f6b1b7753f77d031b64e932449f91acc52",
+      "title": "Funciones: examen principal - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 11,
+      "characters": 1577
+    },
+    {
+      "id": "funciones-principal-soluciones",
+      "pages": 6,
+      "bytes": 62858,
+      "sha256": "d534b92d3f097261a0b6f412173c31f640bab09c750c929d12b65e817433fbd7",
+      "title": "Funciones: examen principal - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 15,
+      "characters": 5365
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-20",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/funciones-principal/estilo.tex",
+      "sha256": "100465c03db419c68d2565967377ffe257151dbf1528e258c2cd07680fb6e4bc"
+    },
+    {
+      "path": "content/latex/funciones-principal/funciones-principal-examen.tex",
+      "sha256": "2f8341a01a14b8bb6ad17270f268bee3f346078162550224cd5490f41b4d7f21"
+    },
+    {
+      "path": "content/latex/funciones-principal/funciones-principal-soluciones.tex",
+      "sha256": "d5559046349ff6301badc09fc8ee338a6f763e83802a3c25b4926daad315f869"
+    },
+    {
+      "path": "content/latex/funciones-principal/logo-al-andalus.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    },
+    {
+      "path": "content/latex/funciones-principal/provenance.json",
+      "sha256": "2e132059d34c613caf30242e996685ccc0288ef7aadbe4eec2b25e27c456db20"
+    }
+  ]
+}

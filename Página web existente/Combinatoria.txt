@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Combinatoria y Probabilidad · 2º Bachillerato</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>
+MathJax = {
+  tex: { inlineMath:[['\\(','\\)']], displayMath:[['\\[','\\]']] },
+  chtml: { scale: 1.08 },
+  options: { skipHtmlTags:['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>
+:root{
+  --primary:#1a3a6b;--primary-light:#2563eb;
+  --accent:#f59e0b;--accent-dark:#d97706;
+  --bg:#f0f4f9;--card:#fff;--text:#1e293b;--text-muted:#64748b;--border:#e2e8f0;
+  --radius:14px;--shadow:0 4px 24px rgba(26,58,107,.10);--shadow-sm:0 2px 10px rgba(26,58,107,.07);
+  --vs-bg:#dbeafe;--vs:#1d4ed8;--vs-light:#eff6ff;
+  --vr-bg:#d1fae5;--vr:#059669;--vr-light:#f0fdf4;
+  --perm-bg:#fed7aa;--perm:#c2410c;--perm-light:#fff7ed;
+  --comb-bg:#e9d5ff;--comb:#7c3aed;--comb-light:#fdf4ff;
+  --prob-bg:#fecdd3;--prob:#be123c;--prob-light:#fff1f2;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;font-size:16px}
+
+header{background:linear-gradient(135deg,#0f1f4d 0%,#1a3a6b 55%,#1e4899 100%);color:#fff;padding:3rem 2rem 4rem;text-align:center;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 300px at 10% 80%,rgba(245,158,11,.15) 0%,transparent 70%),radial-gradient(ellipse 400px 400px at 90% 20%,rgba(37,99,235,.25) 0%,transparent 70%)}
+.header-badge{display:inline-block;background:rgba(245,158,11,.2);border:1px solid rgba(245,158,11,.4);color:#fcd34d;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.3rem 1rem;border-radius:999px;margin-bottom:1rem}
+header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;margin-bottom:.5rem;position:relative}
+header p{font-size:1.05rem;opacity:.8;max-width:580px;margin:0 auto 1.5rem;position:relative}
+.header-chips{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;position:relative}
+.chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;padding:.3rem .9rem;border-radius:999px;font-size:.82rem;font-weight:500}
+
+nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:2px solid var(--border);box-shadow:var(--shadow-sm);padding:.1rem 0;overflow-x:auto}
+.nav-inner{display:flex;gap:.2rem;padding:.4rem 1.5rem;min-width:max-content}
+.nav-btn{background:none;border:none;cursor:pointer;padding:.5rem 1rem;border-radius:8px;font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:500;color:var(--text-muted);transition:all .2s;white-space:nowrap;display:flex;align-items:center;gap:.4rem}
+.nav-btn:hover{background:var(--bg);color:var(--text)}
+.nav-btn.active{background:var(--primary);color:#fff}
+.nav-dot{width:8px;height:8px;border-radius:50%}
+
+.container{max-width:1000px;margin:0 auto;padding:2rem 1.5rem}
+section{margin-bottom:3rem}
+section[id]{scroll-margin-top:70px}
+
+.sec-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:2px solid var(--border)}
+.sec-icon{width:50px;height:50px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.sec-title{font-family:'Playfair Display',serif;font-size:1.7rem}
+.sec-sub{font-size:.9rem;color:var(--text-muted);margin-top:.2rem}
+
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:1.5rem;margin-bottom:1.2rem}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1.2rem}
+
+.formula-box{border-radius:var(--radius);padding:1.4rem 1.8rem;text-align:center;margin-bottom:1rem;border:2px solid transparent}
+.formula-box h3{font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:.5rem}
+.formula-note{font-size:.85rem;opacity:.75;margin-top:.4rem}
+.fb-vs  {background:var(--vs-light);  border-color:var(--vs-bg);  color:var(--vs)  }
+.fb-vr  {background:var(--vr-light);  border-color:var(--vr-bg);  color:var(--vr)  }
+.fb-perm{background:var(--perm-light);border-color:var(--perm-bg);color:var(--perm)}
+.fb-comb{background:var(--comb-light);border-color:var(--comb-bg);color:var(--comb)}
+.fb-prob{background:var(--prob-light);border-color:var(--prob-bg);color:var(--prob)}
+.formula-box mjx-container[display="true"]{margin:.5rem auto !important}
+
+.steps-container{display:none}
+.steps-container.visible{display:block}
+.step{display:flex;gap:1rem;padding:.8rem 0;border-bottom:1px dashed var(--border);animation:fadeIn .4s ease}
+.step:last-child{border:none}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0;margin-top:.15rem}
+.step-content{flex:1}
+.step-label{font-weight:600;font-size:.9rem;color:var(--primary)}
+.step-val{font-size:.97rem;margin-top:.25rem}
+.toggle-steps-btn{background:none;border:2px solid var(--primary);color:var(--primary);padding:.4rem 1rem;border-radius:8px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:600;transition:all .2s;margin-top:.8rem}
+.toggle-steps-btn:hover{background:var(--primary);color:#fff}
+
+.example-box{background:#fffbeb;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:1.2rem 1.4rem;margin:1rem 0}
+.example-box h4{color:var(--accent-dark);font-weight:700;margin-bottom:.5rem;font-size:.95rem}
+.example-box p{font-size:.95rem}
+.answer-tag{display:inline-block;background:var(--accent);color:#fff;padding:.15rem .7rem;border-radius:6px;font-weight:700;font-size:.9rem;margin-top:.5rem}
+
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1rem 0}
+.info-card{border-radius:12px;padding:1.2rem;text-align:center}
+.info-card .ic-emoji{font-size:2rem;margin-bottom:.5rem}
+.info-card h4{font-weight:700;margin-bottom:.3rem;font-size:.95rem}
+.info-card p{font-size:.82rem;opacity:.85}
+.info-card.vs  {background:var(--vs-light);  color:var(--vs);  border:1.5px solid var(--vs-bg)  }
+.info-card.vr  {background:var(--vr-light);  color:var(--vr);  border:1.5px solid var(--vr-bg)  }
+.info-card.perm{background:var(--perm-light);color:var(--perm);border:1.5px solid var(--perm-bg)}
+.info-card.comb{background:var(--comb-light);color:var(--comb);border:1.5px solid var(--comb-bg)}
+
+.comparison-table{width:100%;border-collapse:collapse;font-size:.9rem;border-radius:12px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.comparison-table th{padding:.9rem 1.2rem;background:var(--primary);color:#fff;font-weight:600;text-align:left}
+.comparison-table td{padding:.85rem 1.2rem;border-bottom:1px solid var(--border);background:#fff}
+.comparison-table tr:last-child td{border-bottom:none}
+.comparison-table tr:nth-child(even) td{background:#f8fafc}
+.badge-formula{display:inline-block;padding:.15rem .6rem;border-radius:6px;font-weight:700;font-size:.82rem}
+
+.tip-box{background:linear-gradient(135deg,#fef3c7,#fef9c3);border:1px solid #fde68a;border-radius:12px;padding:1rem 1.3rem;margin:1rem 0;display:flex;gap:.8rem;align-items:flex-start}
+.tip-box .tip-icon{font-size:1.3rem;flex-shrink:0}
+.tip-box p{font-size:.9rem;margin:0}
+
+.selection-demo{padding:1rem;background:#f8fafc;border-radius:12px;margin:1rem 0}
+.demo-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:.8rem}
+.demo-item{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:10px;font-weight:700;font-size:1rem;border:2.5px solid transparent;transition:all .3s;cursor:pointer}
+.demo-item:hover{transform:scale(1.1)}
+.demo-slots{display:flex;gap:.6rem;flex-wrap:wrap}
+.demo-slot{width:48px;height:48px;border-radius:10px;border:2px dashed #94a3b8;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;background:#fff;transition:all .3s}
+.demo-slot.filled{border-style:solid}
+.demo-label{font-size:.8rem;color:var(--text-muted);font-weight:600;margin:.5rem 0 .3rem;text-transform:uppercase;letter-spacing:.05em}
+.demo-clear{background:none;border:1.5px solid #94a3b8;color:var(--text-muted);padding:.3rem .8rem;border-radius:7px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:.8rem;margin-top:.5rem}
+.demo-clear:hover{border-color:var(--text);color:var(--text)}
+.demo-count{font-size:.9rem;font-weight:600;color:var(--primary);margin-top:.5rem;min-height:1.5em}
+
+#calc-panel{background:linear-gradient(135deg,#1a3a6b,#0f2251);color:#fff;border-radius:var(--radius);padding:2rem}
+#calc-panel h2{font-family:'Playfair Display',serif;font-size:1.8rem;color:#fff;margin-bottom:.3rem}
+#calc-panel > p{opacity:.7;margin-bottom:1.5rem}
+.calc-controls{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.calc-controls.three{grid-template-columns:1fr 1fr 1fr}
+.calc-group{display:flex;flex-direction:column;gap:.4rem}
+.calc-group label{font-size:.85rem;opacity:.75;font-weight:500}
+.calc-input{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);color:#fff;padding:.7rem 1rem;border-radius:9px;font-family:'Outfit',sans-serif;font-size:1rem;transition:border .2s}
+.calc-input:focus{outline:none;border-color:var(--accent)}
+.calc-select{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);color:#fff;padding:.7rem 1rem;border-radius:9px;font-family:'Outfit',sans-serif;font-size:.9rem;appearance:none;cursor:pointer}
+.calc-select option{background:#1a3a6b}
+.calc-btn{background:var(--accent);color:#fff;border:none;padding:.8rem 2rem;border-radius:10px;font-family:'Outfit',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:all .2s;width:100%;margin-top:.5rem}
+.calc-btn:hover{background:var(--accent-dark);transform:translateY(-2px)}
+.calc-result{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:1.4rem;margin-top:1.2rem;display:none;animation:fadeIn .4s ease}
+.calc-result.show{display:block}
+.calc-result-main{font-size:2.4rem;font-weight:700;color:var(--accent);margin-bottom:.3rem}
+.calc-result-formula{font-size:.95rem;opacity:.75;margin-bottom:.8rem;min-height:2rem}
+.calc-result mjx-container{color:#fff}
+.calc-steps{display:flex;flex-direction:column;gap:.5rem;margin-top:.5rem}
+.calc-step{background:rgba(255,255,255,.07);border-radius:8px;padding:.6rem 1rem;font-size:.9rem;border-left:3px solid var(--accent)}
+.calc-step mjx-container{color:#fff}
+
+.exercise{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:.8rem}
+.exercise-header{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.2rem;cursor:pointer;background:var(--card);transition:background .2s}
+.exercise-header:hover{background:#f8fafc}
+.ex-tag{font-size:.75rem;font-weight:700;padding:.2rem .7rem;border-radius:999px;text-transform:uppercase;letter-spacing:.05em}
+.ex-tag.vs  {background:var(--vs-bg);  color:var(--vs)  }
+.ex-tag.vr  {background:var(--vr-bg);  color:var(--vr)  }
+.ex-tag.perm{background:var(--perm-bg);color:var(--perm)}
+.ex-tag.comb{background:var(--comb-bg);color:var(--comb)}
+.ex-tag.prob{background:var(--prob-bg);color:var(--prob)}
+.ex-arrow{transition:transform .3s;font-size:1.2rem;color:var(--text-muted)}
+.ex-arrow.open{transform:rotate(180deg)}
+.exercise-body{border-top:1px solid var(--border);padding:1.2rem;background:#fafbfd;display:none}
+.exercise-body.open{display:block;animation:fadeIn .3s}
+.ex-q{font-weight:600;margin-bottom:.8rem}
+.ex-sol{font-size:.93rem}
+.ex-result{margin-top:1rem;padding:.8rem 1.2rem;background:#e0f2fe;border-radius:9px;font-weight:700;color:#0369a1}
+
+#juego-panel{background:linear-gradient(135deg,#4c1d95,#5b21b6);border-radius:var(--radius);padding:2rem;color:#fff}
+#juego-panel h2{font-family:'Playfair Display',serif;font-size:1.8rem;color:#fff;margin-bottom:.3rem}
+#juego-panel > p{opacity:.75;margin-bottom:1.5rem}
+.game-start,.game-over{text-align:center;padding:1.5rem}
+.game-start h3{font-size:1.4rem;font-weight:700;margin-bottom:.8rem}
+.game-start p,.game-over p{opacity:.8;margin-bottom:1.5rem}
+.game-btn{background:#fff;color:#4c1d95;border:none;padding:.9rem 2.4rem;border-radius:10px;font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;cursor:pointer;transition:all .2s}
+.game-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.game-panel{display:none}
+.game-panel.active{display:block}
+.game-hud{display:flex;justify-content:space-between;background:rgba(255,255,255,.1);border-radius:10px;padding:.8rem 1.2rem;margin-bottom:1.2rem;font-size:.9rem;font-weight:600}
+.game-hud span{display:flex;flex-direction:column;align-items:center;gap:.1rem}
+.game-hud .val{font-size:1.3rem}
+.game-question{background:rgba(255,255,255,.1);border-radius:12px;padding:1.4rem;margin-bottom:1rem}
+.game-q-label{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;opacity:.6;margin-bottom:.5rem}
+.game-q-text{font-size:1.05rem;font-weight:500;line-height:1.5}
+.game-options{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:1rem}
+.game-opt-btn{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);color:#fff;padding:.9rem;border-radius:10px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:1rem;font-weight:600;text-align:center;transition:all .2s}
+.game-opt-btn:hover:not(:disabled){background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.5)}
+.game-opt-btn.correct{background:#10b981;border-color:#10b981}
+.game-opt-btn.wrong{background:#ef4444;border-color:#ef4444}
+.game-opt-btn:disabled{cursor:default}
+.game-opt-btn mjx-container{color:#fff}
+.game-feedback{padding:1rem 1.2rem;border-radius:10px;margin-bottom:1rem;display:none;animation:fadeIn .3s;font-size:.92rem;line-height:1.6}
+.game-feedback.show{display:block}
+.game-feedback.ok{background:rgba(16,185,129,.2);border:1px solid rgba(16,185,129,.4)}
+.game-feedback.bad{background:rgba(239,68,68,.2);border:1px solid rgba(239,68,68,.4)}
+.game-feedback mjx-container{color:#fff}
+.game-next-btn{background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;padding:.7rem 1.8rem;border-radius:9px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:600;transition:all .2s}
+.game-next-btn:hover{background:rgba(255,255,255,.25)}
+.score-card{background:rgba(255,255,255,.12);border-radius:12px;padding:1.4rem;text-align:center;margin:1rem 0}
+.score-big{font-size:3rem;font-weight:700;color:#fcd34d}
+.score-label{font-size:.9rem;opacity:.7;margin-bottom:.5rem}
+.stars-row{display:flex;justify-content:center;gap:.3rem;font-size:2rem;margin-top:.5rem}
+.progress-bar{height:6px;background:rgba(255,255,255,.15);border-radius:999px;margin-bottom:1.2rem;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,#fcd34d,#f59e0b);border-radius:999px;transition:width .4s ease}
+.sec-divider{border:none;border-top:2px dashed var(--border);margin:2.5rem 0}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){.calc-controls,.calc-controls.three{grid-template-columns:1fr}.game-options{grid-template-columns:1fr}.card-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-badge">📐 Matemáticas · 2º Bachillerato</div>
+  <h1>Combinatoria y Probabilidad</h1>
+  <p>Domina las técnicas de conteo para calcular probabilidades con precisión matemática</p>
+  <div class="header-chips">
+    <span class="chip">🔢 Variaciones</span>
+    <span class="chip">♻️ Permutaciones</span>
+    <span class="chip">🎯 Combinaciones</span>
+    <span class="chip">🎲 Probabilidad</span>
+    <span class="chip">🎮 Juego interactivo</span>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="gotoSection('intro')"><span class="nav-dot" style="background:#64748b"></span>Introducción</button>
+    <button class="nav-btn" onclick="gotoSection('vs')"><span class="nav-dot" style="background:var(--vs)"></span>Var. sin Rep.</button>
+    <button class="nav-btn" onclick="gotoSection('vr')"><span class="nav-dot" style="background:var(--vr)"></span>Var. con Rep.</button>
+    <button class="nav-btn" onclick="gotoSection('perm')"><span class="nav-dot" style="background:var(--perm)"></span>Permutaciones</button>
+    <button class="nav-btn" onclick="gotoSection('comb')"><span class="nav-dot" style="background:var(--comb)"></span>Combinaciones</button>
+    <button class="nav-btn" onclick="gotoSection('prob')"><span class="nav-dot" style="background:var(--prob)"></span>Probabilidad</button>
+    <button class="nav-btn" onclick="gotoSection('calculadora')">🧮 Calculadora</button>
+    <button class="nav-btn" onclick="gotoSection('ejercicios')">📝 Ejercicios</button>
+    <button class="nav-btn" onclick="gotoSection('juego')">🎮 Juego</button>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- ══ INTRO ══════════════════════════════════════════════════════ -->
+<section id="intro">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#e2e8f0">🎓</div>
+    <div>
+      <div class="sec-title">¿Por qué necesitamos técnicas de conteo?</div>
+      <div class="sec-sub">Para calcular probabilidades primero debemos contar correctamente</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p style="margin-bottom:1rem">La <strong>probabilidad de un suceso</strong> se calcula mediante la <em>Regla de Laplace</em>:</p>
+    <div class="formula-box" style="background:#f0f4f9;border:2px solid #e2e8f0;color:var(--primary)">
+      <h3>Regla de Laplace</h3>
+      \[ P(A) = \frac{\text{N}^\text{o} \text{ casos favorables a } A}{\text{N}^\text{o} \text{ casos totales posibles}} \]
+      <div class="formula-note">Válida cuando todos los casos son igualmente probables</div>
+    </div>
+    <p>Para contar los casos necesitamos <strong>combinatoria</strong>. Las preguntas clave son: <em>¿importa el orden?</em> y <em>¿hay repetición?</em></p>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card vs">
+      <div class="ic-emoji">📋</div>
+      <h4>Variaciones sin Rep.</h4>
+      <p>Orden ✓ &nbsp; Repetición ✗</p>
+      <p>\( \displaystyle V(n,r) = \frac{n!}{(n-r)!} \)</p>
+    </div>
+    <div class="info-card vr">
+      <div class="ic-emoji">🔄</div>
+      <h4>Variaciones con Rep.</h4>
+      <p>Orden ✓ &nbsp; Repetición ✓</p>
+      <p>\( VR(n,r) = n^r \)</p>
+    </div>
+    <div class="info-card perm">
+      <div class="ic-emoji">🔀</div>
+      <h4>Permutaciones</h4>
+      <p>Orden ✓ &nbsp; Todos los elem.</p>
+      <p>\( P_n = n! \)</p>
+    </div>
+    <div class="info-card comb">
+      <div class="ic-emoji">🎯</div>
+      <h4>Combinaciones</h4>
+      <p>Orden ✗ &nbsp; Repetición ✗</p>
+      <p>\( \displaystyle C(n,r) = \binom{n}{r} \)</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="font-family:'Playfair Display',serif;margin-bottom:1rem;font-size:1.2rem">🌳 ¿Qué técnica usar? — Árbol de decisión</h3>
+    <svg viewBox="0 0 700 395" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:700px;display:block;margin:auto;font-family:'Outfit',sans-serif">
+      <line x1="350" y1="55" x2="350" y2="95" stroke="#94a3b8" stroke-width="2"/>
+      <line x1="350" y1="135" x2="180" y2="175" stroke="#94a3b8" stroke-width="2"/>
+      <line x1="350" y1="135" x2="520" y2="175" stroke="#94a3b8" stroke-width="2"/>
+      <line x1="180" y1="215" x2="90" y2="262" stroke="#94a3b8" stroke-width="2"/>
+      <line x1="180" y1="215" x2="268" y2="262" stroke="#94a3b8" stroke-width="2"/>
+      <line x1="268" y1="298" x2="268" y2="335" stroke="#94a3b8" stroke-width="2"/>
+      <line x1="268" y1="335" x2="440" y2="335" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5"/>
+      <line x1="268" y1="335" x2="595" y2="335" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5"/>
+      <line x1="440" y1="335" x2="440" y2="315" stroke="#94a3b8" stroke-width="2"/>
+      <line x1="595" y1="335" x2="595" y2="315" stroke="#94a3b8" stroke-width="2"/>
+      <line x1="520" y1="215" x2="440" y2="262" stroke="#94a3b8" stroke-width="2"/>
+      <line x1="520" y1="215" x2="600" y2="262" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="250" y="18" width="200" height="40" rx="20" fill="#1a3a6b"/>
+      <text x="350" y="43" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">¿Elijo r de n elementos?</text>
+      <polygon points="350,95 500,115 350,135 200,115" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+      <text x="350" y="119" text-anchor="middle" fill="#92400e" font-size="13" font-weight="600">¿Importa el ORDEN?</text>
+      <text x="242" y="160" text-anchor="middle" fill="#059669" font-size="12" font-weight="700">SÍ</text>
+      <text x="462" y="160" text-anchor="middle" fill="#be123c" font-size="12" font-weight="700">NO</text>
+      <polygon points="180,175 308,195 180,215 52,195" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+      <text x="180" y="199" text-anchor="middle" fill="#1d4ed8" font-size="12" font-weight="600">¿Uso TODOS los elem.?</text>
+      <text x="88" y="257" text-anchor="middle" fill="#059669" font-size="11" font-weight="700">SÍ</text>
+      <text x="265" y="257" text-anchor="middle" fill="#be123c" font-size="11" font-weight="700">NO</text>
+      <rect x="28" y="262" width="128" height="52" rx="10" fill="#fed7aa" stroke="#c2410c" stroke-width="2"/>
+      <text x="92" y="283" text-anchor="middle" fill="#c2410c" font-size="12" font-weight="700">PERMUTACIONES</text>
+      <text x="92" y="300" text-anchor="middle" fill="#c2410c" font-size="11">Pn = n!</text>
+      <polygon points="268,262 382,280 268,298 154,280" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+      <text x="268" y="284" text-anchor="middle" fill="#92400e" font-size="12" font-weight="600">¿REPETICIÓN?</text>
+      <text x="402" y="328" text-anchor="middle" fill="#059669" font-size="11" font-weight="700">SÍ</text>
+      <text x="567" y="328" text-anchor="middle" fill="#be123c" font-size="11" font-weight="700">NO</text>
+      <rect x="375" y="262" width="132" height="52" rx="10" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+      <text x="441" y="283" text-anchor="middle" fill="#059669" font-size="12" font-weight="700">VAR. con Rep.</text>
+      <text x="441" y="299" text-anchor="middle" fill="#059669" font-size="11">VR(n,r) = n^r</text>
+      <rect x="530" y="262" width="132" height="52" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+      <text x="596" y="283" text-anchor="middle" fill="#1d4ed8" font-size="12" font-weight="700">VAR. sin Rep.</text>
+      <text x="596" y="299" text-anchor="middle" fill="#1d4ed8" font-size="11">V(n,r) = n!/(n-r)!</text>
+      <rect x="427" y="175" width="188" height="40" rx="10" fill="#e9d5ff" stroke="#7c3aed" stroke-width="2"/>
+      <text x="521" y="194" text-anchor="middle" fill="#7c3aed" font-size="13" font-weight="700">COMBINACIONES</text>
+      <text x="521" y="209" text-anchor="middle" fill="#7c3aed" font-size="11">C(n,r) = n! / (r!(n-r)!)</text>
+    </svg>
+  </div>
+
+  <div class="card" style="overflow-x:auto">
+    <h3 style="font-family:'Playfair Display',serif;margin-bottom:1rem;font-size:1.15rem">📊 Tabla resumen</h3>
+    <table class="comparison-table">
+      <tr><th>Técnica</th><th>¿Orden?</th><th>¿Repetición?</th><th>¿Cuántos?</th><th>Fórmula</th></tr>
+      <tr>
+        <td><span class="badge-formula" style="background:var(--vs-bg);color:var(--vs)">Var. sin Rep.</span></td>
+        <td>✅ Sí</td><td>❌ No</td><td>\(r\) de \(n\)</td>
+        <td>\(\displaystyle\frac{n!}{(n-r)!}\)</td>
+      </tr>
+      <tr>
+        <td><span class="badge-formula" style="background:var(--vr-bg);color:var(--vr)">Var. con Rep.</span></td>
+        <td>✅ Sí</td><td>✅ Sí</td><td>\(r\) de \(n\)</td>
+        <td>\(n^r\)</td>
+      </tr>
+      <tr>
+        <td><span class="badge-formula" style="background:var(--perm-bg);color:var(--perm)">Permutaciones</span></td>
+        <td>✅ Sí</td><td>❌ No</td><td>Todos</td>
+        <td>\(n!\)</td>
+      </tr>
+      <tr>
+        <td><span class="badge-formula" style="background:var(--comb-bg);color:var(--comb)">Combinaciones</span></td>
+        <td>❌ No</td><td>❌ No</td><td>\(r\) de \(n\)</td>
+        <td>\(\displaystyle\frac{n!}{r!\,(n-r)!}\)</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- ══ VAR SIN REP ════════════════════════════════════════════════ -->
+<section id="vs">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:var(--vs-bg)">📋</div>
+    <div>
+      <div class="sec-title" style="color:var(--vs)">Variaciones sin Repetición</div>
+      <div class="sec-sub">Elegimos \(r\) elementos de \(n\) distintos — el orden importa — sin poder repetir</div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div>
+      <div class="formula-box fb-vs">
+        <h3>Variaciones sin Repetición \(V(n,r)\)</h3>
+        \[ V(n,r) = \frac{n!}{(n-r)!} = \underbrace{n\cdot(n-1)\cdots(n-r+1)}_{r\;\text{factores}} \]
+        <div class="formula-note">\(n\) = elementos totales &ensp; \(r\) = elementos tomados &ensp; \((r\leq n)\)</div>
+      </div>
+      <div class="tip-box">
+        <span class="tip-icon">💡</span>
+        <p><strong>Truco:</strong> producto de \(r\) factores descendentes desde \(n\):<br>
+        \(V(5,3)=5\cdot4\cdot3=60\)</p>
+      </div>
+    </div>
+    <div class="card">
+      <h4 style="font-weight:700;margin-bottom:.8rem;color:var(--vs)">🎬 Demo interactiva</h4>
+      <p style="font-size:.85rem;margin-bottom:.8rem;color:var(--text-muted)">Clic en las letras para llenar los huecos (sin repetir):</p>
+      <div class="selection-demo">
+        <div class="demo-label">Elementos disponibles \((n=5)\)</div>
+        <div class="demo-row" id="vs-elems">
+          <div class="demo-item" style="background:#dbeafe;border-color:#93c5fd;color:#1d4ed8" onclick="vsSelect('A')">A</div>
+          <div class="demo-item" style="background:#dbeafe;border-color:#93c5fd;color:#1d4ed8" onclick="vsSelect('B')">B</div>
+          <div class="demo-item" style="background:#dbeafe;border-color:#93c5fd;color:#1d4ed8" onclick="vsSelect('C')">C</div>
+          <div class="demo-item" style="background:#dbeafe;border-color:#93c5fd;color:#1d4ed8" onclick="vsSelect('D')">D</div>
+          <div class="demo-item" style="background:#dbeafe;border-color:#93c5fd;color:#1d4ed8" onclick="vsSelect('E')">E</div>
+        </div>
+        <div class="demo-label">Posiciones \((r=3)\)</div>
+        <div class="demo-slots">
+          <div class="demo-slot" id="vs-slot-0">?</div>
+          <div class="demo-slot" id="vs-slot-1">?</div>
+          <div class="demo-slot" id="vs-slot-2">?</div>
+        </div>
+        <div class="demo-count" id="vs-count"></div>
+        <button class="demo-clear" onclick="vsClear()">↺ Limpiar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <h4>📌 Ejemplo resuelto</h4>
+    <p>Un club tiene <strong>8 corredores</strong>. ¿De cuántas formas pueden quedar los 3 primeros puestos (oro, plata, bronce)?</p>
+    <p style="margin-top:.5rem">El orden importa, sin repetición → \(V(8,3)\)</p>
+    <button class="toggle-steps-btn" onclick="toggleSteps('steps-vs')">▼ Ver paso a paso</button>
+    <div class="steps-container" id="steps-vs">
+      <div class="step"><div class="step-num">1</div><div class="step-content">
+        <div class="step-label">Identificamos \(n\) y \(r\)</div>
+        <div class="step-val">\(n=8\) corredores, \(r=3\) puestos</div>
+      </div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content">
+        <div class="step-label">Aplicamos la fórmula</div>
+        <div class="step-val">\(\displaystyle V(8,3)=\frac{8!}{(8-3)!}=\frac{8!}{5!}\)</div>
+      </div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content">
+        <div class="step-label">Simplificamos cancelando \(5!\)</div>
+        <div class="step-val">\(\displaystyle=\frac{8\cdot7\cdot6\cdot\cancel{5!}}{\cancel{5!}}=8\cdot7\cdot6\)</div>
+      </div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content">
+        <div class="step-label">Resultado</div>
+        <div class="step-val">\(V(8,3)=8\cdot7\cdot6=\mathbf{336}\) formas distintas</div>
+      </div></div>
+    </div>
+    <div class="answer-tag">✅ \(V(8,3)=336\)</div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- ══ VAR CON REP ════════════════════════════════════════════════ -->
+<section id="vr">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:var(--vr-bg)">🔄</div>
+    <div>
+      <div class="sec-title" style="color:var(--vr)">Variaciones con Repetición</div>
+      <div class="sec-sub">Elegimos \(r\) elementos de \(n\) — el orden importa — podemos repetir</div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div>
+      <div class="formula-box fb-vr">
+        <h3>Variaciones con Repetición \(VR(n,r)\)</h3>
+        \[ VR(n,r)=n^r \]
+        <div class="formula-note">Cada posición tiene \(n\) opciones independientes (se puede repetir)</div>
+      </div>
+      <div class="tip-box" style="background:#f0fdf4;border-color:#86efac">
+        <span class="tip-icon">💡</span>
+        <p><strong>Clave:</strong> al poder repetir, cada posición siempre tiene \(n\) opciones.<br>
+        \(VR(4,3)=4^3=64\)</p>
+      </div>
+    </div>
+    <div class="card">
+      <h4 style="font-weight:700;margin-bottom:.8rem;color:var(--vr)">🎬 Visualización</h4>
+      <p style="font-size:.85rem;color:var(--text-muted);margin-bottom:.7rem">Con 3 colores, códigos de 2 posiciones con repetición: \(VR(3,2)=3^2=9\)</p>
+      <div id="vr-demo" style="display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin:.5rem 0"></div>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <h4>📌 Ejemplo resuelto</h4>
+    <p>¿Cuántos <strong>PINs de 4 dígitos</strong> existen usando los dígitos del 0 al 9?</p>
+    <p style="margin-top:.5rem">Orden importa, se puede repetir (ej: 1111) → \(VR(10,4)\)</p>
+    <button class="toggle-steps-btn" onclick="toggleSteps('steps-vr')">▼ Ver paso a paso</button>
+    <div class="steps-container" id="steps-vr">
+      <div class="step"><div class="step-num">1</div><div class="step-content">
+        <div class="step-label">Identificamos \(n\) y \(r\)</div>
+        <div class="step-val">\(n=10\) dígitos \((0\text{–}9)\), \(r=4\) posiciones</div>
+      </div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content">
+        <div class="step-label">Aplicamos la fórmula</div>
+        <div class="step-val">\(VR(10,4)=10^4\)</div>
+      </div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content">
+        <div class="step-label">Calculamos</div>
+        <div class="step-val">\(10^4=10{,}000\) PINs posibles (desde 0000 hasta 9999)</div>
+      </div></div>
+    </div>
+    <div class="answer-tag">✅ \(VR(10,4)=10^4=10{,}000\)</div>
+  </div>
+
+  <div class="tip-box" style="background:#f0fdf4;border-color:#86efac">
+    <span class="tip-icon">🆚</span>
+    <div>
+      <strong>Diferencia con Variaciones sin Rep.:</strong><br>
+      Sin rep.: \(V(4,2)=4\cdot3=12\) → no incluye AA, BB, CC, DD<br>
+      Con rep.: \(VR(4,2)=4^2=16\) → incluye también AA, BB, CC, DD
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- ══ PERMUTACIONES ══════════════════════════════════════════════ -->
+<section id="perm">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:var(--perm-bg)">🔀</div>
+    <div>
+      <div class="sec-title" style="color:var(--perm)">Permutaciones</div>
+      <div class="sec-sub">Ordenamos <em>todos</em> los elementos — el orden importa — sin repetición</div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div>
+      <div class="formula-box fb-perm">
+        <h3>Permutaciones ordinarias \(P_n\)</h3>
+        \[ P_n = n! = n\cdot(n-1)\cdot(n-2)\cdots2\cdot1 \]
+        <div class="formula-note">Caso especial de \(V(n,r)\) con \(r=n\)</div>
+      </div>
+      <div class="formula-box fb-perm" style="margin-top:.8rem">
+        <h3>Con elementos repetidos</h3>
+        \[ P_n^{(a,\,b,\,\ldots)} = \frac{n!}{a!\cdot b!\cdots} \]
+        <div class="formula-note">\(a,b,\ldots\) = veces que se repite cada elemento</div>
+      </div>
+    </div>
+    <div class="card">
+      <h4 style="font-weight:700;margin-bottom:.8rem;color:var(--perm)">🎬 Visualización: 3 personas en fila</h4>
+      <div id="perm-demo-area" style="background:#fff7ed;border-radius:12px;padding:1rem;min-height:140px"></div>
+      <button onclick="animatePerm()" style="margin-top:.8rem;background:var(--perm);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:600">
+        ▶ Ver \(P_3=3!=6\) permutaciones
+      </button>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <h4>📌 Ejemplo 1 — Permutación ordinaria</h4>
+    <p>¿De cuántas formas pueden sentarse <strong>6 amigos</strong> en una fila de cine?</p>
+    <p style="margin-top:.5rem">Todos los elementos, orden importa → \(P_6\)</p>
+    <button class="toggle-steps-btn" onclick="toggleSteps('steps-perm1')">▼ Ver paso a paso</button>
+    <div class="steps-container" id="steps-perm1">
+      <div class="step"><div class="step-num">1</div><div class="step-content">
+        <div class="step-label">Aplicamos el factorial</div>
+        <div class="step-val">\(P_6=6!=6\cdot5\cdot4\cdot3\cdot2\cdot1=\mathbf{720}\)</div>
+      </div></div>
+    </div>
+    <div class="answer-tag">✅ \(P_6=6!=720\)</div>
+  </div>
+
+  <div class="example-box" style="border-left-color:var(--perm)">
+    <h4 style="color:var(--perm)">📌 Ejemplo 2 — Con elementos repetidos</h4>
+    <p>¿Cuántas palabras distintas se forman con las letras de <strong>MATEMÁTICA</strong>?</p>
+    <p style="margin-top:.5rem">10 letras: M×2, A×3, T×2, E×1, Á×1, I×1, C×1</p>
+    <button class="toggle-steps-btn" onclick="toggleSteps('steps-perm2')">▼ Ver paso a paso</button>
+    <div class="steps-container" id="steps-perm2">
+      <div class="step"><div class="step-num">1</div><div class="step-content">
+        <div class="step-label">Total de letras</div>
+        <div class="step-val">\(n=10\)</div>
+      </div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content">
+        <div class="step-label">Repeticiones</div>
+        <div class="step-val">M aparece 2 veces, A aparece 3 veces, T aparece 2 veces</div>
+      </div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content">
+        <div class="step-label">Fórmula</div>
+        <div class="step-val">\(\displaystyle P_{10}^{(2,3,2)}=\frac{10!}{2!\cdot3!\cdot2!}\)</div>
+      </div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content">
+        <div class="step-label">Calculamos</div>
+        <div class="step-val">\(\displaystyle=\frac{3{,}628{,}800}{2\cdot6\cdot2}=\frac{3{,}628{,}800}{24}=\mathbf{151{,}200}\)</div>
+      </div></div>
+    </div>
+    <div class="answer-tag">✅ \(P_{10}^{(2,3,2)}=151{,}200\) palabras distintas</div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- ══ COMBINACIONES ══════════════════════════════════════════════ -->
+<section id="comb">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:var(--comb-bg)">🎯</div>
+    <div>
+      <div class="sec-title" style="color:var(--comb)">Combinaciones</div>
+      <div class="sec-sub">Elegimos \(r\) elementos de \(n\) — el orden NO importa — sin repetición</div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div>
+      <div class="formula-box fb-comb">
+        <h3>Combinaciones \(C(n,r)=\dbinom{n}{r}\)</h3>
+        \[ C(n,r) = \binom{n}{r} = \frac{n!}{r!\,(n-r)!} \]
+        <div class="formula-note">Propiedad de simetría: \(C(n,r)=C(n,n-r)\)</div>
+      </div>
+      <div class="tip-box" style="background:#fdf4ff;border-color:var(--comb-bg)">
+        <span class="tip-icon">💡</span>
+        <p><strong>Relación con variaciones:</strong><br>
+        \(\displaystyle C(n,r)=\frac{V(n,r)}{r!}\)<br>
+        Dividimos entre \(r!\) porque el orden dentro del grupo no cuenta.</p>
+      </div>
+    </div>
+    <div class="card">
+      <h4 style="font-weight:700;margin-bottom:.8rem;color:var(--comb)">🎬 ¿Por qué dividimos entre \(r!\)?</h4>
+      <p style="font-size:.85rem;color:var(--text-muted);margin-bottom:.7rem">Al elegir 2 de \(\{A,B,C\}\) sin que importe el orden:</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;font-size:.88rem">
+        <div style="background:#e9d5ff;border-radius:8px;padding:.5rem;text-align:center;color:var(--comb);font-weight:700">\(\{A,B\}=\{B,A\}\)<br><small style="opacity:.7">¡Mismo grupo!</small></div>
+        <div style="background:#e9d5ff;border-radius:8px;padding:.5rem;text-align:center;color:var(--comb);font-weight:700">\(\{A,C\}=\{C,A\}\)<br><small style="opacity:.7">¡Mismo grupo!</small></div>
+        <div style="background:#e9d5ff;border-radius:8px;padding:.5rem;text-align:center;color:var(--comb);font-weight:700">\(\{B,C\}=\{C,B\}\)<br><small style="opacity:.7">¡Mismo grupo!</small></div>
+        <div style="background:#f5f0ff;border-radius:8px;padding:.5rem;text-align:center;color:var(--comb);font-weight:700;border:1.5px solid var(--comb-bg)">\(C(3,2)=3\)<br><small style="opacity:.7">Solo 3 grupos distintos</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4 style="font-weight:700;margin-bottom:.8rem;color:var(--comb);font-family:'Playfair Display',serif;font-size:1.1rem">🔺 Triángulo de Pascal — \(\binom{n}{r}\)</h4>
+    <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:1rem">Cada celda vale \(C(n,r)\). Pasa el ratón para ver la notación. Cada número es la suma de los dos superiores.</p>
+    <div id="pascal-triangle" style="text-align:center;overflow-x:auto;padding:.5rem"></div>
+  </div>
+
+  <div class="example-box">
+    <h4>📌 Ejemplo resuelto</h4>
+    <p>De una clase de <strong>10 alumnos</strong> se elige un <strong>grupo de 3</strong> para representar al colegio. ¿Cuántos grupos posibles hay?</p>
+    <p style="margin-top:.5rem">No importa quién es 1.º, 2.º o 3.º → \(C(10,3)\)</p>
+    <button class="toggle-steps-btn" onclick="toggleSteps('steps-comb1')">▼ Ver paso a paso</button>
+    <div class="steps-container" id="steps-comb1">
+      <div class="step"><div class="step-num">1</div><div class="step-content">
+        <div class="step-label">Datos</div>
+        <div class="step-val">\(n=10,\quad r=3\)</div>
+      </div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content">
+        <div class="step-label">Fórmula</div>
+        <div class="step-val">\(\displaystyle C(10,3)=\frac{10!}{3!\cdot7!}\)</div>
+      </div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content">
+        <div class="step-label">Simplificamos</div>
+        <div class="step-val">\(\displaystyle=\frac{10\cdot9\cdot8\cdot\cancel{7!}}{3!\cdot\cancel{7!}}=\frac{10\cdot9\cdot8}{3\cdot2\cdot1}=\frac{720}{6}\)</div>
+      </div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content">
+        <div class="step-label">Resultado</div>
+        <div class="step-val">\(C(10,3)=\mathbf{120}\) grupos distintos</div>
+      </div></div>
+    </div>
+    <div class="answer-tag">✅ \(C(10,3)=120\)</div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- ══ PROBABILIDAD ═══════════════════════════════════════════════ -->
+<section id="prob">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:var(--prob-bg)">🎲</div>
+    <div>
+      <div class="sec-title" style="color:var(--prob)">Probabilidad con Técnicas de Conteo</div>
+      <div class="sec-sub">Aplicamos la combinatoria para calcular probabilidades reales</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="font-family:'Playfair Display',serif;margin-bottom:.8rem;font-size:1.15rem">🧮 Método general</h3>
+    <div class="formula-box fb-prob">
+      \[ P(A) = \frac{\#\;\text{formas favorables}}{\#\;\text{formas totales}} \]
+    </div>
+    <p style="font-size:.92rem">Numerador y denominador deben calcularse con la <strong>misma técnica de conteo</strong>.</p>
+  </div>
+
+  <div class="example-box" style="border-left-color:var(--prob)">
+    <h4 style="color:var(--prob)">📌 Ejemplo 1 — Baraja española</h4>
+    <p>Se sacan <strong>5 cartas</strong> de una baraja de 40. ¿Probabilidad de que las 5 sean oros?</p>
+    <button class="toggle-steps-btn" onclick="toggleSteps('steps-prob1')">▼ Ver solución</button>
+    <div class="steps-container" id="steps-prob1">
+      <div class="step"><div class="step-num">1</div><div class="step-content">
+        <div class="step-label">Casos totales (orden irrelevante)</div>
+        <div class="step-val">\(\displaystyle C(40,5)=\frac{40!}{5!\cdot35!}=658{,}008\)</div>
+      </div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content">
+        <div class="step-label">Casos favorables (10 oros en la baraja)</div>
+        <div class="step-val">\(\displaystyle C(10,5)=\frac{10!}{5!\cdot5!}=252\)</div>
+      </div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content">
+        <div class="step-label">Probabilidad</div>
+        <div class="step-val">\(\displaystyle P=\frac{C(10,5)}{C(40,5)}=\frac{252}{658{,}008}\approx0{,}000383\approx0{,}038\%\)</div>
+      </div></div>
+    </div>
+    <div class="answer-tag">✅ \(P\approx0{,}038\%\) — ¡muy poco probable!</div>
+  </div>
+
+  <div class="example-box" style="border-left-color:var(--prob)">
+    <h4 style="color:var(--prob)">📌 Ejemplo 2 — Podio de carreras</h4>
+    <p>En una carrera con <strong>12 participantes</strong>, ¿cuál es la probabilidad de que Lucía quede 1.ª y Marcos 2.º?</p>
+    <button class="toggle-steps-btn" onclick="toggleSteps('steps-prob2')">▼ Ver solución</button>
+    <div class="steps-container" id="steps-prob2">
+      <div class="step"><div class="step-num">1</div><div class="step-content">
+        <div class="step-label">Casos totales (orden importa)</div>
+        <div class="step-val">\(V(12,2)=12\cdot11=132\)</div>
+      </div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content">
+        <div class="step-label">Casos favorables</div>
+        <div class="step-val">Solo 1: Lucía=1.ª y Marcos=2.º</div>
+      </div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content">
+        <div class="step-label">Probabilidad</div>
+        <div class="step-val">\(\displaystyle P=\frac{1}{132}\approx0{,}76\%\)</div>
+      </div></div>
+    </div>
+    <div class="answer-tag">✅ \(P=\dfrac{1}{132}\approx0{,}76\%\)</div>
+  </div>
+
+  <div class="example-box" style="border-left-color:var(--prob)">
+    <h4 style="color:var(--prob)">📌 Ejemplo 3 — Método del complementario</h4>
+    <p>Se genera un <strong>PIN de 4 dígitos</strong> al azar. ¿Probabilidad de que contenga al menos un 7?</p>
+    <button class="toggle-steps-btn" onclick="toggleSteps('steps-prob3')">▼ Ver solución</button>
+    <div class="steps-container" id="steps-prob3">
+      <div class="step"><div class="step-num">1</div><div class="step-content">
+        <div class="step-label">Complementario</div>
+        <div class="step-val">\(P(\text{al menos un }7)=1-P(\text{ningún }7)\)</div>
+      </div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content">
+        <div class="step-label">PINs sin el dígito 7 (dígitos: 0–6, 8, 9)</div>
+        <div class="step-val">\(VR(9,4)=9^4=6{,}561\)</div>
+      </div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content">
+        <div class="step-label">Total de PINs</div>
+        <div class="step-val">\(VR(10,4)=10^4=10{,}000\)</div>
+      </div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content">
+        <div class="step-label">Resultado</div>
+        <div class="step-val">\(\displaystyle P=1-\frac{9^4}{10^4}=1-\frac{6{,}561}{10{,}000}=\frac{3{,}439}{10{,}000}\approx34{,}4\%\)</div>
+      </div></div>
+    </div>
+    <div class="answer-tag">✅ \(P\approx34{,}4\%\)</div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- ══ CALCULADORA ════════════════════════════════════════════════ -->
+<section id="calculadora">
+  <div id="calc-panel">
+    <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.3rem">
+      <span style="font-size:1.8rem">🧮</span>
+      <h2>Calculadora Combinatoria</h2>
+    </div>
+    <p>Introduce los valores y obtén el resultado con desarrollo completo en notación \(\LaTeX\)</p>
+
+    <div class="calc-controls three">
+      <div class="calc-group">
+        <label>Tipo de cálculo</label>
+        <select class="calc-select" id="calc-type" onchange="updateCalcInputs()">
+          <option value="vs">Variaciones sin Rep. — V(n,r)</option>
+          <option value="vr">Variaciones con Rep. — VR(n,r)</option>
+          <option value="perm">Permutaciones — Pn = n!</option>
+          <option value="permrep">Permutaciones con Rep. — Pn(a,b,...)</option>
+          <option value="comb">Combinaciones — C(n,r)</option>
+        </select>
+      </div>
+      <div class="calc-group" id="cg-n">
+        <label id="lb-n">n (elementos totales)</label>
+        <input type="number" class="calc-input" id="calc-n" min="1" max="20" value="8" placeholder="n">
+      </div>
+      <div class="calc-group" id="cg-r">
+        <label>r (elementos elegidos)</label>
+        <input type="number" class="calc-input" id="calc-r" min="1" max="20" value="3" placeholder="r">
+      </div>
+    </div>
+    <div class="calc-group" id="cg-reps" style="display:none;margin-bottom:1rem">
+      <label>Repeticiones separadas por comas (ej: 2,3,2)</label>
+      <input type="text" class="calc-input" id="calc-reps" placeholder="2,3,2">
+    </div>
+    <button class="calc-btn" onclick="calculate()">⚡ Calcular</button>
+
+    <div class="calc-result" id="calc-result">
+      <div id="res-formula" class="calc-result-formula"></div>
+      <div id="res-main" class="calc-result-main"></div>
+      <div class="calc-steps" id="res-steps"></div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- ══ EJERCICIOS ════════════════════════════════════════════════ -->
+<section id="ejercicios">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#fef3c7">📝</div>
+    <div>
+      <div class="sec-title">Ejercicios Resueltos</div>
+      <div class="sec-sub">Problemas tipo selectividad con solución detallada — haz clic para expandir</div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header" onclick="toggleEx(this)">
+      <div style="display:flex;align-items:center;gap:.8rem"><span class="ex-tag vs">Var. sin Rep.</span><strong>Ejer. 1 — Podio de ajedrez</strong></div>
+      <span class="ex-arrow">▼</span>
+    </div>
+    <div class="exercise-body">
+      <div class="ex-q">En un torneo participan 15 jugadores. ¿De cuántas formas pueden distribuirse los premios de oro, plata y bronce?</div>
+      <div class="ex-sol">
+        <div class="step"><div class="step-num">1</div><div class="step-content">
+          <div class="step-label">Técnica</div>
+          <div class="step-val">El orden importa (oro \(\neq\) plata), sin repetición → \(V(15,3)\)</div>
+        </div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-content">
+          <div class="step-label">Cálculo</div>
+          <div class="step-val">\(V(15,3)=\dfrac{15!}{12!}=15\cdot14\cdot13=2{,}730\)</div>
+        </div></div>
+      </div>
+      <div class="ex-result">🏆 \(V(15,3)=\mathbf{2{,}730}\) formas distintas</div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header" onclick="toggleEx(this)">
+      <div style="display:flex;align-items:center;gap:.8rem"><span class="ex-tag comb">Combinaciones</span><strong>Ejer. 2 — Comité de empresa</strong></div>
+      <span class="ex-arrow">▼</span>
+    </div>
+    <div class="exercise-body">
+      <div class="ex-q">Una empresa tiene 20 empleados y quiere elegir un comité de 4 personas sin jerarquía. ¿Cuántos comités distintos son posibles?</div>
+      <div class="ex-sol">
+        <div class="step"><div class="step-num">1</div><div class="step-content">
+          <div class="step-label">Técnica</div>
+          <div class="step-val">Todos tienen el mismo rol → \(C(20,4)\)</div>
+        </div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-content">
+          <div class="step-label">Cálculo</div>
+          <div class="step-val">\(\displaystyle C(20,4)=\frac{20!}{4!\cdot16!}=\frac{20\cdot19\cdot18\cdot17}{4!}=\frac{116{,}280}{24}=4{,}845\)</div>
+        </div></div>
+      </div>
+      <div class="ex-result">💼 \(C(20,4)=\mathbf{4{,}845}\) comités distintos</div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header" onclick="toggleEx(this)">
+      <div style="display:flex;align-items:center;gap:.8rem"><span class="ex-tag vr">Var. con Rep.</span><strong>Ejer. 3 — Contraseña alfanumérica</strong></div>
+      <span class="ex-arrow">▼</span>
+    </div>
+    <div class="exercise-body">
+      <div class="ex-q">¿Cuántas contraseñas de 6 caracteres existen usando las 27 letras minúsculas del español, permitiendo repetición?</div>
+      <div class="ex-sol">
+        <div class="step"><div class="step-num">1</div><div class="step-content">
+          <div class="step-label">Técnica</div>
+          <div class="step-val">Orden importa, repetición permitida → \(VR(27,6)\)</div>
+        </div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-content">
+          <div class="step-label">Cálculo</div>
+          <div class="step-val">\(VR(27,6)=27^6=387{,}420{,}489\approx387\text{ millones}\)</div>
+        </div></div>
+      </div>
+      <div class="ex-result">🔐 \(VR(27,6)=27^6=\mathbf{387{,}420{,}489}\) contraseñas</div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header" onclick="toggleEx(this)">
+      <div style="display:flex;align-items:center;gap:.8rem"><span class="ex-tag perm">Permutaciones</span><strong>Ejer. 4 — Anagramas de PROBABILIDAD</strong></div>
+      <span class="ex-arrow">▼</span>
+    </div>
+    <div class="exercise-body">
+      <div class="ex-q">¿Cuántos anagramas distintos pueden formarse con las letras de PROBABILIDAD?</div>
+      <div class="ex-sol">
+        <div class="step"><div class="step-num">1</div><div class="step-content">
+          <div class="step-label">Total de letras</div>
+          <div class="step-val">P-R-O-B-A-B-I-L-I-D-A-D → \(n=12\)</div>
+        </div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-content">
+          <div class="step-label">Repeticiones</div>
+          <div class="step-val">A×2, B×2, I×2, D×2</div>
+        </div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-content">
+          <div class="step-label">Fórmula y resultado</div>
+          <div class="step-val">\(\displaystyle P_{12}^{(2,2,2,2)}=\frac{12!}{2!\cdot2!\cdot2!\cdot2!}=\frac{479{,}001{,}600}{16}=\mathbf{29{,}937{,}600}\)</div>
+        </div></div>
+      </div>
+      <div class="ex-result">🔤 \(P_{12}^{(2,2,2,2)}=\mathbf{29{,}937{,}600}\) anagramas distintos</div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header" onclick="toggleEx(this)">
+      <div style="display:flex;align-items:center;gap:.8rem"><span class="ex-tag prob">Probabilidad</span><strong>Ejer. 5 — Tómbola (tipo EBAU)</strong></div>
+      <span class="ex-arrow">▼</span>
+    </div>
+    <div class="exercise-body">
+      <div class="ex-q">En una tómbola con 50 bolas numeradas se extraen 6 sin reposición. ¿Probabilidad de acertar los 6 números exactos?</div>
+      <div class="ex-sol">
+        <div class="step"><div class="step-num">1</div><div class="step-content">
+          <div class="step-label">Espacio muestral total</div>
+          <div class="step-val">\(\displaystyle C(50,6)=\frac{50!}{6!\cdot44!}=15{,}890{,}700\)</div>
+        </div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-content">
+          <div class="step-label">Casos favorables</div>
+          <div class="step-val">Solo 1 combinación ganadora</div>
+        </div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-content">
+          <div class="step-label">Probabilidad</div>
+          <div class="step-val">\(\displaystyle P=\frac{1}{15{,}890{,}700}\approx0{,}0000063\%\)</div>
+        </div></div>
+      </div>
+      <div class="ex-result">🎰 \(P=\dfrac{1}{C(50,6)}\approx\mathbf{0{,}0000063\%}\) — ¡casi imposible!</div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header" onclick="toggleEx(this)">
+      <div style="display:flex;align-items:center;gap:.8rem"><span class="ex-tag prob">Probabilidad</span><strong>Ejer. 6 — Quinteto de baloncesto (EBAU)</strong></div>
+      <span class="ex-arrow">▼</span>
+    </div>
+    <div class="exercise-body">
+      <div class="ex-q">Un entrenador dispone de 7 bases y 5 aleros (12 en total). Elige un quinteto de 5. ¿Probabilidad de que haya exactamente 3 bases y 2 aleros?</div>
+      <div class="ex-sol">
+        <div class="step"><div class="step-num">1</div><div class="step-content">
+          <div class="step-label">Total de quintetos</div>
+          <div class="step-val">\(C(12,5)=792\)</div>
+        </div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-content">
+          <div class="step-label">Casos favorables (regla del producto)</div>
+          <div class="step-val">\(C(7,3)\cdot C(5,2)=35\cdot10=350\)</div>
+        </div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-content">
+          <div class="step-label">Probabilidad</div>
+          <div class="step-val">\(\displaystyle P=\frac{350}{792}=\frac{175}{396}\approx44{,}2\%\)</div>
+        </div></div>
+      </div>
+      <div class="ex-result">🏀 \(\displaystyle P=\frac{C(7,3)\cdot C(5,2)}{C(12,5)}=\frac{350}{792}\approx\mathbf{44{,}2\%}\)</div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- ══ JUEGO ══════════════════════════════════════════════════════ -->
+<section id="juego">
+  <div id="juego-panel">
+    <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.3rem">
+      <span style="font-size:1.8rem">🎮</span>
+      <h2>El Reto del Probabilista</h2>
+    </div>
+    <p>10 preguntas con feedback inmediato y explicación matemática de cada respuesta</p>
+
+    <div id="game-start" class="game-panel active">
+      <div class="game-start">
+        <h3>¡Demuestra lo que sabes!</h3>
+        <p>10 preguntas sobre combinatoria y probabilidad. Selecciona la respuesta correcta.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem">
+          <div style="background:rgba(255,255,255,.1);padding:.8rem 1.2rem;border-radius:10px;font-size:.88rem">🎯 10 preguntas</div>
+          <div style="background:rgba(255,255,255,.1);padding:.8rem 1.2rem;border-radius:10px;font-size:.88rem">⭐ Hasta 100 pts</div>
+          <div style="background:rgba(255,255,255,.1);padding:.8rem 1.2rem;border-radius:10px;font-size:.88rem">📐 Explicaciones con \(\LaTeX\)</div>
+        </div>
+        <button class="game-btn" onclick="startGame()">▶ Empezar el juego</button>
+      </div>
+    </div>
+
+    <div id="game-play" class="game-panel">
+      <div class="game-hud">
+        <span><div style="font-size:.75rem;opacity:.6">PREGUNTA</div><div class="val" id="g-qnum">1/10</div></span>
+        <span><div style="font-size:.75rem;opacity:.6">PUNTOS</div><div class="val" id="g-pts">0</div></span>
+        <span><div style="font-size:.75rem;opacity:.6">CORRECTAS</div><div class="val" id="g-correct">0</div></span>
+        <span><div style="font-size:.75rem;opacity:.6">RACHA</div><div class="val" id="g-streak">0🔥</div></span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="g-progress" style="width:0%"></div></div>
+      <div class="game-question">
+        <div class="game-q-label" id="g-label"></div>
+        <div class="game-q-text" id="g-text"></div>
+      </div>
+      <div class="game-options" id="g-opts"></div>
+      <div class="game-feedback" id="g-feedback"></div>
+      <button class="game-next-btn" id="g-next" onclick="nextQuestion()" style="display:none">Siguiente pregunta →</button>
+    </div>
+
+    <div id="game-over" class="game-panel">
+      <div class="game-over">
+        <h3>¡Juego terminado!</h3>
+        <div class="score-card">
+          <div class="score-label">Puntuación final</div>
+          <div class="score-big" id="final-pts">0</div>
+          <div style="font-size:.85rem;opacity:.7">de 100 puntos posibles</div>
+          <div class="stars-row" id="final-stars"></div>
+        </div>
+        <p id="final-msg" style="opacity:.9;margin-bottom:1.5rem"></p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+          <button class="game-btn" onclick="startGame()">🔄 Repetir</button>
+          <button class="game-btn" style="background:rgba(255,255,255,.15);color:#fff" onclick="showGameStart()">← Inicio</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="text-align:center;padding:2rem 0;color:var(--text-muted);font-size:.85rem">
+  <p>📐 Combinatoria y Probabilidad · 2º Bachillerato · Currículo EBAU Andalucía</p>
+</div>
+</div>
+
+<script>
+// ── UTILS ─────────────────────────────────────────────────────
+function gotoSection(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'})}
+function typeset(el){if(window.MathJax&&MathJax.typesetPromise)MathJax.typesetPromise([el]).catch(console.error)}
+
+function toggleSteps(id){
+  const el=document.getElementById(id),btn=el.previousElementSibling;
+  el.classList.toggle('visible');
+  btn.textContent=el.classList.contains('visible')?'▲ Ocultar pasos':'▼ Ver paso a paso';
+  if(el.classList.contains('visible'))typeset(el);
+}
+function toggleEx(header){
+  const body=header.nextElementSibling,arrow=header.querySelector('.ex-arrow');
+  body.classList.toggle('open');arrow.classList.toggle('open');
+  if(body.classList.contains('open'))typeset(body);
+}
+
+function factorial(n){if(n<=1)return 1;let r=1;for(let i=2;i<=n;i++)r*=i;return r}
+function fmt(n){return Number(n).toLocaleString('es-ES')}
+
+// ── NAV ───────────────────────────────────────────────────────
+const SECS=['intro','vs','vr','perm','comb','prob','calculadora','ejercicios','juego'];
+const NAVBTNS=document.querySelectorAll('.nav-btn');
+window.addEventListener('scroll',()=>{
+  let cur='intro';
+  SECS.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<90)cur=id;});
+  NAVBTNS.forEach((b,i)=>b.classList.toggle('active',SECS[i]===cur));
+},{passive:true});
+
+// ── VS DEMO ───────────────────────────────────────────────────
+let vsSelected=[],vsUsed=new Set();
+function vsSelect(l){
+  if(vsUsed.has(l)||vsSelected.length>=3)return;
+  vsSelected.push(l);vsUsed.add(l);
+  document.querySelectorAll('#vs-elems .demo-item').forEach(e=>{if(vsUsed.has(e.textContent))e.style.opacity='.35'});
+  const s=document.getElementById('vs-slot-'+(vsSelected.length-1));
+  s.textContent=l;s.classList.add('filled');
+  Object.assign(s.style,{background:'#dbeafe',borderColor:'#1d4ed8',color:'#1d4ed8'});
+  if(vsSelected.length===3){
+    const c=document.getElementById('vs-count');
+    c.innerHTML='\\(V(5,3)=5\\cdot4\\cdot3=60\\) ordenaciones posibles';
+    typeset(c);
+  }
+}
+function vsClear(){
+  vsSelected=[];vsUsed.clear();
+  document.querySelectorAll('#vs-elems .demo-item').forEach(e=>e.style.opacity='1');
+  for(let i=0;i<3;i++){const s=document.getElementById('vs-slot-'+i);s.textContent='?';s.classList.remove('filled');s.style.background=s.style.borderColor=s.style.color='';}
+  document.getElementById('vs-count').textContent='';
+}
+
+// ── VR DEMO ───────────────────────────────────────────────────
+(function(){
+  const colors=['🔴','🟢','🔵'],div=document.getElementById('vr-demo');
+  colors.forEach(a=>colors.forEach(b=>{
+    const s=document.createElement('span');
+    s.textContent=a+b;
+    s.style.cssText='display:inline-block;background:#f0fdf4;border:1.5px solid #86efac;border-radius:8px;padding:.3rem .5rem;font-size:1rem';
+    div.appendChild(s);
+  }));
+})();
+
+// ── PERM DEMO ─────────────────────────────────────────────────
+function animatePerm(){
+  const perms=[['Ana','Bob','Cris'],['Ana','Cris','Bob'],['Bob','Ana','Cris'],['Bob','Cris','Ana'],['Cris','Ana','Bob'],['Cris','Bob','Ana']];
+  const cols=['#fed7aa','#fde68a','#bbf7d0','#bfdbfe','#ddd6fe','#fecdd3'];
+  const area=document.getElementById('perm-demo-area');
+  area.innerHTML='<p style="font-size:.82rem;color:#92400e;margin-bottom:.7rem;font-weight:600">\\(P_3=3!=6\\) ordenaciones posibles:</p>';
+  typeset(area);
+  perms.forEach((p,i)=>setTimeout(()=>{
+    const row=document.createElement('div');row.style.cssText='display:flex;gap:.4rem;margin-bottom:.4rem';
+    p.forEach(n=>{const b=document.createElement('span');b.textContent=n;b.style.cssText=`background:${cols[i]};padding:.25rem .7rem;border-radius:7px;font-size:.82rem;font-weight:700;color:#1e293b`;row.appendChild(b);});
+    const nm=document.createElement('span');nm.style.cssText='color:#92400e;font-weight:600;font-size:.8rem;align-self:center;margin-left:.3rem';nm.textContent=`(${i+1})`;row.appendChild(nm);
+    area.appendChild(row);
+  },i*200));
+}
+
+// ── PASCAL ────────────────────────────────────────────────────
+(function(){
+  const c=document.getElementById('pascal-triangle');
+  const cols=['#c7d2fe','#a5b4fc','#818cf8','#6366f1','#4f46e5','#4338ca'];
+  let h='';
+  for(let n=0;n<=6;n++){
+    h+=`<div style="display:flex;justify-content:center;gap:.25rem;margin-bottom:.25rem">`;
+    for(let r=0;r<=n;r++){
+      const v=factorial(n)/(factorial(r)*factorial(n-r));
+      h+=`<div title="C(${n},${r})=${v}" style="width:52px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:7px;background:${cols[Math.min(Math.abs(r-n/2)|0,5)]};color:white;font-size:.85rem;font-weight:700;cursor:help">${v}</div>`;
+    }
+    h+=`<span style="color:#64748b;font-size:.75rem;align-self:center;margin-left:.5rem">\\(n=${n}\\)</span></div>`;
+  }
+  c.innerHTML=h;
+  window.addEventListener('load',()=>typeset(c));
+})();
+
+// ── CALCULATOR ────────────────────────────────────────────────
+function updateCalcInputs(){
+  const t=document.getElementById('calc-type').value;
+  document.getElementById('cg-r').style.display=(t==='perm'||t==='permrep')?'none':'';
+  document.getElementById('cg-reps').style.display=t==='permrep'?'':'none';
+  document.getElementById('lb-n').textContent=t==='perm'?'n (todos los elementos)':'n (elementos totales)';
+}
+
+function calculate(){
+  const t=document.getElementById('calc-type').value;
+  const n=parseInt(document.getElementById('calc-n').value);
+  const r=parseInt(document.getElementById('calc-r').value)||0;
+  const repsRaw=document.getElementById('calc-reps').value;
+  const resDiv=document.getElementById('calc-result');
+  const resMain=document.getElementById('res-main');
+  const resFormula=document.getElementById('res-formula');
+  const resSteps=document.getElementById('res-steps');
+  if(isNaN(n)||n<1||n>20){alert('n debe estar entre 1 y 20');return;}
+
+  let result,steps=[],formula='';
+
+  if(t==='vs'){
+    if(r>n){alert('r no puede ser mayor que n');return;}
+    result=factorial(n)/factorial(n-r);
+    const fac=Array.from({length:r},(_,i)=>n-i).join('\\cdot');
+    formula=`\\(V(${n},${r})=\\dfrac{${n}!}{${n-r}!}=${fac}=${fmt(result)}\\)`;
+    steps=[
+      `Fórmula: \\(V(n,r)=\\dfrac{n!}{(n-r)!}\\)`,
+      `Sustituimos: \\(V(${n},${r})=\\dfrac{${n}!}{${n-r}!}\\)`,
+      `Desarrollo: \\(${fac}=\\mathbf{${fmt(result)}}\\)`,
+    ];
+  } else if(t==='vr'){
+    result=Math.pow(n,r);
+    formula=`\\(VR(${n},${r})=${n}^{${r}}=${fmt(result)}\\)`;
+    steps=[
+      `Fórmula: \\(VR(n,r)=n^r\\)`,
+      `Sustituimos: \\(VR(${n},${r})=${n}^{${r}}\\)`,
+      `Resultado: \\(\\mathbf{${fmt(result)}}\\)`,
+    ];
+  } else if(t==='perm'){
+    result=factorial(n);
+    const fac=Array.from({length:n},(_,i)=>n-i).join('\\cdot');
+    formula=`\\(P_{${n}}=${n}!=${fac}=${fmt(result)}\\)`;
+    steps=[
+      `Fórmula: \\(P_n=n!\\)`,
+      `\\(P_{${n}}=${n}!=${fac}\\)`,
+      `Resultado: \\(\\mathbf{${fmt(result)}}\\)`,
+    ];
+  } else if(t==='permrep'){
+    const reps=repsRaw.split(',').map(s=>parseInt(s.trim())).filter(x=>!isNaN(x)&&x>0);
+    if(!reps.length){alert('Introduce las repeticiones');return;}
+    const sumReps=reps.reduce((a,b)=>a+b,0);
+    if(sumReps>n){alert('La suma de repeticiones no puede superar n');return;}
+    const denom=reps.reduce((a,b)=>a*factorial(b),1);
+    result=factorial(n)/denom;
+    const repStr=reps.map(x=>`${x}!`).join('\\cdot');
+    formula=`\\(P_{${n}}^{(${reps.join(',')})}=\\dfrac{${n}!}{${repStr}}=\\dfrac{${fmt(factorial(n))}}{${fmt(denom)}}=${fmt(result)}\\)`;
+    steps=[
+      `Fórmula: \\(P_n^{(a,b,\\ldots)}=\\dfrac{n!}{a!\\cdot b!\\cdots}\\)`,
+      `Numerador: \\(${n}!=${fmt(factorial(n))}\\)`,
+      `Denominador: \\(${repStr}=${fmt(denom)}\\)`,
+      `Resultado: \\(\\dfrac{${fmt(factorial(n))}}{${fmt(denom)}}=\\mathbf{${fmt(result)}}\\)`,
+    ];
+  } else if(t==='comb'){
+    if(r>n){alert('r no puede ser mayor que n');return;}
+    result=factorial(n)/(factorial(r)*factorial(n-r));
+    const numFac=Array.from({length:r},(_,i)=>n-i).join('\\cdot');
+    const numVal=Array.from({length:r},(_,i)=>n-i).reduce((a,b)=>a*b,1);
+    formula=`\\(C(${n},${r})=\\dbinom{${n}}{${r}}=\\dfrac{${n}!}{${r}!\\cdot${n-r}!}=\\dfrac{${numFac}}{${r}!}=\\dfrac{${fmt(numVal)}}{${fmt(factorial(r))}}=${fmt(result)}\\)`;
+    steps=[
+      `Fórmula: \\(C(n,r)=\\dfrac{n!}{r!\\,(n-r)!}\\)`,
+      `\\(C(${n},${r})=\\dfrac{${n}!}{${r}!\\cdot${n-r}!}\\)`,
+      `Numerador (\\(${r}\\) factores): \\(${numFac}=${fmt(numVal)}\\)`,
+      `Denominador: \\(${r}!=${fmt(factorial(r))}\\)`,
+      `Resultado: \\(\\mathbf{${fmt(result)}}\\)`,
+    ];
+  }
+
+  resFormula.innerHTML=formula;
+  resMain.textContent=fmt(result);
+  resSteps.innerHTML=steps.map(s=>`<div class="calc-step">${s}</div>`).join('');
+  resDiv.classList.add('show');
+  resDiv.animate([{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'translateY(0)'}],{duration:300,fill:'forwards'});
+  typeset(resDiv);
+}
+
+// ── GAME ──────────────────────────────────────────────────────
+const QS=[
+  {cat:'Variaciones sin Rep.',
+   q:'¿De cuántas formas pueden elegirse presidente, vicepresidente y secretario de un grupo de 10 personas?',
+   opts:['720','5.040','90','3.628.800'],ans:0,
+   exp:'\\(V(10,3)=10\\cdot9\\cdot8=720\\). El orden importa (los cargos son distintos), sin repetición.'},
+  {cat:'Variaciones con Rep.',
+   q:'Una cerradura tiene 3 diales del 0 al 9. ¿Cuántas combinaciones distintas hay?',
+   opts:['1.000','720','30','100'],ans:0,
+   exp:'\\(VR(10,3)=10^3=1.000\\). El orden importa y se puede repetir dígito.'},
+  {cat:'Combinaciones',
+   q:'Se reparte una mano de 5 cartas de una baraja de 52. ¿Cuántas manos distintas existen?',
+   opts:['2.598.960','311.875.200','52','120'],ans:0,
+   exp:'\\(C(52,5)=\\dfrac{52!}{5!\\cdot47!}=2.598.960\\). El orden de las cartas en la mano no importa.'},
+  {cat:'Permutaciones',
+   q:'¿De cuántas formas pueden ordenarse 7 libros en una estantería?',
+   opts:['5.040','720','49','2.520'],ans:0,
+   exp:'\\(P_7=7!=5.040\\). Se usan todos los elementos y el orden importa.'},
+  {cat:'Probabilidad',
+   q:'Se lanza una moneda 3 veces. ¿Cuál es la probabilidad de obtener exactamente 2 caras?',
+   opts:['3/8','1/2','1/4','3/4'],ans:0,
+   exp:'Total: \\(VR(2,3)=2^3=8\\). Favorables: \\(C(3,2)=3\\). Luego \\(P=\\tfrac{3}{8}\\).'},
+  {cat:'Variaciones sin Rep.',
+   q:'Un fotógrafo quiere hacer fotos de 4 personas de un grupo de 9 en fila. ¿Cuántas fotos distintas puede hacer?',
+   opts:['3.024','126','362.880','3.628.800'],ans:0,
+   exp:'\\(V(9,4)=9\\cdot8\\cdot7\\cdot6=3.024\\). La posición en la fila importa.'},
+  {cat:'Combinaciones',
+   q:'¿Cuántos subconjuntos de 3 vocales pueden formarse con las 5 vocales del español?',
+   opts:['10','60','20','120'],ans:0,
+   exp:'\\(C(5,3)=\\dfrac{5!}{3!\\cdot2!}=10\\). Los subconjuntos no tienen orden.'},
+  {cat:'Variaciones con Rep.',
+   q:'¿Cuántas señales de 2 banderas pueden hacerse con 4 colores distintos si se puede repetir?',
+   opts:['16','12','6','8'],ans:0,
+   exp:'\\(VR(4,2)=4^2=16\\). Cada posición tiene 4 opciones independientes.'},
+  {cat:'Probabilidad',
+   q:'Se elige al azar una palabra de 4 letras con {A,B,C,D} sin repetir letras. ¿Probabilidad de que empiece por A?',
+   opts:['1/4','1/24','1/3','3/4'],ans:0,
+   exp:'Total: \\(P_4=24\\). Favorables (A fija): \\(P_3=6\\). Luego \\(P=\\tfrac{6}{24}=\\tfrac{1}{4}\\).'},
+  {cat:'Permutaciones',
+   q:'¿Cuántos anagramas distintos tiene la palabra ANNA?',
+   opts:['6','24','12','4'],ans:0,
+   exp:'\\(P_4^{(2,2)}=\\dfrac{4!}{2!\\cdot2!}=\\dfrac{24}{4}=6\\). N×2 y A×2 se repiten.'},
+];
+
+let GS={q:0,pts:0,correct:0,streak:0,questions:[]};
+function shuffle(a){return[...a].sort(()=>Math.random()-.5)}
+function showPanel(id){['game-start','game-play','game-over'].forEach(p=>{document.getElementById(p).classList.toggle('active',p===id)})}
+function showGameStart(){showPanel('game-start')}
+
+function startGame(){
+  GS={q:0,pts:0,correct:0,streak:0,questions:shuffle(QS)};
+  showPanel('game-play');renderQ();
+}
+
+function renderQ(){
+  const q=GS.questions[GS.q];
+  document.getElementById('g-qnum').textContent=`${GS.q+1}/10`;
+  document.getElementById('g-pts').textContent=GS.pts;
+  document.getElementById('g-correct').textContent=GS.correct;
+  document.getElementById('g-streak').textContent=`${GS.streak}🔥`;
+  document.getElementById('g-progress').style.width=`${(GS.q/10)*100}%`;
+  document.getElementById('g-label').textContent=q.cat;
+  document.getElementById('g-text').textContent=q.q;
+  document.getElementById('g-feedback').classList.remove('show','ok','bad');
+  document.getElementById('g-next').style.display='none';
+
+  const od=document.getElementById('g-opts');od.innerHTML='';
+  shuffle(q.opts.map((o,i)=>({o,i}))).forEach(({o,i})=>{
+    const b=document.createElement('button');b.className='game-opt-btn';
+    // Render fractions with MathJax
+    if(/^\d+\/\d+$/.test(o)){
+      const[num,den]=o.split('/');
+      b.innerHTML=`\\(\\dfrac{${num}}{${den}}\\)`;
+    } else {
+      b.textContent=o;
+    }
+    b.dataset.idx=i;
+    b.onclick=()=>selectAns(b,i===q.ans,q,od);
+    od.appendChild(b);
+  });
+  typeset(od);
+}
+
+function selectAns(btn,isOk,q,od){
+  od.querySelectorAll('.game-opt-btn').forEach(b=>b.disabled=true);
+  btn.classList.add(isOk?'correct':'wrong');
+  if(!isOk){
+    od.querySelectorAll('.game-opt-btn').forEach(b=>{if(parseInt(b.dataset.idx)===q.ans)b.classList.add('correct')});
+  }
+  if(isOk){GS.streak++;GS.pts+=GS.streak>=3?15:10;GS.correct++;}
+  else GS.streak=0;
+
+  const fb=document.getElementById('g-feedback');
+  fb.innerHTML=`<strong>${isOk?'✅ ¡Correcto!':'❌ Incorrecto'}</strong> &mdash; ${q.exp}`;
+  fb.classList.add('show',isOk?'ok':'bad');
+  typeset(fb);
+  document.getElementById('g-pts').textContent=GS.pts;
+  document.getElementById('g-correct').textContent=GS.correct;
+  document.getElementById('g-streak').textContent=`${GS.streak}🔥`;
+  const nb=document.getElementById('g-next');
+  nb.textContent=GS.q<9?'Siguiente pregunta →':'Ver resultados 🏁';
+  nb.style.display='';
+}
+
+function nextQuestion(){GS.q++;if(GS.q>=10)showResults();else renderQ();}
+
+function showResults(){
+  showPanel('game-over');
+  document.getElementById('final-pts').textContent=GS.pts;
+  const s=GS.pts>=90?5:GS.pts>=70?4:GS.pts>=50?3:GS.pts>=30?2:1;
+  document.getElementById('final-stars').innerHTML='⭐'.repeat(s)+'☆'.repeat(5-s);
+  const msgs=['Sigue practicando, ¡tú puedes! 💪','Vas por buen camino, repasa las fórmulas 📚','¡Buen trabajo! Dominas los conceptos básicos 👍','¡Muy bien! Estás listo para el examen 🎯','¡Excepcional! Dominas la combinatoria 🏆'];
+  document.getElementById('final-msg').textContent=msgs[s-1];
+}
+</script>
+</body>
+</html>

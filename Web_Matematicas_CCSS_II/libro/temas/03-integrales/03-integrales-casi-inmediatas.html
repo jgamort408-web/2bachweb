@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3.3. Integrales casi inmediatas · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t03-e03">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">3.3. Integrales casi inmediatas</h1>
+    <p class="lead" data-content-role="introduction">Una expresión puede parecer complicada y esconder una fórmula conocida. Busca una función interior y su derivada: la regla de la cadena permite recorrer el camino de vuelta.</p>
+    <div class="learning-goals"><p data-content-role="objectives"><strong>Al terminar podrás:</strong> identificar la función interior, reconocer potencias, cocientes y exponenciales compuestas, ajustar factores constantes y comprobar primitivas derivando.</p><p data-content-role="prerequisites"><strong>Antes de empezar:</strong> repasa las <a href="02-integrales-inmediatas.html">integrales inmediatas</a> y la <a href="../01-limites-y-derivadas/16-regla-de-la-cadena.html">regla de la cadena</a>.</p></div>
+    <nav aria-label="En esta lección"><a href="#idea">Idea clave</a> · <a href="#tabla">Patrones</a> · <a href="#ejemplos">Ejemplos</a> · <a href="#explorador">Entrenamiento</a> · <a href="#practica">Práctica y test</a> · <a href="#tarjetas">Tarjetas</a></nav>
+    <section id="idea" data-content-role="definition"><h2>1. La regla de la cadena al revés</h2>
+    <p>Si H′(u)=h(u), la derivada de la composición es:</p><p>\[\bigl(H(u(x))\bigr)'=h(u(x))\,u'(x).\]</p>
+    <p>Por tanto, en un intervalo donde estas funciones sean derivables:</p><p>\[\int h(u(x))\,u'(x)\,dx=H(u(x))+C.\]</p>
+    <p>Por ejemplo, \(((x^2+1)^3)'=3(x^2+1)^2\cdot2x\). Así reconocemos:</p><p>\[\int 2x(x^2+1)^2\,dx=\frac{(x^2+1)^3}{3}+C.\]</p>
+    <p>La función interior es u(x)=x²+1 y su derivada es 2x. No hace falta desarrollar el cuadrado: su estructura ya nos da la pista.</p>
+    <div class="key-idea"><p><strong>El ajuste tiene que ser constante.</strong> Si el integrando es λ·u′(x)·h(u(x)), con λ constante, la primitiva es λ·H(u(x))+C. No basta con que «se parezca»: comprueba la igualdad de funciones.</p></div>
+    <ol data-content-role="method"><li>Elige la función interior u(x).</li><li>Calcula u′(x).</li><li>Busca un número λ tal que el factor que acompaña al patrón sea λ·u′(x).</li><li>Aplica la tabla a u, conserva λ y añade C.</li><li>Deriva la propuesta y revisa el dominio.</li></ol>
+    <p>Si u′ vale cero en algún punto, verifica la identidad multiplicativa directamente allí; no dividas entre cero para justificar el ajuste.</p></section>
+    <section id="tabla" data-content-role="explanation"><h2>2. Los patrones que debes reconocer</h2>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="Patrones de integrales compuestas; tabla desplazable con teclado"><table><caption>u significa u(x); u′ significa su derivada</caption><thead><tr><th scope="col">Integrando</th><th scope="col">Familia de primitivas</th><th scope="col">Condición</th></tr></thead><tbody>
+    <tr><td>\(u'\,u^n\)</td><td>\(\dfrac{u^{n+1}}{n+1}+C\)</td><td>n≠−1; potencia derivable en el intervalo. Para exponentes reales, u&gt;0 es una condición suficiente.</td></tr>
+    <tr><td>\(u'/u\)</td><td>\(\ln|u|+C\)</td><td>u≠0 en el intervalo; el valor absoluto permite u negativo.</td></tr>
+    <tr><td>\(u'e^u\)</td><td>\(e^u+C\)</td><td>u derivable.</td></tr>
+    <tr><td>\(u'a^u\)</td><td>\(\dfrac{a^u}{\ln a}+C\)</td><td>a constante positiva y distinta de 1.</td></tr>
+    <tr><td>\(u'\cos u\)</td><td>\(\sin u+C\)</td><td>Argumentos en radianes.</td></tr>
+    <tr><td>\(u'\sin u\)</td><td>\(-\cos u+C\)</td><td>Argumentos en radianes.</td></tr>
+    </tbody></table></div>
+    <p>En todas las filas, u debe ser derivable en el intervalo elegido. Una constante multiplicativa exterior se mantiene en el resultado. Si el dominio queda separado, se puede elegir una constante independiente en cada intervalo.</p>
+    <h3>El caso frecuente u=ax+b</h3><p>Su derivada es la constante a. Para a≠0:</p><p>\[\int(ax+b)^n dx=\frac{(ax+b)^{n+1}}{a(n+1)}+C,\qquad n\ne-1.\]</p><p>Se divide entre a para compensar el factor que aparecerá al derivar. Para n=−1:</p><p>\[\int\frac{dx}{ax+b}=\frac1a\ln|ax+b|+C.\]</p><p>Si a=0, el integrando es una constante, siempre que esté definido: se integra como kx+C. No se usa una fórmula que divida entre cero.</p></section>
+    <section id="ejemplos" data-content-role="worked-example"><h2>3. Ejemplos resueltos paso a paso</h2>
+    <h3>Potencia con función interior lineal</h3><p>Calculamos \(\int(3x-2)^4 dx\). Aquí u=3x−2 y u′=3. Como 1=(1/3)·3:</p><p>\[\int(3x-2)^4 dx=\frac13\frac{(3x-2)^5}{5}+C=\frac{(3x-2)^5}{15}+C.\]</p><p>Comprobación: \(\bigl((3x-2)^5/15\bigr)'=5(3x-2)^4\cdot3/15=(3x-2)^4\). Válido en todo ℝ.</p>
+    <h3>Una potencia sin desarrollar</h3><p>En \(\int3x(x^2+4)^2 dx\), tomamos u=x²+4, u′=2x. La identidad 3x=(3/2)·2x fija el ajuste:</p><p>\[\int3x(x^2+4)^2 dx=\frac32\frac{(x^2+4)^3}{3}+C=\frac12(x^2+4)^3+C.\]</p><p>Derivada: \(\tfrac12\cdot3(x^2+4)^2\cdot2x=3x(x^2+4)^2\). La identidad sigue siendo válida en x=0; no hemos necesitado dividir entre x. Válido en ℝ.</p>
+    <h3>Un cociente que conduce a un logaritmo</h3><p>Calculamos \(\int\frac{5x}{x^2+4}dx\). El denominador es u=x²+4 y u′=2x. Como 5x=(5/2)·2x:</p><p>\[\int\frac{5x}{x^2+4}dx=\frac52\ln(x^2+4)+C.\]</p><p>Se puede omitir el valor absoluto porque x²+4 siempre es positivo. Comprobación: \(\tfrac52\cdot\tfrac{2x}{x^2+4}=\tfrac{5x}{x^2+4}\).</p>
+    <h3>Denominador que puede ser negativo</h3><p>Para \(\int\frac{2}{3x-1}dx\), u=3x−1, u′=3 y λ=2/3:</p><p>\[\int\frac{2}{3x-1}dx=\frac23\ln|3x-1|+C.\]</p><p>Es válida en cada intervalo x&lt;1/3 o x&gt;1/3. La derivada es \(\tfrac23\cdot\tfrac3{3x-1}=\tfrac2{3x-1}\) en ambos lados. No se asigna valor en x=1/3.</p>
+    <h3>Exponencial compuesta y signo del ajuste</h3><p>En \(\int e^{2-3x}dx\), la derivada de u=2−3x es −3:</p><p>\[\int e^{2-3x}dx=-\frac13e^{2-3x}+C.\]</p><p>El signo negativo compensa la derivada interior: \((-\tfrac13e^{2-3x})'=-\tfrac13e^{2-3x}(-3)=e^{2-3x}\).</p><p>Si la función interior es cuadrática, también necesitamos su derivada: \(\int4xe^{x^2+1}dx=2e^{x^2+1}+C\), porque 4x=2·2x.</p>
+    <h3>Base diferente de e</h3><p>Para \(\int2^{3x+1}dx\) aparecen dos factores al derivar: 3 por la función interior y ln2 por la base.</p><p>\[\int2^{3x+1}dx=\frac{2^{3x+1}}{3\ln2}+C.\]</p><p>Derivar recupera \(2^{3x+1}\ln2\cdot3/(3\ln2)=2^{3x+1}\). Ambas compensaciones son necesarias.</p>
+    <h3>Una raíz como potencia</h3><p>En \(\int\frac{x}{\sqrt{x^2+4}}dx\), u=x²+4, u′=2x y n=−1/2:</p><p>\[\int\frac{x}{\sqrt{x^2+4}}dx=\frac12\frac{(x^2+4)^{1/2}}{1/2}+C=\sqrt{x^2+4}+C.\]</p><p>La derivada de la raíz es \(2x/(2\sqrt{x^2+4})\). El radicando es positivo en todo ℝ.</p></section>
+    <section data-content-role="common-errors"><h2>4. Cuándo no basta este reconocimiento</h2><p>En \(\int\frac1{x^2+1}dx\), el numerador 1 no es un múltiplo <strong>constante</strong> de la derivada 2x. Por eso ln(x²+1) no es una respuesta: su derivada es 2x/(x²+1). Esto no significa que no exista primitiva; significa que esta fila logarítmica no se aplica directamente.</p><p>Tampoco se puede integrar \(e^{x^2}\) copiando la exponencial y dividiendo por 2x. Ese divisor depende de x y también se derivaría. Evita introducir una función variable como si fuera el ajuste constante λ.</p><ul><li>Comprueba la derivada interior antes de elegir la fórmula.</li><li>Compensa los factores multiplicativos, sin cambiar sumandos dentro de u.</li><li>Conserva signos, ln a y +C.</li><li>Respeta los ceros del denominador y el dominio de raíces y logaritmos.</li></ul></section>
+    <section id="explorador" data-content-role="guided-practice"><h2>5. Entrena el reconocimiento y el ajuste</h2><p>Seis retos con datos nuevos: potencias lineales y cuadráticas, dos cocientes logarítmicos y dos exponenciales. La ficha identifica u y u′; tú eliges la primitiva. La pista muestra cómo ajustar el factor y la corrección comprueba la derivada.</p><p>No hay límite de tiempo. Al terminar puedes generar otra sesión. Las respuestas y el resumen no se guardan.</p><div class="activity" data-near-immediate-practice></div></section>
+    <section id="practica" data-content-role="guided-practice"><h2>6. Práctica y test</h2><p>Halla una primitiva de \(f(x)=\frac{6x}{x^2+1}+2e^{2x}\) en ℝ que cumpla F(0)=4.</p><details data-content-role="hint"><summary>Pista</summary><p>Separa la suma. En el cociente usa u=x²+1 y u′=2x; en la exponencial usa u=2x y u′=2. Después impón el dato inicial.</p></details><details data-content-role="solution"><summary>Ver solución razonada</summary><p>La familia es \(F(x)=3\ln(x^2+1)+e^{2x}+C\). Al sustituir x=0 obtenemos 1+C=4, luego C=3. La elegida es:</p><p>\[F(x)=3\ln(x^2+1)+e^{2x}+3.\]</p><p>Derivando: \(F'(x)=3\cdot\frac{2x}{x^2+1}+2e^{2x}\), que coincide con f. Además F(0)=0+1+3=4. El logaritmo está definido para todo x porque x²+1&gt;0.</p></details><div class="activity" data-quiz="t03-e03" data-content-role="self-check"></div></section>
+    <section data-content-role="summary"><h2>7. Resumen</h2><p>Identifica u, calcula u′ y verifica un ajuste constante λ. Aplica el patrón de potencia, logaritmo o exponencial; añade C y deriva. Si el ajuste requiere una función de x, esta estrategia no basta tal como está planteada.</p></section>
+    <section id="tarjetas"><h2>8. Tarjetas de repaso</h2><div class="activity" data-flashcards="t03-e03"></div></section>
+    <p id="juego-recomendado" data-content-role="orientation">Practica con <a href="../../../laboratorios/juegos/t03-a-parejas-de-primitivas.html">Parejas de primitivas</a>. Relaciona cada integrando con la familia completa y comprueba la derivada.</p>
+    <section data-content-role="related-links"><h2>Continúa</h2><p><a href="02-integrales-inmediatas.html">3.2. Integrales inmediatas</a> · <a href="index.html">Índice de integrales</a> · <a href="../../../test/index.html?tema=t03">Test de integrales</a> · <a href="04-metodos-de-integracion.html">3.4. Métodos de integración</a></p></section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

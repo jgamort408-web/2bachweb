@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de Problemas</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            /* COLORES (Tema Indigo/Violeta) */
+            --bg-body: #f8fafc;
+            --primary: #6366f1; /* Indigo 500 */
+            --primary-dark: #4338ca;
+            --secondary: #0f172a;
+            
+            --accent-bg: #e0e7ff;
+            --border-color: #cbd5e1;
+            
+            --text-main: #334155;
+            --text-light: #64748b;
+            
+            --radius: 12px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            /* Fondo de papel milimetrado sutil */
+            background-image: 
+                linear-gradient(#e2e8f0 1px, transparent 1px),
+                linear-gradient(90deg, #e2e8f0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        h1, h2, h3, h4 { 
+            font-family: 'Outfit', sans-serif; 
+            color: var(--secondary); 
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        header { text-align: center; margin-bottom: 3rem; }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* PANEL DE CONTROL (SELECTOR) */
+        .control-panel {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .control-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .select-wrapper {
+            position: relative;
+        }
+
+        /* Select personalizado para reemplazar Tailwind */
+        select {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            padding-right: 2.5rem;
+            font-size: 1rem;
+            font-family: inherit;
+            color: var(--text-main);
+            background-color: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            appearance: none; /* Quitar flecha por defecto */
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: white;
+        }
+
+        /* Flecha personalizada */
+        .select-arrow {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+
+        /* CONTENEDOR DEL EJERCICIO */
+        #exerciseContainer {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        #exerciseContainer.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hidden { display: none; }
+
+        /* SECCIÓN ENUNCIADO */
+        .statement-section { margin-bottom: 3rem; }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .badge-tag {
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+
+        .statement-card {
+            background: #eef2ff; /* Indigo 50 */
+            border-left: 5px solid var(--primary);
+            padding: 2rem;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            box-shadow: var(--shadow);
+        }
+
+        /* PASOS (STEPS) */
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .step-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .step-header {
+            background: #f8fafc;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .step-title {
+            font-weight: 700;
+            color: var(--secondary);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .step-badge {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .step-content {
+            padding: 1.5rem;
+            color: var(--text-main);
+        }
+
+        /* CONCLUSIÓN */
+        .conclusion-card {
+            margin-top: 3rem;
+            background: #f0fdf4; /* Green 50 */
+            border: 1px solid #bbf7d0;
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .conclusion-label {
+            display: block;
+            color: #15803d; /* Green 700 */
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .conclusion-text {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        /* Estilos generales para listas dentro de los pasos */
+        ul { margin-left: 1.5rem; margin-bottom: 1rem; list-style: disc; }
+        li { margin-bottom: 0.5rem; }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 2rem; }
+            .step-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        
+        <header>
+            <h1>Laboratorio de Problemas</h1>
+            <p class="subtitle">Selecciona un ejercicio para ver su resolución detallada.</p>
+        </header>
+
+        <div class="control-panel">
+            <label for="exerciseSelect" class="control-label">
+                Problemas Disponibles:
+            </label>
+            <div class="select-wrapper">
+                <select id="exerciseSelect">
+                    <option value="" disabled selected>-- Elige un problema --</option>
+                </select>
+                <div class="select-arrow">▼</div>
+            </div>
+        </div>
+
+        <div id="exerciseContainer" class="hidden">
+            
+            <section class="statement-section">
+                <div class="section-header">
+                    <span class="badge-tag">Enunciado</span>
+                    <h2 id="exTitle" style="font-size: 1.5rem; font-weight: 700;"></h2>
+                </div>
+                <div id="exStatement" class="statement-card"></div>
+            </section>
+
+            <section>
+                <div class="section-header" style="margin-bottom: 1.5rem;">
+                    <span style="font-size: 1.5rem;">💡</span>
+                    <h3 style="font-size: 1.3rem; font-weight: 700;">Resolución Paso a Paso</h3>
+                </div>
+                
+                <div id="exSteps" class="steps-container"></div>
+                
+                <div id="exConclusion" class="conclusion-card hidden"></div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <script>
+
+
+
+        // =================================================================
+        // DATOS DE EJEMPLO
+        // =================================================================
+        const ejercicios = [
+
+{
+  "id": "probabilidad_pieza_defectuosa_maquinas_m1_m2_m3",
+  "title": "Ejercicio 33. Probabilidad total de pieza defectuosa",
+  "statement": "Tres máquinas, $M_1$, $M_2$ y $M_3$, producen el $45\\%$, el $30\\%$ y el $25\\%$, respectivamente, del total de las piezas que se producen en una fábrica. Los porcentajes de producción defectuosa de esas máquinas son, respectivamente, del $3\\%$, el $4\\%$ y el $5\\%$. Si se toma una pieza al azar, \\¿cuál es la probabilidad de que sea defectuosa?",
+  "steps": [
+    {
+      "title": "Paso 1: Definir eventos y datos",
+      "content": "<p>Sea $D$ el evento \"la pieza es defectuosa\". Definimos los eventos $M_1$, $M_2$, $M_3$ como \"la pieza fue producida por la máquina $M_1$, $M_2$, $M_3$\", respectivamente.</p><ul><li>$P(M_1)=0.45$, $P(M_2)=0.30$, $P(M_3)=0.25$.</li><li>$P(D\\mid M_1)=0.03$, $P(D\\mid M_2)=0.04$, $P(D\\mid M_3)=0.05$.</li></ul><p>Se verifica que $P(M_1)+P(M_2)+P(M_3)=1$, por lo que estos eventos cubren toda la producción.</p>"
+    },
+    {
+      "title": "Paso 2: Aplicar la ley de la probabilidad total",
+      "content": "<p>La probabilidad de que una pieza sea defectuosa se obtiene usando la ley de la probabilidad total:</p>$$P(D)=P(D\\mid M_1)P(M_1)+P(D\\mid M_2)P(M_2)+P(D\\mid M_3)P(M_3).$$"
+    },
+    {
+      "title": "Paso 3: Sustituir valores y realizar el cálculo",
+      "content": "<p>Sustituyendo los valores dados:</p>$$\\begin{aligned}P(D)&=0.03\\cdot 0.45+0.04\\cdot 0.30+0.05\\cdot 0.25\\\\&=0.0135+0.012+0.0125\\\\&=0.038.\\end{aligned}$$<p>Expresado como porcentaje, esto equivale a $3.8\\%$.</p>"
+    }
+  ],
+  "conclusion": "$$P(D)=0.038=3.8\\%$$"
+},
+{
+  "id": "ejercicio_36_probabilidad_libro_buen_estado",
+  "title": "Ejercicio 36: Probabilidad de libro en buen estado",
+  "statement": "En una biblioteca hay dos estanterías y cada una tiene $100$ libros. En la primera hay $25$ libros en mal estado y en la segunda, $20$. Un estudiante coge al azar un libro de la primera estantería y lo deja en la segunda. \\¿Cuál es la probabilidad de que otro estudiante tome al azar un libro en buen estado de la segunda estantería?",
+  "steps": [
+    {
+      "title": "Paso 1: Describir el estado inicial",
+      "content": "<p>Antes de mover ningún libro:</p><ul><li>Primera estantería: $100$ libros, $25$ en mal estado y $75$ en buen estado.</li><li>Segunda estantería: $100$ libros, $20$ en mal estado y $80$ en buen estado.</li></ul>"
+    },
+    {
+      "title": "Paso 2: Analizar el libro trasladado",
+      "content": "<p>El libro que se traslada desde la primera estantería puede ser:</p><ul><li><strong>Libro en buen estado</strong> con probabilidad $\\frac{75}{100}$.</li><li><strong>Libro en mal estado</strong> con probabilidad $\\frac{25}{100}$.</li></ul>"
+    },
+    {
+      "title": "Paso 3: Actualizar la segunda estantería en cada caso",
+      "content": "<p>Luego del traslado, la segunda estantería tendrá $101$ libros.</p><ul><li>Si se traslada un libro en buen estado: libros buenos $=81$, malos $=20$, por lo que la probabilidad de extraer un libro en buen estado es $\\frac{81}{101}$.</li><li>Si se traslada un libro en mal estado: libros buenos $=80$, malos $=21$, por lo que la probabilidad de extraer un libro en buen estado es $\\frac{80}{101}$.</li></ul>"
+    },
+    {
+      "title": "Paso 4: Aplicar la ley de la probabilidad total",
+      "content": "<p>La probabilidad pedida se obtiene combinando ambos casos:</p>$$P=\\frac{75}{100}\\cdot\\frac{81}{101}+\\frac{25}{100}\\cdot\\frac{80}{101}.$$"
+    },
+    {
+      "title": "Paso 5: Cálculo final",
+      "content": "<p>Calculamos:</p>$$\\begin{aligned}P&=\\frac{75\\cdot81+25\\cdot80}{100\\cdot101}\\\\&=\\frac{6075+2000}{10100}\\\\&=\\frac{8075}{10100}=\\frac{323}{404}.\\end{aligned}$$"
+    }
+  ],
+  "conclusion": "$$P=\\frac{323}{404}\\approx0.7995$$"
+},
+
+{
+  "id": "ejercicio_39_probabilidad_bola_negra",
+  "title": "Ejercicio 39: Probabilidad de extraer una bola negra",
+  "statement": "Se dispone de dos urnas. En la urna $A$ hay cuatro bolas rojas, dos verdes y tres negras. En la urna $B$ hay tres bolas rojas, dos blancas y cuatro negras.\n\nPor otro lado, se coge una carta de una baraja española. Si es de oros o una figura, se extrae una bola de la urna $A$; en caso contrario, se saca una bola de la urna $B$. \\¿Cuál es la probabilidad de que, al realizar el experimento, obtengamos una bola negra?",
+  "steps": [
+    {
+      "title": "Paso 1: Analizar las urnas",
+      "content": "<p>Calculamos las probabilidades de obtener una bola negra en cada urna:</p><ul><li>Urna $A$: total $9$ bolas, de las cuales $3$ son negras, luego $P(N\\mid A)=\\frac{3}{9}=\\frac{1}{3}$.</li><li>Urna $B$: total $9$ bolas, de las cuales $4$ son negras, luego $P(N\\mid B)=\\frac{4}{9}$.</li></ul>"
+    },
+    {
+      "title": "Paso 2: Analizar la baraja española",
+      "content": "<p>Una baraja española tiene $40$ cartas.</p><ul><li>Cartas de oros: $10$.</li><li>Figuras (sota, caballo y rey): $12$.</li><li>Figuras de oros: $3$ (contadas en ambos grupos).</li></ul><p>Usamos la probabilidad de la unión:</p>$$P(\\text{oros o figura})=\\frac{10+12-3}{40}=\\frac{19}{40}.$$<p>Por tanto, $P(A)=\\frac{19}{40}$ y $P(B)=\\frac{21}{40}$.</p>"
+    },
+    {
+      "title": "Paso 3: Aplicar la ley de la probabilidad total",
+      "content": "<p>La probabilidad de obtener una bola negra es:</p>$$P(N)=P(A)P(N\\mid A)+P(B)P(N\\mid B).$$"
+    },
+    {
+      "title": "Paso 4: Sustituir valores y calcular",
+      "content": "$$\\begin{aligned}P(N)&=\\frac{19}{40}\\cdot\\frac{1}{3}+\\frac{21}{40}\\cdot\\frac{4}{9}\\\\&=\\frac{19}{120}+\\frac{84}{360}\\\\&=\\frac{57+84}{360}=\\frac{141}{360}=\\frac{47}{120}.\\end{aligned}$$"
+    }
+  ],
+  "conclusion": "$$P(N)=\\frac{47}{120}\\approx0.392$$"
+},
+
+{
+  "id": "ejercicio_42_probabilidad_ascensor_primero_dado_atrapado",
+  "title": "Ejercicio 42: ¿Qué ascensor coger?",
+  "statement": "En un edificio hay dos ascensores. El $45\\%$ de los inquilinos usa el primero y los restantes utilizan el segundo. El porcentaje de fallos del primer ascensor es de un $5\\%$, mientras que el del segundo es de un $8\\%$. Si cierto día un inquilino se queda atrapado en un ascensor, \\¿cuál es la probabilidad de que se trate del primero?",
+  "steps": [
+    {
+      "title": "Paso 1: Definir eventos y probabilidades dadas",
+      "content": "<p>Definimos los eventos:</p><ul><li>$A_1$: \"el inquilino usa el ascensor 1\"</li><li>$A_2$: \"el inquilino usa el ascensor 2\"</li><li>$F$: \"el ascensor falla (se queda atrapado)\"</li></ul><p>Datos del problema:</p><ul><li>$P(A_1)=0.45$ y $P(A_2)=0.55$.</li><li>$P(F\\mid A_1)=0.05$.</li><li>$P(F\\mid A_2)=0.08$.</li></ul><p>Se pide $P(A_1\\mid F)$.</p>"
+    },
+    {
+      "title": "Paso 2: Aplicar el teorema de Bayes",
+      "content": "<p>Por Bayes:</p>$$P(A_1\\mid F)=\\frac{P(F\\mid A_1)P(A_1)}{P(F)}.$$<p>Para usar esta fórmula necesitamos calcular $P(F)$ (probabilidad total de fallo).</p>"
+    },
+    {
+      "title": "Paso 3: Calcular la probabilidad total de fallo",
+      "content": "<p>Como el fallo puede ocurrir si se usa el ascensor 1 o el 2, aplicamos la ley de la probabilidad total:</p>$$P(F)=P(F\\mid A_1)P(A_1)+P(F\\mid A_2)P(A_2).$$<p>Sustituyendo:</p>$$P(F)=0.05\\cdot 0.45+0.08\\cdot 0.55=0.0225+0.044=0.0665.$$"
+    },
+    {
+      "title": "Paso 4: Sustituir en Bayes y obtener el resultado",
+      "content": "<p>Ahora:</p>$$\\begin{aligned}P(A_1\\mid F)&=\\frac{0.05\\cdot 0.45}{0.0665}\\\\&=\\frac{0.0225}{0.0665}=\\frac{225}{665}=\\frac{45}{133}\\approx 0.3383.\\end{aligned}$$"
+    }
+  ],
+  "conclusion": "$$P(A_1\\mid F)=\\frac{45}{133}\\approx 0.3383\\ (33.83\\%)$$"
+},
+
+{
+  "id": "ejercicio_43_probabilidad_tipo_a_dado_correcto",
+  "title": "Ejercicio 43: Probabilidad de que sea del tipo A dado que es correcto",
+  "statement": "En una empresa se producen dos tipos de bienes, $A$ y $B$, en una proporción de $3$ a $4$. La probabilidad de que un bien del tipo $A$ tenga un defecto de fabricación es de un $3\\%$, mientras que para los bienes del tipo $B$ esa probabilidad es de un $5\\%$. Se elige un bien al azar, se analiza y resulta que es correcto. \\¿Qué probabilidad existe de que sea del tipo $A$?",
+  "steps": [
+    {
+      "title": "Paso 1: Traducir la proporción a probabilidades",
+      "content": "<p>La producción está en proporción $3:4$, es decir, de cada $7$ bienes, $3$ son del tipo $A$ y $4$ del tipo $B$.</p>$$P(A)=\\frac{3}{7},\\qquad P(B)=\\frac{4}{7}.$$"
+    },
+    {
+      "title": "Paso 2: Definir el evento de “correcto”",
+      "content": "<p>Sea $C$ el evento \"el bien es correcto\" (no defectuoso). Nos dan:</p><ul><li>$P(\\text{defecto}\\mid A)=0.03 \\Rightarrow P(C\\mid A)=1-0.03=0.97$.</li><li>$P(\\text{defecto}\\mid B)=0.05 \\Rightarrow P(C\\mid B)=1-0.05=0.95$.</li></ul><p>Se pide $P(A\\mid C)$.</p>"
+    },
+    {
+      "title": "Paso 3: Aplicar el teorema de Bayes",
+      "content": "<p>Por Bayes:</p>$$P(A\\mid C)=\\frac{P(C\\mid A)P(A)}{P(C)}.$$<p>Calculamos $P(C)$ con la ley de la probabilidad total.</p>"
+    },
+    {
+      "title": "Paso 4: Calcular la probabilidad total de que sea correcto",
+      "content": "$$\\begin{aligned}P(C)&=P(C\\mid A)P(A)+P(C\\mid B)P(B)\\\\&=0.97\\cdot\\frac{3}{7}+0.95\\cdot\\frac{4}{7}\\\\&=\\frac{2.91}{7}+\\frac{3.80}{7}=\\frac{6.71}{7}.\\end{aligned}$$"
+    },
+    {
+      "title": "Paso 5: Sustituir y simplificar",
+      "content": "$$\\begin{aligned}P(A\\mid C)&=\\frac{0.97\\cdot\\frac{3}{7}}{\\frac{6.71}{7}}=\\frac{2.91/7}{6.71/7}=\\frac{2.91}{6.71}.\\end{aligned}$$<p>Para evitar decimales, multiplicamos numerador y denominador por $100$:</p>$$\\frac{2.91}{6.71}=\\frac{291}{671}\\approx 0.4337.$$"
+    }
+  ],
+  "conclusion": "$$P(A\\mid C)=\\frac{291}{671}\\approx 0.434\\ (43.4\\%)$$"
+},
+
+{
+  "id": "ejercicio_47_probabilidad_jubilado_dado_gusta_clasica",
+  "title": "Ejercicio 47: Probabilidad de que sea jubilada dado que le gusta la música clásica",
+  "statement": "El $20\\%$ de los habitantes de una población corresponde a personas jubiladas y otro $20\\%$ está formado por estudiantes. Además, sabemos que la música clásica gusta al $75\\%$ de los jubilados, al $50\\%$ de los estudiantes y al $20\\%$ del resto de la población. Calcula la probabilidad de que, al escoger al azar a una persona a la que le gusta la música clásica, sea jubilada.",
+  "steps": [
+    {
+      "title": "Paso 1: Definir grupos y probabilidades a priori",
+      "content": "<p>Definimos los eventos:</p><ul><li>$J$: \"la persona es jubilada\"</li><li>$E$: \"la persona es estudiante\"</li><li>$R$: \"la persona pertenece al resto de la población\"</li><li>$C$: \"a la persona le gusta la música clásica\"</li></ul><p>Datos de proporciones:</p>$$P(J)=0.20,\\qquad P(E)=0.20,\\qquad P(R)=1-0.20-0.20=0.60.$$"
+    },
+    {
+      "title": "Paso 2: Probabilidades condicionadas de que le guste la música clásica",
+      "content": "<p>Datos del enunciado:</p><ul><li>$P(C\\mid J)=0.75$</li><li>$P(C\\mid E)=0.50$</li><li>$P(C\\mid R)=0.20$</li></ul><p>Se pide $P(J\\mid C)$.</p>"
+    },
+    {
+      "title": "Paso 3: Calcular $P(C)$ con la ley de la probabilidad total",
+      "content": "<p>Como la población se divide en $J$, $E$ y $R$, entonces:</p>$$P(C)=P(C\\mid J)P(J)+P(C\\mid E)P(E)+P(C\\mid R)P(R).$$<p>Sustituimos:</p>$$\\begin{aligned}P(C)&=0.75\\cdot 0.20+0.50\\cdot 0.20+0.20\\cdot 0.60\\\\&=0.15+0.10+0.12=0.37.\\end{aligned}$$"
+    },
+    {
+      "title": "Paso 4: Aplicar el teorema de Bayes",
+      "content": "<p>Por Bayes:</p>$$P(J\\mid C)=\\frac{P(C\\mid J)P(J)}{P(C)}.$$<p>Sustituimos:</p>$$P(J\\mid C)=\\frac{0.75\\cdot 0.20}{0.37}=\\frac{0.15}{0.37}=\\frac{15}{37}\\approx 0.4054.$$"
+    }
+  ],
+  "conclusion": "$$P(J\\mid C)=\\frac{15}{37}\\approx 0.405\\ (40.5\\%)$$"
+},
+{
+  "id": "ejercicio_52_probabilidad_llave_correcta_y_origen",
+  "title": "Ejercicio 52: Llaveros y llave correcta",
+  "statement": "En una casa hay tres llaveros: $A$, $B$ y $C$. El primero tiene cinco llaves; el segundo tiene siete y el tercero, ocho. Solo una llave de cada llavero abre la puerta del garaje. Se escoge al azar un llavero y, de \\`el, una llave para intentar abrir la puerta del garaje.\n\na) \\¿Cuál será la probabilidad de acertar con la llave?\n\nb) Si la llave escogida es la correcta, \\¿cuál será la probabilidad de que pertenezca al llavero $A$?",
+  "steps": [
+    {
+      "title": "Paso 1: Definir eventos y probabilidades iniciales",
+      "content": "<p>Definimos los eventos:</p><ul><li>$A$: \"se elige el llavero $A$\"</li><li>$B$: \"se elige el llavero $B$\"</li><li>$C$: \"se elige el llavero $C$\"</li><li>$K$: \"la llave elegida abre el garaje\" (\\\"acertar\\\")</li></ul><p>Como el llavero se elige al azar:</p>$$P(A)=P(B)=P(C)=\\frac{1}{3}.$$<p>Probabilidades de acertar una vez elegido el llavero:</p><ul><li>Si se elige $A$ (5 llaves, 1 correcta): $P(K\\mid A)=\\frac{1}{5}$.</li><li>Si se elige $B$ (7 llaves, 1 correcta): $P(K\\mid B)=\\frac{1}{7}$.</li><li>Si se elige $C$ (8 llaves, 1 correcta): $P(K\\mid C)=\\frac{1}{8}$.</li></ul>"
+    },
+    {
+      "title": "Paso 2: Resolver (a) con la ley de la probabilidad total",
+      "content": "<p>La probabilidad total de acertar es:</p>$$P(K)=P(A)P(K\\mid A)+P(B)P(K\\mid B)+P(C)P(K\\mid C).$$<p>Sustituyendo:</p>$$P(K)=\\frac{1}{3}\\left(\\frac{1}{5}+\\frac{1}{7}+\\frac{1}{8}\\right).$$<p>Calculamos la suma:</p>$$\\frac{1}{5}+\\frac{1}{7}+\\frac{1}{8}=\\frac{56}{280}+\\frac{40}{280}+\\frac{35}{280}=\\frac{131}{280}.$$<p>Entonces:</p>$$P(K)=\\frac{1}{3}\\cdot\\frac{131}{280}=\\frac{131}{840}.$$"
+    },
+    {
+      "title": "Paso 3: Plantear (b) como una probabilidad condicional",
+      "content": "<p>Se pide la probabilidad de que el llavero sea $A$ sabiendo que la llave fue correcta, es decir:</p>$$P(A\\mid K).$$<p>Aplicamos el teorema de Bayes:</p>$$P(A\\mid K)=\\frac{P(K\\mid A)P(A)}{P(K)}.$$"
+    },
+    {
+      "title": "Paso 4: Calcular (b) sustituyendo y simplificando",
+      "content": "<p>Sustituimos $P(K\\mid A)=\\frac{1}{5}$, $P(A)=\\frac{1}{3}$ y $P(K)=\\frac{131}{840}$:</p>$$\\begin{aligned}P(A\\mid K)&=\\frac{\\frac{1}{5}\\cdot\\frac{1}{3}}{\\frac{131}{840}}=\\frac{\\frac{1}{15}}{\\frac{131}{840}}=\\frac{1}{15}\\cdot\\frac{840}{131}\\\\&=\\frac{56}{131}.\\end{aligned}$$"
+    }
+  ],
+  "conclusion": "$$\\text{a) }P(K)=\\frac{131}{840}\\approx0.1560\\qquad\\text{b) }P(A\\mid K)=\\frac{56}{131}\\approx0.4275$$"
+},
+
+{
+  "id": "ejercicio_53_probabilidades_genero_y_edad",
+  "title": "Ejercicio 53: Probabilidades por género y edad",
+  "statement": "En una oficina del ayuntamiento se asigna un número a cada persona que entra. Se observa que el $70\\%$ de las personas que entran son mujeres y que el $40\\%$ de los hombres y el $30\\%$ de las mujeres que entran son menores de $30$ años. Si se escoge una persona al azar, calcula:\n\na) La probabilidad de que un número sea asignado a una persona menor de $30$ años.\n\nb) La probabilidad de que un número sea asignado a un hombre que no tiene menos de $30$ años.\n\nc) Si la persona a la que se le ha asignado un número no tiene menos de $30$ años, \\¿cuál es la probabilidad de que sea hombre?",
+  "steps": [
+    {
+      "title": "Paso 1: Definir eventos y datos",
+      "content": "<p>Definimos:</p><ul><li>$M$: \"la persona es mujer\"</li><li>$H$: \"la persona es hombre\"</li><li>$U$: \"la persona es menor de 30 años\"</li><li>$U^c$: \"la persona no es menor de 30 años\" (es decir, tiene $\\ge 30$)</li></ul><p>Datos:</p><ul><li>$P(M)=0.70 \\Rightarrow P(H)=0.30$.</li><li>$P(U\\mid H)=0.40$.</li><li>$P(U\\mid M)=0.30$.</li></ul>"
+    },
+    {
+      "title": "Paso 2: Resolver (a) con la ley de la probabilidad total",
+      "content": "<p>Queremos $P(U)$. Como toda persona es hombre o mujer:</p>$$P(U)=P(U\\mid H)P(H)+P(U\\mid M)P(M).$$<p>Sustituyendo:</p>$$\\begin{aligned}P(U)&=0.40\\cdot 0.30+0.30\\cdot 0.70\\\\&=0.12+0.21=0.33.\\end{aligned}$$"
+    },
+    {
+      "title": "Paso 3: Resolver (b) calculando $P(H\\cap U^c)$",
+      "content": "<p>Se pide la probabilidad de que sea hombre y no menor de 30, es decir $P(H\\cap U^c)$.</p><p>Primero hallamos $P(U^c\\mid H)$:</p>$$P(U^c\\mid H)=1-P(U\\mid H)=1-0.40=0.60.$$<p>Entonces:</p>$$P(H\\cap U^c)=P(U^c\\mid H)P(H)=0.60\\cdot 0.30=0.18.$$"
+    },
+    {
+      "title": "Paso 4: Preparar (c) calculando $P(U^c)$",
+      "content": "<p>Para $P(H\\mid U^c)$ necesitaremos $P(U^c)$.</p><p>Como $U^c$ es el complementario de $U$:</p>$$P(U^c)=1-P(U)=1-0.33=0.67.$$"
+    },
+    {
+      "title": "Paso 5: Resolver (c) con Bayes (o definición de condicional)",
+      "content": "<p>Se pide:</p>$$P(H\\mid U^c)=\\frac{P(H\\cap U^c)}{P(U^c)}.$$<p>Sustituimos los valores obtenidos:</p>$$P(H\\mid U^c)=\\frac{0.18}{0.67}=\\frac{18}{67}\\approx 0.2687.$$"
+    }
+  ],
+  "conclusion": "$$\\text{a) }P(U)=0.33\\ (33\\%)\\qquad\\text{b) }P(H\\cap U^c)=0.18\\ (18\\%)\\qquad\\text{c) }P(H\\mid U^c)=\\frac{18}{67}\\approx0.269\\ (26.9\\%)$$"
+}
+
+        ];
+
+
+        // =================================================================
+        // LÓGICA DE RENDERIZADO (Actualizada para usar clases semánticas)
+        // =================================================================
+        const selectElement = document.getElementById('exerciseSelect');
+        const container = document.getElementById('exerciseContainer');
+        const exTitle = document.getElementById('exTitle');
+        const exStatement = document.getElementById('exStatement');
+        const exSteps = document.getElementById('exSteps');
+        const exConclusion = document.getElementById('exConclusion');
+
+        // Llenar select
+        ejercicios.forEach(ex => {
+            const option = document.createElement('option');
+            option.value = ex.id;
+            option.textContent = ex.title;
+            selectElement.appendChild(option);
+        });
+
+        // Cambio de opción
+        selectElement.addEventListener('change', (e) => {
+            const selectedId = e.target.value;
+            const exercise = ejercicios.find(ex => ex.id === selectedId);
+            if (exercise) renderExercise(exercise);
+        });
+
+        function renderExercise(exercise) {
+            // Reiniciar animación css pura
+            container.classList.remove('fade-in');
+            void container.offsetWidth; // Trigger reflow
+            container.classList.add('fade-in');
+            container.classList.remove('hidden');
+
+            exTitle.innerHTML = exercise.title;
+            exStatement.innerHTML = exercise.statement;
+            exSteps.innerHTML = '';
+
+            exercise.steps.forEach((step, index) => {
+                // AQUÍ USAMOS LAS NUEVAS CLASES CSS EN LUGAR DE TAILWIND
+                const stepHTML = `
+                    <div class="step-card">
+                        <div class="step-header">
+                            <h4 class="step-title">${step.title}</h4>
+                            <span class="step-badge">Paso ${index + 1}</span>
+                        </div>
+                        <div class="step-content">
+                            ${step.content}
+                        </div>
+                    </div>
+                `;
+                exSteps.insertAdjacentHTML('beforeend', stepHTML);
+            });
+
+            if (exercise.conclusion) {
+                exConclusion.innerHTML = `
+                    <span class="conclusion-label">Solución Final</span>
+                    <div class="conclusion-text">${exercise.conclusion}</div>
+                `;
+                exConclusion.classList.remove('hidden');
+            } else {
+                exConclusion.classList.add('hidden');
+            }
+
+            // REPROCESAR MATHJAX
+            if (window.MathJax) {
+                MathJax.typesetPromise([container]).catch(err => console.log(err));
+            }
+        }
+    </script>
+
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

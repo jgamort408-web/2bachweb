@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 3: Inferencia Estadística</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            /* PALETA LAB / ECO-SCIENCE */
+            --bg-body: #ecfdf5;       /* Mint Cream */
+            --primary: #047857;       /* Emerald Green */
+            --primary-dark: #064e3b;  /* Deep Forest */
+            --secondary: #0f172a;     /* Slate Dark */
+            
+            --accent: #d97706;        /* Amber Gold (Para resaltar conceptos clave) */
+            --accent-bg: #fffbeb;
+            
+            --text-main: #334155;
+            --text-light: #64748b;
+            
+            --radius: 8px;            /* Bordes más técnicos, menos redondeados */
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --border: 1px solid #d1fae5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            /* Patrón sutil de puntos de laboratorio */
+            background-image: radial-gradient(#047857 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+
+        h1, h2, h3, h4 { 
+            font-family: 'Outfit', sans-serif; 
+            color: var(--secondary); 
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        /* HEADER TIPO INFORME */
+        header {
+            background: white;
+            padding: 2rem;
+            border-bottom: 4px solid var(--primary);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-content h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .badge {
+            background: var(--secondary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* TARJETAS TÉCNICAS */
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-left: 5px solid var(--primary);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2.5rem;
+        }
+
+        .section-tag {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* LAYOUT POBLACIÓN VS MUESTRA */
+        .concept-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .def-box {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+        
+        .math-symbol {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        /* GRID DE MUESTREO */
+        .sampling-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .sampling-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .sampling-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 15px -3px rgba(4, 120, 87, 0.1);
+        }
+
+        /* SVG ESTILOS */
+        .pop-dot { fill: #cbd5e1; }
+        .sample-dot { fill: var(--primary); }
+        .stratum-a { fill: #fca5a5; } /* Rojo claro */
+        .stratum-b { fill: #93c5fd; } /* Azul claro */
+        .selected-a { fill: #dc2626; } /* Rojo fuerte */
+        .selected-b { fill: #2563eb; } /* Azul fuerte */
+        
+        .arrow-line { stroke: var(--secondary); stroke-width: 2; marker-end: url(#arrowhead); }
+
+        /* FICHA TÉCNICA (ESTILO PAPEL) */
+        .datasheet {
+            background: #fffbeb; /* Amber 50 */
+            border: 1px solid #fcd34d;
+            padding: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: #78350f;
+            border-radius: 4px;
+            position: relative;
+        }
+        .datasheet::before {
+            content: 'FICHA TÉCNICA';
+            position: absolute;
+            top: -10px; left: 20px;
+            background: #f59e0b;
+            color: white;
+            padding: 2px 10px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .concept-layout { grid-template-columns: 1fr; }
+            header { text-align: center; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        
+        <header>
+            <div class="header-content">
+                <span class="badge">BLOQUE 5.0</span>
+                <h1>Inferencia Estadística</h1>
+                <p style="color: var(--text-light);">La ciencia de medir una parte para comprender el todo.</p>
+            </div>
+            <div style="text-align: right; opacity: 0.6;">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#047857" stroke-width="1.5">
+                    <path d="M21 21H3V3"/>
+                    <path d="M18 17L18 10"/>
+                    <path d="M14 17L14 6"/>
+                    <path d="M10 17L10 12"/>
+                    <path d="M6 17L6 14"/>
+                </svg>
+            </div>
+        </header>
+
+        <section class="card">
+            <span class="section-tag">01. MARCO TEÓRICO</span>
+            <h2>Población vs. Muestra</h2>
+            
+            <div class="concept-layout">
+                <div>
+                    <p style="margin-bottom: 1.5rem;">
+                        Rara vez podemos estudiar a <strong>todos</strong> los individuos (Población). Es demasiado caro o lento. Por eso estudiamos un subconjunto (Muestra) y damos un salto de fe matemático llamado <strong>Inferencia</strong>.
+                    </p>
+
+                    <div class="def-box">
+                        <strong style="color:var(--primary-dark)">🌍 Población ($N$)</strong>
+                        <p style="font-size:0.9rem; color:var(--text-light)">
+                            El conjunto total. Sus valores reales (media $\mu$, desviación $\sigma$) son desconocidos y se llaman <strong>Parámetros</strong>.
+                        </p>
+                    </div>
+
+                    <div class="def-box" style="border-color: var(--accent);">
+                        <strong style="color:var(--accent)">🔍 Muestra ($n$)</strong>
+                        <p style="font-size:0.9rem; color:var(--text-light)">
+                            La parte seleccionada. Sus valores calculados (media $\bar{x}$, desviación $s$) se llaman <strong>Estadísticos</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <svg viewBox="0 0 300 200" width="100%">
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#0f172a" />
+                            </marker>
+                        </defs>
+
+                        <circle cx="100" cy="100" r="90" fill="none" stroke="#94a3b8" stroke-dasharray="4" />
+                        <text x="100" y="25" text-anchor="middle" fill="#64748b" font-weight="bold" font-size="12">POBLACIÓN (μ, σ)</text>
+                        
+                        <g id="population-dots">
+                             <circle cx="60" cy="70" r="2" class="pop-dot"/><circle cx="80" cy="50" r="2" class="pop-dot"/>
+                             <circle cx="120" cy="60" r="2" class="pop-dot"/><circle cx="140" cy="90" r="2" class="pop-dot"/>
+                             <circle cx="90" cy="130" r="2" class="pop-dot"/><circle cx="50" cy="110" r="2" class="pop-dot"/>
+                             <circle cx="150" cy="130" r="2" class="pop-dot"/><circle cx="110" cy="160" r="2" class="pop-dot"/>
+                             <circle cx="70" cy="90" r="3" class="sample-dot"/>
+                             <circle cx="110" cy="100" r="3" class="sample-dot"/>
+                             <circle cx="130" cy="110" r="3" class="sample-dot"/>
+                        </g>
+
+                        <line x1="160" y1="100" x2="220" y2="100" class="arrow-line" />
+                        <text x="190" y="90" text-anchor="middle" font-size="10" fill="#0f172a">INFERENCIA</text>
+
+                        <circle cx="250" cy="100" r="35" fill="#ecfdf5" stroke="#047857" stroke-width="2" />
+                        <text x="250" y="55" text-anchor="middle" fill="#047857" font-weight="bold" font-size="12">MUESTRA</text>
+                        <text x="250" y="105" text-anchor="middle" fill="#047857" font-family="Times New Roman" font-weight="bold">x̄, s</text>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <span class="section-tag">02. METODOLOGÍA</span>
+            <h2>Técnicas de Muestreo</h2>
+            <p>Para que la matemática funcione, la muestra debe ser <strong>Representativa</strong>. Si elegimos mal, el estudio no sirve. Existen 4 métodos principales:</p>
+
+            <div class="sampling-grid">
+                
+                <div class="sampling-card">
+                    <svg viewBox="0 0 100 80" width="80" style="margin-bottom:1rem;">
+                        <rect width="100" height="80" fill="#f1f5f9" rx="4"/>
+                        <circle cx="20" cy="20" r="3" class="pop-dot"/>
+                        <circle cx="80" cy="60" r="3" class="pop-dot"/>
+                        <circle cx="50" cy="40" r="3" class="sample-dot"/> <circle cx="30" cy="70" r="3" class="sample-dot"/> <circle cx="70" cy="20" r="3" class="sample-dot"/> </svg>
+                    <h4 style="font-size:0.9rem; color:var(--primary-dark)">1. Aleatorio Simple</h4>
+                    <p style="font-size:0.8rem; color:var(--text-light); margin-top:0.5rem;">Sorteo puro. Todos tienen la misma probabilidad (equiprobabilidad). Requiere lista completa.</p>
+                </div>
+
+                <div class="sampling-card">
+                    <svg viewBox="0 0 100 80" width="80" style="margin-bottom:1rem;">
+                        <rect width="100" height="80" fill="#f1f5f9" rx="4"/>
+                        <circle cx="10" cy="40" r="3" class="sample-dot"/>
+                        <circle cx="30" cy="40" r="3" class="pop-dot"/>
+                        <circle cx="50" cy="40" r="3" class="sample-dot"/>
+                        <circle cx="70" cy="40" r="3" class="pop-dot"/>
+                        <circle cx="90" cy="40" r="3" class="sample-dot"/>
+                    </svg>
+                    <h4 style="font-size:0.9rem; color:var(--primary-dark)">2. Sistemático</h4>
+                    <p style="font-size:0.8rem; color:var(--text-light); margin-top:0.5rem;">Se elige un punto de partida y luego se aplica un "salto" constante ($k = N/n$).</p>
+                </div>
+
+                <div class="sampling-card" style="border-color:var(--accent);">
+                    <svg viewBox="0 0 100 80" width="80" style="margin-bottom:1rem;">
+                        <rect width="100" height="80" fill="#fffbeb" rx="4"/>
+                        <rect x="5" y="5" width="40" height="70" fill="rgba(252, 165, 165, 0.2)" rx="2"/>
+                        <circle cx="25" cy="20" r="3" class="selected-a"/>
+                        <circle cx="25" cy="40" r="3" class="selected-a"/>
+                        <circle cx="25" cy="60" r="3" class="stratum-a"/>
+                        <rect x="55" y="5" width="40" height="70" fill="rgba(147, 197, 253, 0.2)" rx="2"/>
+                        <circle cx="75" cy="30" r="3" class="selected-b"/>
+                        <circle cx="75" cy="50" r="3" class="stratum-b"/>
+                    </svg>
+                    <h4 style="font-size:0.9rem; color:var(--accent)">3. Estratificado 🔥</h4>
+                    <p style="font-size:0.8rem; color:var(--text-light); margin-top:0.5rem;">Se divide en grupos (estratos) y se elige proporcionalmente. Mantiene la estructura de la población.</p>
+                </div>
+
+                <div class="sampling-card">
+                    <svg viewBox="0 0 100 80" width="80" style="margin-bottom:1rem;">
+                        <rect width="100" height="80" fill="#f1f5f9" rx="4"/>
+                        <g transform="translate(10,10)">
+                            <circle cx="15" cy="15" r="12" fill="none" stroke="#94a3b8"/>
+                            <circle cx="15" cy="15" r="3" class="pop-dot"/>
+                        </g>
+                        <g transform="translate(50,10)">
+                            <circle cx="15" cy="15" r="12" fill="#d1fae5" stroke="#047857"/>
+                            <circle cx="12" cy="12" r="3" class="sample-dot"/>
+                            <circle cx="18" cy="18" r="3" class="sample-dot"/>
+                        </g>
+                    </svg>
+                    <h4 style="font-size:0.9rem; color:var(--primary-dark)">4. Conglomerados</h4>
+                    <p style="font-size:0.8rem; color:var(--text-light); margin-top:0.5rem;">Se eligen grupos naturales completos (ej: elegir 2 clases de un colegio y encuestar a todos).</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="card">
+            <span class="section-tag">03. DOCUMENTACIÓN (PUNTO 9)</span>
+            <h2>La Ficha Técnica</h2>
+            <p style="margin-bottom: 1.5rem;">Cualquier encuesta seria (como las del CIS o elecciones) debe llevar obligatoriamente este cuadro resumen para ser válida.</p>
+
+            <div class="datasheet">
+                <p><strong>> UNIVERSO:</strong> Población española mayor de 18 años.</p>
+                <p><strong>> TAMAÑO MUESTRAL:</strong> n = 2.500 entrevistas.</p>
+                <p><strong>> TIPO DE MUESTREO:</strong> Estratificado por CCAA y tamaño de hábitat.</p>
+                <p><strong>> ERROR MUESTRAL:</strong> ± 2.0% (para un Nivel de Confianza del 95.5%, 2 sigma).</p>
+                <p><strong>> FECHA:</strong> 10-15 Octubre 2023.</p>
+            </div>
+            
+            <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 1rem; font-style: italic;">
+                *Nota: El "Error Muestral" y el "Nivel de Confianza" son los conceptos matemáticos que aprenderemos a calcular en las siguientes secciones.
+            </p>
+        </section>
+
+    </main>
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

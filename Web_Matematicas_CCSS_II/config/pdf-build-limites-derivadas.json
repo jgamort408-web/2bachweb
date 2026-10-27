@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-20",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "batchId": "169",
+  "sourceDirectory": "content/latex/limites-derivadas",
+  "report": "docs/pdf/limites-derivadas-build.json",
+  "mathematics": "limites-derivadas",
+  "documents": [
+    {
+      "id": "limites-derivadas-examen",
+      "source": "content/latex/limites-derivadas/limites-derivadas-examen.tex",
+      "output": "output/pdf/limites-derivadas-examen.pdf",
+      "expectedPages": 2,
+      "title": "Límites y derivadas - Examen revisado",
+      "forbiddenText": [
+        "£"
+      ],
+      "requiredText": [
+        "las cuatro primeras",
+        "los cuatro primeros",
+        "¿Para qué valores"
+      ]
+    },
+    {
+      "id": "limites-derivadas-soluciones",
+      "source": "content/latex/limites-derivadas/limites-derivadas-soluciones.tex",
+      "output": "output/pdf/limites-derivadas-soluciones.pdf",
+      "expectedPages": 7,
+      "title": "Límites y derivadas - Soluciones revisadas",
+      "forbiddenText": [
+        "£"
+      ],
+      "requiredText": [
+        "Corrección M14.",
+        "tiempo finito",
+        "Anexo no evaluable"
+      ]
+    }
+  ]
+}

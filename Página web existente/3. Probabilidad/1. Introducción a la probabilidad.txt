@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introducción a la Probabilidad — Matemáticas Aplicadas (2º Bach.)</title>
+
+  <!-- Fuentes (con fallback automático si no cargan) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Inter:wght@300;400;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- MathJax (solo una carga, con configuración ANTES) -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      options: { renderActions: { addMenu: [] } }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root{
+      --bg:#FDFBF7;
+      --text:#1f2937;
+      --muted:#475569;
+      --border:#0f172a;
+      --card:#ffffff;
+
+      --indigo:#4f46e5;
+      --indigo-2:#312e81;
+      --amber:#d97706;
+
+      --grid-dot: rgba(15, 23, 42, .10);
+      --paper-shadow: 0 18px 35px rgba(15,23,42,.10);
+      --radius: 18px;
+      --max: 1040px;
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.55;
+      overflow-x:hidden;
+
+      /* Fondo tipo cuaderno */
+      background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
+      background-size: 28px 28px;
+      touch-action: manipulation;
+    }
+
+    :focus-visible{
+      outline: 3px solid rgba(79,70,229,.35);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .page{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(18px, 3.2vw, 46px);
+    }
+
+    /* Cabecera */
+    header{
+      border-bottom: 2px solid rgba(15,23,42,.20);
+      padding-bottom: 18px;
+      margin-bottom: 34px;
+    }
+
+    .handwritten{
+      font-family: Kalam, "Comic Sans MS", "Segoe Print", cursive;
+      color: var(--amber);
+      font-weight: 700;
+      display:inline-block;
+      transform: rotate(-1deg);
+      letter-spacing:.2px;
+    }
+
+    h1,h2,h3{
+      font-family: Fraunces, ui-serif, Georgia, "Times New Roman", Times, serif;
+      letter-spacing: -0.02em;
+      margin: 0;
+      color: #0f172a;
+    }
+
+    h1{
+      font-size: clamp(34px, 4.6vw, 62px);
+      line-height: 1.05;
+      margin-top: 10px;
+      text-shadow: 2px 2px 0 var(--bg), 4px 4px 0 rgba(15,23,42,.08);
+    }
+
+    .lead{
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 64ch;
+    }
+
+    /* Secciones */
+    section{ margin: 0 0 44px; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: clamp(14px, 3vw, 28px);
+      align-items:start;
+    }
+    @media (max-width: 920px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    /* Tarjetas tipo "papel" */
+    .paper{
+      background: var(--card);
+      border: 1px solid rgba(15,23,42,.14);
+      border-radius: var(--radius);
+      box-shadow: var(--paper-shadow);
+    }
+
+    .graph-paper{
+      background-color: #ffffff;
+      background-image:
+        linear-gradient(rgba(15,23,42,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,23,42,.08) 1px, transparent 1px);
+      background-size: 20px 20px;
+      border: 2px solid rgba(15,23,42,.82);
+      box-shadow: 4px 4px 0 rgba(15,23,42,.82);
+      border-radius: 16px;
+    }
+
+    .pad{ padding: clamp(14px, 2.2vw, 22px); }
+
+    .rotate-slight{ transform: rotate(1deg); }
+
+    /* Resaltado subrayado */
+    .highlight{
+      background: linear-gradient(120deg, rgba(165,243,252,.85) 0%, rgba(165,243,252,.85) 100%);
+      background-repeat:no-repeat;
+      background-size: 100% 42%;
+      background-position: 0 88%;
+      padding: 0 .1em;
+      border-radius: 6px;
+    }
+
+    /* Bloque objetivos */
+    .block{
+      background: var(--card);
+      border: 1px solid rgba(15,23,42,.12);
+      border-left: 6px solid var(--indigo);
+      border-radius: var(--radius);
+      box-shadow: 0 14px 28px rgba(15,23,42,.08);
+      padding: clamp(14px, 2.2vw, 22px);
+    }
+
+    .block h2{
+      font-size: clamp(22px, 2.6vw, 32px);
+      margin-bottom: 12px;
+    }
+
+    ul.clean{
+      list-style:none;
+      padding:0;
+      margin: 12px 0 0;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 16px;
+    }
+    @media (max-width: 720px){
+      ul.clean{ grid-template-columns: 1fr; }
+    }
+    .li{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      color:#334155;
+      font-size: 16px;
+    }
+    .bullet{
+      width:10px;height:10px;
+      border-radius:999px;
+      margin-top: 7px;
+      background: var(--indigo);
+      box-shadow: 0 0 0 4px rgba(79,70,229,.12);
+      flex: 0 0 auto;
+    }
+
+    /* Operaciones con sucesos */
+    .section-head{
+      display:flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .section-head h2{
+      font-size: clamp(22px, 2.8vw, 34px);
+    }
+
+    .desc{
+      color:#334155;
+      font-size: 18px;
+      margin: 0 0 18px;
+      max-width: 80ch;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 860px){
+      .cards{ grid-template-columns: 1fr; }
+    }
+
+    .op-card{
+      padding: 14px 14px 12px;
+      display:flex;
+      flex-direction: column;
+      align-items:center;
+      gap: 8px;
+    }
+
+    .op-card h3{
+      width:100%;
+      font-size: 18px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(15,23,42,.16);
+      margin: 0 0 6px;
+    }
+
+    .op-card p{
+      margin: 0;
+      text-align:center;
+      color:#334155;
+      font-size: 14px;
+    }
+
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      color: var(--indigo);
+      font-size: 12.5px;
+      display:block;
+      margin-top: 6px;
+      font-weight: 700;
+    }
+
+    svg{ max-width: 100%; height: auto; }
+
+    /* Acordeón */
+    .real{
+      background: var(--card);
+      border: 1px solid rgba(15,23,42,.10);
+      border-radius: 18px;
+      box-shadow: 0 14px 28px rgba(15,23,42,.08);
+      padding: clamp(16px, 2.4vw, 26px);
+    }
+
+    .real h2{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .lamp{
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background: rgba(79,70,229,.10);
+      border: 1px solid rgba(79,70,229,.18);
+      display:grid;
+      place-items:center;
+      color: var(--indigo-2);
+      font-size: 18px;
+      flex: 0 0 auto;
+    }
+
+    details{
+      border-bottom: 1px solid rgba(15,23,42,.08);
+      padding: 8px 0;
+    }
+    details:last-child{ border-bottom: none; }
+
+    summary{
+      list-style:none;
+      cursor:pointer;
+      font-weight: 800;
+      color:#0f172a;
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 10px;
+      padding: 8px 0;
+      user-select:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+
+    .chev{
+      transition: transform .18s ease;
+      opacity:.55;
+      font-weight: 900;
+    }
+    details[open] .chev{ transform: rotate(180deg); opacity:.75; }
+    details[open] summary{ color: var(--indigo); }
+
+    .detail-text{
+      margin: 2px 0 10px;
+      color: var(--muted);
+      padding-left: 12px;
+      border-left: 3px solid rgba(79,70,229,.18);
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 46px;
+      padding-top: 18px;
+      border-top: 2px dashed rgba(15,23,42,.22);
+      text-align:center;
+    }
+    .quote{
+      font-family: Kalam, "Comic Sans MS", "Segoe Print", cursive;
+      font-size: clamp(18px, 2.2vw, 24px);
+      color:#0f172a;
+      margin: 0;
+    }
+    .author{
+      margin: 8px 0 0;
+      color: #64748b;
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    /* MathJax ajuste visual */
+    mjx-container[jax="CHTML"]{
+      font-size: 1.02em;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <header>
+      <span class="handwritten">Tema 3.1</span>
+      <h1>Introducción a la Probabilidad</h1>
+      <p class="lead">
+        Una herramienta esencial para comprender y tomar decisiones en un mundo lleno de incertidumbre.
+      </p>
+    </header>
+
+    <section class="grid">
+      <div style="font-size:18px; color:#334155;">
+        <p style="margin:0 0 10px;">
+          Cada día, sin darnos cuenta, interpretamos y utilizamos información probabilística: cuando miramos la
+          predicción del tiempo y decidimos si llevar paraguas, cuando valoramos si un equipo tiene opciones reales
+          de ganar, o cuando se estima el riesgo en medicina y economía.
+        </p>
+        <p style="margin:0;">
+          En todas estas situaciones interviene la probabilidad, entendida como una medida que cuantifica
+          <span class="highlight">cuán posible es que ocurra un suceso</span>.
+          En 2º de Bachillerato nos interesa, además, conectar esta idea con datos: frecuencias, modelos sencillos y
+          reglas de cálculo que permiten argumentar con rigor.
+        </p>
+      </div>
+
+      <aside class="graph-paper pad rotate-slight">
+        <span class="handwritten" style="font-size:18px; display:block; margin-bottom:6px;">¿Sabías que?</span>
+        <p style="margin:0; font-size: 14px; color:#334155;">
+          La probabilidad moderna arrancó en el siglo XVII a partir de problemas de juegos de azar,
+          con aportaciones decisivas de <strong>Fermat</strong> y <strong>Pascal</strong>.
+        </p>
+      </aside>
+    </section>
+
+    <section class="block">
+      <h2>¿Qué estudiaremos en este tema?</h2>
+      <p style="margin:0; color:#334155;">
+        Vamos a formalizar la incertidumbre con herramientas fundamentales y a interpretarlas en contextos reales:
+      </p>
+
+      <ul class="clean" aria-label="Contenidos del tema">
+        <li class="li"><span class="bullet" aria-hidden="true"></span><span><strong>Sucesos y espacio muestral</strong> ($\Omega$).</span></li>
+        <li class="li"><span class="bullet" aria-hidden="true"></span><span><strong>Regla de Laplace</strong> y frecuencias relativas.</span></li>
+        <li class="li"><span class="bullet" aria-hidden="true"></span><span><strong>Axiomas de Kolmogorov</strong> (enfoque moderno).</span></li>
+        <li class="li"><span class="bullet" aria-hidden="true"></span><span><strong>Probabilidad condicionada</strong>: $P(A\mid B)$.</span></li>
+        <li class="li"><span class="bullet" aria-hidden="true"></span><span><strong>Independencia de sucesos</strong>.</span></li>
+        <li class="li"><span class="bullet" aria-hidden="true"></span><span><strong>Probabilidad Total</strong> y <strong>Teorema de Bayes</strong>.</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Operaciones con sucesos</h2>
+        <span class="handwritten" style="font-size:18px; display:none;" id="noteVenn">¡Visualicemos conjuntos!</span>
+      </div>
+
+      <p class="desc">
+        Para calcular probabilidades complejas, primero operamos con sucesos como si fueran conjuntos.
+        Las operaciones básicas se representan con <strong>diagramas de Venn</strong>.
+      </p>
+
+      <div class="cards" aria-label="Operaciones con sucesos: unión, intersección, diferencia y complementario">
+
+        <article class="graph-paper op-card">
+          <h3>Unión ($A \cup B$)</h3>
+          <svg viewBox="0 0 200 120" width="360" height="220" role="img" aria-label="Diagrama de Venn de la unión">
+            <rect x="2" y="2" width="196" height="116" fill="none" stroke="rgba(15,23,42,.22)" stroke-width="1"/>
+            <circle cx="70" cy="60" r="40" fill="rgba(165,243,252,.85)" stroke="rgba(15,23,42,.82)" stroke-width="2"/>
+            <circle cx="130" cy="60" r="40" fill="rgba(165,243,252,.85)" stroke="rgba(15,23,42,.82)" stroke-width="2"/>
+            <text x="70" y="65" text-anchor="middle" font-family="Fraunces, serif" font-size="14" fill="#0f172a">A</text>
+            <text x="130" y="65" text-anchor="middle" font-family="Fraunces, serif" font-size="14" fill="#0f172a">B</text>
+          </svg>
+          <p>
+            Ocurre <strong>A</strong>, ocurre <strong>B</strong> o ambos.
+            <span class="mono">“Al menos uno de los dos”</span>
+          </p>
+        </article>
+
+        <article class="graph-paper op-card">
+          <h3>Intersección ($A \cap B$)</h3>
+          <svg viewBox="0 0 200 120" width="360" height="220" role="img" aria-label="Diagrama de Venn de la intersección">
+            <defs>
+              <clipPath id="clipIntersectionFixed">
+                <circle cx="70" cy="60" r="40"></circle>
+              </clipPath>
+            </defs>
+            <rect x="2" y="2" width="196" height="116" fill="none" stroke="rgba(15,23,42,.22)" stroke-width="1"/>
+            <circle cx="70" cy="60" r="40" fill="none" stroke="rgba(15,23,42,.82)" stroke-width="2"/>
+            <circle cx="130" cy="60" r="40" fill="none" stroke="rgba(15,23,42,.82)" stroke-width="2"/>
+            <circle cx="130" cy="60" r="40" fill="rgba(252,211,77,.85)" clip-path="url(#clipIntersectionFixed)" stroke="none"/>
+            <text x="50" y="65" text-anchor="middle" font-family="Fraunces, serif" font-size="14" fill="#0f172a">A</text>
+            <text x="150" y="65" text-anchor="middle" font-family="Fraunces, serif" font-size="14" fill="#0f172a">B</text>
+          </svg>
+          <p>
+            Ocurren <strong>A</strong> y <strong>B</strong> simultáneamente.
+            <span class="mono">“Ambos a la vez”</span>
+          </p>
+        </article>
+
+        <article class="graph-paper op-card">
+          <h3>Diferencia ($A - B$)</h3>
+          <svg viewBox="0 0 200 120" width="360" height="220" role="img" aria-label="Diagrama de Venn de la diferencia A menos B">
+            <mask id="maskDiffFixed">
+              <rect x="0" y="0" width="200" height="120" fill="white"/>
+              <circle cx="130" cy="60" r="40" fill="black"/>
+            </mask>
+            <rect x="2" y="2" width="196" height="116" fill="none" stroke="rgba(15,23,42,.22)" stroke-width="1"/>
+            <circle cx="70" cy="60" r="40" fill="rgba(253,164,175,.85)" mask="url(#maskDiffFixed)" stroke="none"/>
+            <circle cx="70" cy="60" r="40" fill="none" stroke="rgba(15,23,42,.82)" stroke-width="2"/>
+            <circle cx="130" cy="60" r="40" fill="none" stroke="rgba(15,23,42,.82)" stroke-width="2"/>
+            <text x="50" y="65" text-anchor="middle" font-family="Fraunces, serif" font-size="14" fill="#0f172a">A</text>
+            <text x="150" y="65" text-anchor="middle" font-family="Fraunces, serif" font-size="14" fill="#0f172a">B</text>
+          </svg>
+          <p>
+            Ocurre <strong>A</strong> pero <strong>NO</strong> ocurre <strong>B</strong>.
+            <span class="mono">“Solo A”</span>
+          </p>
+        </article>
+
+        <article class="graph-paper op-card">
+          <h3>Complementario ($\\bar{A}$ o $A^c$)</h3>
+          <svg viewBox="0 0 200 120" width="360" height="220" role="img" aria-label="Diagrama de Venn del complementario">
+            <rect x="2" y="2" width="196" height="116" fill="rgba(226,232,240,.85)" stroke="rgba(15,23,42,.22)" stroke-width="1"/>
+            <circle cx="100" cy="60" r="40" fill="#ffffff" stroke="rgba(15,23,42,.82)" stroke-width="2"/>
+            <text x="100" y="65" text-anchor="middle" font-family="Fraunces, serif" font-size="14" fill="#0f172a">A</text>
+            <text x="180" y="102" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#0f172a">Ω</text>
+          </svg>
+          <p>
+            Todo lo que <strong>NO</strong> es <strong>A</strong>.
+            <span class="mono">$P(A) + P(\\bar{A}) = 1$</span>
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="real" aria-label="Aplicaciones reales de la probabilidad">
+      <h2><span class="lamp" aria-hidden="true">💡</span>Probabilidad en la vida real</h2>
+
+      <details>
+        <summary>
+          Meteorología: ¿Lloverá mañana?
+          <span class="chev" aria-hidden="true">▼</span>
+        </summary>
+        <p class="detail-text">
+          Un “60% de probabilidad de lluvia” se interpreta como una estimación basada en datos y modelos:
+          en situaciones atmosféricas similares, la lluvia apareció aproximadamente en 60 de cada 100 casos.
+          Es una forma de traducir información histórica y simulaciones a una medida numérica.
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          Medicina: fiabilidad de un test
+          <span class="chev" aria-hidden="true">▼</span>
+        </summary>
+        <p class="detail-text">
+          Un resultado positivo no implica certeza absoluta. Para interpretar un test, se combinan la fiabilidad
+          (sensibilidad y especificidad) con la prevalencia mediante el <strong>Teorema de Bayes</strong>.
+          Así se obtiene $P(\text{enfermedad}\mid \text{positivo})$, que suele ser lo relevante.
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          Redes sociales: el algoritmo
+          <span class="chev" aria-hidden="true">▼</span>
+        </summary>
+        <p class="detail-text">
+          Muchas plataformas estiman probabilidades condicionadas para decidir qué mostrar:
+          por ejemplo, $P(\text{Like}\mid \text{tipo de vídeo})$ o $P(\text{seguir viendo}\mid \text{contenido previo})$.
+          Con esas estimaciones priorizan contenidos con mayor probabilidad de interacción.
+        </p>
+      </details>
+    </section>
+
+    <footer>
+      <p class="quote">
+        “La teoría de las probabilidades no es, en el fondo, más que el sentido común reducido a cálculo.”
+      </p>
+      <p class="author">— Pierre-Simon Laplace</p>
+    </footer>
+
+  </main>
+
+  <script>
+    // Mejora pequeña: mostrar nota manuscrita en pantallas grandes (sin depender de clases externas)
+    (function(){
+      const el = document.getElementById('noteVenn');
+      if(!el) return;
+      const mq = window.matchMedia('(min-width: 920px)');
+      const apply = () => { el.style.display = mq.matches ? 'inline-block' : 'none'; };
+      apply();
+      mq.addEventListener ? mq.addEventListener('change', apply) : mq.addListener(apply);
+    })();
+  </script>
+
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

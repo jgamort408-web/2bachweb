@@ -1,0 +1,30 @@
+const tex=String.raw;
+const q=(n,prompt,choices,explanation,hint,source='Elaboración propia; guion 5.4')=>({id:'notation-'+n,topicId:'t05',lessonId:'t05-e04',prompt,correct:'correct',options:choices.map(([text,feedback],i)=>({id:i?'wrong-'+i:'correct',text,feedback})),explanation,hint,source});
+export const notationQuestions=[
+ q('01','Si A contiene los coeficientes, X es la columna de incógnitas y B la columna independiente, ¿cuál es la forma matricial del sistema?',[
+ [tex`\(AX=B\)`,'Fila por columna reproduce cada ecuación.'],[tex`\(XA=B\)`,'El orden de los factores importa y ese producto puede no existir.'],[tex`\(A+B=X\)`,'A y B generalmente ni siquiera tienen las mismas dimensiones.'],[tex`\(A=X+B\)`,'No corresponde al producto que forma las ecuaciones.']],
+ 'La fila i de A contiene los coeficientes de la ecuación i; al multiplicarla por X resulta su lado izquierdo.','Recuerda el producto fila por columna.','Adaptación conceptual del test local T5.8'),
+ q('02',tex`Para \(\begin{cases}2x-z=4\\3y+z=5\end{cases}\), con orden x,y,z, ¿cuál es A?`,[
+ [tex`\(\begin{pmatrix}2&0&-1\\0&3&1\end{pmatrix}\)`,'Las incógnitas ausentes tienen coeficiente cero.'],[tex`\(\begin{pmatrix}2&-1\\3&1\end{pmatrix}\)`,'Se han perdido las columnas correspondientes a las incógnitas ausentes.'],[tex`\(\begin{pmatrix}2&0&1\\0&3&1\end{pmatrix}\)`,'El coeficiente de z en la primera ecuación es −1.'],[tex`\(\begin{pmatrix}2&0&-1&4\\0&3&1&5\end{pmatrix}\)`,'Esa es la ampliada: contiene también B.']],
+ 'A solo contiene coeficientes, una columna para cada incógnita y una fila para cada ecuación.','Coloca primero las columnas x, y, z y rellena los huecos con cero.'),
+ q('03','Un sistema tiene tres ecuaciones y dos incógnitas. ¿Qué dimensiones tienen A, X y B?',[
+ [tex`\(A:3\times2,\ X:2\times1,\ B:3\times1\).`,'Las dimensiones interiores del producto coinciden.'],[tex`\(A:2\times3,\ X:3\times1,\ B:2\times1\).`,'Has intercambiado ecuaciones e incógnitas.'],[tex`\(A:3\times3,\ X:3\times1,\ B:3\times1\).`,'A no tiene que ser cuadrada.'],[tex`\(A:3\times2,\ X:1\times2,\ B:1\times3\).`,'X y B son columnas, no filas.']],
+ tex`El producto \((3\times2)(2\times1)\) da una columna de tamaño \(3\times1\), una entrada por ecuación.`,'Filas: ecuaciones. Columnas de A: incógnitas.'),
+ q('04',tex`Si \(A=\begin{pmatrix}1&-2\\0&3\end{pmatrix}\) y \(B=\begin{pmatrix}4\\5\end{pmatrix}\), ¿cuál es (A|B)?`,[
+ [tex`\(\left(\begin{array}{cc|c}1&-2&4\\0&3&5\end{array}\right)\)`,'Se añade B a la derecha, respetando sus filas.'],[tex`\(\left(\begin{array}{cc|c}1&-2&5\\0&3&4\end{array}\right)\)`,'Los términos independientes se han intercambiado.'],[tex`\(\begin{pmatrix}1&-2\\0&3\\4&5\end{pmatrix}\)`,'B se añade como columna, no como fila.'],[tex`\(\begin{pmatrix}5&2\\5&8\end{pmatrix}\)`,'Ampliar no significa sumar B a los coeficientes.']],
+ 'La ampliada conserva la correspondencia de cada fila con su ecuación. La barra es un separador visual, no una operación.','Añade una columna al final.'),
+ q('05',tex`En \(x+2y=5,\ 3x-y=1\), se cambia el orden a \(X'=(y,x)^{\mathsf T}\). ¿Qué debe hacerse?`,[
+ [tex`Usar \(A'=\begin{pmatrix}2&1\\-1&3\end{pmatrix}\) y conservar B.`,'Las columnas siguen el orden de las incógnitas.'],['Mantener A y cambiar solo X.','Los coeficientes quedarían asociados a otra incógnita.'],['Intercambiar también los términos independientes.','No se han cambiado las ecuaciones de fila.'],['Cambiar el signo de todas las entradas de B.','Reordenar incógnitas no cambia los términos independientes.']],
+ 'La primera fila ahora lee 2y+x=5 y la segunda −y+3x=1: las mismas ecuaciones.','Asocia cada columna con el nombre que ocupa la misma posición en X.'),
+ q('06',tex`Al ordenar \(2x+3=y,\ x=4-y\), ¿qué forma matricial resulta con X=(x,y)ᵀ?`,[
+ [tex`\(\begin{pmatrix}2&-1\\1&1\end{pmatrix}X=\begin{pmatrix}-3\\4\end{pmatrix}\)`,'Primero quedan 2x−y=−3 y x+y=4.'],[tex`\(\begin{pmatrix}2&1\\1&-1\end{pmatrix}X=\begin{pmatrix}3\\4\end{pmatrix}\)`,'Al pasar términos al otro miembro cambian sus signos.'],[tex`\(\begin{pmatrix}2&-1\\1&1\end{pmatrix}X=\begin{pmatrix}3\\4\end{pmatrix}\)`,'El 3 del primer miembro pasa como −3.'],[tex`\(\begin{pmatrix}2&-1\\1&1\end{pmatrix}X=\begin{pmatrix}-3\\-4\end{pmatrix}\)`,'El 4 ya está en el segundo miembro: no cambia.']],
+ 'Organiza cada ecuación con todas las incógnitas a la izquierda y las constantes a la derecha antes de extraer A y B.','Reescribe ambas ecuaciones antes de copiar los coeficientes.')
+];
+export const notationCards=[
+ {id:'fc-notation-01',front:'¿Qué representan A, X y B en AX=B?',back:'A: coeficientes, una fila por ecuación y una columna por incógnita. X: columna de incógnitas, en el orden fijado. B: columna de términos independientes, en el orden de las ecuaciones.'},
+ {id:'fc-notation-02',front:'¿Cuáles son las dimensiones para m ecuaciones y n incógnitas?',back:tex`\(A:m\times n,\ X:n\times1,\ B:m\times1\). El producto AX tiene el mismo tamaño que B. A puede ser rectangular.`},
+ {id:'fc-notation-03',front:'¿Cómo se escribe una incógnita que no aparece?',back:'Su coeficiente es 0. Se conserva la columna: omitirla descoloca los coeficientes de las demás incógnitas. Un coeficiente implícito es 1 o −1, según el signo.'},
+ {id:'fc-notation-04',front:'¿Cómo se construye la matriz ampliada?',back:tex`Se añade B como última columna a la derecha de A: \((A|B)\), de tamaño \(m\times(n+1)\). La barra separa coeficientes y términos independientes; no es división.`},
+ {id:'fc-notation-05',front:'¿Qué ocurre si cambia el orden de las incógnitas?',back:'Deben reordenarse de la misma forma las columnas de A y las entradas de X. B no cambia si se conserva el orden de las ecuaciones.'},
+ {id:'fc-notation-06',front:'¿Escribir AX=B ya resuelve el sistema?',back:'No. Es otra forma de escribir las mismas condiciones. Sustituir una columna X₀ y comprobar AX₀=B decide si esa tupla es solución, pero no prueba por sí solo que sea única.'}
+].map(c=>({...c,topicId:'t05',lessonId:'t05-e04'}));

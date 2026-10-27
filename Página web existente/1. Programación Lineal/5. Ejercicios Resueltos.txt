@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de Problemas</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            /* COLORES (Tema Indigo/Violeta) */
+            --bg-body: #f8fafc;
+            --primary: #6366f1; /* Indigo 500 */
+            --primary-dark: #4338ca;
+            --secondary: #0f172a;
+            
+            --accent-bg: #e0e7ff;
+            --border-color: #cbd5e1;
+            
+            --text-main: #334155;
+            --text-light: #64748b;
+            
+            --radius: 12px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            /* Fondo de papel milimetrado sutil */
+            background-image: 
+                linear-gradient(#e2e8f0 1px, transparent 1px),
+                linear-gradient(90deg, #e2e8f0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        h1, h2, h3, h4 { 
+            font-family: 'Outfit', sans-serif; 
+            color: var(--secondary); 
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        header { text-align: center; margin-bottom: 3rem; }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* PANEL DE CONTROL (SELECTOR) */
+        .control-panel {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .control-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .select-wrapper {
+            position: relative;
+        }
+
+        /* Select personalizado para reemplazar Tailwind */
+        select {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            padding-right: 2.5rem;
+            font-size: 1rem;
+            font-family: inherit;
+            color: var(--text-main);
+            background-color: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            appearance: none; /* Quitar flecha por defecto */
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: white;
+        }
+
+        /* Flecha personalizada */
+        .select-arrow {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+
+        /* CONTENEDOR DEL EJERCICIO */
+        #exerciseContainer {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        #exerciseContainer.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hidden { display: none; }
+
+        /* SECCIÓN ENUNCIADO */
+        .statement-section { margin-bottom: 3rem; }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .badge-tag {
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+
+        .statement-card {
+            background: #eef2ff; /* Indigo 50 */
+            border-left: 5px solid var(--primary);
+            padding: 2rem;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            box-shadow: var(--shadow);
+        }
+
+        /* PASOS (STEPS) */
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .step-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .step-header {
+            background: #f8fafc;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .step-title {
+            font-weight: 700;
+            color: var(--secondary);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .step-badge {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .step-content {
+            padding: 1.5rem;
+            color: var(--text-main);
+        }
+
+        /* CONCLUSIÓN */
+        .conclusion-card {
+            margin-top: 3rem;
+            background: #f0fdf4; /* Green 50 */
+            border: 1px solid #bbf7d0;
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .conclusion-label {
+            display: block;
+            color: #15803d; /* Green 700 */
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .conclusion-text {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        /* Estilos generales para listas dentro de los pasos */
+        ul { margin-left: 1.5rem; margin-bottom: 1rem; list-style: disc; }
+        li { margin-bottom: 0.5rem; }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 2rem; }
+            .step-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        
+        <header>
+            <h1>Laboratorio de Problemas</h1>
+            <p class="subtitle">Selecciona un ejercicio para ver su resolución detallada.</p>
+        </header>
+
+        <div class="control-panel">
+            <label for="exerciseSelect" class="control-label">
+                Problemas Disponibles:
+            </label>
+            <div class="select-wrapper">
+                <select id="exerciseSelect">
+                    <option value="" disabled selected>-- Elige un problema --</option>
+                </select>
+                <div class="select-arrow">▼</div>
+            </div>
+        </div>
+<section class="card" style="padding: 0; overflow: hidden;">
+        <div style="padding: 1.5rem; border-bottom: 1px solid #e2e8f0; background: rgba(255,255,255,0.5);">
+            <h3 style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                <span style="color: var(--primary);">📈</span> Laboratorio Gráfico
+            </h3>
+            <p style="font-size: 0.9rem; color: var(--text-light);">
+                Escribe tus inecuaciones abajo (ej: <code>2x + y <= 10</code>) para visualizar la región factible.
+            </p>
+        </div>
+
+        <div id="ggb-element" style="width: 100%; height: 600px;"></div>
+
+        <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+        <script>
+            var params = {
+                "appName": "graphing", /* Modo Graficadora (ideal para inecuaciones) */
+                "width": 800,
+                "height": 600,
+                "showToolBar": true,
+                "showAlgebraInput": true,
+                "showMenuBar": false,
+                "showResetIcon": true,
+                "language": "es",
+                "borderColor": "#0891b2", /* Color de borde acorde a tu tema */
+                "allowUpscale": true,
+                "scaleContainerClass": "ggb-element"
+            };
+            
+            var applet = new GGBApplet(params, true);
+            
+            // Inyectar cuando cargue la página
+            window.addEventListener("load", function() { 
+                applet.inject('ggb-element');
+            });
+        </script>
+    </section>
+        <div id="exerciseContainer" class="hidden">
+            
+            <section class="statement-section">
+                <div class="section-header">
+                    <span class="badge-tag">Enunciado</span>
+                    <h2 id="exTitle" style="font-size: 1.5rem; font-weight: 700;"></h2>
+                </div>
+                <div id="exStatement" class="statement-card"></div>
+            </section>
+
+            <section>
+                <div class="section-header" style="margin-bottom: 1.5rem;">
+                    <span style="font-size: 1.5rem;">💡</span>
+                    <h3 style="font-size: 1.3rem; font-weight: 700;">Resolución Paso a Paso</h3>
+                </div>
+                
+                <div id="exSteps" class="steps-container"></div>
+                
+                <div id="exConclusion" class="conclusion-card hidden"></div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <script>
+
+
+
+        // =================================================================
+        // DATOS DE EJEMPLO
+        // =================================================================
+ const ejercicios =[
+  {
+    "id": "pl_ejercicio_1_fabricacion_muebles",
+    "title": "Ejercicio 1: Maximización de beneficios (Muebles)",
+    "statement": "Un carpintero dispone de $120$ kg de madera y $100$ horas de trabajo para fabricar sillas y mesas. Para hacer una silla necesita $10$ kg de madera y $5$ horas de trabajo, obteniendo un beneficio de $20$ €. Para hacer una mesa necesita $20$ kg de madera y $10$ horas de trabajo, obteniendo un beneficio de $35$ €. ¿Cuántas sillas y mesas debe fabricar para maximizar sus beneficios?",
+    "steps": [
+      {
+        "title": "Paso 1: Definir las variables",
+        "content": "<p>Definimos las incógnitas del problema:</p><ul><li>$x$: número de sillas a fabricar.</li><li>$y$: número de mesas a fabricar.</li></ul><p>Sabemos que $x \\ge 0$ y $y \\ge 0$.</p>"
+      },
+      {
+        "title": "Paso 2: Plantear la función objetivo y las restricciones",
+        "content": "<p>La función a maximizar es el beneficio:</p>$$Z(x,y) = 20x + 35y$$<p>Las restricciones vienen dadas por los recursos disponibles:</p><ul><li>Madera: $10x + 20y \\le 120$ (Simplificando: $x + 2y \\le 12$).</li><li>Horas: $5x + 10y \\le 100$ (Simplificando: $x + 2y \\le 20$).</li></ul>"
+      },
+      {
+        "title": "Paso 3: Analizar la redundancia y dibujar la región",
+        "content": "<p>Observamos las inecuaciones simplificadas:</p><ul><li>Recta 1: $x + 2y \\le 12$</li><li>Recta 2: $x + 2y \\le 20$</li></ul><p>Como la primera restricción es más estricta que la segunda ($12 < 20$), la región factible está determinada únicamente por la recta de la madera ($x + 2y \\le 12$) y los ejes de coordenadas. La restricción de horas sobra.</p>"
+      },
+      {
+        "title": "Paso 4: Calcular los vértices",
+        "content": "<p>Los vértices de la región factible son los cortes con los ejes de la recta $x + 2y = 12$:</p><ul><li>Si $x=0$, entonces $2y=12 \\Rightarrow y=6$. Punto $A(0,6)$.</li><li>Si $y=0$, entonces $x=12$. Punto $B(12,0)$.</li><li>El origen $C(0,0)$.</li></ul>"
+      },
+      {
+        "title": "Paso 5: Evaluar la función objetivo",
+        "content": "<p>Sustituimos los vértices en $Z = 20x + 35y$:</p><ul><li>En $A(0,6)$: $Z = 20(0) + 35(6) = 210$ €.</li><li>En $B(12,0)$: $Z = 20(12) + 35(0) = 240$ €.</li><li>En $C(0,0)$: $Z = 0$ €.</li></ul>"
+      }
+    ],
+    "conclusion": "$$\\text{El máximo beneficio es 240€ fabricando 12 sillas y 0 mesas.}$$"
+  },
+  {
+    "id": "pl_ejercicio_2_dieta_coste_minimo",
+    "title": "Ejercicio 2: Minimización de costes (Dieta)",
+    "statement": "En una granja se elabora una dieta para animales mezclando dos productos, A y B. El producto A cuesta $4$ €/kg y contiene $2$ unidades de proteínas y $6$ de vitaminas. El producto B cuesta $3$ €/kg y contiene $4$ unidades de proteínas y $2$ de vitaminas. Se requiere que la dieta tenga al menos $12$ unidades de proteínas y $12$ de vitaminas. ¿Cuántos kg de cada producto se deben usar para minimizar el coste?",
+    "steps": [
+      {
+        "title": "Paso 1: Variables y Función Objetivo",
+        "content": "<p>Variables:</p><ul><li>$x$: kg del producto A.</li><li>$y$: kg del producto B.</li></ul><p>Queremos <strong>minimizar</strong> el coste:</p>$$Z(x,y) = 4x + 3y$$"
+      },
+      {
+        "title": "Paso 2: Restricciones del problema",
+        "content": "<p>Las necesidades mínimas implican inecuaciones con $\\ge$:</p><ul><li>Proteínas: $2x + 4y \\ge 12$ (Simplificando: $x + 2y \\ge 6$).</li><li>Vitaminas: $6x + 2y \\ge 12$ (Simplificando: $3x + y \ge 6$).</li><li>No negatividad: $x,y \\ge 0$.</li></ul>"
+      },
+      {
+        "title": "Paso 3: Calcular los vértices de la región no acotada",
+        "content": "<p>Hallamos el punto de corte entre las dos rectas resolviendo el sistema:</p>$$\\begin{cases} x + 2y = 6 \\\\ 3x + y = 6 \\end{cases}$$<p>Multiplicamos la primera por $-3$: $-3x - 6y = -18$. Sumamos a la segunda: $-5y = -12 \\Rightarrow y = 2.4$.</p><p>Sustituyendo: $x + 2(2.4) = 6 \\Rightarrow x + 4.8 = 6 \\Rightarrow x = 1.2$.</p><p>Vértice intersección: $C(1.2, 2.4)$.</p>"
+      },
+      {
+        "title": "Paso 4: Identificar los vértices frontera",
+        "content": "<p>La región factible está limitada por los puntos de corte exteriores con los ejes:</p><ul><li>Para $3x+y=6$: corte con eje Y es $(0,6)$ (Punto A).</li><li>Para $x+2y=6$: corte con eje X es $(6,0)$ (Punto B).</li><li>Intersección: $C(1.2, 2.4)$.</li></ul>"
+      },
+      {
+        "title": "Paso 5: Evaluar la función de coste",
+        "content": "<p>Sustituimos en $Z = 4x + 3y$:</p><ul><li>$A(0,6): Z = 4(0) + 3(6) = 18$ €.</li><li>$B(6,0): Z = 4(6) + 3(0) = 24$ €.</li><li>$C(1.2, 2.4): Z = 4(1.2) + 3(2.4) = 4.8 + 7.2 = 12$ €.</li></ul>"
+      }
+    ],
+    "conclusion": "$$\\text{El coste mínimo es 12€ usando 1.2 kg de A y 2.4 kg de B.}$$"
+  },
+  {
+    "id": "pl_ejercicio_3_inversion_financiera",
+    "title": "Ejercicio 3: Inversión Financiera",
+    "statement": "Un inversor dispone de $50.000$ € para invertir en dos tipos de acciones: Tipo A y Tipo B. Las de Tipo A tienen un riesgo alto pero un interés anual del $10\\%$. Las de Tipo B son seguras con un interés del $5\\%$. Decide invertir como máximo $30.000$ € en A y como mínimo $15.000$ € en B. Además, quiere que la inversión en A sea igual o superior a la de B. ¿Cómo debe invertir para maximizar los intereses?",
+    "steps": [
+      {
+        "title": "Paso 1: Planteamiento algebraico",
+        "content": "<p>Sea $x$ la inversión en A y $y$ la inversión en B (en miles de euros).</p><ul><li>Maximizar $Z = 0.10x + 0.05y$.</li></ul><p>Restricciones:</p><ul><li>Total: $x + y \\le 50$.</li><li>Límite A: $x \\le 30$.</li><li>Límite B: $y \\ge 15$.</li><li>Relación A/B: $x \\ge y$.</li></ul>"
+      },
+      {
+        "title": "Paso 2: Calcular los vértices clave",
+        "content": "<p>Buscamos la intersección de las rectas que delimitan la región:</p><ol><li>Cruce $y=15$ con $x=y$: Punto $A(15, 15)$.</li><li>Cruce $y=15$ con $x=30$: Punto $B(30, 15)$.</li><li>Cruce $x=30$ con $x+y=50$: Si $x=30 \\Rightarrow y=20$. Punto $C(30, 20)$.</li><li>Cruce $x+y=50$ con $x=y$: $2x=50 \\Rightarrow x=25, y=25$. Punto $D(25, 25)$.</li></ol>"
+      },
+      {
+        "title": "Paso 3: Evaluación de intereses",
+        "content": "<p>Evaluamos $Z(x,y) = 0.10x + 0.05y$ (multiplicaremos el resultado por 1000 al final):</p><ul><li>$A(15,15): 1.5 + 0.75 = 2.25$.</li><li>$B(30,15): 3.0 + 0.75 = 3.75$.</li><li>$C(30,20): 3.0 + 1.0 = 4.0$.</li><li>$D(25,25): 2.5 + 1.25 = 3.75$.</li></ul>"
+      }
+    ],
+    "conclusion": "$$\\text{Debe invertir 30.000€ en A y 20.000€ en B para ganar 4.000€.}$$"
+  },
+{
+    "id": "pl_ejercicio_4_dificil_fabrica_drones",
+    "title": "Ejercicio 4: El Desafío de los Drones (Nivel Avanzado)",
+    "statement": "Una empresa tecnológica fabrica dos modelos de drones: el 'Explorador' ($x$) y el 'Corredor' ($y$). \n\nPara su fabricación se depende de tres departamentos con horas limitadas:\n1. <strong>Electrónica:</strong> Cada Explorador requiere 1h y cada Corredor 2h. Máximo 400h disponibles.\n2. <strong>Ensamblaje:</strong> Cada Explorador requiere 3h y cada Corredor 2h. Máximo 900h disponibles.\n3. <strong>Calidad:</strong> Revisar cualquier dron toma 1h. El departamento solo dispone de 350h.\n\n<strong>Condiciones de mercado:</strong>\n- Debido a un contrato previo, se deben fabricar al menos 50 drones 'Corredor'.\n- Por política interna de equilibrio, la cantidad de 'Corredores' no puede superar el doble de la de 'Exploradores'.\n\nSi el beneficio por Explorador es de 120€ y por Corredor es de 150€, ¿cuál es la producción óptima?",
+    "steps": [
+      {
+        "title": "Paso 1: Modelado del Sistema Complejo",
+        "content": "<p>Definimos las variables $x$ (Explorador) e $y$ (Corredor). La función a maximizar es $Z = 120x + 150y$.</p><p>El sistema de restricciones es denso:</p><ul><li>Electrónica: $x + 2y \\le 400$ <span style='color:#f59e0b'>(R1)</span></li><li>Ensamblaje: $3x + 2y \\le 900$ <span style='color:#f59e0b'>(R2)</span></li><li>Calidad: $x + y \\le 350$ <span style='color:#ef4444'>(R3 - ¡Ojo aquí!)</span></li><li>Contrato Mínimo: $y \\ge 50$ <span style='color:#0891b2'>(R4)</span></li><li>Política Equilibrio ($y \\le 2x$): $-2x + y \\le 0$ <span style='color:#0891b2'>(R5)</span></li><li>No negatividad: $x, y \\ge 0$</li></ul>"
+      },
+      {
+        "title": "Paso 2: Análisis de Redundancia (La Trampa)",
+        "content": "<p>Antes de calcular todos los cruces, analizamos la restricción de Calidad ($x + y \\le 350$).</p><p>Si resolvemos el sistema entre Electrónica y Ensamblaje:</p>$$\\begin{cases} x + 2y = 400 \\\\ 3x + 2y = 900 \\end{cases}$$<p>Restando las ecuaciones: $2x = 500 \\Rightarrow x=250$. Sustituyendo: $250 + 2y = 400 \\Rightarrow 2y = 150 \\Rightarrow y=75$.</p><p>La suma de $x+y$ en este punto máximo es $250+75=325$. Como $325 < 350$, <strong>la restricción de Calidad (R3) nunca se satura</strong>. Es redundante y no formará parte de los vértices de la solución óptima. Podemos ignorarla para el cálculo de vértices.</p>"
+      },
+      {
+        "title": "Paso 3: Cálculo de Vértices de la Región",
+        "content": "<p>La región factible está delimitada por R1, R2, R4 y R5. Calculamos sus intersecciones clave:</p><ul><li><strong>Vértice A (Cruce R5 y R4):</strong><br> $y=50$ y $y=2x \\Rightarrow 50=2x \\Rightarrow x=25$. <br>Punto $A(25, 50)$.</li><li><strong>Vértice B (Cruce R5 y R1):</strong><br> $y=2x$ y $x+2y=400 \\Rightarrow x+2(2x)=400 \\Rightarrow 5x=400 \\Rightarrow x=80, y=160$. <br>Punto $B(80, 160)$.</li><li><strong>Vértice C (Cruce R1 y R2):</strong><br> Ya calculado en el paso anterior. <br>Punto $C(250, 75)$.</li><li><strong>Vértice D (Cruce R2 y R4):</strong><br> $3x+2y=900$ y $y=50 \\Rightarrow 3x+100=900 \\Rightarrow 3x=800$. <br>Punto $D(266.6, 50)$.</li></ul>"
+      },
+      {
+        "title": "Paso 4: Evaluación con Decimales",
+        "content": "<p>Evaluamos la función objetivo $Z = 120x + 150y$:</p><table class='w-full text-center border mt-2'><tr><th>Vértice</th><th>Cálculo</th><th>Resultado</th></tr><tr><td>A (25, 50)</td><td>$120(25) + 150(50)$</td><td>$10.500$ €</td></tr><tr><td>B (80, 160)</td><td>$120(80) + 150(160)$</td><td>$33.600$ €</td></tr><tr class='bg-emerald-100 font-bold'><td>C (250, 75)</td><td>$120(250) + 150(75)$</td><td>$41.250$ €</td></tr><tr><td>D (266.6, 50)</td><td>$120(266.6) + 150(50)$</td><td>$\\approx 39.500$ €</td></tr></table>"
+      }
+    ],
+    "conclusion": "$$\\text{Fabricar 250 Exploradores y 75 Corredores para ganar 41.250 €.}$$"
+  },
+  {
+    "id": "pl_ejercicio_5_transporte_minerales_proporcional",
+    "title": "Ejercicio 5: Logística de Minerales (Minimización con Ratios)",
+    "statement": "Una compañía minera debe transportar al menos $100$ toneladas de mineral desde dos canteras, $A$ ($x$) y $B$ ($y$), hacia una planta de procesamiento.\n\n<strong>Restricciones logísticas:</strong>\n1. <strong>Camiones:</strong> La flota disponible limita la carga: $2x + y \\le 200$.\n2. <strong>Mezcla Química (Dificultad):</strong> El mineral de $B$ es de mayor pureza. Para que el proceso funcione, la cantidad transportada de $B$ debe representar al menos el $40\\%$ del tonelaje total transportado.\n3. <strong>Sindicato:</strong> La cantera $A$ debe operar moviendo al menos $20$ toneladas.\n\nSi el coste de transporte es de $40$€ por tonelada desde $A$ y $30$€ desde $B$, ¿cómo minimizamos el coste?",
+    "steps": [
+      {
+        "title": "Paso 1: Traducción de la restricción de proporción",
+        "content": "<p>Minimizar $Z = 40x + 30y$.</p><p>Analicemos la restricción química (el 40% del total):</p>$$y \\ge 0.40(x + y)$$<p>Despejamos para obtener una inecuación lineal estándar:</p>$$y \\ge 0.4x + 0.4y \\Rightarrow 0.6y \\ge 0.4x \\Rightarrow 3y \ge 2x \\Rightarrow -2x + 3y \\ge 0$$<p>Sistema final:</p><ul><li>Demanda: $x + y \\ge 100$ <span style='color:#0891b2'>(R1)</span></li><li>Flota: $2x + y \\le 200$ <span style='color:#0891b2'>(R2)</span></li><li>Mezcla: $-2x + 3y \\ge 0$ <span style='color:#f97316'>(R3 - Clave)</span></li><li>Mínimo A: $x \\ge 20$ <span style='color:#0891b2'>(R4)</span></li></ul>"
+      },
+      {
+        "title": "Paso 2: Análisis de Vértices (Sistema denso)",
+        "content": "<p>La región factible es un polígono de 4 lados delimitado por estas intersecciones:</p><ul><li><strong>Vértice A (Cruce R4 y R1):</strong><br> $x=20$ y $x+y=100 \\Rightarrow 20+y=100 \\Rightarrow y=80$. <br>Punto $A(20, 80)$.</li><li><strong>Vértice B (Cruce R4 y R2):</strong><br> $x=20$ y $2x+y=200 \\Rightarrow 40+y=200 \\Rightarrow y=160$. <br>Punto $B(20, 160)$.</li><li><strong>Vértice C (Cruce R2 y R3):</strong><br> Resolvemos $\\begin{cases} 2x+y=200 \\\\ -2x+3y=0 \\end{cases}$. <br>Sumando ambas: $4y=200 \\Rightarrow y=50$. Sustituyendo: $2x+50=200 \\Rightarrow x=75$. <br>Punto $C(75, 50)$.</li><li><strong>Vértice D (Cruce R1 y R3):</strong><br> Resolvemos $\\begin{cases} x+y=100 \\\\ 3y=2x \\end{cases}$. <br>Sustitución: $y=100-x \\Rightarrow 3(100-x)=2x \\Rightarrow 300=5x \\Rightarrow x=60, y=40$. <br>Punto $D(60, 40)$.</li></ul>"
+      },
+      {
+        "title": "Paso 3: Evaluación de Costes",
+        "content": "<p>Evaluamos $Z = 40x + 30y$ buscando el <strong>MÍNIMO</strong>:</p><table class='w-full text-center border mt-2'><tr><th>Vértice</th><th>Cálculo</th><th>Coste Total</th></tr><tr><td>A (20, 80)</td><td>$40(20) + 30(80)$</td><td>$3.200$ €</td></tr><tr><td>B (20, 160)</td><td>$40(20) + 30(160)$</td><td>$5.600$ €</td></tr><tr><td>C (75, 50)</td><td>$40(75) + 30(50)$</td><td>$4.500$ €</td></tr><tr class='bg-emerald-100 font-bold'><td>D (60, 40)</td><td>$40(60) + 30(40)$</td><td>$3.600$ €</td></tr></table><p class='mt-2 text-sm italic'>¡Cuidado! El vértice A parecía prometedor por tener la 'x' más baja, pero la alta carga de 'y' sube el precio. El equilibrio del punto D no es el óptimo. <strong>El mínimo real es el A.</strong> (Revisión: 800 + 2400 = 3200 vs 2400 + 1200 = 3600. <strong>El vértice A es el ganador</strong>).</p>"
+      }
+    ],
+    "conclusion": "$$\\text{Transportar 20t de A y 80t de B para un coste mínimo de 3.200 €.}$$"
+  },
+  {
+    "id": "pl_ejercicio_6_refineria_poligono_irregular",
+    "title": "Ejercicio 6: La Refinería (Geometría Compleja)",
+    "statement": "Una planta química produce líquido Estándar ($x$) y Premium ($y$). \nBeneficio: <strong>10€ por $x$</strong> y <strong>20€ por $y$</strong> (Maximizar).\n\n<strong>Restricciones Técnicas (5 lados):</strong>\n1. Tanque A: $x + y \\le 100$\n2. Tanque B: $3x + 2y \\le 240$\n3. Demanda mínima de $x$: $x \\ge 10$\n4. Límite de $y$: $y \\le 70$\n5. <strong>Estabilidad (Difícil):</strong> La cantidad de Premium ($y$) no puede superar a la Estándar ($x$) en más de 20 litros ($y - x \\le 20$).",
+    "steps": [
+      {
+        "title": "Paso 1: Dibujo mental de la región",
+        "content": "<p>Este problema es difícil porque tenemos 5 rectas cortándose y formando un pentágono irregular. Debemos encontrar qué rectas cortan con cuáles para cerrar el polígono.</p><ul><li>Objetivo: Max $Z = 10x + 20y$</li><li>R1: $y \\le 100 - x$</li><li>R2: $y \\le (240 - 3x)/2$</li><li>R3: $x \\ge 10$</li><li>R4: $y \\le 70$</li><li>R5: $y \\le x + 20$</li></ul>"
+      },
+      {
+        "title": "Paso 2: Detectives de Vértices",
+        "content": "<p>Vamos a recorrer el perímetro en sentido horario:</p><ol><li><strong>Vértice A (Cruce R3 y R5):</strong><br>$x=10$ y $y=x+20 \\Rightarrow y=30$. <br>Punto $A(10, 30)$.</li><li><strong>Vértice B (Cruce R5 y R1):</strong><br>Sistema: $\\begin{cases} y - x = 20 \\\\ x + y = 100 \\end{cases}$. Sumando: $2y=120 \\Rightarrow y=60$. Restando: $x=40$. <br>Punto $B(40, 60)$. <br><em>Verificación: ¿Cumple R4 ($y \\le 70$)? Sí. ¿Cumple R2? $3(40)+2(60)=240$. ¡Justo en el límite! Coincide con el cruce de R2.</em></li><li><strong>Vértice C (Cruce R2 y R4) - ¿Existe?:</strong><br>Si $y=70$ en $3x+2y=240 \\Rightarrow 3x+140=240 \\Rightarrow 3x=100 \\Rightarrow x=33.33$. <br>Pero antes, en el punto B, $y$ era 60. Si subimos $x$, $y$ baja en R2. Este cruce está 'fuera' de la región activa formada por R1 y R2. <br>Re-análisis: El punto B $(40,60)$ es el pico máximo. La región baja por la recta R2 hasta el eje X.</li><li><strong>Vértice D (Cruce R2 y Eje X):</strong><br>$3x = 240 \\Rightarrow x=80$. Punto $D(80, 0)$.</li><li><strong>Vértice E (Cruce R3 y Eje X):</strong><br>$x=10, y=0$. Punto $E(10, 0)$.</li></ol><p><em>Corrección Geométrica:</em> El vértice B es la intersección triple de R1, R2 y R5. Un caso muy raro. La región es el cuadrilátero $A-B-D-E$.</p>"
+      },
+      {
+        "title": "Paso 3: Evaluación Final",
+        "content": "<p>Evaluamos $Z = 10x + 20y$:</p><ul><li>$A(10, 30): 100 + 600 = 700$ €.</li><li>$B(40, 60): 400 + 1200 = 1.600$ €.</li><li>$D(80, 0): 800 + 0 = 800$ €.</li><li>$E(10, 0): 100 + 0 = 100$ €.</li></ul>"
+      }
+    ],
+    "conclusion": "$$\\text{Producir 40 de Estándar y 60 de Premium para ganar 1.600 €.}$$"
+  }
+
+];
+
+
+        // =================================================================
+        // LÓGICA DE RENDERIZADO (Actualizada para usar clases semánticas)
+        // =================================================================
+        const selectElement = document.getElementById('exerciseSelect');
+        const container = document.getElementById('exerciseContainer');
+        const exTitle = document.getElementById('exTitle');
+        const exStatement = document.getElementById('exStatement');
+        const exSteps = document.getElementById('exSteps');
+        const exConclusion = document.getElementById('exConclusion');
+
+        // Llenar select
+        ejercicios.forEach(ex => {
+            const option = document.createElement('option');
+            option.value = ex.id;
+            option.textContent = ex.title;
+            selectElement.appendChild(option);
+        });
+
+        // Cambio de opción
+        selectElement.addEventListener('change', (e) => {
+            const selectedId = e.target.value;
+            const exercise = ejercicios.find(ex => ex.id === selectedId);
+            if (exercise) renderExercise(exercise);
+        });
+
+        function renderExercise(exercise) {
+            // Reiniciar animación css pura
+            container.classList.remove('fade-in');
+            void container.offsetWidth; // Trigger reflow
+            container.classList.add('fade-in');
+            container.classList.remove('hidden');
+
+            exTitle.innerHTML = exercise.title;
+            exStatement.innerHTML = exercise.statement;
+            exSteps.innerHTML = '';
+
+            exercise.steps.forEach((step, index) => {
+                // AQUÍ USAMOS LAS NUEVAS CLASES CSS EN LUGAR DE TAILWIND
+                const stepHTML = `
+                    <div class="step-card">
+                        <div class="step-header">
+                            <h4 class="step-title">${step.title}</h4>
+                            <span class="step-badge">Paso ${index + 1}</span>
+                        </div>
+                        <div class="step-content">
+                            ${step.content}
+                        </div>
+                    </div>
+                `;
+                exSteps.insertAdjacentHTML('beforeend', stepHTML);
+            });
+
+            if (exercise.conclusion) {
+                exConclusion.innerHTML = `
+                    <span class="conclusion-label">Solución Final</span>
+                    <div class="conclusion-text">${exercise.conclusion}</div>
+                `;
+                exConclusion.classList.remove('hidden');
+            } else {
+                exConclusion.classList.add('hidden');
+            }
+
+            // REPROCESAR MATHJAX
+            if (window.MathJax) {
+                MathJax.typesetPromise([container]).catch(err => console.log(err));
+            }
+        }
+    </script>
+
+
+<div id="external-footer-placeholder"></div>
+
+<script>
+    // Sustituye esta URL por la URL RAW de tu archivo en GitHub
+    const githubFooterUrl = 'https://jgamort408-web.github.io/profesor/footer-estadistica.html';
+
+    fetch(githubFooterUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar el footer");
+            return response.text();
+        })
+        .then(data => {
+            // Inyectamos el HTML recibido en el div contenedor
+            document.getElementById('external-footer-placeholder').innerHTML = data;
+            
+            // Ejecutamos los scripts que venían en el footer (Google Translate)
+            const scripts = document.getElementById('external-footer-placeholder').querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        })
+        .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+</body>
+</html>

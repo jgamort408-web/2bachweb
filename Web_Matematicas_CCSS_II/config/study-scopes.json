@@ -1,0 +1,5 @@
+{
+  "t01-review": { "pageId": "practice", "fragment": "repaso" },
+  "t02-review": { "pageId": "t02", "fragment": "repaso" },
+  "t03-review": { "pageId": "t03", "fragment": "repaso" }
+}

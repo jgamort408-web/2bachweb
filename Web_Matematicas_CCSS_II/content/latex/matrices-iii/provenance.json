@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "pairId": "matrices-iii",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-20",
+  "sources": [
+    {
+      "sourceId": "F016",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Matrices III.zip",
+      "zipSha256": "76a79d5e3589df15e3c4ff3586899c2e731f7d3c099060e7c39561990ff4d603",
+      "entry": "main.tex",
+      "texSha256": "7f239370fabffd38d4c177e5b16ac41ffbbc97d543ab986edbb2f41a6c775acf"
+    }
+  ],
+  "assets": [
+    {
+      "path": "logo-al-andalus.png",
+      "sourceId": "F016",
+      "entry": "Logo AL-ANDALUS.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    }
+  ],
+  "solutionOrigin": "Elaborado en esta revisión a partir del examen; el ZIP no incluye soluciones",
+  "preserved": {
+    "durationMinutes": 55,
+    "calculatorAllowed": true,
+    "exercisePoints": [
+      5,
+      2.5,
+      2.5
+    ],
+    "firstExerciseParts": [
+      3,
+      2
+    ],
+    "operationsOffered": 5,
+    "operationsToChoose": 4,
+    "powerExponents": [
+      4,
+      80
+    ]
+  },
+  "corrections": [],
+  "answers": {
+    "coefficient": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "inverse": [
+      [
+        1,
+        0
+      ],
+      [
+        -2,
+        1
+      ]
+    ],
+    "X": [
+      [
+        2,
+        1
+      ],
+      [
+        -1,
+        0
+      ]
+    ],
+    "powers": {
+      "fourth": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "eightieth": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    "operations": {
+      "firstDefined": false,
+      "column": [
+        [
+          -10
+        ],
+        [
+          5
+        ]
+      ],
+      "square": [
+        [
+          10,
+          -6
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "scaledDeterminant": "-8",
+      "gramMatrix": [
+        [
+          5
+        ]
+      ],
+      "gramDeterminant": "5"
+    },
+    "parameters": {
+      "a": "2",
+      "b": "1"
+    }
+  }
+}

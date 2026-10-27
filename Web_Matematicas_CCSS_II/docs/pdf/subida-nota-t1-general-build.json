@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "originalSourcesVerified": 2,
+  "mathematics": {
+    "parts": 5,
+    "passed": true,
+    "area": "5/3",
+    "primitiveMaxDerivativeError": 3.988070318428072e-9
+  },
+  "documents": [
+    {
+      "id": "subida-nota-t1-general-examen",
+      "pages": 1,
+      "bytes": 27118,
+      "sha256": "1cfe6e807324aa5fb97af38dd469b2235d0b4866697c76fadba5c89607aca8eb",
+      "title": "Subida de nota T1 - Examen revisado",
+      "language": "es-ES",
+      "embeddedFonts": 11,
+      "characters": 1127
+    },
+    {
+      "id": "subida-nota-t1-general-soluciones",
+      "pages": 5,
+      "bytes": 58019,
+      "sha256": "2156e6778c058c19de67cc3f82a1693e2beb6a5f3705ef53122e43d728db3b5b",
+      "title": "Subida de nota T1 - Soluciones revisadas",
+      "language": "es-ES",
+      "embeddedFonts": 17,
+      "characters": 4421
+    }
+  ],
+  "edition": "1.0.0",
+  "releaseDate": "2026-10-20",
+  "engine": "Tectonic 0.17.0",
+  "engineSha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "inputs": [
+    {
+      "path": "content/latex/subida-nota-t1-general/estilo.tex",
+      "sha256": "3ea96820f4553191a49b7451873205fb5fe51ae13f307ca4f74e32f898571e58"
+    },
+    {
+      "path": "content/latex/subida-nota-t1-general/provenance.json",
+      "sha256": "68e901130a2b95ddb20d8287bb5e8c96b78db80d38a746f967e95583251f435d"
+    },
+    {
+      "path": "content/latex/subida-nota-t1-general/subida-nota-t1-general-examen.tex",
+      "sha256": "e49aa5198fc8b8251021b13f73915797e178fdf15dbe6f96b8b4b5a0daf8eaa2"
+    },
+    {
+      "path": "content/latex/subida-nota-t1-general/subida-nota-t1-general-soluciones.tex",
+      "sha256": "4cde6b8761b675a3148c55c219f5ceb5e740966318bb7ede8e6ab4dc2dae0064"
+    }
+  ]
+}

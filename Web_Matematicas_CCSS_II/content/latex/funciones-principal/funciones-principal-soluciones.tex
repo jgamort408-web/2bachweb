@@ -1,0 +1,102 @@
+\documentclass[11pt]{article}
+\input{estilo.tex}
+\hypersetup{pdftitle={Funciones: examen principal - Soluciones revisadas}}
+\begin{document}
+\section*{Ejercicio 1: función cúbica}
+Solucionario elaborado en esta revisión a partir de F007. El ZIP no incluía soluciones.
+\[f=x(x-1)(x-2),\quad f'=3x^2-6x+2,\quad f''=6x-6.\]
+Los cortes con el eje $x$ son $(0,0),(1,0),(2,0)$; con el eje $y$, $(0,0)$.
+
+Los puntos críticos son $a=1-1/\sqrt3$ y $b=1+1/\sqrt3$. Como $f'$ es positiva fuera de $[a,b]$ y negativa entre ellos, crece en $(-\infty,a)$ y $(b,+\infty)$, y decrece en $(a,b)$.
+\[
+\text{Máximo relativo: }\left(1-\frac1{\sqrt3},\frac{2\sqrt3}{9}\right),\qquad
+\text{mínimo relativo: }\left(1+\frac1{\sqrt3},-\frac{2\sqrt3}{9}\right).
+\]
+Para calcular las ordenadas puede usarse $u=x-1$, pues $f=u^3-u$.
+
+Curvatura hacia abajo para $x<1$ y hacia arriba para $x>1$. Hay punto de inflexión en $(1,0)$, donde cambia el signo de $f''$. No hay extremos absolutos en $\mathbb R$: la cúbica es no acotada.
+\begin{center}\begin{tikzpicture}\begin{axis}[revision,height=8cm,xmin=-0.5,xmax=2.5,ymin=-2,ymax=2,xtick={0,1,2}]
+\addplot[thick,domain=-0.5:2.5] {x^3-3*x^2+2*x};
+\addplot[only marks,mark=*] coordinates {(0,0) (1,0) (2,0) (0.422649731,0.384900179) (1.577350269,-0.384900179)};
+\end{axis}\end{tikzpicture}\end{center}
+\clearpage
+\section*{Ejercicio 2: continuidad, unión y máximo}
+El dominio es $[0,+\infty)$. Las ramas son continuas y en $2$:
+\[f(2)=\frac43,\quad\lim_{x\to2^-}f(x)=\frac43,\quad\lim_{x\to2^+}f(x)=\frac43.\]
+Es continua en todo el dominio. Para los interiores de las ramas,
+\[f'(x)=\begin{cases}2x/3,&0<x<2,\\-4/(x+1)^2,&x>2.\end{cases}\]
+Las derivadas laterales en $2$ son $4/3$ y $-4/9$; no es derivable allí. En el extremo $0$ existe derivada por la derecha igual a 0; la derivada ordinaria bilateral no se exige fuera del dominio.
+
+Crece en $[0,2]$ y decrece en $[2,+\infty)$. El \textbf{máximo absoluto único} es $f(2)=4/3$. Para todo $x>2$, $x+1>3$ y $4/(x+1)<4/3$; en la primera rama $x^2/3\leq4/3$.
+\begin{center}\begin{tikzpicture}\begin{axis}[revision,height=8cm,xmin=-0.3,xmax=9,ymin=-0.2,ymax=1.8,xtick={0,2,4,6,8},ytick={0,0.6666667,1.3333333},yticklabels={$0$,$2/3$,$4/3$}]
+\addplot[thick,domain=0:2] {x^2/3};\addplot[thick,domain=2:9] {4/(x+1)};
+\addplot[only marks,mark=*] coordinates {(0,0) (2,1.333333333)};
+\end{axis}\end{tikzpicture}\end{center}
+Las dos ramas se unen sin hueco, pero con pendientes distintas.
+\clearpage
+\section*{Ejercicio 3: asíntotas}
+\[f(x)=\frac1{(x-2)(x-1)},\qquad D_f=\mathbb R\setminus\{1,2\}.\]
+El numerador no se anula y no hay factores que cancelar.
+\begin{center}\begin{tabular}{c|cc}
+Valor & Límite por la izquierda & Límite por la derecha\\\hline
+$1$ & $+\infty$ & $-\infty$\\
+$2$ & $-\infty$ & $+\infty$
+\end{tabular}\end{center}
+Por tanto las verticales son $x=1$ y $x=2$. Como $\lim_{x\to\pm\infty}f(x)=0$, la horizontal es $y=0$. No hay asíntota oblicua.
+\begin{center}\begin{tikzpicture}\begin{axis}[revision,height=8cm,xmin=-2,xmax=5,ymin=-6,ymax=6,xtick={-2,0,1,2,3,5}]
+\addplot[thick,domain=-2:0.98] {1/((x-2)*(x-1))};\addplot[thick,domain=1.02:1.98] {1/((x-2)*(x-1))};\addplot[thick,domain=2.02:5] {1/((x-2)*(x-1))};
+\addplot[dashed] coordinates {(1,-6) (1,6)};\addplot[dashed] coordinates {(2,-6) (2,6)};
+\end{axis}\end{tikzpicture}\end{center}
+Se separan las tres ramas sin unir puntos a través de denominadores nulos.
+\clearpage
+\section*{Ejercicio 4(a,b): temperatura y gráfica}
+En $t=1$ y $t=11$, la expresión cuadrática tiene límite $-9$, igual al valor de las ramas constantes. Es continua en todo $[0,24]$, con continuidad relativa al dominio en los extremos.
+\[-t^2+12t-20=16-(t-6)^2.\]
+El tramo cuadrático crece hasta $t=6$ y después decrece, con máximo de $16\,^{\circ}\mathrm C$. Antes de $1$ y después de $11$ se mantiene en $-9\,^{\circ}\mathrm C$.
+\begin{center}\begin{tikzpicture}\begin{axis}[revision,height=8cm,xmin=0,xmax=24,ymin=-12,ymax=22,xtick={0,1,2,6,10,11,24},ytick={-9,0,16,20},xlabel={Horas ($t$)},ylabel={Temperatura}]
+\addplot[thick,domain=0:1] {-9};\addplot[thick,domain=1:11] {16-(x-6)^2};\addplot[thick,domain=11:24] {-9};
+\addplot[dotted,domain=0:24] {20};\addplot[only marks,mark=*] coordinates {(1,-9) (2,0) (6,16) (10,0) (11,-9)};
+\end{axis}\end{tikzpicture}\end{center}
+\section*{Ejercicio 4(c): interpretación del corte}
+Con la \textbf{hipótesis escolar} de que el corte coincide con el inicio del calentamiento y el retorno de la energía con el inicio del enfriamiento, comienza en $t=1$, termina en $t=6$ y dura 5 horas.
+
+\textbf{Límite del modelo:} la función solo describe temperatura, no el estado eléctrico. Sin esas hipótesis no puede deducirse de manera única el instante de restauración. $t=11$ indica recuperación de $-9$ grados, no necesariamente el retorno de la energía. Esta condición interpretativa debe explicitarse para una corrección inequívoca.
+\clearpage
+\section*{Ejercicio 4(d): criterios del enunciado}
+Se aplican únicamente los umbrales hipotéticos del ejercicio.
+\subsection*{Sueros}
+La temperatura máxima es 16 grados, menor que 20:
+\[f(t)\leq16<20\qquad\text{para todo }t\in[0,24].\]
+Según el criterio dado, \textbf{los sueros no se estropearon}.
+\subsection*{Vacunas}
+Las ramas constantes son negativas. En el tramo cuadrático,
+\[
+f(t)>0\ \Longleftrightarrow\ 16-(t-6)^2>0
+\ \Longleftrightarrow\ |t-6|<4
+\ \Longleftrightarrow\ 2<t<10.
+\]
+El tiempo por encima de cero es $10-2=8$ horas. Los extremos $2$ y $10$ tienen temperatura cero y no pertenecen al intervalo estricto, pero su exclusión no cambia la duración.
+\[\boxed{8\text{ horas}>6\text{ horas}}.\]
+Según el criterio dado, \textbf{las vacunas sí se estropearon}.
+
+Este resultado depende de la curva de temperatura y no de resolver la ambigüedad del estado eléctrico del apartado anterior.
+\clearpage
+\section*{Anexo no evaluable: variante bursátil comentada}
+Se conserva una vez el ejercicio que aparece comentado en F006 y F007. No forma parte de la puntuación de ninguno de los exámenes.
+
+Datos originales: $v'(t)=t^2-5t+6$ para $t\in[0,6]$, $v(0)=10$. Se pide estudiar crecimiento, hallar $v$, calcular la ganancia de 3\,000 acciones compradas en $t=2$ y vendidas en $t=4$, y elegir compra y venta para maximizar la ganancia.
+\[v'(t)=(t-2)(t-3).\]
+Crece en $[0,2]$ y $[3,6]$; decrece en $[2,3]$. Integramos y usamos el dato inicial:
+\[\boxed{v(t)=\frac{t^3}3-\frac52t^2+6t+10}.\]
+\[v(2)=\frac{44}3,\qquad v(4)=\frac{46}3.\]
+La ganancia de la operación indicada es
+\[3\,000\bigl(v(4)-v(2)\bigr)=3\,000\cdot\frac23=\boxed{2\,000\text{ euros}}.\]
+Para elegir los instantes en todo $[0,6]$, se comparan extremos y puntos críticos:
+\begin{center}\begin{tabular}{c|cccc}
+$t$ & $0$ & $2$ & $3$ & $6$\\\hline
+$v(t)$ & $10$ & $44/3$ & $29/2$ & $28$
+\end{tabular}\end{center}
+El mínimo absoluto es 10 en $t=0$ y el máximo 28 en $t=6$. La compra precede a la venta, por lo que se pueden alcanzar ambos:
+\[\boxed{\text{comprar en }0,\quad\text{vender en }6,\quad\text{ganancia de }54\,000\text{ euros}}.\]
+Se usa el número de acciones del ejercicio y su modelo ideal, sin añadir comisiones ni datos de mercado.
+\end{document}

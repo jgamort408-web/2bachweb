@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9.5. Estimación puntual y estimación por intervalos · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t09-e05">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">9.5. Estimación puntual y estimación por intervalos</h1>
+    <p data-content-role="lead">La media de una muestra puede estimar un parámetro desconocido; un intervalo expresa la incertidumbre del procedimiento.</p>
+    <p data-content-role="source">Adaptación revisada de «2. Estimación.txt». <a href="index.html">Volver al tema 9</a>.</p>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#direccion">Dos preguntas</a> · <a href="#confianza">Confianza</a> · <a href="#criticos">Valores críticos</a> · <a href="#media">Intervalo para la media</a> · <a href="#pendiente">Pendiente</a></nav>
+
+    <section id="direccion" data-content-role="method"><h2>Primero, identifica qué conoces</h2>
+      <dl><dt><strong>Población conocida → media de una muestra futura</strong></dt><dd>Si conocemos la media poblacional \(\mu\), buscamos una región probable para la media muestral \(\bar X\). Es un intervalo de probabilidad para el <strong>estadístico aleatorio</strong>, que se calcula en <a href="06-intervalos-de-probabilidad-o-intervalos-caracteristicos.html">9.6. Intervalos característicos</a>.</dd><dt><strong>Muestra observada → parámetro poblacional desconocido</strong></dt><dd>Si conocemos una media muestral \(\bar x\), usamos ese valor para estimar la media poblacional \(\mu\). \(\bar x\) es una <strong>estimación puntual</strong>; un intervalo de confianza añade un margen calculado bajo supuestos explícitos.</dd></dl>
+      <p>El original ilustra la primera pregunta con una media nacional de 170 y la segunda con una media observada de 172. Ninguna permite hallar límites numéricos sin conocer también, entre otros datos, el tamaño de la muestra y su variación relevante. No se puede invertir un intervalo para \(\bar X\) sin revisar qué cantidad se considera fija y cuál es aleatoria.</p>
+    </section>
+
+    <section id="confianza" data-content-role="theory"><h2>Nivel de confianza y significación</h2>
+      <p>Para un intervalo bilateral con nivel de confianza \(1-\alpha\), la significación \(\alpha\) se reparte entre las dos colas de una normal estándar \(Z\). El valor crítico positivo \(z_{\alpha/2}\) se define por:</p>
+      <p>\[P(Z>z_{\alpha/2})=\frac{\alpha}{2},\qquad P(-z_{\alpha/2}\le Z\le z_{\alpha/2})=1-\alpha.\]</p>
+      <figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 220" role="img" aria-labelledby="conf-fig-title conf-fig-desc" style="display:block;width:100%;max-width:32rem;height:auto"><title id="conf-fig-title">Área central y dos colas de la normal estándar</title><desc id="conf-fig-desc">La zona entre menos z crítico y más z crítico tiene probabilidad 1 menos alfa. Cada cola exterior tiene probabilidad alfa sobre dos.</desc><path d="M25 165H415" stroke="currentColor" fill="none"/><path d="M25 163C65 163 100 156 120 124C150 55 185 25 220 25C255 25 290 55 320 124C340 156 375 163 415 163" stroke="currentColor" stroke-width="2" fill="none"/><path d="M120 165V124C150 55 185 25 220 25C255 25 290 55 320 124V165Z" fill="currentColor" opacity=".15"/><path d="M120 165V124M320 165V124" stroke="currentColor" stroke-dasharray="4 4"/><text x="220" y="92" text-anchor="middle" fill="currentColor">1−α</text><text x="67" y="145" text-anchor="middle" fill="currentColor">α/2</text><text x="372" y="145" text-anchor="middle" fill="currentColor">α/2</text><text x="120" y="190" text-anchor="middle" fill="currentColor">−z crítico</text><text x="220" y="190" text-anchor="middle" fill="currentColor">0</text><text x="320" y="190" text-anchor="middle" fill="currentColor">+z crítico</text></svg><figcaption>Esquema del área central \(1-\alpha\) y las dos colas \(\alpha/2\).</figcaption></figure>
+      <p>Un nivel del 95 % significa que, si repitiéramos el muestreo y la construcción del intervalo bajo el mismo modelo, aproximadamente el 95 % de los intervalos cubriría el parámetro fijo. Una vez calculado un intervalo concreto, el parámetro no pasa a ser aleatorio y no se interpreta que «tenga un 95 % de probabilidad de estar dentro».</p>
+      <p>En la fórmula normal bilateral con parámetro sin cota, exigir un 100 % de cobertura lleva el valor crítico y la anchura al infinito. Esa observación se refiere a este procedimiento, no a toda forma posible de intervalo.</p>
+    </section>
+
+    <section id="criticos" data-content-role="reference"><h2>Valores críticos habituales</h2>
+      <p>La tabla conserva los tres niveles del original. \(z_{\alpha/2}=\Phi^{-1}(1-\alpha/2)\); los números están redondeados. Para el 99 %, el valor a tres decimales es 2,576, en lugar del 2,575 truncado en la fuente.</p>
+      <div style="overflow-x:auto"><table><caption>Valores críticos bilaterales de la normal estándar</caption><thead><tr><th scope="col">Confianza \(1-\alpha\)</th><th scope="col">Significación \(\alpha\)</th><th scope="col">\(z_{\alpha/2}\)</th></tr></thead><tbody><tr><th scope="row">90 %</th><td>0,10</td><td>1,645</td></tr><tr><th scope="row">95 %</th><td>0,05</td><td>1,960</td></tr><tr><th scope="row">99 %</th><td>0,01</td><td>2,576</td></tr></tbody></table></div>
+    </section>
+
+    <section id="media" data-content-role="method"><h2>Intervalo de confianza para la media</h2>
+      <p>Si \(X_1,\ldots,X_n\) son observaciones independientes de una población normal con desviación típica poblacional \(\sigma\) conocida, el intervalo bilateral habitual para \(\mu\) es:</p>
+      <p>\[IC_{1-\alpha}(\mu)=\left[\bar x-z_{\alpha/2}\frac{\sigma}{\sqrt n},\;\bar x+z_{\alpha/2}\frac{\sigma}{\sqrt n}\right].\]</p>
+      <p>El <strong>centro</strong> es la estimación puntual \(\bar x\). El <strong>margen de error</strong> de este procedimiento es \(E=z_{\alpha/2}\sigma/\sqrt n\), la mitad de la anchura del intervalo. «Error máximo admisible» designa un objetivo fijado antes del estudio; no debe confundirse con el margen calculado después.</p>
+      <p>Si la población no es normal, la fórmula con \(z\) puede ser aproximada para muestras apropiadas por el <a href="04-distribucion-muestral-teorema-central-del-limite.html">teorema central del límite</a>. No hay un tamaño universal que garantice precisión. Si \(\sigma\) es desconocida, sustituirla sin más por \(s\) cambia el procedimiento; bajo normalidad suele emplearse la distribución \(t\) de Student. También pueden hacer falta correcciones por muestreo sin reemplazo o por un diseño complejo.</p>
+      <p>Para construir el intervalo hacen falta \(\bar x\), \(n\), una medida de dispersión y un nivel de confianza, además de comprobar el diseño y los supuestos. La fuente solo da ejemplos de dirección con 170 y 172, así que no se inventan límites numéricos.</p>
+    </section>
+
+    <section id="pendiente" data-content-role="warning"><h2>Qué falta</h2><p>Este original aporta explicación, figura, tabla y fórmula, pero no un ejercicio numérico resuelto, calculadora, test ni tarjetas. Los archivos posteriores de intervalos y ejercicios se revisarán por separado. La lección mantiene estado editorial parcial.</p></section>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>
+

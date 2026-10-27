@@ -1,0 +1,93 @@
+﻿tag,descripcion
+amplitud-intervalo,Amplitud total del intervalo de confianza; distinta del semiancho.
+bayes,bayes
+beneficio-maximo,beneficio maximo
+compatibilidad-dimensiones,Compatibilidad de dimensiones para operaciones matriciales.
+complementario,complementario
+continuidad,continuidad
+cota-estricta,cota estricta
+cota-no-estricta,Condición inclusiva como máximo o menor o igual.
+curvatura,curvatura
+derivabilidad,derivabilidad
+derivada-dada,Estudio a partir de la función derivada proporcionada.
+desviacion-conocida,desviacion conocida
+diferencia-sucesos,Diferencia de sucesos tal como aparece en la fuente.
+distribucion-normal,distribucion normal
+ecuacion-matricial,ecuacion matricial
+error-estimacion,error estimacion
+experimento-compuesto,experimento compuesto
+extremos-relativos,Localización de extremos relativos.
+funcion-a-trozos,funcion a trozos
+funcion-exponencial,Función exponencial en el enunciado.
+funcion-logaritmica,Función con logaritmo en el enunciado.
+funcion-objetivo,Función objetivo restringida al recinto indicado.
+funcion-polinomica,funcion polinomica
+funcion-racional,Función racional con su dominio indicado.
+incompatibilidad,"Pregunta sobre incompatibilidad de sucesos, sin anticipar respuesta."
+independencia,Independencia de sucesos.
+inflexion,inflexion
+integral-indefinida,integral indefinida
+interseccion-sucesos,interseccion sucesos
+intervalo-confianza-media,intervalo confianza media
+intervalo-confianza-proporcion,intervalo confianza proporcion
+matriz-inversa,matriz inversa
+matriz-simetrica,matriz simetrica
+matriz-traspuesta,Traspuesta de una matriz; conservar t minúscula de la fuente.
+maximo-minimo,Localización de valores máximos y mínimos solicitados.
+minimo-coste,Determinación del coste mínimo bajo las condiciones del enunciado.
+monotonia,monotonia
+optimizacion,Optimización de una función en el dominio indicado.
+paralelismo,paralelismo
+parametros,parametros
+potencia-matriz,potencia matriz
+primitiva-con-condicion,Recuperación de una función con una condición de paso por un punto.
+probabilidad-condicionada,probabilidad condicionada
+probabilidad-total,probabilidad total
+producto-matrices,Producto de matrices y compatibilidad de dimensiones.
+programacion-lineal,programacion lineal
+recta-tangente,recta tangente
+region-factible,region factible
+regla-cadena,Derivación de funciones compuestas.
+regla-producto,Derivación de un producto de funciones.
+reglas-derivacion,Reglas de derivación de las funciones proporcionadas.
+representacion-grafica,Esbozo o representación de una gráfica.
+restricciones,restricciones
+tamano-muestral,tamano muestral
+union-sucesos,union sucesos
+varianza-conocida,"Varianza poblacional conocida, expresada como tal en la fuente."
+vertices,Vértices de una región factible.
+viabilidad-punto,Comprobación de pertenencia de un punto a la región definida por restricciones.
+estimacion-puntual,Estimación puntual o recuperación de la media muestral solicitada.
+dominio,Dominio de la función solicitado explícitamente en el enunciado.
+integral-definida,Integral definida solicitada o relacionada con una petición de área.
+area-recinto,Área de un recinto delimitado por gráficas o ejes según el enunciado.
+muestreo,Selección de muestras o identificación de una técnica de muestreo.
+muestra-proporcional,Muestra distribuida proporcionalmente a los tamaños indicados.
+media-muestral,Media muestral o media de medias muestrales dada o solicitada.
+interpretacion-intervalo,"Interpretación solicitada de un intervalo de confianza, sin anticipar respuesta."
+formulacion-sin-resolver,Petición expresa de formular un problema sin resolverlo.
+regla-cociente,Derivación de una función expresada como cociente.
+extremos-absolutos,Extremos absolutos solicitados en el dominio dado.
+desviacion-medias-muestrales,Desviación típica de la distribución de medias muestrales solicitada.
+alcance-valor-objetivo,Pregunta sobre si la función objetivo puede alcanzar un valor en la región indicada.
+comparacion-intervalos,"Comparación solicitada de intervalos al variar el tamaño muestral, sin anticipar respuesta."
+asintotas,"Determinación de asíntotas solicitada, sin anticipar existencia ni ecuaciones."
+comparacion-error,"Efecto solicitado de variar tamaño muestral o confianza sobre el error de estimación, sin anticipar respuesta."
+probabilidad-media-muestral,"Probabilidad solicitada para la media de una muestra, diferenciada de la variable individual."
+interseccion-rectas,Punto de corte solicitado entre rectas; conservar sus condiciones sin anticipar coordenadas.
+conversion-unidades,"Datos y condiciones expresados en unidades distintas que deben relacionarse al resolver, sin anticipar la conversión."
+comparacion-tamano-muestral,"Efecto solicitado de cambiar la confianza sobre el tamaño de muestra necesario, sin anticipar respuesta."
+muestreo-estratificado,Muestreo aleatorio estratificado expresamente nombrado; no presupone afijación proporcional.
+ingreso-maximo,Maximización del importe de venta o ingresos; no equivale a beneficio sin datos de costes.
+compatibilidad-sucesos,"Pregunta explícita sobre compatibilidad de sucesos, sin anticipar respuesta."
+contraste-hipotesis,Contraste estadístico solicitado en un examen histórico; conservar aunque no tenga epígrafe específico actual.
+region-rechazo,Región de rechazo solicitada como parte de un contraste; sin anticipar límites.
+nivel-significacion,"Nivel de significación dado para contrastar una hipótesis, distinto del nivel de confianza."
+hipotesis-nula,Hipótesis nula impresa en el enunciado; preservar signo y valor.
+contraste-unilateral-media,Contraste unilateral sobre media de población Normal con desviación conocida.
+interpretacion-derivada,"Interpretación solicitada del signo de la derivada en una producción concreta, sin anticipar el signo ni su significado en la respuesta."
+comparacion-significacion,"Conclusión de un contraste solicitada con dos niveles de significación distintos, sin anticipar decisiones."
+signo-funcion,"Valores del dominio para los que la función es positiva o negativa, sin anticipar intervalos."
+diferencia-simetrica,"Suceso exactamente uno de dos, distinto de al menos uno, según la pregunta original."
+seleccion-sin-reposicion,Selección de personas u objetos distintos sin reposición; sin añadir condiciones al texto original.
+clasificacion-discontinuidades,"Clasificación de discontinuidades solicitada expresamente, sin anticipar tipos ni puntos."

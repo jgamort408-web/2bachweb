@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.15. Reglas de derivación · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t01-e15">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">1.15. Reglas de derivación</h1>
+    <p class="lead" data-content-role="introduction">Las funciones de los problemas suelen combinar varias operaciones. Elegir la regla adecuada y organizar los pasos evita errores de signos, factores y paréntesis.</p>
+    <div class="learning-goals"><p data-content-role="objectives"><strong>Al terminar podrás:</strong> derivar sumas, productos, cocientes y potencias compuestas; combinar reglas y conservar el dominio al simplificar.</p><p data-content-role="prerequisites"><strong>Antes:</strong> <a href="14-tabla-de-derivadas.html">tabla de derivadas</a>, factorización y operaciones con fracciones.</p></div>
+    <section data-content-role="rule">
+      <h2>1. Las reglas y sus hipótesis</h2>
+      <p>Supongamos que u y v son derivables en los puntos estudiados, y que c es una constante:</p>
+      <div class="definition"><p>\[(u+v)'=u'+v',\qquad(u-v)'=u'-v'.\]</p><p>\[(cu)'=cu'.\]</p><p>\[(uv)'=u'v+uv'.\]</p><p>\[\left(\frac uv\right)'=\frac{u'v-uv'}{v^2},\qquad v\ne0.\]</p></div>
+      <p>La regla del producto tiene dos términos: cambia un factor y después el otro. En el cociente, el orden de la resta importa y el denominador queda al cuadrado.</p>
+      <p data-content-role="warning">En general, \((uv)'\ne u'v'\) y \((u/v)'\ne u'/v'\). Por ejemplo, \((x\cdot x)'=2x\), mientras que multiplicar las derivadas daría 1.</p>
+    </section>
+    <section id="ejemplos" data-content-role="worked-example">
+      <h2>2. Sumas y factores constantes</h2>
+      <p>Para \(f(x)=3x^4-2x+7\), derivamos término a término:</p><p>\[f'(x)=12x^3-2.\]</p>
+      <p>El 7 desaparece porque es constante; el factor 3 se conserva al derivar \(x^4\). En un modelo de costes, la derivada de un coste fijo es cero: no cambia al aumentar la producción.</p>
+      <h3>Producto: crecimiento con dos factores</h3>
+      <p>Sea \(g(x)=x^2e^x\). Tomamos \(u=x^2\), \(v=e^x\), de modo que \(u'=2x\), \(v'=e^x\).</p>
+      <p>\[g'(x)=2xe^x+x^2e^x=e^x(2x+x^2).\]</p>
+      <p>La segunda forma agrupa el factor común y facilita estudiar el signo. La regla no obliga a expandir todo.</p>
+    </section>
+    <section data-content-role="worked-example">
+      <h2>3. Cociente: escribe primero las cuatro piezas</h2>
+      <p>Para \(r(x)=\ln x/x\), el dominio es \(x&gt;0\). Tenemos \(u=\ln x\), \(u'=1/x\), \(v=x\), \(v'=1\).</p>
+      <ol class="worked-steps" data-content-role="worked-steps"><li>Escribe el numerador con paréntesis: \((1/x)x-(\ln x)1\).</li><li>Divide por \(v^2=x^2\).</li><li>Simplifica: \[r'(x)=\frac{1-\ln x}{x^2},\qquad x&gt;0.\]</li></ol>
+      <p>En \(x=1\), la pendiente es 1. Cambiar el orden de la resta daría una pendiente de signo opuesto.</p>
+      <h3>Cuándo conviene simplificar antes</h3>
+      <p>Si \(s(x)=(x^2-1)/(x-1)\), entonces \(s(x)=x+1\) para \(x\ne1\). Así, \(s'(x)=1\) en ese dominio. No podemos afirmar que \(s'(1)=1\), porque la función original no está definida en 1.</p>
+    </section>
+    <section data-content-role="worked-example">
+      <h2>4. Potencias de una función</h2>
+      <p>Si el interior u es derivable, la regla de la potencia compuesta es:</p><p>\[(u^n)'=nu^{n-1}u'.\]</p>
+      <p>Para n entero positivo es válida donde u sea derivable; para n negativo se exige además \(u\ne0\). Con exponentes reales generales, se puede aplicar con seguridad donde \(u&gt;0\), revisando aparte otros casos admitidos por el dominio.</p>
+      <p>En \(p(x)=(x^2+1)^3\), el interior tiene derivada \(2x\):</p><p>\[p'(x)=3(x^2+1)^2\cdot2x=6x(x^2+1)^2.\]</p>
+      <p>Para \(w(x)=(x^2+1)e^{2x}\), combinamos producto y composición:</p><p>\[w'(x)=2xe^{2x}+2(x^2+1)e^{2x}.\]</p>
+      <p>El segundo factor aporta el 2 interior. En <a href="16-regla-de-la-cadena.html">1.16</a> descompondremos composiciones con varios niveles; aquí ya podemos reconocer y aplicar esta estructura básica.</p>
+    </section>
+    <section id="examen" data-content-role="worked-example">
+      <h2>5. Del examen: cociente con una potencia</h2>
+      <p>En el apartado 2(c) del examen local aparece:</p><p>\[f(x)=\frac{x^3-4}{(x^2+4)^2}.\]</p>
+      <p>Su dominio es todo \(\mathbb R\), porque \(x^2+4&gt;0\). Identificamos \(u=x^3-4\) y \(v=(x^2+4)^2\). Entonces \(u'=3x^2\) y \(v'=4x(x^2+4)\).</p>
+      <ol class="worked-steps" data-content-role="worked-steps"><li>Aplicamos la regla del cociente:\[f'(x)=\frac{3x^2(x^2+4)^2-(x^3-4)4x(x^2+4)}{(x^2+4)^4}.\]</li><li>Sacamos y cancelamos el factor \(x^2+4\), que nunca es cero:\[f'(x)=\frac{3x^2(x^2+4)-4x(x^3-4)}{(x^2+4)^3}.\]</li><li>Si queremos expandir el numerador, queda \(-x^4+12x^2+16x\). Ambas formas son equivalentes y válidas en todo \(\mathbb R\).</li></ol>
+      <p data-content-role="warning">El signo menos afecta a todo el segundo producto. Mantener los paréntesis hasta el último paso ayuda a conservar el término \(+16x\).</p>
+    </section>
+    <section id="practica" data-content-role="guided-practice">
+      <h2>6. Tu turno</h2><p>Deriva \(f(x)=(x^2+1)/(x+1)\) e indica el dominio.</p>
+      <details data-content-role="hint"><summary>Pista 1</summary><p>Usa \(u'=2x\), \(v'=1\). El denominador original obliga a \(x\ne-1\).</p></details>
+      <details data-content-role="hint"><summary>Pista 2</summary><p>El numerador de la derivada es \(2x(x+1)-(x^2+1)\).</p></details>
+      <details data-content-role="solution"><summary>Solución razonada</summary><p>\[f'(x)=\frac{x^2+2x-1}{(x+1)^2},\qquad x\ne-1.\]</p><p>En 0 la pendiente es −1. También puedes comprobar el resultado escribiendo \(f(x)=x-1+2/(x+1)\) en el mismo dominio.</p></details>
+      <div class="activity" data-content-role="self-check" data-quiz="t01-e15"></div>
+    </section>
+    <section data-content-role="summary"><h2>7. Resumen</h2><ul><li>Identifica la operación exterior antes de elegir una regla.</li><li>Escribe u, v y sus derivadas para organizar productos y cocientes.</li><li>En las composiciones, incluye la derivada interior.</li><li>Simplifica factores completos y conserva las restricciones del dominio original.</li></ul><p data-content-role="related-links"><a href="16-regla-de-la-cadena.html">Siguiente: regla de la cadena</a> · <a href="../../../test/index.html?tema=t01">Repasar el tema</a>.</p></section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

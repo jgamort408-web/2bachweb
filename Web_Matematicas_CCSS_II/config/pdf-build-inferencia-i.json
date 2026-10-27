@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "releaseDate": "2026-10-22",
+  "edition": "1.0.0",
+  "engineVersion": "0.17.0",
+  "batchId": "173-inferencia-i",
+  "sourceDirectory": "content/latex/inferencia-i",
+  "report": "docs/pdf/inferencia-i-build.json",
+  "mathematics": "inferencia-i",
+  "documents": [
+    {
+      "id": "inferencia-i-examen",
+      "source": "content/latex/inferencia-i/inferencia-i-examen.tex",
+      "output": "output/pdf/inferencia-i-examen.pdf",
+      "expectedPages": 2,
+      "title": "Inferencia I - Examen revisado",
+      "forbiddenText": [
+        "£"
+      ],
+      "requiredText": [
+        "55 minutos",
+        "Ejercicio 3"
+      ]
+    },
+    {
+      "id": "inferencia-i-soluciones",
+      "source": "content/latex/inferencia-i/inferencia-i-soluciones.tex",
+      "output": "output/pdf/inferencia-i-soluciones.pdf",
+      "expectedPages": 3,
+      "title": "Inferencia I - Soluciones revisadas",
+      "forbiddenText": [
+        "£"
+      ],
+      "requiredText": [
+        "Precisión editorial M28",
+        "240"
+      ]
+    }
+  ]
+}

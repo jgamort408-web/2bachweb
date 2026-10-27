@@ -1,0 +1,63 @@
+\documentclass[11pt]{article}
+\input{estilo.tex}
+\hypersetup{pdftitle={Distribuciones II - Soluciones revisadas}}
+\begin{document}
+\section*{Ejercicio 1: bicicletas y binomial}
+Soluciones revisadas a partir de las incluidas en F002. Los datos y la puntuación del examen se conservan.
+
+Se emplea el modelo del original: ensayos independientes y probabilidad constante de uso $p=1/5$. Si existiera muestreo sin reemplazo de una población pequeña conocida, habría que revisar esa hipótesis; el enunciado no da ese tamaño.
+\[X\sim B(8,0{,}2),\qquad P(X=k)=\binom8k(0{,}2)^k(0{,}8)^{8-k}.\]
+\subsection*{(a) Ninguno usa bicicleta}
+\[P(X=0)=(0{,}8)^8=\boxed{0{,}16777216}.\]
+\subsection*{(b) Al menos seis}
+\begin{align*}
+P(X=6)&=28(0{,}2)^6(0{,}8)^2=0{,}00114688,\\
+P(X=7)&=8(0{,}2)^7(0{,}8)=0{,}00008192,\\
+P(X=8)&=(0{,}2)^8=0{,}00000256.
+\end{align*}
+\[\boxed{P(X\geq6)=0{,}00123136}\quad(0{,}123136\%).\]
+\textbf{Corrección M02:} el original escribe $(0{,}2)^8=0{,}0000256$, diez veces el valor correcto. Además suma términos redondeados antes del final. Se conservan aquí todos los decimales exactos de esta binomial.
+\subsection*{(c) Al menos uno}
+\[P(X\geq1)=1-P(X=0)=\boxed{0{,}83222784}.\]
+Todas las probabilidades están entre 0 y 1 y la última es el complemento de la primera.
+\clearpage
+\section*{Ejercicio 2: normal y bonificación}
+Se conserva la convención del original $N(\mu,\sigma)$, con $\mu=70$ y $\sigma=15$. Sea $Z=(X-70)/15\sim N(0,1)$ y $\Phi$ su función de distribución acumulada.
+\subsection*{(a) Entre 60 y 90}
+\[
+P(60\leq X\leq90)=\Phi(4/3)-\Phi(-2/3)\approx0{,}65629624.
+\]
+El \textbf{porcentaje} es aproximadamente $\boxed{65{,}63\%}$.
+
+La tabla del original redondea primero los valores tipificados a 1,33 y -0,67 y obtiene 0,6568, es decir, 65,68\%. Es una aproximación de tabla; la diferencia se debe al redondeo de los valores tipificados. No se presenta como igualdad exacta.
+\subsection*{(b) Por debajo de 50}
+\[P(X<50)=\Phi(-4/3)\approx\boxed{0{,}09121122}.\]
+Con tabla y $z\approx-1{,}33$ se obtiene aproximadamente 0,0918, como en el original. El cálculo sin redondeo intermedio da 0,0912 a cuatro decimales.
+\subsection*{(c) El 18\% superior}
+\[P(X\geq x)=0{,}18\quad\Longleftrightarrow\quad\Phi\left(\frac{x-70}{15}\right)=0{,}82.\]
+Por tanto,
+\[z=\Phi^{-1}(0{,}82)\approx0{,}91536509,\qquad
+\boxed{x\approx83{,}73048\text{ puntos}}.\]
+A dos decimales, aproximadamente 83,73 puntos. Si una aplicación exigiera puntuaciones enteras, tendría que especificarlo; no se añade esa condición al examen.
+\clearpage
+\section*{Ejercicio 3: productos exitosos}
+Bajo el modelo de resultados independientes con probabilidad constante,
+\[X\sim B(100,0{,}6),\quad\mu=60,\quad\sigma=\sqrt{24}.\]
+El suceso pedido es $X\geq70$, incluidos exactamente 70 éxitos.
+\subsection*{Cálculo binomial exacto}
+\[P(X\geq70)=\sum_{k=70}^{100}\binom{100}{k}(0{,}6)^k(0{,}4)^{100-k}
+\approx\boxed{0{,}02478282}.\]
+Es aproximadamente el 2,4783\%.
+\subsection*{Aproximación normal conservada del original}
+Los valores $np=60$ y $n(1-p)=40$ permiten una aproximación normal razonable. Se usa una variable auxiliar $Y\sim N(60,\sqrt{24})$; $X$ sigue siendo binomial.
+
+Con \textbf{corrección de continuidad},
+\begin{align*}
+P(X\geq70)&\approx P(Y\geq69{,}5),\\
+z&=\frac{69{,}5-60}{\sqrt{24}}\approx1{,}93917938,\\
+P(Y\geq69{,}5)&\approx\boxed{0{,}02623975}.
+\end{align*}
+Con tabla y $z\approx1{,}94$, resulta 0,0262, el valor aproximado del original. No se confunde con la probabilidad binomial exacta. La diferencia absoluta entre los cálculos sin redondeo es aproximadamente 0,00145693.
+
+Se redondea al final y se identifica el método utilizado. No basta afirmar que cualquier muestra con $n$ grande admite automáticamente una buena aproximación: importan también $p$ y las hipótesis del modelo.
+\end{document}

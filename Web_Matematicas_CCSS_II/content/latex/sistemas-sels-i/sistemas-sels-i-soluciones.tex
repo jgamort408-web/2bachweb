@@ -1,0 +1,107 @@
+\documentclass[11pt]{article}
+\input{estilo.tex}
+\hypersetup{pdftitle={Sistemas de ecuaciones I - Soluciones revisadas}}
+\begin{document}
+\section*{Sistemas de ecuaciones I: soluciones}
+\section*{Ejercicio 1: sustitución regresiva}
+La ecuación matricial equivale al sistema triangular
+\[
+\begin{cases}x+2y+3z=7,\\4y+5z=8,\\z=2.\end{cases}
+\]
+Resolvemos desde la última ecuación hacia la primera.
+\subsection*{1. Tercera ecuación}
+Directamente, $z=2$.
+\subsection*{2. Segunda ecuación}
+\[4y+5\cdot2=8\quad\Longrightarrow\quad4y=-2\quad\Longrightarrow\quad y=-\frac12.\]
+\subsection*{3. Primera ecuación}
+\[x+2\left(-\frac12\right)+3\cdot2=7\quad\Longrightarrow\quad x+5=7\quad\Longrightarrow\quad x=2.\]
+Por tanto,
+\[\boxed{(x,y,z)=\left(2,-\frac12,2\right)}.\]
+\textbf{Comprobación completa:}
+\[
+\begin{pmatrix}1&2&3\\0&4&5\\0&0&1\end{pmatrix}
+\begin{pmatrix}2\\-1/2\\2\end{pmatrix}
+=\begin{pmatrix}2-1+6\\-2+10\\2\end{pmatrix}
+=\begin{pmatrix}7\\8\\2\end{pmatrix}.
+\]
+La solución es única: la matriz triangular tiene determinante $1\cdot4\cdot1=4\neq0$.
+\clearpage
+\section*{Ejercicio 2: las tabletas}
+Sean $A$, $B$ y $C$ las cantidades vendidas de cada tipo. Deben ser enteros no negativos.
+
+\textbf{Interpretación del modelo.} El original llama ``coste por unidad'' a los importes de 120, 90 y 40 euros. Para relacionarlos con la recaudación, los interpretamos como los precios unitarios de venta del problema; no se incluyen márgenes ni otros ingresos.
+\[
+\begin{cases}
+A+B+C=400,\\120A+90B+40C=36\,400,\\A+B=3C.
+\end{cases}
+\]
+\subsection*{1. Obtener el número de tipo C}
+De $A+B=3C$ y el total:
+\[3C+C=400\quad\Longrightarrow\quad C=100,\qquad A+B=300.\]
+\subsection*{2. Separar los tipos A y B}
+Sustituyendo $C=100$ en la recaudación:
+\[120A+90B=32\,400.\]
+Con $B=300-A$,
+\[120A+90(300-A)=32\,400\quad\Longrightarrow\quad30A=5\,400.\]
+Así, $A=180$ y $B=120$.
+\[\boxed{A=180,\qquad B=120,\qquad C=100}.\]
+\textbf{Comprobación de las tres condiciones:}
+\begin{align*}
+180+120+100&=400,\\
+120\cdot180+90\cdot120+40\cdot100
+&=21\,600+10\,800+4\,000=36\,400,\\
+180+120&=300=3\cdot100.
+\end{align*}
+Todos los valores son enteros y no negativos, coherentes con cantidades de tabletas.
+\clearpage
+\section*{Ejercicio 3(a): discusión según $\lambda$}
+\[
+A=\begin{pmatrix}1&1&1\\2&\lambda&3\\3&2&4\end{pmatrix},\qquad
+b=\begin{pmatrix}2\\5\\\lambda\end{pmatrix}.
+\]
+El determinante es
+\begin{align*}
+\det A&=(4\lambda-6)-(8-9)+(4-3\lambda)\\
+&=\lambda-1.
+\end{align*}
+\subsection*{Caso 1: $\lambda\neq1$}
+Como $\det A\neq0$, $\operatorname{rg}(A)=\operatorname{rg}(A|b)=3$. El sistema es \textbf{compatible determinado}: tiene solución única.
+\subsection*{Caso 2: $\lambda=1$}
+No basta con que el determinante sea cero para decidir la compatibilidad. Aplicamos $F_2\leftarrow F_2-2F_1$ y $F_3\leftarrow F_3-3F_1$ a la matriz ampliada:
+\[
+\left(\begin{array}{ccc|c}1&1&1&2\\2&1&3&5\\3&2&4&1\end{array}\right)
+\ \longrightarrow\ 
+\left(\begin{array}{ccc|c}1&1&1&2\\0&-1&1&1\\0&-1&1&-5\end{array}\right).
+\]
+Ahora $F_3\leftarrow F_3-F_2$ produce
+\[
+\left(\begin{array}{ccc|c}1&1&1&2\\0&-1&1&1\\0&0&0&-6\end{array}\right).
+\]
+La última fila exige $0=-6$, una contradicción. Por tanto,
+\[\operatorname{rg}(A)=2<3=\operatorname{rg}(A|b).\]
+El sistema es \textbf{incompatible}: no tiene solución.
+\[
+\boxed{\begin{array}{ll}\lambda\neq1:&\text{solución única (SCD)},\\\lambda=1:&\text{sin solución (SI)}.\end{array}}
+\]
+No existe ningún valor del parámetro con infinitas soluciones.
+\clearpage
+\section*{Ejercicio 3(b): resolución para $\lambda=0$}
+Como $0\neq1$, el caso anterior garantiza solución única. El sistema queda
+\[
+\begin{cases}x+y+z=2,\\2x+3z=5,\\3x+2y+4z=0.\end{cases}
+\]
+Restando dos veces la primera ecuación a la segunda, y tres veces la primera a la tercera, obtenemos
+\[
+\begin{cases}-2y+z=1,\\-y+z=-6.\end{cases}
+\]
+Restamos la primera de estas dos ecuaciones a la segunda:
+\[y=-7.\]
+Entonces
+\[z=1+2y=1-14=-13,\qquad x=2-y-z=2+7+13=22.\]
+\[\boxed{(x,y,z)=(22,-7,-13)}.\]
+\textbf{Comprobación en las tres ecuaciones originales con $\lambda=0$:}
+\begin{align*}
+22-7-13&=2,\\2\cdot22+3(-13)&=44-39=5,\\3\cdot22+2(-7)+4(-13)&=66-14-52=0.
+\end{align*}
+Las tres igualdades se cumplen. Los valores negativos no contradicen este ejercicio algebraico: aquí las incógnitas no representan cantidades de tabletas.
+\end{document}

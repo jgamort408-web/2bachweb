@@ -1,0 +1,782 @@
+{
+  "schemaVersion": 1,
+  "resources": [
+    {
+      "id": "recuperacion-t1-examen",
+      "title": "Recuperación T1 · Examen",
+      "path": "output/pdf/recuperacion-t1-examen.pdf",
+      "kind": "exam",
+      "topicId": "t01",
+      "tags": [
+        "recuperacion",
+        "trimestre-1",
+        "limites",
+        "derivadas",
+        "integrales",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "recuperacion-t1-soluciones",
+      "title": "Recuperación T1 · Soluciones",
+      "path": "output/pdf/recuperacion-t1-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t01",
+      "tags": [
+        "recuperacion",
+        "trimestre-1",
+        "limites",
+        "derivadas",
+        "integrales",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "recuperacion-t1-examen"
+    },
+    {
+      "id": "subida-nota-t1-general-examen",
+      "title": "Subida de nota T1 general · Examen",
+      "path": "output/pdf/subida-nota-t1-general-examen.pdf",
+      "kind": "exam",
+      "topicId": "t01",
+      "tags": [
+        "subida-de-nota",
+        "trimestre-1",
+        "limites",
+        "derivadas",
+        "integrales",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "subida-nota-t1-general-soluciones",
+      "title": "Subida de nota T1 general · Soluciones",
+      "path": "output/pdf/subida-nota-t1-general-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t01",
+      "tags": [
+        "subida-de-nota",
+        "trimestre-1",
+        "limites",
+        "derivadas",
+        "integrales",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "subida-nota-t1-general-examen"
+    },
+    {
+      "id": "sistemas-sels-i-examen",
+      "title": "Sistemas de ecuaciones I · Examen",
+      "path": "output/pdf/sistemas-sels-i-examen.pdf",
+      "kind": "exam",
+      "topicId": "t05",
+      "tags": [
+        "sistemas",
+        "matrices",
+        "parametros",
+        "modelizacion",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "sistemas-sels-i-soluciones",
+      "title": "Sistemas de ecuaciones I · Soluciones",
+      "path": "output/pdf/sistemas-sels-i-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t05",
+      "tags": [
+        "sistemas",
+        "matrices",
+        "parametros",
+        "modelizacion",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "sistemas-sels-i-examen"
+    },
+    {
+      "id": "sistemas-sels-ii-examen",
+      "title": "Sistemas de ecuaciones II · Examen",
+      "path": "output/pdf/sistemas-sels-ii-examen.pdf",
+      "kind": "exam",
+      "topicId": "t05",
+      "tags": [
+        "sistemas",
+        "matrices",
+        "parametros",
+        "logistica",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "sistemas-sels-ii-soluciones",
+      "title": "Sistemas de ecuaciones II · Soluciones",
+      "path": "output/pdf/sistemas-sels-ii-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t05",
+      "tags": [
+        "sistemas",
+        "matrices",
+        "parametros",
+        "logistica",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "sistemas-sels-ii-examen"
+    },
+    {
+      "id": "programacion-lineal-i-examen",
+      "title": "Programación lineal I · Examen",
+      "path": "output/pdf/programacion-lineal-i-examen.pdf",
+      "kind": "exam",
+      "topicId": "t06",
+      "tags": [
+        "programacion-lineal",
+        "optatividad",
+        "regiones-factibles",
+        "optimizacion",
+        "frontera-estricta",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "programacion-lineal-i-soluciones",
+      "title": "Programación lineal I · Soluciones",
+      "path": "output/pdf/programacion-lineal-i-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t06",
+      "tags": [
+        "programacion-lineal",
+        "optatividad",
+        "regiones-factibles",
+        "optimizacion",
+        "frontera-estricta",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "programacion-lineal-i-examen"
+    },
+    {
+      "id": "programacion-lineal-ii-examen",
+      "title": "Programación lineal II · Examen",
+      "path": "output/pdf/programacion-lineal-ii-examen.pdf",
+      "kind": "exam",
+      "topicId": "t06",
+      "tags": [
+        "programacion-lineal",
+        "formulacion",
+        "regiones-factibles",
+        "optimizacion",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "programacion-lineal-ii-soluciones",
+      "title": "Programación lineal II · Soluciones",
+      "path": "output/pdf/programacion-lineal-ii-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t06",
+      "tags": [
+        "programacion-lineal",
+        "formulacion",
+        "regiones-factibles",
+        "optimizacion",
+        "revisado",
+        "anexo-frutos-rojos"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "programacion-lineal-ii-examen"
+    },
+    {
+      "id": "matrices-i-examen",
+      "title": "Matrices I · Examen",
+      "path": "output/pdf/matrices-i-examen.pdf",
+      "kind": "exam",
+      "topicId": "t04",
+      "tags": [
+        "matrices",
+        "inversa",
+        "ecuaciones-matriciales",
+        "dimensiones",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "matrices-i-soluciones",
+      "title": "Matrices I · Soluciones elaboradas y revisadas",
+      "path": "output/pdf/matrices-i-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t04",
+      "tags": [
+        "matrices",
+        "inversa",
+        "ecuaciones-matriciales",
+        "dimensiones",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "matrices-i-examen"
+    },
+    {
+      "id": "matrices-ii-examen",
+      "title": "Matrices II · Examen",
+      "path": "output/pdf/matrices-ii-examen.pdf",
+      "kind": "exam",
+      "topicId": "t04",
+      "tags": [
+        "matrices",
+        "inversa",
+        "ecuaciones-matriciales",
+        "dimensiones",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "matrices-ii-soluciones",
+      "title": "Matrices II · Soluciones elaboradas y revisadas",
+      "path": "output/pdf/matrices-ii-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t04",
+      "tags": [
+        "matrices",
+        "inversa",
+        "ecuaciones-matriciales",
+        "dimensiones",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "matrices-ii-examen"
+    },
+    {
+      "id": "matrices-iii-examen",
+      "title": "Matrices III · Examen",
+      "path": "output/pdf/matrices-iii-examen.pdf",
+      "kind": "exam",
+      "topicId": "t04",
+      "tags": [
+        "matrices",
+        "ecuaciones-matriciales",
+        "potencias",
+        "dimensiones",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "matrices-iii-soluciones",
+      "title": "Matrices III · Soluciones elaboradas y revisadas",
+      "path": "output/pdf/matrices-iii-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t04",
+      "tags": [
+        "matrices",
+        "ecuaciones-matriciales",
+        "potencias",
+        "dimensiones",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "matrices-iii-examen"
+    },
+    {
+      "id": "funciones-variante-examen",
+      "title": "Funciones: variante · Examen",
+      "path": "output/pdf/funciones-variante-examen.pdf",
+      "kind": "exam",
+      "topicId": "t02",
+      "tags": [
+        "funciones",
+        "limites",
+        "derivadas",
+        "representacion",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "funciones-variante-soluciones",
+      "title": "Funciones: variante · Soluciones elaboradas y revisadas",
+      "path": "output/pdf/funciones-variante-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t02",
+      "tags": [
+        "funciones",
+        "limites",
+        "derivadas",
+        "representacion",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "funciones-variante-examen"
+    },
+    {
+      "id": "funciones-principal-examen",
+      "title": "Funciones: examen principal · Examen",
+      "path": "output/pdf/funciones-principal-examen.pdf",
+      "kind": "exam",
+      "topicId": "t02",
+      "tags": [
+        "funciones",
+        "limites",
+        "derivadas",
+        "representacion",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "funciones-principal-soluciones",
+      "title": "Funciones: examen principal · Soluciones elaboradas y revisadas",
+      "path": "output/pdf/funciones-principal-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t02",
+      "tags": [
+        "funciones",
+        "limites",
+        "derivadas",
+        "representacion",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "funciones-principal-examen"
+    },
+    {
+      "id": "limites-derivadas-examen",
+      "title": "Límites y derivadas · Examen",
+      "path": "output/pdf/limites-derivadas-examen.pdf",
+      "kind": "exam",
+      "topicId": "t01",
+      "tags": [
+        "limites",
+        "derivadas",
+        "tangente",
+        "normal",
+        "modelo-asintotico",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "limites-derivadas-soluciones",
+      "title": "Límites y derivadas · Soluciones elaboradas y revisadas",
+      "path": "output/pdf/limites-derivadas-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t01",
+      "tags": [
+        "limites",
+        "derivadas",
+        "tangente",
+        "normal",
+        "modelo-asintotico",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "limites-derivadas-examen"
+    },
+    {
+      "id": "distribuciones-i-examen",
+      "title": "Distribuciones I · Examen revisado",
+      "path": "output/pdf/distribuciones-i-examen.pdf",
+      "kind": "exam",
+      "topicId": "t08",
+      "tags": [
+        "binomial",
+        "normal",
+        "correccion-continuidad",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "distribuciones-i-soluciones",
+      "title": "Distribuciones I · Soluciones revisado",
+      "path": "output/pdf/distribuciones-i-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t08",
+      "tags": [
+        "binomial",
+        "normal",
+        "correccion-continuidad",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "distribuciones-i-examen"
+    },
+    {
+      "id": "distribuciones-ii-examen",
+      "title": "Distribuciones II · Examen revisado",
+      "path": "output/pdf/distribuciones-ii-examen.pdf",
+      "kind": "exam",
+      "topicId": "t08",
+      "tags": [
+        "binomial",
+        "normal",
+        "correccion-continuidad",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "distribuciones-ii-soluciones",
+      "title": "Distribuciones II · Soluciones revisado",
+      "path": "output/pdf/distribuciones-ii-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t08",
+      "tags": [
+        "binomial",
+        "normal",
+        "correccion-continuidad",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "distribuciones-ii-examen"
+    },
+    {
+      "id": "probabilidad-i-examen",
+      "title": "Probabilidad I · Examen revisado",
+      "path": "output/pdf/probabilidad-i-examen.pdf",
+      "kind": "exam",
+      "topicId": "t07",
+      "tags": [
+        "probabilidad-condicionada",
+        "probabilidad-total",
+        "bayes",
+        "independencia",
+        "optatividad",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "probabilidad-i-soluciones",
+      "title": "Probabilidad I · Soluciones revisado",
+      "path": "output/pdf/probabilidad-i-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t07",
+      "tags": [
+        "probabilidad-condicionada",
+        "probabilidad-total",
+        "bayes",
+        "independencia",
+        "optatividad",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "probabilidad-i-examen"
+    },
+    {
+      "id": "probabilidad-ii-examen",
+      "title": "Probabilidad II · Examen revisado",
+      "path": "output/pdf/probabilidad-ii-examen.pdf",
+      "kind": "exam",
+      "topicId": "t07",
+      "tags": [
+        "probabilidad-condicionada",
+        "probabilidad-total",
+        "bayes",
+        "independencia",
+        "optatividad",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "probabilidad-ii-soluciones",
+      "title": "Probabilidad II · Soluciones revisado",
+      "path": "output/pdf/probabilidad-ii-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t07",
+      "tags": [
+        "probabilidad-condicionada",
+        "probabilidad-total",
+        "bayes",
+        "independencia",
+        "optatividad",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "probabilidad-ii-examen"
+    },
+    {
+      "id": "recuperacion-inferencia-examen",
+      "title": "Recuperación y repaso · Examen revisado",
+      "path": "output/pdf/recuperacion-inferencia-examen.pdf",
+      "kind": "exam",
+      "topicId": "t09",
+      "tags": [
+        "inferencia",
+        "probabilidad",
+        "programacion-lineal",
+        "analisis",
+        "matrices",
+        "recuperacion",
+        "evaluacion-por-aclarar",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "recuperacion-inferencia-soluciones",
+      "title": "Recuperación y repaso · Soluciones revisadas y completadas",
+      "path": "output/pdf/recuperacion-inferencia-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t09",
+      "tags": [
+        "inferencia",
+        "probabilidad",
+        "programacion-lineal",
+        "analisis",
+        "matrices",
+        "recuperacion",
+        "evaluacion-por-aclarar",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "recuperacion-inferencia-examen"
+    },
+    {
+      "id": "inferencia-i-examen",
+      "title": "Inferencia I · Examen revisado",
+      "path": "output/pdf/inferencia-i-examen.pdf",
+      "kind": "exam",
+      "topicId": "t09",
+      "tags": [
+        "inferencia",
+        "proporciones",
+        "intervalos-confianza",
+        "tamano-muestral",
+        "afijacion-proporcional",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "inferencia-i-soluciones",
+      "title": "Inferencia I · Soluciones revisadas",
+      "path": "output/pdf/inferencia-i-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t09",
+      "tags": [
+        "inferencia",
+        "proporciones",
+        "intervalos-confianza",
+        "tamano-muestral",
+        "afijacion-proporcional",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "inferencia-i-examen"
+    },
+    {
+      "id": "inferencia-ii-examen",
+      "title": "Inferencia II · Examen revisado",
+      "path": "output/pdf/inferencia-ii-examen.pdf",
+      "kind": "exam",
+      "topicId": "t09",
+      "tags": [
+        "inferencia",
+        "proporciones",
+        "intervalos-confianza",
+        "tamano-muestral",
+        "afijacion-proporcional",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "inferencia-ii-soluciones",
+      "title": "Inferencia II · Soluciones revisadas",
+      "path": "output/pdf/inferencia-ii-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t09",
+      "tags": [
+        "inferencia",
+        "proporciones",
+        "intervalos-confianza",
+        "tamano-muestral",
+        "afijacion-proporcional",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "inferencia-ii-examen"
+    },
+    {
+      "id": "inferencia-recopilacion-examen",
+      "title": "Inferencia · Recopilación I y II · Examen revisado",
+      "path": "output/pdf/inferencia-recopilacion-examen.pdf",
+      "kind": "exam",
+      "topicId": "t09",
+      "tags": [
+        "inferencia",
+        "proporciones",
+        "intervalos-confianza",
+        "tamano-muestral",
+        "recopilacion",
+        "evaluacion-por-aclarar",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "inferencia-recopilacion-soluciones",
+      "title": "Inferencia · Recopilación I y II · Soluciones revisadas",
+      "path": "output/pdf/inferencia-recopilacion-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t09",
+      "tags": [
+        "inferencia",
+        "proporciones",
+        "intervalos-confianza",
+        "tamano-muestral",
+        "recopilacion",
+        "evaluacion-por-aclarar",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "inferencia-recopilacion-examen"
+    },
+    {
+      "id": "inferencia-general-examen",
+      "title": "Inferencia · Examen general · Examen revisado",
+      "path": "output/pdf/inferencia-general-examen.pdf",
+      "kind": "exam",
+      "topicId": "t09",
+      "tags": [
+        "inferencia",
+        "proporciones",
+        "intervalos-confianza",
+        "tamano-muestral",
+        "gasto",
+        "precision-de-extremos",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "inferencia-general-soluciones",
+      "title": "Inferencia · Examen general · Soluciones revisadas",
+      "path": "output/pdf/inferencia-general-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t09",
+      "tags": [
+        "inferencia",
+        "proporciones",
+        "intervalos-confianza",
+        "tamano-muestral",
+        "gasto",
+        "precision-de-extremos",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "inferencia-general-examen"
+    },
+    {
+      "id": "repaso-analisis-examen",
+      "title": "Repaso de Análisis · Exámenes 1 y 2 · Enunciados revisados",
+      "path": "output/pdf/repaso-analisis-examen.pdf",
+      "kind": "exam",
+      "topicId": "t01",
+      "tags": [
+        "limites",
+        "derivadas",
+        "funciones",
+        "temperatura",
+        "datos-por-aclarar",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "repaso-analisis-soluciones",
+      "title": "Repaso de Análisis · Exámenes 1 y 2 · Soluciones revisadas",
+      "path": "output/pdf/repaso-analisis-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t01",
+      "tags": [
+        "limites",
+        "derivadas",
+        "funciones",
+        "temperatura",
+        "datos-por-aclarar",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "repaso-analisis-examen"
+    },
+    {
+      "id": "examen-final-examen",
+      "title": "Examen final · Enunciados revisados",
+      "path": "output/pdf/examen-final-examen.pdf",
+      "kind": "exam",
+      "topicId": "t03",
+      "tags": [
+        "funciones",
+        "integrales",
+        "area-por-tramos",
+        "tangente",
+        "anexo-no-evaluable",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "examen-final-soluciones",
+      "title": "Examen final · Soluciones elaboradas y verificadas",
+      "path": "output/pdf/examen-final-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t03",
+      "tags": [
+        "funciones",
+        "integrales",
+        "area-por-tramos",
+        "tangente",
+        "anexo-no-evaluable",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "examen-final-examen"
+    },
+    {
+      "id": "subida-nota-curso-examen",
+      "title": "Subida de nota de curso · Examen revisado",
+      "path": "output/pdf/subida-nota-curso-examen.pdf",
+      "kind": "exam",
+      "topicId": "t01",
+      "tags": [
+        "subida-nota",
+        "funciones",
+        "programacion-lineal",
+        "probabilidad",
+        "inferencia",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "subida-nota-curso-soluciones",
+      "title": "Subida de nota de curso · Soluciones revisadas",
+      "path": "output/pdf/subida-nota-curso-soluciones.pdf",
+      "kind": "solution",
+      "topicId": "t01",
+      "tags": [
+        "subida-nota",
+        "funciones",
+        "programacion-lineal",
+        "probabilidad",
+        "inferencia",
+        "revisado"
+      ],
+      "reviewStatus": "reviewed",
+      "examId": "subida-nota-curso-examen"
+    }
+  ]
+}

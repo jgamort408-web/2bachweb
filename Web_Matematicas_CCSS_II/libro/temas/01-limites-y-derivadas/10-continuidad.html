@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.10. Continuidad · Matemáticas CCSS II</title>
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t01-e10">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main">
+    <h1 data-content-role="lesson-title">1.10. Continuidad</h1>
+    <p class="lead" data-content-role="introduction">Un límite describe lo que ocurre cerca de un punto. La continuidad exige, además, que ese comportamiento coincida con el valor de la función en el punto.</p>
+    <div class="learning-goals"><p data-content-role="objectives"><strong>Al terminar podrás:</strong> comprobar continuidad, clasificar discontinuidades y ajustar parámetros en funciones a trozos.</p><p data-content-role="prerequisites"><strong>Antes:</strong> dominio, valor de una función y límites laterales. <a href="02-limites-laterales.html">Repasar los límites laterales</a>.</p></div>
+    <section data-content-role="definition">
+      <h2>1. Tres comprobaciones distintas</h2>
+      <div class="definition"><p>En un punto interior \(a\) del dominio, \(f\) es <strong>continua</strong> cuando:</p><ol><li>Existe el valor \(f(a)\).</li><li>Existe un límite bilateral finito \(L=\lim_{x\to a}f(x)\).</li><li>Ambos coinciden: \(L=f(a)\).</li></ol><p>\[\lim_{x\to a^-}f(x)=\lim_{x\to a^+}f(x)=f(a).\]</p></div>
+      <p>Una gráfica sin cortes ayuda a imaginar la continuidad, pero la comprobación se hace con estas condiciones. Que exista \(f(a)\) no garantiza nada sobre los valores cercanos, y que exista el límite no asegura que la función esté definida en \(a\).</p>
+      <p>Por ejemplo, si \(f(x)=x+2\) para \(x\ne1\) y \(f(1)=7\), los dos laterales valen 3. El límite existe, pero \(3\ne7\): la función no es continua en 1.</p>
+    </section>
+    <section data-content-role="method">
+      <h2>2. Continuidad en dominios e intervalos</h2>
+      <p>Los polinomios son continuos en todo \(\mathbb R\). Un cociente de polinomios es continuo donde su denominador no se anula. Las raíces y los logaritmos se estudian dentro de sus dominios; no se exige continuidad en puntos donde no están definidos.</p>
+      <p>Así, \(1/(x-2)\) es continua en \((-\infty,2)\) y \((2,+\infty)\). El punto 2 queda excluido y es una singularidad infinita. No se puede afirmar que sea continua en un intervalo que incluya 2.</p>
+      <p>En un extremo del dominio solo se considera el lado por el que podemos acercarnos. Por ejemplo, \(\sqrt{x}\), con dominio \([0,+\infty)\), es continua en 0 desde la derecha porque \(\lim_{x\to0^+}\sqrt{x}=0=\sqrt0\).</p>
+      <p>Para ser continua en \([a,b]\), una función debe ser continua en \((a,b)\), continua por la derecha en \(a\) y por la izquierda en \(b\).</p>
+    </section>
+    <section data-content-role="comparison">
+      <h2>3. Qué falla: tipos de discontinuidad</h2>
+      <div class="table-scroll"><table><caption data-content-role="caption">Clasificación habitual en los ejercicios del curso</caption><thead><tr><th scope="col">Tipo</th><th scope="col">Qué ocurre</th><th scope="col">Ejemplo en 0</th></tr></thead><tbody>
+        <tr><th scope="row">Evitable</th><td>Existe un límite finito, pero el valor falta o es distinto. Basta definirlo o corregirlo.</td><td>\(f(x)=x\) si \(x\ne0\), \(f(0)=2\). Se repara con \(f(0)=0\).</td></tr>
+        <tr><th scope="row">Salto finito</th><td>Los laterales son finitos y diferentes. Cambiar solo el valor puntual no los iguala.</td><td>\(f(x)=0\) si \(x&lt;0\), \(f(x)=1\) si \(x\ge0\).</td></tr>
+        <tr><th scope="row">Infinita</th><td>Algún lateral diverge a \(+\infty\) o \(-\infty\).</td><td>\(f(x)=1/x\), con asíntota vertical en 0.</td></tr>
+      </tbody></table></div>
+      <p data-content-role="warning">Esta tabla recoge los casos principales del curso; también hay discontinuidades por oscilación. Un límite infinito no cuenta como un límite real finito para la continuidad.</p>
+      <p>En un modelo de tarifa, pasar de 10 € a 15 € al superar un umbral produce un salto de 5 €. El salto puede representar una decisión comercial real: no siempre es un error del modelo.</p>
+    </section>
+    <section id="ejemplos" data-content-role="worked-example">
+      <h2>4. Ajustar una unión con un parámetro</h2>
+      <p>\[f(x)=\begin{cases}x+1,&x&lt;2,\\kx-1,&x\ge2.\end{cases}\]</p>
+      <ol class="worked-steps"><li>Fuera de 2, cada rama es un polinomio y es continua.</li><li>El límite izquierdo en 2 es \(2+1=3\).</li><li>El límite derecho y el valor \(f(2)\) son \(2k-1\).</li><li>Imponemos \(3=2k-1\), por lo que \(k=2\). Con este valor, ambas ramas y el punto coinciden a altura 3.</li></ol>
+      <p>No basta con sustituir en una rama: el parámetro debe unir el comportamiento de las dos.</p>
+      <h3>Del examen local: primera parte de la pregunta 1(a)</h3>
+      <p>\[f(x)=\begin{cases}x^2+ax+2,&x\le0,\\\dfrac{x+b}{x-1},&x&gt;0.\end{cases}\]</p>
+      <p>El dominio es \(\mathbb R\setminus\{1\}\). En 0, \(f(0)=2\), el límite izquierdo es 2 y el derecho es \(-b\). Por tanto:</p>
+      <p>\[2=-b\quad\Longrightarrow\quad b=-2.\]</p>
+      <p>La continuidad en 0 no restringe \(a\), porque \(ax\to0\). La exigencia adicional de derivabilidad se resolverá en <a href="12-derivadas-laterales.html#examen">1.12</a>. En 1 la función sigue sin estar definida.</p>
+    </section>
+    <section id="practica" data-content-role="guided-practice">
+      <h2>5. Tu turno: reparar un hueco</h2>
+      <p>Sea \(g(x)=(x^2-9)/(x-3)\) si \(x\ne3\), y \(g(3)=c\). Determina \(c\) para que \(g\) sea continua en 3.</p>
+      <details data-content-role="hint"><summary>Pista 1</summary><p>Calcula el límite a partir de los valores con \(x\ne3\); no uses todavía \(c\).</p></details>
+      <details data-content-role="hint"><summary>Pista 2</summary><p>Factoriza \(x^2-9=(x-3)(x+3)\).</p></details>
+      <details data-content-role="solution"><summary>Solución razonada</summary><p>Fuera de 3, el cociente equivale a \(x+3\). Su límite es 6. La continuidad exige \(g(3)=6\), luego \(c=6\). Cualquier otro valor produciría una discontinuidad evitable.</p></details>
+      <div class="activity" data-content-role="self-check" data-quiz="t01-e10"></div>
+    </section>
+    <section data-content-role="summary"><h2>6. Resumen</h2><ul><li>Comprueba valor, límite y coincidencia.</li><li>En puntos de unión estudia los dos laterales; en extremos del dominio usa el lado permitido.</li><li>Igualar los laterales finitos permite ajustar parámetros; recuerda comprobar el valor puntual.</li></ul><p data-content-role="related-links"><a href="11-funcion-derivada.html">Continuar: del cambio medio al cambio instantáneo</a>.</p></section>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

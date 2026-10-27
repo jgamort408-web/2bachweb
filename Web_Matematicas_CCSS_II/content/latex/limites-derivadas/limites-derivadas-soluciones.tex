@@ -1,0 +1,122 @@
+\documentclass[11pt]{article}
+\input{estilo.tex}
+\hypersetup{pdftitle={Límites y derivadas - Soluciones revisadas}}
+\begin{document}
+\section*{Ejercicio 1: continuidad y derivabilidad}
+Solucionario elaborado en esta revisión a partir de F008. El original solo contiene comentarios parciales del ejercicio 4.
+
+En la unión $0$, $f(0)=2$. La rama racional tiene límite derecho $-b$, de modo que continuidad exige $b=-2$.
+\[f'(x)=\begin{cases}2x+a,&x<0,\\\dfrac{-1-b}{(x-1)^2},&x>0,\ x\neq1.\end{cases}\]
+Con $b=-2$, las derivadas laterales en $0$ son $a$ y $1$. Igualándolas:
+\[\boxed{a=1,\qquad b=-2}.\]
+Para estos parámetros, los cocientes incrementales respecto a $0$ son $h+1$ a la izquierda y $1/(1-h)$ a la derecha; ambos tienden a 1. El punto $x=1$ queda fuera del dominio, pero no afecta al estudio en $0$.
+\section*{Ejercicio 1(b,c): tangente y normal}
+Se utilizan los parámetros obtenidos en (a). En $2$ rige la rama racional:
+\[f(2)=0,\qquad f'(2)=1.\]
+La recta tangente pasa por $(2,0)$ y tiene pendiente 1:
+\[\boxed{y=x-2}.\]
+La normal pasa por el mismo punto y es perpendicular a ella. Su pendiente es $-1$:
+\[\boxed{y=-x+2}.\]
+\textbf{Comprobación:} ambas contienen $(2,0)$; el producto de sus pendientes es $-1$. El valor de $f'(2)$ confirma la pendiente tangente.
+\clearpage
+\section*{Ejercicio 2: derivadas (a--c)}
+Se muestran las seis respuestas para consulta. En el examen se eligen cuatro y solo se corrigen las cuatro primeras según orden de lectura, a 0,6 puntos cada una.
+\subsection*{(a) Cociente elevado al cubo}
+Sea $u=(3x^2-5)/(2x+3)$. Entonces
+\[u'=\frac{6x(2x+3)-2(3x^2-5)}{(2x+3)^2}=\frac{6x^2+18x+10}{(2x+3)^2}.\]
+Aplicando la regla de la cadena,
+\[\boxed{f'=\frac{3(3x^2-5)^2(6x^2+18x+10)}{(2x+3)^4}},\qquad x\neq-3/2.\]
+\subsection*{(b) Cuadrado del seno}
+\[\boxed{f'=2\sin x\cos x=\sin(2x)},\qquad x\in\mathbb R.\]
+Se deriva primero el cuadrado y después su función interior.
+\subsection*{(c) Cociente con denominador compuesto}
+\[f'=\frac{3x^2(x^2+4)^2-(x^3-4)\,4x(x^2+4)}{(x^2+4)^4}.\]
+Cancelando un factor positivo $x^2+4$,
+\[\boxed{f'=\frac{-x^4+12x^2+16x}{(x^2+4)^3}},\qquad x\in\mathbb R.\]
+El denominador no se anula para ningún valor real.
+\clearpage
+\section*{Ejercicio 2: derivadas (d--f)}
+\subsection*{(d) Exponencial compuesta}
+\[\boxed{f'=(6x-1)e^{3x^2-x+2}},\qquad x\in\mathbb R.\]
+Se conserva la exponencial y se multiplica por la derivada del exponente.
+\subsection*{(e) Coseno compuesto}
+\[\boxed{f'=-(2x+2)\sin(x^2+2x)},\qquad x\in\mathbb R.\]
+El signo negativo procede de la derivada del coseno.
+\subsection*{(f) Cociente con raíz y logaritmo}
+El denominador debe ser real y no nulo: $1+2\ln x>0$. Por tanto, el dominio es $x>e^{-1/2}$.
+\[f=x^2(1+2\ln x)^{-1/2}.\]
+Por producto y cadena,
+\begin{align*}
+f'&=2x(1+2\ln x)^{-1/2}-x(1+2\ln x)^{-3/2}\\
+&=\boxed{\frac{x(1+4\ln x)}{(1+2\ln x)^{3/2}}}.
+\end{align*}
+No basta con exigir $x>0$: la raíz del denominador impone la condición más restrictiva indicada.
+\clearpage
+\section*{Ejercicio 3: límites}
+Se muestran los seis. Se corrigen solo los cuatro primeros elegidos, según orden de lectura.
+\subsection*{(a) Racionalización}
+\[\frac{1-\sqrt{1-x^2}}{x^2}=\frac1{1+\sqrt{1-x^2}}\ \longrightarrow\ \boxed{\frac12}.\]
+\subsection*{(b) Exponencial frente a polinomio}
+La exponencial crece más rápido que cualquier potencia de $x$:
+\[3^x-x^5=3^x\left(1-\frac{x^5}{3^x}\right)\longrightarrow\boxed{+\infty}.\]
+\subsection*{(c) División por $x>0$}
+\[\frac{5x+7}{\sqrt{2x^2+3}}=\frac{5+7/x}{\sqrt{2+3/x^2}}\longrightarrow\boxed{\frac5{\sqrt2}}.\]
+\subsection*{(d) Potencia indeterminada}
+Para $x$ grande la base es positiva. Si $L_x=(1-1/x^2)^x$,
+\[\ln L_x=x\ln(1-1/x^2)\sim-1/x\longrightarrow0,\qquad\boxed{L_x\longrightarrow1}.\]
+\subsection*{(e) Denominador común}
+\[\frac7{x-4}-\frac{4x+12}{x(x-4)}=\frac{3x-12}{x(x-4)}=\frac3x\longrightarrow\boxed{\frac34}.\]
+La igualdad simplificada se usa para $x\neq4$, suficiente para calcular el límite.
+\subsection*{(f) Límites laterales distintos}
+$x^2-3x+2=(x-1)(x-2)$. Por la izquierda de 1, ambos factores son negativos; por la derecha tienen signos opuestos:
+\[\lim_{x\to1^-}f=+\infty,\qquad\lim_{x\to1^+}f=-\infty.\]
+El límite bilateral \textbf{no existe}, ni siquiera como un único infinito con signo.
+\clearpage
+\section*{Ejercicio 4: distancia del cohete}
+El tiempo físico cumple $t\geq0$. Al comenzar la fase final,
+\[D(0)=100\text{ miles de kilómetros}=\boxed{100\,000\text{ km}}.\]
+Después de dos horas,
+\[D(2)=\frac{100}{5}=20\text{ miles de kilómetros}=\boxed{20\,000\text{ km}}.\]
+Como $t^2+1\to+\infty$,
+\[\boxed{\lim_{t\to+\infty}D(t)=0}.\]
+\textbf{Corrección M14.} Para todo tiempo finito $t\geq0$,
+\[D(t)=\frac{100}{t^2+1}>0.\]
+El modelo se aproxima a la zona de aterrizaje, pero \textbf{nunca alcanza distancia cero en un tiempo finito}. No permite afirmar que el cohete aterrice ni calcular un instante de llegada. El comentario del original que deduce aterrizaje a partir del límite no es correcto.
+\begin{center}\begin{tikzpicture}\begin{axis}[revision,height=7cm,xmin=0,xmax=12,ymin=0,ymax=110,xtick={0,2,4,8,12},ytick={0,20,60,100},xlabel={Horas ($t$)},ylabel={Miles de kilómetros}]
+\addplot[thick,domain=0:12] {100/(x^2+1)};
+\addplot[only marks,mark=*] coordinates {(0,100) (2,20)};
+\end{axis}\end{tikzpicture}\end{center}
+La gráfica desciende y se aproxima al eje; no se añade un punto de impacto ficticio.
+\clearpage
+\section*{Anexo no evaluable: derivadas comentadas}
+Se conservan las seis alternativas comentadas del original, sin añadir puntos ni modificar las opciones activas. Se normalizan los delimitadores LaTeX dañados de la primera expresión.
+\subsection*{(a) $f=((x^2+2)/(4x+2))^2$}
+\[\boxed{f'=\frac{2(x^2+2)(4x^2+4x-8)}{(4x+2)^3}},\qquad x\neq-1/2.\]
+\subsection*{(b) $f=\sin^2 x$}
+\[\boxed{f'=2\sin x\cos x},\qquad x\in\mathbb R.\]
+\subsection*{(c) $f=(2-x^2)/(x^2+1)^3$}
+\[\boxed{f'=\frac{4x^3-14x}{(x^2+1)^4}},\qquad x\in\mathbb R.\]
+\subsection*{(d) $f=e^{x^2+2x-1}$}
+\[\boxed{f'=(2x+2)e^{x^2+2x-1}},\qquad x\in\mathbb R.\]
+\subsection*{(e) $f=\cos(x^2+3x)$}
+\[\boxed{f'=-(2x+3)\sin(x^2+3x)},\qquad x\in\mathbb R.\]
+\subsection*{(f) $f=x/\sqrt{1+x}$}
+\[\boxed{f'=\frac{x+2}{2(1+x)^{3/2}}},\qquad x>-1.\]
+Los dominios se respetan antes de simplificar; no se usan valores donde el denominador o la raíz impiden definir la función.
+\clearpage
+\section*{Anexo no evaluable: límites comentados}
+Se conservan los seis enunciados alternativos del original, con resultados comprobados.
+\subsection*{(a) $\displaystyle\lim_{x\to+\infty}(e^x-1)/x^5$}
+Domina la exponencial: el resultado es $\boxed{+\infty}$.
+\subsection*{(b) $\displaystyle\lim_{x\to+\infty}(2^x-x^4)$}
+Domina la exponencial: el resultado es $\boxed{+\infty}$.
+\subsection*{(c) $\displaystyle\lim_{x\to+\infty}(3x-5)/\sqrt{x^2+1}$}
+Al dividir por $x>0$ resulta $(3-5/x)/\sqrt{1+1/x^2}\to\boxed{3}$.
+\subsection*{(d) $\displaystyle\lim_{x\to-\infty}(1+2/x)^{(x^2+2)/x}$}
+La base es positiva para $x<-2$. El logaritmo de la expresión es
+\[(x+2/x)\ln(1+2/x)\longrightarrow2,\qquad\text{resultado: }\boxed{e^2}.\]
+\subsection*{(e) $\displaystyle\lim_{x\to3}\left(6/(x-3)-(3x+9)/(x^2-3x)\right)$}
+\[\frac{6x-3x-9}{x(x-3)}=\frac3x\longrightarrow\boxed{1}.\]
+\subsection*{(f) $\displaystyle\lim_{x\to2}1/(x^2-5x+6)$}
+El denominador es $(x-2)(x-3)$. Los límites izquierdo y derecho son $+\infty$ y $-\infty$, respectivamente; el bilateral \textbf{no existe}.
+\end{document}

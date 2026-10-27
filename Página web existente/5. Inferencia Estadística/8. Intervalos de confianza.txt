@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.9 Construcción del Intervalo de Confianza</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-body: #ecfdf5;        
+            --primary: #047857;        
+            --primary-dark: #064e3b;  
+            --secondary: #0f172a;     
+            --accent: #d97706;        
+            --accent-light: #fffbeb;
+            
+            --blueprint: #2563eb;     
+            --blueprint-bg: #eff6ff;
+
+            --text-main: #334155;
+            --text-light: #64748b;
+            
+            --radius: 8px;            
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+            background-image: radial-gradient(#047857 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; color: var(--secondary); line-height: 1.2; }
+        .container { max-width: 1000px; margin: 0 auto; }
+
+        /* HEADER */
+        .header-bar {
+            background: white;
+            padding: 1.5rem;
+            border-bottom: 4px solid var(--primary);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .header-num {
+            background: var(--primary);
+            color: white;
+            font-weight: 800;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 1.2rem;
+        }
+
+        /* TARJETAS */
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        /* TEORÍA Y ANALOGÍAS */
+        .theory-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        .analogy-box {
+            background: #f8fafc;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+        /* DESGLOSE FÓRMULA */
+        .formula-breakdown {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+        .math-pill {
+            background: var(--blueprint-bg);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            padding: 0.75rem 1.25rem;
+            border-radius: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 150px;
+        }
+        .math-pill-title { font-size: 0.75rem; text-transform: uppercase; color: var(--blueprint); font-weight: bold; letter-spacing: 0.5px; }
+
+        /* LAB INTERACTIVO */
+        .lab-header {
+            background: var(--secondary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--radius) var(--radius) 0 0;
+            margin: 0 -2.5rem 2rem -2.5rem;
+        }
+        
+        .app-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        /* GUÍA DE TAREAS */
+        .task-list {
+            list-style: none;
+            counter-reset: task-counter;
+            margin-top: 1.5rem;
+        }
+        .task-list li {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 1.5rem;
+            background: #f8fafc;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            padding-right: 1rem;
+            border-radius: var(--radius);
+            border: 1px dashed #cbd5e1;
+        }
+        .task-list li::before {
+            counter-increment: task-counter;
+            content: counter(task-counter);
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--accent);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* CONTROLES Y SLIDERS */
+        .control-group { margin-bottom: 1.25rem; }
+        .control-group label {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+            font-size: 0.95rem;
+        }
+        .val-display { color: var(--primary); font-family: 'JetBrains Mono', monospace; font-weight: bold; }
+        input[type=range] { width: 100%; accent-color: var(--primary); cursor: pointer; }
+        select {
+            width: 100%; padding: 0.6rem; border: 2px solid #e2e8f0; border-radius: 6px;
+            font-family: inherit; font-size: 0.95rem; color: var(--secondary); outline: none;
+        }
+        select:focus { border-color: var(--primary); }
+
+        /* SVG VISUALIZER */
+        .svg-container {
+            background: white; border: 2px solid #e2e8f0; border-radius: 8px; padding: 1.5rem 0; width: 100%; overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+        rect, line, circle, text { transition: all 0.3s ease-out; }
+
+        /* MEJORA 1: Efecto Halo para que el texto siempre sea legible sobre líneas grises */
+        .text-halo {
+            stroke: white;
+            stroke-width: 2.5px;
+            stroke-linejoin: round;
+            paint-order: stroke fill; /* Pinta el borde por DETRÁS del texto */
+        }
+
+        @media (max-width: 768px) {
+            .theory-grid, .app-grid { grid-template-columns: 1fr; }
+            body { padding: 1rem; }
+            .lab-header { margin: 0 -1.5rem 1.5rem -1.5rem; padding: 1rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        
+        <div class="header-bar">
+            <div class="header-num">5.9</div>
+            <div>
+                <h1 style="font-size: 1.5rem; margin: 0;">El Intervalo de Confianza</h1>
+                <span style="font-size: 0.9rem; color: var(--text-light);">Teoría, Construcción y Simulación</span>
+            </div>
+        </div>
+
+        <section class="card">
+            <h2>¿Qué es un Intervalo de Confianza?</h2>
+            <div class="theory-grid" style="margin-top: 1.5rem;">
+                <div>
+                    <p>En estadística, casi nunca podemos conocer la verdadera media de toda una población ($\mu$) porque sería infinito o muy caro medir a todo el mundo.</p>
+                    <p style="margin-top: 1rem;">Lo que hacemos es tomar una <strong>muestra</strong>, calcular su media ($\bar{x}$) y construir un "margen" alrededor de ella. A ese margen lo llamamos Intervalo de Confianza.</p>
+                </div>
+                <div class="analogy-box">
+                    <strong>🎣 La analogía de la red de pesca:</strong><br><br>
+                    Imagina que intentas pescar un pez invisible (la media poblacional). Lanzar un arpón es como intentar adivinar el número exacto: casi seguro fallarás.<br><br>
+                    El intervalo de confianza es como <strong>lanzar una red</strong>. Cuanto más grande sea la red (mayor nivel de confianza), más seguros estamos de atrapar al pez, pero menos precisos somos sobre en qué punto exacto de la red está.
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>La Anatomía de la Fórmula</h2>
+            <p style="margin-top: 1rem;">Un intervalo de confianza siempre tiene la estructura: <strong>Centro $\pm$ Error</strong>.</p>
+            
+            <div style="font-size: 1.5rem; text-align: center; margin: 1.5rem 0; padding: 1.5rem; background: var(--blueprint-bg); border-radius: 8px;">
+                $$IC = \left[ \bar{x} - z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}} , \bar{x} + z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}} \right]$$
+            </div>
+
+            <div class="formula-breakdown">
+                <div class="math-pill">
+                    <span class="math-pill-title">El Centro</span>
+                    <span style="font-size: 1.2rem; font-family: 'JetBrains Mono'; margin-top: 0.5rem;">$\bar{x}$</span>
+                    <span style="font-size: 0.8rem; color: var(--text-light); text-align: center; margin-top: 0.25rem;">La media de nuestra muestra. Es nuestro punto de anclaje.</span>
+                </div>
+                <div class="math-pill">
+                    <span class="math-pill-title">Confianza</span>
+                    <span style="font-size: 1.2rem; font-family: 'JetBrains Mono'; margin-top: 0.5rem;">$z_{\alpha/2}$</span>
+                    <span style="font-size: 0.8rem; color: var(--text-light); text-align: center; margin-top: 0.25rem;">Valor crítico de la tabla normal. Multiplica el error.</span>
+                </div>
+                <div class="math-pill">
+                    <span class="math-pill-title">Incertidumbre</span>
+                    <span style="font-size: 1.2rem; font-family: 'JetBrains Mono'; margin-top: 0.5rem;">$\sigma / \sqrt{n}$</span>
+                    <span style="font-size: 0.8rem; color: var(--text-light); text-align: center; margin-top: 0.25rem;">El error estándar. Disminuye si encuestamos a más gente ($n$).</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="card" style="padding-top: 0; overflow: hidden;">
+            <div class="lab-header">
+                <h2 style="color: white; margin: 0; font-size: 1.5rem;">🧪 Laboratorio Guiado</h2>
+                <span style="font-size: 0.9rem; opacity: 0.8;">Modifica los parámetros y observa cómo reacciona la "red de pesca".</span>
+            </div>
+
+            <div class="app-grid">
+                
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+                    <div class="control-group">
+                        <label><span>Media Muestral ($\bar{x}$)</span> <span class="val-display" id="val-xbar">100</span></label>
+                        <input type="range" id="xbar" min="50" max="150" step="1" value="100">
+                    </div>
+                    <div class="control-group">
+                        <label><span>Desv. Típica ($\sigma$)</span> <span class="val-display" id="val-sigma">15</span></label>
+                        <input type="range" id="sigma" min="1" max="40" step="1" value="15">
+                    </div>
+                    <div class="control-group">
+                        <label><span>Tamaño Muestra ($n$)</span> <span class="val-display" id="val-n">30</span></label>
+                        <input type="range" id="n" min="5" max="300" step="1" value="30">
+                    </div>
+                    <div class="control-group">
+                        <label><span>Nivel Confianza</span></label>
+                        <select id="confianza">
+                            <option value="1.645">90% (z = 1.645)</option>
+                            <option value="1.960" selected>95% (z = 1.96)</option>
+                            <option value="2.575">99% (z = 2.575)</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px dashed #cbd5e1;">
+                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: var(--secondary); text-align: center;">
+                            Error (E) = <span id="eq-e" style="color: var(--accent); font-weight: bold;">5.37</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="svg-container">
+                        <svg viewBox="0 0 200 110" width="100%" height="100%" id="viz-svg">
+                            <line x1="10" y1="70" x2="190" y2="70" stroke="#cbd5e1" stroke-width="2" />
+                            
+                            <line x1="50" y1="65" x2="50" y2="75" stroke="#94a3b8" stroke-width="1" />
+                            <text class="text-halo" x="50" y="88" text-anchor="middle" font-size="6" fill="#64748b" font-family="sans-serif">50</text>
+                            <line x1="100" y1="65" x2="100" y2="75" stroke="#94a3b8" stroke-width="1" />
+                            <text class="text-halo" x="100" y="88" text-anchor="middle" font-size="6" fill="#64748b" font-family="sans-serif">100</text>
+                            <line x1="150" y1="65" x2="150" y2="75" stroke="#94a3b8" stroke-width="1" />
+                            <text class="text-halo" x="150" y="88" text-anchor="middle" font-size="6" fill="#64748b" font-family="sans-serif">150</text>
+
+                            <rect id="svg-interval" x="94.63" y="60" width="10.74" height="20" fill="rgba(4, 120, 87, 0.15)" stroke="#047857" stroke-width="1.5" rx="2" />
+                            
+                            <circle id="svg-xbar" cx="100" cy="70" r="2.5" fill="#047857" />
+                            <text id="svg-xbar-text" class="text-halo" x="100" y="52" text-anchor="middle" font-size="6" font-weight="bold" fill="#047857" font-family="sans-serif">x̄</text>
+
+                            <text id="svg-lower-text" class="text-halo" x="94.63" y="100" font-size="6" font-weight="bold" fill="#0f172a" font-family="monospace">94.6</text>
+                            <text id="svg-upper-text" class="text-halo" x="105.37" y="100" font-size="6" font-weight="bold" fill="#0f172a" font-family="monospace">105.4</text>
+
+                            <g id="svg-error-group">
+                                <line id="svg-arrow-left" x1="100" y1="35" x2="94.63" y2="35" stroke="#d97706" stroke-width="1" marker-end="url(#arrow)" />
+                                <line id="svg-arrow-right" x1="100" y1="35" x2="105.37" y2="35" stroke="#d97706" stroke-width="1" marker-end="url(#arrow)" />
+                                <text id="svg-error-text" class="text-halo" x="100" y="30" text-anchor="middle" font-size="5" font-weight="bold" fill="#d97706" font-family="sans-serif">Amplitud (2·E)</text>
+                            </g>
+
+                            <defs>
+                                <marker id="arrow" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+                                    <polygon points="0 0, 6 2, 0 4" fill="#d97706" />
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+
+                    <ul class="task-list">
+                        <li>
+                            <strong>El poder de la información:</strong> Desliza el tamaño de la muestra ($n$) hacia la derecha. Observa cómo el intervalo se vuelve muy estrecho y preciso. Fíjate cómo los números se reubican para seguir siendo legibles.
+                        </li>
+                        <li>
+                            <strong>El precio de la seguridad:</strong> Cambia el Nivel de Confianza al 99%. La barra verde se hace más ancha indicando mayor margen de error.
+                        </li>
+                        <li>
+                            <strong>El caos poblacional:</strong> Aumenta la desviación típica ($\sigma$). Si los datos originales son muy dispersos, la incertidumbre se transfiere a tu intervalo.
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const elXbar = document.getElementById('xbar');
+        const elSigma = document.getElementById('sigma');
+        const elN = document.getElementById('n');
+        const elConfianza = document.getElementById('confianza');
+
+        const valXbar = document.getElementById('val-xbar');
+        const valSigma = document.getElementById('val-sigma');
+        const valN = document.getElementById('val-n');
+        const eqE = document.getElementById('eq-e');
+
+        const svgInterval = document.getElementById('svg-interval');
+        const svgXbar = document.getElementById('svg-xbar');
+        const svgXbarText = document.getElementById('svg-xbar-text');
+        const svgLowerText = document.getElementById('svg-lower-text');
+        const svgUpperText = document.getElementById('svg-upper-text');
+        const svgArrowLeft = document.getElementById('svg-arrow-left');
+        const svgArrowRight = document.getElementById('svg-arrow-right');
+        const svgErrorGroup = document.getElementById('svg-error-group');
+
+        function updateSimulation() {
+            const xbar = parseFloat(elXbar.value);
+            const sigma = parseFloat(elSigma.value);
+            const n = parseInt(elN.value);
+            const z = parseFloat(elConfianza.value);
+
+            const E = z * (sigma / Math.sqrt(n));
+            const lower = xbar - E;
+            const upper = xbar + E;
+            const width = Math.max(upper - lower, 0.5);
+
+            valXbar.textContent = xbar;
+            valSigma.textContent = sigma;
+            valN.textContent = n;
+            eqE.textContent = E.toFixed(2);
+
+            // Actualizar la caja del intervalo y la media
+            svgInterval.setAttribute('x', lower);
+            svgInterval.setAttribute('width', width);
+            svgXbar.setAttribute('cx', xbar);
+            svgXbarText.setAttribute('x', xbar);
+            
+            svgLowerText.textContent = lower.toFixed(1);
+            svgUpperText.textContent = upper.toFixed(1);
+
+            // MEJORA 2: Lógica dinámica de posicionamiento de texto para evitar solapamientos
+            if (width < 14) {
+                // Si el intervalo es muy pequeño, escalonamos los textos verticalmente y los centramos a su marca
+                svgLowerText.setAttribute('y', 106); // Baja un poco más
+                svgUpperText.setAttribute('y', 94);  // Sube un poco
+                svgLowerText.setAttribute('text-anchor', 'middle');
+                svgUpperText.setAttribute('text-anchor', 'middle');
+                svgLowerText.setAttribute('x', lower);
+                svgUpperText.setAttribute('x', upper);
+                
+                // Ocultar las flechas superiores porque se ven mal al estar todo tan apretado
+                svgErrorGroup.style.opacity = "0";
+            } else {
+                // Si hay espacio suficiente, los ponemos alineados horizontalmente pero anclados hacia fuera
+                svgLowerText.setAttribute('y', 100);
+                svgUpperText.setAttribute('y', 100);
+                svgLowerText.setAttribute('text-anchor', 'end'); // Escribe hacia la izquierda
+                svgUpperText.setAttribute('text-anchor', 'start'); // Escribe hacia la derecha
+                svgLowerText.setAttribute('x', lower - 1); // Separamos un pixel del borde
+                svgUpperText.setAttribute('x', upper + 1);
+                
+                // Mostrar las flechas
+                svgErrorGroup.style.opacity = "1";
+            }
+
+            // Actualizar flechas de error siempre, aunque estén invisibles (previene saltos al reaparecer)
+            svgArrowLeft.setAttribute('x1', xbar);
+            svgArrowLeft.setAttribute('x2', lower + 0.5);
+            svgArrowRight.setAttribute('x1', xbar);
+            svgArrowRight.setAttribute('x2', upper - 0.5);
+        }
+
+        elXbar.addEventListener('input', updateSimulation);
+        elSigma.addEventListener('input', updateSimulation);
+        elN.addEventListener('input', updateSimulation);
+        elConfianza.addEventListener('change', updateSimulation);
+
+        updateSimulation();
+    </script>
+</body>
+</html>

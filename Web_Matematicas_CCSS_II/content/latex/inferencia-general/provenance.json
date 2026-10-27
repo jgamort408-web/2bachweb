@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "pairId": "inferencia-general",
+  "edition": "1.0.0",
+  "reviewedAt": "2026-10-22",
+  "sources": [
+    {
+      "sourceId": "F013",
+      "zipPath": "Materiales y Recursos y Exámenes/BACH - 2º SOC - Inferencia Estadística.zip",
+      "zipSha256": "ee37bfc98c0aa745f771a01e3dc8c57470d9abae1a7f577c5ef492f8338e735d",
+      "entry": "main.tex",
+      "texSha256": "4a84fb9530a3a8c56618f7f3a7193fd5339bae15ae2e1cec2766bc9411dc4cf3"
+    }
+  ],
+  "assets": [
+    {
+      "path": "logo-al-andalus.png",
+      "sourceId": "F013",
+      "entry": "Logo AL-ANDALUS.png",
+      "sha256": "fc5e7e10f7e26a010d143235b9f2565d8be43ea19a49a0b0c633d51db587debf"
+    }
+  ],
+  "solutionOrigin": "Soluciones originales revisadas con cotejo de enunciados y desarrollos compartidos",
+  "preserved": {
+    "durationMinutes": 55,
+    "calculatorAllowed": true,
+    "exercisePoints": [
+      2.5,
+      2.5,
+      2.5,
+      2.5
+    ],
+    "partPoints": [
+      [
+        1.5,
+        1
+      ],
+      [
+        1.5,
+        1
+      ],
+      [
+        1.5,
+        1
+      ],
+      [
+        1.5,
+        1
+      ]
+    ],
+    "nominalPoints": 10.0,
+    "selectionRule": null,
+    "expressionPointsIncludedPerExercise": 0.5
+  },
+  "correspondences": [
+    {
+      "exercise": 1,
+      "reviewedPair": "inferencia-i",
+      "reviewedExercise": 1,
+      "statementMatches": true
+    },
+    {
+      "exercise": 2,
+      "reviewedPair": "inferencia-ii",
+      "reviewedExercise": 1,
+      "statementMatches": true
+    },
+    {
+      "exercise": 3,
+      "reviewedPair": "inferencia-i",
+      "reviewedExercise": 2,
+      "statementMatches": true
+    }
+  ],
+  "corrections": [
+    "M29",
+    "M30"
+  ],
+  "answers": {
+    "expense": {
+      "printedMean": "509/20",
+      "printedMargin": "49/50",
+      "tableSampleSize": 144,
+      "compatibleRoundedSizes": [
+        143,
+        144,
+        145
+      ],
+      "newMargin": 1.8600774665010515
+    }
+  }
+}
