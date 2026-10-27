@@ -52,7 +52,7 @@ Este es el **documento de entrada para cada sesión de trabajo** sobre la web. R
   - Si debe reflejar la identidad del centro (logo, colores institucionales; en los LaTeX aparece `logo-al-andalus.png`) o tener marca propia («Matemáticas en contexto · CCSS II»).
   - Dispositivo principal del alumnado (móvil, portátil, tablet) y uso en clase con proyector o pizarra digital.
   - Modo oscuro: sí, no o automático.
-- [ ] D02 · **Ronda 2, color y tipografía.** En curso: lienzo con propuestas A, B, C y la fusión D (A + C elegida); falta fijar tipografía y paleta de bloques. Mostrar 2–3 propuestas de paleta sobre una misma lección real (por ejemplo 7.1 Laplace): la de la especificación §11.2 (análisis azul, álgebra violeta, azar verde) y alternativas. Preguntar por la paleta de bloques temáticos, la de tipos de contenido (abajo) y por las tipografías (Plus Jakarta Sans + Outfit u otras; serif editorial para el cuerpo o sans).
+- [x] D02 · **Ronda 2, color y tipografía.** Fusión A + C: Outfit + Plus Jakarta Sans, bloques azul #2563EB, magenta #A21CAF y naranja #C2410C, cajas con fondo de color y acento discreto. Decisiones en DECISIONES_DISENO.md.
 - [ ] D03 · **Ronda 3, iconos, ilustraciones y movimiento.** Mostrar muestras de:
   - Iconografía: trazo fino (Lucide, Phosphor) frente a rellena o duotono; iconos propios para la materia.
   - Ilustraciones: lineal monocromo, plana con color del tema, isométrica o diagramas «de pizarra»; mascota sí/no.

@@ -2,7 +2,7 @@
 
 Registro de la consulta de diseño con el docente (fase 1 del [plan](../../../PLAN_WEB_OPERATIVA.md), tareas D01–D05). Cada decisión indica su fecha y ronda. Ninguna fase de implementación visual (2–5) empieza hasta que este documento esté completo y validado.
 
-Estado: **D01 cerrada · D02 en curso**.
+Estado: **D01 y D02 cerradas · D03 pendiente**.
 
 ## Ronda 1 · Identidad y referencias (D01, 27-10-2026)
 
@@ -36,7 +36,30 @@ Prototipos sobre la lección 7.1 en el lienzo «Mates CCSS II · Ronda 2 de dise
 | Color de bloque | **Acento discreto**: chip del tema, logotipo, práctica y gráficas; el resto neutro |
 | Cajas por tipo de contenido | **Con fondo de color** (estilo A): fondo suave y borde por rol; de C se toma el icono en pastilla |
 | Elementos de C que se incorporan en D | Icono en pastilla, barra de progreso por segmentos, fondo punteado en la práctica, representación gráfica junto a la pregunta, navegación en píldoras |
-| Pendiente | Tipografía (A: Outfit + Plus Jakarta Sans; C: Space Grotesk + Inter) y paleta de bloques (A: azul/violeta/verde; C: azul/magenta/naranja) |
+| Tipografía | **Outfit** (títulos, 600–700) + **Plus Jakarta Sans** (texto, 400/600/700); fórmulas con MathJax. Autoalojadas en woff2 (S02) |
+| Paleta de bloques | **Análisis #2563EB · Álgebra #A21CAF · Azar #C2410C** (propuesta C). El naranja de Azar no se confunde con el verde de «correcto» |
+
+### Tokens de partida acordados (ronda 2)
+
+| Token | Valor | Uso |
+|---|---|---|
+| Fondo | `#F7F8FC` | Superficie de página |
+| Papel | `#FFFFFF` | Paneles, cabecera, pie |
+| Texto | `#172033` | Párrafos y títulos |
+| Texto secundario | `#475569` | Metadatos y ayudas |
+| Acción principal | `#1D4ED8` | Botón «Comprobar», enlaces |
+| Análisis (T1–T3) | `#2563EB` · oscuro `#1D4ED8` · tinte `#DBEAFE` | Acento discreto del bloque |
+| Álgebra (T4–T6) | `#A21CAF` · oscuro `#86198F` · tinte `#FAE8FF` | Acento discreto del bloque |
+| Azar (T7–T9) | `#C2410C` · oscuro `#9A3412` · tinte `#FFEDD5` | Acento discreto del bloque |
+| Definición | fondo `#EFF4FF`, borde `#C7D7FE`, título `#1D4ED8` | Caja de teoría |
+| Método | fondo `#F5F3FF`, borde `#DDD6FE`, título `#5B21B6` | Caja de procedimiento |
+| Ejemplo resuelto | fondo `#ECFDF8`, borde `#A7E8D5`, título `#0F766E` | Caja de ejemplo |
+| Error frecuente | fondo `#FEF3C7`, borde `#FCD34D`, título `#92400E` | Caja de aviso |
+| Correcto | fondo `#ECFDF3`, texto `#065F46` | Feedback |
+| Incorrecto | fondo `#FEF2F2`, texto `#B91C1C` | Feedback |
+| Radios | 16 px cajas · 12 px controles · 9–10 px pastillas de icono | |
+
+Quedan por definir en S01 los equivalentes del modo oscuro y del modo proyector, y la comprobación automática de contraste de cada pareja.
 
 ## Ronda 3 · Iconos, ilustraciones y movimiento (D03)
 
