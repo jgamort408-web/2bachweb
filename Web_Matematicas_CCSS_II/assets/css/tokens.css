@@ -1,0 +1,303 @@
+/*
+ * Tokens de diseño de Mates CCSS II (fase 2, S01).
+ * Fuente de las decisiones: docs/diseno/DECISIONES_DISENO.md.
+ *
+ * Solo define variables: ninguna regla de este archivo cambia el aspecto por sí misma.
+ * Los colores del modo oscuro aparecen dos veces (preferencia del sistema y selector
+ * manual); tests/design-tokens.test.mjs comprueba que coinciden y que cada pareja de
+ * texto y fondo cumple el contraste WCAG 2.2 AA en ambos modos.
+ *
+ * Acento de bloque: data-block="analisis" | "algebra" | "azar" en <body> o en una sección.
+ */
+
+:root {
+  color-scheme: light;
+
+  /* Superficies y texto */
+  --mc-bg: #F7F8FC;
+  --mc-paper: #FFFFFF;
+  --mc-paper-2: #F1F5F9;
+  --mc-text: #172033;
+  --mc-text-2: #475569;
+  --mc-text-3: #334155;
+  --mc-border: #E2E8F0;
+  --mc-border-strong: #CBD5E1;
+  --mc-link: #1D4ED8;
+  --mc-link-hover: #1E3A8A;
+  --mc-focus: #1D4ED8;
+
+  /* Acción principal */
+  --mc-action: #1D4ED8;
+  --mc-action-hover: #1E40AF;
+  --mc-on-action: #FFFFFF;
+
+  /* Bloques temáticos: color, versión oscura para texto y tinte de fondo */
+  --mc-analisis: #2563EB;
+  --mc-analisis-dark: #1D4ED8;
+  --mc-analisis-tint: #DBEAFE;
+  --mc-algebra: #A21CAF;
+  --mc-algebra-dark: #86198F;
+  --mc-algebra-tint: #FAE8FF;
+  --mc-azar: #C2410C;
+  --mc-azar-dark: #9A3412;
+  --mc-azar-tint: #FFEDD5;
+
+  /* Tipos de contenido (data-content-role): fondo, borde, título y pastilla del icono */
+  --mc-theory-bg: #EFF4FF;
+  --mc-theory-border: #C7D7FE;
+  --mc-theory-title: #1D4ED8;
+  --mc-theory-pill: #DBE6FE;
+  --mc-method-bg: #F5F3FF;
+  --mc-method-border: #DDD6FE;
+  --mc-method-title: #5B21B6;
+  --mc-method-pill: #E9E3FF;
+  --mc-example-bg: #ECFDF8;
+  --mc-example-border: #A7E8D5;
+  --mc-example-title: #0F766E;
+  --mc-example-pill: #CFF5EA;
+  --mc-error-bg: #FEF3C7;
+  --mc-error-border: #FCD34D;
+  --mc-error-title: #92400E;
+  --mc-error-text: #422006;
+  --mc-error-pill: #FDE68A;
+  --mc-summary-title: #475569;
+  --mc-summary-pill: #E2E8F0;
+  --mc-exam-title: #854D0E;
+  --mc-exam-pill: #FEF08A;
+  --mc-extension-title: #BE185D;
+  --mc-extension-pill: #FCE7F3;
+
+  /* Feedback */
+  --mc-correct-bg: #ECFDF3;
+  --mc-correct-border: #BBF7D0;
+  --mc-correct-text: #065F46;
+  --mc-correct-mark: #15803D;
+  --mc-wrong-bg: #FEF2F2;
+  --mc-wrong-border: #FECACA;
+  --mc-wrong-text: #7F1D1D;
+  --mc-wrong-mark: #B91C1C;
+
+  /* Panel oscuro de valores en laboratorios */
+  --mc-readout-bg: #172033;
+  --mc-readout-text: #FFFFFF;
+  --mc-readout-muted: #CBD5E1;
+
+  /* Tipografía */
+  --mc-font-body: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mc-font-heading: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --mc-text-sm: 0.9375rem;
+  --mc-text-body: clamp(1.0625rem, 1rem + 0.25vw, 1.125rem);
+  --mc-text-lead: clamp(1.1875rem, 1.05rem + 0.5vw, 1.3125rem);
+  --mc-h3: clamp(1.25rem, 1.15rem + 0.4vw, 1.375rem);
+  --mc-h2: clamp(1.375rem, 1.2rem + 0.75vw, 1.625rem);
+  --mc-h1: clamp(2rem, 1.4rem + 2.4vw, 2.875rem);
+  --mc-display: clamp(2.125rem, 1.3rem + 3.4vw, 3.5rem);
+  --mc-leading: 1.65;
+  --mc-leading-tight: 1.15;
+  --mc-measure: 72ch;
+
+  /* Espaciado 4/8/12/16/24/32/48 y radios */
+  --mc-space-1: 0.25rem;
+  --mc-space-2: 0.5rem;
+  --mc-space-3: 0.75rem;
+  --mc-space-4: 1rem;
+  --mc-space-5: 1.5rem;
+  --mc-space-6: 2rem;
+  --mc-space-7: 3rem;
+  --mc-radius-pill: 9px;
+  --mc-radius-control: 12px;
+  --mc-radius-box: 16px;
+  --mc-radius-full: 999px;
+  --mc-border-width: 1px;
+  --mc-target: 44px;
+  --mc-shadow-1: 0 1px 2px rgba(23, 32, 51, 0.06);
+
+  /* Movimiento moderado (ronda 3) */
+  --mc-duration-fast: 150ms;
+  --mc-duration-base: 250ms;
+  --mc-duration-slow: 420ms;
+  --mc-duration-draw: 900ms;
+  --mc-ease-out: cubic-bezier(0.2, 0.7, 0.3, 1);
+  --mc-ease-spring: cubic-bezier(0.2, 0.8, 0.3, 1.2);
+  --mc-rise: 10px;
+
+  /* Acento del bloque activo: análisis por defecto */
+  --mc-accent: var(--mc-analisis);
+  --mc-accent-dark: var(--mc-analisis-dark);
+  --mc-accent-tint: var(--mc-analisis-tint);
+}
+
+[data-block="analisis"] { --mc-accent: var(--mc-analisis); --mc-accent-dark: var(--mc-analisis-dark); --mc-accent-tint: var(--mc-analisis-tint); }
+[data-block="algebra"] { --mc-accent: var(--mc-algebra); --mc-accent-dark: var(--mc-algebra-dark); --mc-accent-tint: var(--mc-algebra-tint); }
+[data-block="azar"] { --mc-accent: var(--mc-azar); --mc-accent-dark: var(--mc-azar-dark); --mc-accent-tint: var(--mc-azar-tint); }
+
+/* Modo oscuro automático, salvo que el usuario haya elegido claro. Mismo bloque que el manual. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --mc-bg: #0E1422;
+    --mc-paper: #161F31;
+    --mc-paper-2: #1E293B;
+    --mc-text: #E7EBF3;
+    --mc-text-2: #A9B3C4;
+    --mc-text-3: #C8D0DC;
+    --mc-border: #2A3750;
+    --mc-border-strong: #3B4A66;
+    --mc-link: #8CB8FF;
+    --mc-link-hover: #B9D3FF;
+    --mc-focus: #8CB8FF;
+    --mc-action: #5B9BFF;
+    --mc-action-hover: #7DB0FF;
+    --mc-on-action: #0B1220;
+    --mc-analisis: #6FA6FF;
+    --mc-analisis-dark: #A8C8FF;
+    --mc-analisis-tint: #1B2B4C;
+    --mc-algebra: #E58BF0;
+    --mc-algebra-dark: #F2B8F7;
+    --mc-algebra-tint: #3A1E44;
+    --mc-azar: #FB9A5E;
+    --mc-azar-dark: #FDBA8C;
+    --mc-azar-tint: #3D2416;
+    --mc-theory-bg: #15223B;
+    --mc-theory-border: #29406B;
+    --mc-theory-title: #9EC2FF;
+    --mc-theory-pill: #20345A;
+    --mc-method-bg: #1F1A38;
+    --mc-method-border: #3B3268;
+    --mc-method-title: #C8B9FF;
+    --mc-method-pill: #2E2654;
+    --mc-example-bg: #0F2A27;
+    --mc-example-border: #1E5249;
+    --mc-example-title: #6EE7C8;
+    --mc-example-pill: #173F39;
+    --mc-error-bg: #33260B;
+    --mc-error-border: #6B5013;
+    --mc-error-title: #FCD34D;
+    --mc-error-text: #FBEBC0;
+    --mc-error-pill: #4A3812;
+    --mc-summary-title: #C8D0DC;
+    --mc-summary-pill: #2A3750;
+    --mc-exam-title: #FDE68A;
+    --mc-exam-pill: #3F3410;
+    --mc-extension-title: #F9A8D4;
+    --mc-extension-pill: #4A1D33;
+    --mc-correct-bg: #0E2C1E;
+    --mc-correct-border: #1D5A3B;
+    --mc-correct-text: #8EF0B4;
+    --mc-correct-mark: #4ADE80;
+    --mc-wrong-bg: #361314;
+    --mc-wrong-border: #6E2A2A;
+    --mc-wrong-text: #FFB4B4;
+    --mc-wrong-mark: #F87171;
+    --mc-readout-bg: #0B1220;
+    --mc-readout-text: #FFFFFF;
+    --mc-readout-muted: #A9B3C4;
+    --mc-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Modo oscuro elegido en el selector: debe repetir exactamente el bloque anterior. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --mc-bg: #0E1422;
+  --mc-paper: #161F31;
+  --mc-paper-2: #1E293B;
+  --mc-text: #E7EBF3;
+  --mc-text-2: #A9B3C4;
+  --mc-text-3: #C8D0DC;
+  --mc-border: #2A3750;
+  --mc-border-strong: #3B4A66;
+  --mc-link: #8CB8FF;
+  --mc-link-hover: #B9D3FF;
+  --mc-focus: #8CB8FF;
+  --mc-action: #5B9BFF;
+  --mc-action-hover: #7DB0FF;
+  --mc-on-action: #0B1220;
+  --mc-analisis: #6FA6FF;
+  --mc-analisis-dark: #A8C8FF;
+  --mc-analisis-tint: #1B2B4C;
+  --mc-algebra: #E58BF0;
+  --mc-algebra-dark: #F2B8F7;
+  --mc-algebra-tint: #3A1E44;
+  --mc-azar: #FB9A5E;
+  --mc-azar-dark: #FDBA8C;
+  --mc-azar-tint: #3D2416;
+  --mc-theory-bg: #15223B;
+  --mc-theory-border: #29406B;
+  --mc-theory-title: #9EC2FF;
+  --mc-theory-pill: #20345A;
+  --mc-method-bg: #1F1A38;
+  --mc-method-border: #3B3268;
+  --mc-method-title: #C8B9FF;
+  --mc-method-pill: #2E2654;
+  --mc-example-bg: #0F2A27;
+  --mc-example-border: #1E5249;
+  --mc-example-title: #6EE7C8;
+  --mc-example-pill: #173F39;
+  --mc-error-bg: #33260B;
+  --mc-error-border: #6B5013;
+  --mc-error-title: #FCD34D;
+  --mc-error-text: #FBEBC0;
+  --mc-error-pill: #4A3812;
+  --mc-summary-title: #C8D0DC;
+  --mc-summary-pill: #2A3750;
+  --mc-exam-title: #FDE68A;
+  --mc-exam-pill: #3F3410;
+  --mc-extension-title: #F9A8D4;
+  --mc-extension-pill: #4A1D33;
+  --mc-correct-bg: #0E2C1E;
+  --mc-correct-border: #1D5A3B;
+  --mc-correct-text: #8EF0B4;
+  --mc-correct-mark: #4ADE80;
+  --mc-wrong-bg: #361314;
+  --mc-wrong-border: #6E2A2A;
+  --mc-wrong-text: #FFB4B4;
+  --mc-wrong-mark: #F87171;
+  --mc-readout-bg: #0B1220;
+  --mc-readout-text: #FFFFFF;
+  --mc-readout-muted: #A9B3C4;
+  --mc-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Preferencia «Aumentar contraste» (assets/js/core/preferences.js): negro sobre blanco
+   en cualquier modo. Va después del oscuro para prevalecer con la misma especificidad. */
+:root[data-contrast="true"] {
+  color-scheme: light;
+  --mc-bg: #FFFFFF;
+  --mc-paper: #FFFFFF;
+  --mc-paper-2: #FFFFFF;
+  --mc-text: #000000;
+  --mc-text-2: #1F2937;
+  --mc-text-3: #000000;
+  --mc-border: #000000;
+  --mc-border-strong: #000000;
+  --mc-link: #00266E;
+  --mc-link-hover: #000000;
+  --mc-focus: #000000;
+  --mc-action: #00266E;
+  --mc-action-hover: #000000;
+  --mc-on-action: #FFFFFF;
+  --mc-border-width: 2px;
+}
+
+/* Modo proyector: texto y trazos más grandes para leer desde el fondo del aula. */
+:root[data-presentation="true"] {
+  --mc-text-body: 1.375rem;
+  --mc-text-lead: 1.5rem;
+  --mc-text-sm: 1.125rem;
+  --mc-h1: 3.25rem;
+  --mc-h2: 2rem;
+  --mc-h3: 1.625rem;
+  --mc-border-width: 2px;
+  --mc-measure: 60ch;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --mc-duration-fast: 0ms;
+    --mc-duration-base: 0ms;
+    --mc-duration-slow: 0ms;
+    --mc-duration-draw: 0ms;
+    --mc-rise: 0px;
+  }
+}

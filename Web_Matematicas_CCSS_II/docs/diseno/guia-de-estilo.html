@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guía de estilo · Mates CCSS II</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <style>
+    /* Solo para maquetar esta guía; los componentes viven en assets/css/components.css. */
+    .guide { max-width: 72rem; margin: 0 auto; padding: 2rem 1rem 4rem; }
+    .guide > section { margin-block: 3rem; }
+    .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: 1rem; }
+    .guide-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+    .swatch { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.875rem; }
+    .swatch > span:first-child { height: 3.5rem; border-radius: 12px; border: 1px solid var(--mc-border); }
+    .icon-cell { display: flex; flex-direction: column; align-items: center; gap: 0.375rem; font-size: 0.8125rem; color: var(--mc-text-2); text-align: center; }
+    .theme-switch { position: sticky; top: 0; z-index: 5; display: flex; gap: 0.5rem; flex-wrap: wrap; padding: 0.75rem 0; background: var(--mc-bg); }
+  </style>
+</head>
+<body class="mc-skin" data-block="azar">
+  <main class="guide">
+    <h1>Guía de estilo</h1>
+    <p class="mc-lead">Componentes de la fase 2 con los tokens acordados en la consulta de diseño. Página de desarrollo: no se publica. Decisiones en <a href="DECISIONES_DISENO.md">DECISIONES_DISENO.md</a>.</p>
+
+    <div class="theme-switch" role="group" aria-label="Vista previa">
+      <button type="button" class="mc-btn" data-theme-set="light"><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-sol"></use></svg>Claro</button>
+      <button type="button" class="mc-btn" data-theme-set="dark"><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-luna"></use></svg>Oscuro</button>
+      <button type="button" class="mc-btn" data-theme-set="">Según el sistema</button>
+      <button type="button" class="mc-btn" data-toggle="contrast">Alto contraste</button>
+      <button type="button" class="mc-btn" data-toggle="presentation">Proyector</button>
+      <label class="mc-field" style="flex-direction: row; align-items: center; gap: 0.5rem;">Bloque
+        <select data-block-set><option value="analisis">Análisis</option><option value="algebra">Álgebra</option><option value="azar" selected>Azar</option></select>
+      </label>
+    </div>
+
+    <section aria-labelledby="color">
+      <h2 id="color">Color</h2>
+      <div class="guide-grid">
+        <div class="swatch"><span style="background: var(--mc-analisis)"></span><strong>Análisis · T1–T3</strong><span>--mc-analisis</span></div>
+        <div class="swatch"><span style="background: var(--mc-algebra)"></span><strong>Álgebra · T4–T6</strong><span>--mc-algebra</span></div>
+        <div class="swatch"><span style="background: var(--mc-azar)"></span><strong>Azar · T7–T9</strong><span>--mc-azar</span></div>
+        <div class="swatch"><span style="background: var(--mc-action)"></span><strong>Acción principal</strong><span>--mc-action</span></div>
+        <div class="swatch"><span style="background: var(--mc-bg)"></span><strong>Fondo</strong><span>--mc-bg</span></div>
+        <div class="swatch"><span style="background: var(--mc-paper)"></span><strong>Papel</strong><span>--mc-paper</span></div>
+      </div>
+      <p class="guide-row"><span class="mc-chip mc-chip--dot">Azar y datos</span><span class="mc-chip mc-chip--neutral">En revisión</span><span class="mc-chip">Tema 7</span></p>
+    </section>
+
+    <section aria-labelledby="tipografia">
+      <h2 id="tipografia">Tipografía</h2>
+      <p style="font-family: var(--mc-font-heading); font-size: var(--mc-display); font-weight: 700; line-height: 1.05; margin: 0;">Outfit para titulares</p>
+      <h1>H1 · 7.1. Sucesos. Regla de Laplace</h1>
+      <h2>H2 · Experimento, espacio muestral y suceso</h2>
+      <h3>H3 · Baraja española: sacar un caballo</h3>
+      <p class="mc-lead">Entradilla: antes de calcular, hay que definir qué resultados pueden ocurrir.</p>
+      <p style="max-width: var(--mc-measure);">Texto en Plus Jakarta Sans, cuerpo de 18 px e interlineado 1,65. Las cursivas <em>se ven así</em> y las negritas <strong>así</strong>. Ñ, tildes, ¿preguntas? y ¡exclamaciones! están en el subconjunto latino autoalojado.</p>
+    </section>
+
+    <section aria-labelledby="iconos">
+      <h2 id="iconos">Iconos</h2>
+      <div class="guide-grid" style="grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr));" data-icon-grid></div>
+      <noscript><p>La rejilla de iconos se genera con JavaScript a partir del sprite.</p></noscript>
+    </section>
+
+    <section aria-labelledby="cajas">
+      <h2 id="cajas">Cajas por tipo de contenido</h2>
+      <div class="mc-box mc-box--goal"><span class="mc-pill mc-pill--lg"><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-objetivo"></use></svg></span><p><strong>Al terminar podrás</strong> describir un experimento mediante su espacio muestral y aplicar la regla de Laplace.</p></div>
+      <div class="mc-box mc-box--theory">
+        <div class="mc-box__head"><span class="mc-pill"><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-definicion"></use></svg></span>Definición</div>
+        <h2>Experimento, espacio muestral y suceso</h2>
+        <p>Al lanzar un dado equilibrado, el espacio muestral es Ω = {1, 2, 3, 4, 5, 6}.</p>
+      </div>
+      <div class="mc-box mc-box--method">
+        <div class="mc-box__head"><span class="mc-pill"><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-metodo"></use></svg></span>Método</div>
+        <h2>Regla de Laplace</h2>
+        <div class="mc-formula">P(A) = casos favorables / casos posibles</div>
+        <ol class="mc-steps"><li>Define el experimento y cuenta Ω.</li><li>Escribe el suceso sin duplicar.</li><li>Justifica la equiprobabilidad.</li><li>Calcula y comprueba que está entre 0 y 1.</li></ol>
+      </div>
+      <div class="mc-box mc-box--example">
+        <div class="mc-box__head"><span class="mc-pill"><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-ejemplo"></use></svg></span>Ejemplo resuelto</div>
+        <h3>Baraja española: sacar un caballo</h3>
+        <p>Un caballo por palo: 4 favorables entre 40 equiprobables, P = 4/40 = 1/10.</p>
+      </div>
+      <div class="mc-box mc-box--error">
+        <div class="mc-box__head"><span class="mc-pill"><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-error"></use></svg></span>Error frecuente</div>
+        <p>Contar etiquetas como casos iguales: en una ruleta de sectores 180°, 90° y 90°, P(B o C) = 1/2, no 2/3.</p>
+      </div>
+      <div class="guide-grid">
+        <div class="mc-box mc-box--summary"><div class="mc-box__head"><span class="mc-pill"><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-resumen"></use></svg></span>Resumen</div><p>Define Ω, escribe el suceso y comprueba la equiprobabilidad.</p></div>
+        <div class="mc-box mc-box--exam"><div class="mc-box__head"><span class="mc-pill"><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-selectividad"></use></svg></span>Selectividad</div><p>Así aparece en la PEvAU.</p></div>
+        <div class="mc-box mc-box--extension"><div class="mc-box__head"><span class="mc-pill"><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-ampliacion"></use></svg></span>Ampliación</div><p>Contenido no original, señalado.</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="practica">
+      <h2 id="practica">Práctica y feedback</h2>
+      <div class="mc-box mc-box--practice">
+        <div class="mc-box__head"><span class="mc-pill"><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-practica"></use></svg></span>Practica · 3 de 6</div>
+        <ol class="mc-progress" aria-label="Pregunta 3 de 6"><li data-state="correct"></li><li data-state="correct"></li><li data-state="current"></li><li></li><li></li><li></li></ol>
+        <p><strong>Lanzas dos dados equilibrados. ¿Cuál es la probabilidad de que la suma sea 7?</strong></p>
+        <div class="guide-row" style="align-items: flex-end;">
+          <label class="mc-field" data-state="correct">Tu respuesta<input value="1/6"></label>
+          <button type="button" class="mc-btn mc-btn--primary" data-replay>Comprobar</button>
+          <button type="button" class="mc-btn"><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-pista"></use></svg>Pista</button>
+        </div>
+        <div class="mc-feedback mc-feedback--correct" role="status" data-feedback><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-acierto"></use></svg><span><strong>¡Bien!</strong> 6 pares ordenados con suma 7 entre 36: 6/36 = 1/6.</span></div>
+      </div>
+      <div class="mc-feedback mc-feedback--wrong" role="status"><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-fallo"></use></svg><span><strong>Casi.</strong> 9/64 sería con reposición. Sin reposición: (3/8) · (2/7) = 3/28.</span></div>
+      <div role="radiogroup" aria-label="Ejemplo de opciones" style="display: grid; gap: 0.625rem; margin-top: 1rem; max-width: 26rem;">
+        <label class="mc-option" data-state="correct"><input type="radio" name="o">3/28</label>
+        <label class="mc-option" data-state="wrong"><input type="radio" name="o" checked>9/64</label>
+        <label class="mc-option"><input type="radio" name="o">3/8</label>
+      </div>
+    </section>
+
+    <section aria-labelledby="botones">
+      <h2 id="botones">Botones y navegación</h2>
+      <p class="guide-row">
+        <button type="button" class="mc-btn mc-btn--primary mc-btn--lg">Explorar temas<svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-flecha"></use></svg></button>
+        <button type="button" class="mc-btn">Jugar</button>
+        <button type="button" class="mc-btn mc-btn--ghost">Fantasma</button>
+        <button type="button" class="mc-btn mc-btn--icon" aria-label="Buscar"><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-buscar"></use></svg></button>
+        <button type="button" class="mc-btn" disabled>Desactivado</button>
+      </p>
+      <div class="guide-grid">
+        <a class="mc-card" href="#tarjetas"><span class="mc-card__number">7</span><span><span class="mc-card__title">Probabilidad</span><br><span class="mc-card__meta">10 lecciones · En revisión</span></span></a>
+        <a class="mc-card" href="#tarjetas"><span class="mc-pill mc-pill--lg"><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-juegos"></use></svg></span><span><span class="mc-card__title">Juegos</span><br><span class="mc-card__meta">19 juegos con retos nuevos</span></span></a>
+      </div>
+      <nav class="mc-pager" aria-label="Lecciones" style="margin-top: 1rem;"><a href="#botones" rel="prev"><span>← Anterior</span>Índice del tema 7</a><a href="#botones" rel="next"><span>Siguiente →</span>7.2. Álgebra de sucesos</a></nav>
+      <div class="mc-reading-bar" style="--mc-read: 34%; margin-top: 1rem;" aria-hidden="true"><span></span></div>
+      <div class="mc-readout" style="margin-top: 1rem; max-width: 22rem;"><small>Área sombreada</small><span style="font-size: 1.5rem;">P(Z ≤ 1,25) = 0,8944</span></div>
+    </section>
+  </main>
+  <nav class="mc-tabbar" aria-label="Secciones">
+    <a href="#color" aria-current="page"><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-inicio"></use></svg>Inicio</a>
+    <a href="#tipografia"><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-definicion"></use></svg>Libro</a>
+    <a href="#practica"><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-practica"></use></svg>Practicar</a>
+    <a href="#botones"><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#mc-juegos"></use></svg>Juegos</a>
+  </nav>
+  <script type="module">
+    const root = document.documentElement;
+    for (const button of document.querySelectorAll('[data-theme-set]')) {
+      button.addEventListener('click', () => {
+        if (button.dataset.themeSet) root.dataset.theme = button.dataset.themeSet; else delete root.dataset.theme;
+      });
+    }
+    for (const button of document.querySelectorAll('[data-toggle]')) {
+      button.addEventListener('click', () => {
+        const key = button.dataset.toggle;
+        root.dataset[key] = String(root.dataset[key] !== 'true');
+        button.setAttribute('aria-pressed', root.dataset[key]);
+      });
+    }
+    document.querySelector('[data-block-set]').addEventListener('change', event => { document.body.dataset.block = event.target.value; });
+    document.querySelector('[data-replay]').addEventListener('click', () => {
+      const feedback = document.querySelector('[data-feedback]');
+      feedback.style.animation = 'none'; void feedback.offsetWidth; feedback.style.animation = '';
+    });
+    const sprite = await (await fetch('../../assets/icons/sprite.svg')).text();
+    const grid = document.querySelector('[data-icon-grid]');
+    for (const [, id] of sprite.matchAll(/<symbol id="([\w-]+)"/g)) {
+      const cell = document.createElement('div'); cell.className = 'icon-cell';
+      cell.innerHTML = `<span class="mc-pill mc-pill--lg"><svg class="mc-icon" aria-hidden="true"><use href="../../assets/icons/sprite.svg#${id}"></use></svg></span>${id.replace('mc-', '')}`;
+      grid.append(cell);
+    }
+  </script>
+</body>
+</html>

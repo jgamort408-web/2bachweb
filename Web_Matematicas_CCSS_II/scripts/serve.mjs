@@ -13,6 +13,8 @@ const types = {
   '.json': 'application/json; charset=utf-8',
   '.svg': 'image/svg+xml',
   '.pdf': 'application/pdf',
+  '.woff2': 'font/woff2',
+  '.png': 'image/png',
 };
 
 createServer(async (request, response) => {
