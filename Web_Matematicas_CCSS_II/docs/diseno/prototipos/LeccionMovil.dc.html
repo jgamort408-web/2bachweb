@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Lección · móvil</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1D4ED8}
+</style>
+</helmet>
+<div style="width: 390px; min-height: 1700px; box-sizing: border-box; background: #F7F8FC; color: #172033; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 17px; line-height: 1.6; display: flex; flex-direction: column;">
+  <header style="display: flex; flex-direction: column; background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 16px;">
+      <a href="#" style="display: inline-flex; align-items: center; gap: 6px; min-height: 44px; text-decoration: none; color: #172033; font-weight: 700; font-size: 15px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>Tema 7</a>
+      <div style="display: flex; gap: 6px;">
+        <button type="button" aria-label="Ajustes de lectura" style="width: 44px; height: 44px; border: 0; border-radius: 12px; background: #F1F5F9; font-family: 'Outfit', sans-serif; font-weight: 700; color: #172033;">Aa</button>
+        <button type="button" aria-label="Menú" style="width: 44px; height: 44px; border: 0; border-radius: 12px; background: #F1F5F9; display: inline-flex; align-items: center; justify-content: center; color: #172033;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+      </div>
+    </div>
+    <div aria-hidden="true" style="height: 4px; background: #F1F5F9;"><div style="width: 34%; height: 4px; background: #C2410C;"></div></div>
+  </header>
+
+  <main style="flex-grow: 1; padding: 20px 16px 28px; display: flex; flex-direction: column; gap: 18px;">
+    <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; border-radius: 999px; background: #FFEDD5; color: #9A3412; font-weight: 700; font-size: 13px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #C2410C;"></span>Azar y datos · 7.1</span>
+    <h1 style="margin: 0; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 32px; line-height: 1.12; letter-spacing: -0.02em;">Sucesos. Regla de Laplace</h1>
+    <p style="margin: 0; color: #334155;">Antes de calcular, hay que definir qué resultados pueden ocurrir y cuáles forman el suceso que nos interesa.</p>
+
+    <details style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px;">
+      <summary style="display: flex; align-items: center; justify-content: space-between; min-height: 48px; padding: 0 16px; font-weight: 700; cursor: pointer;">En esta lección<span style="font-size: 14px; color: #475569; font-weight: 600;">3 de 8</span></summary>
+    </details>
+
+    <section style="display: flex; flex-direction: column; gap: 10px; padding: 18px; background: #EFF4FF; border: 1px solid #C7D7FE; border-radius: 16px;">
+      <div style="display: flex; align-items: center; gap: 10px;"><span style="display: inline-flex; width: 30px; height: 30px; border-radius: 9px; background: #DBE6FE; align-items: center; justify-content: center; color: #1D4ED8;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"></path><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"></path></svg></span><span style="font-weight: 700; color: #1D4ED8; font-size: 14px;">Definición</span></div>
+      <h2 style="margin: 0; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.25;">Experimento, espacio muestral y suceso</h2>
+      <p style="margin: 0;">Al lanzar un dado equilibrado, el <strong>espacio muestral</strong> es <i>Ω</i> = {1, 2, 3, 4, 5, 6}. «Sale par» es el suceso <i>A</i> = {2, 4, 6}.</p>
+      <div role="img" aria-label="Las seis caras del dado; las pares, resaltadas" style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px;">
+        <sc-for list="{{faces}}" as="f" hint-placeholder-count="6"><span style="{{f.style}}">{{f.n}}</span></sc-for>
+      </div>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 12px; padding: 18px; background: #F5F3FF; border: 1px solid #DDD6FE; border-radius: 16px;">
+      <div style="display: flex; align-items: center; gap: 10px;"><span style="display: inline-flex; width: 30px; height: 30px; border-radius: 9px; background: #E9E3FF; align-items: center; justify-content: center; color: #5B21B6;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6h11M10 12h11M10 18h11"></path><path d="M4 6h1v4M4 10h2"></path><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg></span><span style="font-weight: 700; color: #5B21B6; font-size: 14px;">Método</span></div>
+      <h2 style="margin: 0; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.25;">Regla de Laplace</h2>
+      <div style="display: flex; justify-content: center; align-items: center; gap: 10px; padding: 14px; background: #FFFFFF; border-radius: 12px; font-size: 22px; font-family: 'Times New Roman', serif;">
+        <span><i>P</i>(<i>A</i>) =</span>
+        <span style="display: inline-flex; flex-direction: column; align-items: center; line-height: 1.3;"><span>|<i>A</i>|</span><span style="border-top: 2px solid #172033; padding: 0 6px;">|<i>Ω</i>|</span></span>
+        <span>=</span>
+        <span style="display: inline-flex; flex-direction: column; align-items: center; line-height: 1.3;"><span>3</span><span style="border-top: 2px solid #172033; padding: 0 6px;">6</span></span>
+        <span>=</span>
+        <span style="display: inline-flex; flex-direction: column; align-items: center; line-height: 1.3;"><span>1</span><span style="border-top: 2px solid #172033; padding: 0 6px;">2</span></span>
+      </div>
+      <p style="margin: 0; font-size: 15px; color: #334155;">Solo si los seis resultados son igual de probables.</p>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 8px; padding: 16px 18px; background: #FEF3C7; border: 1px solid #FCD34D; border-radius: 16px;">
+      <div style="display: flex; align-items: center; gap: 10px;"><span style="display: inline-flex; width: 30px; height: 30px; border-radius: 9px; background: #FDE68A; align-items: center; justify-content: center; color: #92400E;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"></path><path d="M12 9v4M12 17h.01"></path></svg></span><span style="font-weight: 700; color: #92400E; font-size: 14px;">Error frecuente</span></div>
+      <p style="margin: 0; color: #422006; font-size: 16px;">Contar etiquetas como casos iguales: en una ruleta de sectores 180°, 90° y 90°, P(B o C) = 1/2, no 2/3.</p>
+    </section>
+
+    <a href="#" style="display: flex; align-items: center; justify-content: space-between; min-height: 56px; padding: 0 18px; border-radius: 14px; background: #1D4ED8; color: #FFFFFF; text-decoration: none; font-weight: 700;">Practicar esta lección<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    <a href="#" style="display: flex; flex-direction: column; gap: 2px; padding: 14px 18px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; text-decoration: none; color: #172033;"><span style="font-size: 13px; color: #475569;">Siguiente →</span><span style="font-weight: 700;">7.2. Álgebra de sucesos</span></a>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1700}}'>
+class Component extends DCLogic {
+renderVals() {
+const face = 'display: inline-flex; height: 44px; border-radius: 10px; align-items: center; justify-content: center; font-weight: 700;';
+return { faces: [1, 2, 3, 4, 5, 6].map((n) => ({ n, style: face + (n % 2 === 0 ? ' background: #C2410C; color: #FFFFFF;' : ' background: #FFFFFF; color: #475569; border: 1px solid #CBD5E1;') })) };
+}
+}
+</script>
+</body>
+</html>

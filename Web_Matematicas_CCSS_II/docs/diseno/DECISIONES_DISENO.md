@@ -2,7 +2,7 @@
 
 Registro de la consulta de diseño con el docente (fase 1 del [plan](../../../PLAN_WEB_OPERATIVA.md), tareas D01–D05). Cada decisión indica su fecha y ronda. Ninguna fase de implementación visual (2–5) empieza hasta que este documento esté completo y validado.
 
-Estado: **D01 y D02 cerradas · D03 pendiente**.
+Estado: **consulta cerrada (D01–D05) el 27-10-2026**.
 
 ## Ronda 1 · Identidad y referencias (D01, 27-10-2026)
 
@@ -61,10 +61,37 @@ Prototipos sobre la lección 7.1 en el lienzo «Mates CCSS II · Ronda 2 de dise
 
 Quedan por definir en S01 los equivalentes del modo oscuro y del modo proyector, y la comprobación automática de contraste de cada pareja.
 
-## Ronda 3 · Iconos, ilustraciones y movimiento (D03)
+## Ronda 3 · Iconos, ilustraciones y movimiento (D03, 27-10-2026)
 
-Pendiente.
+Láminas «Ronda 3 · Iconos», «Ilustraciones» y «Movimiento» en el mismo lienzo.
 
-## Ronda 4 · Composición (D04)
+| Tema | Decisión |
+|---|---|
+| Iconos | **Pastilla tintada**: trazo de 2 px del color del rol sobre un cuadrado suave (radio 9–14 px). Juego de 9 iconos de rol: definición, método, ejemplo resuelto, error frecuente, practica, objetivo, resumen, Selectividad y ampliación |
+| Ilustración | **Plana con el color del tema**: formas rellenas con los tintes del bloque y algún acento de los otros dos bloques. Cabeceras de los 9 temas, portada, estados vacíos y 404, en SVG ligero |
+| Movimiento | **Moderado** en lecciones y práctica: feedback que sube 10 px en 250 ms, marca de acierto trazada, curvas que se dibujan (≈0,9 s). **Expresivo solo** al terminar una serie y en los juegos (rebote breve y pequeña celebración). Todo se anula con `prefers-reduced-motion` |
+| Sonido | **Opcional y desactivado por defecto**: interruptor en los ajustes de lectura; nunca en las lecciones si está apagado |
 
-Pendiente.
+Colores de rol para iconos que no tenían caja propia: resumen `#475569`/`#E2E8F0`, Selectividad `#854D0E`/`#FEF08A`, ampliación `#BE185D`/`#FCE7F3`; objetivo y practica toman el acento del bloque.
+
+## Ronda 4 · Composición (D04, 27-10-2026)
+
+Láminas de las filas 3 y 4 del lienzo: portada (escritorio y móvil), índice del tema 7, biblioteca, lección (escritorio y móvil), test en móvil y laboratorio de la normal (interactivo). El docente las dio por buenas sin cambios.
+
+| Tema | Decisión |
+|---|---|
+| Densidad | **Aireada**: cuerpo 18 px (17 px en móvil), interlineado 1,6–1,65, cajas con 22–26 px de relleno y 24 px entre bloques |
+| Índice de la lección | **Lateral fijo a la izquierda** en escritorio (240 px, apartado actual resaltado con el tinte del bloque); en móvil, desplegable «En esta lección» con «n de m» |
+| Navegación móvil | **Barra inferior tipo app**: Inicio, Libro, Practicar y Juegos (52 px de alto, objetivos ≥ 44 px) |
+| Cabecera | Logotipo + navegación en píldoras + buscar, ajustes de lectura «Aa» y modo oscuro; barra de progreso de lectura de 4 px con el color del bloque |
+| Portada | Titular, tres acciones (Explorar temas, Jugar, Ver recursos), ilustración plana de los tres bloques, destacado del docente, los nueve temas agrupados por bloque y cuatro modos de estudio |
+| Índice de tema | Cabecera blanca con ilustración del tema; recorrido numerado con estado editorial; columna «Practica el tema» (test, ejercicios, juegos, tarjetas, Selectividad, PDF) |
+| Test | Una pregunta por pantalla, cuatro alternativas como filas táctiles de 56 px, progreso por segmentos (verde acierto, rojo fallo), feedback explicativo y enlace «Repasar» al epígrafe |
+| Laboratorio | Panel de controles a la izquierda con pregunta guía, valores al momento en un recuadro oscuro, gráfica amplia a la derecha y valores preestablecidos (p. ej. ±1,96 y 1,645) |
+| Biblioteca | Buscador grande, filtros por bloque y tipo a la izquierda, fichas de pareja con botones «Examen» y «Soluciones» |
+
+Los textos de ejemplo de las láminas (destacado semanal, descripciones de exámenes) son ilustrativos: en la web saldrán del catálogo y de la configuración del docente.
+
+## Cierre de la consulta (D05)
+
+La consulta queda **cerrada y validada por el docente el 27-10-2026**. Las fases 2–5 del plan pueden empezar con estas decisiones. El código de las láminas elegidas está en [prototipos/](prototipos/) como referencia de maquetación: son archivos del editor de lienzos (`.dc.html`), no páginas de la web, y no se abren solos. Hay que reescribirlos con los tokens y componentes de la fase 2.

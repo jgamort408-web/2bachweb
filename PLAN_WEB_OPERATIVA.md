@@ -38,8 +38,9 @@ Este es el **documento de entrada para cada sesión de trabajo** sobre la web. R
 - [x] W02 · Comprobador y reparador de enlaces locales (`npm run check:links` / `npm run fix:links`), incluido en `npm test`. Al copiar una página a otra profundidad, `fix:links` recalcula los prefijos `../`.
 - [x] W03 · Dependencias de verificación: `python -m pip install -r tools/requirements.txt` (pypdf, pypdfium2, pdfplumber) y Playwright 1.64.1 como dependencia exacta de desarrollo (`npm ci`). `npm run test:e2e [palabras]` lanza las pruebas de navegador con el servidor local y el Chrome del sistema.
 - [x] W04 · GitHub Actions de integración (`.github/workflows/ci.yml`): unitarias y enlaces de la web, pruebas de Selectividad y cinco pruebas de navegador en cada push; batería completa a mano con «todas».
-- [ ] W05 · Despliegue en Pages solo de la web (`.github/workflows/pages.yml`, decidido por el docente el 27-10-2026): copia `Web_Matematicas_CCSS_II/` sin docs, tests, scripts ni fuentes LaTeX. Falta fusionar en `main` y cambiar *Settings › Pages › Source* a «GitHub Actions» (ahora publica toda la raíz con Jekyll).
+- [x] W05 · Despliegue en Pages solo de la web (`.github/workflows/pages.yml`): copia `Web_Matematicas_CCSS_II/` sin docs, tests, scripts ni fuentes LaTeX. Publicada en https://jgamort408-web.github.io/2bachweb/ (fuente «GitHub Actions»); `docs/`, originales y Selectividad dan 404. Comprobado en Chrome: cabecera, MathJax y práctica sin errores.
 - [ ] W06 · Ordenar la documentación: mover los ~175 `verificacion-entrega-NN.md` y las auditorías a `docs/historial/`, y dejar en `docs/` solo los documentos vigentes. Con Git, el historial ya no necesita un archivo por entrega. 🗣️ Pendiente de que el docente lo apruebe (no se pidió en esta ronda).
+- [ ] W08 · Sanear las pruebas de navegador heredadas (`npm run test:e2e`). La primera batería completa (27-10-2026) dio 98/137. Causas ya corregidas: totales fijos del banco (ahora se leen de `tests/helpers/catalog-expectations.mjs`), aviso `[data-content-availability]` contado como apartado, carreras con la puerta de contenido y con el arranque asíncrono de los widgets, y margen de tiempo. Pendiente de decidir (🗣️ si cambia el producto): el recorrido dinámico del tema solo lista lecciones y ya no los «Ejercicios resueltos» (pruebas 92 y 94); etiqueta «Contenido parcial disponible» del tema 8 (88); comprobación de la prueba 90; esperas de captura de diagramas (80, 81, 83).
 - [ ] W07 · Generador de páginas `npm run new:page -- <ruta> <id> "<título>"`: crea el HTML con la plantilla vigente, rutas correctas y registro en `config/pages.json`.
 
 ## Fase 1 · Consulta de diseño con el docente 🗣️ (bloquea las fases 2–5)
@@ -53,13 +54,9 @@ Este es el **documento de entrada para cada sesión de trabajo** sobre la web. R
   - Dispositivo principal del alumnado (móvil, portátil, tablet) y uso en clase con proyector o pizarra digital.
   - Modo oscuro: sí, no o automático.
 - [x] D02 · **Ronda 2, color y tipografía.** Fusión A + C: Outfit + Plus Jakarta Sans, bloques azul #2563EB, magenta #A21CAF y naranja #C2410C, cajas con fondo de color y acento discreto. Decisiones en DECISIONES_DISENO.md.
-- [ ] D03 · **Ronda 3, iconos, ilustraciones y movimiento.** Mostrar muestras de:
-  - Iconografía: trazo fino (Lucide, Phosphor) frente a rellena o duotono; iconos propios para la materia.
-  - Ilustraciones: lineal monocromo, plana con color del tema, isométrica o diagramas «de pizarra»; mascota sí/no.
-  - Intensidad de animación: mínima, moderada (transiciones y construcción de gráficas) o expresiva (celebraciones, microanimaciones lúdicas en juegos).
-  - Tono del feedback (formal, cercano, con humor) y si se celebran rachas o aciertos.
-- [ ] D04 · **Ronda 4, composición.** Prototipos de portada, índice de tema, lección, pregunta de test, laboratorio y biblioteca en escritorio y móvil. Preguntar por la densidad (aireado o compacto), el índice lateral fijo y la cabecera.
-- [ ] D05 · Redactar `Web_Matematicas_CCSS_II/docs/diseno/DECISIONES_DISENO.md` con todas las respuestas, capturas de los prototipos elegidos y los tokens resultantes. El docente lo valida antes de pasar a la fase 2.
+- [x] D03 · **Ronda 3, iconos, ilustraciones y movimiento.** Iconos en pastilla tintada, ilustración plana con el color del tema, movimiento moderado (expresivo solo al terminar una serie y en juegos), sonido opcional desactivado. Tono cercano y claro (ronda 1).
+- [x] D04 · **Ronda 4, composición.** Aireada, índice lateral fijo a la izquierda, barra inferior tipo app en móvil; portada, tema, lección, test, laboratorio y biblioteca aprobados sin cambios.
+- [x] D05 · [DECISIONES_DISENO.md](Web_Matematicas_CCSS_II/docs/diseno/DECISIONES_DISENO.md) completo y validado (27-10-2026), con tokens y código de las láminas en `docs/diseno/prototipos/`. **Fase 1 cerrada: puede empezar S01.**
 
 **Propuesta de partida para la consulta: colores e iconos por tipo de contenido.** Usa los `data-content-role` ya presentes en el HTML; se ajustará en D02–D03.
 
@@ -164,3 +161,9 @@ W03 → W04 → **D01–D05 (consulta)** → S01–S06 → L01–L08 → F01–F
 
 - **2026-10-27** · W00–W02: repositorio Git creado y enlazado con GitHub; Tectonic movido a `tools/` (PDF de prueba recompilado e idéntico byte a byte al publicado); `leer_lote.py` parametrizado; comprobador y reparador de enlaces con dos pruebas nuevas. `npm test`: 343 de 343 pruebas superadas; 176 páginas sin enlaces rotos. Pendiente W03: faltan pypdf/pdfplumber en el Python del equipo, por lo que `build-pdfs.mjs` compila pero no termina su verificación.
 - **2026-10-27** · W03–W04: dependencias de Python instaladas y `build-pdfs.mjs` completo de nuevo (PDF e informe sin cambios); Playwright y `scripts/test-browser.mjs`; CI en GitHub Actions en verde (web, Selectividad y navegador). W05 preparado en la rama `infra/w03-w04`. D01 cerrada; D02 en curso con el lienzo de la ronda 2.
+
+- **2026-10-27** · Selectividad L026: ocho enunciados cotejados/clasificados;208 acumulados,21pruebas y215fuentes verificadas. PDF revisados y ZIP aislado compilado. [Informe](Selectividad_LaTeX/docs/lotes/L026_2016_suplemente_septiembre.md). [Fase posterior de soluciones](Selectividad_LaTeX/docs/FASE_SOLUCIONES.md) registrada tras nueva autorización. Se conserva el trabajo de Claude y se usan herramientas de tools/.
+
+- **2026-10-27** · Selectividad L027: ocho enunciados cotejados/clasificados; 216 acumulados, 21 pruebas y 215 fuentes verificadas. PDF revisados y ZIP aislado compilado. [Informe](Selectividad_LaTeX/docs/lotes/L027_2017_suplemente_septiembre.md). [Fase posterior de soluciones](Selectividad_LaTeX/docs/FASE_SOLUCIONES.md) preparada. Se conserva el trabajo de Claude y se usan herramientas de tools/.
+
+- **2026-10-27** · Selectividad L028: ocho enunciados cotejados/clasificados; 224 acumulados, 21 pruebas y 215 fuentes verificadas. PDF revisados y ZIP aislado compilado. [Informe](Selectividad_LaTeX/docs/lotes/L028_2018_suplente_junio.md). [Fase posterior de soluciones](Selectividad_LaTeX/docs/FASE_SOLUCIONES.md) preparada. Se conserva el trabajo de Claude y se usan herramientas de tools/.

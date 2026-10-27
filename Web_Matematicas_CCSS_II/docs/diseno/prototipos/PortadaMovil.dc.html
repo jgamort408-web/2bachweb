@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Portada · móvil</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1D4ED8}
+</style>
+</helmet>
+<div style="width: 390px; min-height: 1900px; box-sizing: border-box; background: #F7F8FC; color: #172033; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 17px; line-height: 1.55; display: flex; flex-direction: column;">
+  <header style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
+    <a href="#" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #172033;">
+      <svg width="32" height="32" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="10" fill="#172033"></rect><path d="M8 27h20M9 27V8" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" fill="none"></path><path d="M10 24c4-1 6-12 9-12s4 8 8 8" stroke="#93C5FD" stroke-width="2.8" stroke-linecap="round" fill="none"></path></svg>
+      <span style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 19px;">Mates CCSS II</span>
+    </a>
+    <div style="display: flex; gap: 6px;">
+      <button type="button" aria-label="Buscar" style="width: 44px; height: 44px; border: 0; border-radius: 12px; background: #F1F5F9; display: inline-flex; align-items: center; justify-content: center; color: #172033;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></button>
+      <button type="button" aria-label="Ajustes de lectura" style="width: 44px; height: 44px; border: 0; border-radius: 12px; background: #F1F5F9; font-family: 'Outfit', sans-serif; font-weight: 700; color: #172033;">Aa</button>
+    </div>
+  </header>
+
+  <main style="flex-grow: 1; padding: 24px 16px 32px; display: flex; flex-direction: column; gap: 28px;">
+    <section style="display: flex; flex-direction: column; gap: 14px;">
+      <svg viewBox="0 0 358 150" width="358" role="img" aria-label="Ilustración: curva con área, matriz y diagrama de Venn">
+        <rect x="0" y="10" width="160" height="130" rx="22" fill="#DBEAFE"></rect>
+        <path d="M18 120 L18 98 C50 92 80 50 140 42 L140 120 Z" fill="#BFDBFE"></path>
+        <path d="M18 98 C50 92 80 50 140 42" fill="none" stroke="#2563EB" stroke-width="5" stroke-linecap="round"></path>
+        <rect x="172" y="10" width="86" height="130" rx="22" fill="#FAE8FF"></rect>
+        <g fill="#A21CAF"><rect x="188" y="34" width="22" height="22" rx="6"></rect><rect x="220" y="34" width="22" height="22" rx="6" fill-opacity="0.35"></rect><rect x="188" y="66" width="22" height="22" rx="6" fill-opacity="0.35"></rect><rect x="220" y="66" width="22" height="22" rx="6"></rect><rect x="188" y="98" width="22" height="22" rx="6" fill-opacity="0.35"></rect><rect x="220" y="98" width="22" height="22" rx="6" fill-opacity="0.35"></rect></g>
+        <circle cx="292" cy="75" r="40" fill="#FED7AA"></circle><circle cx="322" cy="75" r="34" fill="#FB923C" fill-opacity="0.55"></circle>
+      </svg>
+      <h1 style="margin: 0; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.1; letter-spacing: -0.02em;">Matemáticas para entender datos, decisiones y azar</h1>
+      <p style="margin: 0; color: #334155;">Explicaciones claras, práctica con corrección al momento y juegos. Sin registrarte.</p>
+      <a href="#" style="display: flex; align-items: center; justify-content: center; height: 52px; border-radius: 12px; background: #1D4ED8; color: #FFFFFF; text-decoration: none; font-weight: 700;">Explorar temas</a>
+    </section>
+
+    <a href="#" style="display: flex; gap: 12px; align-items: center; padding: 14px 16px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; text-decoration: none; color: #172033;">
+      <span style="display: inline-flex; flex-shrink: 0; width: 40px; height: 40px; border-radius: 11px; background: #FFEDD5; align-items: center; justify-content: center; color: #9A3412;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"></path></svg></span>
+      <span style="font-size: 15px;"><strong>Esta semana:</strong> 7.8. Probabilidad condicionada</span>
+    </a>
+
+    <section style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 style="margin: 0; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 26px;">Los nueve temas</h2>
+      <sc-for list="{{blocks}}" as="bl" hint-placeholder-count="3">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; color: {{bl.dark}};"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{bl.color}};"></span>{{bl.name}}</div>
+          <sc-for list="{{bl.topics}}" as="t" hint-placeholder-count="3">
+            <a href="#" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; min-height: 44px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; text-decoration: none; color: #172033;">
+              <span style="display: inline-flex; flex-shrink: 0; width: 40px; height: 40px; border-radius: 11px; background: {{bl.tint}}; align-items: center; justify-content: center; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 19px; color: {{bl.dark}};">{{t.n}}</span>
+              <span style="display: flex; flex-direction: column; min-width: 0;"><span style="font-weight: 700; font-size: 16px; line-height: 1.3;">{{t.title}}</span><span style="font-size: 13px; color: #475569;">{{t.meta}}</span></span>
+            </a>
+          </sc-for>
+        </div>
+      </sc-for>
+    </section>
+  </main>
+
+  <nav aria-label="Secciones" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 6px 8px 10px; background: #FFFFFF; border-top: 1px solid #E2E8F0;">
+    <sc-for list="{{tabs}}" as="tb" hint-placeholder-count="4">
+      <a href="#" style="{{tb.style}}">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{tb.icon}}"></path></svg>
+        <span>{{tb.label}}</span>
+      </a>
+    </sc-for>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1900}}'>
+class Component extends DCLogic {
+renderVals() {
+const tab = 'display: flex; flex-direction: column; align-items: center; gap: 2px; min-height: 52px; justify-content: center; border-radius: 12px; text-decoration: none; font-size: 12px; font-weight: 700;';
+return {
+blocks: [
+{ name: 'Análisis', color: '#2563EB', dark: '#1D4ED8', tint: '#DBEAFE', topics: [
+{ n: '1', title: 'Límites y derivadas', meta: '18 lecciones' }, { n: '2', title: 'Representación de funciones', meta: '9 lecciones' }, { n: '3', title: 'Integrales', meta: '8 lecciones' }] },
+{ name: 'Álgebra y decisiones', color: '#A21CAF', dark: '#86198F', tint: '#FAE8FF', topics: [
+{ n: '4', title: 'Matrices y determinantes', meta: '12 lecciones' }, { n: '5', title: 'Sistemas de ecuaciones', meta: '11 lecciones' }, { n: '6', title: 'Programación lineal', meta: '5 lecciones · en revisión' }] },
+{ name: 'Azar y datos', color: '#C2410C', dark: '#9A3412', tint: '#FFEDD5', topics: [
+{ n: '7', title: 'Probabilidad', meta: '10 lecciones · en revisión' }, { n: '8', title: 'Distribuciones de probabilidad', meta: '4 lecciones · en revisión' }, { n: '9', title: 'Inferencia estadística', meta: '9 lecciones · en revisión' }] }
+],
+tabs: [
+{ label: 'Inicio', icon: 'M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z', style: tab + ' color: #1D4ED8; background: #EFF4FF;' },
+{ label: 'Libro', icon: 'M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2zM22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z', style: tab + ' color: #475569;' },
+{ label: 'Practicar', icon: 'M13 2 3 14h9l-1 8 10-12h-9l1-8z', style: tab + ' color: #475569;' },
+{ label: 'Juegos', icon: 'M6 11h4M8 9v4M15 12h.01M18 10h.01M7 6h10a5 5 0 0 1 5 5v2a4 4 0 0 1-7 2.6L14 15h-4l-1 .6A4 4 0 0 1 2 13v-2a5 5 0 0 1 5-5z', style: tab + ' color: #475569;' }
+]
+};
+}
+}
+</script>
+</body>
+</html>

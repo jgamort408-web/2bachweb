@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Lección · escritorio</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1D4ED8}a:hover{color:#1E3A8A}
+</style>
+</helmet>
+<div style="width: 1280px; min-height: 1500px; box-sizing: border-box; background: #F7F8FC; color: #172033; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 18px; line-height: 1.65; display: flex; flex-direction: column;">
+  <header style="display: flex; flex-direction: column; background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 48px;">
+      <a href="#" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #172033;">
+        <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="10" fill="#172033"></rect><path d="M8 27h20M9 27V8" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" fill="none"></path><path d="M10 24c4-1 6-12 9-12s4 8 8 8" stroke="#FDBA74" stroke-width="2.8" stroke-linecap="round" fill="none"></path></svg>
+        <span style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 22px;">Mates CCSS II</span>
+      </a>
+      <nav aria-label="Principal" style="display: flex; gap: 4px; font-size: 15px; font-weight: 600;">
+        <a href="#" style="color: #475569; text-decoration: none; padding: 8px 14px;">Inicio</a>
+        <a href="#" style="color: #172033; text-decoration: none; padding: 8px 14px; border-radius: 999px; background: #EEF2F7;">Libro</a>
+        <a href="#" style="color: #475569; text-decoration: none; padding: 8px 14px;">Practicar</a>
+        <a href="#" style="color: #475569; text-decoration: none; padding: 8px 14px;">Juegos</a>
+        <a href="#" style="color: #475569; text-decoration: none; padding: 8px 14px;">Recursos</a>
+      </nav>
+      <div style="display: flex; gap: 8px;">
+        <button type="button" aria-label="Buscar" style="width: 44px; height: 44px; border: 1px solid #E2E8F0; border-radius: 12px; background: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; color: #172033;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></button>
+        <button type="button" aria-label="Ajustes de lectura" style="width: 44px; height: 44px; border: 1px solid #E2E8F0; border-radius: 12px; background: #FFFFFF; font-family: 'Outfit', sans-serif; font-weight: 700; color: #172033;">Aa</button>
+      </div>
+    </div>
+    <div aria-hidden="true" style="height: 4px; background: #F1F5F9;"><div style="width: 34%; height: 4px; background: #C2410C; border-radius: 0 2px 2px 0;"></div></div>
+  </header>
+
+  <div style="flex-grow: 1; display: flex; gap: 48px; padding: 36px 48px 56px; align-items: flex-start;">
+    <nav aria-label="En esta lección" style="width: 240px; flex-shrink: 0; display: flex; flex-direction: column; gap: 4px; padding: 18px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px;">
+      <a href="#" style="font-size: 14px; color: #475569; text-decoration: none; margin-bottom: 6px;">← Tema 7 · Probabilidad</a>
+      <span style="font-weight: 700; font-size: 15px; margin-bottom: 6px;">En esta lección</span>
+      <sc-for list="{{toc}}" as="it" hint-placeholder-count="8">
+        <a href="#" style="{{it.style}}">{{it.label}}</a>
+      </sc-for>
+    </nav>
+
+    <main style="flex: 1; min-width: 0; max-width: 760px; display: flex; flex-direction: column; gap: 24px;">
+      <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #475569;">
+        <span style="display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; border-radius: 999px; background: #FFEDD5; color: #9A3412; font-weight: 700;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #C2410C;"></span>Azar y datos</span>
+        <span>Libro › 7. Probabilidad › <strong style="color: #172033;">7.1</strong></span>
+      </div>
+      <h1 style="margin: 0; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 46px; line-height: 1.1; letter-spacing: -0.02em;">7.1. Sucesos. Regla de Laplace</h1>
+      <p style="margin: 0; font-size: 21px; color: #334155;">Antes de calcular, hay que definir qué resultados pueden ocurrir y cuáles forman el suceso que nos interesa.</p>
+
+      <section style="display: flex; gap: 14px; align-items: flex-start; padding: 18px 22px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px;">
+        <span style="display: inline-flex; flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px; background: #FFEDD5; align-items: center; justify-content: center; color: #9A3412;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></span>
+        <div><strong>Al terminar podrás</strong> describir un experimento mediante su espacio muestral, reconocer sucesos elementales y compuestos y aplicar la regla de Laplace con el recuento adecuado.</div>
+      </section>
+
+      <section style="display: flex; flex-direction: column; gap: 12px; padding: 22px 26px; background: #EFF4FF; border: 1px solid #C7D7FE; border-radius: 16px;">
+        <div style="display: flex; align-items: center; gap: 10px;"><span style="display: inline-flex; width: 32px; height: 32px; border-radius: 9px; background: #DBE6FE; align-items: center; justify-content: center; color: #1D4ED8;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"></path><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"></path></svg></span><span style="font-weight: 700; color: #1D4ED8; font-size: 15px;">Definición</span></div>
+        <h2 style="margin: 0; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 26px;">Experimento, espacio muestral y suceso</h2>
+        <div style="display: flex; gap: 24px; align-items: center;">
+          <p style="margin: 0; flex: 1;">Un <strong>experimento aleatorio</strong> tiene resultados posibles conocidos, pero no sabemos cuál saldrá. Al lanzar un dado equilibrado, el <strong>espacio muestral</strong> es <i>Ω</i> = {1, 2, 3, 4, 5, 6}. Un <strong>suceso</strong> es un conjunto de resultados: «sale par» es <i>A</i> = {2, 4, 6}.</p>
+          <figure style="margin: 0; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 6px;">
+            <div role="img" aria-label="Las seis caras del dado; las pares, resaltadas" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px;">
+              <sc-for list="{{faces}}" as="f" hint-placeholder-count="6"><span style="{{f.style}}">{{f.n}}</span></sc-for>
+            </div>
+            <figcaption style="font-size: 13px; color: #475569;">A = «sale par»</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section style="display: flex; flex-direction: column; gap: 14px; padding: 22px 26px; background: #F5F3FF; border: 1px solid #DDD6FE; border-radius: 16px;">
+        <div style="display: flex; align-items: center; gap: 10px;"><span style="display: inline-flex; width: 32px; height: 32px; border-radius: 9px; background: #E9E3FF; align-items: center; justify-content: center; color: #5B21B6;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6h11M10 12h11M10 18h11"></path><path d="M4 6h1v4M4 10h2"></path><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg></span><span style="font-weight: 700; color: #5B21B6; font-size: 15px;">Método</span></div>
+        <h2 style="margin: 0; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 26px;">Regla de Laplace: primero, la equiprobabilidad</h2>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 14px; padding: 18px; background: #FFFFFF; border-radius: 12px; font-size: 26px; font-family: 'Times New Roman', serif;">
+          <span><i>P</i>(<i>A</i>) =</span>
+          <span style="display: inline-flex; flex-direction: column; align-items: center; line-height: 1.3;"><span>|<i>A</i>|</span><span style="border-top: 2px solid #172033; padding: 0 6px;">|<i>Ω</i>|</span></span>
+          <span>=</span>
+          <span style="display: inline-flex; flex-direction: column; align-items: center; line-height: 1.3; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px;"><span>casos favorables</span><span style="border-top: 2px solid #172033; padding: 0 6px;">casos posibles</span></span>
+        </div>
+      </section>
+
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+        <a href="#" style="display: flex; flex-direction: column; gap: 4px; padding: 16px 20px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; text-decoration: none; color: #172033;"><span style="font-size: 14px; color: #475569;">← Anterior</span><span style="font-weight: 700;">Índice del tema 7</span></a>
+        <a href="#" style="display: flex; flex-direction: column; gap: 4px; padding: 16px 20px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; text-decoration: none; color: #172033; text-align: right;"><span style="font-size: 14px; color: #475569;">Siguiente →</span><span style="font-weight: 700;">7.2. Álgebra de sucesos</span></a>
+      </div>
+    </main>
+  </div>
+  <footer style="padding: 22px 48px; border-top: 1px solid #E2E8F0; background: #FFFFFF; font-size: 14px; color: #475569;">Mates CCSS II · IES Al-Ándalus</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1500}}'>
+class Component extends DCLogic {
+renderVals() {
+const item = 'display: block; padding: 6px 10px; border-radius: 8px; text-decoration: none; font-size: 15px;';
+const labels = ['Lenguaje', 'Tipos de sucesos', 'Regla de Laplace', 'Ejemplos originales', 'Cuándo no contar etiquetas', 'Practica', 'Errores frecuentes', 'Resumen'];
+const face = 'display: inline-flex; width: 40px; height: 40px; border-radius: 10px; align-items: center; justify-content: center; font-weight: 700;';
+return {
+toc: labels.map((label, i) => ({ label, style: item + (i === 2 ? ' background: #FFEDD5; color: #9A3412; font-weight: 700;' : ' color: #334155;') })),
+faces: [1, 2, 3, 4, 5, 6].map((n) => ({ n, style: face + (n % 2 === 0 ? ' background: #C2410C; color: #FFFFFF;' : ' background: #FFFFFF; color: #475569; border: 1px solid #CBD5E1;') }))
+};
+}
+}
+</script>
+</body>
+</html>

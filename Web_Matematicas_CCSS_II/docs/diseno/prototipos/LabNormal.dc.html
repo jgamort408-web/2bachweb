@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Laboratorio · distribución normal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+input[type=range]{accent-color:#C2410C}
+</style>
+</helmet>
+<div style="width: 1280px; min-height: 900px; box-sizing: border-box; background: #F7F8FC; color: #172033; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 17px; line-height: 1.55; display: flex; flex-direction: column;">
+  <header style="display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <a href="#" style="display: inline-flex; align-items: center; gap: 6px; min-height: 44px; text-decoration: none; color: #172033; font-weight: 700;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>8.3. Distribución normal</a>
+      <span style="display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; border-radius: 999px; background: #FFEDD5; color: #9A3412; font-weight: 700; font-size: 14px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #C2410C;"></span>Laboratorio</span>
+    </div>
+    <span style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 20px;">Mates CCSS II</span>
+  </header>
+
+  <main style="flex-grow: 1; padding: 32px 48px 40px; display: flex; gap: 32px; align-items: flex-start;">
+    <aside style="width: 340px; flex-shrink: 0; display: flex; flex-direction: column; gap: 20px; padding: 24px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px;">
+      <h1 style="margin: 0; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 28px; line-height: 1.15;">Área bajo la campana</h1>
+      <div style="display: flex; gap: 12px; padding: 14px 16px; background: #FFF7ED; border-radius: 12px; font-size: 15px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9A3412" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+        <span>Mueve <i>z</i> y observa: ¿para qué valor queda exactamente la mitad del área a la izquierda?</span>
+      </div>
+      <label style="display: flex; flex-direction: column; gap: 8px; font-weight: 700;">Valor de <i>z</i>: {{zText}}
+        <input type="range" min="-300" max="300" step="5" value="{{zRaw}}" onInput="{{onZ}}" aria-label="Valor de z" style="width: 100%;">
+        <span style="display: flex; justify-content: space-between; font-size: 13px; color: #475569; font-weight: 600;"><span>−3</span><span>0</span><span>3</span></span>
+      </label>
+      <div style="display: flex; gap: 8px;">
+        <sc-for list="{{presets}}" as="p" hint-placeholder-count="3">
+          <button type="button" onClick="{{p.go}}" style="flex: 1; height: 44px; border: 1px solid #CBD5E1; border-radius: 10px; background: #FFFFFF; font: inherit; font-weight: 700; color: #172033;">{{p.label}}</button>
+        </sc-for>
+      </div>
+      <div role="status" style="display: flex; flex-direction: column; gap: 4px; padding: 16px; background: #172033; border-radius: 12px; color: #FFFFFF;">
+        <span style="font-size: 14px; color: #CBD5E1;">Área sombreada</span>
+        <span style="font-family: 'Times New Roman', serif; font-size: 28px;"><i>P</i>(<i>Z</i> ≤ {{zText}}) = {{phiText}}</span>
+        <span style="font-size: 14px; color: #FDBA74;">A la derecha: {{rightText}}</span>
+      </div>
+    </aside>
+
+    <section style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 24px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px;">
+      <svg viewBox="0 0 820 420" width="100%" role="img" aria-label="{{ariaText}}">
+        <path d="M40 370 H800" stroke="#475569" stroke-width="2"></path>
+        <sc-for list="{{ticks}}" as="t" hint-placeholder-count="7">
+          <path d="{{t.d}}" stroke="#94A3B8" stroke-width="1.5"></path>
+          <text x="{{t.x}}" y="396" text-anchor="middle" font-size="16" fill="#475569" font-family="Plus Jakarta Sans, sans-serif">{{t.label}}</text>
+        </sc-for>
+        <path d="{{areaPath}}" fill="#FDBA74" fill-opacity="0.75"></path>
+        <path d="{{curvePath}}" fill="none" stroke="#C2410C" stroke-width="4" stroke-linejoin="round"></path>
+        <path d="{{zLine}}" stroke="#172033" stroke-width="2" stroke-dasharray="6 5"></path>
+        <circle cx="{{zx}}" cy="{{zy}}" r="7" fill="#C2410C" stroke="#FFFFFF" stroke-width="3"></circle>
+        <text x="{{zx}}" y="{{labelY}}" text-anchor="middle" font-size="18" font-weight="700" fill="#172033" font-family="Plus Jakarta Sans, sans-serif">z = {{zText}}</text>
+      </svg>
+      <p style="margin: 0; font-size: 15px; color: #475569;">Normal estándar N(0, 1). El área total bajo la curva es 1; la parte sombreada es la probabilidad acumulada Φ(<i>z</i>), la misma que da la tabla.</p>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { z: 1.25 };
+}
+phi(z) {
+// Abramowitz y Stegun 26.2.17: error absoluto menor que 7.5e-8.
+const t = 1 / (1 + 0.2316419 * Math.abs(z));
+const d = Math.exp(-z * z / 2) / Math.sqrt(2 * Math.PI);
+const p = d * t * (0.319381530 + t * (-0.356563782 + t * (1.781477937 + t * (-1.821255978 + t * 1.330274429))));
+return z >= 0 ? 1 - p : p;
+}
+renderVals() {
+const z = this.state.z;
+const X = (v) => 420 + v * 95;
+const Y = (v) => 370 - (Math.exp(-v * v / 2) / Math.sqrt(2 * Math.PI)) * 780;
+const pts = [];
+for (let v = -4; v <= 4.0001; v += 0.05) pts.push([v, X(v), Y(v)]);
+const curvePath = pts.map((p, i) => (i ? 'L' : 'M') + p[1].toFixed(1) + ' ' + p[2].toFixed(1)).join(' ');
+const left = pts.filter((p) => p[0] <= z + 1e-9);
+const areaPath = 'M' + X(-4).toFixed(1) + ' 370 ' + left.map((p) => 'L' + p[1].toFixed(1) + ' ' + p[2].toFixed(1)).join(' ') + ' L' + X(z).toFixed(1) + ' ' + Y(z).toFixed(1) + ' L' + X(z).toFixed(1) + ' 370 Z';
+const fmt = (n, d) => n.toFixed(d).replace('.', ',').replace('-', '−');
+const ph = this.phi(z);
+return {
+zRaw: Math.round(z * 100),
+zText: fmt(z, 2),
+phiText: fmt(ph, 4),
+rightText: fmt(1 - ph, 4),
+ariaText: 'Campana de la normal estándar con el área a la izquierda de z = ' + fmt(z, 2) + ' sombreada; vale ' + fmt(ph, 4),
+curvePath, areaPath,
+zx: X(z).toFixed(1), zy: Y(z).toFixed(1), labelY: (Y(z) - 18).toFixed(1),
+zLine: 'M' + X(z).toFixed(1) + ' 370 V' + Y(z).toFixed(1),
+ticks: [-3, -2, -1, 0, 1, 2, 3].map((v) => ({ x: X(v), label: v < 0 ? '−' + Math.abs(v) : String(v), d: 'M' + X(v) + ' 364 V376' })),
+onZ: (e) => this.setState({ z: Number(e.target.value) / 100 }),
+presets: [[-1.96, '−1,96'], [0, '0'], [1.645, '1,645']].map(([v, label]) => ({ label, go: () => this.setState({ z: v }) }))
+};
+}
+}
+</script>
+</body>
+</html>

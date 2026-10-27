@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Ronda 3 · Movimiento</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.92)}60%{opacity:1;transform:scale(1.04)}100%{transform:scale(1)}}
+@keyframes draw{from{stroke-dashoffset:520}to{stroke-dashoffset:0}}
+@keyframes tick{from{stroke-dashoffset:24}to{stroke-dashoffset:0}}
+@keyframes burst{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.6)}}
+@keyframes bounce{0%{transform:translateY(-14px)}50%{transform:translateY(0)}70%{transform:translateY(-4px)}100%{transform:translateY(0)}}
+@keyframes shade{from{opacity:0}to{opacity:1}}
+.fb-min{animation:fade .15s ease-out both}
+.fb-mod{animation:rise .25s cubic-bezier(.2,.7,.3,1) both}
+.fb-exp{animation:pop .42s cubic-bezier(.2,.8,.3,1.2) both}
+.tick-anim{stroke-dasharray:24;animation:tick .35s .12s ease-out both}
+.curve-mod{stroke-dasharray:520;animation:draw .9s ease-in-out both}
+.curve-exp{stroke-dasharray:520;animation:draw 1.1s cubic-bezier(.6,0,.3,1) both}
+.area-exp{animation:shade .5s 1s ease-out both}
+.dot-exp{transform-box:fill-box;transform-origin:center;animation:bounce .5s 1.05s ease-out both}
+.dot-mod{animation:fade .2s .85s both}
+.spark{position:absolute;left:28px;top:22px;width:8px;height:8px;border-radius:2px;animation:burst .7s ease-out both}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+</helmet>
+<div style="width: 1120px; min-height: 1180px; box-sizing: border-box; padding: 48px 48px; background: #F7F8FC; color: #172033; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; display: flex; flex-direction: column; gap: 24px;">
+  <div style="display: flex; flex-direction: column; gap: 6px;">
+    <h1 style="margin: 0; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 36px;">Intensidad de animación</h1>
+    <p style="margin: 0; color: #475569; font-size: 17px;">Pulsa los botones de cada columna para reproducir el feedback y el dibujo de la gráfica. Con «reducir movimiento» activado en el dispositivo, todo aparece sin animación.</p>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
+    <sc-for list="{{cols}}" as="col" hint-placeholder-count="3">
+      <section style="display: flex; flex-direction: column; gap: 16px; padding: 22px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <h2 style="margin: 0; font-family: 'Outfit', sans-serif; font-size: 22px;">{{col.title}}</h2>
+          <span style="font-size: 14px; color: #475569; min-height: 60px;">{{col.desc}}</span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 16px; border-radius: 12px; background: #F8FAFC;">
+          <span style="font-weight: 600; font-size: 15px;">¿P(suma = 7) con dos dados?</span>
+          <div style="display: flex; gap: 8px;">
+            <input value="1/6" aria-label="Respuesta" style="flex: 1; min-width: 0; height: 44px; box-sizing: border-box; padding: 0 12px; font: inherit; border: 2px solid #15803D; border-radius: 10px; background: #FFFFFF;">
+            <button type="button" onClick="{{col.check}}" style="height: 44px; padding: 0 16px; border: 0; border-radius: 10px; background: #1D4ED8; color: #FFFFFF; font: inherit; font-weight: 700;">Comprobar</button>
+          </div>
+          <div style="position: relative; min-height: 64px;">
+            <sc-if value="{{col.show}}" hint-placeholder-val="{{true}}">
+              <div class="{{col.fbClass}}" role="status" style="display: flex; gap: 10px; padding: 12px 14px; background: #ECFDF3; border: 1px solid #BBF7D0; border-radius: 10px; color: #065F46; font-size: 15px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0;"><circle cx="12" cy="12" r="10"></circle><path class="{{col.tickClass}}" d="m8 12 3 3 5-6"></path></svg>
+                <span><strong>¡Bien!</strong> 6 de 36 casos: 1/6.</span>
+              </div>
+              <sc-if value="{{col.confetti}}" hint-placeholder-val="{{false}}">
+                <sc-for list="{{sparks}}" as="s" hint-placeholder-count="8">
+                  <span class="spark" aria-hidden="true" style="{{s.style}}"></span>
+                </sc-for>
+              </sc-if>
+            </sc-if>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="padding: 10px; border-radius: 12px; border: 1px solid #E2E8F0;">
+            <sc-if value="{{col.showCurve}}" hint-placeholder-val="{{true}}">
+              <svg viewBox="0 0 300 170" width="100%" role="img" aria-label="Curva de la función con su máximo">
+                <path d="M20 150 H290 M28 160 V12" stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round"></path>
+                <sc-if value="{{col.area}}" hint-placeholder-val="{{false}}">
+                  <path class="area-exp" d="M34 146 C90 142 120 46 170 46 C210 46 240 100 280 132 L280 150 L34 150 Z" fill="#DBEAFE"></path>
+                </sc-if>
+                <path class="{{col.curveClass}}" d="M34 146 C90 142 120 46 170 46 C210 46 240 100 280 132" fill="none" stroke="#2563EB" stroke-width="4" stroke-linecap="round"></path>
+                <circle class="{{col.dotClass}}" cx="170" cy="46" r="7" fill="#2563EB" stroke="#FFFFFF" stroke-width="2.5"></circle>
+              </svg>
+            </sc-if>
+          </div>
+          <button type="button" onClick="{{col.replay}}" style="align-self: flex-start; height: 40px; padding: 0 16px; border: 1px solid #CBD5E1; border-radius: 10px; background: #FFFFFF; color: #172033; font: inherit; font-weight: 600;">Dibujar gráfica</button>
+        </div>
+      </section>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1120,"height":1180}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { show: { min: true, mod: true, exp: true }, curve: { min: true, mod: true, exp: true } };
+}
+restart(kind, id) {
+this.setState({ [kind]: { ...this.state[kind], [id]: false } });
+setTimeout(() => this.setState({ [kind]: { ...this.state[kind], [id]: true } }), 40);
+}
+renderVals() {
+const defs = [
+{ id: 'min', title: 'Mínima', desc: 'Aparición suave de 150 ms. Nada se mueve; solo cambia la opacidad.', fb: 'fb-min', tick: '', curve: '', dot: '', area: false, confetti: false },
+{ id: 'mod', title: 'Moderada', desc: 'El mensaje sube 10 px, la marca se traza y la curva se dibuja de izquierda a derecha.', fb: 'fb-mod', tick: 'tick-anim', curve: 'curve-mod', dot: 'dot-mod', area: false, confetti: false },
+{ id: 'exp', title: 'Expresiva', desc: 'Rebote del mensaje, pequeña celebración, curva con área que se rellena y punto que cae al máximo.', fb: 'fb-exp', tick: 'tick-anim', curve: 'curve-exp', dot: 'dot-exp', area: true, confetti: true }
+];
+const colors = ['#2563EB', '#A21CAF', '#C2410C', '#15803D'];
+const sparks = [[-40, -34], [36, -40], [70, -10], [-62, 2], [18, 34], [-28, 30], [92, -32], [54, 26]].map(([dx, dy], i) => ({
+style: '--dx: ' + dx + 'px; --dy: ' + dy + 'px; background: ' + colors[i % 4] + '; animation-delay: ' + (0.05 + i * 0.02) + 's;'
+}));
+return {
+sparks,
+cols: defs.map((d) => ({
+title: d.title, desc: d.desc, fbClass: d.fb, tickClass: d.tick, curveClass: d.curve, dotClass: d.dot, area: d.area, confetti: d.confetti,
+show: this.state.show[d.id], showCurve: this.state.curve[d.id],
+check: () => this.restart('show', d.id),
+replay: () => this.restart('curve', d.id)
+}))
+};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Ronda 3 · Iconografía</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1280px; min-height: 1080px; box-sizing: border-box; padding: 48px 56px; background: #F7F8FC; color: #172033; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; display: flex; flex-direction: column; gap: 28px;">
+  <h1 style="margin: 0; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 36px;">Iconos por tipo de contenido</h1>
+  <sc-for list="{{styles}}" as="st" hint-placeholder-count="3">
+    <section style="display: flex; flex-direction: column; gap: 18px; padding: 26px 28px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px;">
+      <div style="display: flex; align-items: baseline; gap: 14px;">
+        <h2 style="margin: 0; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 24px;">{{st.title}}</h2>
+        <span style="font-size: 16px; color: #475569;">{{st.subtitle}}</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 12px;">
+        <sc-for list="{{st.icons}}" as="ic" hint-placeholder-count="9">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center;">
+            <span style="{{ic.boxStyle}}">
+              <svg width="{{ic.size}}" height="{{ic.size}}" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <sc-for list="{{ic.paths}}" as="p" hint-placeholder-count="2">
+                  <path d="{{p.d}}" fill="{{p.fill}}" stroke="{{ic.stroke}}" stroke-width="{{ic.width}}"></path>
+                </sc-for>
+              </svg>
+            </span>
+            <span style="font-size: 14px; font-weight: 600; line-height: 1.3;">{{ic.label}}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-radius: 12px; background: {{st.sampleBg}};">
+        <span style="{{st.sampleBox}}">
+          <svg width="{{st.sampleSize}}" height="{{st.sampleSize}}" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <sc-for list="{{st.samplePaths}}" as="p" hint-placeholder-count="2">
+              <path d="{{p.d}}" fill="{{p.fill}}" stroke="{{st.sampleStroke}}" stroke-width="{{st.sampleWidth}}"></path>
+            </sc-for>
+          </svg>
+        </span>
+        <span style="font-weight: 700; color: {{st.sampleStroke}};">Error frecuente</span>
+        <span style="color: #422006;">· así se vería en la cabecera de una caja</span>
+      </div>
+    </section>
+  </sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1080}}'>
+class Component extends DCLogic {
+renderVals() {
+const circle = (r) => 'M' + (12 - r) + ' 12a' + r + ' ' + r + ' 0 1 0 ' + (2 * r) + ' 0a' + r + ' ' + r + ' 0 1 0 ' + (-2 * r) + ' 0';
+const roles = [
+{ label: 'Definición', dark: '#1D4ED8', tint: '#DBE6FE', paths: ['M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z', 'M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z'], fill: [0, 1] },
+{ label: 'Método', dark: '#5B21B6', tint: '#E9E3FF', paths: ['M10 6h11M10 12h11M10 18h11', 'M4 6h1v4M4 10h2', 'M6 18H4c0-1 2-2 2-3s-1-1.5-2-1'], fill: [] },
+{ label: 'Ejemplo resuelto', dark: '#0F766E', tint: '#CFF5EA', paths: ['M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z'], fill: [0] },
+{ label: 'Error frecuente', dark: '#92400E', tint: '#FDE68A', paths: ['M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z', 'M12 9v4M12 17h.01'], fill: [0] },
+{ label: 'Practica', dark: '#9A3412', tint: '#FFEDD5', paths: ['M13 2 3 14h9l-1 8 10-12h-9l1-8z'], fill: [0] },
+{ label: 'Objetivo', dark: '#9A3412', tint: '#FFEDD5', paths: [circle(10), circle(6), circle(2)], fill: [0] },
+{ label: 'Resumen', dark: '#475569', tint: '#E2E8F0', paths: ['M6 3h12v18l-6-4-6 4z'], fill: [0] },
+{ label: 'Selectividad', dark: '#854D0E', tint: '#FEF08A', paths: ['M2 9l10-5 10 5-10 5z', 'M6 11v5c3 2 9 2 12 0v-5', 'M22 9v6'], fill: [0] },
+{ label: 'Ampliación', dark: '#BE185D', tint: '#FCE7F3', paths: ['M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z'], fill: [0] }
+];
+const make = (kind) => roles.map((r) => {
+const duo = kind === 'duo';
+return {
+label: r.label,
+size: kind === 'thin' ? 34 : 26,
+stroke: kind === 'thin' ? '#172033' : r.dark,
+width: kind === 'thin' ? 1.5 : (duo ? 1.75 : 2),
+paths: r.paths.map((d, i) => ({ d, fill: duo && r.fill.includes(i) ? r.tint : 'none' })),
+boxStyle: kind === 'pill'
+? 'display: inline-flex; width: 52px; height: 52px; border-radius: 14px; background: ' + r.tint + '; align-items: center; justify-content: center;'
+: 'display: inline-flex; width: 52px; height: 52px; align-items: center; justify-content: center;'
+};
+});
+const err = roles[3];
+const sample = (kind) => ({
+sampleBg: '#FEF3C7',
+sampleSize: kind === 'thin' ? 26 : 20,
+sampleStroke: kind === 'thin' ? '#92400E' : err.dark,
+sampleWidth: kind === 'thin' ? 1.5 : (kind === 'duo' ? 1.75 : 2),
+samplePaths: err.paths.map((d, i) => ({ d, fill: kind === 'duo' && i === 0 ? '#FCD34D' : 'none' })),
+sampleBox: kind === 'pill'
+? 'display: inline-flex; width: 34px; height: 34px; border-radius: 9px; background: #FDE68A; align-items: center; justify-content: center;'
+: 'display: inline-flex; width: 34px; height: 34px; align-items: center; justify-content: center;'
+});
+return {
+styles: [
+{ title: '1 · Trazo fino', subtitle: 'Monocromo, 1,5 px, sin fondo. Muy sobrio; el color lo pone la caja.', icons: make('thin'), ...sample('thin') },
+{ title: '2 · Pastilla tintada', subtitle: 'Trazo de 2 px del color del rol sobre un cuadrado suave (lo elegido en la propuesta D).', icons: make('pill'), ...sample('pill') },
+{ title: '3 · Duotono', subtitle: 'Relleno suave y trazo oscuro del rol. Más ilustrativo y reconocible a distancia (proyector).', icons: make('duo'), ...sample('duo') }
+]
+};
+}
+}
+</script>
+</body>
+</html>

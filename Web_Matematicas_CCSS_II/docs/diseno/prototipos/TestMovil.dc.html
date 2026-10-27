@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Test · móvil</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F8FC; color: #172033; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 17px; line-height: 1.55; display: flex; flex-direction: column;">
+  <header style="display: flex; flex-direction: column; gap: 10px; padding: 10px 16px 14px; background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+      <button type="button" aria-label="Salir del test" style="width: 44px; height: 44px; border: 0; border-radius: 12px; background: #F1F5F9; display: inline-flex; align-items: center; justify-content: center; color: #172033;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+      <span style="font-weight: 700;">Test · Tema 7</span>
+      <span style="font-size: 14px; color: #475569; font-weight: 600; width: 44px; text-align: right;">4/10</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 4px;" aria-label="Pregunta 4 de 10">
+      <sc-for list="{{steps}}" as="s" hint-placeholder-count="10"><span style="{{s.style}}"></span></sc-for>
+    </div>
+  </header>
+
+  <main style="flex-grow: 1; padding: 20px 16px; display: flex; flex-direction: column; gap: 14px; overflow: hidden;">
+    <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border-radius: 999px; background: #FFEDD5; color: #9A3412; font-weight: 700; font-size: 13px;">7.7 · Experimentos compuestos</span>
+    <p style="margin: 0; font-weight: 700; font-size: 19px; line-height: 1.4;">Una urna tiene 3 bolas rojas y 5 azules. Se extraen dos <u>sin reposición</u>. ¿Cuál es la probabilidad de que las dos sean rojas?</p>
+    <div role="radiogroup" aria-label="Respuestas" style="display: flex; flex-direction: column; gap: 10px;">
+      <sc-for list="{{options}}" as="o" hint-placeholder-count="4">
+        <label style="{{o.style}}">
+          <input type="radio" name="r" style="width: 20px; height: 20px; margin: 0; accent-color: #1D4ED8;" checked="{{o.checked}}">
+          <span style="flex: 1; font-size: 19px; font-family: 'Times New Roman', serif;">{{o.label}}</span>
+          <span style="font-size: 13px; font-weight: 700; color: {{o.tagColor}};">{{o.tag}}</span>
+        </label>
+      </sc-for>
+    </div>
+    <div role="status" style="display: flex; gap: 10px; padding: 14px; background: #FEF2F2; border: 1px solid #FECACA; border-radius: 12px; color: #7F1D1D; font-size: 15px;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0;"><circle cx="12" cy="12" r="10"></circle><path d="M15 9l-6 6M9 9l6 6"></path></svg>
+      <span><strong>Casi.</strong> 9/64 sería con reposición. Sin reposición, en la segunda extracción quedan 2 rojas de 7: (3/8) · (2/7) = 3/28.</span>
+    </div>
+  </main>
+
+  <footer style="display: flex; gap: 10px; padding: 12px 16px 18px; background: #FFFFFF; border-top: 1px solid #E2E8F0;">
+    <a href="#" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 18px; border-radius: 12px; border: 1px solid #CBD5E1; color: #172033; text-decoration: none; font-weight: 700;">Repasar 7.7</a>
+    <a href="#" style="flex: 1; display: inline-flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 12px; background: #1D4ED8; color: #FFFFFF; text-decoration: none; font-weight: 700;">Siguiente</a>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const seg = 'height: 6px; border-radius: 3px;';
+const base = 'display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 0 16px; border-radius: 12px; background: #FFFFFF;';
+return {
+steps: Array.from({ length: 10 }, (_, i) => ({ style: seg + (i < 2 ? ' background: #15803D;' : i === 2 ? ' background: #B91C1C;' : i === 3 ? ' background: #C2410C;' : ' background: #E2E8F0;') })),
+options: [
+{ label: '3/28', tag: 'Correcta', tagColor: '#065F46', checked: false, style: base + ' border: 2px solid #15803D; background: #ECFDF3;' },
+{ label: '9/64', tag: 'Tu respuesta', tagColor: '#B91C1C', checked: true, style: base + ' border: 2px solid #B91C1C;' },
+{ label: '3/8', tag: '', tagColor: '#475569', checked: false, style: base + ' border: 1px solid #CBD5E1;' },
+{ label: '1/4', tag: '', tagColor: '#475569', checked: false, style: base + ' border: 1px solid #CBD5E1;' }
+]
+};
+}
+}
+</script>
+</body>
+</html>
