@@ -1,0 +1,67 @@
+name: Comprobaciones
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      browser:
+        description: 'Pruebas de navegador: palabras clave separadas por espacios, o «todas»'
+        default: 'math-browser accessibility-11 content-visibility-158 visibility-panel-159 probability-test-121'
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  web:
+    name: Web · unitarias y enlaces
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Web_Matematicas_CCSS_II
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm test
+      - run: npm run check:links
+
+  selectividad:
+    name: Selectividad · catálogo y búsqueda
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Selectividad_LaTeX
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m unittest discover -s tests -v
+
+  navegador:
+    name: Web · navegador
+    runs-on: ubuntu-latest
+    needs: web
+    defaults:
+      run:
+        working-directory: Web_Matematicas_CCSS_II
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: Web_Matematicas_CCSS_II/package-lock.json
+      - run: npm ci
+      - name: Ejecutar pruebas de navegador
+        env:
+          SELECTION: ${{ github.event.inputs.browser || 'math-browser accessibility-11 content-visibility-158 visibility-panel-159 probability-test-121' }}
+        run: |
+          if [ "$SELECTION" = "todas" ]; then node scripts/test-browser.mjs; else node scripts/test-browser.mjs $SELECTION; fi
