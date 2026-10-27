@@ -1,0 +1,55 @@
+name: Publicar web
+
+# Publica solo el sitio de Web_Matematicas_CCSS_II en GitHub Pages.
+# Requiere Settings › Pages › Source = «GitHub Actions».
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  construir:
+    name: Comprobar y preparar el sitio
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Pruebas unitarias y enlaces
+        working-directory: Web_Matematicas_CCSS_II
+        run: npm test
+      - name: Copiar solo los archivos públicos
+        run: |
+          mkdir -p _site
+          cp -R Web_Matematicas_CCSS_II/. _site/
+          cd _site
+          # Desarrollo y documentación interna: no forman parte de la web.
+          rm -rf docs tests scripts node_modules content/latex
+          rm -f package.json package-lock.json README.md TAREAS.md PLAN_DE_ACCION.md
+          find . -name '*.py' -delete
+          find . -name '__pycache__' -type d -prune -exec rm -rf {} +
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  publicar:
+    name: Publicar en GitHub Pages
+    needs: construir
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

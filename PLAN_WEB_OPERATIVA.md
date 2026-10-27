@@ -36,9 +36,9 @@ Este es el **documento de entrada para cada sesión de trabajo** sobre la web. R
 - [x] W00 · Repositorio Git en la carpeta raíz, `.gitignore` y primer push a GitHub.
 - [x] W01 · Herramientas no temporales movidas de `tmp/tools/` a [tools/](tools/README.md) (Tectonic 0.17.0 y su caché, sin versionar); `leer_lote.py` parametrizado sustituye a los `leer_lNNN.py`.
 - [x] W02 · Comprobador y reparador de enlaces locales (`npm run check:links` / `npm run fix:links`), incluido en `npm test`. Al copiar una página a otra profundidad, `fix:links` recalcula los prefijos `../`.
-- [ ] W03 · Instalar dependencias de verificación: `python -m pip install -r tools/requirements.txt` (pypdf, pypdfium2, pdfplumber) y Playwright con Chromium para `tests/*-browser.cjs`. Sin ello no terminan `build-pdfs.mjs` ni las pruebas de navegador.
-- [ ] W04 · GitHub Actions de integración: `npm test` + `check:links` en cada push y pull request.
-- [ ] W05 · GitHub Actions de despliegue en Pages publicando solo `Web_Matematicas_CCSS_II/` (más `output/pdf`). 🗣️ Confirmar con el docente cuándo hacer pública la web y si el repositorio será público o privado (Pages en repos privados requiere plan de pago).
+- [x] W03 · Dependencias de verificación: `python -m pip install -r tools/requirements.txt` (pypdf, pypdfium2, pdfplumber) y Playwright 1.64.1 como dependencia exacta de desarrollo (`npm ci`). `npm run test:e2e [palabras]` lanza las pruebas de navegador con el servidor local y el Chrome del sistema.
+- [x] W04 · GitHub Actions de integración (`.github/workflows/ci.yml`): unitarias y enlaces de la web, pruebas de Selectividad y cinco pruebas de navegador en cada push; batería completa a mano con «todas».
+- [ ] W05 · Despliegue en Pages solo de la web (`.github/workflows/pages.yml`, decidido por el docente el 27-10-2026): copia `Web_Matematicas_CCSS_II/` sin docs, tests, scripts ni fuentes LaTeX. Falta fusionar en `main` y cambiar *Settings › Pages › Source* a «GitHub Actions» (ahora publica toda la raíz con Jekyll).
 - [ ] W06 · Ordenar la documentación: mover los ~175 `verificacion-entrega-NN.md` y las auditorías a `docs/historial/`, y dejar en `docs/` solo los documentos vigentes. Con Git, el historial ya no necesita un archivo por entrega. 🗣️ Pendiente de que el docente lo apruebe (no se pidió en esta ronda).
 - [ ] W07 · Generador de páginas `npm run new:page -- <ruta> <id> "<título>"`: crea el HTML con la plantilla vigente, rutas correctas y registro en `config/pages.json`.
 
@@ -46,13 +46,13 @@ Este es el **documento de entrada para cada sesión de trabajo** sobre la web. R
 
 **No se implementa ningún rediseño sin cerrar antes esta fase.** El objetivo es que el diseño se ajuste a la idea del docente, no a una suposición. Se hará en una sesión dedicada, con preguntas concretas (herramienta de preguntas) y prototipos visuales comparables (artefactos HTML de una sola página), en varias rondas cortas.
 
-- [ ] D01 · **Ronda 1, identidad y referencias.** Preguntar:
+- [x] D01 · **Ronda 1, identidad y referencias.** Respuestas en [DECISIONES_DISENO.md](Web_Matematicas_CCSS_II/docs/diseno/DECISIONES_DISENO.md). Preguntar:
   - Tres adjetivos para la web (p. ej. sobria/académica, cálida/cercana, tecnológica/laboratorio, lúdica).
   - Webs, libros o apps que le gusten como referencia (y qué le gusta de cada una) y qué quiere evitar.
   - Si debe reflejar la identidad del centro (logo, colores institucionales; en los LaTeX aparece `logo-al-andalus.png`) o tener marca propia («Matemáticas en contexto · CCSS II»).
   - Dispositivo principal del alumnado (móvil, portátil, tablet) y uso en clase con proyector o pizarra digital.
   - Modo oscuro: sí, no o automático.
-- [ ] D02 · **Ronda 2, color y tipografía.** Mostrar 2–3 propuestas de paleta sobre una misma lección real (por ejemplo 7.1 Laplace): la de la especificación §11.2 (análisis azul, álgebra violeta, azar verde) y alternativas. Preguntar por la paleta de bloques temáticos, la de tipos de contenido (abajo) y por las tipografías (Plus Jakarta Sans + Outfit u otras; serif editorial para el cuerpo o sans).
+- [ ] D02 · **Ronda 2, color y tipografía.** En curso: lienzo con propuestas A, B, C y la fusión D (A + C elegida); falta fijar tipografía y paleta de bloques. Mostrar 2–3 propuestas de paleta sobre una misma lección real (por ejemplo 7.1 Laplace): la de la especificación §11.2 (análisis azul, álgebra violeta, azar verde) y alternativas. Preguntar por la paleta de bloques temáticos, la de tipos de contenido (abajo) y por las tipografías (Plus Jakarta Sans + Outfit u otras; serif editorial para el cuerpo o sans).
 - [ ] D03 · **Ronda 3, iconos, ilustraciones y movimiento.** Mostrar muestras de:
   - Iconografía: trazo fino (Lucide, Phosphor) frente a rellena o duotono; iconos propios para la materia.
   - Ilustraciones: lineal monocromo, plana con color del tema, isométrica o diagramas «de pizarra»; mascota sí/no.
@@ -163,3 +163,4 @@ W03 → W04 → **D01–D05 (consulta)** → S01–S06 → L01–L08 → F01–F
 ## Diario
 
 - **2026-10-27** · W00–W02: repositorio Git creado y enlazado con GitHub; Tectonic movido a `tools/` (PDF de prueba recompilado e idéntico byte a byte al publicado); `leer_lote.py` parametrizado; comprobador y reparador de enlaces con dos pruebas nuevas. `npm test`: 343 de 343 pruebas superadas; 176 páginas sin enlaces rotos. Pendiente W03: faltan pypdf/pdfplumber en el Python del equipo, por lo que `build-pdfs.mjs` compila pero no termina su verificación.
+- **2026-10-27** · W03–W04: dependencias de Python instaladas y `build-pdfs.mjs` completo de nuevo (PDF e informe sin cambios); Playwright y `scripts/test-browser.mjs`; CI en GitHub Actions en verde (web, Selectividad y navegador). W05 preparado en la rama `infra/w03-w04`. D01 cerrada; D02 en curso con el lienzo de la ronda 2.
