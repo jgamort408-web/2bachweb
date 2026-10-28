@@ -27,6 +27,8 @@ export async function mountQuiz(root, source) {
   const check = document.createElement('button'), hint = document.createElement('button'), next = document.createElement('button');
   check.textContent = 'Comprobar'; hint.textContent = 'Ver pista'; next.textContent = 'Siguiente pregunta';
   for (const button of [check, hint, next]) button.type = 'button';
+  // data-action y data-state solo sirven al estilo (feedback inmediato): no cambian textos ni comportamiento.
+  check.dataset.action = 'check'; hint.dataset.action = 'hint'; next.dataset.action = 'next';
   actions.append(check, hint, next);
   root.replaceChildren(progress, questionBox, feedback, actions);
   let questions, index, attempts, firstTry, completed, busy = false;
@@ -35,7 +37,7 @@ export async function mountQuiz(root, source) {
     busy = true; attempts = 0;
     next.hidden = true; check.hidden = hint.hidden = false;
     check.disabled = hint.disabled = true;
-    await updateMath(feedback, () => feedback.replaceChildren());
+    await updateMath(feedback, () => { feedback.replaceChildren(); delete feedback.dataset.state; });
     const item = questions[index];
     progress.textContent = 'Pregunta ' + (index + 1) + ' de ' + questions.length + ' · Sin límite de tiempo';
     await updateMath(questionBox, () => {
@@ -99,7 +101,7 @@ export async function mountQuiz(root, source) {
     if (busy) return;
     const selected = questionBox.querySelector('input:checked');
     if (!selected) {
-      await updateMath(feedback, () => { feedback.textContent = 'Selecciona una respuesta antes de comprobar.'; });
+      await updateMath(feedback, () => { feedback.textContent = 'Selecciona una respuesta antes de comprobar.'; feedback.dataset.state = 'info'; });
       return;
     }
     busy = true;
@@ -112,7 +114,10 @@ export async function mountQuiz(root, source) {
     await updateMath(feedback, () => {
       feedback.textContent = (correct ? 'Correcta. ' : 'Revisa tu respuesta. ') + option.feedback + ' ' +
         (done ? 'Solución: ' + answer.text + '. ' + item.explanation : 'Puedes intentarlo una vez más o consultar la pista.');
+      feedback.dataset.state = correct ? 'correct' : 'wrong';
     });
+    selected.closest('label').dataset.state = correct ? 'correct' : 'wrong';
+    if (done) questionBox.querySelector(`input[value="${CSS.escape(item.correct)}"]`)?.closest('label')?.setAttribute('data-state', 'correct');
     if (done) {
       questionBox.querySelector('fieldset').disabled = true;
       check.disabled = hint.disabled = true; next.hidden = false;
@@ -122,7 +127,7 @@ export async function mountQuiz(root, source) {
     busy = false;
   });
   hint.addEventListener('click', () => {
-    if (!busy) updateMath(feedback, () => { feedback.textContent = 'Pista: ' + questions[index].hint; });
+    if (!busy) updateMath(feedback, () => { feedback.textContent = 'Pista: ' + questions[index].hint; feedback.dataset.state = 'hint'; });
   });
   next.addEventListener('click', async () => {
     if (busy) return;
@@ -133,10 +138,11 @@ export async function mountQuiz(root, source) {
       busy = true; completed = true; progress.textContent = 'Sesión terminada';
       await updateMath(questionBox, () => {
         const summary = document.createElement('p');
+        summary.dataset.state = 'complete';
         summary.textContent = firstTry + ' de ' + questions.length + ' respuestas correctas al primer intento. Este resumen pertenece solo a esta sesión; no se guarda un historial.';
         questionBox.replaceChildren(summary);
       });
-      await updateMath(feedback, () => feedback.replaceChildren());
+      await updateMath(feedback, () => { feedback.replaceChildren(); delete feedback.dataset.state; });
       check.hidden = hint.hidden = true; next.textContent = 'Empezar otra sesión'; next.focus(); busy = false;
     }
   });
