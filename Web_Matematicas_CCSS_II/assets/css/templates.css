@@ -88,3 +88,54 @@
 .mc-route__link { flex: 1 1 14rem; display: flex; align-items: center; gap: var(--mc-space-4); min-width: 0; color: var(--mc-text); font-weight: 700; text-decoration: none; }
 .mc-route__link:focus-visible { outline: 3px solid var(--mc-focus); outline-offset: 4px; border-radius: 8px; }
 .mc-route .mc-card__number { width: 3rem; height: 2.25rem; border-radius: 10px; }
+
+/* Lección (L04): índice lateral fijo a la izquierda, columna de lectura y cajas por rol (assets/js/core/skin.js) */
+.page-main.mc-lesson {
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 0;
+  padding-block: var(--mc-space-6) var(--mc-space-7); max-width: var(--content-width, 75rem);
+}
+/* Separación por márgenes, no por gap: el índice abarca filas implícitas que, con gap, dejarían huecos. */
+.page-main.mc-lesson > * { min-width: 0; margin: 0; max-width: none; }
+.page-main.mc-lesson > * + * { margin-top: var(--mc-space-5); }
+.mc-lesson > h1 { font-size: var(--mc-h1); }
+.mc-lesson > [data-content-role="lead"] { font-size: var(--mc-text-lead); color: var(--mc-text-3); }
+.mc-lesson > [data-content-role="source"] { font-size: var(--mc-text-sm); color: var(--mc-text-2); }
+.mc-lesson > .learning-goals {
+  display: flex; flex-direction: column; gap: var(--mc-space-2); padding: 1.125rem 1.375rem;
+  background: var(--mc-paper); border: 1px solid var(--mc-border); border-radius: var(--mc-radius-box); color: var(--mc-text);
+}
+.mc-lesson > .learning-goals p { margin: 0; }
+.mc-lesson .mc-box > h2 { font-size: var(--mc-h2); }
+.mc-lesson .mc-box > :is(p, ul, ol, details, div, figure, table) { margin-block: 0; }
+.mc-lesson .mc-box details { padding: 0.625rem 0.875rem; background: var(--mc-paper); border: 1px solid var(--mc-border); border-radius: var(--mc-radius-control); }
+.mc-lesson .mc-box details + details { margin-top: var(--mc-space-2); }
+.mc-lesson .mc-box summary { font-weight: 700; cursor: pointer; }
+.mc-lesson .mc-box :is(table) { background: var(--mc-paper); border-color: var(--mc-border); }
+.mc-lesson .mc-box :is(th, td) { border-color: var(--mc-border); }
+.mc-lesson .math-scroll { padding: var(--mc-space-3) var(--mc-space-4); background: var(--mc-paper); border-radius: var(--mc-radius-control); }
+
+.mc-toc { font-size: var(--mc-text-sm); }
+.mc-toc > details { background: var(--mc-paper); border: 1px solid var(--mc-border); border-radius: var(--mc-radius-box); }
+.mc-toc summary { display: flex; align-items: center; justify-content: space-between; min-height: var(--mc-target); padding: 0 1rem; font-weight: 700; cursor: pointer; list-style: none; }
+.mc-toc summary::-webkit-details-marker { display: none; }
+.mc-toc summary::after { content: '▾'; color: var(--mc-text-2); }
+.mc-toc details[open] summary::after { content: '▴'; }
+.mc-toc ol { display: flex; flex-direction: column; gap: 2px; margin: 0; padding: 0 0.625rem 0.75rem; list-style: none; }
+.mc-toc a { display: block; padding: 0.375rem 0.625rem; border-radius: 8px; color: var(--mc-text-3); text-decoration: none; }
+.mc-toc a:hover { background: var(--mc-paper-2); }
+.mc-toc a[aria-current="true"] { background: var(--mc-accent-tint); color: var(--mc-accent-dark); font-weight: 700; }
+.mc-pager--page { box-sizing: border-box; width: min(100%, var(--content-width, 75rem)); margin: 0 auto var(--mc-space-7); padding-inline: var(--mc-space-4); }
+
+@media (min-width: 64rem) {
+  .page-main.mc-lesson { grid-template-columns: 15rem minmax(0, 48rem); column-gap: var(--mc-space-7); align-items: start; }
+  .page-main.mc-lesson > .mc-toc { margin-top: 0; }
+  /* Alinea anterior/siguiente con la columna de lectura: índice (15rem) + separación. */
+  .mc-pager--page {
+    padding-inline-start: calc(var(--mc-space-4) + 15rem + var(--mc-space-7));
+    grid-template-columns: repeat(2, minmax(0, calc((48rem - var(--mc-space-4)) / 2)));
+  }
+  .mc-lesson > * { grid-column: 2; }
+  .mc-lesson > .mc-toc { grid-column: 1; grid-row: 1 / span 40; position: sticky; top: var(--mc-space-4); align-self: start; }
+  .mc-toc summary { cursor: default; pointer-events: none; }
+  .mc-toc summary::after { content: none; }
+}

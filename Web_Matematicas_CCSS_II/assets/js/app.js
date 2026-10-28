@@ -4,6 +4,7 @@ import { renderNavigation } from './shared/navigation.js';
 import { observeMath } from './core/math.js';
 import { initializePreferences, mountPreferenceControls } from './core/preferences.js';
 import { mountThemeToggle } from './core/theme.js';
+import { applyLessonSkin } from './core/skin.js';
 import { getContentContext, pageRecords } from './content/runtime.js';
 import { observeDocumentAvailability, showPageAvailability } from './content/document.js';
 
@@ -66,6 +67,7 @@ async function initializeLayout() {
 }
 
 initializePreferences();
+applyLessonSkin();
 initializeLayout().catch((error) => {
   showPageAvailability(null, { failed: true, initial: true });
   console.warn('[Estructura del sitio]', error.message);
