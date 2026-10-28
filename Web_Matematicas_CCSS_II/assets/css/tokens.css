@@ -8,6 +8,9 @@
  * texto y fondo cumple el contraste WCAG 2.2 AA en ambos modos.
  *
  * Acento de bloque: data-block="analisis" | "algebra" | "azar" en <body> o en una sección.
+ *
+ * El modo oscuro solo se aplica a páginas ya migradas al nuevo diseño (<html data-skin="mc">):
+ * así una página antigua nunca mezcla cabecera oscura con contenido claro.
  */
 
 :root {
@@ -133,7 +136,7 @@
 
 /* Modo oscuro automático, salvo que el usuario haya elegido claro. Mismo bloque que el manual. */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
+  :root[data-skin="mc"]:not([data-theme="light"]) {
     color-scheme: dark;
     --mc-bg: #0E1422;
     --mc-paper: #161F31;
@@ -197,7 +200,7 @@
 }
 
 /* Modo oscuro elegido en el selector: debe repetir exactamente el bloque anterior. */
-:root[data-theme="dark"] {
+:root[data-skin="mc"][data-theme="dark"] {
   color-scheme: dark;
   --mc-bg: #0E1422;
   --mc-paper: #161F31;
@@ -260,8 +263,8 @@
 }
 
 /* Preferencia «Aumentar contraste» (assets/js/core/preferences.js): negro sobre blanco
-   en cualquier modo. Va después del oscuro para prevalecer con la misma especificidad. */
-:root[data-contrast="true"] {
+   en cualquier modo. Va después del oscuro y con su misma especificidad para prevalecer. */
+:root[data-contrast="true"][data-contrast] {
   color-scheme: light;
   --mc-bg: #FFFFFF;
   --mc-paper: #FFFFFF;

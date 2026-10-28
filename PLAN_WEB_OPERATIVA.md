@@ -87,8 +87,8 @@ Este es el **documento de entrada para cada sesión de trabajo** sobre la web. R
 
 ## Fase 3 · Maquetación de plantillas
 
-- [ ] L01 · Cabecera y pie nuevos: logotipo, buscador (cuando exista T10), menú móvil accesible y ajustes de lectura en un panel.
-- [ ] L02 · Portada tipo landing: presentación, «Explorar temas / Jugar / Recursos», tarjetas de los 9 temas con ilustración y color de bloque, destacados del docente. Sustituye la lista actual de enlaces de `index.html`.
+- [x] L01 · Cabecera y pie nuevos en todas las páginas (`components/header.html`, `footer.html`, `assets/css/layout.css`): marca Mates CCSS II con logotipo, navegación en píldoras (Inicio, Libro, Practicar, Laboratorios, Recursos; el resto pasa al pie), migas, y Temario, Páginas relacionadas y Opciones de lectura plegables en el flujo. Selector de modo oscuro (`assets/js/core/theme.js`) y barra inferior móvil solo en páginas migradas (`<html data-skin="mc">`). Buscador pendiente de T10.
+- [x] L02 · Portada migrada (`index.html`, `assets/css/templates.css`): titular, tres acciones, ilustración plana con curva animada, nueve temas por bloque, «Empieza por aquí» (1.1, 2.1, 4.1 y 7.1), cinco modos de estudio y apoyos. El «destacado del docente» espera a la administración (T04/M03).
 - [ ] L03 · Índice de tema: cabecera ilustrada, mapa de epígrafes con estado, recorridos (lección → práctica → juego → test) y recursos PDF del tema.
 - [ ] L04 · Lección: migas, objetivo, índice lateral fijo con apartado activo (en móvil, desplegable), ancho de lectura de 65–75 caracteres, figuras junto a su explicación, navegación anterior/siguiente y progreso de lectura sin perfil.
 - [ ] L05 · Test, tarjetas, práctica y laboratorio con la composición de la especificación §11.3.
@@ -170,3 +170,22 @@ W03 → W04 → **D01–D05 (consulta)** → S01–S06 → L01–L08 → F01–F
 
 - **2026-10-27** · Selectividad L029: ocho enunciados cotejados/clasificados; 232 acumulados, 21 pruebas y 215 fuentes verificadas. PDF revisados y ZIP aislado compilado. [Informe](Selectividad_LaTeX/docs/lotes/L029_2018_suplente_septiembre.md). [Fase posterior de soluciones](Selectividad_LaTeX/docs/FASE_SOLUCIONES.md) preparada. Se conserva el trabajo de Claude y se usan herramientas de tools/.
 - **2026-10-27** · Fase 1 cerrada (D03–D05, lienzo de rondas 3 y 4). Fase 2: S01–S05 hechos y S06 a medias (tokens, fuentes, sprite, componentes y guía de estilo); 350/350 unitarias. W08 avanzada. Corregido además un fallo propio: desde W03, `npm test` no pasaba en local porque la prueba de visibilidad recorría `node_modules`.
+
+- **2026-10-27** · Selectividad L030: ocho enunciados cotejados/clasificados; 240 acumulados, 21 pruebas y 215 fuentes verificadas. PDF revisados y ZIP aislado compilado. [Informe](Selectividad_LaTeX/docs/lotes/L030_2018_titular_junio.md). [Fase posterior de soluciones](Selectividad_LaTeX/docs/FASE_SOLUCIONES.md) preparada. Se conserva el trabajo de Claude y se usan herramientas de tools/.
+
+- **2026-10-27** · Selectividad L031: ocho enunciados cotejados/clasificados; 248 acumulados, 21 pruebas y 215 fuentes verificadas. PDF revisados y ZIP aislado compilado. [Informe](Selectividad_LaTeX/docs/lotes/L031_2016_titular_junio.md). [Fase posterior de soluciones](Selectividad_LaTeX/docs/FASE_SOLUCIONES.md) preparada. Se conserva el trabajo de Claude y se usan herramientas de tools/.
+
+- **2026-10-27** · Selectividad L032: ocho enunciados cotejados/clasificados;256 acumulados,21 pruebas,215 fuentes y558archivos previos verificados. Curso visible2016-2017 frente a texto oculto2015-2016. [Informe](Selectividad_LaTeX/docs/lotes/L032_2017_titular_junio.md). Trabajo de Claude conservado.
+
+- **2026-10-27** · Selectividad L033: ocho enunciados cotejados y clasificados; 264 acumulados, 21 pruebas, 215 fuentes y 576 archivos previos verificados. Dos PDF revisados y ZIP aislado de 795 archivos compilado. INC-011/012 registradas; cero soluciones. [Informe](Selectividad_LaTeX/docs/lotes/L033_2018_titular_septiembre.md). Siguiente L034. Trabajo de Claude conservado.
+
+- **2026-10-27** · Selectividad L034: ocho enunciados cotejados y clasificados; 272 acumulados,21 pruebas,215 fuentes y594 archivos previos verificados. Dos PDF revisados y ZIP aislado de818 archivos compilado. INC-013 registrada; cero soluciones. [Informe](Selectividad_LaTeX/docs/lotes/L034_2016_titular_septiembre.md). Siguiente L035. Trabajo de Claude conservado.
+
+- **2026-10-27** · Selectividad L035: ocho enunciados cotejados y clasificados; 280 acumulados,21 pruebas,215 fuentes y612 archivos previos verificados. Dos PDF revisados y ZIP aislado de841 archivos compilado. Nuevas etiquetas urna-dinamica e igualdad-derivadas; cero soluciones. [Informe](Selectividad_LaTeX/docs/lotes/L035_2017_titular_septiembre.md). Siguiente L036. Trabajo de Claude conservado.
+
+- **2026-10-27** · Selectividad L036: ocho enunciados cotejados y clasificados; 288 acumulados,21 pruebas,215 fuentes y630 archivos previos verificados. Dos PDF revisados y ZIP aislado de864 archivos compilado. Alias canónicos registrados y etiqueta comparacion-reposicion; cero soluciones. [Informe](Selectividad_LaTeX/docs/lotes/L036_2015_Ua1.md). Siguiente L037. Trabajo de Claude conservado.
+
+- **2026-10-28** · Selectividad L037: ocho enunciados cotejados y clasificados; 296 acumulados,21 pruebas,215 fuentes y648 archivos previos verificados. Dos PDF revisados y ZIP aislado de887 archivos compilado. Alias canónicos registrados y etiquetas despeje-matricial/contraste-bilateral-media; cero soluciones. [Informe](Selectividad_LaTeX/docs/lotes/L037_2015_Ua2.md). Siguiente L038. Trabajo de Claude conservado.
+- **2026-10-28** · L01–L02: cabecera, pie y portada con el nuevo diseño; modo oscuro y barra inferior limitados a páginas migradas. Revisado en Chrome (escritorio, móvil y oscuro) sin errores ni desbordamiento; 350/350 unitarias.
+
+- **2026-10-28** · Selectividad L038: ocho enunciados cotejados y clasificados; 304 acumulados,21 pruebas,215 fuentes y666 archivos previos verificados. Dos PDF revisados y ZIP aislado de910 archivos compilado. Alias canónicos registrados y categorías verificadas; cero soluciones. [Informe](Selectividad_LaTeX/docs/lotes/L038_2015_Ua3.md). Siguiente L039. Trabajo de Claude conservado.

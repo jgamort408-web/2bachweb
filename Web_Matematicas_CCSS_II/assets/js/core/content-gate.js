@@ -1,5 +1,10 @@
 // Runs before the body is painted. With JavaScript disabled, the source HTML remains readable.
 document.documentElement.classList.add('content-pending');
+// Tema elegido a mano (assets/js/core/theme.js): se aplica antes de pintar para evitar un destello.
+try {
+  const theme = localStorage.getItem('math-ccss:theme:v1');
+  if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme;
+} catch { /* Sin almacenamiento: se sigue la preferencia del sistema. */ }
 setTimeout(() => {
   if (!document.documentElement.classList.contains('content-pending')) return;
   const main = document.querySelector('main');

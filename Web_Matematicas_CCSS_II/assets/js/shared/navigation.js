@@ -33,6 +33,15 @@ export function renderNavigation(allPages, navigation, currentId, visibility) {
   appendLinks(document.querySelector('[data-primary-navigation]'), resolveIds(navigation.primary), currentId);
   appendLinks(document.querySelector('[data-footer-navigation]'), resolveIds(navigation.footer), currentId);
 
+  // Barra inferior de móvil: oculta las secciones no visibles y marca la sección que contiene la página.
+  const sectionOf = new Set();
+  for (let page = allById.get(currentId); page; page = allById.get(page.parentId)) sectionOf.add(page.id);
+  for (const link of document.querySelectorAll('[data-nav-section]')) {
+    link.hidden = !byId.has(link.dataset.navSection);
+    if (sectionOf.has(link.dataset.navSection) && (link.dataset.navSection !== 'home' || currentId === 'home')) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  }
+
   const topicsContainer = document.querySelector('[data-course-navigation]');
   if (topicsContainer) {
     const list = document.createElement('ul');

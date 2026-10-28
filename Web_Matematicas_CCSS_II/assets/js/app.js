@@ -3,6 +3,7 @@ import { loadComponent } from './shared/components.js';
 import { renderNavigation } from './shared/navigation.js';
 import { observeMath } from './core/math.js';
 import { initializePreferences, mountPreferenceControls } from './core/preferences.js';
+import { mountThemeToggle } from './core/theme.js';
 import { getContentContext, pageRecords } from './content/runtime.js';
 import { observeDocumentAvailability, showPageAvailability } from './content/document.js';
 
@@ -61,6 +62,7 @@ async function initializeLayout() {
     }
   }
   mountPreferenceControls(document.querySelector('[data-reading-options]') || document.getElementById('site-header'));
+  mountThemeToggle(document.querySelector('[data-theme-toggle]'));
 }
 
 initializePreferences();

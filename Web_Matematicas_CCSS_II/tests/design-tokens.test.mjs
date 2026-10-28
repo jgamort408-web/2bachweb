@@ -13,8 +13,8 @@ function colorsOf(selector, from = 0) {
 }
 
 const light = colorsOf(':root');
-const darkMedia = colorsOf(':root:not([data-theme="light"])', css.indexOf('@media (prefers-color-scheme: dark)'));
-const dark = colorsOf(':root[data-theme="dark"]');
+const darkMedia = colorsOf(':root[data-skin="mc"]:not([data-theme="light"])', css.indexOf('@media (prefers-color-scheme: dark)'));
+const dark = colorsOf(':root[data-skin="mc"][data-theme="dark"]');
 
 function luminance(hex) {
   const [r, g, b] = [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16) / 255)

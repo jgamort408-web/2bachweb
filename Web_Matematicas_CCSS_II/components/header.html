@@ -1,14 +1,27 @@
-<header class="site-header">
-  <a class="site-name" data-project-path="index.html">Matemáticas Aplicadas a las Ciencias Sociales II</a>
-  <div data-reading-options></div>
-  <nav aria-label="Navegación principal" class="inline-links" data-primary-navigation></nav>
-  <details class="course-menu">
-    <summary>Temario</summary>
-    <nav aria-label="Temas y epígrafes" data-course-navigation></nav>
-  </details>
-  <nav aria-label="Ubicación actual" class="breadcrumbs inline-links" data-breadcrumbs></nav>
-  <details data-context-group hidden>
-    <summary>Páginas relacionadas</summary>
-    <nav aria-label="Índice de sección y páginas anterior y siguiente" data-context-navigation></nav>
-  </details>
+<header class="site-header mc-header">
+  <div class="mc-header__bar">
+    <a class="site-name mc-brand" data-project-path="index.html">
+      <svg class="mc-logo" viewBox="0 0 36 36" aria-hidden="true"><rect x="0.5" y="0.5" width="35" height="35" rx="10"></rect><path class="mc-logo__axes" d="M8 27h20M9 27V8"></path><path class="mc-logo__curve" d="M10 24c4-1 6-12 9-12s4 8 8 8"></path></svg>
+      <span>Mates CCSS II<span class="mc-visually-hidden"> · Matemáticas Aplicadas a las Ciencias Sociales II</span></span>
+    </a>
+    <nav aria-label="Navegación principal" class="mc-nav" data-primary-navigation></nav>
+    <button type="button" class="mc-btn mc-btn--icon mc-theme-toggle" data-theme-toggle hidden aria-label="Cambiar a modo oscuro">
+      <svg class="mc-icon mc-icon--when-dark" aria-hidden="true"><use data-project-href="assets/icons/sprite.svg#mc-sol"></use></svg>
+      <svg class="mc-icon mc-icon--when-light" aria-hidden="true"><use data-project-href="assets/icons/sprite.svg#mc-luna"></use></svg>
+    </button>
+  </div>
+  <div class="mc-header__context">
+    <nav aria-label="Ubicación actual" class="breadcrumbs mc-crumbs" data-breadcrumbs></nav>
+    <div class="mc-header__menus">
+      <details class="course-menu mc-menu">
+        <summary>Temario</summary>
+        <nav aria-label="Temas y epígrafes" data-course-navigation></nav>
+      </details>
+      <details class="mc-menu" data-context-group hidden>
+        <summary>Páginas relacionadas</summary>
+        <nav aria-label="Índice de sección y páginas anterior y siguiente" data-context-navigation></nav>
+      </details>
+      <div class="mc-reading" data-reading-options></div>
+    </div>
+  </div>
 </header>

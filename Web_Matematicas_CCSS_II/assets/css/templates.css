@@ -1,0 +1,55 @@
+/*
+ * Plantillas de página del nuevo diseño (fase 3). Cada bloque se activa con una clase en <main>.
+ * Composición aprobada en la ronda 4 (docs/diseno/DECISIONES_DISENO.md).
+ */
+
+/* Elementos compartidos */
+.mc-section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--mc-space-2) var(--mc-space-4); }
+.mc-section-head > h2 { margin: 0; }
+.mc-section-head > a { font-weight: 700; text-decoration: none; }
+.mc-card__title, .mc-card__meta { display: block; }
+.mc-card--stack { flex-direction: column; gap: var(--mc-space-3); height: 100%; box-sizing: border-box; }
+.mc-pill--theory { --mc-pill-bg: var(--mc-theory-pill); --mc-pill-fg: var(--mc-theory-title); }
+.mc-pill--method { --mc-pill-bg: var(--mc-method-pill); --mc-pill-fg: var(--mc-method-title); }
+.mc-pill--example { --mc-pill-bg: var(--mc-example-pill); --mc-pill-fg: var(--mc-example-title); }
+.mc-pill--practice { --mc-pill-bg: var(--mc-azar-tint); --mc-pill-fg: var(--mc-azar-dark); }
+.mc-pill--neutral { --mc-pill-bg: var(--mc-summary-pill); --mc-pill-fg: var(--mc-summary-title); }
+
+/* Portada (L02) */
+.page-main.mc-home { display: flex; flex-direction: column; gap: var(--mc-space-7); padding-block: var(--mc-space-7); }
+.page-main.mc-home > section { max-width: none; margin: 0; }
+.mc-home > section > h2 { margin: 0 0 var(--mc-space-5); }
+.mc-section-head { margin-bottom: var(--mc-space-5); }
+
+.mc-hero { display: flex; flex-wrap: wrap; align-items: center; gap: var(--mc-space-6) var(--mc-space-7); }
+.mc-hero__text { flex: 1 1 26rem; display: flex; flex-direction: column; align-items: flex-start; gap: var(--mc-space-4); min-width: 0; }
+.mc-hero__text > h1 { margin: 0; font-size: var(--mc-display); line-height: 1.05; letter-spacing: -0.025em; }
+.mc-hero__text > .mc-lead { margin: 0; }
+.mc-hero__actions { display: flex; flex-wrap: wrap; gap: var(--mc-space-3); }
+.mc-hero__facts { margin: 0; font-size: var(--mc-text-sm); color: var(--mc-text-2); }
+.mc-hero__art { flex: 0 1 30rem; width: 100%; max-width: 30rem; height: auto; }
+.mc-hero__curve { stroke-dasharray: 300; animation: mc-draw var(--mc-duration-draw) var(--mc-ease-out) 0.2s both; }
+
+.mc-blocks { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); gap: var(--mc-space-5); }
+.mc-block-title { display: flex; align-items: center; gap: var(--mc-space-2); margin: 0 0 var(--mc-space-3); font-family: var(--mc-font-body); font-size: 1rem; font-weight: 700; color: var(--mc-accent-dark); }
+.mc-block-title::before { content: ''; width: 0.625rem; height: 0.625rem; border-radius: 50%; background: var(--mc-accent); }
+.mc-topic-list, .mc-mode-list { display: grid; gap: var(--mc-space-3); margin: 0; padding: 0; list-style: none; }
+.mc-topic-list .mc-card { align-items: center; }
+.mc-mode-list { grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); gap: var(--mc-space-4); }
+.mc-mode-list .mc-card:not(.mc-card--stack) { align-items: center; }
+.mc-mode-list--wide { grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); }
+.mc-card__number--sm { font-size: 1.125rem; }
+
+/* Las ilustraciones planas usan los tintes claros del bloque: en oscuro se atenúan para no deslumbrar. */
+:root[data-skin="mc"][data-theme="dark"] .mc-hero__art { filter: brightness(0.82) saturate(0.95); }
+@media (prefers-color-scheme: dark) {
+  :root[data-skin="mc"]:not([data-theme="light"]) .mc-hero__art { filter: brightness(0.82) saturate(0.95); }
+}
+
+@keyframes mc-draw { from { stroke-dashoffset: 300; } to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .mc-hero__curve { animation: none; } }
+@media (max-width: 40rem) {
+  .page-main.mc-home { gap: var(--mc-space-6); padding-block: var(--mc-space-5); }
+  .mc-hero__art { order: -1; max-width: 22rem; }
+  .mc-hero__actions > .mc-btn { flex: 1 1 100%; }
+}

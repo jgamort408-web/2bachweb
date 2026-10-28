@@ -15,7 +15,8 @@ import { fileURLToPath } from 'node:url';
 
 export const siteRoot = fileURLToPath(new URL('../', import.meta.url));
 const SKIP_DIRS = new Set(['node_modules', 'output', 'vendor', 'docs', 'content', 'tests', 'scripts']);
-const ATTRIBUTE = /\b(href|src|data-project-path)\s*=\s*(["'])(.*?)\2/g;
+// (?<![\w-]): «href» dentro de «data-project-href» no cuenta como atributo propio.
+const ATTRIBUTE = /(?<![\w-])(href|src|data-project-path|data-project-href)\s*=\s*(["'])(.*?)\2/g;
 const EXTERNAL = /^(?:[a-z][a-z0-9+.-]*:|\/\/|#|$)/i;
 
 export function listHtmlFiles(dir = siteRoot) {
@@ -79,10 +80,11 @@ export function checkLocalLinks({ fix = false, root = siteRoot } = {}) {
       if (EXTERNAL.test(url) || url.includes('${') || url.includes('{{')) return match;
       if (url.startsWith('/')) { broken.push({ page, attribute, url, reason: 'ruta absoluta: falla en la subcarpeta de GitHub Pages' }); return match; }
       const [linkPath, suffix] = splitUrl(url);
-      // data-project-path se resuelve siempre desde la raíz del proyecto (assets/js/shared/components.js).
-      const base = attribute === 'data-project-path' ? root : fileDir;
+      // data-project-path y data-project-href se resuelven desde la raíz (assets/js/shared/components.js).
+      const fromRoot = attribute.startsWith('data-project-');
+      const base = fromRoot ? root : fileDir;
       if (!linkPath || exists(path.resolve(base, decodeURIComponent(linkPath)))) return match;
-      const repaired = attribute === 'data-project-path' ? null : repair(root, fileDir, decodeURIComponent(linkPath), basenames);
+      const repaired = fromRoot ? null : repair(root, fileDir, decodeURIComponent(linkPath), basenames);
       if (!repaired) { broken.push({ page, attribute, url, reason: 'destino inexistente' }); return match; }
       if (!fix) { broken.push({ page, attribute, url, reason: `reparable con --fix → ${repaired.relative}${suffix}` }); return match; }
       fixed.push({ page, attribute, url, to: repaired.relative + suffix, how: repaired.how });

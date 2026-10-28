@@ -13,8 +13,9 @@
 .mc-skin h1 { font-size: var(--mc-h1); font-weight: 700; letter-spacing: -0.02em; }
 .mc-skin h2 { font-size: var(--mc-h2); font-weight: 700; }
 .mc-skin h3 { font-size: var(--mc-h3); font-weight: 600; }
-.mc-skin a { color: var(--mc-link); }
-.mc-skin a:hover { color: var(--mc-link-hover); }
+/* :where() deja la especificidad en .mc-skin: botones y tarjetas (.mc-btn, .mc-card) fijan su propio color. */
+.mc-skin :where(a) { color: var(--mc-link); }
+.mc-skin :where(a:hover) { color: var(--mc-link-hover); }
 .mc-skin :focus-visible { outline: 3px solid var(--mc-focus); outline-offset: 3px; }
 .mc-skin .mc-lead { font-size: var(--mc-text-lead); color: var(--mc-text-3); max-width: var(--mc-measure); }
 
@@ -165,11 +166,11 @@ a.mc-card:focus-visible { outline: 3px solid var(--mc-focus); outline-offset: 3p
 .mc-pager a > span { font-size: 0.875rem; font-weight: 400; color: var(--mc-text-2); }
 .mc-pager a[rel="next"] { text-align: right; grid-column: 2; }
 
-/* Barra inferior tipo app (móvil, ronda 4) */
+/* Barra inferior tipo app (móvil, ronda 4). Solo en páginas migradas: en las antiguas taparía controles. */
 .mc-tabbar { display: none; }
 @media (max-width: 40rem) {
-  .mc-tabbar {
-    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); position: sticky; bottom: 0; z-index: 20;
+  :root[data-skin="mc"] .mc-tabbar {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
     padding: 0.375rem 0.5rem calc(0.625rem + env(safe-area-inset-bottom)); background: var(--mc-paper); border-top: 1px solid var(--mc-border);
   }
   .mc-tabbar a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 52px; border-radius: var(--mc-radius-control); color: var(--mc-text-2); font-size: 0.75rem; font-weight: 700; text-decoration: none; }

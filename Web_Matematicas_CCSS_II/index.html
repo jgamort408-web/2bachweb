@@ -1,64 +1,106 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-skin="mc">
 <head>
   <script src="assets/js/core/content-gate.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inicio · Matemáticas CCSS II</title>
+  <title>Mates CCSS II · Matemáticas Aplicadas a las Ciencias Sociales II</title>
+  <meta name="description" content="Libro interactivo de Matemáticas Aplicadas a las Ciencias Sociales II (2.º de Bachillerato): explicaciones, ejemplos resueltos, práctica con corrección inmediata, juegos y exámenes en PDF.">
+  <link rel="preload" href="assets/fonts/outfit-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/main.css">
   <script type="module" src="assets/js/app.js"></script>
 </head>
-<body data-page-id="home">
+<body data-page-id="home" class="mc-skin">
   <a class="skip-link" href="#main-content">Saltar al contenido</a>
   <div id="site-header"></div>
-  <main id="main-content" class="page-main">
-    <h1>Inicio</h1>
-    <p class="lead">Matemáticas Aplicadas a las Ciencias Sociales II · 2.º de Bachillerato</p>
-    <section><h2>Empieza por los límites</h2><p>Aprende a interpretar qué ocurre cerca de un punto y comprueba lo que has entendido con ejemplos, preguntas y tarjetas.</p>
-    <div class="course-grid">
-      <article class="course-card"><h3><a href="libro/temas/01-limites-y-derivadas/01-limite-de-una-funcion.html">1.1. Límite de una función</a></h3><p>Distingue el límite del valor puntual y explora una gráfica con un hueco.</p></article>
-      <article class="course-card"><h3><a href="libro/temas/01-limites-y-derivadas/02-limites-laterales.html">1.2. Límites laterales</a></h3><p>Compara ambos lados y comprende los saltos de una función.</p></article>
-      <article class="course-card"><h3><a href="laboratorios/juegos/t01-a-limite-express.html">Límite Express · límites y asíntotas</a></h3><p>Diez preguntas generadas al empezar, sin cuenta atrás y con explicación.</p></article>
-    </div></section>
-    <section data-content-role="related-links"><h2>Continúa con el infinito y las asíntotas</h2>
-      <ol start="3">
-        <li><a href="libro/temas/01-limites-y-derivadas/03-operaciones-con-el-infinito.html">Operaciones con el infinito</a>: reglas e indeterminaciones.</li>
-        <li><a href="libro/temas/01-limites-y-derivadas/04-limites-infinitos-en-un-punto-finito.html">Límites infinitos en un punto finito</a>: signos y asíntotas verticales.</li>
-        <li><a href="libro/temas/01-limites-y-derivadas/05-limites-finitos-en-el-infinito.html">Límites finitos en el infinito</a>: asíntotas horizontales y saturación.</li>
-        <li><a href="libro/temas/01-limites-y-derivadas/06-limites-infinitos-en-el-infinito.html">Límites infinitos en el infinito</a>: términos dominantes y extremos.</li>
-      </ol>
+  <main id="main-content" class="page-main mc-home">
+    <section class="mc-hero" aria-labelledby="titular">
+      <div class="mc-hero__text">
+        <span class="mc-chip mc-chip--neutral">2.º Bachillerato · Matemáticas Aplicadas a las Ciencias Sociales II</span>
+        <h1 id="titular">Matemáticas para entender datos, decisiones y azar</h1>
+        <p class="mc-lead">Un libro interactivo con explicaciones claras, ejemplos resueltos, práctica que se corrige al momento y juegos para cada tema. Sin registrarte.</p>
+        <div class="mc-hero__actions">
+          <a class="mc-btn mc-btn--primary mc-btn--lg" href="libro/index.html">Explorar temas<svg class="mc-icon" aria-hidden="true"><use href="assets/icons/sprite.svg#mc-flecha"></use></svg></a>
+          <a class="mc-btn mc-btn--lg" href="laboratorios/index.html">Jugar</a>
+          <a class="mc-btn mc-btn--lg" href="recursos/index.html">Ver recursos</a>
+        </div>
+        <p class="mc-hero__facts">86 lecciones · 398 preguntas · 405 tarjetas · exámenes en PDF</p>
+      </div>
+      <svg class="mc-hero__art" viewBox="0 0 520 420" aria-hidden="true" focusable="false">
+        <rect x="20" y="40" width="300" height="220" rx="28" fill="#DBEAFE"></rect>
+        <path d="M50 230 L50 190 C110 180 170 100 290 86 L290 230 Z" fill="#BFDBFE"></path>
+        <path class="mc-hero__curve" d="M50 190 C110 180 170 100 290 86" fill="none" stroke="#2563EB" stroke-width="6" stroke-linecap="round"></path>
+        <circle cx="290" cy="86" r="11" fill="#2563EB" stroke="#FFFFFF" stroke-width="4"></circle>
+        <rect x="250" y="170" width="250" height="230" rx="28" fill="#FAE8FF"></rect>
+        <g fill="#A21CAF"><rect x="290" y="210" width="44" height="44" rx="10"></rect><rect x="350" y="210" width="44" height="44" rx="10" fill-opacity="0.35"></rect><rect x="410" y="210" width="44" height="44" rx="10" fill-opacity="0.35"></rect><rect x="290" y="270" width="44" height="44" rx="10" fill-opacity="0.35"></rect><rect x="350" y="270" width="44" height="44" rx="10"></rect><rect x="410" y="270" width="44" height="44" rx="10" fill-opacity="0.35"></rect><rect x="290" y="330" width="44" height="44" rx="10" fill-opacity="0.35"></rect><rect x="350" y="330" width="44" height="44" rx="10" fill-opacity="0.35"></rect><rect x="410" y="330" width="44" height="44" rx="10"></rect></g>
+        <circle cx="110" cy="330" r="62" fill="#FED7AA"></circle>
+        <circle cx="170" cy="330" r="62" fill="#FB923C" fill-opacity="0.55"></circle>
+        <g transform="rotate(-12 440 80)"><rect x="400" y="40" width="80" height="80" rx="16" fill="#C2410C"></rect><circle cx="422" cy="62" r="7" fill="#FFFFFF"></circle><circle cx="440" cy="80" r="7" fill="#FFFFFF"></circle><circle cx="458" cy="98" r="7" fill="#FFFFFF"></circle></g>
+      </svg>
     </section>
-    <section><h2>Elige cómo repasar</h2><p><a href="practicar/index.html">Repaso integrado</a> · <a href="test/index.html">Test por temas</a> · <a href="tarjetas/index.html">Tarjetas por temas</a> · <a href="laboratorios/juegos/t01-b-continuidad-repara-la-funcion.html">Repara la continuidad</a> · <a href="libro/index.html">Mapa completo del curso</a></p><p>El libro se está ampliando por entregas. El índice indica qué lecciones tienen contenido y cuáles están en preparación.</p></section>
-    <section><h2>Comienza la representación de funciones</h2><p><a href="libro/temas/02-representacion-de-funciones/01-esquema-general-para-representar-una-funcion.html">2.1. Del estudio de una función a su gráfica</a>: reúne dominio, cortes, límites y derivadas; construye el boceto por capas y comprueba tus conclusiones.</p><p><a href="libro/temas/02-representacion-de-funciones/02-funciones-polinomicas.html">2.2. Funciones polinómicas</a>: raíces, comportamiento global, extremos y un modelo de beneficio. Practica los infinitos con coeficientes nuevos.</p><p><a href="libro/temas/02-representacion-de-funciones/03-funciones-racionales.html">2.3. Funciones racionales</a>: distingue huecos y asíntotas, estudia la monotonía y explora la cancelación de factores.</p><p><a href="libro/temas/02-representacion-de-funciones/04-funciones-exponenciales.html">2.4. Funciones exponenciales</a>: crecimiento, decrecimiento, transformaciones y modelos con porcentajes; contrasta la gráfica y sus valores en el explorador.</p><p><a href="libro/temas/02-representacion-de-funciones/05-funciones-logaritmicas.html">2.5. Funciones logarítmicas</a>: conecta logaritmos y exponenciales, explora el dominio y resuelve ecuaciones y modelos de crecimiento.</p><p><a href="libro/temas/02-representacion-de-funciones/06-funciones-a-trozos-valor-absoluto.html">2.6. Funciones a trozos y valor absoluto</a>: interpreta uniones, puntos abiertos y cerrados, esquinas y tarifas progresivas.</p><p><a href="libro/temas/02-representacion-de-funciones/07-traslaciones.html">2.7. Traslaciones</a>: mueve puntos, intervalos y asíntotas y compara cada gráfica con la original.</p><p><a href="libro/temas/02-representacion-de-funciones/08-expansion-y-contraccion.html">2.8. Expansión y contracción</a>: distingue factores interiores y exteriores y comprueba sus escalas y reflexiones.</p><p><a href="libro/temas/02-representacion-de-funciones/09-optimizacion-de-funciones.html">2.9. Optimización de funciones</a>: decide el objetivo, impón restricciones y compara candidatos para interpretar máximos y mínimos.</p></section>
-    <section data-content-role="related-links"><h2>Aprende a elegir una técnica</h2>
-      <ol start="7">
-        <li><a href="libro/temas/01-limites-y-derivadas/07-operaciones-con-limites-de-funciones.html">Operaciones con límites</a>: propiedades y condiciones.</li>
-        <li><a href="libro/temas/01-limites-y-derivadas/08-calculo-de-limites-sencillos.html">Cálculo de límites sencillos</a>: factorización, conjugados y laterales.</li>
-        <li><a href="libro/temas/01-limites-y-derivadas/09-indeterminaciones.html">Indeterminaciones</a>: común denominador y transformación de expresiones.</li>
-      </ol>
+
+    <section aria-labelledby="temas">
+      <div class="mc-section-head">
+        <h2 id="temas">Los nueve temas</h2>
+        <a href="libro/index.html">Ver el índice completo →</a>
+      </div>
+      <div class="mc-blocks">
+        <div data-block="analisis">
+          <h3 class="mc-block-title">Análisis</h3>
+          <ul class="mc-topic-list">
+            <li><a class="mc-card" href="libro/temas/01-limites-y-derivadas/index.html"><span class="mc-card__number">1</span><span><span class="mc-card__title">Límites y derivadas</span><span class="mc-card__meta">18 lecciones · Disponible</span></span></a></li>
+            <li><a class="mc-card" href="libro/temas/02-representacion-de-funciones/index.html"><span class="mc-card__number">2</span><span><span class="mc-card__title">Representación de funciones</span><span class="mc-card__meta">9 lecciones · Disponible</span></span></a></li>
+            <li><a class="mc-card" href="libro/temas/03-integrales/index.html"><span class="mc-card__number">3</span><span><span class="mc-card__title">Integrales</span><span class="mc-card__meta">8 lecciones · Disponible</span></span></a></li>
+          </ul>
+        </div>
+        <div data-block="algebra">
+          <h3 class="mc-block-title">Álgebra y decisiones</h3>
+          <ul class="mc-topic-list">
+            <li><a class="mc-card" href="libro/temas/04-matrices-y-determinantes/index.html"><span class="mc-card__number">4</span><span><span class="mc-card__title">Matrices y determinantes</span><span class="mc-card__meta">12 lecciones · Disponible</span></span></a></li>
+            <li><a class="mc-card" href="libro/temas/05-sistemas-de-ecuaciones/index.html"><span class="mc-card__number">5</span><span><span class="mc-card__title">Sistemas de ecuaciones</span><span class="mc-card__meta">11 lecciones · Disponible</span></span></a></li>
+            <li><a class="mc-card" href="libro/temas/06-programacion-lineal/index.html"><span class="mc-card__number">6</span><span><span class="mc-card__title">Programación lineal</span><span class="mc-card__meta">5 lecciones · En revisión</span></span></a></li>
+          </ul>
+        </div>
+        <div data-block="azar">
+          <h3 class="mc-block-title">Azar y datos</h3>
+          <ul class="mc-topic-list">
+            <li><a class="mc-card" href="libro/temas/07-probabilidad/index.html"><span class="mc-card__number">7</span><span><span class="mc-card__title">Probabilidad</span><span class="mc-card__meta">10 lecciones · En revisión</span></span></a></li>
+            <li><a class="mc-card" href="libro/temas/08-distribuciones-de-probabilidad/index.html"><span class="mc-card__number">8</span><span><span class="mc-card__title">Distribuciones de probabilidad</span><span class="mc-card__meta">4 lecciones · En revisión</span></span></a></li>
+            <li><a class="mc-card" href="libro/temas/09-inferencia-estadistica/index.html"><span class="mc-card__number">9</span><span><span class="mc-card__title">Inferencia estadística</span><span class="mc-card__meta">9 lecciones · En revisión</span></span></a></li>
+          </ul>
+        </div>
+      </div>
     </section>
-    <section data-content-role="related-links"><h2>Conecta continuidad y derivadas</h2>
-      <ol start="10">
-        <li><a href="libro/temas/01-limites-y-derivadas/10-continuidad.html">Continuidad</a>: condiciones, discontinuidades y parámetros.</li>
-        <li><a href="libro/temas/01-limites-y-derivadas/11-funcion-derivada.html">Función derivada</a>: tasa media, secantes y coste marginal.</li>
-        <li><a href="libro/temas/01-limites-y-derivadas/12-derivadas-laterales.html">Derivadas laterales</a>: esquinas, uniones y un ejercicio del examen.</li>
-      </ol>
+
+    <section aria-labelledby="empieza">
+      <h2 id="empieza">Empieza por aquí</h2>
+      <ul class="mc-mode-list mc-mode-list--wide">
+        <li data-block="analisis"><a class="mc-card" href="libro/temas/01-limites-y-derivadas/01-limite-de-una-funcion.html"><span class="mc-card__number mc-card__number--sm">1.1</span><span><span class="mc-card__title">1.1. Límite de una función</span><span class="mc-card__meta">Valor y límite no son lo mismo: explóralo en una gráfica con un hueco.</span></span></a></li>
+        <li data-block="analisis"><a class="mc-card" href="libro/temas/02-representacion-de-funciones/01-esquema-general-para-representar-una-funcion.html"><span class="mc-card__number mc-card__number--sm">2.1</span><span><span class="mc-card__title">2.1. Esquema para representar una función</span><span class="mc-card__meta">Dominio, cortes, límites y derivadas reunidos en un boceto por capas.</span></span></a></li>
+        <li data-block="algebra"><a class="mc-card" href="libro/temas/04-matrices-y-determinantes/01-matrices-definicion-caracteristicas-y-tipos.html"><span class="mc-card__number mc-card__number--sm">4.1</span><span><span class="mc-card__title">4.1. Matrices: definición y tipos</span><span class="mc-card__meta">Orden, elementos y tipos, con un editor de matrices.</span></span></a></li>
+        <li data-block="azar"><a class="mc-card" href="libro/temas/07-probabilidad/01-sucesos-regla-de-laplace.html"><span class="mc-card__number mc-card__number--sm">7.1</span><span><span class="mc-card__title">7.1. Sucesos. Regla de Laplace</span><span class="mc-card__meta">Espacio muestral, sucesos y cuándo se puede contar casos.</span></span></a></li>
+      </ul>
     </section>
-    <section data-content-role="related-links"><h2>Aplica las derivadas</h2>
-      <ol start="13">
-        <li><a href="libro/temas/01-limites-y-derivadas/13-ecuaciones-de-las-rectas-tangente-y-normal.html">Tangente y normal</a>: punto, pendiente y perpendicularidad.</li>
-        <li><a href="libro/temas/01-limites-y-derivadas/14-tabla-de-derivadas.html">Tabla de derivadas</a>: funciones elementales y condiciones.</li>
-        <li><a href="libro/temas/01-limites-y-derivadas/15-reglas-de-derivacion.html">Reglas de derivación</a>: sumas, productos, cocientes y potencias compuestas.</li>
-      </ol>
+
+    <section aria-labelledby="modos">
+      <h2 id="modos">Elige cómo estudiar</h2>
+      <ul class="mc-mode-list">
+        <li><a class="mc-card mc-card--stack" href="libro/index.html"><span class="mc-pill mc-pill--lg mc-pill--theory"><svg class="mc-icon" aria-hidden="true"><use href="assets/icons/sprite.svg#mc-definicion"></use></svg></span><span class="mc-card__title">Libro</span><span class="mc-card__meta">Teoría, ejemplos resueltos y errores frecuentes por epígrafe.</span></a></li>
+        <li><a class="mc-card mc-card--stack" href="practicar/index.html"><span class="mc-pill mc-pill--lg mc-pill--practice"><svg class="mc-icon" aria-hidden="true"><use href="assets/icons/sprite.svg#mc-practica"></use></svg></span><span class="mc-card__title">Practicar</span><span class="mc-card__meta">Repaso integrado con ejercicios y corrección inmediata.</span></a></li>
+        <li><a class="mc-card mc-card--stack" href="test/index.html"><span class="mc-pill mc-pill--lg mc-pill--method"><svg class="mc-icon" aria-hidden="true"><use href="assets/icons/sprite.svg#mc-test"></use></svg></span><span class="mc-card__title">Test</span><span class="mc-card__meta">Autoevaluación por temas con la explicación de cada respuesta.</span></a></li>
+        <li><a class="mc-card mc-card--stack" href="tarjetas/index.html"><span class="mc-pill mc-pill--lg mc-pill--theory"><svg class="mc-icon" aria-hidden="true"><use href="assets/icons/sprite.svg#mc-tarjetas"></use></svg></span><span class="mc-card__title">Tarjetas</span><span class="mc-card__meta">Repaso rápido de definiciones, fórmulas y métodos.</span></a></li>
+        <li><a class="mc-card mc-card--stack" href="laboratorios/index.html"><span class="mc-pill mc-pill--lg mc-pill--example"><svg class="mc-icon" aria-hidden="true"><use href="assets/icons/sprite.svg#mc-juegos"></use></svg></span><span class="mc-card__title">Juegos</span><span class="mc-card__meta">19 juegos con retos nuevos en cada partida.</span></a></li>
+      </ul>
     </section>
-    <section data-content-role="related-links"><h2>Completa el recorrido de límites y derivadas</h2>
-      <ol start="16">
-        <li><a href="libro/temas/01-limites-y-derivadas/16-regla-de-la-cadena.html">Regla de la cadena</a>: composiciones y ejercicios del examen.</li>
-        <li><a href="libro/temas/01-limites-y-derivadas/17-continuidad-de-las-funciones-derivables.html">Continuidad de las funciones derivables</a>: teorema y comparador de casos.</li>
-        <li><a href="libro/temas/01-limites-y-derivadas/18-regla-de-l-hopital-aplicacion-al-calculo-de-limites.html">L’Hôpital</a>: condiciones, indeterminaciones y elección del método.</li>
-      </ol>
+
+    <section aria-labelledby="mas">
+      <h2 id="mas">También en el libro</h2>
+      <ul class="mc-mode-list mc-mode-list--wide">
+        <li><a class="mc-card" href="libro/apoyos/estadistica-bidimensional.html#ejercicios"><span class="mc-pill mc-pill--lg mc-pill--example"><svg class="mc-icon" aria-hidden="true"><use href="assets/icons/sprite.svg#mc-ejemplo"></use></svg></span><span><span class="mc-card__title">Estadística bidimensional</span><span class="mc-card__meta">Nueve ejercicios resueltos, covarianza, Pearson y regresión.</span></span></a></li>
+        <li><a class="mc-card" href="examenes/index.html"><span class="mc-pill mc-pill--lg mc-pill--neutral"><svg class="mc-icon" aria-hidden="true"><use href="assets/icons/sprite.svg#mc-pdf"></use></svg></span><span><span class="mc-card__title">Exámenes</span><span class="mc-card__meta">Exámenes revisados con sus soluciones en PDF.</span></span></a></li>
+      </ul>
     </section>
-    <p><a href="libro/apoyos/estadistica-bidimensional.html#ejercicios">Nuevo: nueve ejercicios resueltos de estadística</a></p>
   </main>
   <div id="site-footer"></div>
 </body>
