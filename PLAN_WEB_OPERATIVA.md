@@ -89,7 +89,7 @@ Este es el **documento de entrada para cada sesión de trabajo** sobre la web. R
 
 - [x] L01 · Cabecera y pie nuevos en todas las páginas (`components/header.html`, `footer.html`, `assets/css/layout.css`): marca Mates CCSS II con logotipo, navegación en píldoras (Inicio, Libro, Practicar, Laboratorios, Recursos; el resto pasa al pie), migas, y Temario, Páginas relacionadas y Opciones de lectura plegables en el flujo. Selector de modo oscuro (`assets/js/core/theme.js`) y barra inferior móvil solo en páginas migradas (`<html data-skin="mc">`). Buscador pendiente de T10.
 - [x] L02 · Portada migrada (`index.html`, `assets/css/templates.css`): titular, tres acciones, ilustración plana con curva animada, nueve temas por bloque, «Empieza por aquí» (1.1, 2.1, 4.1 y 7.1), cinco modos de estudio y apoyos. El «destacado del docente» espera a la administración (T04/M03).
-- [ ] L03 · Índice de tema: cabecera ilustrada, mapa de epígrafes con estado, recorridos (lección → práctica → juego → test) y recursos PDF del tema.
+- [x] L03 · Plantilla de índice de tema aplicada al tema 7 (referencia): cabecera ilustrada con chip de bloque y cifras, «Para empezar», recorrido como tarjetas numeradas con estado (`indexes.js` en páginas migradas, mismo nombre accesible), práctica por lección, columna «Practica el tema» (problemas, test, tarjetas, juegos) y estado del tema. Textos y enlaces intactos. Los otros ocho índices, con estructuras distintas, se migran en L08.
 - [ ] L04 · Lección: migas, objetivo, índice lateral fijo con apartado activo (en móvil, desplegable), ancho de lectura de 65–75 caracteres, figuras junto a su explicación, navegación anterior/siguiente y progreso de lectura sin perfil.
 - [ ] L05 · Test, tarjetas, práctica y laboratorio con la composición de la especificación §11.3.
 - [ ] L06 · Eliminar los 27 estilos en línea de `libro/` y los estilos ad hoc de los widgets en favor de clases y tokens; unificar `widget-base.css` con los tokens.
@@ -189,3 +189,18 @@ W03 → W04 → **D01–D05 (consulta)** → S01–S06 → L01–L08 → F01–F
 - **2026-10-28** · L01–L02: cabecera, pie y portada con el nuevo diseño; modo oscuro y barra inferior limitados a páginas migradas. Revisado en Chrome (escritorio, móvil y oscuro) sin errores ni desbordamiento; 350/350 unitarias.
 
 - **2026-10-28** · Selectividad L038: ocho enunciados cotejados y clasificados; 304 acumulados,21 pruebas,215 fuentes y666 archivos previos verificados. Dos PDF revisados y ZIP aislado de910 archivos compilado. Alias canónicos registrados y categorías verificadas; cero soluciones. [Informe](Selectividad_LaTeX/docs/lotes/L038_2015_Ua3.md). Siguiente L039. Trabajo de Claude conservado.
+
+- **2026-10-28** · Selectividad L039: ocho enunciados cotejados y clasificados; 312 acumulados,21 pruebas,215 fuentes y684 archivos previos verificados. Dos PDF revisados y ZIP aislado de933 archivos compilado. Alias canónicos registrados y categorías verificadas; cero soluciones. [Informe](Selectividad_LaTeX/docs/lotes/L039_2015_Ua4.md). Siguiente L040. Trabajo de Claude conservado.
+
+- **2026-10-28** · Selectividad L040: ocho enunciados cotejados y clasificados; 320 acumulados,21 pruebas,215 fuentes y702 archivos previos verificados. Dos PDF revisados y ZIP aislado de956 archivos compilado. Alias canónicos registrados y categorías verificadas; cero soluciones. [Informe](Selectividad_LaTeX/docs/lotes/L040_2015_Ua5.md). Siguiente L041. Trabajo de Claude conservado.
+
+- **2026-10-28** · Selectividad L041: ocho enunciados cotejados y clasificados; 328 acumulados,21 pruebas,215 fuentes y720 archivos previos verificados. Dos PDF revisados y ZIP aislado de979 archivos compilado. Alias canónicos registrados y categorías verificadas; cero soluciones. [Informe](Selectividad_LaTeX/docs/lotes/L041_2015_Ua6.md). Siguiente L042. Trabajo de Claude conservado.
+
+- **2026-10-28** · Selectividad L042: ocho enunciados cotejados y clasificados; 336 acumulados,21 pruebas,215 fuentes y738 archivos previos verificados. Dos PDF revisados y ZIP aislado de1002 archivos compilado. Procedencia y categorías verificadas; cero soluciones. [Informe](Selectividad_LaTeX/docs/lotes/L042_2014_ANDAL1.md). Siguiente L043. Trabajo de Claude conservado.
+
+- **2026-10-28** · Selectividad L043: ocho enunciados cotejados y clasificados; 344 acumulados,21 pruebas,215 fuentes y756 archivos previos verificados. Dos PDF revisados y ZIP aislado de1025 archivos compilado. Procedencia y categorías verificadas; cero soluciones. [Informe](Selectividad_LaTeX/docs/lotes/L043_2014_ANDAL2.md). Siguiente L044. Trabajo de Claude conservado.
+
+- **2026-10-28** · Selectividad L044: ocho enunciados cotejados y clasificados; 352 acumulados,21 pruebas,215 fuentes y774 archivos previos verificados. Dos PDF revisados y ZIP aislado de1048 archivos compilado. Procedencia y categorías verificadas; cero soluciones. [Informe](Selectividad_LaTeX/docs/lotes/L044_2014_ANDAL3.md). Siguiente L045. Trabajo de Claude conservado.
+
+- **2026-10-28** · Selectividad L045: ocho enunciados cotejados y clasificados; 360 acumulados,21 pruebas,215 fuentes y792 archivos previos verificados. Dos PDF revisados y ZIP aislado de1071 archivos compilado. Procedencia y categorías verificadas; cero soluciones. [Informe](Selectividad_LaTeX/docs/lotes/L045_2014_ANDAL5.md). Siguiente L046. Trabajo de Claude conservado.
+- **2026-10-28** · L03: índice del tema 7 con la plantilla de tema; comprobado en Chrome (escritorio, móvil, oscuro) y con 350/350 unitarias y 8 pruebas de navegador del tema 7, accesibilidad y visibilidad.

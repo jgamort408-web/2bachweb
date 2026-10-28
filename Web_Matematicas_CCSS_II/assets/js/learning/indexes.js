@@ -26,9 +26,27 @@ async function initialize() {
   const topic = document.querySelector('[data-topic-index]');
   if (topic) {
     const list = document.createElement('ol');
+    const skinned = document.documentElement.dataset.skin === 'mc';
     for (const lesson of pages.filter((page) => page.parentId === topic.dataset.topicIndex && page.kind === 'lesson')) {
-      const item = document.createElement('li'); item.append(titleLink(lesson));
-      item.append(status(lesson) === 'reviewed' ? ' · Disponible' : status(lesson) === 'partial' ? ' · Contenido parcial' : ' · En preparación');
+      const label = status(lesson) === 'reviewed' ? 'Disponible' : status(lesson) === 'partial' ? 'Contenido parcial' : 'En preparación';
+      const item = document.createElement('li');
+      if (skinned) {
+        // Tarjeta numerada (ronda 4). El nombre accesible del enlace sigue siendo el título completo.
+        const link = titleLink(lesson), match = lesson.title.match(/^(\d+\.\d+)\.\s*(.*)$/);
+        if (match) {
+          const number = document.createElement('span'), hidden = document.createElement('span'), title = document.createElement('span');
+          number.className = 'mc-card__number mc-card__number--sm'; number.textContent = match[1];
+          hidden.className = 'mc-visually-hidden'; hidden.textContent = '. ';
+          title.className = 'mc-route__title'; title.textContent = match[2];
+          number.append(hidden); link.replaceChildren(number, title);
+        }
+        link.className = 'mc-route__link';
+        const chip = document.createElement('span');
+        chip.className = 'mc-chip' + (label === 'Disponible' ? '' : ' mc-chip--neutral'); chip.textContent = label;
+        item.className = 'mc-route__item'; item.append(link, chip);
+      } else {
+        item.append(titleLink(lesson), ' · ' + label);
+      }
       list.append(item);
     }
     topic.replaceChildren(list);
