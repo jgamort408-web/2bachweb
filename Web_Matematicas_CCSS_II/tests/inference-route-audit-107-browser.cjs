@@ -38,8 +38,8 @@ const {chromium}=require('playwright');
   }
   await page.goto(base+'libro/temas/09-inferencia-estadistica/index.html');
   await page.waitForFunction(()=>document.querySelector('[data-topic-index] li')?.textContent.includes('Contenido parcial'));
-  assert.equal(await page.locator('[data-topic-index] li').count(),9);
-  assert.equal(await page.locator('[data-topic-index] li').filter({hasText:'Contenido parcial'}).count(),9);
+  assert.equal(await page.locator('[data-topic-index] li').count(),10);
+  assert.equal(await page.locator('[data-topic-index] li').filter({hasText:'Contenido parcial'}).count(),10);
   assert.deepEqual(errors,[]);
   console.log('PASS: 11 rutas del tema 9, 9 epígrafes parciales, enlaces/fragmentos, MathJax y estructura común.');
  }finally{await browser.close();}

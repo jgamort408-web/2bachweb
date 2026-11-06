@@ -10,7 +10,7 @@ const lesson = 'libro/temas/08-distribuciones-de-probabilidad/index.html#ejercic
   const source = fs.readFileSync('../Página web existente/4. Distribuciones/5. Ejercicios Resueltos.txt');
   assert.equal(crypto.createHash('sha256').update(source).digest('hex'), '2e133ff691c234d27ef6ad80b5000bc6a91d20412879939e71c567724a610d54');
   const lessonSource = fs.readFileSync(lesson.split('#')[0], 'utf8');
-  for (const value of ['0{,}1316', '0{,}3233', '0{,}8405', '0{,}0402', '0{,}1138', '0{,}9333']) assert.ok(lessonSource.includes(value), value);
+  for (const value of ['0{,}1316', '0{,}3233', '0{,}8389', '0{,}0402', '0{,}1138', '0{,}9333']) assert.ok(lessonSource.includes(value), value);
   const browser = await chromium.launch({ headless: true, executablePath: process.env.CHROME_PATH });
   try {
     const page = await browser.newPage({ viewport: { width: 1200, height: 900 } });

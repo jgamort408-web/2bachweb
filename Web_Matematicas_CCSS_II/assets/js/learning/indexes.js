@@ -1,5 +1,11 @@
 import { projectUrl } from '../core/paths.js';
 import { getContentContext, pageRecords, canUseCurrentPage } from '../content/runtime.js';
+function sprite(name) {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'), use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+  svg.setAttribute('class', 'mc-icon'); svg.setAttribute('aria-hidden', 'true');
+  use.setAttribute('href', projectUrl('assets/icons/sprite.svg#' + name)); svg.append(use);
+  return svg;
+}
 async function initialize() {
   const context = await getContentContext();
   if (!canUseCurrentPage(context)) return;
@@ -27,7 +33,10 @@ async function initialize() {
   if (topic) {
     const list = document.createElement('ol');
     const skinned = document.documentElement.dataset.skin === 'mc';
-    for (const lesson of pages.filter((page) => page.parentId === topic.dataset.topicIndex && page.kind === 'lesson')) {
+    // Lecciones en orden y, al final, las secciones del tema (por ahora, los ejercicios resueltos).
+    const children = pages.filter((page) => page.parentId === topic.dataset.topicIndex);
+    const route = [...children.filter((page) => page.kind === 'lesson'), ...children.filter((page) => page.kind === 'section')];
+    for (const lesson of route) {
       const label = status(lesson) === 'reviewed' ? 'Disponible' : status(lesson) === 'partial' ? 'Contenido parcial' : 'En preparación';
       const item = document.createElement('li');
       if (skinned) {
@@ -40,11 +49,19 @@ async function initialize() {
           hidden.className = 'mc-route__dot'; hidden.textContent = '. ';
           title.className = 'mc-route__title'; title.textContent = match[2];
           number.append(hidden); link.replaceChildren(number, title);
+        } else if (lesson.kind === 'section') {
+          // Sin número: la casilla lleva el icono de ejemplo resuelto.
+          const badge = document.createElement('span'), title = document.createElement('span');
+          badge.className = 'mc-card__number mc-card__number--sm mc-route__badge';
+          badge.append(sprite('mc-ejemplo'));
+          title.className = 'mc-route__title'; title.textContent = lesson.title;
+          link.replaceChildren(badge, title);
+          item.classList.add('mc-route__item--extra');
         }
         link.className = 'mc-route__link';
         const chip = document.createElement('span');
         chip.className = 'mc-chip' + (label === 'Disponible' ? '' : ' mc-chip--neutral'); chip.textContent = label;
-        item.className = 'mc-route__item'; item.append(link, chip);
+        item.classList.add('mc-route__item'); item.append(link, chip);
       } else {
         item.append(titleLink(lesson), ' · ' + label);
       }

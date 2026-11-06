@@ -28,8 +28,8 @@ const {chromium}=require('playwright');
    assert.match((await page.locator('#ejercicio-52 details').innerText()).replace(/\s/g,''),/56\/131/);
    await page.goto(prefix+'libro/temas/07-probabilidad/index.html');
    await page.waitForFunction(()=>!!document.querySelector('#site-header a'));
-   assert.equal(await page.locator('[data-topic-index] li').count(),10);
-   assert.equal(await page.locator('[data-topic-index] li').filter({hasText:'Contenido parcial'}).count(),10);
+   assert.equal(await page.locator('[data-topic-index] li').count(),11);
+   assert.equal(await page.locator('[data-topic-index] li').filter({hasText:'Contenido parcial'}).count(),11);
    assert.equal(await page.locator('#problemas a').count(),1);
   }
   await page.goto(base+'libro/temas/07-probabilidad/ejercicios-resueltos.html');

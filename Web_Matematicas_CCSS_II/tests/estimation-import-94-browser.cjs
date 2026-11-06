@@ -36,7 +36,7 @@ const { chromium } = require('playwright');
       await page.goto(prefix + 'libro/temas/09-inferencia-estadistica/index.html#recorrido');
       await page.waitForFunction(() => document.querySelector('[data-topic-index] li')?.textContent);
       assert.equal(await page.locator('[data-topic-index] li').count(), 10);
-      assert.equal(await page.locator('[data-topic-index] li').filter({ hasText: 'Contenido parcial' }).count(), 9);
+      assert.equal(await page.locator('[data-topic-index] li').filter({ hasText: 'Contenido parcial' }).count(), 10);
     }
     await page.goto(base + lesson);
     await page.setViewportSize({ width: 390, height: 844 });
