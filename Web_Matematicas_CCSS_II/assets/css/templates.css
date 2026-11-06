@@ -242,3 +242,6 @@
   background: linear-gradient(to right, var(--mc-accent) var(--mc-done), var(--mc-accent-tint) var(--mc-done) var(--mc-partial), var(--mc-border) var(--mc-partial));
 }
 @media (prefers-reduced-motion: reduce) { .mc-skin .mc-course { transition: none; } .mc-skin .mc-course:hover { transform: none; } }
+
+/* Marco de los juegos y actividades insertados (iframe de widget-host.js) con el acabado de las cajas. */
+.mc-skin .learning-widget { border: var(--mc-border-width) solid var(--mc-border); border-top: 4px solid var(--mc-accent); border-radius: var(--mc-radius-box); background: var(--mc-paper); }

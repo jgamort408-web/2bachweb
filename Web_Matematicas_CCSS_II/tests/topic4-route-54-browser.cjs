@@ -34,7 +34,7 @@ const ids=['t04-a-matrix-ops','t04-b-la-camara-del-determinante','t04-c-redes-y-
   assert.ok(await page.getByRole('button',{name:'Siguiente',exact:true}).isDisabled());
   for(let i=0;i<3;i++){
    await page.goto(base+topic+'#ruta-juegos');const link=page.locator('#ruta-juegos a[href$="'+ids[i]+'.html"]');await link.focus();await link.press('Enter');await shell();await page.locator('iframe').scrollIntoViewIfNeeded();
-   await page.waitForFunction(()=>document.querySelector('iframe')?.contentDocument?.querySelector('[data-check]:not(:disabled)'));
+   await page.waitForFunction(()=>document.querySelector('iframe')?.contentDocument?.querySelector('[data-game][data-seed] [data-check]:not(:disabled)'));
    const frame=page.frames().find(f=>f.url().includes('/'+ids[i]+'/'));assert.ok(frame);await math(frame);
    let chosen;
    if(i<2){chosen=frame.locator('[name="answer"][value="correct"]');await chosen.check();}
