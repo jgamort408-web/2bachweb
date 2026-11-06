@@ -203,3 +203,19 @@
 }
 .mc-skin .definition { border-color: var(--mc-theory-border); background: var(--mc-theory-bg); }
 .mc-skin .mc-box :is(.key-idea, .definition) { background: var(--mc-paper); }
+
+/* Móvil y texto ampliado: los rellenos anidados (caja → actividad → opción) no deben robar ancho a las
+   fórmulas; si una fórmula no cabe se vuelve desplazable y Tab la alcanza antes que los botones. */
+@media (max-width: 40rem) {
+  .mc-skin .mc-box { padding: 1rem; }
+  .mc-skin .activity { padding: 1rem; }
+  /* Con texto ampliado (rem = 32 px al 200 %) la caja se aplana y los rellenos interiores quedan mínimos. */
+  html[data-large-text="true"] .mc-skin .mc-box { padding-inline: 0; border-inline-width: 0; border-radius: 0; background-image: none; }
+  html[data-large-text="true"] .mc-skin :is(.activity, .mc-topic__hero, .learning-goals) { padding-inline: 0.25rem; }
+  html[data-large-text="true"] .mc-skin .activity .answer-option { padding-inline: 0.25rem; gap: 0.25rem; }
+  html[data-large-text="true"] .mc-skin .activity .feedback { padding-inline-end: 0.25rem; }
+}
+/* Ningún control de formulario puede ensanchar la columna de lectura. */
+.mc-skin main :is(select, input:not([type="radio"], [type="checkbox"], [type="range"]), textarea) { max-width: 100%; box-sizing: border-box; }
+/* Las filas de controles de los exploradores son flex: sus elementos deben poder encoger hasta el ancho disponible. */
+.mc-skin main .actions > * { min-width: 0; max-width: 100%; }
