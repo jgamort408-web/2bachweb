@@ -27,9 +27,23 @@ function icon(name) {
 }
 
 /** Cada sección de primer nivel con rol conocido se convierte en caja con pastilla y etiqueta. */
+// Lecciones antiguas sin data-content-role: el rol visual se deduce del título y se guarda aparte (data-skin-role).
+const inferred = [
+  [/^\d*\.?\s*ejemplos? resueltos?/i, 'worked-example'],
+  [/^\d*\.?\s*pr[aá]ctica/i, 'guided-practice'],
+  [/^\d*\.?\s*errores frecuentes/i, 'common-errors'],
+  [/^\d*\.?\s*(resumen|antes de seguir)/i, 'summary'],
+  [/^\d*\.?\s*m[eé]todo/i, 'method']
+];
+
 function decorateBoxes(main) {
-  for (const section of main.querySelectorAll(':scope > section[data-content-role]')) {
-    const role = roles[section.dataset.contentRole];
+  for (const section of main.querySelectorAll(':scope > section:not([data-content-role])')) {
+    const title = section.querySelector(':scope > h2')?.textContent.trim() ?? '';
+    const match = inferred.find(([pattern]) => pattern.test(title));
+    if (match) section.dataset.skinRole = match[1];
+  }
+  for (const section of main.querySelectorAll(':scope > section:is([data-content-role], [data-skin-role])')) {
+    const role = roles[section.dataset.contentRole ?? section.dataset.skinRole];
     if (!role || section.classList.contains('mc-box')) continue;
     const [variant, label, iconName] = role;
     section.classList.add('mc-box', 'mc-box--' + variant);
@@ -41,9 +55,32 @@ function decorateBoxes(main) {
   }
 }
 
+/** Lecciones sin índice propio: se crea desde los títulos de las secciones (al menos tres), con id si les falta. */
+function generatedToc(main) {
+  const sections = [...main.querySelectorAll(':scope > section')].filter(section => section.querySelector(':scope > h2'));
+  if (sections.length < 3) return null;
+  const used = new Set([...document.querySelectorAll('[id]')].map(element => element.id));
+  const nav = document.createElement('nav');
+  nav.setAttribute('aria-label', 'Apartados de la lección');
+  for (const section of sections) {
+    const title = section.querySelector(':scope > h2').textContent.trim();
+    if (!section.id) {
+      const base = 'apartado-' + title.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40);
+      let id = base, n = 2;
+      while (used.has(id)) id = base + '-' + n++;
+      section.id = id; used.add(id);
+    }
+    const link = document.createElement('a');
+    link.href = '#' + section.id; link.textContent = title.replace(/^\d+\.\s*/, '');
+    nav.append(link);
+  }
+  sections[0].before(nav);
+  return nav;
+}
+
 /** El índice de apartados (enlaces separados por « · ») pasa a lista; en escritorio queda fijo a la izquierda. */
 function buildToc(main) {
-  const nav = main.querySelector(':scope > nav[data-content-role="related-links"], :scope > nav.lesson-index');
+  const nav = main.querySelector(':scope > nav[data-content-role="related-links"], :scope > nav.lesson-index') ?? generatedToc(main);
   if (!nav || nav.classList.contains('mc-toc')) return;
   const links = [...nav.querySelectorAll('a[href^="#"]')];
   if (links.length < 2) return;

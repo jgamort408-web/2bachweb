@@ -195,3 +195,11 @@
 .mc-skin .mc-labs > .course-card h2 a:hover { color: var(--mc-link); text-decoration: underline; }
 .mc-skin .mc-labs > .course-card p { margin: 0; font-size: var(--mc-text-sm); color: var(--mc-text-3); }
 @media (prefers-reduced-motion: reduce) { .mc-skin .mc-flashcard > [data-content-role="flashcard-back"] { animation: none; } }
+
+/* Destacados de las lecciones antiguas (learning.css) en páginas migradas: caja completa, sin borde lateral */
+.mc-skin :is(.key-idea, .definition) {
+  padding: 1rem 1.25rem; border: 1px solid var(--mc-method-border); border-radius: var(--mc-radius-control);
+  background: var(--mc-method-bg); color: var(--mc-text);
+}
+.mc-skin .definition { border-color: var(--mc-theory-border); background: var(--mc-theory-bg); }
+.mc-skin .mc-box :is(.key-idea, .definition) { background: var(--mc-paper); }

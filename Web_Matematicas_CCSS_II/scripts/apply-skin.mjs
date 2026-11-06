@@ -4,7 +4,7 @@
  *   node scripts/apply-skin.mjs --block azar libro/temas/07-probabilidad/02-algebra-de-sucesos.html …
  *
  * Añade data-skin="mc" a <html>, class="mc-skin" y data-block a <body>, y a <main> la plantilla:
- * mc-lesson si la página tiene índice de apartados (nav … data-content-role="related-links"), o mc-page si no.
+ * mc-lesson si la página tiene índice de apartados o al menos tres secciones con título; si no, mc-page.
  * Las páginas ya migradas se dejan como están. Termina con código 1 si alguna no tiene la estructura esperada.
  */
 import fs from 'node:fs';
@@ -22,7 +22,10 @@ for (const relative of args) {
   const file = path.resolve(root, relative);
   let html = fs.readFileSync(file, 'utf8');
   if (html.includes('data-skin="mc"')) { console.log('Ya migrada: ' + relative); continue; }
-  const layout = /<nav [^>]*data-content-role="related-links"/.test(html) ? 'mc-lesson' : 'mc-page';
+  // mc-lesson si hay índice de apartados o al menos tres secciones con título (skin.js genera el índice).
+  const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
+  const titled = (main.match(/<section[^>]*>\s*<h2/g) || []).length;
+  const layout = /<nav [^>]*(data-content-role="related-links"|class="[^"]*lesson-index)/.test(html) || titled >= 3 ? 'mc-lesson' : 'mc-page';
   const steps = [
     [/<html lang="es">/, '<html lang="es" data-skin="mc">'],
     [/<body data-page-id="([^"]+)">/, `<body data-page-id="$1" class="mc-skin"${block ? ` data-block="${block}"` : ''}>`],

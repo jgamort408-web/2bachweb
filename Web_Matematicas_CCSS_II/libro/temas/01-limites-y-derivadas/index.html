@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-skin="mc">
 <head>
   <script src="../../../assets/js/core/content-gate.js"></script>
   <meta charset="utf-8">
@@ -8,18 +8,55 @@
   <link rel="stylesheet" href="../../../assets/css/main.css">
   <script type="module" src="../../../assets/js/app.js"></script>
 </head>
-<body data-page-id="t01">
+<body data-page-id="t01" class="mc-skin" data-block="analisis">
   <a class="skip-link" href="#main-content">Saltar al contenido</a>
   <div id="site-header"></div>
-  <main id="main-content" class="page-main">
-    <h1>1. Límites y derivadas</h1>
-    <p class="lead">Comprende cómo se comporta una función cerca de un punto y cómo medir su variación.</p>
-    <p>Recorre los epígrafes 1.1 a 1.18. Después repasa con el <a href="../../../test/index.html?tema=t01">test del tema</a>, las <a href="../../../tarjetas/index.html?tema=t01">tarjetas</a> y <a href="../../../laboratorios/juegos/t01-a-limite-express.html">Límite Express</a>.</p>
-    <h2>Recorrido del tema</h2>
-    <p><a href="../../../practicar/index.html">Repaso integrado y problemas resueltos</a> · <a href="../../../laboratorios/juegos/t01-b-continuidad-repara-la-funcion.html">Continuidad: repara la función</a></p>
-    <div data-topic-index="t01"></div>
-    <p><a href="../../../laboratorios/juegos/t01-c-derivada-detective.html">Investigar con Derivada Detective</a></p>
-    <p><a href="../../../laboratorios/juegos/t01-d-tangente-sprint.html">Practicar tangentes y normales con Tangente Sprint</a></p>
+  <main id="main-content" class="page-main mc-topic">
+    <header class="mc-topic__hero">
+      <div class="mc-topic__intro">
+        <span class="mc-chip mc-chip--dot">Tema 1 · Análisis</span>
+        <h1>1. Límites y derivadas</h1>
+        <p class="lead mc-lead">Comprende cómo se comporta una función cerca de un punto y cómo medir su variación.</p>
+        <p class="mc-topic__facts">18 lecciones · 60 preguntas · 61 tarjetas · 4 juegos</p>
+        <p class="mc-source">Recorre los epígrafes 1.1 a 1.18. Después repasa con el <a href="../../../test/index.html?tema=t01">test del tema</a>, las <a href="../../../tarjetas/index.html?tema=t01">tarjetas</a> y <a href="../../../laboratorios/juegos/t01-a-limite-express.html">Límite Express</a>.</p>
+      </div>
+      <svg class="mc-topic__art" viewBox="0 0 360 220" aria-hidden="true" focusable="false">
+        <rect width="360" height="220" rx="24" fill="#EFF6FF"></rect>
+        <path d="M60 196 L60 150 C120 140 200 72 300 60 L300 196 Z" fill="#BFDBFE"></path>
+        <path d="M100 196 V140 M140 196 V125 M180 196 V104 M220 196 V86 M260 196 V70" stroke="#93C5FD" stroke-width="2"></path>
+        <path d="M60 150 C120 140 200 72 300 60" fill="none" stroke="#2563EB" stroke-width="5" stroke-linecap="round"></path>
+        <circle cx="300" cy="60" r="9" fill="#2563EB" stroke="#FFFFFF" stroke-width="3"></circle>
+        <path d="M40 196 H330" stroke="#1D4ED8" stroke-width="2.5" stroke-linecap="round"></path>
+        <circle cx="330" cy="30" r="10" fill="#A21CAF"></circle>
+        <rect x="24" y="30" width="18" height="18" rx="4" fill="#C2410C" transform="rotate(-14 33 39)"></rect>
+      </svg>
+    </header>
+    <div class="mc-topic__layout">
+      <div class="mc-topic__main">
+        <section id="recorrido" class="mc-route">
+          <h2>Recorrido del tema</h2>
+          <div data-topic-index="t01"></div>
+        </section>
+      </div>
+      <aside class="mc-topic__aside" aria-label="Practica el tema">
+        <section class="mc-box mc-box--aside">
+          <div class="mc-aside-head"><span class="mc-pill mc-pill--lg mc-pill--method"><svg class="mc-icon" aria-hidden="true"><use href="../../../assets/icons/sprite.svg#mc-test"></use></svg></span><h2><a href="../../../test/index.html?tema=t01">Test del tema</a></h2></div>
+          <p>60 preguntas con corrección explicada.</p>
+        </section>
+        <section class="mc-box mc-box--aside">
+          <div class="mc-aside-head"><span class="mc-pill mc-pill--lg mc-pill--theory"><svg class="mc-icon" aria-hidden="true"><use href="../../../assets/icons/sprite.svg#mc-tarjetas"></use></svg></span><h2><a href="../../../tarjetas/index.html?tema=t01">Tarjetas</a></h2></div>
+          <p>61 tarjetas de repaso.</p>
+        </section>
+        <section class="mc-box mc-box--aside">
+          <div class="mc-aside-head"><span class="mc-pill mc-pill--lg mc-pill--practice"><svg class="mc-icon" aria-hidden="true"><use href="../../../assets/icons/sprite.svg#mc-practica"></use></svg></span><h2><a href="../../../practicar/index.html">Repaso integrado</a></h2></div>
+          <p>Problemas resueltos que conectan límites, continuidad y derivadas.</p>
+        </section>
+        <section class="mc-box mc-box--aside">
+          <div class="mc-aside-head"><span class="mc-pill mc-pill--lg mc-pill--example"><svg class="mc-icon" aria-hidden="true"><use href="../../../assets/icons/sprite.svg#mc-juegos"></use></svg></span><h2>Juegos del tema</h2></div>
+          <p><a href="../../../laboratorios/juegos/t01-a-limite-express.html">Límite Express</a>, <a href="../../../laboratorios/juegos/t01-b-continuidad-repara-la-funcion.html">Continuidad: repara la función</a>, <a href="../../../laboratorios/juegos/t01-c-derivada-detective.html">Derivada Detective</a> y <a href="../../../laboratorios/juegos/t01-d-tangente-sprint.html">Tangente Sprint</a> (tangentes y normales).</p>
+        </section>
+      </aside>
+    </div>
     <script type="module" src="../../../assets/js/learning/indexes.js"></script>
   </main>
   <div id="site-footer"></div>
