@@ -30,6 +30,8 @@ const {chromium}=require('playwright');
   }
   await page.unrouteAll({behavior:'wait'});
   await page.goto(base+'widgets/games/t07-c-detective-bayes/index.html');
+  // El widget dibuja tras un await de inicialización: esperar al caso antes de leerlo.
+  await page.locator('[data-case]').filter({hasText:'%'}).waitFor();
   for(let i=0;i<6;i++){
    const lines=await page.locator('[data-case]').innerText();
    const numbers=[...lines.matchAll(/(\d+) %/g)].map(m=>Number(m[1]));
