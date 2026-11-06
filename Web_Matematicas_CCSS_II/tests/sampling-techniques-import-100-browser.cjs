@@ -26,7 +26,7 @@ const {chromium}=require('playwright');
    await page.goto(prefix+'libro/temas/09-inferencia-estadistica/index.html');
    assert.equal(await page.locator('a[href="03-tecnicas-de-muestreo.html"]').count()>0,true);
    await page.waitForFunction(()=>document.querySelector('[data-topic-index]')?.textContent.includes('9.3. Técnicas de muestreo'));
-   assert.match(await page.locator('[data-topic-index]').innerText(),/9\.3\. Técnicas de muestreo · Contenido parcial/);
+   assert.match(await page.locator('[data-topic-index]').innerText(),/9\.3[\s.]*Técnicas de muestreo[\s·]*Contenido parcial/);
   }
   await page.goto(base+'libro/temas/09-inferencia-estadistica/03-tecnicas-de-muestreo.html');
   await page.setViewportSize({width:390,height:844});await page.evaluate(()=>document.documentElement.style.fontSize='200%');

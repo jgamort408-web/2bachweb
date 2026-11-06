@@ -83,7 +83,8 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',topic='libro/temas/06-
    assert.ok(await page.locator('#modelo mjx-container').count()>0);
    if(!sub&&process.env.SCREENSHOT_DIR)await page.locator('#region').screenshot({path:process.env.SCREENSHOT_DIR+'/metodo-grafico-escritorio.png'});
    await page.locator('[data-reading-controls]>summary').click();await page.locator('[data-text-size]').selectOption('200');await page.locator('[data-contrast-control]').check();await page.locator('[data-highlight-control]').check();await page.setViewportSize({width:320,height:844});await math();
-   await page.getByRole('link',{name:'Evaluación',exact:true}).press('Enter');assert.match(page.url(),/#evaluacion$/);
+   // En móvil el índice de apartados es un desplegable (ronda 4): se abre como lo haría el alumnado.
+   await page.evaluate(()=>{const d=document.querySelector('.mc-toc details');if(d&&!d.open)d.querySelector('summary').click();});await page.getByRole('link',{name:'Evaluación',exact:true}).press('Enter');assert.match(page.url(),/#evaluacion$/);
    const scroll=page.locator('#evaluacion .table-scroll');await scroll.focus();await page.keyboard.press('ArrowRight');await page.waitForFunction(()=>document.querySelector('#evaluacion .table-scroll').scrollLeft>0);await math();
    await scroll.evaluate(el=>{el.scrollLeft=0;});
    if(!sub&&process.env.SCREENSHOT_DIR)await page.locator('#evaluacion').screenshot({path:process.env.SCREENSHOT_DIR+'/metodo-grafico-movil.png'});

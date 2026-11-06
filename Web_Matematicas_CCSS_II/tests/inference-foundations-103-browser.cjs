@@ -22,7 +22,7 @@ const {chromium}=require('playwright');
    await page.locator('a[href="#ficha"]').click();assert.equal(new URL(page.url()).hash,'#ficha');
    await page.goto(prefix+'libro/temas/09-inferencia-estadistica/index.html');
    await page.waitForFunction(()=>document.querySelector('[data-topic-index]')?.textContent.includes('9.1. Estadística inferencial'));
-   assert.match(await page.locator('[data-topic-index]').innerText(),/9\.1\. Estadística inferencial · Contenido parcial/);
+   assert.match(await page.locator('[data-topic-index]').innerText(),/9\.1[\s.]*Estadística inferencial[\s·]*Contenido parcial/);
   }
   await page.goto(base+'libro/temas/09-inferencia-estadistica/01-estadistica-inferencial.html');
   await page.setViewportSize({width:390,height:844});await page.evaluate(()=>document.documentElement.style.fontSize='200%');

@@ -36,7 +36,8 @@ async function initialize() {
         if (match) {
           const number = document.createElement('span'), hidden = document.createElement('span'), title = document.createElement('span');
           number.className = 'mc-card__number mc-card__number--sm'; number.textContent = match[1];
-          hidden.className = 'mc-visually-hidden'; hidden.textContent = '. ';
+          // Punto y espacio en línea y sin tamaño: el texto y el nombre accesible siguen siendo «9.6. Título».
+          hidden.className = 'mc-route__dot'; hidden.textContent = '. ';
           title.className = 'mc-route__title'; title.textContent = match[2];
           number.append(hidden); link.replaceChildren(number, title);
         }

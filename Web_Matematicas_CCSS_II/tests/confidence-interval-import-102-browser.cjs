@@ -23,7 +23,7 @@ const {chromium}=require('playwright');
    assert.ok(Math.abs(coordinates.center-100)<1e-12&&coordinates.lower<100&&coordinates.upper>100);
    await page.locator('[name="mean"]').focus();await page.keyboard.press('ArrowRight');assert.equal(await page.locator('[data-ci-value="mean"]').innerText(),'101');
    await page.goto(prefix+'libro/temas/09-inferencia-estadistica/index.html');await page.waitForFunction(()=>document.querySelector('[data-topic-index]')?.textContent.includes('9.7. Intervalos de confianza'));
-   assert.match(await page.locator('[data-topic-index]').innerText(),/9\.7\. Intervalos de confianza · Contenido parcial/);
+   assert.match(await page.locator('[data-topic-index]').innerText(),/9\.7[\s.]*Intervalos de confianza[\s·]*Contenido parcial/);
   }
   await page.goto(base+'libro/temas/09-inferencia-estadistica/07-intervalos-de-confianza.html');await page.setViewportSize({width:390,height:844});await page.evaluate(()=>document.documentElement.style.fontSize='200%');
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);

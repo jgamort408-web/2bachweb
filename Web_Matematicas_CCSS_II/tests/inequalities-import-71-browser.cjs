@@ -42,7 +42,8 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',topic='libro/temas/06-
    assert.deepEqual(geom.points.map(world),[[0,5],[10,0],[0,0]]);
    if(!sub&&process.env.SCREENSHOT_DIR)await page.locator('#ejemplo-grafico').screenshot({path:process.env.SCREENSHOT_DIR+'/inecuaciones-fuente-escritorio.png'});
    await page.locator('[data-reading-controls]>summary').click();await page.locator('[data-text-size]').selectOption('200');await page.locator('[data-contrast-control]').check();await page.locator('[data-highlight-control]').check();await page.setViewportSize({width:320,height:844});await math();
-   await page.getByRole('link',{name:'Método de representación',exact:true}).press('Enter');assert.match(page.url(),/#metodo$/);await math();
+   // En móvil el índice de apartados es un desplegable (ronda 4): se abre como lo haría el alumnado.
+   await page.evaluate(()=>{const d=document.querySelector('.mc-toc details');if(d&&!d.open)d.querySelector('summary').click();});await page.getByRole('link',{name:'Método de representación',exact:true}).press('Enter');assert.match(page.url(),/#metodo$/);await math();
    if(!sub&&process.env.SCREENSHOT_DIR)await page.locator('#metodo').screenshot({path:process.env.SCREENSHOT_DIR+'/inecuaciones-fuente-movil.png'});
    await page.getByRole('link',{name:'Volver al tema 6',exact:true}).click();assert.equal(page.url(),prefix+topic+'index.html');await page.locator('[data-topic-index] li').first().waitFor();
    await page.goto(prefix+'libro/index.html');await page.locator('[data-course-index] article').first().waitFor();

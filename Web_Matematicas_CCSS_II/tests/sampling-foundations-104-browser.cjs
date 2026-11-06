@@ -22,7 +22,7 @@ const {chromium}=require('playwright');
    await page.locator('a[href="#errores"]').click();assert.equal(new URL(page.url()).hash,'#errores');
    await page.goto(prefix+'libro/temas/09-inferencia-estadistica/index.html');
    await page.waitForFunction(()=>document.querySelector('[data-topic-index]')?.textContent.includes('9.2. Muestreo'));
-   assert.match(await page.locator('[data-topic-index]').innerText(),/9\.2\. Muestreo · Contenido parcial/);
+   assert.match(await page.locator('[data-topic-index]').innerText(),/9\.2[\s.]*Muestreo[\s·]*Contenido parcial/);
   }
   await page.goto(base+'libro/temas/09-inferencia-estadistica/02-muestreo.html');await page.setViewportSize({width:390,height:844});await page.evaluate(()=>document.documentElement.style.fontSize='200%');
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);

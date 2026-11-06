@@ -78,7 +78,7 @@
 .mc-box--aside > p { margin: 0; color: var(--mc-text-3); }
 
 .mc-route > h2 { margin: 0 0 var(--mc-space-4); }
-.mc-route ol { display: grid; gap: var(--mc-space-3); margin: 0; padding: 0; list-style: none; }
+.mc-skin [data-topic-index] ol { display: grid; gap: var(--mc-space-3); margin: 0; padding: 0; list-style: none; }
 .mc-route__item {
   display: flex; flex-wrap: wrap; align-items: center; gap: var(--mc-space-2) var(--mc-space-4); padding: 0.75rem 1rem;
   background: var(--mc-paper); border: 1px solid var(--mc-border); border-radius: 14px;
@@ -87,7 +87,8 @@
 .mc-route__item:hover { border-color: var(--mc-accent); }
 .mc-route__link { flex: 1 1 14rem; display: flex; align-items: center; gap: var(--mc-space-4); min-width: 0; color: var(--mc-text); font-weight: 700; text-decoration: none; }
 .mc-route__link:focus-visible { outline: 3px solid var(--mc-focus); outline-offset: 4px; border-radius: 8px; }
-.mc-route .mc-card__number { width: 3rem; height: 2.25rem; border-radius: 10px; }
+.mc-route__item .mc-card__number { display: inline-block; width: 3rem; height: 2.25rem; line-height: 2.25rem; text-align: center; border-radius: 10px; }
+.mc-route__dot { font-size: 0; }
 
 /* Lección (L04): índice lateral fijo a la izquierda, columna de lectura y cajas por rol (assets/js/core/skin.js) */
 .page-main.mc-lesson {
