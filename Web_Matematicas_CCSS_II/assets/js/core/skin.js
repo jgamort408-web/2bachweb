@@ -128,8 +128,12 @@ async function pager(main) {
 }
 
 export function applyLessonSkin() {
+  if (document.documentElement.dataset.skin !== 'mc') return;
+  // Páginas generales migradas (test, tarjetas, practicar…): solo cajas por rol.
+  const page = document.querySelector('main.mc-page');
+  if (page) decorateBoxes(page);
   const main = document.querySelector('main.mc-lesson');
-  if (document.documentElement.dataset.skin !== 'mc' || !main) return;
+  if (!main) return;
   decorateBoxes(main);
   buildToc(main);
   readingBar();

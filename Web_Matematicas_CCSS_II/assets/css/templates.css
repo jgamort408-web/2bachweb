@@ -139,3 +139,59 @@
   .mc-toc summary { cursor: default; pointer-events: none; }
   .mc-toc summary::after { content: none; }
 }
+
+/* Páginas generales migradas (L05): test, tarjetas, practicar y laboratorios */
+.page-main.mc-page { display: flex; flex-direction: column; gap: var(--mc-space-4); padding-block: var(--mc-space-6) var(--mc-space-7); }
+.page-main.mc-page > * { margin: 0; max-width: 52rem; }
+.page-main.mc-page > :is(section, .activity, .mc-box) { max-width: 52rem; }
+.mc-page > h1 { font-size: var(--mc-display); line-height: 1.05; }
+.mc-page > .lead, .mc-page > [data-content-role="lead"] { font-size: var(--mc-text-lead); color: var(--mc-text-3); }
+.mc-page > h2 { margin-top: var(--mc-space-3); }
+.mc-page details { padding: 0.625rem 0.875rem; background: var(--mc-paper); border: 1px solid var(--mc-border); border-radius: var(--mc-radius-control); }
+.mc-page details + details { margin-top: var(--mc-space-2); }
+.mc-page summary { font-weight: 700; cursor: pointer; }
+.mc-page > nav:not([data-study-topics]) { font-size: var(--mc-text-sm); color: var(--mc-text-2); }
+
+/* Selector de tema como píldoras; el tema elegido lleva aria-current (lesson.js) */
+.mc-skin [data-study-topics] ul { display: flex; flex-wrap: wrap; gap: var(--mc-space-2); margin: 0; padding: 0; list-style: none; }
+.mc-skin [data-study-topics] a {
+  display: inline-flex; align-items: center; min-height: 2.5rem; padding: 0 0.875rem; border-radius: var(--mc-radius-full);
+  border: 1px solid var(--mc-border-strong); background: var(--mc-paper); color: var(--mc-text); font-weight: 600; font-size: var(--mc-text-sm); text-decoration: none;
+}
+.mc-skin [data-study-topics] a:hover { border-color: var(--mc-action); }
+.mc-skin [data-study-topics] a[aria-current="page"] { background: var(--mc-action); border-color: var(--mc-action); color: var(--mc-on-action); }
+
+/* Tarjetas de repaso: anverso y reverso con aparición moderada */
+.mc-skin .activity .mc-flashcard {
+  display: flex; flex-direction: column; justify-content: center; gap: var(--mc-space-3); min-height: 11rem; padding: var(--mc-space-5);
+  background: var(--mc-theory-bg); border: 1px solid var(--mc-theory-border); border-radius: var(--mc-radius-box);
+}
+.mc-skin .mc-flashcard > [data-content-role="flashcard-front"] { margin: 0; font-size: var(--mc-h3); }
+.mc-skin .mc-flashcard > [data-content-role="flashcard-back"] {
+  margin: 0; padding-top: var(--mc-space-3); border-top: 1px solid var(--mc-theory-border);
+  animation: mc-rise var(--mc-duration-base) var(--mc-ease-out) both;
+}
+.mc-skin .activity > [data-content-role="flashcard-category"] { margin: 0; font-size: var(--mc-text-sm); color: var(--mc-text-2); }
+.mc-skin .activity .actions > button[data-action="reveal"] { background: var(--mc-action); border-color: var(--mc-action); color: var(--mc-on-action); }
+.mc-skin .activity .actions > button[data-action="reveal"]:hover:not(:disabled) { background: var(--mc-action-hover); }
+.mc-skin .activity select { min-height: var(--mc-target); padding: 0 0.75rem; border: 1px solid var(--mc-border-strong); border-radius: var(--mc-radius-control); background: var(--mc-paper); color: var(--mc-text); }
+
+/* Laboratorios: rejilla de juegos con el bloque y el tema de cada uno */
+.page-main.mc-labs > :is(h1, .lead, p) { max-width: 52rem; }
+.page-main.mc-page.mc-labs { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); }
+.mc-labs > :not(.course-card) { grid-column: 1 / -1; }
+.mc-skin .mc-labs > .course-card {
+  display: flex; flex-direction: column; gap: var(--mc-space-2); max-width: none; margin: 0; padding: 1.125rem 1.25rem;
+  background: var(--mc-paper); border: 1px solid var(--mc-border); border-radius: var(--mc-radius-box);
+  transition: border-color var(--mc-duration-fast) var(--mc-ease-out), transform var(--mc-duration-fast) var(--mc-ease-out);
+}
+.mc-skin .mc-labs > .course-card:hover { border-color: var(--mc-accent); transform: translateY(-1px); }
+.mc-skin .mc-labs > .course-card::before {
+  content: attr(data-topic); align-self: flex-start; padding: 0.125rem 0.625rem; border-radius: var(--mc-radius-full);
+  background: var(--mc-accent-tint); color: var(--mc-accent-dark); font-size: 0.8125rem; font-weight: 700;
+}
+.mc-skin .mc-labs > .course-card h2 { margin: 0; font-size: 1.1875rem; }
+.mc-skin .mc-labs > .course-card h2 a { color: var(--mc-text); text-decoration: none; }
+.mc-skin .mc-labs > .course-card h2 a:hover { color: var(--mc-link); text-decoration: underline; }
+.mc-skin .mc-labs > .course-card p { margin: 0; font-size: var(--mc-text-sm); color: var(--mc-text-3); }
+@media (prefers-reduced-motion: reduce) { .mc-skin .mc-flashcard > [data-content-role="flashcard-back"] { animation: none; } }

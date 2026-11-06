@@ -17,6 +17,9 @@ export async function mountFlashcards(root, source, { categories = false } = {})
   const previous = document.createElement('button'), reveal = document.createElement('button'), next = document.createElement('button');
   previous.textContent = 'Anterior'; next.textContent = 'Siguiente';
   for (const button of [previous, reveal, next]) button.type = 'button';
+  // Solo para el estilo de las páginas migradas: no cambian textos ni comportamiento.
+  previous.dataset.action = 'previous'; reveal.dataset.action = 'reveal'; next.dataset.action = 'next-card';
+  content.className = 'mc-flashcard';
   actions.append(previous, reveal, next);
   root.replaceChildren(count, category, content, actions);
 

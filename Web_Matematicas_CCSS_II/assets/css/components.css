@@ -221,14 +221,16 @@ a.mc-card:focus-visible { outline: 3px solid var(--mc-focus); outline-offset: 3p
 .mc-skin .activity .actions > button:focus-visible { outline: 3px solid var(--mc-focus); outline-offset: 3px; }
 
 .mc-skin .activity .feedback {
-  display: flex; gap: var(--mc-space-3); margin: 0; padding: 0.875rem 1rem; border: 1px solid var(--mc-border); border-inline-start-width: 1px;
+  /* Bloque, no flex: el texto mezcla fórmulas en línea que deben fluir y partirse con él. */
+  display: block; position: relative; margin: 0; padding: 0.875rem 1rem 0.875rem 2.875rem; border: 1px solid var(--mc-border); border-inline-start-width: 1px;
   border-radius: var(--mc-radius-control); background: var(--mc-paper-2); color: var(--mc-text);
   animation: mc-rise var(--mc-duration-base) var(--mc-ease-out) both;
 }
 .mc-skin .activity .feedback::before {
-  content: 'i'; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 1.5rem; height: 1.5rem;
+  content: 'i'; position: absolute; left: 0.875rem; top: 0.875rem; display: inline-flex; align-items: center; justify-content: center; width: 1.5rem; height: 1.5rem;
   border-radius: 50%; border: 2px solid currentColor; font-weight: 700; font-size: 0.875rem; line-height: 1;
 }
+.mc-skin .activity .feedback:empty { display: none; }
 .mc-skin .activity .feedback[data-state="correct"] { background: var(--mc-correct-bg); border-color: var(--mc-correct-border); color: var(--mc-correct-text); }
 .mc-skin .activity .feedback[data-state="correct"]::before { content: '✓'; }
 .mc-skin .activity .feedback[data-state="wrong"] { background: var(--mc-wrong-bg); border-color: var(--mc-wrong-border); color: var(--mc-wrong-text); }
