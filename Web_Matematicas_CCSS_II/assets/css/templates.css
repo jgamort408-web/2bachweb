@@ -223,3 +223,22 @@
 .mc-skin main :is(select, input:not([type="radio"], [type="checkbox"], [type="range"]), textarea) { max-width: 100%; box-sizing: border-box; }
 /* Las filas de controles de los exploradores son flex: sus elementos deben poder encoger hasta el ancho disponible. */
 .mc-skin main .actions > * { min-width: 0; max-width: 100%; }
+
+/* Índice del libro: tarjeta por tema con número, color del bloque y avance (revisado en color pleno, parcial en tinte). */
+.mc-skin .course-grid { gap: var(--mc-space-4); }
+.mc-skin .mc-course {
+  display: flex; flex-direction: column; gap: var(--mc-space-3); padding: var(--mc-space-4) 1.125rem;
+  background: var(--mc-paper); border: var(--mc-border-width) solid var(--mc-border); border-top: 4px solid var(--mc-accent);
+  border-radius: var(--mc-radius-box); transition: border-color var(--mc-duration-fast) var(--mc-ease-out), transform var(--mc-duration-fast) var(--mc-ease-out);
+}
+.mc-skin .mc-course:hover { border-color: var(--mc-accent); transform: translateY(-1px); }
+.mc-skin .mc-course h2 { margin: 0; font-size: 1.1875rem; line-height: 1.25; }
+.mc-skin .mc-course h2 a { display: flex; align-items: center; gap: var(--mc-space-3); color: var(--mc-text); text-decoration: none; }
+.mc-skin .mc-course h2 a:hover span:last-child { text-decoration: underline; }
+.mc-skin .mc-course .mc-card__number { flex: none; display: inline-block; width: 2.5rem; height: 2.5rem; line-height: 2.5rem; text-align: center; border-radius: 10px; }
+.mc-skin .mc-course p { margin: 0; color: var(--mc-text-2); font-size: var(--mc-text-sm); }
+.mc-course__bar {
+  height: 6px; margin-top: auto; border-radius: 3px;
+  background: linear-gradient(to right, var(--mc-accent) var(--mc-done), var(--mc-accent-tint) var(--mc-done) var(--mc-partial), var(--mc-border) var(--mc-partial));
+}
+@media (prefers-reduced-motion: reduce) { .mc-skin .mc-course { transition: none; } .mc-skin .mc-course:hover { transform: none; } }
