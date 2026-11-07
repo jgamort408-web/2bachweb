@@ -33,7 +33,7 @@ const {chromium}=require('playwright');
    assert.match(await page.locator('#asignaciones details').innerText(),/Modelo III/);
    await page.goto(prefix+'libro/temas/07-probabilidad/index.html');
    await page.waitForFunction(()=>!!document.querySelector('#site-header a'));
-   assert.equal(await page.locator('[data-topic-index] li').filter({hasText:'Contenido parcial'}).count(),10);
+   assert.equal(await page.locator('[data-topic-index] li').filter({hasText:'Contenido parcial'}).count(),11);
   }
   await page.goto(base+'libro/temas/07-probabilidad/05-axiomatica-de-kolmogorov.html');
   await page.setViewportSize({width:390,height:844});

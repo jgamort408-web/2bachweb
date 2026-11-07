@@ -159,9 +159,34 @@ async function pager(main) {
       link.append(hint, page.title);
       nav.append(link);
     }
-    main.after(nav);
+    (main.parentElement.querySelector(':scope > .mc-glossary-links') ?? main).after(nav);
   };
   render(); context.subscribe(render);
+}
+
+/** Términos de esta lección en el glosario (config/glossary.json), entre el contenido y anterior/siguiente. */
+async function glossaryLinks(main) {
+  const response = await fetch(projectUrl('config/glossary.json'));
+  if (!response.ok) return;
+  const { terms } = await response.json();
+  const mine = terms.filter(entry => entry.page === document.body.dataset.pageId);
+  if (!mine.length) return;
+  const nav = document.createElement('nav'), box = document.createElement('div'), title = document.createElement('h2');
+  nav.className = 'mc-glossary-links'; nav.setAttribute('aria-labelledby', 'glosario-de-la-leccion');
+  title.id = 'glosario-de-la-leccion'; title.textContent = 'En el glosario';
+  box.append(title);
+  for (const { term } of mine) {
+    const link = document.createElement('a');
+    // Mismo identificador que scripts/build-glossary.mjs (termId).
+    link.href = projectUrl('herramientas/glosario.html') + '#termino-' + term.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    // Nombre accesible único: «Covarianza (glosario)» no se confunde con el apartado «Covarianza» del índice.
+    const hint = document.createElement('span');
+    hint.className = 'mc-visually-hidden'; hint.textContent = ' (glosario)';
+    link.append(term, hint);
+    box.append(link);
+  }
+  nav.append(box);
+  main.after(nav);
 }
 
 export function applyLessonSkin() {
@@ -174,5 +199,6 @@ export function applyLessonSkin() {
   decorateBoxes(main);
   buildToc(main);
   readingBar();
-  pager(main).catch(error => console.warn('[Lección]', error.message));
+  glossaryLinks(main).catch(error => console.warn('[Glosario]', error.message)).finally(() =>
+    pager(main).catch(error => console.warn('[Lección]', error.message)));
 }

@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "description": "Glosario (P06). Cada término toma su definición de la tarjeta indicada (revisada) y enlaza a la lección donde se explica. Tras editarlo: npm run build:glossary.",
+  "terms": [
+    {
+      "term": "Aproximación por la izquierda",
+      "card": "fc-lat-01",
+      "page": "t01-e02"
+    },
+    {
+      "term": "Forma indeterminada",
+      "card": "fc-inf-02",
+      "page": "t01-e09"
+    },
+    {
+      "term": "Derivada en un punto",
+      "card": "fc-der-01",
+      "page": "t01-e11"
+    },
+    {
+      "term": "Tasa de variación media",
+      "card": "fc-review-04",
+      "page": "t01-e11"
+    },
+    {
+      "term": "Logaritmo",
+      "card": "fc-log-01",
+      "page": "t02-e05"
+    },
+    {
+      "term": "Primitiva",
+      "card": "fc-primitive-01",
+      "page": "t03-e01"
+    },
+    {
+      "term": "Integral indefinida",
+      "card": "fc-primitive-02",
+      "page": "t03-e01"
+    },
+    {
+      "term": "Integral definida",
+      "card": "fc-definite-1",
+      "page": "t03-e05"
+    },
+    {
+      "term": "Regla de Barrow",
+      "card": "fc-barrow-1",
+      "page": "t03-e07"
+    },
+    {
+      "term": "Orden de una matriz",
+      "card": "fc-matrix-basics-01",
+      "page": "t04-e01"
+    },
+    {
+      "term": "Determinante",
+      "card": "fc-determinants-01",
+      "page": "t04-e06"
+    },
+    {
+      "term": "Matriz inversa",
+      "card": "fc-inverse-01",
+      "page": "t04-e09"
+    },
+    {
+      "term": "Rango de una matriz",
+      "card": "fc-rank-01",
+      "page": "t04-e10"
+    },
+    {
+      "term": "Solución de un sistema",
+      "card": "fc-linear-system-04",
+      "page": "t05-e01"
+    },
+    {
+      "term": "Rectas secantes",
+      "card": "fc-system-solution-02",
+      "page": "t05-e02"
+    },
+    {
+      "term": "Sistemas equivalentes",
+      "card": "fc-equivalence-01",
+      "page": "t05-e05"
+    },
+    {
+      "term": "Sistema homogéneo",
+      "card": "fc-homogeneous-01",
+      "page": "t05-e10"
+    },
+    {
+      "term": "Solución trivial",
+      "card": "fc-homogeneous-02",
+      "page": "t05-e10"
+    },
+    {
+      "term": "Discusión de un sistema",
+      "card": "fc-parameter-system-01",
+      "page": "t05-e11"
+    },
+    {
+      "term": "Función objetivo",
+      "card": "fc-pl-original-01",
+      "page": "t06-e03"
+    },
+    {
+      "term": "Restricciones",
+      "card": "fc-pl-original-02",
+      "page": "t06-e03"
+    },
+    {
+      "term": "Región factible",
+      "card": "fc-pl-original-09",
+      "page": "t06-e02"
+    },
+    {
+      "term": "Problema infactible",
+      "card": "fc-pl-original-18",
+      "page": "t06-e04"
+    },
+    {
+      "term": "Sucesos incompatibles",
+      "card": "fc-t07-original-02",
+      "page": "t07-e05"
+    },
+    {
+      "term": "Sucesos independientes",
+      "card": "fc-t07-original-03",
+      "page": "t07-e08"
+    },
+    {
+      "term": "Variable bidimensional",
+      "card": "fc-bivariate-original-01",
+      "page": "bivariate"
+    },
+    {
+      "term": "Nube de puntos",
+      "card": "fc-bivariate-original-02",
+      "page": "bivariate"
+    },
+    {
+      "term": "Distribuciones marginales",
+      "card": "fc-bivariate-original-03",
+      "page": "bivariate"
+    },
+    {
+      "term": "Centro de gravedad",
+      "card": "fc-bivariate-original-04",
+      "page": "bivariate"
+    },
+    {
+      "term": "Covarianza",
+      "card": "fc-bivariate-original-05",
+      "page": "bivariate"
+    },
+    {
+      "term": "Coeficiente de correlación de Pearson",
+      "card": "fc-bivariate-original-10",
+      "page": "bivariate"
+    },
+    {
+      "term": "Recta de regresión",
+      "card": "fc-bivariate-original-15",
+      "page": "bivariate"
+    },
+    {
+      "term": "Residuo",
+      "card": "fc-bivariate-original-17",
+      "page": "bivariate"
+    },
+    {
+      "term": "Coeficiente de determinación",
+      "card": "fc-bivariate-original-18",
+      "page": "bivariate"
+    },
+    {
+      "term": "Variable aleatoria continua",
+      "card": "fc-t08-original-02",
+      "page": "t08-e01"
+    },
+    {
+      "term": "Normal estándar",
+      "card": "fc-t08-original-09",
+      "page": "t08-e03"
+    },
+    {
+      "term": "Población",
+      "card": "fc-t09-original-01",
+      "page": "t09-e01"
+    },
+    {
+      "term": "Muestra",
+      "card": "fc-t09-original-02",
+      "page": "t09-e01"
+    },
+    {
+      "term": "Muestreo aleatorio simple",
+      "card": "fc-t09-original-05",
+      "page": "t09-e03"
+    },
+    {
+      "term": "Error estándar de la media",
+      "card": "fc-t09-original-11",
+      "page": "t09-e04"
+    },
+    {
+      "term": "Nivel de confianza",
+      "card": "fc-t09-original-16",
+      "page": "t09-e07"
+    },
+    {
+      "term": "Nivel de significación",
+      "card": "fc-t09-original-17",
+      "page": "t09-e05"
+    }
+  ]
+}

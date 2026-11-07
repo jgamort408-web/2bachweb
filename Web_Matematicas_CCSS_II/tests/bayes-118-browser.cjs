@@ -33,7 +33,7 @@ const {chromium}=require('playwright');
    assert.match((await page.locator('#comprobacion details').last().innerText()).replace(/\s/g,''),/19\/27/);
    await page.goto(prefix+'libro/temas/07-probabilidad/index.html');
    await page.waitForFunction(()=>!!document.querySelector('#site-header a'));
-   assert.equal(await page.locator('[data-topic-index] li').filter({hasText:'Contenido parcial'}).count(),10);
+   assert.equal(await page.locator('[data-topic-index] li').filter({hasText:'Contenido parcial'}).count(),11);
   }
   await page.goto(base+'libro/temas/07-probabilidad/10-teorema-de-bayes.html');
   await page.setViewportSize({width:390,height:844});

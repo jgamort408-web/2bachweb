@@ -13,6 +13,258 @@
   <div id="site-header"></div>
   <main id="main-content" class="page-main mc-page">
     <h1>Glosario</h1>
+    <p class="mc-lead">Los términos clave del curso con su definición breve. Cada uno enlaza a la lección donde se explica con ejemplos.</p>
+    <!-- glosario:inicio -->
+    <form class="mc-library__filters mc-glossary__filters" data-glossary-filters hidden aria-label="Buscar en el glosario">
+      <label class="mc-field">Buscar término <input type="search" data-glossary-search autocomplete="off" placeholder="Rango, covarianza, muestra…"></label>
+    </form>
+    <p class="mc-library__status" data-glossary-status role="status" aria-live="polite"></p>
+    <nav class="mc-glossary__letters" aria-label="Letras del glosario"><a href="#letra-a">A</a> <a href="#letra-c">C</a> <a href="#letra-d">D</a> <a href="#letra-e">E</a> <a href="#letra-f">F</a> <a href="#letra-i">I</a> <a href="#letra-l">L</a> <a href="#letra-m">M</a> <a href="#letra-n">N</a> <a href="#letra-o">O</a> <a href="#letra-p">P</a> <a href="#letra-r">R</a> <a href="#letra-s">S</a> <a href="#letra-t">T</a> <a href="#letra-v">V</a></nav>
+    <section class="mc-glossary__letter" id="letra-a" data-glossary-group aria-labelledby="titulo-letra-a">
+      <h2 id="titulo-letra-a">A</h2>
+      <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-aproximacion-por-la-izquierda" data-content-id="card:fc-lat-01" data-glossary-entry data-search="aproximación por la izquierda">
+          <dt>Aproximación por la izquierda</dt>
+          <dd><p>Acercarse a a con valores \(x&lt;a\). El signo no dice si los valores de la función son negativos.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/01-limites-y-derivadas/02-limites-laterales.html">1.2. Límites laterales</a>.</p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-glossary__letter" id="letra-c" data-glossary-group aria-labelledby="titulo-letra-c">
+      <h2 id="titulo-letra-c">C</h2>
+      <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-centro-de-gravedad" data-content-id="card:fc-bivariate-original-04" data-glossary-entry data-search="centro de gravedad">
+          <dt>Centro de gravedad</dt>
+          <dd><p>Es el punto de medias \((\bar{x},\bar{y})\). Las rectas de regresión lineal por mínimos cuadrados con término independiente pasan por él, cuando están definidas.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-coeficiente-de-correlacion-de-pearson" data-content-id="card:fc-bivariate-original-10" data-glossary-entry data-search="coeficiente de correlación de pearson">
+          <dt>Coeficiente de correlación de Pearson</dt>
+          <dd><p>Es la covarianza estandarizada. Su signo indica el sentido y \(|r|\) la intensidad de la asociación lineal. No tiene unidades y requiere que ambas desviaciones típicas sean positivas.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-coeficiente-de-determinacion" data-content-id="card:fc-bivariate-original-18" data-glossary-entry data-search="coeficiente de determinación">
+          <dt>Coeficiente de determinación</dt>
+          <dd><p>En regresión lineal simple por mínimos cuadrados con término independiente y ambas variables no constantes, \(R^2=r^2\). Es la proporción de variación observada de Y recogida por el ajuste; \(100R^2\) es su porcentaje. No mide la probabilidad de acertar una predicción ni demuestra causalidad.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-covarianza" data-content-id="card:fc-bivariate-original-05" data-glossary-entry data-search="covarianza">
+          <dt>Covarianza</dt>
+          <dd><p>Resume la variación conjunta respecto a las medias. Su signo indica el sentido de la asociación lineal. Depende de las unidades y su magnitud no mide por sí sola la intensidad de la relación.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a>.</p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-glossary__letter" id="letra-d" data-glossary-group aria-labelledby="titulo-letra-d">
+      <h2 id="titulo-letra-d">D</h2>
+      <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-derivada-en-un-punto" data-content-id="card:fc-der-01" data-glossary-entry data-search="derivada en un punto">
+          <dt>Derivada en un punto</dt>
+          <dd><p>\(f\prime(a)=\lim_{h\to0}(f(a+h)-f(a))/h\), cuando el límite existe y es finito. h no vale cero en el cociente.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/01-limites-y-derivadas/11-funcion-derivada.html">1.11. Función derivada</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-determinante" data-content-id="card:fc-determinants-01" data-glossary-entry data-search="determinante">
+          <dt>Determinante</dt>
+          <dd><p>Es un número asociado a una matriz cuadrada: \(\det(A)\) o \(|A|\). En esta notación, las barras de una matriz significan determinante, no valor absoluto. Puede ser negativo.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/04-matrices-y-determinantes/06-determinante-de-una-matriz.html">4.6. Determinante de una matriz</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-discusion-de-un-sistema" data-content-id="card:fc-parameter-system-01" data-glossary-entry data-search="discusión de un sistema">
+          <dt>Discusión de un sistema</dt>
+          <dd><p>Clasificarlo según todos los valores permitidos del parámetro y resolver los casos compatibles cuando se pida, separando los valores que cambian las condiciones.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/05-sistemas-de-ecuaciones/11-discusion-de-sistemas-con-parametros.html">5.11. Discusión de sistemas con parámetros</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-distribuciones-marginales" data-content-id="card:fc-bivariate-original-03" data-glossary-entry data-search="distribuciones marginales">
+          <dt>Distribuciones marginales</dt>
+          <dd><p>Son las distribuciones de \(X\) y de \(Y\) por separado. En una tabla de doble entrada se obtienen sumando las frecuencias por filas y por columnas, respectivamente, si X ocupa las filas.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a>.</p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-glossary__letter" id="letra-e" data-glossary-group aria-labelledby="titulo-letra-e">
+      <h2 id="titulo-letra-e">E</h2>
+      <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-error-estandar-de-la-media" data-content-id="card:fc-t09-original-11" data-glossary-entry data-search="error estándar de la media">
+          <dt>Error estándar de la media</dt>
+          <dd><p>La desviación típica de la distribución de \(\bar X\): \(\sigma/\sqrt n\), bajo observaciones independientes e idénticamente distribuidas con varianza finita.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/04-distribucion-muestral-teorema-central-del-limite.html">9.4. Distribución muestral. Teorema central del límite</a>.</p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-glossary__letter" id="letra-f" data-glossary-group aria-labelledby="titulo-letra-f">
+      <h2 id="titulo-letra-f">F</h2>
+      <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-forma-indeterminada" data-content-id="card:fc-inf-02" data-glossary-entry data-search="forma indeterminada">
+          <dt>Forma indeterminada</dt>
+          <dd><p>Los límites de las partes no bastan para concluir. Debes estudiar o transformar la expresión.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/01-limites-y-derivadas/09-indeterminaciones.html">1.9. Indeterminaciones</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-funcion-objetivo" data-content-id="card:fc-pl-original-01" data-glossary-entry data-search="función objetivo">
+          <dt>Función objetivo</dt>
+          <dd><p>Es la función lineal \(Z(x,y)=ax+by\) que queremos maximizar (por ejemplo, beneficios) o minimizar (por ejemplo, costes), entre las decisiones factibles.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/06-programacion-lineal/03-programacion-lineal.html">6.3. Programación lineal</a>.</p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-glossary__letter" id="letra-i" data-glossary-group aria-labelledby="titulo-letra-i">
+      <h2 id="titulo-letra-i">I</h2>
+      <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-integral-definida" data-content-id="card:fc-definite-1" data-glossary-entry data-search="integral definida">
+          <dt>Integral definida</dt>
+          <dd><p>Una acumulación orientada: \(\int_a^b f(x)dx\). Para función y límites fijados es un número, sin +C. Se aproxima mediante sumas de valores por anchuras.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/03-integrales/05-integral-definida.html">3.5. Integral definida</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-integral-indefinida" data-content-id="card:fc-primitive-02" data-glossary-entry data-search="integral indefinida">
+          <dt>Integral indefinida</dt>
+          <dd><p>La familia de primitivas: \(\int f(x)\,dx=F(x)+C\). No es un único número.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/03-integrales/01-integral-indefinida.html">3.1. Integral indefinida</a>.</p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-glossary__letter" id="letra-l" data-glossary-group aria-labelledby="titulo-letra-l">
+      <h2 id="titulo-letra-l">L</h2>
+      <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-logaritmo" data-content-id="card:fc-log-01" data-glossary-entry data-search="logaritmo">
+          <dt>Logaritmo</dt>
+          <dd><p>Significa \(a^y=x\), con a&gt;0, a≠1 y x&gt;0. El logaritmo devuelve un exponente; es la inversa de la exponencial de la misma base.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/02-representacion-de-funciones/05-funciones-logaritmicas.html">2.5. Funciones logarítmicas</a>.</p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-glossary__letter" id="letra-m" data-glossary-group aria-labelledby="titulo-letra-m">
+      <h2 id="titulo-letra-m">M</h2>
+      <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-matriz-inversa" data-content-id="card:fc-inverse-01" data-glossary-entry data-search="matriz inversa">
+          <dt>Matriz inversa</dt>
+          <dd><p>\(AA^{-1}=A^{-1}A=I\). Para A cuadrada, existe y es única si y solo si \(\det(A)\ne0\).</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/04-matrices-y-determinantes/09-matriz-inversa-y-matriz-adjunta.html">4.9. Matriz inversa y matriz adjunta</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-muestra" data-content-id="card:fc-t09-original-02" data-glossary-entry data-search="muestra">
+          <dt>Muestra</dt>
+          <dd><p>Es el subconjunto de unidades observado; \(n\) es su tamaño. Que represente bien a la población depende de cómo se seleccione, no solo de su tamaño.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/01-estadistica-inferencial.html">9.1. Estadística inferencial</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-muestreo-aleatorio-simple" data-content-id="card:fc-t09-original-05" data-glossary-entry data-search="muestreo aleatorio simple">
+          <dt>Muestreo aleatorio simple</dt>
+          <dd><p>Al elegir \(n\) de \(N\) sin reemplazo, todas las muestras posibles de tamaño \(n\) tienen la misma probabilidad. Requiere un marco que enumere la población.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/03-tecnicas-de-muestreo.html">9.3. Técnicas de muestreo</a>.</p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-glossary__letter" id="letra-n" data-glossary-group aria-labelledby="titulo-letra-n">
+      <h2 id="titulo-letra-n">N</h2>
+      <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-nivel-de-confianza" data-content-id="card:fc-t09-original-16" data-glossary-entry data-search="nivel de confianza">
+          <dt>Nivel de confianza</dt>
+          <dd><p>En el modelo y bajo sus supuestos, es la proporción de intervalos que cubrirían el parámetro si repitiésemos el procedimiento de muestreo muchas veces. No es la probabilidad posterior de un intervalo concreto.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/07-intervalos-de-confianza.html">9.7. Intervalos de confianza</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-nivel-de-significacion" data-content-id="card:fc-t09-original-17" data-glossary-entry data-search="nivel de significación">
+          <dt>Nivel de significación</dt>
+          <dd><p>En un intervalo bilateral de confianza \(1-\alpha\), es la tasa de no cobertura del procedimiento bajo el modelo: \(\alpha\). No asegura que el intervalo observado falle con esa probabilidad posterior.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/05-estimacion-puntual-y-estimacion-por-intervalos.html">9.5. Estimación puntual y estimación por intervalos</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-normal-estandar" data-content-id="card:fc-t08-original-09" data-glossary-entry data-search="normal estándar">
+          <dt>Normal estándar</dt>
+          <dd><p>Tiene media cero y desviación típica uno. Su acumulada \(\Phi(z)=P(Z\le z)\) permite calcular probabilidades después de tipificar.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/08-distribuciones-de-probabilidad/03-distribucion-normal.html">8.3. Distribución normal</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-nube-de-puntos" data-content-id="card:fc-bivariate-original-02" data-glossary-entry data-search="nube de puntos">
+          <dt>Nube de puntos</dt>
+          <dd><p>Es la representación gráfica de los pares \((x_i,y_i)\). Ayuda a explorar patrones lineales, curvos o sin tendencia clara; su aspecto no demuestra por sí solo independencia ni causalidad.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a>.</p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-glossary__letter" id="letra-o" data-glossary-group aria-labelledby="titulo-letra-o">
+      <h2 id="titulo-letra-o">O</h2>
+      <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-orden-de-una-matriz" data-content-id="card:fc-matrix-basics-01" data-glossary-entry data-search="orden de una matriz">
+          <dt>Orden de una matriz</dt>
+          <dd><p>\(m\times n\): m filas y n columnas; contiene mn elementos. Tres filas y dos columnas dan orden \(3\times2\), no \(2\times3\).</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/04-matrices-y-determinantes/01-matrices-definicion-caracteristicas-y-tipos.html">4.1. Matrices: definición, características y tipos</a>.</p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-glossary__letter" id="letra-p" data-glossary-group aria-labelledby="titulo-letra-p">
+      <h2 id="titulo-letra-p">P</h2>
+      <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-poblacion" data-content-id="card:fc-t09-original-01" data-glossary-entry data-search="población">
+          <dt>Población</dt>
+          <dd><p>Es el conjunto de unidades sobre el que se quiere estudiar una característica. \(N\) es su tamaño; sus parámetros pueden ser desconocidos.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/01-estadistica-inferencial.html">9.1. Estadística inferencial</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-primitiva" data-content-id="card:fc-primitive-01" data-glossary-entry data-search="primitiva">
+          <dt>Primitiva</dt>
+          <dd><p>Una función F cuya derivada es f en el intervalo estudiado: \(F'=f\).</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/03-integrales/01-integral-indefinida.html">3.1. Integral indefinida</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-problema-infactible" data-content-id="card:fc-pl-original-18" data-glossary-entry data-search="problema infactible">
+          <dt>Problema infactible</dt>
+          <dd><p>Las restricciones no tienen ningún punto común. Por ejemplo, \(x\le5\) y \(x\ge10\) son incompatibles. La región factible es vacía y no existe solución óptima.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/06-programacion-lineal/04-solucion-de-un-problema-de-programacion-lineal.html">6.4. Solución de un problema de programación lineal</a>.</p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-glossary__letter" id="letra-r" data-glossary-group aria-labelledby="titulo-letra-r">
+      <h2 id="titulo-letra-r">R</h2>
+      <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-rango-de-una-matriz" data-content-id="card:fc-rank-01" data-glossary-entry data-search="rango de una matriz">
+          <dt>Rango de una matriz</dt>
+          <dd><p>Máximo número de filas o columnas independientes. Para A de tamaño m×n, \(0\le\operatorname{rg}(A)\le\min(m,n)\). También existe para rectangulares.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/04-matrices-y-determinantes/10-rango-de-una-matriz.html">4.10. Rango de una matriz</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-recta-de-regresion" data-content-id="card:fc-bivariate-original-15" data-glossary-entry data-search="recta de regresión">
+          <dt>Recta de regresión</dt>
+          <dd><p>La recta de Y sobre X por mínimos cuadrados con término independiente minimiza la suma de los cuadrados de los residuos verticales. Requiere \(S_x^2&gt;0\). Permite estimar Y a partir de X; una estimación no es un resultado garantizado.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-rectas-secantes" data-content-id="card:fc-system-solution-02" data-glossary-entry data-search="rectas secantes">
+          <dt>Rectas secantes</dt>
+          <dd><p>Se cortan en un único punto. Sus coordenadas son la única solución del sistema.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/05-sistemas-de-ecuaciones/02-solucion-de-un-sistema-de-ecuaciones.html">5.2. Solución de un sistema de ecuaciones</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-region-factible" data-content-id="card:fc-pl-original-09" data-glossary-entry data-search="región factible">
+          <dt>Región factible</dt>
+          <dd><p>Es la intersección de todas las restricciones: el conjunto de decisiones que las cumplen simultáneamente. Puede ser vacía, acotada o no acotada; también puede reducirse a un segmento o a un punto. No siempre es un polígono acotado.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/06-programacion-lineal/02-sistemas-de-inecuaciones-lineales-con-dos-incognitas.html">6.2. Sistemas de inecuaciones lineales con dos incógnitas</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-regla-de-barrow" data-content-id="card:fc-barrow-1" data-glossary-entry data-search="regla de barrow">
+          <dt>Regla de Barrow</dt>
+          <dd><p>\([F(x)]_a^b=F(b)-F(a)\), con F′=f. Si f es continua en el intervalo, es el valor de \(\int_a^b f(x)dx\).</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/03-integrales/07-regla-de-barrow.html">3.7. Regla de Barrow</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-residuo" data-content-id="card:fc-bivariate-original-17" data-glossary-entry data-search="residuo">
+          <dt>Residuo</dt>
+          <dd><p>Son las diferencias con signo entre el valor observado y el estimado: \(e_i=y_i-\widehat{y}_i\). Su valor absoluto es la distancia vertical a la recta. Mínimos cuadrados minimiza \(\sum_i e_i^2\), la suma de sus cuadrados.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-restricciones" data-content-id="card:fc-pl-original-02" data-glossary-entry data-search="restricciones">
+          <dt>Restricciones</dt>
+          <dd><p>Son las condiciones lineales, expresadas mediante inecuaciones o igualdades, que limitan los valores admisibles de \(x\) e \(y\). Deben cumplirse simultáneamente.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/06-programacion-lineal/03-programacion-lineal.html">6.3. Programación lineal</a>.</p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-glossary__letter" id="letra-s" data-glossary-group aria-labelledby="titulo-letra-s">
+      <h2 id="titulo-letra-s">S</h2>
+      <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-sistema-homogeneo" data-content-id="card:fc-homogeneous-01" data-glossary-entry data-search="sistema homogéneo">
+          <dt>Sistema homogéneo</dt>
+          <dd><p>Un sistema lineal AX=0: todos los términos independientes son cero, aunque los coeficientes de A no lo sean.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/05-sistemas-de-ecuaciones/10-sistemas-homogeneos.html">5.10. Sistemas homogéneos</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-sistemas-equivalentes" data-content-id="card:fc-equivalence-01" data-glossary-entry data-search="sistemas equivalentes">
+          <dt>Sistemas equivalentes</dt>
+          <dd><p>Que tienen el mismo conjunto de soluciones, con las mismas incógnitas y dominio. La implicación debe funcionar en los dos sentidos.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/05-sistemas-de-ecuaciones/05-sistemas-equivalentes.html">5.5. Sistemas equivalentes</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-solucion-de-un-sistema" data-content-id="card:fc-linear-system-04" data-glossary-entry data-search="solución de un sistema">
+          <dt>Solución de un sistema</dt>
+          <dd><p>Una tupla ordenada de valores que satisface simultáneamente todas las ecuaciones. Cumplir una sola ecuación no basta; se sustituyen los mismos valores en todas.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/05-sistemas-de-ecuaciones/01-sistemas-de-ecuaciones-lineales.html">5.1. Sistemas de ecuaciones lineales</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-solucion-trivial" data-content-id="card:fc-homogeneous-02" data-glossary-entry data-search="solución trivial">
+          <dt>Solución trivial</dt>
+          <dd><p>El vector con todas las coordenadas cero. Siempre satisface AX=0. No trivial significa que al menos una coordenada es distinta de cero.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/05-sistemas-de-ecuaciones/10-sistemas-homogeneos.html">5.10. Sistemas homogéneos</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-sucesos-incompatibles" data-content-id="card:fc-t07-original-02" data-glossary-entry data-search="sucesos incompatibles">
+          <dt>Sucesos incompatibles</dt>
+          <dd><p>No pueden ocurrir a la vez: \(A\cap B=\varnothing\), por lo que \(P(A\cap B)=0\).</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/07-probabilidad/05-axiomatica-de-kolmogorov.html">7.5. Axiomática de Kolmogórov</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-sucesos-independientes" data-content-id="card:fc-t07-original-03" data-glossary-entry data-search="sucesos independientes">
+          <dt>Sucesos independientes</dt>
+          <dd><p>Conocer uno no cambia la probabilidad del otro. Una condición equivalente es \(P(A\cap B)=P(A)P(B)\).</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/07-probabilidad/08-probabilidad-condicionada.html">7.8. Probabilidad condicionada</a>.</p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-glossary__letter" id="letra-t" data-glossary-group aria-labelledby="titulo-letra-t">
+      <h2 id="titulo-letra-t">T</h2>
+      <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-tasa-de-variacion-media" data-content-id="card:fc-review-04" data-glossary-entry data-search="tasa de variación media">
+          <dt>Tasa de variación media</dt>
+          <dd><p>\(\dfrac{f(b)-f(a)}{b-a}\), con \(a\ne b\). Es la pendiente de la secante y el cambio medio de la salida por unidad de entrada; no es necesariamente la derivada en a o en b.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/01-limites-y-derivadas/11-funcion-derivada.html">1.11. Función derivada</a>.</p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-glossary__letter" id="letra-v" data-glossary-group aria-labelledby="titulo-letra-v">
+      <h2 id="titulo-letra-v">V</h2>
+      <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-variable-aleatoria-continua" data-content-id="card:fc-t08-original-02" data-glossary-entry data-search="variable aleatoria continua">
+          <dt>Variable aleatoria continua</dt>
+          <dd><p>En el modelo estudiado, puede tomar valores en un intervalo de números reales. La altura, el tiempo y el peso se suelen modelizar como variables continuas.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/08-distribuciones-de-probabilidad/01-variable-aleatoria.html">8.1. Variable aleatoria</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-variable-bidimensional" data-content-id="card:fc-bivariate-original-01" data-glossary-entry data-search="variable bidimensional">
+          <dt>Variable bidimensional</dt>
+          <dd><p>El estudio de dos características \(X,Y\) en cada individuo. Cada observación es un par \((x_i,y_i)\), cuyas dos medidas corresponden al mismo individuo.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a>.</p></dd>
+        </div>
+      </dl>
+    </section>
+    <!-- glosario:fin -->
+    <script type="module" src="../assets/js/learning/glossary.js"></script>
   </main>
   <div id="site-footer"></div>
 </body>
