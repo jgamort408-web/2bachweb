@@ -116,7 +116,7 @@ Este es el **documento de entrada para cada sesión de trabajo** sobre la web. R
 
 ## Fase 6 · Funcionalidad pendiente (tandas heredadas)
 
-- [ ] P01 · T07 Biblioteca de recursos: los 48 PDF agrupados por pareja examen/soluciones, búsqueda, filtros por tema/tipo/etiqueta, visibilidad heredada y acciones separadas.
+- [x] P01 · T07 Biblioteca de recursos: los 48 PDF agrupados por pareja examen/soluciones, búsqueda, filtros por tema/tipo/etiqueta, visibilidad heredada y acciones separadas. **Hecho (07-11-2026):** `examenes/index.html` se genera con `npm run build:exams` (`scripts/build-exams.mjs`) desde `config/resources.json`: 24 tarjetas por bloque con tema, tipo, etiquetas de contenido legibles (las editoriales no se muestran) y dos botones, Examen y Soluciones, con el tamaño del PDF. Funciona sin JS; con JS, búsqueda sin tildes y filtros por tema y tipo, `?tema=t07` y recuento anunciado. Visibilidad: la tarjeta lleva `data-content-id` del examen y el enlace a soluciones se oculta por su ruta. «Recursos» es ahora la portada de materiales. Pruebas: `exam-library.test.mjs` (página al día) y 160. Al añadir un recurso: actualizar `config/resources.json`, ejecutar `npm run build:exams` y, si trae etiquetas nuevas, darles nombre en el script (si no, falla a propósito).
 - [ ] P02 · T08 Combinatoria migrada desde `Página web existente/Combinatoria.txt` y matriz de cobertura de fuentes cerrada.
 - [ ] P03 · T09 Revisión editorial de evaluaciones: distractores, hipótesis, unidades y redondeos.
 - [ ] P04 · T10 Dificultad y destreza normalizadas en el banco; buscador común del sitio (índice estático generado) que respeta la visibilidad.
@@ -286,3 +286,10 @@ W03 → W04 → **D01–D05 (consulta)** → S01–S06 → L01–L08 → F01–F
 - **2026-11-07** · L079:ocho ejercicios originales cotejados y clasificados;600 únicos,79/84 candidatos cerrados y5 pendientes. DOC convertidos y cotejados;21pruebas y1338archivos anteriores intactos. Dos PDF revisados y ZIP aislado compilado. [Informe](Selectividad_LaTeX/docs/lotes/L079_2012_EXAMEN_1.md). Siguiente L080;sin soluciones ni cambios en implementación web.
 
 - **2026-11-07** · L080:ocho ejercicios originales cotejados y clasificados;608 únicos,80/84 candidatos cerrados y4 pendientes. DOC convertidos y cotejados;21pruebas y1356archivos anteriores intactos. Dos PDF revisados y ZIP aislado compilado. [Informe](Selectividad_LaTeX/docs/lotes/L080_2012_EXAMEN_5.md). Siguiente L081;sin soluciones ni cambios en implementación web.
+
+- **2026-11-07** · L081:ocho ejercicios originales cotejados y clasificados;616 únicos,81/84 candidatos cerrados y3 pendientes. DOC convertidos y cotejados;21pruebas y1374archivos anteriores intactos. Dos PDF revisados y ZIP aislado compilado. [Informe](Selectividad_LaTeX/docs/lotes/L081_2012_EXAMEN_2.md). Siguiente L082;sin soluciones ni cambios en implementación web.
+
+- **2026-11-07** · L082:ocho ejercicios originales cotejados y clasificados;624 únicos,82/84 candidatos cerrados y2 pendientes. DOC convertidos y cotejados;21pruebas y1392archivos anteriores intactos. Dos PDF revisados y ZIP aislado compilado. [Informe](Selectividad_LaTeX/docs/lotes/L082_2012_EXAMEN_4.md). Siguiente L083;sin soluciones ni cambios en implementación web.
+
+- **2026-11-07** · L083:ocho ejercicios originales cotejados y clasificados;632 únicos,83/84 candidatos cerrados y1 pendiente. DOC convertidos y cotejados;21pruebas y1410archivos anteriores intactos. Dos PDF revisados y ZIP aislado compilado. [Informe](Selectividad_LaTeX/docs/lotes/L083_2012_EXAMEN_3.md). Siguiente L084;sin soluciones ni cambios en implementación web.
+- **2026-11-07** · P01 hecha: biblioteca de exámenes con búsqueda y filtros, y página Recursos. Corregidas las cabeceras de los temas 6, 8 y 9: decían «3 juegos», pero esos juegos son esbozos de P07 (no figuran en laboratorios).

@@ -122,7 +122,9 @@
     "test:probability-audit": "node tests/probability-coverage-accessibility-135-browser.cjs",
     "test:visibility": "node --test tests/content-visibility-catalog.test.mjs tests/visibility-model.test.mjs tests/visibility-repository.test.mjs tests/admin-draft-session.test.mjs",
     "test:visibility-browser": "node tests/content-visibility-158-browser.cjs",
-    "test:admin-browser": "node tests/visibility-panel-159-browser.cjs"
+    "test:admin-browser": "node tests/visibility-panel-159-browser.cjs",
+    "test:exam-library": "node tests/exam-library-160-browser.cjs",
+    "build:exams": "node scripts/build-exams.mjs"
   },
   "devDependencies": {
     "playwright": "1.64.1"

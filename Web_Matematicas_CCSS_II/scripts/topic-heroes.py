@@ -2,7 +2,8 @@
 
 Envuelve el <h1> y la entradilla existentes en <header class="mc-topic__hero"> sin cambiar su texto,
 añade el chip del bloque, la línea de datos (cifras de config/pages.json y tests/helpers/catalog-expectations.mjs,
-validadas por catalog-contract.test.mjs) y una ilustración SVG decorativa calculada con fórmulas reales.
+validadas por catalog-contract.test.mjs; los juegos solo cuentan si están implementados:
+los de los temas 6, 8 y 9 son esbozos de la tarea P07 y no figuran en laboratorios) y una ilustración SVG decorativa calculada con fórmulas reales.
 Uso (desde Web_Matematicas_CCSS_II): python scripts/topic-heroes.py . [carpeta-del-tema ...]
 Las páginas que ya tienen cabecera se omiten; para regenerar una, restaurarla antes con git.
 """
@@ -181,9 +182,9 @@ TOPICS = {
     '03-integrales': ('Tema 3 · Análisis', '8 lecciones · 60 preguntas · 48 tarjetas · 3 juegos', art_t03),
     '04-matrices-y-determinantes': ('Tema 4 · Álgebra y decisiones', '12 lecciones · 72 preguntas · 72 tarjetas · 3 juegos', art_t04),
     '05-sistemas-de-ecuaciones': ('Tema 5 · Álgebra y decisiones', '11 lecciones · 66 preguntas · 66 tarjetas · 3 juegos', art_t05),
-    '06-programacion-lineal': ('Tema 6 · Álgebra y decisiones', '5 lecciones · 19 tarjetas · 3 juegos', art_t06),
-    '08-distribuciones-de-probabilidad': ('Tema 8 · Azar y datos', '4 lecciones · 21 ejercicios resueltos · 19 tarjetas · 3 juegos', art_t08),
-    '09-inferencia-estadistica': ('Tema 9 · Azar y datos', '9 lecciones · 27 ejercicios resueltos · 20 preguntas · 30 tarjetas · 3 juegos', art_t09),
+    '06-programacion-lineal': ('Tema 6 · Álgebra y decisiones', '5 lecciones · 19 tarjetas', art_t06),
+    '08-distribuciones-de-probabilidad': ('Tema 8 · Azar y datos', '4 lecciones · 21 ejercicios resueltos · 19 tarjetas', art_t08),
+    '09-inferencia-estadistica': ('Tema 9 · Azar y datos', '9 lecciones · 27 ejercicios resueltos · 20 preguntas · 30 tarjetas', art_t09),
 }
 
 only = sys.argv[2:] or list(TOPICS)

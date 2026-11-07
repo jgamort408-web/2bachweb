@@ -13,6 +13,223 @@
   <div id="site-header"></div>
   <main id="main-content" class="page-main mc-page">
     <h1>Exámenes</h1>
+    <p class="mc-lead">Exámenes del curso con sus soluciones, en PDF. Intenta cada examen antes de abrir las soluciones y compara después el procedimiento, no solo el resultado.</p>
+    <!-- biblioteca:inicio -->
+    <form class="mc-library__filters" data-exam-filters hidden aria-label="Buscar y filtrar exámenes">
+      <label class="mc-field">Buscar <input type="search" data-exam-search autocomplete="off" placeholder="Bayes, matrices, recuperación…"></label>
+      <label class="mc-field">Tema <select data-exam-topic><option value="">Todos los temas</option><option value="t01">1. Límites y derivadas</option><option value="t02">2. Representación de funciones</option><option value="t03">3. Integrales</option><option value="t04">4. Matrices y determinantes</option><option value="t05">5. Sistemas de ecuaciones</option><option value="t06">6. Programación lineal</option><option value="t07">7. Probabilidad</option><option value="t08">8. Distribuciones de probabilidad</option><option value="t09">9. Inferencia estadística</option></select></label>
+      <label class="mc-field">Tipo <select data-exam-type><option value="">Todos los tipos</option><option value="recuperacion">Recuperación</option><option value="subida-de-nota">Subida de nota</option><option value="examen-de-tema">Examen de tema</option><option value="recopilacion">Recopilación</option><option value="repaso">Repaso</option><option value="examen-final">Examen final</option></select></label>
+    </form>
+    <p class="mc-library__status" data-exam-status role="status" aria-live="polite"></p>
+    <section class="mc-library__block" data-block="analisis" data-exam-group aria-labelledby="examenes-analisis">
+      <h2 id="examenes-analisis">Análisis</h2>
+      <ul class="mc-library__list">
+        <li class="mc-library__item" data-content-id="resource:recuperacion-t1-examen" data-exam-card data-topic="t01" data-type="recuperacion" data-search="recuperación t1 recuperación 1. límites y derivadas límites derivadas integrales">
+          <article class="mc-exam" aria-labelledby="examen-recuperacion-t1-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">1. Límites y derivadas</span> <span class="mc-chip mc-chip--neutral">Recuperación</span></p>
+            <h3 id="examen-recuperacion-t1-examen">Recuperación T1</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Límites</span> <span>Derivadas</span> <span>Integrales</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/recuperacion-t1-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 33 KB</span></a> <a class="mc-btn" href="../output/pdf/recuperacion-t1-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 55 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:subida-nota-t1-general-examen" data-exam-card data-topic="t01" data-type="subida-de-nota" data-search="subida de nota t1 general subida de nota 1. límites y derivadas límites derivadas integrales">
+          <article class="mc-exam" aria-labelledby="examen-subida-nota-t1-general-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">1. Límites y derivadas</span> <span class="mc-chip mc-chip--neutral">Subida de nota</span></p>
+            <h3 id="examen-subida-nota-t1-general-examen">Subida de nota T1 general</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Límites</span> <span>Derivadas</span> <span>Integrales</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/subida-nota-t1-general-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 26 KB</span></a> <a class="mc-btn" href="../output/pdf/subida-nota-t1-general-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 57 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:limites-derivadas-examen" data-exam-card data-topic="t01" data-type="examen-de-tema" data-search="límites y derivadas examen de tema 1. límites y derivadas límites derivadas recta tangente recta normal modelo asintótico">
+          <article class="mc-exam" aria-labelledby="examen-limites-derivadas-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">1. Límites y derivadas</span> <span class="mc-chip mc-chip--neutral">Examen de tema</span></p>
+            <h3 id="examen-limites-derivadas-examen">Límites y derivadas</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Límites</span> <span>Derivadas</span> <span>Recta tangente</span> <span>Recta normal</span> <span>Modelo asintótico</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/limites-derivadas-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 40 KB</span></a> <a class="mc-btn" href="../output/pdf/limites-derivadas-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 56 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:repaso-analisis-examen" data-exam-card data-topic="t01" data-type="repaso" data-search="repaso de análisis · exámenes 1 y 2 repaso 1. límites y derivadas límites derivadas funciones temperatura">
+          <article class="mc-exam" aria-labelledby="examen-repaso-analisis-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">1. Límites y derivadas</span> <span class="mc-chip mc-chip--neutral">Repaso</span></p>
+            <h3 id="examen-repaso-analisis-examen">Repaso de Análisis · Exámenes 1 y 2</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Límites</span> <span>Derivadas</span> <span>Funciones</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/repaso-analisis-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 33 KB</span></a> <a class="mc-btn" href="../output/pdf/repaso-analisis-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 60 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:subida-nota-curso-examen" data-exam-card data-topic="t01" data-type="subida-de-nota" data-search="subida de nota de curso subida de nota 1. límites y derivadas funciones programación lineal probabilidad inferencia">
+          <article class="mc-exam" aria-labelledby="examen-subida-nota-curso-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">1. Límites y derivadas</span> <span class="mc-chip mc-chip--neutral">Subida de nota</span></p>
+            <h3 id="examen-subida-nota-curso-examen">Subida de nota de curso</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Funciones</span> <span>Programación lineal</span> <span>Probabilidad</span> <span>Inferencia</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/subida-nota-curso-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 31 KB</span></a> <a class="mc-btn" href="../output/pdf/subida-nota-curso-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 46 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:funciones-variante-examen" data-exam-card data-topic="t02" data-type="examen-de-tema" data-search="funciones: variante examen de tema 2. representación de funciones funciones límites derivadas representación">
+          <article class="mc-exam" aria-labelledby="examen-funciones-variante-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">2. Representación de funciones</span> <span class="mc-chip mc-chip--neutral">Examen de tema</span></p>
+            <h3 id="examen-funciones-variante-examen">Funciones: variante</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Funciones</span> <span>Límites</span> <span>Derivadas</span> <span>Representación</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/funciones-variante-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 31 KB</span></a> <a class="mc-btn" href="../output/pdf/funciones-variante-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 43 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:funciones-principal-examen" data-exam-card data-topic="t02" data-type="examen-de-tema" data-search="funciones: examen principal examen de tema 2. representación de funciones funciones límites derivadas representación">
+          <article class="mc-exam" aria-labelledby="examen-funciones-principal-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">2. Representación de funciones</span> <span class="mc-chip mc-chip--neutral">Examen de tema</span></p>
+            <h3 id="examen-funciones-principal-examen">Funciones: examen principal</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Funciones</span> <span>Límites</span> <span>Derivadas</span> <span>Representación</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/funciones-principal-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 33 KB</span></a> <a class="mc-btn" href="../output/pdf/funciones-principal-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 61 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:examen-final-examen" data-exam-card data-topic="t03" data-type="examen-final" data-search="examen final examen final 3. integrales funciones integrales área por tramos recta tangente">
+          <article class="mc-exam" aria-labelledby="examen-examen-final-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">3. Integrales</span> <span class="mc-chip mc-chip--neutral">Examen final</span></p>
+            <h3 id="examen-examen-final-examen">Examen final</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Funciones</span> <span>Integrales</span> <span>Área por tramos</span> <span>Recta tangente</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/examen-final-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 33 KB</span></a> <a class="mc-btn" href="../output/pdf/examen-final-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 48 KB</span></a></p>
+          </article>
+        </li>
+      </ul>
+    </section>
+    <section class="mc-library__block" data-block="algebra" data-exam-group aria-labelledby="examenes-algebra">
+      <h2 id="examenes-algebra">Álgebra y decisiones</h2>
+      <ul class="mc-library__list">
+        <li class="mc-library__item" data-content-id="resource:matrices-i-examen" data-exam-card data-topic="t04" data-type="examen-de-tema" data-search="matrices i examen de tema 4. matrices y determinantes matrices matriz inversa ecuaciones matriciales dimensiones">
+          <article class="mc-exam" aria-labelledby="examen-matrices-i-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">4. Matrices y determinantes</span> <span class="mc-chip mc-chip--neutral">Examen de tema</span></p>
+            <h3 id="examen-matrices-i-examen">Matrices I</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Matrices</span> <span>Matriz inversa</span> <span>Ecuaciones matriciales</span> <span>Dimensiones</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/matrices-i-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 34 KB</span></a> <a class="mc-btn" href="../output/pdf/matrices-i-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 36 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:matrices-ii-examen" data-exam-card data-topic="t04" data-type="examen-de-tema" data-search="matrices ii examen de tema 4. matrices y determinantes matrices matriz inversa ecuaciones matriciales dimensiones">
+          <article class="mc-exam" aria-labelledby="examen-matrices-ii-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">4. Matrices y determinantes</span> <span class="mc-chip mc-chip--neutral">Examen de tema</span></p>
+            <h3 id="examen-matrices-ii-examen">Matrices II</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Matrices</span> <span>Matriz inversa</span> <span>Ecuaciones matriciales</span> <span>Dimensiones</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/matrices-ii-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 33 KB</span></a> <a class="mc-btn" href="../output/pdf/matrices-ii-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 35 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:matrices-iii-examen" data-exam-card data-topic="t04" data-type="examen-de-tema" data-search="matrices iii examen de tema 4. matrices y determinantes matrices ecuaciones matriciales potencias dimensiones">
+          <article class="mc-exam" aria-labelledby="examen-matrices-iii-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">4. Matrices y determinantes</span> <span class="mc-chip mc-chip--neutral">Examen de tema</span></p>
+            <h3 id="examen-matrices-iii-examen">Matrices III</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Matrices</span> <span>Ecuaciones matriciales</span> <span>Potencias</span> <span>Dimensiones</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/matrices-iii-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 32 KB</span></a> <a class="mc-btn" href="../output/pdf/matrices-iii-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 35 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:sistemas-sels-i-examen" data-exam-card data-topic="t05" data-type="examen-de-tema" data-search="sistemas de ecuaciones i examen de tema 5. sistemas de ecuaciones sistemas matrices parámetros modelización">
+          <article class="mc-exam" aria-labelledby="examen-sistemas-sels-i-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">5. Sistemas de ecuaciones</span> <span class="mc-chip mc-chip--neutral">Examen de tema</span></p>
+            <h3 id="examen-sistemas-sels-i-examen">Sistemas de ecuaciones I</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Sistemas</span> <span>Matrices</span> <span>Parámetros</span> <span>Modelización</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/sistemas-sels-i-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 32 KB</span></a> <a class="mc-btn" href="../output/pdf/sistemas-sels-i-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 37 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:sistemas-sels-ii-examen" data-exam-card data-topic="t05" data-type="examen-de-tema" data-search="sistemas de ecuaciones ii examen de tema 5. sistemas de ecuaciones sistemas matrices parámetros logística">
+          <article class="mc-exam" aria-labelledby="examen-sistemas-sels-ii-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">5. Sistemas de ecuaciones</span> <span class="mc-chip mc-chip--neutral">Examen de tema</span></p>
+            <h3 id="examen-sistemas-sels-ii-examen">Sistemas de ecuaciones II</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Sistemas</span> <span>Matrices</span> <span>Parámetros</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/sistemas-sels-ii-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 33 KB</span></a> <a class="mc-btn" href="../output/pdf/sistemas-sels-ii-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 38 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:programacion-lineal-i-examen" data-exam-card data-topic="t06" data-type="examen-de-tema" data-search="programación lineal i examen de tema 6. programación lineal programación lineal ejercicios a elegir regiones factibles optimización fronteras estrictas">
+          <article class="mc-exam" aria-labelledby="examen-programacion-lineal-i-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">6. Programación lineal</span> <span class="mc-chip mc-chip--neutral">Examen de tema</span></p>
+            <h3 id="examen-programacion-lineal-i-examen">Programación lineal I</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Programación lineal</span> <span>Ejercicios a elegir</span> <span>Regiones factibles</span> <span>Optimización</span> <span>Fronteras estrictas</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/programacion-lineal-i-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 35 KB</span></a> <a class="mc-btn" href="../output/pdf/programacion-lineal-i-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 42 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:programacion-lineal-ii-examen" data-exam-card data-topic="t06" data-type="examen-de-tema" data-search="programación lineal ii examen de tema 6. programación lineal programación lineal planteamiento regiones factibles optimización">
+          <article class="mc-exam" aria-labelledby="examen-programacion-lineal-ii-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">6. Programación lineal</span> <span class="mc-chip mc-chip--neutral">Examen de tema</span></p>
+            <h3 id="examen-programacion-lineal-ii-examen">Programación lineal II</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Programación lineal</span> <span>Planteamiento</span> <span>Regiones factibles</span> <span>Optimización</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/programacion-lineal-ii-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 35 KB</span></a> <a class="mc-btn" href="../output/pdf/programacion-lineal-ii-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 45 KB</span></a></p>
+          </article>
+        </li>
+      </ul>
+    </section>
+    <section class="mc-library__block" data-block="azar" data-exam-group aria-labelledby="examenes-azar">
+      <h2 id="examenes-azar">Azar y datos</h2>
+      <ul class="mc-library__list">
+        <li class="mc-library__item" data-content-id="resource:probabilidad-i-examen" data-exam-card data-topic="t07" data-type="examen-de-tema" data-search="probabilidad i examen de tema 7. probabilidad probabilidad condicionada probabilidad total teorema de bayes independencia ejercicios a elegir">
+          <article class="mc-exam" aria-labelledby="examen-probabilidad-i-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">7. Probabilidad</span> <span class="mc-chip mc-chip--neutral">Examen de tema</span></p>
+            <h3 id="examen-probabilidad-i-examen">Probabilidad I</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Probabilidad condicionada</span> <span>Probabilidad total</span> <span>Teorema de Bayes</span> <span>Independencia</span> <span>Ejercicios a elegir</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/probabilidad-i-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 33 KB</span></a> <a class="mc-btn" href="../output/pdf/probabilidad-i-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 30 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:probabilidad-ii-examen" data-exam-card data-topic="t07" data-type="examen-de-tema" data-search="probabilidad ii examen de tema 7. probabilidad probabilidad condicionada probabilidad total teorema de bayes independencia ejercicios a elegir">
+          <article class="mc-exam" aria-labelledby="examen-probabilidad-ii-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">7. Probabilidad</span> <span class="mc-chip mc-chip--neutral">Examen de tema</span></p>
+            <h3 id="examen-probabilidad-ii-examen">Probabilidad II</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Probabilidad condicionada</span> <span>Probabilidad total</span> <span>Teorema de Bayes</span> <span>Independencia</span> <span>Ejercicios a elegir</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/probabilidad-ii-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 32 KB</span></a> <a class="mc-btn" href="../output/pdf/probabilidad-ii-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 30 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:distribuciones-i-examen" data-exam-card data-topic="t08" data-type="examen-de-tema" data-search="distribuciones i examen de tema 8. distribuciones de probabilidad distribución binomial distribución normal corrección por continuidad">
+          <article class="mc-exam" aria-labelledby="examen-distribuciones-i-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">8. Distribuciones de probabilidad</span> <span class="mc-chip mc-chip--neutral">Examen de tema</span></p>
+            <h3 id="examen-distribuciones-i-examen">Distribuciones I</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Distribución binomial</span> <span>Distribución normal</span> <span>Corrección por continuidad</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/distribuciones-i-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 29 KB</span></a> <a class="mc-btn" href="../output/pdf/distribuciones-i-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 36 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:distribuciones-ii-examen" data-exam-card data-topic="t08" data-type="examen-de-tema" data-search="distribuciones ii examen de tema 8. distribuciones de probabilidad distribución binomial distribución normal corrección por continuidad">
+          <article class="mc-exam" aria-labelledby="examen-distribuciones-ii-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">8. Distribuciones de probabilidad</span> <span class="mc-chip mc-chip--neutral">Examen de tema</span></p>
+            <h3 id="examen-distribuciones-ii-examen">Distribuciones II</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Distribución binomial</span> <span>Distribución normal</span> <span>Corrección por continuidad</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/distribuciones-ii-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 29 KB</span></a> <a class="mc-btn" href="../output/pdf/distribuciones-ii-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 37 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:recuperacion-inferencia-examen" data-exam-card data-topic="t09" data-type="recuperacion" data-search="recuperación y repaso recuperación 9. inferencia estadística inferencia probabilidad programación lineal análisis matrices">
+          <article class="mc-exam" aria-labelledby="examen-recuperacion-inferencia-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">9. Inferencia estadística</span> <span class="mc-chip mc-chip--neutral">Recuperación</span></p>
+            <h3 id="examen-recuperacion-inferencia-examen">Recuperación y repaso</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Inferencia</span> <span>Probabilidad</span> <span>Programación lineal</span> <span>Análisis</span> <span>Matrices</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/recuperacion-inferencia-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 45 KB</span></a> <a class="mc-btn" href="../output/pdf/recuperacion-inferencia-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 64 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:inferencia-i-examen" data-exam-card data-topic="t09" data-type="examen-de-tema" data-search="inferencia i examen de tema 9. inferencia estadística inferencia proporciones intervalos de confianza tamaño muestral afijación proporcional">
+          <article class="mc-exam" aria-labelledby="examen-inferencia-i-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">9. Inferencia estadística</span> <span class="mc-chip mc-chip--neutral">Examen de tema</span></p>
+            <h3 id="examen-inferencia-i-examen">Inferencia I</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Inferencia</span> <span>Proporciones</span> <span>Intervalos de confianza</span> <span>Tamaño muestral</span> <span>Afijación proporcional</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/inferencia-i-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 28 KB</span></a> <a class="mc-btn" href="../output/pdf/inferencia-i-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 36 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:inferencia-ii-examen" data-exam-card data-topic="t09" data-type="examen-de-tema" data-search="inferencia ii examen de tema 9. inferencia estadística inferencia proporciones intervalos de confianza tamaño muestral afijación proporcional">
+          <article class="mc-exam" aria-labelledby="examen-inferencia-ii-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">9. Inferencia estadística</span> <span class="mc-chip mc-chip--neutral">Examen de tema</span></p>
+            <h3 id="examen-inferencia-ii-examen">Inferencia II</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Inferencia</span> <span>Proporciones</span> <span>Intervalos de confianza</span> <span>Tamaño muestral</span> <span>Afijación proporcional</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/inferencia-ii-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 30 KB</span></a> <a class="mc-btn" href="../output/pdf/inferencia-ii-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 36 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:inferencia-recopilacion-examen" data-exam-card data-topic="t09" data-type="recopilacion" data-search="inferencia · recopilación i y ii recopilación 9. inferencia estadística inferencia proporciones intervalos de confianza tamaño muestral">
+          <article class="mc-exam" aria-labelledby="examen-inferencia-recopilacion-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">9. Inferencia estadística</span> <span class="mc-chip mc-chip--neutral">Recopilación</span></p>
+            <h3 id="examen-inferencia-recopilacion-examen">Inferencia · Recopilación I y II</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Inferencia</span> <span>Proporciones</span> <span>Intervalos de confianza</span> <span>Tamaño muestral</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/inferencia-recopilacion-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 33 KB</span></a> <a class="mc-btn" href="../output/pdf/inferencia-recopilacion-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 42 KB</span></a></p>
+          </article>
+        </li>
+        <li class="mc-library__item" data-content-id="resource:inferencia-general-examen" data-exam-card data-topic="t09" data-type="examen-de-tema" data-search="inferencia · examen general examen de tema 9. inferencia estadística inferencia proporciones intervalos de confianza tamaño muestral gasto">
+          <article class="mc-exam" aria-labelledby="examen-inferencia-general-examen">
+            <p class="mc-exam__meta"><span class="mc-chip mc-chip--dot">9. Inferencia estadística</span> <span class="mc-chip mc-chip--neutral">Examen de tema</span></p>
+            <h3 id="examen-inferencia-general-examen">Inferencia · Examen general</h3>
+            <p class="mc-exam__tags"><span class="mc-visually-hidden">Contenidos: </span><span>Inferencia</span> <span>Proporciones</span> <span>Intervalos de confianza</span> <span>Tamaño muestral</span></p>
+            <p class="mc-exam__actions"><a class="mc-btn mc-btn--primary" href="../output/pdf/inferencia-general-examen.pdf" type="application/pdf">Examen <span class="mc-exam__size">PDF, 31 KB</span></a> <a class="mc-btn" href="../output/pdf/inferencia-general-soluciones.pdf" type="application/pdf">Soluciones <span class="mc-exam__size">PDF, 38 KB</span></a></p>
+          </article>
+        </li>
+      </ul>
+    </section>
+    <!-- biblioteca:fin -->
+    <script type="module" src="../assets/js/learning/exam-library.js"></script>
   </main>
   <div id="site-footer"></div>
 </body>
