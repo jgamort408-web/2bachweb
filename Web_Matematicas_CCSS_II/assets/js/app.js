@@ -68,6 +68,12 @@ async function initializeLayout() {
 
 initializePreferences();
 applyLessonSkin();
+// «Así cae en Selectividad» (P08): solo en las lecciones con epígrafe (t07-e10…), sin retrasar el resto.
+if (/^t\d{2}-e\d{2}$/.test(document.body.dataset.pageId ?? '')) {
+  import('./learning/selectividad-link.js')
+    .then(module => module.mountSelectividadLink(document.body.dataset.pageId))
+    .catch(error => console.warn('[Selectividad]', error.message));
+}
 initializeLayout().catch((error) => {
   showPageAvailability(null, { failed: true, initial: true });
   console.warn('[Estructura del sitio]', error.message);

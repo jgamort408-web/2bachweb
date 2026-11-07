@@ -47,8 +47,11 @@ test('visibilidad: las lecturas estáticas comparten los IDs y el tema del banco
 });
 
 test('visibilidad: registra todas las páginas y actividades con IDs estables y rutas reales', () => {
-  assert.equal(catalog.entities.length, 193 + expectedCatalog.questions + expectedCatalog.cards);
-  assert.equal(catalog.entities.filter(e => e.id.startsWith('page:')).length, 145);
+  // 193 entidades de partida + 9 páginas de Selectividad, un grupo de soluciones por tema y una entidad por solución (P08).
+  const selectividad = readConfig('selectividad');
+  assert.equal(catalog.entities.length, 193 + 9 + selectividad.topics.length + selectividad.solutions.length
+    + expectedCatalog.questions + expectedCatalog.cards);
+  assert.equal(catalog.entities.filter(e => e.id.startsWith('page:')).length, 154);
   assert.equal(catalog.entities.filter(e => e.kind === 'widget').length, 28);
   assert.equal(catalog.entities.filter(e => e.kind === 'question').length, expectedCatalog.questions);
   assert.equal(catalog.entities.filter(e => e.kind === 'card').length, expectedCatalog.cards);
@@ -57,7 +60,11 @@ test('visibilidad: registra todas las páginas y actividades con IDs estables y 
       assert.ok(fs.existsSync(new URL('../' + path, import.meta.url)), path);
     }
   }
-  assert.deepEqual(readConfig('visibility'), DEFAULT_VISIBILITY_CONFIG);
+  // La configuración publicada solo oculta, de partida, los grupos de soluciones de Selectividad (P08).
+  const published = readConfig('visibility');
+  assert.deepEqual({ ...published, entries: {} }, DEFAULT_VISIBILITY_CONFIG);
+  assert.deepEqual(published.entries, Object.fromEntries(selectividad.topics.map(topic =>
+    ['group:selectividad-soluciones-' + topic.topicId, { visibility: 'hidden' }])));
   const resources = readConfig('resources').resources;
   assert.equal(resources.length, 48);
   const solution = catalog.entities.find(e => e.id === 'resource:recuperacion-t1-soluciones');
@@ -188,7 +195,7 @@ test('visibilidad: versiona el manifiesto y rechaza registros de origen incomple
   assert.throws(() => validateCatalog({ ...catalog, schemaVersion: 2 }), ContractError);
 });
 
-test('cargador común: reúne los cinco manifiestos y conserva el catálogo íntegro', async () => {
+test('cargador común: reúne los seis manifiestos y conserva el catálogo íntegro', async () => {
   const urls = [];
   const loaded = await loadProjectCatalog({ fetcher: async (url, options) => {
     urls.push(url);
@@ -196,7 +203,7 @@ test('cargador común: reúne los cinco manifiestos y conserva el catálogo ínt
     const name = new URL(url).pathname.split('/').at(-1).replace('.json', '');
     return { ok: true, json: async () => readConfig(name) };
   } });
-  assert.equal(urls.length, 5);
+  assert.equal(urls.length, 6);
   assert.deepEqual(loaded, catalog);
 });
 

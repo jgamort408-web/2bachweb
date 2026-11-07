@@ -126,7 +126,9 @@
     "test:exam-library": "node tests/exam-library-160-browser.cjs",
     "build:exams": "node scripts/build-exams.mjs",
     "build:glossary": "node scripts/build-glossary.mjs",
-    "build:formulas": "node scripts/build-formulas.mjs"
+    "build:formulas": "node scripts/build-formulas.mjs",
+    "build:selectividad": "node scripts/build-selectividad.mjs",
+    "test:selectividad": "node tests/selectividad-165-browser.cjs"
   },
   "devDependencies": {
     "playwright": "1.64.1"

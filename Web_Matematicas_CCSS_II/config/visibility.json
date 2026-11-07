@@ -2,5 +2,30 @@
   "schemaVersion": 1,
   "version": 0,
   "defaultVisibility": "visible",
-  "entries": {}
+  "entries": {
+    "group:selectividad-soluciones-t01": {
+      "visibility": "hidden"
+    },
+    "group:selectividad-soluciones-t02": {
+      "visibility": "hidden"
+    },
+    "group:selectividad-soluciones-t03": {
+      "visibility": "hidden"
+    },
+    "group:selectividad-soluciones-t04": {
+      "visibility": "hidden"
+    },
+    "group:selectividad-soluciones-t05": {
+      "visibility": "hidden"
+    },
+    "group:selectividad-soluciones-t06": {
+      "visibility": "hidden"
+    },
+    "group:selectividad-soluciones-t07": {
+      "visibility": "hidden"
+    },
+    "group:selectividad-soluciones-t09": {
+      "visibility": "hidden"
+    }
+  }
 }

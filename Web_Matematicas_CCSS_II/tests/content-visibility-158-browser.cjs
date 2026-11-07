@@ -48,7 +48,9 @@ const { chromium } = require('playwright');
           noStorageChanges: storageBefore === JSON.stringify([Object.entries(localStorage), Object.entries(sessionStorage)])
         };
       }, prefix);
-      assert.equal(result.count, 1006); // 996 + las 10 preguntas de Combinatoria (P02).
+      // 996 + las 10 preguntas de Combinatoria (P02) + Selectividad (P08): 9 páginas, un grupo por tema y sus soluciones.
+      const selectividad = JSON.parse(require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'config', 'selectividad.json'), 'utf8'));
+      assert.equal(result.count, 1006 + 9 + selectividad.topics.length + selectividad.solutions.length);
       assert.equal(result.url, prefix + 'config/visibility.json');
       assert.equal(result.origin, 'static');
       assert.equal(result.gameId, 'page:game-t01-a-limite-express');

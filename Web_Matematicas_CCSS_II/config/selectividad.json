@@ -1,0 +1,969 @@
+{
+  "schemaVersion": 1,
+  "topics": [
+    {
+      "topicId": "t01",
+      "pageId": "selectividad-t01",
+      "path": "selectividad/01-limites-y-derivadas.html",
+      "name": "Límites y derivadas",
+      "exercises": 105
+    },
+    {
+      "topicId": "t02",
+      "pageId": "selectividad-t02",
+      "path": "selectividad/02-representacion-de-funciones.html",
+      "name": "Representación de funciones",
+      "exercises": 60
+    },
+    {
+      "topicId": "t03",
+      "pageId": "selectividad-t03",
+      "path": "selectividad/03-integrales.html",
+      "name": "Integrales",
+      "exercises": 1
+    },
+    {
+      "topicId": "t04",
+      "pageId": "selectividad-t04",
+      "path": "selectividad/04-matrices-y-determinantes.html",
+      "name": "Matrices y determinantes",
+      "exercises": 81
+    },
+    {
+      "topicId": "t05",
+      "pageId": "selectividad-t05",
+      "path": "selectividad/05-sistemas-de-ecuaciones.html",
+      "name": "Sistemas de ecuaciones",
+      "exercises": 2
+    },
+    {
+      "topicId": "t06",
+      "pageId": "selectividad-t06",
+      "path": "selectividad/06-programacion-lineal.html",
+      "name": "Programación lineal",
+      "exercises": 83
+    },
+    {
+      "topicId": "t07",
+      "pageId": "selectividad-t07",
+      "path": "selectividad/07-probabilidad.html",
+      "name": "Probabilidad",
+      "exercises": 166
+    },
+    {
+      "topicId": "t09",
+      "pageId": "selectividad-t09",
+      "path": "selectividad/09-inferencia-estadistica.html",
+      "name": "Inferencia estadística",
+      "exercises": 142
+    }
+  ],
+  "epigraphs": {
+    "T01.4": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 10
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 1
+      }
+    ],
+    "T01.5": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 16
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 6
+      }
+    ],
+    "T01.6": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 8
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 1
+      }
+    ],
+    "T01.7": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 1
+      }
+    ],
+    "T01.10": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 55
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 10
+      }
+    ],
+    "T01.11": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 92
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 52
+      }
+    ],
+    "T01.12": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 55
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 6
+      }
+    ],
+    "T01.13": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 44
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 12
+      }
+    ],
+    "T01.14": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 24
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 5
+      },
+      {
+        "pageId": "selectividad-t03",
+        "count": 1
+      }
+    ],
+    "T01.15": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 45
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 41
+      },
+      {
+        "pageId": "selectividad-t03",
+        "count": 1
+      }
+    ],
+    "T01.16": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 21
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 2
+      },
+      {
+        "pageId": "selectividad-t03",
+        "count": 1
+      }
+    ],
+    "T01.17": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 57
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 5
+      }
+    ],
+    "T02.1": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 43
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 43
+      }
+    ],
+    "T02.2": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 72
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 52
+      }
+    ],
+    "T02.3": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 47
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 12
+      }
+    ],
+    "T02.4": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 22
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 1
+      }
+    ],
+    "T02.5": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 15
+      }
+    ],
+    "T02.6": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 61
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 11
+      }
+    ],
+    "T02.9": [
+      {
+        "pageId": "selectividad-t02",
+        "count": 31
+      },
+      {
+        "pageId": "selectividad-t01",
+        "count": 3
+      }
+    ],
+    "T03.1": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 5
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 4
+      },
+      {
+        "pageId": "selectividad-t03",
+        "count": 1
+      }
+    ],
+    "T03.2": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 5
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 4
+      },
+      {
+        "pageId": "selectividad-t03",
+        "count": 1
+      }
+    ],
+    "T03.3": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 1
+      }
+    ],
+    "T03.5": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 11
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 1
+      }
+    ],
+    "T03.7": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 11
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 1
+      }
+    ],
+    "T03.8": [
+      {
+        "pageId": "selectividad-t01",
+        "count": 8
+      },
+      {
+        "pageId": "selectividad-t02",
+        "count": 1
+      }
+    ],
+    "T04.1": [
+      {
+        "pageId": "selectividad-t04",
+        "count": 25
+      }
+    ],
+    "T04.2": [
+      {
+        "pageId": "selectividad-t04",
+        "count": 61
+      }
+    ],
+    "T04.3": [
+      {
+        "pageId": "selectividad-t04",
+        "count": 77
+      }
+    ],
+    "T04.4": [
+      {
+        "pageId": "selectividad-t04",
+        "count": 32
+      }
+    ],
+    "T04.5": [
+      {
+        "pageId": "selectividad-t04",
+        "count": 16
+      }
+    ],
+    "T04.6": [
+      {
+        "pageId": "selectividad-t04",
+        "count": 9
+      }
+    ],
+    "T04.9": [
+      {
+        "pageId": "selectividad-t04",
+        "count": 52
+      }
+    ],
+    "T04.11": [
+      {
+        "pageId": "selectividad-t04",
+        "count": 70
+      }
+    ],
+    "T04.12": [
+      {
+        "pageId": "selectividad-t04",
+        "count": 1
+      }
+    ],
+    "T05.1": [
+      {
+        "pageId": "selectividad-t04",
+        "count": 5
+      },
+      {
+        "pageId": "selectividad-t05",
+        "count": 2
+      },
+      {
+        "pageId": "selectividad-t01",
+        "count": 1
+      }
+    ],
+    "T05.2": [
+      {
+        "pageId": "selectividad-t04",
+        "count": 4
+      },
+      {
+        "pageId": "selectividad-t05",
+        "count": 2
+      },
+      {
+        "pageId": "selectividad-t01",
+        "count": 1
+      }
+    ],
+    "T05.3": [
+      {
+        "pageId": "selectividad-t05",
+        "count": 1
+      }
+    ],
+    "T05.4": [
+      {
+        "pageId": "selectividad-t04",
+        "count": 4
+      }
+    ],
+    "T06.1": [
+      {
+        "pageId": "selectividad-t06",
+        "count": 83
+      }
+    ],
+    "T06.2": [
+      {
+        "pageId": "selectividad-t06",
+        "count": 83
+      },
+      {
+        "pageId": "selectividad-t04",
+        "count": 1
+      }
+    ],
+    "T06.3": [
+      {
+        "pageId": "selectividad-t06",
+        "count": 80
+      },
+      {
+        "pageId": "selectividad-t04",
+        "count": 3
+      }
+    ],
+    "T06.4": [
+      {
+        "pageId": "selectividad-t06",
+        "count": 83
+      },
+      {
+        "pageId": "selectividad-t04",
+        "count": 3
+      }
+    ],
+    "T06.5": [
+      {
+        "pageId": "selectividad-t06",
+        "count": 45
+      },
+      {
+        "pageId": "selectividad-t04",
+        "count": 1
+      }
+    ],
+    "T07.1": [
+      {
+        "pageId": "selectividad-t07",
+        "count": 21
+      },
+      {
+        "pageId": "selectividad-t09",
+        "count": 1
+      }
+    ],
+    "T07.2": [
+      {
+        "pageId": "selectividad-t07",
+        "count": 96
+      }
+    ],
+    "T07.3": [
+      {
+        "pageId": "selectividad-t07",
+        "count": 6
+      }
+    ],
+    "T07.4": [
+      {
+        "pageId": "selectividad-t07",
+        "count": 1
+      }
+    ],
+    "T07.6": [
+      {
+        "pageId": "selectividad-t07",
+        "count": 104
+      }
+    ],
+    "T07.7": [
+      {
+        "pageId": "selectividad-t07",
+        "count": 37
+      }
+    ],
+    "T07.8": [
+      {
+        "pageId": "selectividad-t07",
+        "count": 156
+      }
+    ],
+    "T07.9": [
+      {
+        "pageId": "selectividad-t07",
+        "count": 85
+      }
+    ],
+    "T07.10": [
+      {
+        "pageId": "selectividad-t07",
+        "count": 80
+      }
+    ],
+    "T08.2": [
+      {
+        "pageId": "selectividad-t09",
+        "count": 4
+      }
+    ],
+    "T08.3": [
+      {
+        "pageId": "selectividad-t09",
+        "count": 99
+      },
+      {
+        "pageId": "selectividad-t07",
+        "count": 22
+      }
+    ],
+    "T09.1": [
+      {
+        "pageId": "selectividad-t09",
+        "count": 31
+      }
+    ],
+    "T09.2": [
+      {
+        "pageId": "selectividad-t09",
+        "count": 20
+      },
+      {
+        "pageId": "selectividad-t07",
+        "count": 4
+      }
+    ],
+    "T09.3": [
+      {
+        "pageId": "selectividad-t09",
+        "count": 20
+      },
+      {
+        "pageId": "selectividad-t07",
+        "count": 3
+      }
+    ],
+    "T09.4": [
+      {
+        "pageId": "selectividad-t09",
+        "count": 30
+      },
+      {
+        "pageId": "selectividad-t07",
+        "count": 5
+      }
+    ],
+    "T09.5": [
+      {
+        "pageId": "selectividad-t09",
+        "count": 20
+      },
+      {
+        "pageId": "selectividad-t07",
+        "count": 18
+      }
+    ],
+    "T09.6": [
+      {
+        "pageId": "selectividad-t09",
+        "count": 3
+      }
+    ],
+    "T09.7": [
+      {
+        "pageId": "selectividad-t09",
+        "count": 93
+      },
+      {
+        "pageId": "selectividad-t07",
+        "count": 19
+      }
+    ],
+    "T09.8": [
+      {
+        "pageId": "selectividad-t09",
+        "count": 92
+      },
+      {
+        "pageId": "selectividad-t07",
+        "count": 14
+      }
+    ]
+  },
+  "solutions": [
+    {
+      "id": "SEL-D0001-OA-E01",
+      "topicId": "t06",
+      "title": "Camisetas lisas y estampadas"
+    },
+    {
+      "id": "SEL-D0001-OA-E02",
+      "topicId": "t01",
+      "title": "Función polinómica: tangentes, monotonía, curvatura y primitiva"
+    },
+    {
+      "id": "SEL-D0001-OA-E03",
+      "topicId": "t07",
+      "title": "Alojamiento de turistas en capital y zonas rurales"
+    },
+    {
+      "id": "SEL-D0001-OA-E04",
+      "topicId": "t09",
+      "title": "Encuesta electoral: proporción e incertidumbre"
+    },
+    {
+      "id": "SEL-D0001-OB-E01",
+      "topicId": "t04",
+      "title": "Simetría, inversa y ecuación matricial"
+    },
+    {
+      "id": "SEL-D0001-OB-E02",
+      "topicId": "t01",
+      "title": "Función a trozos con parámetro: continuidad y curvatura"
+    },
+    {
+      "id": "SEL-D0001-OB-E03",
+      "topicId": "t07",
+      "title": "Series y películas: sucesos y probabilidad condicionada"
+    },
+    {
+      "id": "SEL-D0001-OB-E04",
+      "topicId": "t09",
+      "title": "Tiempo de desplazamiento: intervalo de confianza para la media"
+    },
+    {
+      "id": "SEL-D0002-OA-E01",
+      "topicId": "t04",
+      "title": "Productos con traspuesta, inversa y ecuación matricial"
+    },
+    {
+      "id": "SEL-D0002-OA-E02",
+      "topicId": "t02",
+      "title": "Coste de producción: variación, mínimo y esbozo"
+    },
+    {
+      "id": "SEL-D0002-OA-E03",
+      "topicId": "t07",
+      "title": "Patinetes: averías, modelos y unión de sucesos"
+    },
+    {
+      "id": "SEL-D0002-OA-E04",
+      "topicId": "t09",
+      "title": "Media de puntuaciones con varianza poblacional conocida"
+    },
+    {
+      "id": "SEL-D0002-OB-E01",
+      "topicId": "t06",
+      "title": "Concentrados de café: región factible, viabilidad y beneficio"
+    },
+    {
+      "id": "SEL-D0002-OB-E02",
+      "topicId": "t02",
+      "title": "Estudio de una función a partir de su derivada"
+    },
+    {
+      "id": "SEL-D0002-OB-E03",
+      "topicId": "t07",
+      "title": "Probabilidades, independencia y unión de complementarios"
+    },
+    {
+      "id": "SEL-D0002-OB-E04",
+      "topicId": "t09",
+      "title": "Proporción hospitalaria: intervalo de confianza y muestra"
+    },
+    {
+      "id": "SEL-D0003-OA-E01",
+      "topicId": "t06",
+      "title": "Recinto por desigualdades y extremos de una función lineal"
+    },
+    {
+      "id": "SEL-D0003-OA-E02",
+      "topicId": "t01",
+      "title": "Derivadas de funciones y recta tangente con representación"
+    },
+    {
+      "id": "SEL-D0003-OA-E03",
+      "topicId": "t07",
+      "title": "Dieta y deporte: sucesos, condicionamiento e independencia"
+    },
+    {
+      "id": "SEL-D0003-OA-E04",
+      "topicId": "t09",
+      "title": "Azúcar en refrescos: intervalo para la media y amplitud máxima"
+    },
+    {
+      "id": "SEL-D0003-OB-E01",
+      "topicId": "t04",
+      "title": "Compatibilidad de operaciones y ecuación matricial"
+    },
+    {
+      "id": "SEL-D0003-OB-E02",
+      "topicId": "t02",
+      "title": "Función racional con parámetros, extremos e integral"
+    },
+    {
+      "id": "SEL-D0003-OB-E03",
+      "topicId": "t07",
+      "title": "Diferencia de sucesos, condicionada y compatibilidad"
+    },
+    {
+      "id": "SEL-D0003-OB-E04",
+      "topicId": "t09",
+      "title": "Encuesta de optativas: intervalo para la proporción y muestra"
+    },
+    {
+      "id": "SEL-D0004-OA-E01",
+      "topicId": "t06",
+      "title": "Dieta de piensos: coste mínimo y nutrientes"
+    },
+    {
+      "id": "SEL-D0004-OA-E02",
+      "topicId": "t01",
+      "title": "Función a trozos: continuidad, derivabilidad y representación"
+    },
+    {
+      "id": "SEL-D0004-OA-E03",
+      "topicId": "t07",
+      "title": "Institutos y resultados: probabilidad total y condicionada"
+    },
+    {
+      "id": "SEL-D0004-OA-E04",
+      "topicId": "t09",
+      "title": "Heladería: proporción que no ha probado el sabor y muestra"
+    },
+    {
+      "id": "SEL-D0004-OB-E01",
+      "topicId": "t04",
+      "title": "Potencias, ecuación matricial e inversibilidad"
+    },
+    {
+      "id": "SEL-D0004-OB-E02",
+      "topicId": "t01",
+      "title": "Continuidad y derivabilidad; polinomio con parámetros"
+    },
+    {
+      "id": "SEL-D0004-OB-E03",
+      "topicId": "t07",
+      "title": "Taxistas: licencia y edad con probabilidades condicionadas"
+    },
+    {
+      "id": "SEL-D0004-OB-E04",
+      "topicId": "t09",
+      "title": "Filtros de ósmosis: intervalo para la media y muestra"
+    },
+    {
+      "id": "SEL-D0005-OA-E01",
+      "topicId": "t04",
+      "title": "Extremos sobre un recinto y ecuación matricial"
+    },
+    {
+      "id": "SEL-D0005-OA-E02",
+      "topicId": "t02",
+      "title": "Polinomio: parámetros, tangente, monotonía y curvatura"
+    },
+    {
+      "id": "SEL-D0005-OA-E03",
+      "topicId": "t07",
+      "title": "Zumos y formatos: probabilidad total y condicionada"
+    },
+    {
+      "id": "SEL-D0005-OA-E04",
+      "topicId": "t09",
+      "title": "Uso de lentillas: intervalo para la proporción y muestra"
+    },
+    {
+      "id": "SEL-D0005-OB-E01",
+      "topicId": "t04",
+      "title": "Producto rectangular, inversibilidad y ecuación matricial"
+    },
+    {
+      "id": "SEL-D0005-OB-E02",
+      "topicId": "t02",
+      "title": "Demanda de cereales y optimización en intervalo cerrado"
+    },
+    {
+      "id": "SEL-D0005-OB-E03",
+      "topicId": "t07",
+      "title": "Causas de enfermedad y hospitalización"
+    },
+    {
+      "id": "SEL-D0005-OB-E04",
+      "topicId": "t09",
+      "title": "Bombillas LED: intervalo dado, media, muestra y error"
+    },
+    {
+      "id": "SEL-D0006-OA-E01",
+      "topicId": "t06",
+      "title": "Suplementos UNAL y DOSAL: coste mínimo"
+    },
+    {
+      "id": "SEL-D0006-OA-E02",
+      "topicId": "t01",
+      "title": "Función racional: dominio, derivada y tangentes"
+    },
+    {
+      "id": "SEL-D0006-OA-E03",
+      "topicId": "t07",
+      "title": "Fármacos y curación: probabilidad total y Bayes"
+    },
+    {
+      "id": "SEL-D0006-OA-E04",
+      "topicId": "t09",
+      "title": "Aguacates: tamaño muestral, intervalo y error"
+    },
+    {
+      "id": "SEL-D0006-OB-E01",
+      "topicId": "t04",
+      "title": "Inversa de una matriz y ecuación matricial"
+    },
+    {
+      "id": "SEL-D0006-OB-E02",
+      "topicId": "t02",
+      "title": "Polinomio: monotonía, curvatura, tangente e integral"
+    },
+    {
+      "id": "SEL-D0006-OB-E03",
+      "topicId": "t07",
+      "title": "Sucesos: diferencia, condicionada e independencia"
+    },
+    {
+      "id": "SEL-D0006-OB-E04",
+      "topicId": "t09",
+      "title": "Actividad física: intervalo para proporción y muestra"
+    },
+    {
+      "id": "SEL-D0007-BA-E01",
+      "topicId": "t06",
+      "title": "Baterías: restricciones y beneficio máximo"
+    },
+    {
+      "id": "SEL-D0007-BA-E02",
+      "topicId": "t04",
+      "title": "Inversibilidad con parámetro y ecuación matricial"
+    },
+    {
+      "id": "SEL-D0007-BB-E03",
+      "topicId": "t02",
+      "title": "Polinomio: representación, integral y área"
+    },
+    {
+      "id": "SEL-D0007-BB-E04",
+      "topicId": "t01",
+      "title": "Derivadas, parábola y área en intervalo"
+    },
+    {
+      "id": "SEL-D0007-BC-E05",
+      "topicId": "t07",
+      "title": "Vacunas, placebo y anticuerpos"
+    },
+    {
+      "id": "SEL-D0007-BC-E06",
+      "topicId": "t07",
+      "title": "Compras electrónicas e Internet: sucesos y condicionamiento"
+    },
+    {
+      "id": "SEL-D0007-BD-E07",
+      "topicId": "t09",
+      "title": "Muestra proporcional y media de medias muestrales"
+    },
+    {
+      "id": "SEL-D0007-BD-E08",
+      "topicId": "t09",
+      "title": "Central nuclear: intervalo de proporción y muestra"
+    },
+    {
+      "id": "SEL-D0008-BA-E01",
+      "topicId": "t04",
+      "title": "Potencias, traspuesta, inversa y ecuación matricial"
+    },
+    {
+      "id": "SEL-D0008-BA-E02",
+      "topicId": "t06",
+      "title": "Región factible, pertenencia de un punto y extremos"
+    },
+    {
+      "id": "SEL-D0008-BB-E03",
+      "topicId": "t01",
+      "title": "Función a trozos: continuidad, derivabilidad, gráfica y área"
+    },
+    {
+      "id": "SEL-D0008-BB-E04",
+      "topicId": "t02",
+      "title": "Costes de producción, mínimo y tangente"
+    },
+    {
+      "id": "SEL-D0008-BC-E05",
+      "topicId": "t07",
+      "title": "Plantilla municipal: mujeres y bomberos"
+    },
+    {
+      "id": "SEL-D0008-BC-E06",
+      "topicId": "t07",
+      "title": "Dos dados y extracción de una bola de dos urnas"
+    },
+    {
+      "id": "SEL-D0008-BD-E07",
+      "topicId": "t09",
+      "title": "COVID-19: intervalo de proporción y tamaño mínimo"
+    },
+    {
+      "id": "SEL-D0008-BD-E08",
+      "topicId": "t09",
+      "title": "Arroz: media muestral, intervalo e interpretación"
+    },
+    {
+      "id": "SEL-D0009-BA-E01",
+      "topicId": "t06",
+      "title": "Surtidos: formulación y mínimo en otro recinto"
+    },
+    {
+      "id": "SEL-D0009-BA-E02",
+      "topicId": "t04",
+      "title": "Dimensiones, existencia y ecuación matricial"
+    },
+    {
+      "id": "SEL-D0009-BB-E03",
+      "topicId": "t01",
+      "title": "Función a trozos con parámetros, extremos y área"
+    },
+    {
+      "id": "SEL-D0009-BB-E04",
+      "topicId": "t03",
+      "title": "Derivadas de producto y cociente; primitiva con condición"
+    },
+    {
+      "id": "SEL-D0009-BC-E05",
+      "topicId": "t07",
+      "title": "Diferencia, unión, condicionamiento e independencia"
+    },
+    {
+      "id": "SEL-D0009-BC-E06",
+      "topicId": "t07",
+      "title": "Bacterias y reacción a la prueba del nitrato"
+    },
+    {
+      "id": "SEL-D0009-BD-E07",
+      "topicId": "t09",
+      "title": "Afijación proporcional y distribución de medias muestrales"
+    },
+    {
+      "id": "SEL-D0009-BD-E08",
+      "topicId": "t09",
+      "title": "Celulosa reciclada: intervalo y cota de amplitud"
+    }
+  ]
+}

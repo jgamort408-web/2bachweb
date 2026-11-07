@@ -772,6 +772,77 @@
     "kind": "section"
   },
   {
+    "id": "selectividad",
+    "title": "Selectividad",
+    "path": "selectividad/index.html",
+    "parentId": "home",
+    "kind": "section"
+  },
+  {
+    "id": "selectividad-t01",
+    "title": "Selectividad: Límites y derivadas",
+    "path": "selectividad/01-limites-y-derivadas.html",
+    "parentId": "selectividad",
+    "kind": "section",
+    "topicId": "t01"
+  },
+  {
+    "id": "selectividad-t02",
+    "title": "Selectividad: Representación de funciones",
+    "path": "selectividad/02-representacion-de-funciones.html",
+    "parentId": "selectividad",
+    "kind": "section",
+    "topicId": "t02"
+  },
+  {
+    "id": "selectividad-t03",
+    "title": "Selectividad: Integrales",
+    "path": "selectividad/03-integrales.html",
+    "parentId": "selectividad",
+    "kind": "section",
+    "topicId": "t03"
+  },
+  {
+    "id": "selectividad-t04",
+    "title": "Selectividad: Matrices y determinantes",
+    "path": "selectividad/04-matrices-y-determinantes.html",
+    "parentId": "selectividad",
+    "kind": "section",
+    "topicId": "t04"
+  },
+  {
+    "id": "selectividad-t05",
+    "title": "Selectividad: Sistemas de ecuaciones",
+    "path": "selectividad/05-sistemas-de-ecuaciones.html",
+    "parentId": "selectividad",
+    "kind": "section",
+    "topicId": "t05"
+  },
+  {
+    "id": "selectividad-t06",
+    "title": "Selectividad: Programación lineal",
+    "path": "selectividad/06-programacion-lineal.html",
+    "parentId": "selectividad",
+    "kind": "section",
+    "topicId": "t06"
+  },
+  {
+    "id": "selectividad-t07",
+    "title": "Selectividad: Probabilidad",
+    "path": "selectividad/07-probabilidad.html",
+    "parentId": "selectividad",
+    "kind": "section",
+    "topicId": "t07"
+  },
+  {
+    "id": "selectividad-t09",
+    "title": "Selectividad: Inferencia estadística",
+    "path": "selectividad/09-inferencia-estadistica.html",
+    "parentId": "selectividad",
+    "kind": "section",
+    "topicId": "t09"
+  },
+  {
     "id": "tools",
     "title": "Herramientas",
     "path": "herramientas/index.html",
