@@ -48,7 +48,7 @@ const { chromium } = require('playwright');
           noStorageChanges: storageBefore === JSON.stringify([Object.entries(localStorage), Object.entries(sessionStorage)])
         };
       }, prefix);
-      assert.equal(result.count, 996);
+      assert.equal(result.count, 1006); // 996 + las 10 preguntas de Combinatoria (P02).
       assert.equal(result.url, prefix + 'config/visibility.json');
       assert.equal(result.origin, 'static');
       assert.equal(result.gameId, 'page:game-t01-a-limite-express');
