@@ -67,6 +67,9 @@
 .mc-topic__facts { font-size: var(--mc-text-sm); font-weight: 600; color: var(--mc-text-2); }
 .mc-source { font-size: var(--mc-text-sm); color: var(--mc-text-2); max-width: var(--mc-measure); }
 .mc-topic__art { flex: 0 1 22rem; width: 100%; max-width: 22rem; height: auto; }
+/* En la plantilla de página (columna de 48rem) texto e ilustración caben lado a lado con bases menores. */
+.mc-page > .mc-topic__hero .mc-topic__intro { flex-basis: 20rem; }
+.mc-page > .mc-topic__hero .mc-topic__art { flex-basis: 15rem; }
 
 .mc-topic__layout { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--mc-space-6); }
 .mc-topic__main { flex: 999 1 32rem; min-width: 0; display: flex; flex-direction: column; gap: var(--mc-space-5); }
@@ -140,6 +143,9 @@
   }
   .mc-lesson > * { grid-column: 2; }
   .mc-lesson > .mc-toc { grid-column: 1; grid-row: 1 / span 40; position: sticky; top: var(--mc-space-4); align-self: start; }
+  /* Índices de tema con cabecera ilustrada: la cabecera ocupa las dos columnas y el índice empieza debajo. */
+  .mc-lesson > .mc-topic__hero { grid-column: 1 / -1; }
+  .mc-lesson:has(> .mc-topic__hero) > .mc-toc { grid-row: 2 / span 40; margin-top: var(--mc-space-5); }
   .mc-toc summary { cursor: default; pointer-events: none; }
   .mc-toc summary::after { content: none; }
 }
