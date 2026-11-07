@@ -301,3 +301,26 @@
 .mc-glossary-links a { padding: 0.25rem 0.625rem; border-radius: 999px; background: var(--mc-paper-2); color: var(--mc-text); text-decoration: none; }
 .mc-glossary-links a:hover { text-decoration: underline; }
 @media (min-width: 64rem) { .mc-glossary-links { padding-inline-start: calc(var(--mc-space-4) + 15rem + var(--mc-space-7)); } .mc-glossary-links > div { max-width: 48rem; } }
+
+/* Formulario (P06, herramientas/formulario.html generado con scripts/build-formulas.mjs). */
+@media (min-width: 40rem) { .mc-library__filters.mc-formulas__filters { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); } }
+.mc-formulas__topics { display: flex; flex-wrap: wrap; gap: var(--mc-space-2); margin-top: var(--mc-space-4); font-size: var(--mc-text-sm); }
+.mc-formulas__topics a { display: inline-flex; align-items: center; min-height: var(--mc-target); padding: 0 0.75rem; border-radius: var(--mc-radius-control); background: var(--mc-paper); border: 1px solid var(--mc-border); color: var(--mc-text); font-weight: 600; text-decoration: none; }
+.mc-formulas__topics a:hover { border-color: var(--mc-action); }
+.mc-formulas__topic { margin-top: var(--mc-space-6); scroll-margin-top: var(--mc-space-4); }
+/* Las tarjetas usan todo el ancho del contenido: con la medida de lectura las fórmulas largas no caben en dos columnas. */
+.page-main.mc-page > .mc-formulas__topic { max-width: none; }
+.mc-formulas__topic > h2 { margin: 0 0 var(--mc-space-3); padding-inline-start: 0.75rem; border-inline-start: 6px solid var(--mc-accent, var(--mc-border)); font-size: var(--mc-h2); }
+.mc-formulas__list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 26rem), 1fr)); gap: var(--mc-space-3); margin: 0; }
+.mc-formula { display: flex; flex-direction: column; min-width: 0; padding: var(--mc-space-4) 1.125rem; background: var(--mc-paper); border: 1px solid var(--mc-border); border-top: 3px solid var(--mc-accent, var(--mc-border)); border-radius: var(--mc-radius-box); }
+.mc-formula dt { font-family: var(--mc-font-heading); font-size: 1.0625rem; font-weight: 600; }
+.mc-formula dd { display: flex; flex-direction: column; flex: 1; margin: var(--mc-space-2) 0 0; }
+.mc-formula dd > p { margin: 0; }
+.mc-formula .math-scroll { margin-block: var(--mc-space-1); }
+.mc-formula__note { font-size: var(--mc-text-sm); }
+.mc-formula dd > p.mc-glossary__source { margin-top: auto; padding-top: var(--mc-space-2); }
+@media print {
+  .mc-formulas__filters, .mc-formulas__topics, [data-formula-status] { display: none; }
+  .mc-formulas__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mc-formula { break-inside: avoid; }
+}

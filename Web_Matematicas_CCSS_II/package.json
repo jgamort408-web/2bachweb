@@ -125,7 +125,8 @@
     "test:admin-browser": "node tests/visibility-panel-159-browser.cjs",
     "test:exam-library": "node tests/exam-library-160-browser.cjs",
     "build:exams": "node scripts/build-exams.mjs",
-    "build:glossary": "node scripts/build-glossary.mjs"
+    "build:glossary": "node scripts/build-glossary.mjs",
+    "build:formulas": "node scripts/build-formulas.mjs"
   },
   "devDependencies": {
     "playwright": "1.64.1"

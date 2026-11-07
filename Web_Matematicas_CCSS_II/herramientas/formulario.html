@@ -13,6 +13,406 @@
   <div id="site-header"></div>
   <main id="main-content" class="page-main mc-page">
     <h1>Formulario</h1>
+    <p class="mc-lead">Las fórmulas clave de cada tema, tal como aparecen en las lecciones. Cada una enlaza a la lección donde se explica cuándo y cómo usarla.</p>
+    <!-- formulario:inicio -->
+    <form class="mc-library__filters mc-formulas__filters" data-formula-filters hidden aria-label="Buscar en el formulario">
+      <label class="mc-field">Buscar fórmula <input type="search" data-formula-search autocomplete="off" placeholder="Bayes, inversa, intervalo…"></label>
+      <label class="mc-field">Tema <select data-formula-topic>
+        <option value="">Todos</option>
+        <option value="t01">Tema 1. Límites y derivadas</option>
+        <option value="t02">Tema 2. Representación de funciones</option>
+        <option value="t03">Tema 3. Integrales</option>
+        <option value="t04">Tema 4. Matrices y determinantes</option>
+        <option value="t05">Tema 5. Sistemas de ecuaciones</option>
+        <option value="t06">Tema 6. Programación lineal</option>
+        <option value="t07">Tema 7. Probabilidad</option>
+        <option value="t08">Tema 8. Distribuciones de probabilidad</option>
+        <option value="t09">Tema 9. Inferencia estadística</option>
+        <option value="bivariate">Estadística bidimensional (contenido de apoyo)</option>
+      </select></label>
+    </form>
+    <p class="mc-library__status" data-formula-status role="status" aria-live="polite"></p>
+    <nav class="mc-formulas__topics" aria-label="Temas del formulario"><a href="#formulas-t01">1. Límites y derivadas</a> <a href="#formulas-t02">2. Representación de funciones</a> <a href="#formulas-t03">3. Integrales</a> <a href="#formulas-t04">4. Matrices y determinantes</a> <a href="#formulas-t05">5. Sistemas de ecuaciones</a> <a href="#formulas-t06">6. Programación lineal</a> <a href="#formulas-t07">7. Probabilidad</a> <a href="#formulas-t08">8. Distribuciones de probabilidad</a> <a href="#formulas-t09">9. Inferencia estadística</a> <a href="#formulas-bivariate">Estadística bidimensional (contenido de apoyo)</a></nav>
+    <section class="mc-formulas__topic" id="formulas-t01" data-block="analisis" data-content-id="page:t01" data-formula-group data-topic="t01" aria-labelledby="titulo-formulas-t01">
+      <h2 id="titulo-formulas-t01">Tema 1. Límites y derivadas</h2>
+      <dl class="mc-formulas__list">
+        <div class="mc-formula" data-content-id="page:t01-e02" data-formula-entry data-search="límite y límites laterales 1.2. límites laterales tema 1. límites y derivadas">
+          <dt>Límite y límites laterales</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\lim_{x\to a}f(x)=L\quad\Longleftrightarrow\quad L_-=L_+=L.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/01-limites-y-derivadas/02-limites-laterales.html">1.2. Límites laterales</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t01-e10" data-formula-entry data-search="continuidad en un punto 1.10. continuidad tema 1. límites y derivadas">
+          <dt>Continuidad en un punto</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\lim_{x\to a^-}f(x)=\lim_{x\to a^+}f(x)=f(a).\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/01-limites-y-derivadas/10-continuidad.html">1.10. Continuidad</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t01-e11" data-formula-entry data-search="tasa de variación media 1.11. función derivada tema 1. límites y derivadas">
+          <dt>Tasa de variación media</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\operatorname{TVM}_{[a,a+h]}=\frac{f(a+h)-f(a)}{h}.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/01-limites-y-derivadas/11-funcion-derivada.html">1.11. Función derivada</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t01-e11" data-formula-entry data-search="derivada en un punto 1.11. función derivada tema 1. límites y derivadas">
+          <dt>Derivada en un punto</dt>
+          <dd><p class="math-scroll" tabindex="0">\[f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}h.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/01-limites-y-derivadas/11-funcion-derivada.html">1.11. Función derivada</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t01-e13" data-formula-entry data-search="recta tangente 1.13. ecuaciones de las rectas tangente y normal tema 1. límites y derivadas">
+          <dt>Recta tangente</dt>
+          <dd><p class="math-scroll" tabindex="0">\[y-f(a)=f'(a)(x-a).\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/01-limites-y-derivadas/13-ecuaciones-de-las-rectas-tangente-y-normal.html">1.13. Ecuaciones de las rectas tangente y normal</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t01-e13" data-formula-entry data-search="recta normal 1.13. ecuaciones de las rectas tangente y normal tema 1. límites y derivadas">
+          <dt>Recta normal</dt>
+          <dd><p class="math-scroll" tabindex="0">\[y-f(a)=-\frac1{f'(a)}(x-a).\]</p><p class="mc-formula__note">Si f'(a) ≠ 0.</p><p class="mc-glossary__source">Lección <a href="../libro/temas/01-limites-y-derivadas/13-ecuaciones-de-las-rectas-tangente-y-normal.html">1.13. Ecuaciones de las rectas tangente y normal</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t01-e14" data-formula-entry data-search="derivada de una potencia 1.14. tabla de derivadas tema 1. límites y derivadas">
+          <dt>Derivada de una potencia</dt>
+          <dd><p class="math-scroll" tabindex="0">\[(x^n)'=nx^{n-1}\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/01-limites-y-derivadas/14-tabla-de-derivadas.html">1.14. Tabla de derivadas</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t01-e14" data-formula-entry data-search="exponencial y logaritmo 1.14. tabla de derivadas tema 1. límites y derivadas">
+          <dt>Exponencial y logaritmo</dt>
+          <dd><p class="math-scroll" tabindex="0">\[(e^x)'=e^x,\qquad(A^x)'=A^x\ln A,\qquad(\ln x)'=\dfrac1x\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/01-limites-y-derivadas/14-tabla-de-derivadas.html">1.14. Tabla de derivadas</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t01-e15" data-formula-entry data-search="producto 1.15. reglas de derivación tema 1. límites y derivadas">
+          <dt>Producto</dt>
+          <dd><p class="math-scroll" tabindex="0">\[(uv)'=u'v+uv'.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/01-limites-y-derivadas/15-reglas-de-derivacion.html">1.15. Reglas de derivación</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t01-e15" data-formula-entry data-search="cociente 1.15. reglas de derivación tema 1. límites y derivadas">
+          <dt>Cociente</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\left(\frac uv\right)'=\frac{u'v-uv'}{v^2},\qquad v\ne0.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/01-limites-y-derivadas/15-reglas-de-derivacion.html">1.15. Reglas de derivación</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t01-e16" data-formula-entry data-search="regla de la cadena 1.16. regla de la cadena tema 1. límites y derivadas">
+          <dt>Regla de la cadena</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\big(F(g(x))\big)'=F'(g(x))\,g'(x).\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/01-limites-y-derivadas/16-regla-de-la-cadena.html">1.16. Regla de la cadena</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t01-e18" data-formula-entry data-search="regla de l'hôpital 1.18. regla de l'hôpital. aplicación al cálculo de límites tema 1. límites y derivadas">
+          <dt>Regla de L'Hôpital</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\lim\frac{f(x)}{g(x)}=\lim\frac{f'(x)}{g'(x)}.\]</p><p class="mc-formula__note">Solo ante 0/0 o ∞/∞, comprobando las hipótesis.</p><p class="mc-glossary__source">Lección <a href="../libro/temas/01-limites-y-derivadas/18-regla-de-l-hopital-aplicacion-al-calculo-de-limites.html">1.18. Regla de L'Hôpital. Aplicación al cálculo de límites</a></p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-formulas__topic" id="formulas-t02" data-block="analisis" data-content-id="page:t02" data-formula-group data-topic="t02" aria-labelledby="titulo-formulas-t02">
+      <h2 id="titulo-formulas-t02">Tema 2. Representación de funciones</h2>
+      <dl class="mc-formulas__list">
+        <div class="mc-formula" data-content-id="page:t02-e03" data-formula-entry data-search="dominio de una función racional 2.3. funciones racionales tema 2. representación de funciones">
+          <dt>Dominio de una función racional</dt>
+          <dd><p class="math-scroll" tabindex="0">\[D=\{x\in\mathbb R:Q(x)\ne0\}.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/02-representacion-de-funciones/03-funciones-racionales.html">2.3. Funciones racionales</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t02-e04" data-formula-entry data-search="crecimiento exponencial 2.4. funciones exponenciales tema 2. representación de funciones">
+          <dt>Crecimiento exponencial</dt>
+          <dd><p class="math-scroll" tabindex="0">\[V(t)=V_0(1+r)^t,\qquad r&gt;-1.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/02-representacion-de-funciones/04-funciones-exponenciales.html">2.4. Funciones exponenciales</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t02-e05" data-formula-entry data-search="definición de logaritmo 2.5. funciones logarítmicas tema 2. representación de funciones">
+          <dt>Definición de logaritmo</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\log_a x=y\quad\Longleftrightarrow\quad a^y=x.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/02-representacion-de-funciones/05-funciones-logaritmicas.html">2.5. Funciones logarítmicas</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t02-e05" data-formula-entry data-search="propiedades de los logaritmos 2.5. funciones logarítmicas tema 2. representación de funciones">
+          <dt>Propiedades de los logaritmos</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\log_a(uv)=\log_a u+\log_a v,\qquad \log_a(u/v)=\log_a u-\log_a v.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/02-representacion-de-funciones/05-funciones-logaritmicas.html">2.5. Funciones logarítmicas</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t02-e05" data-formula-entry data-search="potencia y cambio de base 2.5. funciones logarítmicas tema 2. representación de funciones">
+          <dt>Potencia y cambio de base</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\log_a(u^r)=r\log_a u,\qquad\log_a x=\frac{\ln x}{\ln a}.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/02-representacion-de-funciones/05-funciones-logaritmicas.html">2.5. Funciones logarítmicas</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t02-e06" data-formula-entry data-search="valor absoluto 2.6. funciones a trozos. valor absoluto tema 2. representación de funciones">
+          <dt>Valor absoluto</dt>
+          <dd><p class="math-scroll" tabindex="0">\[|x|=\begin{cases}-x,&amp;x&lt;0,\\x,&amp;x\ge0.\end{cases}\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/02-representacion-de-funciones/06-funciones-a-trozos-valor-absoluto.html">2.6. Funciones a trozos. Valor absoluto</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t02-e07" data-formula-entry data-search="traslación 2.7. traslaciones tema 2. representación de funciones">
+          <dt>Traslación</dt>
+          <dd><p class="math-scroll" tabindex="0">\[(u,f(u))\longmapsto(u+a,f(u)+k).\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/02-representacion-de-funciones/07-traslaciones.html">2.7. Traslaciones</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t02-e08" data-formula-entry data-search="expansión y contracción 2.8. expansión y contracción tema 2. representación de funciones">
+          <dt>Expansión y contracción</dt>
+          <dd><p class="math-scroll" tabindex="0">\[g(u/b)=a f(u)=av,\qquad (u,v)\longmapsto(u/b,av).\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/02-representacion-de-funciones/08-expansion-y-contraccion.html">2.8. Expansión y contracción</a></p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-formulas__topic" id="formulas-t03" data-block="analisis" data-content-id="page:t03" data-formula-group data-topic="t03" aria-labelledby="titulo-formulas-t03">
+      <h2 id="titulo-formulas-t03">Tema 3. Integrales</h2>
+      <dl class="mc-formulas__list">
+        <div class="mc-formula" data-content-id="page:t03-e01" data-formula-entry data-search="integral indefinida 3.1. integral indefinida tema 3. integrales">
+          <dt>Integral indefinida</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\int f(x)\,dx=F(x)+C,\qquad C\in\mathbb R.\]</p><p class="mc-formula__note">F es una primitiva de f: F'(x) = f(x).</p><p class="mc-glossary__source">Lección <a href="../libro/temas/03-integrales/01-integral-indefinida.html">3.1. Integral indefinida</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t03-e02" data-formula-entry data-search="potencia 3.2. integrales inmediatas tema 3. integrales">
+          <dt>Potencia</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\int x^n\,dx=\dfrac{x^{n+1}}{n+1}+C\]</p><p class="mc-formula__note">n ≠ −1.</p><p class="mc-glossary__source">Lección <a href="../libro/temas/03-integrales/02-integrales-inmediatas.html">3.2. Integrales inmediatas</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t03-e02" data-formula-entry data-search="inversa de x 3.2. integrales inmediatas tema 3. integrales">
+          <dt>Inversa de x</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\int\dfrac1x\,dx=\ln|x|+C\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/03-integrales/02-integrales-inmediatas.html">3.2. Integrales inmediatas</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t03-e02" data-formula-entry data-search="exponenciales 3.2. integrales inmediatas tema 3. integrales">
+          <dt>Exponenciales</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\int e^x\,dx=e^x+C,\qquad\int a^x\,dx=\dfrac{a^x}{\ln a}+C\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/03-integrales/02-integrales-inmediatas.html">3.2. Integrales inmediatas</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t03-e03" data-formula-entry data-search="casi inmediata: potencia lineal 3.3. integrales casi inmediatas tema 3. integrales">
+          <dt>Casi inmediata: potencia lineal</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\int(ax+b)^n dx=\frac{(ax+b)^{n+1}}{a(n+1)}+C,\qquad n\ne-1.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/03-integrales/03-integrales-casi-inmediatas.html">3.3. Integrales casi inmediatas</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t03-e03" data-formula-entry data-search="casi inmediata: logaritmo 3.3. integrales casi inmediatas tema 3. integrales">
+          <dt>Casi inmediata: logaritmo</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\int\frac{dx}{ax+b}=\frac1a\ln|ax+b|+C.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/03-integrales/03-integrales-casi-inmediatas.html">3.3. Integrales casi inmediatas</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t03-e04" data-formula-entry data-search="cambio de variable 3.4. métodos de integración tema 3. integrales">
+          <dt>Cambio de variable</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\int h(g(x))g'(x)dx=\int h(u)du=H(u)+C=H(g(x))+C.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/03-integrales/04-metodos-de-integracion.html">3.4. Métodos de integración</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t03-e04" data-formula-entry data-search="integración por partes 3.4. métodos de integración tema 3. integrales">
+          <dt>Integración por partes</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\int u\,dv=uv-\int v\,du.\]</p><p class="mc-formula__note">Ampliación.</p><p class="mc-glossary__source">Lección <a href="../libro/temas/03-integrales/04-metodos-de-integracion.html">3.4. Métodos de integración</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t03-e06" data-formula-entry data-search="teorema fundamental del cálculo 3.6. teorema fundamental del cálculo tema 3. integrales">
+          <dt>Teorema fundamental del cálculo</dt>
+          <dd><p class="math-scroll" tabindex="0">\[A(x)=\int_a^x f(t)\,dt\quad\Longrightarrow\quad A'(x)=f(x)\]</p><p class="mc-formula__note">Si f es continua.</p><p class="mc-glossary__source">Lección <a href="../libro/temas/03-integrales/06-teorema-fundamental-del-calculo.html">3.6. Teorema fundamental del cálculo</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t03-e07" data-formula-entry data-search="regla de barrow 3.7. regla de barrow tema 3. integrales">
+          <dt>Regla de Barrow</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\int_a^b f(x)\,dx=\left[F(x)\right]_a^b=F(b)-F(a).\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/03-integrales/07-regla-de-barrow.html">3.7. Regla de Barrow</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t03-e08" data-formula-entry data-search="área bajo una curva 3.8. aplicaciones de la integral tema 3. integrales">
+          <dt>Área bajo una curva</dt>
+          <dd><p class="math-scroll" tabindex="0">\[A=\int_a^b|f(x)|\,dx.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/03-integrales/08-aplicaciones-de-la-integral.html">3.8. Aplicaciones de la integral</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t03-e08" data-formula-entry data-search="área entre dos curvas 3.8. aplicaciones de la integral tema 3. integrales">
+          <dt>Área entre dos curvas</dt>
+          <dd><p class="math-scroll" tabindex="0">\[A=\int_a^b|f(x)-g(x)|\,dx.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/03-integrales/08-aplicaciones-de-la-integral.html">3.8. Aplicaciones de la integral</a></p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-formulas__topic" id="formulas-t04" data-block="algebra" data-content-id="page:t04" data-formula-group data-topic="t04" aria-labelledby="titulo-formulas-t04">
+      <h2 id="titulo-formulas-t04">Tema 4. Matrices y determinantes</h2>
+      <dl class="mc-formulas__list">
+        <div class="mc-formula" data-content-id="page:t04-e03" data-formula-entry data-search="producto de matrices 4.3. producto de matrices tema 4. matrices y determinantes">
+          <dt>Producto de matrices</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\underbrace{A}_{m\times n}\ \underbrace{B}_{n\times p}=\underbrace{C}_{m\times p},\qquad c_{ij}=\sum_{k=1}^{n}a_{ik}b_{kj}.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/04-matrices-y-determinantes/03-producto-de-matrices.html">4.3. Producto de matrices</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t04-e05" data-formula-entry data-search="propiedades de la traspuesta 4.5. comparación de matrices. matriz simétrica y matriz antisimétrica tema 4. matrices y determinantes">
+          <dt>Propiedades de la traspuesta</dt>
+          <dd><p class="math-scroll" tabindex="0">\[(A^T)^T=A,\quad(A+B)^T=A^T+B^T,\quad(\alpha A)^T=\alpha A^T,\quad(AB)^T=B^TA^T.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/04-matrices-y-determinantes/05-comparacion-de-matrices-matriz-simetrica-y-matriz-antisimetrica.html">4.5. Comparación de matrices. Matriz simétrica y matriz antisimétrica</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t04-e06" data-formula-entry data-search="determinante de orden 2 4.6. determinante de una matriz tema 4. matrices y determinantes">
+          <dt>Determinante de orden 2</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\begin{vmatrix}a&amp;b\\c&amp;d\end{vmatrix}=ad-bc.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/04-matrices-y-determinantes/06-determinante-de-una-matriz.html">4.6. Determinante de una matriz</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t04-e06" data-formula-entry data-search="determinante de orden 3 (sarrus) 4.6. determinante de una matriz tema 4. matrices y determinantes">
+          <dt>Determinante de orden 3 (Sarrus)</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\det(A)=aei+bfg+cdh-(ceg+afh+bdi).\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/04-matrices-y-determinantes/06-determinante-de-una-matriz.html">4.6. Determinante de una matriz</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t04-e07" data-formula-entry data-search="propiedades del determinante 4.7. propiedades de los determinantes tema 4. matrices y determinantes">
+          <dt>Propiedades del determinante</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\det(A^T)=\det(A),\qquad\det(AB)=\det(A)\det(B).\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/04-matrices-y-determinantes/07-propiedades-de-los-determinantes.html">4.7. Propiedades de los determinantes</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t04-e07" data-formula-entry data-search="producto por un número 4.7. propiedades de los determinantes tema 4. matrices y determinantes">
+          <dt>Producto por un número</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\det(kA)=k^n\det(A).\]</p><p class="mc-formula__note">A cuadrada de orden n.</p><p class="mc-glossary__source">Lección <a href="../libro/temas/04-matrices-y-determinantes/07-propiedades-de-los-determinantes.html">4.7. Propiedades de los determinantes</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t04-e08" data-formula-entry data-search="adjunto de un elemento 4.8. desarrollo de un determinante tema 4. matrices y determinantes">
+          <dt>Adjunto de un elemento</dt>
+          <dd><p class="math-scroll" tabindex="0">\[C_{ij}=(-1)^{i+j}M_{ij}.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/04-matrices-y-determinantes/08-desarrollo-de-un-determinante.html">4.8. Desarrollo de un determinante</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t04-e08" data-formula-entry data-search="desarrollo por una fila 4.8. desarrollo de un determinante tema 4. matrices y determinantes">
+          <dt>Desarrollo por una fila</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\det(A)=\sum_{j=1}^{n}a_{ij}C_{ij}.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/04-matrices-y-determinantes/08-desarrollo-de-un-determinante.html">4.8. Desarrollo de un determinante</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t04-e09" data-formula-entry data-search="matriz inversa 4.9. matriz inversa y matriz adjunta tema 4. matrices y determinantes">
+          <dt>Matriz inversa</dt>
+          <dd><p class="math-scroll" tabindex="0">\[A^{-1}=\frac1{\det(A)}\operatorname{Adj}(A).\]</p><p class="mc-formula__note">Existe si y solo si det(A) ≠ 0.</p><p class="mc-glossary__source">Lección <a href="../libro/temas/04-matrices-y-determinantes/09-matriz-inversa-y-matriz-adjunta.html">4.9. Matriz inversa y matriz adjunta</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t04-e09" data-formula-entry data-search="inversa de orden 2 4.9. matriz inversa y matriz adjunta tema 4. matrices y determinantes">
+          <dt>Inversa de orden 2</dt>
+          <dd><p class="math-scroll" tabindex="0">\[A=\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix},\qquad A^{-1}=\frac1{ad-bc}\begin{pmatrix}d&amp;-b\\-c&amp;a\end{pmatrix},\quad ad-bc\ne0.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/04-matrices-y-determinantes/09-matriz-inversa-y-matriz-adjunta.html">4.9. Matriz inversa y matriz adjunta</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t04-e10" data-formula-entry data-search="rango 4.10. rango de una matriz tema 4. matrices y determinantes">
+          <dt>Rango</dt>
+          <dd><p class="math-scroll" tabindex="0">\[0\le\operatorname{rg}(A)\le\min(m,n),\qquad A\text{ de tamaño }m\times n.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/04-matrices-y-determinantes/10-rango-de-una-matriz.html">4.10. Rango de una matriz</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t04-e11" data-formula-entry data-search="ecuaciones matriciales 4.11. ecuaciones matriciales tema 4. matrices y determinantes">
+          <dt>Ecuaciones matriciales</dt>
+          <dd><p class="math-scroll" tabindex="0">\[AX=B\ \Longrightarrow\ X=A^{-1}B,\qquad XA=B\ \Longrightarrow\ X=BA^{-1}\]</p><p class="mc-formula__note">A invertible; el orden de los factores importa.</p><p class="mc-glossary__source">Lección <a href="../libro/temas/04-matrices-y-determinantes/11-ecuaciones-matriciales.html">4.11. Ecuaciones matriciales</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t04-e12" data-formula-entry data-search="potencias de la matriz de adyacencia 4.12. grafos y matriz de adyacencia asociada tema 4. matrices y determinantes">
+          <dt>Potencias de la matriz de adyacencia</dt>
+          <dd><p class="math-scroll" tabindex="0">\[(A^k)_{ij}=\text{número de recorridos de exactamente }k\text{ pasos del vértice }i\text{ al }j.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/04-matrices-y-determinantes/12-grafos-y-matriz-de-adyacencia-asociada.html">4.12. Grafos y matriz de adyacencia asociada</a></p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-formulas__topic" id="formulas-t05" data-block="algebra" data-content-id="page:t05" data-formula-group data-topic="t05" aria-labelledby="titulo-formulas-t05">
+      <h2 id="titulo-formulas-t05">Tema 5. Sistemas de ecuaciones</h2>
+      <dl class="mc-formulas__list">
+        <div class="mc-formula" data-content-id="page:t05-e01" data-formula-entry data-search="ecuación lineal 5.1. sistemas de ecuaciones lineales tema 5. sistemas de ecuaciones">
+          <dt>Ecuación lineal</dt>
+          <dd><p class="math-scroll" tabindex="0">\[a_1x_1+a_2x_2+\cdots+a_nx_n=b.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/05-sistemas-de-ecuaciones/01-sistemas-de-ecuaciones-lineales.html">5.1. Sistemas de ecuaciones lineales</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t05-e06" data-formula-entry data-search="teorema de rouché-frobenius 5.6. teorema de rouché-frobenius tema 5. sistemas de ecuaciones">
+          <dt>Teorema de Rouché-Frobenius</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\operatorname{rg}(A)=\operatorname{rg}(A|B)\]</p><p class="mc-formula__note">Compatible si y solo si se cumple; determinado cuando ese rango común es n (número de incógnitas) e indeterminado cuando es menor.</p><p class="mc-glossary__source">Lección <a href="../libro/temas/05-sistemas-de-ecuaciones/06-teorema-de-rouche-frobenius.html">5.6. Teorema de Rouché-Frobenius</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t05-e07" data-formula-entry data-search="resolución con la matriz inversa 5.7. resolución de sistemas. matriz inversa tema 5. sistemas de ecuaciones">
+          <dt>Resolución con la matriz inversa</dt>
+          <dd><p class="math-scroll" tabindex="0">\[X=A^{-1}B.\]</p><p class="mc-formula__note">Sistema AX = B con A invertible.</p><p class="mc-glossary__source">Lección <a href="../libro/temas/05-sistemas-de-ecuaciones/07-resolucion-de-sistemas-matriz-inversa.html">5.7. Resolución de sistemas. Matriz inversa</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t05-e09" data-formula-entry data-search="regla de cramer 5.9. resolución de sistemas. regla de cramer tema 5. sistemas de ecuaciones">
+          <dt>Regla de Cramer</dt>
+          <dd><p class="math-scroll" tabindex="0">\[x_i=\frac{\Delta_i}{\Delta},\qquad \Delta_i=\det(A_i).\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/05-sistemas-de-ecuaciones/09-resolucion-de-sistemas-regla-de-cramer.html">5.9. Resolución de sistemas. Regla de Cramer</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t05-e10" data-formula-entry data-search="sistemas homogéneos 5.10. sistemas homogéneos tema 5. sistemas de ecuaciones">
+          <dt>Sistemas homogéneos</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\det(A)\ne0\ \Longleftrightarrow\ \text{solo solución trivial},\qquad \det(A)=0\ \Longleftrightarrow\ \text{existen soluciones no triviales}.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/05-sistemas-de-ecuaciones/10-sistemas-homogeneos.html">5.10. Sistemas homogéneos</a></p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-formulas__topic" id="formulas-t06" data-block="algebra" data-content-id="page:t06" data-formula-group data-topic="t06" aria-labelledby="titulo-formulas-t06">
+      <h2 id="titulo-formulas-t06">Tema 6. Programación lineal</h2>
+      <dl class="mc-formulas__list">
+        <div class="mc-formula" data-content-id="page:t06-e01" data-formula-entry data-search="inecuación lineal 6.1. inecuaciones lineales con dos incógnitas tema 6. programación lineal">
+          <dt>Inecuación lineal</dt>
+          <dd><p class="math-scroll" tabindex="0">\[ax+by\le c,\qquad (a,b)\ne(0,0).\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/06-programacion-lineal/01-inecuaciones-lineales-con-dos-incognitas.html">6.1. Inecuaciones lineales con dos incógnitas</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t06-e03" data-formula-entry data-search="función objetivo 6.3. programación lineal tema 6. programación lineal">
+          <dt>Función objetivo</dt>
+          <dd><p class="math-scroll" tabindex="0">\[Z=ax+by.\]</p><p class="mc-formula__note">Si la región factible es un polígono cerrado, acotado y no vacío, alcanza su máximo y su mínimo en al menos un vértice.</p><p class="mc-glossary__source">Lección <a href="../libro/temas/06-programacion-lineal/03-programacion-lineal.html">6.3. Programación lineal</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t06-e03" data-formula-entry data-search="no negatividad 6.3. programación lineal tema 6. programación lineal">
+          <dt>No negatividad</dt>
+          <dd><p class="math-scroll" tabindex="0">\[x\ge0,\qquad y\ge0.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/06-programacion-lineal/03-programacion-lineal.html">6.3. Programación lineal</a></p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-formulas__topic" id="formulas-t07" data-block="azar" data-content-id="page:t07" data-formula-group data-topic="t07" aria-labelledby="titulo-formulas-t07">
+      <h2 id="titulo-formulas-t07">Tema 7. Probabilidad</h2>
+      <dl class="mc-formulas__list">
+        <div class="mc-formula" data-content-id="page:t07-e01" data-formula-entry data-search="regla de laplace 7.1. sucesos. regla de laplace tema 7. probabilidad">
+          <dt>Regla de Laplace</dt>
+          <dd><p class="math-scroll" tabindex="0">\[P(A)=\frac{|A|}{|\Omega|}=\frac{\text{casos favorables}}{\text{casos posibles}}.\]</p><p class="mc-formula__note">Resultados equiprobables.</p><p class="mc-glossary__source">Lección <a href="../libro/temas/07-probabilidad/01-sucesos-regla-de-laplace.html">7.1. Sucesos. Regla de Laplace</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t07-e02" data-formula-entry data-search="leyes de de morgan 7.2. álgebra de sucesos tema 7. probabilidad">
+          <dt>Leyes de De Morgan</dt>
+          <dd><p class="math-scroll" tabindex="0">\[(A\cup B)^c=A^c\cap B^c,\qquad(A\cap B)^c=A^c\cup B^c.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/07-probabilidad/02-algebra-de-sucesos.html">7.2. Álgebra de sucesos</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t07-e02" data-formula-entry data-search="probabilidad de la unión 7.2. álgebra de sucesos tema 7. probabilidad">
+          <dt>Probabilidad de la unión</dt>
+          <dd><p class="math-scroll" tabindex="0">\[P(A\cup B)=P(A)+P(B)-P(A\cap B).\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/07-probabilidad/02-algebra-de-sucesos.html">7.2. Álgebra de sucesos</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t07-e04" data-formula-entry data-search="frecuencia relativa 7.4. frecuencias tema 7. probabilidad">
+          <dt>Frecuencia relativa</dt>
+          <dd><p class="math-scroll" tabindex="0">\[f_n(A)=\frac{n_A}{n},\qquad 0\leq f_n(A)\leq 1.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/07-probabilidad/04-frecuencias.html">7.4. Frecuencias</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t07-e06" data-formula-entry data-search="suceso contrario 7.6. propiedades de la probabilidad tema 7. probabilidad">
+          <dt>Suceso contrario</dt>
+          <dd><p class="math-scroll" tabindex="0">\[P(A^c)=1-P(A)\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/07-probabilidad/06-propiedades-de-la-probabilidad.html">7.6. Propiedades de la probabilidad</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t07-e08" data-formula-entry data-search="probabilidad condicionada 7.8. probabilidad condicionada tema 7. probabilidad">
+          <dt>Probabilidad condicionada</dt>
+          <dd><p class="math-scroll" tabindex="0">\[P(A\mid B)=\frac{P(A\cap B)}{P(B)}.\]</p><p class="mc-formula__note">P(B) &gt; 0.</p><p class="mc-glossary__source">Lección <a href="../libro/temas/07-probabilidad/08-probabilidad-condicionada.html">7.8. Probabilidad condicionada</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t07-e08" data-formula-entry data-search="regla del producto 7.8. probabilidad condicionada tema 7. probabilidad">
+          <dt>Regla del producto</dt>
+          <dd><p class="math-scroll" tabindex="0">\[P(A\cap B)=P(B)\,P(A\mid B).\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/07-probabilidad/08-probabilidad-condicionada.html">7.8. Probabilidad condicionada</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t07-e09" data-formula-entry data-search="probabilidad total 7.9. probabilidad total tema 7. probabilidad">
+          <dt>Probabilidad total</dt>
+          <dd><p class="math-scroll" tabindex="0">\[P(B)=\sum_{i=1}^{n}P(A_i)\,P(B\mid A_i).\]</p><p class="mc-formula__note">A₁, …, Aₙ forman una partición.</p><p class="mc-glossary__source">Lección <a href="../libro/temas/07-probabilidad/09-probabilidad-total.html">7.9. Probabilidad total</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t07-e10" data-formula-entry data-search="teorema de bayes 7.10. teorema de bayes tema 7. probabilidad">
+          <dt>Teorema de Bayes</dt>
+          <dd><p class="math-scroll" tabindex="0">\[P(A_i\mid B)=\frac{P(A_i)\,P(B\mid A_i)}{\sum_{j=1}^{n}P(A_j)\,P(B\mid A_j)}.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/07-probabilidad/10-teorema-de-bayes.html">7.10. Teorema de Bayes</a></p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-formulas__topic" id="formulas-t08" data-block="azar" data-content-id="page:t08" data-formula-group data-topic="t08" aria-labelledby="titulo-formulas-t08">
+      <h2 id="titulo-formulas-t08">Tema 8. Distribuciones de probabilidad</h2>
+      <dl class="mc-formulas__list">
+        <div class="mc-formula" data-content-id="page:t08-e01" data-formula-entry data-search="media de una variable discreta 8.1. variable aleatoria tema 8. distribuciones de probabilidad">
+          <dt>Media de una variable discreta</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\mu=\sum_{i=1}^{n}x_i p_i.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/08-distribuciones-de-probabilidad/01-variable-aleatoria.html">8.1. Variable aleatoria</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t08-e01" data-formula-entry data-search="varianza y desviación típica 8.1. variable aleatoria tema 8. distribuciones de probabilidad">
+          <dt>Varianza y desviación típica</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\sigma^2=\sum_{i=1}^{n}x_i^2p_i-\mu^2,\qquad\sigma=\sqrt{\sigma^2}\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/08-distribuciones-de-probabilidad/01-variable-aleatoria.html">8.1. Variable aleatoria</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t08-e02" data-formula-entry data-search="distribución binomial 8.2. distribución binomial tema 8. distribuciones de probabilidad">
+          <dt>Distribución binomial</dt>
+          <dd><p class="math-scroll" tabindex="0">\[P(X=k)=\binom{n}{k}p^kq^{n-k}.\]</p><p class="mc-formula__note">X ∼ B(n, p), q = 1 − p.</p><p class="mc-glossary__source">Lección <a href="../libro/temas/08-distribuciones-de-probabilidad/02-distribucion-binomial.html">8.2. Distribución binomial</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t08-e02" data-formula-entry data-search="parámetros de la binomial 8.2. distribución binomial tema 8. distribuciones de probabilidad">
+          <dt>Parámetros de la binomial</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\mu=np,\qquad\sigma=\sqrt{npq}\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/08-distribuciones-de-probabilidad/02-distribucion-binomial.html">8.2. Distribución binomial</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t08-e03" data-formula-entry data-search="tipificación 8.3. distribución normal tema 8. distribuciones de probabilidad">
+          <dt>Tipificación</dt>
+          <dd><p class="math-scroll" tabindex="0">\[Z=\frac{X-\mu}{\sigma}\sim N(0,1).\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/08-distribuciones-de-probabilidad/03-distribucion-normal.html">8.3. Distribución normal</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t08-e03" data-formula-entry data-search="probabilidad en un intervalo 8.3. distribución normal tema 8. distribuciones de probabilidad">
+          <dt>Probabilidad en un intervalo</dt>
+          <dd><p class="math-scroll" tabindex="0">\[P(a\le X\le b)=\Phi\left(\frac{b-\mu}{\sigma}\right)-\Phi\left(\frac{a-\mu}{\sigma}\right).\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/08-distribuciones-de-probabilidad/03-distribucion-normal.html">8.3. Distribución normal</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t08-e04" data-formula-entry data-search="aproximación de la binomial por la normal 8.4. aproximación de la distribución binomial a la distribución normal tema 8. distribuciones de probabilidad">
+          <dt>Aproximación de la binomial por la normal</dt>
+          <dd><p class="math-scroll" tabindex="0">\[X\sim\operatorname{Bin}(n,p),\qquad Y\sim N\left(np,\sqrt{np(1-p)}\right).\]</p><p class="mc-formula__note">Si np ≥ 5 y n(1 − p) ≥ 5.</p><p class="mc-glossary__source">Lección <a href="../libro/temas/08-distribuciones-de-probabilidad/04-aproximacion-de-la-distribucion-binomial-a-la-distribucion-normal.html">8.4. Aproximación de la distribución binomial a la distribución normal</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t08-e04" data-formula-entry data-search="corrección por continuidad 8.4. aproximación de la distribución binomial a la distribución normal tema 8. distribuciones de probabilidad">
+          <dt>Corrección por continuidad</dt>
+          <dd><p class="math-scroll" tabindex="0">\[P(X=k)\approx P(k-0{,}5\le Y\le k+0{,}5).\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/08-distribuciones-de-probabilidad/04-aproximacion-de-la-distribucion-binomial-a-la-distribucion-normal.html">8.4. Aproximación de la distribución binomial a la distribución normal</a></p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-formulas__topic" id="formulas-t09" data-block="azar" data-content-id="page:t09" data-formula-group data-topic="t09" aria-labelledby="titulo-formulas-t09">
+      <h2 id="titulo-formulas-t09">Tema 9. Inferencia estadística</h2>
+      <dl class="mc-formulas__list">
+        <div class="mc-formula" data-content-id="page:t09-e04" data-formula-entry data-search="media muestral 9.4. distribución muestral. teorema central del límite tema 9. inferencia estadística">
+          <dt>Media muestral</dt>
+          <dd><p class="math-scroll" tabindex="0">\[E(\bar X)=\mu,\qquad \operatorname{DE}(\bar X)=\frac{\sigma}{\sqrt n}\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/09-inferencia-estadistica/04-distribucion-muestral-teorema-central-del-limite.html">9.4. Distribución muestral. Teorema central del límite</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t09-e04" data-formula-entry data-search="teorema central del límite 9.4. distribución muestral. teorema central del límite tema 9. inferencia estadística">
+          <dt>Teorema central del límite</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\frac{\bar X-\mu}{\sigma/\sqrt n}\;\xrightarrow[n\to\infty]{\mathrm{distribución}}\;N(0,1).\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/09-inferencia-estadistica/04-distribucion-muestral-teorema-central-del-limite.html">9.4. Distribución muestral. Teorema central del límite</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t09-e04" data-formula-entry data-search="proporción muestral 9.4. distribución muestral. teorema central del límite tema 9. inferencia estadística">
+          <dt>Proporción muestral</dt>
+          <dd><p class="math-scroll" tabindex="0">\[E(\hat P)=p,\qquad \operatorname{Var}(\hat P)=\frac{pq}{n},\qquad \operatorname{DE}(\hat P)=\sqrt{\frac{pq}{n}}.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/09-inferencia-estadistica/04-distribucion-muestral-teorema-central-del-limite.html">9.4. Distribución muestral. Teorema central del límite</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t09-e05" data-formula-entry data-search="valor crítico 9.5. estimación puntual y estimación por intervalos tema 9. inferencia estadística">
+          <dt>Valor crítico</dt>
+          <dd><p class="math-scroll" tabindex="0">\[P(-z_{\alpha/2}\le Z\le z_{\alpha/2})=1-\alpha.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/09-inferencia-estadistica/05-estimacion-puntual-y-estimacion-por-intervalos.html">9.5. Estimación puntual y estimación por intervalos</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t09-e06" data-formula-entry data-search="intervalo característico de la media muestral 9.6. intervalos de probabilidad o intervalos característicos tema 9. inferencia estadística">
+          <dt>Intervalo característico de la media muestral</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\left[\mu-z_{\alpha/2}\frac{\sigma}{\sqrt n},\;\mu+z_{\alpha/2}\frac{\sigma}{\sqrt n}\right].\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/09-inferencia-estadistica/06-intervalos-de-probabilidad-o-intervalos-caracteristicos.html">9.6. Intervalos de probabilidad o intervalos característicos</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t09-e07" data-formula-entry data-search="intervalo de confianza para la media 9.7. intervalos de confianza tema 9. inferencia estadística">
+          <dt>Intervalo de confianza para la media</dt>
+          <dd><p class="math-scroll" tabindex="0">\[IC_{1-\alpha}(\mu)=\left[\bar x-z_{\alpha/2}\frac{\sigma}{\sqrt n},\;\bar x+z_{\alpha/2}\frac{\sigma}{\sqrt n}\right].\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/09-inferencia-estadistica/07-intervalos-de-confianza.html">9.7. Intervalos de confianza</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t09-e08" data-formula-entry data-search="error máximo 9.8. tamaño de la muestra. error cometido tema 9. inferencia estadística">
+          <dt>Error máximo</dt>
+          <dd><p class="math-scroll" tabindex="0">\[IC_{1-\alpha}(\mu)=\left[\bar x-E,\;\bar x+E\right],\qquad E=z_{\alpha/2}\frac{\sigma}{\sqrt n}.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/09-inferencia-estadistica/08-tamano-de-la-muestra-error-cometido.html">9.8. Tamaño de la muestra. Error cometido</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:t09-e08" data-formula-entry data-search="tamaño mínimo de la muestra 9.8. tamaño de la muestra. error cometido tema 9. inferencia estadística">
+          <dt>Tamaño mínimo de la muestra</dt>
+          <dd><p class="math-scroll" tabindex="0">\[E\le E_0\quad\Longleftrightarrow\quad n\ge\left(\frac{z_{\alpha/2}\sigma}{E_0}\right)^2,\qquad n_{\min}=\left\lceil\left(\frac{z_{\alpha/2}\sigma}{E_0}\right)^2\right\rceil.\]</p><p class="mc-glossary__source">Lección <a href="../libro/temas/09-inferencia-estadistica/08-tamano-de-la-muestra-error-cometido.html">9.8. Tamaño de la muestra. Error cometido</a></p></dd>
+        </div>
+      </dl>
+    </section>
+    <section class="mc-formulas__topic" id="formulas-bivariate" data-block="azar" data-content-id="page:bivariate" data-formula-group data-topic="bivariate" aria-labelledby="titulo-formulas-bivariate">
+      <h2 id="titulo-formulas-bivariate">Estadística bidimensional (contenido de apoyo)</h2>
+      <dl class="mc-formulas__list">
+        <div class="mc-formula" data-content-id="page:bivariate" data-formula-entry data-search="covarianza estadística bidimensional estadística bidimensional (contenido de apoyo)">
+          <dt>Covarianza</dt>
+          <dd><p class="math-scroll" tabindex="0">\[S_{xy}=\frac{\sum_{i=1}^{N}x_i y_i}{N}-\bar{x}\,\bar{y}.\]</p><p class="mc-glossary__source">Lección <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:bivariate" data-formula-entry data-search="coeficiente de correlación de pearson estadística bidimensional estadística bidimensional (contenido de apoyo)">
+          <dt>Coeficiente de correlación de Pearson</dt>
+          <dd><p class="math-scroll" tabindex="0">\[r=\frac{S_{xy}}{S_x\cdot S_y}.\]</p><p class="mc-formula__note">−1 ≤ r ≤ 1.</p><p class="mc-glossary__source">Lección <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:bivariate" data-formula-entry data-search="recta de regresión de y sobre x estadística bidimensional estadística bidimensional (contenido de apoyo)">
+          <dt>Recta de regresión de y sobre x</dt>
+          <dd><p class="math-scroll" tabindex="0">\[\widehat{y}-\bar{y}=\frac{S_{xy}}{S_x^2}(x-\bar{x}).\]</p><p class="mc-glossary__source">Lección <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a></p></dd>
+        </div>
+        <div class="mc-formula" data-content-id="page:bivariate" data-formula-entry data-search="coeficiente de determinación estadística bidimensional estadística bidimensional (contenido de apoyo)">
+          <dt>Coeficiente de determinación</dt>
+          <dd><p class="math-scroll" tabindex="0">\[R^2=r^2.\]</p><p class="mc-glossary__source">Lección <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a></p></dd>
+        </div>
+      </dl>
+    </section>
+    <!-- formulario:fin -->
+    <script type="module" src="../assets/js/learning/formulas.js"></script>
   </main>
   <div id="site-footer"></div>
 </body>
