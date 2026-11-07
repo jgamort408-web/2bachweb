@@ -30,12 +30,12 @@ const { chromium } = require('playwright');
         await page.goto(prefix + route);
         await page.waitForFunction(() => document.querySelector('[data-flashcards] [data-content-role="activity-progress"]')?.textContent.includes('de 19'));
         assert.equal(await page.locator('[data-card-category] option').count(), 6);
-        await page.locator('[data-flashcards] button').nth(1).click();
+        await page.locator('[data-flashcards] button[data-action="reveal"]').click();
         await page.waitForFunction(() => document.querySelector('[data-flashcards] [data-content-role="flashcard-back"]'));
         assert.equal(await page.locator('[data-mml-node="merror"]').count(), 0);
         await page.locator('[data-card-category]').selectOption('Aproximación');
         await page.waitForFunction(() => document.querySelector('[data-flashcards] [data-content-role="activity-progress"]')?.textContent.includes('de 4'));
-        await page.locator('[data-flashcards] button').last().focus();
+        await page.locator('[data-flashcards] button[data-action="next-card"]').focus();
         await page.keyboard.press('Enter');
         await page.waitForFunction(() => document.querySelector('[data-flashcards] [data-content-role="activity-progress"]')?.textContent.includes('Tarjeta 2 de 4'));
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
@@ -44,10 +44,10 @@ const { chromium } = require('playwright');
     await page.goto(base + 'tarjetas/index.html?tema=t08');
     await page.waitForFunction(() => document.querySelector('[data-flashcards] [data-content-role="activity-progress"]')?.textContent.includes('de 19'));
     for (let index = 1; index <= 19; index++) {
-      await page.locator('[data-flashcards] button').nth(1).click();
+      await page.locator('[data-flashcards] button[data-action="reveal"]').click();
       await page.waitForFunction(index => document.querySelector('[data-flashcards] [data-content-role="activity-progress"]')?.textContent.includes('Tarjeta ' + index + ' de 19') && !!document.querySelector('[data-flashcards] [data-content-role="flashcard-back"]'), index);
       assert.equal(await page.locator('[data-mml-node="merror"]').count(), 0);
-      if (index < 19) await page.locator('[data-flashcards] button').last().click();
+      if (index < 19) await page.locator('[data-flashcards] button[data-action="next-card"]').click();
     }
     await page.setViewportSize({ width: 390, height: 844 });
     await page.evaluate(() => document.documentElement.style.fontSize = '200%');

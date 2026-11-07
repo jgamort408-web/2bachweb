@@ -122,7 +122,8 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/';
  // Shared renderer regression: every older theme plus the global and lesson scopes.
  for(const [topic,size] of [['t01',61],['t02',54],['t03',48],['t04',72],['t05',66],['',(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards]]){
  await page.goto(base+'tarjetas/index.html'+(topic?'?tema='+topic:''));await page.getByText('Tarjeta 1 de '+size,{exact:true}).waitFor();
- assert.equal(await page.locator('[data-card-category]').count(),0);
+ // Desde P06 la página Tarjetas ofrece «Apartado» (lección o repaso) en todos los temas.
+ assert.equal(await page.locator('[data-card-category]').count(),1);
  await deck.getByRole('button',{name:'Mostrar respuesta',exact:true}).click();await page.locator('[data-content-role="flashcard-back"]').waitFor();await ready();
  await deck.getByRole('button',{name:'Siguiente',exact:true}).click();await page.getByText('Tarjeta 2 de '+size,{exact:true}).waitFor();await ready();
  await deck.getByRole('button',{name:'Anterior',exact:true}).click();await page.getByText('Tarjeta 1 de '+size,{exact:true}).waitFor();await ready();

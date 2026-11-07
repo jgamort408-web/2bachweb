@@ -324,3 +324,14 @@
   .mc-formulas__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .mc-formula { break-inside: avoid; }
 }
+
+/* Tarjetas en modo estudio (P06, página Tarjetas): filtros, autoevaluación y resumen de la sesión. */
+.mc-skin .activity .mc-flashcard__filters { margin: 0 0 var(--mc-space-4); }
+@media (min-width: 40rem) { .mc-library__filters.mc-flashcard__filters { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.mc-skin .activity .mc-flashcard__assess { margin-top: var(--mc-space-3); }
+.mc-skin .activity .mc-flashcard__assess > button[data-action="know"] { background: var(--mc-correct-bg); border-color: var(--mc-correct-border); }
+.mc-skin .activity .mc-flashcard__assess > button[data-action="again"] { background: var(--mc-error-bg); border-color: var(--mc-error-border); }
+.mc-flashcard__tally { margin: var(--mc-space-3) 0 0; font-size: var(--mc-text-sm); color: var(--mc-text-2); }
+.mc-flashcard__summary { padding: var(--mc-space-4) 1.125rem; background: var(--mc-paper); border: 1px solid var(--mc-border); border-radius: var(--mc-radius-box); }
+.mc-flashcard__summary > h2 { margin: 0; font-size: var(--mc-h3); }
+.mc-flashcard__summary > p { margin: var(--mc-space-2) 0 0; }

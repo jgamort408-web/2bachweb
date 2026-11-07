@@ -149,7 +149,7 @@ if (explorer) {
 }
 for (const deck of document.querySelectorAll('[data-flashcards]')) {
   const scope = deck.dataset.flashcards || selectedScope;
-  mountFlashcards(deck, cardsForScope(scope), { categories: ['t06', 't07', 't08', 't09', 'bivariate'].includes(scope) });
+  mountFlashcards(deck, cardsForScope(scope), { categories: ['t06', 't07', 't08', 't09', 'bivariate'].includes(scope), study: document.body.dataset.pageId === 'cards' });
 }
 }
 initializeLesson().catch(() => {});
