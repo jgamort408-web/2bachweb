@@ -88,6 +88,45 @@ Destino previsto desde la raíz web: `Tema 9: libro/temas/09-inferencia-estadist
 | [7. Tipo test.txt](<../../Página web existente/5. Inferencia Estadística/7. Tipo test.txt>) | Integradas las 20 preguntas en el visor común, con respuestas, pistas y justificación revisadas. Se corrigen afirmaciones absolutas sobre tamaño, extrapolación, homogeneidad y costes. |
 | [8. Intervalos de confianza.txt](<../../Página web existente/5. Inferencia Estadística/8. Intervalos de confianza.txt>) | Integrada en 9.7 la explicación y el laboratorio de cuatro controles. Se precisan cobertura, desviación conocida y alcance determinista de la figura; valor crítico del 99 % corregido. |
 
+## 3. Probabilidad
+
+Destino desde la raíz web: `Tema 7: libro/temas/07-probabilidad/`. Detalle por entrega en la [auditoría de reutilización de Probabilidad](auditoria-reutilizacion-probabilidad.md) y estado vigente en la [auditoría de cobertura](auditoria-cobertura-accesibilidad-probabilidad.md).
+
+| HTML original (guardado como TXT) | Destino y estado |
+|---|---|
+| [0. Presentación.txt](<../../Página web existente/3. Probabilidad/0. Presentación.txt>) | Propósito y recorrido en el índice del tema 7. |
+| [1. Introducción a la probabilidad.txt](<../../Página web existente/3. Probabilidad/1. Introducción a la probabilidad.txt>) | Sucesos y espacio muestral en 7.1; operaciones y diagramas en 7.2. |
+| [2. Tipos de probabilidad.txt](<../../Página web existente/3. Probabilidad/2. Tipos de probabilidad.txt>) | Laplace con dado y baraja en 7.1; frecuencia relativa en 7.4; «rey o copa» en 7.2. |
+| [3. Axiomática de Kolmogorov.txt](<../../Página web existente/3. Probabilidad/3. Axiomática de Kolmogorov.txt>) | Axiomas y ejemplo en 7.5; propiedades y dos problemas en 7.6. |
+| [4. Tablas de contingencia y diagramas de árboles.txt](<../../Página web existente/3. Probabilidad/4. Tablas de contingencia y diagramas de árboles.txt>) | Tabla y ejemplo en 7.3; árboles en 7.7, con la fórmula dañada corregida. |
+| [5. Probabilidad total y Teorema de Bayes.txt](<../../Página web existente/3. Probabilidad/5. Probabilidad total y Teorema de Bayes.txt>) | Probabilidad total en 7.9 y Bayes en 7.10. |
+| [6. Ejercicios resueltos.txt](<../../Página web existente/3. Probabilidad/6. Ejercicios resueltos.txt>) | Ocho problemas en la colección de ejercicios resueltos del tema 7. |
+| [7. Flashcards.txt](<../../Página web existente/3. Probabilidad/7. Flashcards.txt>) | Dieciséis tarjetas en cinco categorías en el visor común. |
+
+## 6. Archivos de la raíz
+
+| Archivo original (guardado como TXT) | Destino y estado |
+|---|---|
+| [Inicio.txt](<../../Página web existente/Inicio.txt>) | Idéntico byte a byte a «1. Programación Lineal/0. Presentación.txt» (mismo SHA-256); integrado con ella en el índice del tema 6. No se crea una portada duplicada. |
+| [Combinatoria.txt](<../../Página web existente/Combinatoria.txt>) | Integrado en el [apoyo de Combinatoria](../libro/apoyos/combinatoria.html) (P02): teoría, demostración, calculadora exacta, seis ejercicios y las diez preguntas del juego en el visor común. Correcciones y carencias en la [auditoría de Combinatoria](auditoria-reutilizacion-combinatoria.md). |
+| [Competencias y criterios.txt](<../../Página web existente/Competencias y criterios.txt>) | **Sin destino en la web.** Describe nueve competencias específicas y sus criterios; es material curricular para el profesorado, no una lección. Falta decidir con el docente si se publica (por ejemplo, en Recursos) y, en su caso, relacionar las actividades con cada competencia. |
+
+## Matriz de cobertura de fuentes
+
+Cerrada el 7 de noviembre de 2026 (P02): los 44 archivos de «Página web existente» tienen destino o una decisión registrada.
+
+| Bloque | Archivos | Integrados | Sin destino | Estado del destino |
+|---|---|---|---|---|
+| 1. Programación lineal | 7 | 7 | 0 | Parcial (tema 6) |
+| 2. Estadística bidimensional | 8 | 8 | 0 | Parcial (apoyo) |
+| 3. Probabilidad | 8 | 8 | 0 | Parcial (tema 7) |
+| 4. Distribuciones | 7 | 7 | 0 | Parcial (tema 8) |
+| 5. Inferencia estadística | 11 | 11 | 0 | Parcial (tema 9) |
+| Raíz: Inicio, Combinatoria, Competencias | 3 | 2 | 1 | Inicio duplicado en el tema 6; Combinatoria parcial (apoyo); Competencias pendiente de decisión |
+| **Total** | **44** | **43** | **1** | |
+
+«Integrado» significa que el contenido válido del archivo está en la web y sus correcciones documentadas; no que el destino esté completo. Las carencias de cada bloque siguen en sus auditorías.
+
 ## Huecos de cobertura
 
 Los once originales de Inferencia están revisados e integrados en las entregas 92–102: presentación, técnicas de muestreo, distribuciones muestrales, estimación, media y proporción muestral, error y tamaño muestral, 27 ejercicios resueltos, 30 tarjetas, test de 20 preguntas e intervalos de confianza. Esto no completa automáticamente los nueve epígrafes: algunos originales cubren varios apartados y otros dejan huecos. [Auditoría de Inferencia](auditoria-reutilizacion-inferencia.md).
@@ -102,6 +141,7 @@ Los materiales originales de probabilidad permanecen igualmente conservados. Est
 - [x] Estadística bidimensional: ocho HTML integrados en entregas 77–84; apoyo parcial por carencias documentadas.
 - [x] Distribuciones: integrar los siete HTML, gráficos y bancos existentes. Las lecciones siguen parciales por carencias documentadas.
 - [x] Inferencia: revisar e integrar los once HTML, aventuras, laboratorio, bancos y test; mantener las carencias editoriales documentadas.
+- [x] Combinatoria: integrada en el apoyo (P02); matriz de cobertura de los 44 originales cerrada. Competencias y criterios queda sin destino, pendiente de decisión del docente.
 - [ ] Verificar originales frente a copias y registrar mejoras concretas por página.
 
 Estado de estadística bidimensional por archivo: [auditoría y correspondencias](auditoria-reutilizacion-estadistica-bidimensional.md). Presentación, variable bidimensional, nube de puntos, covarianza, Pearson, regresión, nueve ejercicios y 20 flashcards integrados. Las carencias documentadas mantienen el apoyo parcial.

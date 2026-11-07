@@ -92,6 +92,12 @@
     { "name": "Covarianza", "page": "bivariate", "tex": "S_{xy}=\\frac{\\sum_{i=1}^{N}x_i y_i}{N}-\\bar{x}\\,\\bar{y}." },
     { "name": "Coeficiente de correlación de Pearson", "page": "bivariate", "tex": "r=\\frac{S_{xy}}{S_x\\cdot S_y}.", "note": "−1 ≤ r ≤ 1." },
     { "name": "Recta de regresión de y sobre x", "page": "bivariate", "tex": "\\widehat{y}-\\bar{y}=\\frac{S_{xy}}{S_x^2}(x-\\bar{x})." },
-    { "name": "Coeficiente de determinación", "page": "bivariate", "tex": "R^2=r^2." }
+    { "name": "Coeficiente de determinación", "page": "bivariate", "tex": "R^2=r^2." },
+
+    { "name": "Variaciones sin repetición", "page": "combinatorics", "tex": "V(n,r)=\\frac{n!}{(n-r)!}", "note": "El orden importa y no se repite; r ≤ n." },
+    { "name": "Variaciones con repetición", "page": "combinatorics", "tex": "VR(n,r)=n^r.", "note": "El orden importa y se puede repetir." },
+    { "name": "Permutaciones", "page": "combinatorics", "tex": "P_n=n!", "note": "Se ordenan todos los elementos." },
+    { "name": "Permutaciones con elementos repetidos", "page": "combinatorics", "tex": "P_n^{(a,\\,b,\\,\\ldots)}=\\frac{n!}{a!\\cdot b!\\cdots}.", "note": "a, b, … son las veces que se repite cada elemento." },
+    { "name": "Combinaciones", "page": "combinatorics", "tex": "C(n,r)=\\binom{n}{r}=\\frac{n!}{r!\\,(n-r)!}.", "note": "El orden no importa y no se repite." }
   ]
 }

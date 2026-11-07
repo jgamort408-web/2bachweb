@@ -335,3 +335,28 @@
 .mc-flashcard__summary { padding: var(--mc-space-4) 1.125rem; background: var(--mc-paper); border: 1px solid var(--mc-border); border-radius: var(--mc-radius-box); }
 .mc-flashcard__summary > h2 { margin: 0; font-size: var(--mc-h3); }
 .mc-flashcard__summary > p { margin: var(--mc-space-2) 0 0; }
+
+/* Apoyo de Combinatoria (P02): casos enumerados, demostración de V(5,3), triángulo de Pascal y calculadora. */
+.mc-chips { display: flex; flex-wrap: wrap; gap: var(--mc-space-2); margin: var(--mc-space-3) 0 0; padding: 0; list-style: none; }
+.mc-chips > li { max-width: 100%; padding: 0.25rem 0.75rem; background: var(--mc-paper); border: 1px solid var(--mc-border); border-radius: var(--mc-radius-control); font-variant-numeric: tabular-nums; }
+.mc-slots__letters { display: flex; flex-wrap: wrap; gap: var(--mc-space-2); }
+.mc-slots__letters > button { min-width: var(--mc-target); min-height: var(--mc-target); font-weight: 700; }
+.mc-slots__letters > button[aria-pressed="true"] { text-decoration: line-through; }
+.mc-slots { display: flex; gap: var(--mc-space-2); margin: var(--mc-space-4) 0 0; padding: 0; list-style: none; }
+.mc-slots > li { display: inline-flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; border: 2px dashed var(--mc-border-strong); border-radius: var(--mc-radius-control); font-size: 1.25rem; font-weight: 700; }
+.mc-slots > li[data-filled="true"] { border-style: solid; border-color: var(--mc-accent, var(--mc-action)); background: var(--mc-paper); }
+/* Todas las filas llevan el rótulo «n = …» al final con el mismo ancho: el triángulo sigue centrado. */
+.mc-pascal { display: grid; gap: var(--mc-space-1); margin: var(--mc-space-3) 0; padding: 0; list-style: none; overflow-x: auto; }
+.mc-pascal > li { display: flex; justify-content: center; gap: var(--mc-space-1); }
+.mc-pascal > li > span { min-width: 2.25rem; padding: 0.125rem 0.25rem; background: var(--mc-paper); border: 1px solid var(--mc-border); border-radius: var(--mc-radius-control); text-align: center; font-variant-numeric: tabular-nums; }
+.mc-pascal > li > .mc-pascal__n { order: 1; min-width: 3.5rem; background: none; border: 0; color: var(--mc-text-2); font-size: var(--mc-text-sm); }
+.mc-calculator__output:empty { display: none; }
+.mc-calculator__output { margin-top: var(--mc-space-4); padding: var(--mc-space-4) 1.125rem; background: var(--mc-paper); border: 1px solid var(--mc-border); border-radius: var(--mc-radius-box); }
+.mc-calculator__output[data-state="error"] { background: var(--mc-error-bg); border-color: var(--mc-error-border); }
+.mc-calculator__output > p { margin: 0; }
+.mc-calculator__output > .mc-calculator__value { font-size: var(--mc-h3); font-weight: 700; }
+.mc-calculator__output > ol { margin: var(--mc-space-2) 0 0; }
+.mc-calculator__output > ol > li + li { margin-top: var(--mc-space-2); }
+.mc-calculator__output .math-scroll { margin: 0; }
+/* La tabla resumen se desplaza en horizontal antes que partir las palabras (el cuerpo usa overflow-wrap: anywhere). */
+[data-counting-summary] :is(th, td) { overflow-wrap: normal; }

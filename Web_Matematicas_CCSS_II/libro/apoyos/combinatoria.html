@@ -7,12 +7,279 @@
   <title>Combinatoria · Matemáticas CCSS II</title>
   <link rel="stylesheet" href="../../assets/css/main.css">
   <script type="module" src="../../assets/js/app.js"></script>
+  <script type="module" src="../../assets/js/learning/worked-problems.js"></script>
+  <script type="module" src="../../assets/js/learning/combinatorics.js"></script>
+  <script type="module" src="../../assets/js/learning/lesson.js"></script>
 </head>
 <body data-page-id="combinatorics" class="mc-skin" data-block="azar">
   <a class="skip-link" href="#main-content">Saltar al contenido</a>
   <div id="site-header"></div>
-  <main id="main-content" class="page-main mc-page">
-    <h1>Combinatoria</h1>
+  <main id="main-content" class="page-main mc-lesson">
+    <h1 data-content-role="lesson-title">Combinatoria</h1>
+    <p data-content-role="lead">Para calcular muchas probabilidades primero hay que contar bien: cuántos casos hay y cuántos cumplen lo que buscamos.</p>
+    <p data-content-role="source">Adaptación revisada de «Combinatoria.txt» (la página original «Combinatoria y Probabilidad»). Se apoya en <a href="../temas/07-probabilidad/01-sucesos-regla-de-laplace.html">7.1. Sucesos. Regla de Laplace</a>. <a href="index.html">Volver a los contenidos de apoyo</a>.</p>
+    <div class="learning-goals"><p data-content-role="objectives"><strong>Al terminar podrás:</strong> decidir si un recuento es una variación, una permutación o una combinación según importe el orden y se pueda repetir, calcularlo y usarlo para obtener probabilidades con la regla de Laplace.</p><p data-content-role="prerequisites"><strong>Antes de empezar:</strong> conviene saber qué es el factorial, \(n!=n\cdot(n-1)\cdots2\cdot1\), con \(0!=1\).</p></div>
+    <nav aria-label="Apartados del apoyo" data-content-role="related-links"><a href="#por-que">Por qué contar</a> · <a href="#tecnicas">Las cuatro técnicas</a> · <a href="#decidir">Qué técnica usar</a> · <a href="#variaciones">Variaciones</a> · <a href="#variaciones-repeticion">Variaciones con repetición</a> · <a href="#permutaciones">Permutaciones</a> · <a href="#combinaciones">Combinaciones</a> · <a href="#probabilidad">Probabilidad</a> · <a href="#calculadora">Calculadora</a> · <a href="#ejercicios">Ejercicios resueltos</a> · <a href="#test">Test</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+
+    <section id="por-que" data-content-role="introduction"><h2>¿Por qué necesitamos técnicas de conteo?</h2>
+      <p>La probabilidad de un suceso se calcula a menudo con la <strong>regla de Laplace</strong>:</p>
+      <p class="math-scroll" tabindex="0">\[P(A)=\frac{\text{n.º de casos favorables a }A}{\text{n.º de casos posibles}}.\]</p>
+      <p data-content-role="warning">Solo es válida si hay un número finito de casos y <strong>todos son igual de probables</strong>.</p>
+      <p>Cuando los casos son muchos no se pueden enumerar uno a uno: hay que <strong>contarlos</strong>. Para elegir la técnica de conteo, las preguntas clave son dos: <em>¿importa el orden?</em> y <em>¿se pueden repetir los elementos?</em></p>
+    </section>
+
+    <section id="tecnicas" data-content-role="summary"><h2>Las cuatro técnicas</h2>
+      <p>En todas ellas \(n\) es el número de elementos disponibles y \(r\) el número de elementos que se toman.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Tabla resumen de las técnicas de conteo">
+      <table data-counting-summary>
+        <caption>Cuándo se usa cada técnica y su fórmula</caption>
+        <thead><tr><th scope="col">Técnica</th><th scope="col">¿Importa el orden?</th><th scope="col">¿Se repite?</th><th scope="col">¿Cuántos se toman?</th><th scope="col">Fórmula</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><a href="#variaciones">Variaciones sin repetición</a></th><td>Sí</td><td>No</td><td>\(r\) de \(n\)</td><td>\(V(n,r)=\dfrac{n!}{(n-r)!}\)</td></tr>
+          <tr><th scope="row"><a href="#variaciones-repeticion">Variaciones con repetición</a></th><td>Sí</td><td>Sí</td><td>\(r\) de \(n\)</td><td>\(VR(n,r)=n^r\)</td></tr>
+          <tr><th scope="row"><a href="#permutaciones">Permutaciones</a></th><td>Sí</td><td>No</td><td>Todos</td><td>\(P_n=n!\)</td></tr>
+          <tr><th scope="row"><a href="#permutaciones-repetidos">Permutaciones con elementos repetidos</a></th><td>Sí</td><td>Elementos iguales</td><td>Todos</td><td>\(P_n^{(a,b,\ldots)}=\dfrac{n!}{a!\cdot b!\cdots}\)</td></tr>
+          <tr><th scope="row"><a href="#combinaciones">Combinaciones</a></th><td>No</td><td>No</td><td>\(r\) de \(n\)</td><td>\(C(n,r)=\dbinom{n}{r}=\dfrac{n!}{r!\,(n-r)!}\)</td></tr>
+        </tbody>
+      </table></div>
+      <p data-content-role="context">El original resumía las permutaciones como «sin repetición» y desarrollaba aparte las que tienen elementos repetidos; aquí aparecen en filas separadas.</p>
+    </section>
+
+    <section id="decidir" data-content-role="method"><h2>¿Qué técnica usar?</h2>
+      <p>El árbol de decisión del original, escrito como una secuencia de preguntas:</p>
+      <ol data-decision-tree>
+        <li><strong>¿Importa el orden?</strong>
+          <ul>
+            <li><strong>No:</strong> <a href="#combinaciones">combinaciones</a>, \(C(n,r)\).</li>
+            <li><strong>Sí:</strong> ¿se usan <strong>todos</strong> los elementos?
+              <ul>
+                <li><strong>Sí:</strong> <a href="#permutaciones">permutaciones</a>, \(P_n=n!\) (o con elementos repetidos, si los hay).</li>
+                <li><strong>No:</strong> ¿se puede <strong>repetir</strong>?
+                  <ul>
+                    <li><strong>Sí:</strong> <a href="#variaciones-repeticion">variaciones con repetición</a>, \(VR(n,r)=n^r\).</li>
+                    <li><strong>No:</strong> <a href="#variaciones">variaciones sin repetición</a>, \(V(n,r)\).</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <p data-content-role="hint">Para saber si importa el orden, cambia el orden de un caso concreto: si obtienes algo distinto (otro podio, otra clave), el orden importa; si es lo mismo (el mismo comité, la misma mano de cartas), no importa.</p>
+    </section>
+
+    <section id="variaciones" data-content-role="theory"><h2>Variaciones sin repetición</h2>
+      <p>Elegimos \(r\) elementos de \(n\) distintos, <strong>el orden importa</strong> y <strong>no se puede repetir</strong>.</p>
+      <p class="math-scroll" tabindex="0">\[V(n,r)=\frac{n!}{(n-r)!}=\underbrace{n\cdot(n-1)\cdots(n-r+1)}_{r\ \text{factores}},\qquad r\le n.\]</p>
+      <p data-content-role="key-idea"><strong>Truco:</strong> es el producto de \(r\) factores que bajan de uno en uno desde \(n\). Por ejemplo, \(V(5,3)=5\cdot4\cdot3=60\).</p>
+      <div class="activity" data-variation-demo hidden>
+        <h3>Llena las tres posiciones sin repetir</h3>
+        <p data-content-role="instruction">Pulsa las letras en el orden que quieras: cada letra usada deja de estar disponible.</p>
+        <div class="mc-slots__letters" role="group" aria-label="Letras disponibles (n = 5)"><button type="button" data-letter="A">A</button><button type="button" data-letter="B">B</button><button type="button" data-letter="C">C</button><button type="button" data-letter="D">D</button><button type="button" data-letter="E">E</button></div>
+        <ol class="mc-slots" aria-label="Posiciones (r = 3)"><li data-slot>?</li><li data-slot>?</li><li data-slot>?</li></ol>
+        <p data-demo-status role="status" aria-live="polite"></p>
+        <div class="actions"><button type="button" data-demo-clear>Vaciar las posiciones</button></div>
+      </div>
+      <noscript><p>Con JavaScript puedes llenar tú las posiciones. Para la primera hay 5 letras, para la segunda quedan 4 y para la tercera, 3: \(5\cdot4\cdot3=60\).</p></noscript>
+      <details data-content-role="worked-example"><summary>Ejemplo resuelto: el podio de un club de 8 corredores</summary>
+        <p>Un club tiene <strong>8 corredores</strong>. ¿De cuántas formas pueden quedar los 3 primeros puestos (oro, plata y bronce)?</p>
+        <ol>
+          <li><strong>Técnica:</strong> el orden importa y nadie ocupa dos puestos: \(V(8,3)\).</li>
+          <li><strong>Datos:</strong> \(n=8\) corredores, \(r=3\) puestos.</li>
+          <li><strong>Fórmula:</strong> \(V(8,3)=\dfrac{8!}{5!}=\dfrac{8\cdot7\cdot6\cdot5!}{5!}\); se simplifica \(5!\).</li>
+          <li><strong>Resultado:</strong> \(V(8,3)=8\cdot7\cdot6=336\) formas distintas.</li>
+        </ol>
+      </details>
+    </section>
+
+    <section id="variaciones-repeticion" data-content-role="theory"><h2>Variaciones con repetición</h2>
+      <p>Elegimos \(r\) elementos de \(n\), <strong>el orden importa</strong> y <strong>se pueden repetir</strong>. Cada posición tiene siempre \(n\) opciones independientes:</p>
+      <p class="math-scroll" tabindex="0">\[VR(n,r)=n^r.\]</p>
+      <p>Aquí \(r\) puede ser mayor que \(n\). Por ejemplo, \(VR(4,3)=4^3=64\).</p>
+      <figure data-content-role="visualization"><figcaption>Con 3 colores, rojo (R), verde (V) y azul (A), hay \(VR(3,2)=3^2=9\) códigos de 2 posiciones:</figcaption>
+        <ul class="mc-chips" data-repetition-codes><li>RR</li><li>RV</li><li>RA</li><li>VR</li><li>VV</li><li>VA</li><li>AR</li><li>AV</li><li>AA</li></ul>
+      </figure>
+      <details data-content-role="worked-example"><summary>Ejemplo resuelto: PIN de 4 dígitos</summary>
+        <p>¿Cuántos <strong>PIN de 4 dígitos</strong> existen usando los dígitos del 0 al 9?</p>
+        <ol>
+          <li><strong>Técnica:</strong> el orden importa y se pueden repetir dígitos (por ejemplo, 1111): \(VR(10,4)\).</li>
+          <li><strong>Datos:</strong> \(n=10\) dígitos, \(r=4\) posiciones.</li>
+          <li><strong>Resultado:</strong> \(VR(10,4)=10^4=10\,000\) PIN posibles, del 0000 al 9999.</li>
+        </ol>
+      </details>
+      <p data-content-role="comparison"><strong>Con y sin repetición:</strong> con las letras A, B, C y D, \(V(4,2)=4\cdot3=12\) no incluye AA, BB, CC ni DD; \(VR(4,2)=4^2=16\) sí las incluye.</p>
+    </section>
+
+    <section id="permutaciones" data-content-role="theory"><h2>Permutaciones</h2>
+      <p>Ordenamos <strong>todos</strong> los elementos: el orden importa y no se repiten. Es el caso \(r=n\) de las variaciones sin repetición.</p>
+      <p class="math-scroll" tabindex="0">\[P_n=n!=n\cdot(n-1)\cdot(n-2)\cdots2\cdot1.\]</p>
+      <figure data-content-role="visualization"><figcaption>Tres personas en fila: \(P_3=3!=6\) ordenaciones.</figcaption>
+        <ol class="mc-chips" data-permutation-list><li>Ana, Bob, Cris</li><li>Ana, Cris, Bob</li><li>Bob, Ana, Cris</li><li>Bob, Cris, Ana</li><li>Cris, Ana, Bob</li><li>Cris, Bob, Ana</li></ol>
+      </figure>
+      <details data-content-role="worked-example"><summary>Ejemplo resuelto: 6 amigos en una fila del cine</summary>
+        <p>¿De cuántas formas pueden sentarse <strong>6 amigos</strong> en una fila de cine de 6 butacas?</p>
+        <p>Se colocan todos y el orden importa: \(P_6=6!=6\cdot5\cdot4\cdot3\cdot2\cdot1=720\).</p>
+      </details>
+      <section id="permutaciones-repetidos"><h3>Permutaciones con elementos repetidos</h3>
+        <p>Si entre los \(n\) elementos hay uno que aparece \(a\) veces, otro \(b\) veces, etc., intercambiar elementos iguales no produce una ordenación nueva. Se divide entre las ordenaciones de cada grupo de iguales:</p>
+        <p class="math-scroll" tabindex="0">\[P_n^{(a,\,b,\,\ldots)}=\frac{n!}{a!\cdot b!\cdots}.\]</p>
+        <details data-content-role="worked-example"><summary>Ejemplo resuelto: las letras de MATEMÁTICA</summary>
+          <p>¿Cuántas palabras distintas, tengan o no sentido, se forman con las letras de <strong>MATEMÁTICA</strong>? Como es habitual en estos problemas, la Á se cuenta como una A.</p>
+          <ol>
+            <li><strong>Total de letras:</strong> \(n=10\).</li>
+            <li><strong>Repeticiones:</strong> A aparece 3 veces (contando la Á), M 2 veces y T 2 veces; E, I y C aparecen una vez.</li>
+            <li><strong>Fórmula:</strong> \(P_{10}^{(3,2,2)}=\dfrac{10!}{3!\cdot2!\cdot2!}=\dfrac{3\,628\,800}{24}\).</li>
+            <li><strong>Resultado:</strong> \(151\,200\) palabras distintas.</li>
+          </ol>
+          <p data-content-role="context">Si la Á se considerase una letra distinta de la A, habría dos A y una Á, y el resultado sería \(\dfrac{10!}{2!\cdot2!\cdot2!}=453\,600\).</p>
+        </details>
+      </section>
+    </section>
+
+    <section id="combinaciones" data-content-role="theory"><h2>Combinaciones</h2>
+      <p>Elegimos \(r\) elementos de \(n\), <strong>el orden no importa</strong> y <strong>no se repiten</strong>: solo cuenta qué elementos forman el grupo.</p>
+      <p class="math-scroll" tabindex="0">\[C(n,r)=\binom{n}{r}=\frac{n!}{r!\,(n-r)!}.\]</p>
+      <p><strong>Simetría:</strong> \(C(n,r)=C(n,n-r)\), porque elegir los \(r\) que entran equivale a elegir los \(n-r\) que se quedan fuera.</p>
+      <p data-content-role="key-idea"><strong>Relación con las variaciones:</strong> \(C(n,r)=\dfrac{V(n,r)}{r!}\). Cada grupo de \(r\) elementos aparece \(r!\) veces en las variaciones, una por cada forma de ordenarlo, y en las combinaciones solo cuenta una vez.</p>
+      <figure data-content-role="visualization"><figcaption>Al elegir 2 de \(\{A,B,C\}\) sin orden, cada par ordenado y su inverso forman el mismo grupo: \(V(3,2)=6\) pares ordenados, pero solo \(C(3,2)=6/2!=3\) grupos.</figcaption>
+        <ul class="mc-chips" data-combination-groups><li>{A, B} = {B, A}</li><li>{A, C} = {C, A}</li><li>{B, C} = {C, B}</li></ul>
+      </figure>
+      <section id="pascal"><h3>Triángulo de Pascal</h3>
+        <p>La fila \(n\) contiene \(\binom{n}{0},\binom{n}{1},\ldots,\binom{n}{n}\). Cada número interior es la suma de los dos que tiene encima: \(\binom{n}{r}=\binom{n-1}{r-1}+\binom{n-1}{r}\).</p>
+        <ol class="mc-pascal" start="0" data-pascal aria-label="Filas del triángulo de Pascal de n = 0 a n = 6">
+          <li><span class="mc-pascal__n">n = 0</span> <span>1</span></li>
+          <li><span class="mc-pascal__n">n = 1</span> <span>1</span> <span>1</span></li>
+          <li><span class="mc-pascal__n">n = 2</span> <span>1</span> <span>2</span> <span>1</span></li>
+          <li><span class="mc-pascal__n">n = 3</span> <span>1</span> <span>3</span> <span>3</span> <span>1</span></li>
+          <li><span class="mc-pascal__n">n = 4</span> <span>1</span> <span>4</span> <span>6</span> <span>4</span> <span>1</span></li>
+          <li><span class="mc-pascal__n">n = 5</span> <span>1</span> <span>5</span> <span>10</span> <span>10</span> <span>5</span> <span>1</span></li>
+          <li><span class="mc-pascal__n">n = 6</span> <span>1</span> <span>6</span> <span>15</span> <span>20</span> <span>15</span> <span>6</span> <span>1</span></li>
+        </ol>
+        <p>Por ejemplo, en la fila 5 se lee \(C(5,2)=10\), y \(10=4+6\) son los dos números de la fila 4 que tiene encima.</p>
+      </section>
+      <details data-content-role="worked-example"><summary>Ejemplo resuelto: un grupo de 3 alumnos de una clase de 10</summary>
+        <p>De una clase de <strong>10 alumnos</strong> se elige un <strong>grupo de 3</strong> para representar al centro. ¿Cuántos grupos posibles hay?</p>
+        <ol>
+          <li><strong>Técnica:</strong> no importa quién se elige primero: \(C(10,3)\).</li>
+          <li><strong>Fórmula:</strong> \(C(10,3)=\dfrac{10!}{3!\cdot7!}=\dfrac{10\cdot9\cdot8\cdot7!}{3!\cdot7!}\); se simplifica \(7!\).</li>
+          <li><strong>Cálculo:</strong> \(\dfrac{10\cdot9\cdot8}{3\cdot2\cdot1}=\dfrac{720}{6}=120\).</li>
+          <li><strong>Resultado:</strong> 120 grupos distintos.</li>
+        </ol>
+      </details>
+    </section>
+
+    <section id="probabilidad" data-content-role="method"><h2>Probabilidad con técnicas de conteo</h2>
+      <p>Con casos igual de probables, la regla de Laplace se aplica contando:</p>
+      <p class="math-scroll" tabindex="0">\[P(A)=\frac{\text{n.º de casos favorables}}{\text{n.º de casos posibles}}.\]</p>
+      <p data-content-role="key-idea">El numerador y el denominador deben contar <strong>el mismo tipo de caso</strong>: si los posibles son grupos sin orden, los favorables también; si son ordenaciones, también los favorables.</p>
+      <details data-content-role="worked-example"><summary>Ejemplo 1: cinco oros en la baraja española</summary>
+        <p>Se sacan a la vez <strong>5 cartas</strong> de una baraja española de 40. ¿Cuál es la probabilidad de que las 5 sean oros?</p>
+        <ol>
+          <li><strong>Casos posibles</strong> (grupos sin orden): \(C(40,5)=\dfrac{40!}{5!\cdot35!}=658\,008\).</li>
+          <li><strong>Casos favorables</strong> (la baraja tiene 10 oros): \(C(10,5)=\dfrac{10!}{5!\cdot5!}=252\).</li>
+          <li><strong>Probabilidad:</strong> \(P=\dfrac{252}{658\,008}\approx0{,}000383\), es decir, alrededor del \(0{,}038\ \%\). Es muy poco probable.</li>
+        </ol>
+      </details>
+      <details data-content-role="worked-example"><summary>Ejemplo 2: el podio de una carrera</summary>
+        <p>En una carrera con <strong>12 participantes</strong>, y suponiendo que todos los órdenes de llegada son igual de probables, ¿cuál es la probabilidad de que Lucía quede primera y Marcos segundo?</p>
+        <ol>
+          <li><strong>Casos posibles</strong> (el orden importa): \(V(12,2)=12\cdot11=132\) parejas de primer y segundo puesto.</li>
+          <li><strong>Casos favorables:</strong> solo uno, Lucía primera y Marcos segundo.</li>
+          <li><strong>Probabilidad:</strong> \(P=\dfrac{1}{132}\approx0{,}0076\), alrededor del \(0{,}76\ \%\).</li>
+        </ol>
+      </details>
+      <details data-content-role="worked-example"><summary>Ejemplo 3: al menos un 7 en un PIN (suceso contrario)</summary>
+        <p>Se genera al azar un <strong>PIN de 4 dígitos</strong>, con todos los PIN igual de probables. ¿Cuál es la probabilidad de que contenga al menos un 7?</p>
+        <ol>
+          <li><strong>Suceso contrario:</strong> \(P(\text{al menos un }7)=1-P(\text{ningún }7)\).</li>
+          <li><strong>PIN sin ningún 7</strong> (dígitos 0–6, 8 y 9): \(VR(9,4)=9^4=6561\).</li>
+          <li><strong>Total de PIN:</strong> \(VR(10,4)=10^4=10\,000\).</li>
+          <li><strong>Probabilidad:</strong> \(P=1-\dfrac{6561}{10\,000}=\dfrac{3439}{10\,000}=0{,}3439\), alrededor del \(34{,}4\ \%\).</li>
+        </ol>
+      </details>
+    </section>
+
+    <section id="calculadora" data-content-role="visualization"><h2>Calculadora combinatoria</h2>
+      <p>Elige la técnica, introduce los datos y obtén el resultado con su desarrollo. Calcula con enteros exactos hasta \(n=20\).</p>
+      <form class="mc-calculator" data-combinatorics-calculator hidden>
+        <p><label for="combinatorics-type">Técnica</label> <select id="combinatorics-type" name="type"><option value="variations">Variaciones sin repetición, V(n,r)</option><option value="variationsWithRepetition">Variaciones con repetición, VR(n,r)</option><option value="permutations">Permutaciones, Pn = n!</option><option value="permutationsWithRepetition">Permutaciones con elementos repetidos</option><option value="combinations">Combinaciones, C(n,r)</option></select></p>
+        <p><label for="combinatorics-n" data-n-label>n (elementos disponibles)</label> <input id="combinatorics-n" name="n" type="number" min="1" max="20" step="1" value="8" required inputmode="numeric"></p>
+        <p data-field="r"><label for="combinatorics-r">r (elementos que se toman)</label> <input id="combinatorics-r" name="r" type="number" min="1" max="20" step="1" value="3" required inputmode="numeric"></p>
+        <p data-field="repeats" hidden><label for="combinatorics-repeats">Veces que se repite cada elemento repetido, separadas por comas (por ejemplo, 3, 2, 2)</label> <input id="combinatorics-repeats" name="repeats" type="text" autocomplete="off" placeholder="3, 2, 2" required disabled></p>
+        <button type="submit">Calcular</button>
+        <div class="mc-calculator__output" data-calculator-output role="status" aria-live="polite"></div>
+      </form>
+      <noscript><p>La calculadora necesita JavaScript. Sin él, aplica las fórmulas de la <a href="#tecnicas">tabla resumen</a>.</p></noscript>
+    </section>
+
+    <section id="ejercicios" data-worked-problems data-content-role="practice"><h2>Ejercicios resueltos</h2>
+      <p>Los seis problemas del original. Plantea primero la técnica y despliega después la resolución para contrastarla.</p>
+      <div data-exercise-controls hidden><label for="combinatorics-exercise-select">Ejercicio que quieres consultar</label>
+      <select id="combinatorics-exercise-select" data-exercise-select><option value="all">Ver los seis ejercicios</option><option value="1">Ejercicio 1: podio de ajedrez</option><option value="2">Ejercicio 2: comité de empresa</option><option value="3">Ejercicio 3: contraseña de letras</option><option value="4">Ejercicio 4: ordenaciones de PROBABILIDAD</option><option value="5">Ejercicio 5: tómbola</option><option value="6">Ejercicio 6: quinteto de baloncesto</option></select><p data-exercise-status role="status"></p></div>
+
+      <article id="ejercicio-1" data-exercise="1" data-content-role="worked-example"><h3>Ejercicio 1: podio de ajedrez</h3>
+        <div data-content-role="statement"><p>En un torneo participan 15 jugadores. ¿De cuántas formas pueden repartirse los premios de oro, plata y bronce?</p></div>
+        <details data-solution><summary>Ver resolución del ejercicio 1</summary><ol>
+          <li><strong>Técnica:</strong> el orden importa (oro no es plata) y nadie gana dos premios: \(V(15,3)\).</li>
+          <li><strong>Cálculo:</strong> \(V(15,3)=\dfrac{15!}{12!}=15\cdot14\cdot13=2730\).</li>
+        </ol><p data-content-role="solution"><strong>Solución:</strong> 2730 formas distintas.</p></details>
+      </article>
+
+      <article id="ejercicio-2" data-exercise="2" data-content-role="worked-example"><h3>Ejercicio 2: comité de empresa</h3>
+        <div data-content-role="statement"><p>Una empresa tiene 20 empleados y quiere elegir un comité de 4 personas sin cargos. ¿Cuántos comités distintos son posibles?</p></div>
+        <details data-solution><summary>Ver resolución del ejercicio 2</summary><ol>
+          <li><strong>Técnica:</strong> todos tienen el mismo papel, así que el orden no importa: \(C(20,4)\).</li>
+          <li><strong>Cálculo:</strong> \(C(20,4)=\dfrac{20!}{4!\cdot16!}=\dfrac{20\cdot19\cdot18\cdot17}{4!}=\dfrac{116\,280}{24}=4845\).</li>
+        </ol><p data-content-role="solution"><strong>Solución:</strong> 4845 comités distintos.</p></details>
+      </article>
+
+      <article id="ejercicio-3" data-exercise="3" data-content-role="worked-example"><h3>Ejercicio 3: contraseña de letras</h3>
+        <div data-content-role="statement"><p>¿Cuántas contraseñas de 6 caracteres pueden formarse con las 27 letras minúsculas del alfabeto español (incluida la ñ), si se pueden repetir?</p></div>
+        <details data-solution><summary>Ver resolución del ejercicio 3</summary><ol>
+          <li><strong>Técnica:</strong> el orden importa y se pueden repetir letras: \(VR(27,6)\).</li>
+          <li><strong>Cálculo:</strong> \(VR(27,6)=27^6=387\,420\,489\), unos 387 millones.</li>
+        </ol><p data-content-role="solution"><strong>Solución:</strong> \(387\,420\,489\) contraseñas.</p></details>
+      </article>
+
+      <article id="ejercicio-4" data-exercise="4" data-content-role="worked-example"><h3>Ejercicio 4: ordenaciones de PROBABILIDAD</h3>
+        <div data-content-role="statement"><p>¿Cuántas ordenaciones distintas de las letras de PROBABILIDAD pueden formarse?</p></div>
+        <details data-solution><summary>Ver resolución del ejercicio 4</summary><ol>
+          <li><strong>Total de letras:</strong> P-R-O-B-A-B-I-L-I-D-A-D, \(n=12\).</li>
+          <li><strong>Repeticiones:</strong> A, B, I y D aparecen 2 veces cada una; P, R, O y L, una vez.</li>
+          <li><strong>Cálculo:</strong> \(P_{12}^{(2,2,2,2)}=\dfrac{12!}{2!\cdot2!\cdot2!\cdot2!}=\dfrac{479\,001\,600}{16}=29\,937\,600\).</li>
+        </ol><p data-content-role="solution"><strong>Solución:</strong> \(29\,937\,600\) ordenaciones distintas.</p></details>
+      </article>
+
+      <article id="ejercicio-5" data-exercise="5" data-content-role="worked-example"><h3>Ejercicio 5: tómbola</h3>
+        <div data-content-role="statement"><p>En una tómbola con 50 bolas numeradas se extraen 6 sin reposición. Una persona ha elegido 6 números. ¿Cuál es la probabilidad de que coincidan con los 6 extraídos?</p></div>
+        <details data-solution><summary>Ver resolución del ejercicio 5</summary><ol>
+          <li><strong>Casos posibles</strong> (el orden de extracción no importa): \(C(50,6)=\dfrac{50!}{6!\cdot44!}=15\,890\,700\) grupos igual de probables.</li>
+          <li><strong>Casos favorables:</strong> solo uno, el grupo elegido.</li>
+          <li><strong>Probabilidad:</strong> \(P=\dfrac{1}{15\,890\,700}\approx6{,}3\cdot10^{-8}\), alrededor del \(0{,}0000063\ \%\).</li>
+        </ol><p data-content-role="solution"><strong>Solución:</strong> \(P=\dfrac{1}{C(50,6)}\approx6{,}3\cdot10^{-8}\): prácticamente imposible.</p></details>
+      </article>
+
+      <article id="ejercicio-6" data-exercise="6" data-content-role="worked-example"><h3>Ejercicio 6: quinteto de baloncesto</h3>
+        <div data-content-role="statement"><p>Un entrenador dispone de 7 bases y 5 aleros (12 jugadores en total) y elige al azar un quinteto de 5, con todos los quintetos igual de probables. ¿Cuál es la probabilidad de que tenga exactamente 3 bases y 2 aleros?</p></div>
+        <details data-solution><summary>Ver resolución del ejercicio 6</summary><ol>
+          <li><strong>Casos posibles:</strong> \(C(12,5)=792\) quintetos.</li>
+          <li><strong>Casos favorables</strong> (principio de multiplicación): \(C(7,3)\cdot C(5,2)=35\cdot10=350\).</li>
+          <li><strong>Probabilidad:</strong> \(P=\dfrac{350}{792}=\dfrac{175}{396}\approx0{,}442\).</li>
+        </ol><p data-content-role="solution"><strong>Solución:</strong> \(P=\dfrac{C(7,3)\cdot C(5,2)}{C(12,5)}=\dfrac{175}{396}\approx44{,}2\ \%\).</p></details>
+      </article>
+    </section>
+
+    <section id="test" data-content-role="practice"><h2>Test: el reto del probabilista</h2>
+      <p>Las diez preguntas del juego original, con pista y explicación. No hay límite de tiempo y el resultado no se guarda.</p>
+      <div class="activity" data-content-role="self-check" data-quiz="combinatorics"></div>
+      <noscript><p>El test necesita JavaScript. Sin él, practica con los <a href="#ejercicios">ejercicios resueltos</a>.</p></noscript>
+    </section>
+
+    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2>
+      <p>El original no incluye combinaciones con repetición, el principio de multiplicación explicado por separado (solo aparece en el ejercicio 6) ni tarjetas de repaso. No se han añadido aquí.</p>
+      <p>Tampoco trae práctica con datos nuevos: el test repite siempre las mismas diez preguntas. El apoyo queda en estado parcial hasta su revisión editorial.</p>
+    </section>
+    <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="index.html">Volver a los contenidos de apoyo</a> · <a href="../temas/07-probabilidad/01-sucesos-regla-de-laplace.html">7.1. Sucesos. Regla de Laplace</a> · <a href="../temas/07-probabilidad/07-experimentos-compuestos.html">7.7. Experimentos compuestos</a></nav>
   </main>
   <div id="site-footer"></div>
 </body>

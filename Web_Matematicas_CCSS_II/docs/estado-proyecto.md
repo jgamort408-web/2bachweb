@@ -9,7 +9,7 @@ La base de este resumen es el [análisis de pendientes del plan](analisis-pendie
 - 86 lecciones con contenido: 58 con estado revisado y 28 parciales. Temas 1–5 desarrollados; 6–9 con estado parcial. Las diez lecciones de Probabilidad recibieron una pasada editorial y auditoría automatizada.
 - 398 preguntas base, 405 tarjetas y 19 de 28 juegos revisados.
 - 33 HTML originales de programación lineal y bloques estadísticos integrados, con carencias conservadas; Probabilidad utiliza parcialmente sus ocho originales.
-- Combinatoria pendiente de migrar.
+- Combinatoria migrada al apoyo (P02, 7 de noviembre de 2026), en estado parcial. Matriz de cobertura de los 44 originales cerrada: solo «Competencias y criterios» queda sin destino, pendiente de decisión del docente.
 - 30 de 30 paquetes LaTeX revisados: veinticuatro parejas de archivos (48 PDF), 154 páginas; ninguno pendiente de conciliación. F004 contiene dos exámenes en su pareja. Registro individual en docs/pdf/registro-paquetes.json.
 - Panel de desarrollo y filtrado público implementados. La administración central protegida, compartida y persistente sigue pendiente de T04.
 - Catálogo de 996 entidades, con 145 páginas, herencia, dependencias y control de versiones; incluye la lectura de Inferencia que ya existía y sus IDs corregidos.

@@ -1,7 +1,7 @@
 // Contrato editorial independiente de los datos que valida.
 // Al ampliar un banco, actualizar aquí su ámbito y documentar la entrega.
 export const expectedQuestionsByTopic = Object.freeze({
-  t01: 60, t02: 60, t03: 60, t04: 72, t05: 66, t07: 60, t09: 20,
+  t01: 60, t02: 60, t03: 60, t04: 72, t05: 66, t07: 60, t09: 20, combinatorics: 10,
 });
 export const expectedCardsByTopic = Object.freeze({
   t01: 61, t02: 54, t03: 48, t04: 72, t05: 66,

@@ -1,7 +1,7 @@
 const assert = require('node:assert/strict');
 const { chromium } = require('playwright');
 
-// P06 · Formulario: 82 fórmulas por tema con MathJax, búsqueda, filtro por tema, ?tema=, enlace a la lección,
+// P06 · Formulario: 87 fórmulas por tema con MathJax, búsqueda, filtro por tema, ?tema=, enlace a la lección,
 // raíz y subcarpeta, móvil al 200 % y sin JS.
 (async () => {
   const base = 'http://127.0.0.1:4173/';
@@ -20,13 +20,13 @@ const { chromium } = require('playwright');
       await page.goto(prefix + route);
       const status = page.locator('[data-formula-status]');
       await page.waitForFunction(() => document.querySelector('[data-formula-status]')?.textContent);
-      assert.equal(await status.textContent(), '82 fórmulas.');
+      assert.equal(await status.textContent(), '87 fórmulas.');
       // Todas las fórmulas se componen sin errores de TeX.
-      await page.waitForFunction(() => document.querySelectorAll('.mc-formula mjx-container').length === 82, null, { timeout: 30000 });
+      await page.waitForFunction(() => document.querySelectorAll('.mc-formula mjx-container').length === 87, null, { timeout: 30000 });
       assert.equal(await page.locator('[data-mml-node="merror"]').count(), 0);
       // Búsqueda sin tildes.
       await page.locator('[data-formula-search]').fill('bayes');
-      assert.equal(await status.textContent(), '1 de 82 fórmulas.');
+      assert.equal(await status.textContent(), '1 de 87 fórmulas.');
       assert.equal(await page.locator('[data-formula-group]:visible').count(), 1);
       await page.locator('[data-formula-search]').fill('regresion');
       assert.equal(await page.locator('[data-formula-entry]:visible').count(), 1);
@@ -48,17 +48,17 @@ const { chromium } = require('playwright');
     assert.equal(await page.locator('[data-formula-group]:visible').count(), 1);
     assert.equal(await page.locator('[data-formula-topic]').inputValue(), 't09');
     await page.goto(base + route);
-    await page.waitForFunction(() => document.querySelectorAll('.mc-formula mjx-container').length === 82, null, { timeout: 30000 });
+    await page.waitForFunction(() => document.querySelectorAll('.mc-formula mjx-container').length === 87, null, { timeout: 30000 });
     await page.setViewportSize({ width: 320, height: 844 });
     await page.evaluate(() => document.documentElement.style.fontSize = '200%');
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
     const nojs = await browser.newContext({ javaScriptEnabled: false });
     const offline = await nojs.newPage();
     await offline.goto(base + route);
-    assert.equal(await offline.locator('[data-formula-entry]').count(), 82);
+    assert.equal(await offline.locator('[data-formula-entry]').count(), 87);
     assert.equal(await offline.locator('[data-formula-filters]').isVisible(), false);
     await nojs.close();
     assert.deepEqual(errors, []);
-    console.log('PASS: 82 fórmulas con MathJax, búsqueda, filtro por tema, ?tema, fórmula → lección, raíz/subcarpeta, móvil 200 % y sin JS.');
+    console.log('PASS: 87 fórmulas con MathJax, búsqueda, filtro por tema, ?tema, fórmula → lección, raíz/subcarpeta, móvil 200 % y sin JS.');
   } finally { await browser.close(); }
 })().catch(e => { console.error(e); process.exitCode = 1; });
