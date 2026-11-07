@@ -11,7 +11,7 @@ export function projectCatalog(resourceItems = readConfig('resources').resources
   return buildContentCatalog({
     pages: readConfig('pages'), widgets: readConfig('widgets'), editorial: readConfig('editorial'),
     studyScopes: readConfig('study-scopes'), questions, flashcards,
-    resources: { schemaVersion: 1, resources: resourceItems }
+    resources: { schemaVersion: 1, resources: resourceItems }, selectividad: readConfig('selectividad')
   });
 }
 

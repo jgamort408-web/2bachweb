@@ -1,7 +1,9 @@
 import { immutableCopy, record, requireValue, stableId, textValue, projectPath } from './contracts.js';
 
 export const CATALOG_SCHEMA_VERSION = 1;
-const kinds = ['section', 'topic', 'lesson', 'widget', 'question', 'card', 'resource'];
+const kinds = ['section', 'topic', 'lesson', 'widget', 'question', 'card', 'resource', 'group', 'solution'];
+// Entidades sin ruta propia: viven dentro de una página (actividades, grupos y soluciones de Selectividad).
+const embeddedKinds = ['question', 'card', 'group', 'solution'];
 const audiences = ['public', 'admin', 'inactive', 'system'];
 const reviewStates = ['reviewed', 'partial', 'pending', 'untracked'];
 const entityKeys = ['id', 'sourceId', 'kind', 'title', 'parentId', 'requires', 'audience',
@@ -20,7 +22,7 @@ export function validateCatalog(input) {
     stableId(entity.sourceId, entity.id + '.sourceId');
     requireValue(!byId.has(entity.id), 'ID duplicado: ' + entity.id);
     requireValue(kinds.includes(entity.kind), entity.id + ': tipo desconocido');
-    const namespace = ['question', 'card', 'resource'].includes(entity.kind) ? entity.kind : 'page';
+    const namespace = ['question', 'card', 'resource', 'group', 'solution'].includes(entity.kind) ? entity.kind : 'page';
     requireValue(entity.id === namespace + ':' + entity.sourceId, entity.id + ': espacio de IDs incoherente');
     requireValue(audiences.includes(entity.audience), entity.id + ': audiencia desconocida');
     requireValue(reviewStates.includes(entity.reviewStatus), entity.id + ': revisión desconocida');
@@ -30,7 +32,7 @@ export function validateCatalog(input) {
     requireValue(Array.isArray(entity.requires) && new Set(entity.requires).size === entity.requires.length,
       entity.id + ': dependencias inválidas o repetidas');
     entity.requires.forEach(id => stableId(id, entity.id + '.requires'));
-    if (['question', 'card'].includes(entity.kind)) {
+    if (embeddedKinds.includes(entity.kind)) {
       requireValue(entity.path === undefined, entity.id + ': las actividades no tienen ruta propia');
     } else projectPath(entity.path, entity.id + '.path');
     if (entity.kind === 'widget') {
@@ -88,7 +90,8 @@ export function validateCatalog(input) {
   return immutableCopy(input);
 }
 
-export function buildContentCatalog({ pages, widgets, questions, flashcards, editorial, studyScopes, resources }) {
+export function buildContentCatalog({ pages, widgets, questions, flashcards, editorial, studyScopes, resources,
+  selectividad = { schemaVersion: 1, topics: [], solutions: [] } }) {
   requireValue(Array.isArray(pages) && Array.isArray(widgets) && Array.isArray(questions)
     && Array.isArray(flashcards), 'Los catálogos de origen deben ser listas');
   record(editorial, 'editorial');
@@ -143,6 +146,29 @@ export function buildContentCatalog({ pages, widgets, questions, flashcards, edi
       ...(resource.kind === 'solution' ? { solutionOf: 'resource:' + resource.examId } : {}),
       audience: 'public', locked: false, reviewStatus: resource.reviewStatus ?? 'pending',
       tags: resource.tags ?? []
+    });
+  }
+  // Soluciones del banco de Selectividad (P08): un grupo por página de tema, para activarlas en bloque, y una
+  // entidad por solución validada, para ocultar o mostrar una sola. config/visibility.json oculta los grupos de partida.
+  record(selectividad, 'selectividad', ['schemaVersion', 'topics', 'epigraphs', 'solutions']);
+  requireValue(selectividad.schemaVersion === 1 && Array.isArray(selectividad.topics) && Array.isArray(selectividad.solutions),
+    'Manifiesto de Selectividad no compatible');
+  for (const topic of selectividad.topics) {
+    record(topic, 'tema de Selectividad', ['topicId', 'pageId', 'path', 'name', 'exercises']);
+    requireValue(pageIds.has(topic.pageId), 'Página de Selectividad sin registrar: ' + topic.pageId);
+    entities.push({
+      id: 'group:selectividad-soluciones-' + topic.topicId, sourceId: 'selectividad-soluciones-' + topic.topicId, kind: 'group',
+      title: 'Soluciones de Selectividad: ' + topic.name, parentId: 'page:' + topic.pageId, requires: [],
+      audience: 'public', locked: false, reviewStatus: 'untracked'
+    });
+  }
+  for (const solution of selectividad.solutions) {
+    record(solution, 'solución de Selectividad', ['id', 'topicId', 'title']);
+    entities.push({
+      id: 'solution:' + solution.id, sourceId: solution.id, kind: 'solution',
+      title: 'Solución ' + solution.id + ': ' + solution.title,
+      parentId: 'group:selectividad-soluciones-' + solution.topicId, requires: [],
+      audience: 'public', locked: false, reviewStatus: 'reviewed'
     });
   }
   return validateCatalog({ schemaVersion: CATALOG_SCHEMA_VERSION, entities });
