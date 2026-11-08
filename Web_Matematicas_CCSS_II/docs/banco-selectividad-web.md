@@ -51,8 +51,20 @@ Las páginas se generan desde la copia de trabajo de `Selectividad_LaTeX`. El 8 
 2. Se regenera con `npm run build:selectividad` y se comprueba con `npm test` y la prueba 165.
 3. La integración continua ejecuta `--check` contra lo confirmado: si las páginas se generaron con archivos sin confirmar, falla.
 
+## Generador de relaciones (P09)
+
+[selectividad/relaciones.html](../selectividad/relaciones.html), enlazado desde el índice del banco. La lógica está en [selectividad-relations.js](../content/models/selectividad-relations.js), sin DOM, y la interfaz en `assets/js/learning/selectividad-relations.js`.
+
+- **Criterios:** temas (ninguno marcado: todos), contenidos con buscador (alguno o todos), número de ejercicios (1–30), semilla y título. Opciones: incluir el contraste de hipótesis; y, si hay soluciones publicadas, solo ejercicios resueltos y añadir las soluciones al final.
+- **Selección reproducible:** generador mulberry32 con semilla FNV-1a sobre la lista ordenada por ID, sin repetir ejercicio. Después se ordena por tema y año. Los criterios viajan en la dirección (`?temas=t07&etiquetas=bayes&n=6&semilla=48213`), así que un enlace reproduce la relación. Solo entran los ejercicios de temas visibles y las soluciones publicadas; con la configuración de respaldo, ninguna.
+- **PDF:** vista de impresión del navegador. Solo se imprime la hoja, con tinta oscura también con el tema oscuro, y las soluciones empiezan en una página nueva.
+- **LaTeX (.tex):** un archivo autónomo con el preámbulo del banco (`tex/paquetes.tex`). Las figuras de las soluciones no caben en un archivo: se sustituyen por un aviso que remite al .zip.
+- **Overleaf (.zip):** proyecto con la estructura del banco (`main.tex`, `tex/`, `config/`, `catalogo/registro.tex` solo con los elegidos, `selecciones/relacion.tex`, `enunciados/`, `soluciones/` publicadas y `recursos/figuras/`). El .zip se crea en el navegador, sin compresión, y lleva un LEEME.
+- **Datos:** `content/selectividad/ejercicios.json` (enunciados en HTML y LaTeX, unos 1.3 MB sin comprimir); `soluciones.json` (versión 2: HTML y LaTeX); `content/selectividad/latex/` (archivos del banco y figuras PDF de las soluciones). Lo genera `build-selectividad.mjs`.
+- **Comprobado:** una relación con 16 ejercicios (soluciones con figuras, `ordermatrix` y contraste) compila con Tectonic, tanto el .tex como el proyecto del .zip. El punto medio de la procedencia se escribe como `	extperiodcentered{}`, porque con la codificación T1 del banco XeTeX lo imprimiría como «ů». Pruebas: `selectividad-relations.test.mjs` y 166.
+
 ## Pendiente
 
 - Publicación (fusión en `main`) cuando la identificación esté completa.
-- Generador de relaciones (P09) y de exámenes (P10), que partirán de estos mismos datos.
+- Generador de exámenes (P10), que partirá de estos mismos datos y de [formato-pau-vigente.md](formato-pau-vigente.md).
 - Revisión del docente de los nombres de las etiquetas y de las páginas.

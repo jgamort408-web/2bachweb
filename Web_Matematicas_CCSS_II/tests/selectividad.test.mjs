@@ -44,7 +44,10 @@ test('CSV: comillas, comas y saltos de línea dentro de un campo', () => {
 test('banco de Selectividad: datos coherentes y páginas al día', () => {
   const bank = loadBank();
   const files = buildAll(bank);
-  for (const [file, content] of files) assert.equal(read(file), content, file + ' no está al día: node scripts/build-selectividad.mjs');
+  for (const [file, content] of files) {
+    const bytes = fs.readFileSync(new URL(file, root));
+    assert.ok(bytes.equals(Buffer.isBuffer(content) ? content : Buffer.from(content, 'utf8')), file + ' no está al día: node scripts/build-selectividad.mjs');
+  }
   const config = JSON.parse(files.get('config/selectividad.json'));
   const pages = JSON.parse(read('config/pages.json'));
   assert.equal(bank.exercises.length, config.topics.reduce((sum, topic) => sum + topic.exercises, 0));

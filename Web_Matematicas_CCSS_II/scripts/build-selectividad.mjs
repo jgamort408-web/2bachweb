@@ -9,6 +9,7 @@
  *
  *   node scripts/build-selectividad.mjs          regenera todo
  *   node scripts/build-selectividad.mjs --check  termina con código 1 si algo no está al día (no convierte figuras)
+ *   SELECTIVIDAD_LATEX_DIR=<carpeta> …           lee el banco desde otra copia (por ejemplo, git archive HEAD)
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -17,7 +18,10 @@ import { fileURLToPath } from 'node:url';
 import { latexToHtml, plainText } from './lib/latex-html.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
-export const bankRoot = path.join(root, '..', 'Selectividad_LaTeX');
+// SELECTIVIDAD_LATEX_DIR permite generar desde otra copia del banco, por ejemplo una exportación de lo confirmado en Git
+// (git archive) mientras la otra herramienta trabaja en la carpeta.
+export const bankRoot = process.env.SELECTIVIDAD_LATEX_DIR ? path.resolve(process.env.SELECTIVIDAD_LATEX_DIR)
+  : path.join(root, '..', 'Selectividad_LaTeX');
 const figureDir = path.join(root, 'assets', 'img', 'selectividad');
 
 // Nombres visibles de las etiquetas del banco (datos/tags.csv). Una etiqueta nueva sin nombre detiene la generación.
@@ -128,6 +132,7 @@ export function loadBank({ convertFigures = false } = {}) {
   const pages = readJson('config/pages.json');
   const pageById = new Map(pages.map(page => [page.id, page]));
   const figures = new Set();
+  const figureUse = new Map();
   const figure = (id, source, caption) => {
     // Las soluciones citan la figura como figuras/x.pdf o recursos/figuras/x.pdf; ambas están en recursos/figuras.
     const relative = source.replace(/^recursos\//, '');
@@ -143,6 +148,8 @@ export function loadBank({ convertFigures = false } = {}) {
     const kind = Object.keys(FIGURE_ALT).find(suffix => name.endsWith('-' + suffix));
     if (!kind) throw new Error(`${id}: añade a FIGURE_ALT una descripción para la figura ${name}`);
     figures.add(name + '.png');
+    if (!figureUse.has(id)) figureUse.set(id, []);
+    figureUse.get(id).push(name);
     const { width, height } = pngSize(png);
     // Las soluciones describen cada figura en el texto contiguo (vértices, cortes, extremos): el texto
     // alternativo dice qué se representa y remite a esa descripción. Se convierte a escala 3 y se muestra a la mitad
@@ -163,12 +170,14 @@ export function loadBank({ convertFigures = false } = {}) {
     const validated = row.estado_solucion === 'validada';
     if (validated !== /^% ESTADO: validada/m.test(solutionSource)) throw new Error(`${id}: estado de la solución distinto en el CSV y en el .tex`);
     const statement = latexToHtml(statementSource, { id });
+    const solution = validated ? latexToHtml(solutionSource, { id: id + ' (solución)', figure: (source, caption) => figure(id, source, caption) }) : null;
     return {
-      id, row, statement, validated,
+      id, row, statement, validated, statementSource, solutionSource: validated ? solutionSource : null,
+      solutionFigures: figureUse.get(id) ?? [],
       topicId: row.tema_principal.toLowerCase(),
       secondary: list(row.temas_secundarios).map(topic => topic.toLowerCase()),
       epigraphs: list(row.epigrafes), tags: list(row.tags),
-      solution: validated ? latexToHtml(solutionSource, { id: id + ' (solución)', figure: (source, caption) => figure(id, source, caption) }) : null,
+      solution,
       search: fold([row.titulo_descriptivo, id, plainText(statement), ...list(row.tags).map(tag => TAG_LABELS[tag])].join(' '))
     };
   });
@@ -343,6 +352,7 @@ function indexPage(bank) {
   const body = [
     '<h1>Selectividad</h1>',
     `<p class="mc-lead">${total} ejercicios de los exámenes de Matemáticas Aplicadas a las Ciencias Sociales II de Andalucía (${Math.min(...years)}–${Math.max(...years)}), ordenados por tema. Cada tarjeta indica el año, la convocatoria y el ejercicio de origen, y enlaza con las lecciones que necesitas.</p>`,
+    '<p>Para practicar con una selección al azar por temas y contenidos, en PDF o LaTeX, usa el <a href="relaciones.html">generador de relaciones</a>.</p>',
     '<section aria-labelledby="temas">',
     '  <h2 id="temas">Elige un tema</h2>',
     '  <ul class="mc-mode-list">',
@@ -365,6 +375,52 @@ function indexPage(bank) {
     '</section>'
   ].join('\n');
   return page({ pageId: 'selectividad', title: 'Selectividad', description: 'Banco de ejercicios de Selectividad por temas.', body });
+}
+
+// Archivos del banco que necesita un proyecto de Overleaf generado por la web (estructura de Selectividad_LaTeX).
+const LATEX_ASSETS = ['main.tex', 'tex/paquetes.tex', 'tex/comandos.tex', 'config/opciones.tex'];
+
+function relationsPage(bank) {
+  const count = topicId => bank.exercises.filter(exercise => exercise.topicId === topicId && !exercise.tags.includes(OUT_OF_SYLLABUS_TAG)).length;
+  const body = [
+    '<h1>Generador de relaciones</h1>',
+    '<p class="mc-lead">Elige temas, contenidos y el número de ejercicios: la web elige ejercicios de Selectividad al azar y prepara una relación para imprimir, guardar en PDF o descargar en LaTeX.</p>',
+    '<noscript><p class="mc-rel__notice">El generador necesita JavaScript. Puedes consultar los ejercicios en las <a href="index.html">páginas de cada tema</a>.</p></noscript>',
+    '<form class="mc-rel__form" data-rel-form hidden aria-labelledby="criterios">',
+    '  <h2 id="criterios">Criterios</h2>',
+    '  <fieldset class="mc-rel__topics">',
+    '    <legend>Temas <span class="mc-rel__hint">(ninguno marcado: todos)</span></legend>',
+    ...bank.topics.map(topic => `    <label class="mc-sel__check"><input type="checkbox" name="tema" value="${topic.topicId}"> <span>${escape(topic.name)} <span class="mc-sel__muted">(${count(topic.topicId)})</span></span></label>`),
+    '  </fieldset>',
+    '  <fieldset class="mc-rel__tags">',
+    '    <legend>Contenidos <span class="mc-rel__hint">(ninguno marcado: todos)</span></legend>',
+    '    <label class="mc-field mc-rel__tag-search">Buscar un contenido <input type="search" data-rel-tag-search autocomplete="off" placeholder="Bayes, matriz inversa…"></label>',
+    '    <div class="mc-rel__tag-list" data-rel-tags></div>',
+    '    <p class="mc-rel__mode"><label class="mc-sel__check"><input type="radio" name="modo" value="any" checked> Con alguno de los contenidos marcados</label>',
+    '    <label class="mc-sel__check"><input type="radio" name="modo" value="all"> Con todos</label></p>',
+    '  </fieldset>',
+    '  <div class="mc-rel__row">',
+    '    <label class="mc-field">Número de ejercicios <input type="number" name="n" min="1" max="30" value="6" inputmode="numeric"></label>',
+    '    <label class="mc-field">Semilla <input type="text" name="semilla" autocomplete="off" spellcheck="false" aria-describedby="semilla-ayuda"></label>',
+    '    <label class="mc-field mc-rel__title">Título <input type="text" name="titulo" autocomplete="off"></label>',
+    '  </div>',
+    '  <p class="mc-rel__hint" id="semilla-ayuda">Con la misma semilla y los mismos criterios sale la misma relación; el enlace de la página la reproduce.</p>',
+    '  <p class="mc-rel__options"><label class="mc-sel__check"><input type="checkbox" name="contraste"> Incluir lo que ya no entra en la PAU (contraste de hipótesis)</label>',
+    '  <label class="mc-sel__check" data-rel-solved-field hidden><input type="checkbox" name="resueltos"> Solo ejercicios con la solución publicada</label>',
+    '  <label class="mc-sel__check" data-rel-solutions-field hidden><input type="checkbox" name="soluciones"> Añadir las soluciones publicadas al final</label></p>',
+    '  <p class="mc-rel__actions"><button type="submit" class="mc-btn mc-btn--primary">Generar relación</button> <button type="button" class="mc-btn" data-rel-reroll>Otra selección</button></p>',
+    '</form>',
+    '<p class="mc-library__status" data-rel-status role="status" aria-live="polite"></p>',
+    '<section class="mc-rel__output" data-rel-output hidden aria-labelledby="relacion-titulo">',
+    '  <p class="mc-rel__downloads"><button type="button" class="mc-btn mc-btn--primary" data-rel-print>Imprimir o guardar en PDF</button> <button type="button" class="mc-btn" data-rel-tex>Descargar LaTeX (.tex)</button> <button type="button" class="mc-btn" data-rel-zip>Proyecto para Overleaf (.zip)</button></p>',
+    '  <article class="mc-rel__sheet" data-rel-sheet></article>',
+    '</section>'
+  ].join('\n');
+  return page({
+    pageId: 'selectividad-relaciones', title: 'Generador de relaciones',
+    description: 'Relaciones de ejercicios de Selectividad elegidos al azar por tema y contenido, en PDF y LaTeX.',
+    body, scripts: ['../assets/js/learning/selectividad-relations.js']
+  });
 }
 
 export function buildAll(bank) {
@@ -390,8 +446,29 @@ export function buildAll(bank) {
     }))
   };
   files.set('config/selectividad.json', JSON.stringify(config, null, 2) + '\n');
-  const solutions = Object.fromEntries(bank.exercises.filter(exercise => exercise.validated).map(exercise => [exercise.id, exercise.solution]));
-  files.set('content/selectividad/soluciones.json', JSON.stringify({ schemaVersion: 1, solutions }, null, 1) + '\n');
+  const solutions = Object.fromEntries(bank.exercises.filter(exercise => exercise.validated).map(exercise => [exercise.id,
+    { html: exercise.solution, latex: exercise.solutionSource }]));
+  files.set('content/selectividad/soluciones.json', JSON.stringify({ schemaVersion: 2, solutions }, null, 1) + '\n');
+  // Generador de relaciones (P09): enunciados en HTML y en LaTeX, y lo necesario para un proyecto de Overleaf.
+  const tagsInUse = [...new Set(bank.exercises.flatMap(exercise => exercise.tags))].sort((a, b) => TAG_LABELS[a].localeCompare(TAG_LABELS[b], 'es'));
+  files.set('content/selectividad/ejercicios.json', JSON.stringify({
+    schemaVersion: 1,
+    topics: bank.topics.map(({ topicId, pageId, name }) => ({ topicId, pageId, name })),
+    tags: Object.fromEntries(tagsInUse.map(tag => [tag, TAG_LABELS[tag]])),
+    exercises: bank.exercises.map(exercise => {
+      const { origin, place } = provenance(exercise.row);
+      return {
+        id: exercise.id, topicId: exercise.topicId, title: exercise.row.titulo_descriptivo, year: exercise.row.anio,
+        origin, place, points: exercise.row.puntuacion_original, tags: exercise.tags,
+        outside: exercise.tags.includes(OUT_OF_SYLLABUS_TAG), html: exercise.statement, latex: exercise.statementSource
+      };
+    })
+  }, null, 1) + '\n');
+  for (const name of LATEX_ASSETS) files.set('content/selectividad/latex/' + name, readBank(name));
+  for (const name of [...new Set(bank.exercises.flatMap(exercise => exercise.solutionFigures))].sort()) {
+    files.set(`content/selectividad/latex/recursos/figuras/${name}.pdf`, fs.readFileSync(path.join(bankRoot, 'recursos', 'figuras', name + '.pdf')));
+  }
+  files.set('selectividad/relaciones.html', relationsPage(bank));
   return files;
 }
 
@@ -402,11 +479,17 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   const stale = [];
   for (const [file, content] of files) {
     const target = path.join(root, file);
-    const current = fs.existsSync(target) ? fs.readFileSync(target, 'utf8') : null;
-    if (current === content) continue;
+    const current = fs.existsSync(target) ? fs.readFileSync(target) : null;
+    if (current && current.equals(Buffer.isBuffer(content) ? content : Buffer.from(content, 'utf8'))) continue;
     if (check) stale.push(file);
-    else { fs.mkdirSync(path.dirname(target), { recursive: true }); fs.writeFileSync(target, content, 'utf8'); }
+    else { fs.mkdirSync(path.dirname(target), { recursive: true }); fs.writeFileSync(target, content); }
   }
+  // Figuras PDF que ya no cita ninguna solución publicable.
+  const latexFigures = path.join(root, 'content', 'selectividad', 'latex', 'recursos', 'figuras');
+  const orphanPdf = fs.existsSync(latexFigures) ? fs.readdirSync(latexFigures)
+    .filter(name => !files.has('content/selectividad/latex/recursos/figuras/' + name)) : [];
+  if (!check) for (const name of orphanPdf) fs.rmSync(path.join(latexFigures, name));
+  else stale.push(...orphanPdf);
   const orphanFigures = fs.existsSync(figureDir) ? fs.readdirSync(figureDir).filter(name => !bank.figures.has(name)) : [];
   if (check) {
     if (stale.length || orphanFigures.length) {

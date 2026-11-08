@@ -1,0 +1,26 @@
+% Documento principal de Overleaf. Compilador recomendado: pdfLaTeX.
+\documentclass[11pt,a4paper]{article}
+\input{tex/paquetes}
+\input{config/seleccion}
+\input{config/opciones}
+\input{tex/comandos}
+\input{catalogo/registro}
+
+\begin{document}
+\begin{center}
+  {\Large\bfseries Matemáticas Aplicadas a las Ciencias Sociales II}\par
+  \medskip
+  {\large Banco modular de Selectividad}\par
+  \smallskip
+  \TituloSeleccion
+\end{center}
+
+\noindent\textbf{Modo:} \EtiquetaModo.\par
+\noindent\small Los identificadores permiten localizar cada fuente en
+\textnormal{datos/ejercicios.csv}. Los avisos de contenido pendiente son controles
+de preparación; no constituyen enunciados ni soluciones.\normalsize
+\medskip
+
+\ContextoSeleccion
+\MostrarSeleccion
+\end{document}

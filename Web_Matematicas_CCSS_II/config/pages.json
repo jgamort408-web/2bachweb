@@ -843,6 +843,13 @@
     "topicId": "t09"
   },
   {
+    "id": "selectividad-relaciones",
+    "title": "Generador de relaciones",
+    "path": "selectividad/relaciones.html",
+    "parentId": "selectividad",
+    "kind": "section"
+  },
+  {
     "id": "tools",
     "title": "Herramientas",
     "path": "herramientas/index.html",

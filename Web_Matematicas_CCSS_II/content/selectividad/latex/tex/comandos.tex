@@ -1,0 +1,110 @@
+% Contrato: ID, enunciado, solución, etiqueta, estado enunciado, estado solución.
+% Usa expl3, incluido en el núcleo de LaTeX actual.
+\ExplSyntaxOn
+\prop_new:N \g_sel_catalogo_prop
+\tl_new:N \l_sel_ruta_tl
+\tl_new:N \l_sel_estado_tl
+\tl_new:N \l_sel_modo_tl
+\tl_new:N \l_sel_borradores_tl
+\bool_new:N \l_sel_reservado_bool
+\clist_new:N \l_sel_lista_clist
+
+\NewDocumentCommand{\RegistrarEjercicio}{mmmmmm}
+  {
+    \prop_if_in:NnT \g_sel_catalogo_prop {#1/en}
+      {\PackageError{selectividad}{ID~duplicado:~#1}{Revisar~datos/ejercicios.csv.}}
+    \prop_gput:Nnn \g_sel_catalogo_prop {#1/en} {#2}
+    \prop_gput:Nnn \g_sel_catalogo_prop {#1/sol} {#3}
+    \prop_gput:Nnn \g_sel_catalogo_prop {#1/etiqueta} {#4}
+    \prop_gput:Nnn \g_sel_catalogo_prop {#1/estadoen} {#5}
+    \prop_gput:Nnn \g_sel_catalogo_prop {#1/estadosol} {#6}
+  }
+
+\NewDocumentCommand{\AvisoPendiente}{m}
+  {\par\group_begin:\color{black!75}\small\textbf{Pendiente:}~#1\par\group_end:}
+
+\cs_new_protected:Npn \sel_cargar_fragmento:nn #1#2
+  {
+    \prop_get:NnN \g_sel_catalogo_prop {#1/#2} \l_sel_ruta_tl
+    \exp_args:NV \file_if_exist:nTF \l_sel_ruta_tl
+      {\exp_args:NV \file_input:n \l_sel_ruta_tl}
+      {\PackageError{selectividad}{Falta~el~fragmento~#2~de~#1}{Revisar~su~ruta~en~el~CSV.}}
+  }
+
+\NewDocumentCommand{\MostrarEjercicio}{m}
+  {
+    \prop_if_in:NnTF \g_sel_catalogo_prop {#1/en}
+      {
+        % Reservar espacio al inicio para el encabezado y los primeros datos,
+        % en particular matrices o funciones a trozos, sin impedir que un
+        % ejercicio largo continúe en otra página.
+        \par
+        \dim_compare:nNnT {\pagegoal-\pagetotal} < {14\baselineskip} {\newpage}
+        % Un registro reservado sólo imprime avisos breves: mantenerlos juntos.
+        % Los enunciados reales y sus soluciones sí pueden ocupar varias páginas.
+        \prop_get:NnN \g_sel_catalogo_prop {#1/estadoen} \l_sel_estado_tl
+        \bool_set_false:N \l_sel_reservado_bool
+        \str_if_eq:VnT \l_sel_estado_tl {pendiente}
+          {\bool_set_true:N \l_sel_reservado_bool\begin{minipage}{\linewidth}}
+        \section*{Ejercicio~\textnormal{#1}}
+        {\small\prop_item:Nn \g_sel_catalogo_prop {#1/etiqueta}\par}
+        \prop_get:NnN \g_sel_catalogo_prop {#1/estadoen} \l_sel_estado_tl
+        \str_if_eq:VnTF \l_sel_estado_tl {cotejada}
+          {\sel_cargar_fragmento:nn {#1}{en}}
+          {
+            \AvisoPendiente{Enunciado~sin~transcripción~cotejada.~Estado:~
+              \tl_to_str:V \l_sel_estado_tl .~Consultar~la~fuente~original~indicada~en~el~CSV.}
+            \tl_set:Nx \l_sel_borradores_tl {\IncluirBorradores}
+            \str_if_eq:VnT \l_sel_borradores_tl {si}
+              {
+                \str_if_eq:VnT \l_sel_estado_tl {borrador}
+                  {\textbf{Borrador~para~revisión:}\par\sel_cargar_fragmento:nn {#1}{en}}
+              }
+          }
+        \tl_set:Nx \l_sel_modo_tl {\ModoSalida}
+        \str_if_eq:VnT \l_sel_modo_tl {enunciados-y-soluciones}
+          {
+            \prop_get:NnN \g_sel_catalogo_prop {#1/estadosol} \l_sel_estado_tl
+            \str_if_eq:VnTF \l_sel_estado_tl {validada}
+              {\subsection*{Solución~de~\textnormal{#1}}\sel_cargar_fragmento:nn {#1}{sol}}
+              {
+                \par\begin{minipage}{\linewidth}
+                \subsection*{Solución~de~\textnormal{#1}}
+                \AvisoPendiente{Solución~pendiente~de~elaboración~o~validación.~
+                  Estado:~\tl_to_str:V \l_sel_estado_tl .}
+                \end{minipage}\par
+              }
+          }
+        \medskip\hrule\medskip
+        \bool_if:NT \l_sel_reservado_bool {\end{minipage}\par\medskip}
+      }
+      {\PackageError{selectividad}{ID~desconocido:~#1}{Usar~identificadores~del~catalogo.}}
+  }
+
+\NewDocumentCommand{\EtiquetaModo}{}
+  {
+    \tl_set:Nx \l_sel_modo_tl {\ModoSalida}
+    \str_if_eq:VnTF \l_sel_modo_tl {enunciados}
+      {sólo~enunciados}
+      {
+        \str_if_eq:VnTF \l_sel_modo_tl {enunciados-y-soluciones}
+          {enunciados~y~soluciones}
+          {\PackageError{selectividad}{ModoSalida~no~valido}{Usar~enunciados~o~enunciados-y-soluciones.}}
+      }
+  }
+
+\NewDocumentCommand{\MostrarSeleccion}{}
+  {
+    \clist_set:Nx \l_sel_lista_clist {\ListaEjercicios}
+    \clist_if_empty:NTF \l_sel_lista_clist
+      {
+        \section*{Selección~vacía}
+        No~se~ha~seleccionado~ningún~ejercicio.~El~catálogo~está~en~preparación.~
+        Los~archivos~reservados~no~se~presentan~como~enunciados~completos.\par
+        Para~revisar~su~organización,~cargar~la~selección~
+        \textnormal{selecciones/piloto-2019.tex}.~Para~una~ficha~de~uso~docente,~
+        seleccionar~únicamente~enunciados~con~estado~\textnormal{cotejada}.
+      }
+      {\clist_map_inline:Nn \l_sel_lista_clist {\MostrarEjercicio{##1}}}
+  }
+\ExplSyntaxOff

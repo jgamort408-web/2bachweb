@@ -85,7 +85,7 @@ async function showSolutions(context) {
     try { solutions = await loadSolutions(); }
     catch { solutionsPromise = undefined; return; }
     for (const slot of visible) {
-      const html = solutions[slot.dataset.selSolution];
+      const html = solutions[slot.dataset.selSolution]?.html;
       if (!html) continue;
       if (!slot.childElementCount) {
         const details = document.createElement('details');

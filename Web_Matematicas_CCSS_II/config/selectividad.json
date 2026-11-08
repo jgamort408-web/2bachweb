@@ -964,6 +964,46 @@
       "id": "SEL-D0009-BD-E08",
       "topicId": "t09",
       "title": "Celulosa reciclada: intervalo y cota de amplitud"
+    },
+    {
+      "id": "SEL-D0010-BA-E01",
+      "topicId": "t04",
+      "title": "Inversibilidad con parámetro y ecuación con traspuesta"
+    },
+    {
+      "id": "SEL-D0010-BA-E02",
+      "topicId": "t06",
+      "title": "Región factible, extremos y alcance de un valor"
+    },
+    {
+      "id": "SEL-D0010-BB-E03",
+      "topicId": "t01",
+      "title": "Exponencial y polinomio a trozos; integral definida"
+    },
+    {
+      "id": "SEL-D0010-BB-E04",
+      "topicId": "t01",
+      "title": "Modelo de diagnosticados: continuidad y máximo"
+    },
+    {
+      "id": "SEL-D0010-BC-E05",
+      "topicId": "t07",
+      "title": "Test diagnóstico: condicionamientos positivo y negativo"
+    },
+    {
+      "id": "SEL-D0010-BC-E06",
+      "topicId": "t07",
+      "title": "Vehículo propio y transporte público"
+    },
+    {
+      "id": "SEL-D0010-BD-E07",
+      "topicId": "t09",
+      "title": "Residentes británicos: intervalo y tamaño mínimo"
+    },
+    {
+      "id": "SEL-D0010-BD-E08",
+      "topicId": "t09",
+      "title": "Media normal: distribución muestral, intervalo y muestra"
     }
   ]
 }

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" data-skin="mc">
+<head>
+  <script src="../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Generador de relaciones · Matemáticas CCSS II</title>
+  <meta name="description" content="Relaciones de ejercicios de Selectividad elegidos al azar por tema y contenido, en PDF y LaTeX.">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <script type="module" src="../assets/js/app.js"></script>
+  <script type="module" src="../assets/js/learning/selectividad-relations.js"></script>
+</head>
+<body data-page-id="selectividad-relaciones" class="mc-skin">
+  <!-- Generado por scripts/build-selectividad.mjs a partir de Selectividad_LaTeX: no editar a mano. -->
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main mc-page">
+    <h1>Generador de relaciones</h1>
+    <p class="mc-lead">Elige temas, contenidos y el número de ejercicios: la web elige ejercicios de Selectividad al azar y prepara una relación para imprimir, guardar en PDF o descargar en LaTeX.</p>
+    <noscript><p class="mc-rel__notice">El generador necesita JavaScript. Puedes consultar los ejercicios en las <a href="index.html">páginas de cada tema</a>.</p></noscript>
+    <form class="mc-rel__form" data-rel-form hidden aria-labelledby="criterios">
+      <h2 id="criterios">Criterios</h2>
+      <fieldset class="mc-rel__topics">
+        <legend>Temas <span class="mc-rel__hint">(ninguno marcado: todos)</span></legend>
+        <label class="mc-sel__check"><input type="checkbox" name="tema" value="t01"> <span>Límites y derivadas <span class="mc-sel__muted">(105)</span></span></label>
+        <label class="mc-sel__check"><input type="checkbox" name="tema" value="t02"> <span>Representación de funciones <span class="mc-sel__muted">(60)</span></span></label>
+        <label class="mc-sel__check"><input type="checkbox" name="tema" value="t03"> <span>Integrales <span class="mc-sel__muted">(1)</span></span></label>
+        <label class="mc-sel__check"><input type="checkbox" name="tema" value="t04"> <span>Matrices y determinantes <span class="mc-sel__muted">(81)</span></span></label>
+        <label class="mc-sel__check"><input type="checkbox" name="tema" value="t05"> <span>Sistemas de ecuaciones <span class="mc-sel__muted">(2)</span></span></label>
+        <label class="mc-sel__check"><input type="checkbox" name="tema" value="t06"> <span>Programación lineal <span class="mc-sel__muted">(83)</span></span></label>
+        <label class="mc-sel__check"><input type="checkbox" name="tema" value="t07"> <span>Probabilidad <span class="mc-sel__muted">(166)</span></span></label>
+        <label class="mc-sel__check"><input type="checkbox" name="tema" value="t09"> <span>Inferencia estadística <span class="mc-sel__muted">(111)</span></span></label>
+      </fieldset>
+      <fieldset class="mc-rel__tags">
+        <legend>Contenidos <span class="mc-rel__hint">(ninguno marcado: todos)</span></legend>
+        <label class="mc-field mc-rel__tag-search">Buscar un contenido <input type="search" data-rel-tag-search autocomplete="off" placeholder="Bayes, matriz inversa…"></label>
+        <div class="mc-rel__tag-list" data-rel-tags></div>
+        <p class="mc-rel__mode"><label class="mc-sel__check"><input type="radio" name="modo" value="any" checked> Con alguno de los contenidos marcados</label>
+        <label class="mc-sel__check"><input type="radio" name="modo" value="all"> Con todos</label></p>
+      </fieldset>
+      <div class="mc-rel__row">
+        <label class="mc-field">Número de ejercicios <input type="number" name="n" min="1" max="30" value="6" inputmode="numeric"></label>
+        <label class="mc-field">Semilla <input type="text" name="semilla" autocomplete="off" spellcheck="false" aria-describedby="semilla-ayuda"></label>
+        <label class="mc-field mc-rel__title">Título <input type="text" name="titulo" autocomplete="off"></label>
+      </div>
+      <p class="mc-rel__hint" id="semilla-ayuda">Con la misma semilla y los mismos criterios sale la misma relación; el enlace de la página la reproduce.</p>
+      <p class="mc-rel__options"><label class="mc-sel__check"><input type="checkbox" name="contraste"> Incluir lo que ya no entra en la PAU (contraste de hipótesis)</label>
+      <label class="mc-sel__check" data-rel-solved-field hidden><input type="checkbox" name="resueltos"> Solo ejercicios con la solución publicada</label>
+      <label class="mc-sel__check" data-rel-solutions-field hidden><input type="checkbox" name="soluciones"> Añadir las soluciones publicadas al final</label></p>
+      <p class="mc-rel__actions"><button type="submit" class="mc-btn mc-btn--primary">Generar relación</button> <button type="button" class="mc-btn" data-rel-reroll>Otra selección</button></p>
+    </form>
+    <p class="mc-library__status" data-rel-status role="status" aria-live="polite"></p>
+    <section class="mc-rel__output" data-rel-output hidden aria-labelledby="relacion-titulo">
+      <p class="mc-rel__downloads"><button type="button" class="mc-btn mc-btn--primary" data-rel-print>Imprimir o guardar en PDF</button> <button type="button" class="mc-btn" data-rel-tex>Descargar LaTeX (.tex)</button> <button type="button" class="mc-btn" data-rel-zip>Proyecto para Overleaf (.zip)</button></p>
+      <article class="mc-rel__sheet" data-rel-sheet></article>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>
