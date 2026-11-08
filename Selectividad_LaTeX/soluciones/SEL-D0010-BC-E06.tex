@@ -1,5 +1,24 @@
 % ID: SEL-D0010-BC-E06
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S011; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{a) Unión de los dos medios de transporte.}\par\nopagebreak[4]
+Sean $V$ tener vehículo propio y $T$ usar transporte público. El dato de no usar ninguno es $P(V^c\cap T^c)=0.03$. Por De Morgan,
+\[
+\boxed{P(V\cup T)=1-0.03=0.97.}
+\]
+La unión es inclusiva: incluye a quienes cumplen ambas condiciones.
+
+\textbf{b) Transporte público sin vehículo propio.}\par\nopagebreak[4]
+Primero usamos inclusión-exclusión:
+\[
+P(V\cap T)=P(V)+P(T)-P(V\cup T)=0.90+0.40-0.97=0.33.
+\]
+Quitamos esa intersección del transporte público:
+\[
+\boxed{P(T\cap V^c)=0.40-0.33=0.07.}
+\]
+\textbf{c) Probabilidad condicionada.}\par\nopagebreak[4]
+El espacio de referencia pasa a ser el de quienes no tienen vehículo, de probabilidad $0.10$:
+\[
+\boxed{P(T\mid V^c)=\frac{P(T\cap V^c)}{P(V^c)}=\frac{0.07}{0.10}=0.70.}
+\]
+Comprobación: las cuatro regiones disjuntas son $0.33$ (ambos), $0.57$ (sólo vehículo), $0.07$ (sólo transporte público) y $0.03$ (ninguno); suman $1$ y reproducen los dos marginales. No se ha supuesto independencia.

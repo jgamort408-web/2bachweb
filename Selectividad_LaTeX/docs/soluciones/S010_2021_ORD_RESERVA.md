@@ -1,6 +1,6 @@
 # S010 · EXA-0009 · Curso 2020–2021
 
-Estado: en curso. Autor: Codex; las pasadas separadas no constituyen una revisión por una segunda persona.
+Estado: cerrado. Autor: Codex; las pasadas separadas no constituyen una revisión por una segunda persona.
 
 ## Trabajo secuencial
 
@@ -9,7 +9,7 @@ Estado: en curso. Autor: Codex; las pasadas separadas no constituyen una revisi�
 - [x] Comprobar resultados mediante fracciones, sustituciones, enumeración de muestras y cálculo separado del cuantil.
 - [x] Revisar los apartados y la distribución de puntos de los criterios oficiales.
 - [x] Validar los ocho fragmentos tras revisar el borrador completo.
-- [ ] Revisar ambos PDF finales, ejecutar las pruebas y comprobar el ZIP extraído.
+- [x] Revisar ambos PDF finales, ejecutar las pruebas y comprobar el ZIP extraído.
 
 ## Fuentes y alcance
 
@@ -39,3 +39,9 @@ E1a pide expresamente formular sin resolver. E8b limita la amplitud, no el error
 `S010 · check` — Comprobaciones reproducibles en [s010.py](../../scripts/verificaciones/s010.py), con [resultados](S010_verificacion_matematica.json). El cuantil se contrasta por bisección de erfc, separado de NormalDist. La comprobación numérica de derivadas complementa la revisión algebraica, sin sustituirla.
 
 `S010 · test/build` — 22 pruebas superadas. Ocho soluciones nuevas validadas;72 acumuladas y568 pendientes. Los640 enunciados,632 soluciones restantes y184 PDF anteriores permanecen idénticos. PDF finales revisados, sin desbordamientos.
+
+## Cierre
+
+Ocho soluciones nuevas;72 validadas y568 pendientes. ZIP extraído: ambos modos y S009 idénticos byte a byte; main L084 por texto y renderizado.215 fuentes originales verificadas. [Control](S010_control.json) · [Verificación matemática](S010_verificacion_matematica.json) · [Preguntas](../../output/pdf/s010-2021-ord-reserva-enunciados.pdf) · [Preguntas y soluciones](../../output/pdf/s010-2021-ord-reserva-con-soluciones.pdf) · [ZIP](../../dist/Selectividad_Overleaf.zip). Siguiente:S011, EXA-0010.
+
+Cierre registrado el 8 de noviembre de 2026. Compilación local del ZIP extraído; el servicio remoto de Overleaf no se ha probado.

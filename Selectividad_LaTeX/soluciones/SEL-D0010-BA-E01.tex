@@ -1,5 +1,29 @@
 % ID: SEL-D0010-BA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S011; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{a) Condición de invertibilidad.}\par\nopagebreak[4]
+Una matriz cuadrada es invertible si y sólo si su determinante no es cero. Desarrollamos por la primera fila:
+\[
+\det A=2(0\cdot a-2\cdot2)-(1\cdot a-2\cdot0)=-8-a.
+\]
+\boxed{A\text{ tiene inversa si y sólo si }a\ne-8.}
+
+\textbf{b) Inversa para a=1.}\par\nopagebreak[4]
+El determinante vale $-9$. La matriz de cofactores es
+\[
+C=\begin{pmatrix}-4&-1&2\\-1&2&-4\\2&-4&-1\end{pmatrix}.
+\]
+Por la fórmula de la adjunta, $A^{-1}=C^t/\det A$. Resulta
+\[
+\boxed{A^{-1}=\frac19\begin{pmatrix}4&1&-2\\1&-2&4\\-2&4&1\end{pmatrix}.}
+\]
+Comprobación: el producto de $A$ por la matriz entera del recuadro es $9I_3$; al dividir por $9$ se obtiene $I_3$.
+
+\textbf{c) Ecuación matricial.}\par\nopagebreak[4]
+$B$ es una fila $1\times3$, luego $B^t$ y $X$ son columnas $3\times1$. Multiplicamos a la izquierda por la inversa:
+\[
+X=A^{-1}B^t=\frac19
+\begin{pmatrix}4&1&-2\\1&-2&4\\-2&4&1\end{pmatrix}
+\begin{pmatrix}0\\1\\-1\end{pmatrix}
+=\boxed{\begin{pmatrix}1/3\\-2/3\\1/3\end{pmatrix}.}
+\]
+Sustitución: $AX=(2/3-2/3,\ 1/3+2/3,\ -4/3+1/3)^t=(0,1,-1)^t=B^t$. La solución es única.

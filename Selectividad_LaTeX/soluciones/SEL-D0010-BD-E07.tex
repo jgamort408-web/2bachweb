@@ -1,5 +1,26 @@
 % ID: SEL-D0010-BD-E07
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S011; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{a) Intervalo de confianza para la proporción.}\par\nopagebreak[4]
+La proporción observada es $\widehat p=115/250=0.46$. La confianza es 99.5\,\%, luego $\alpha=0.005$ y el cuantil bilateral es $z_{1-\alpha/2}=z_{0.9975}\approx2.807033768$.
+Para el intervalo normal aproximado,
+\[
+E=z_{0.9975}\sqrt{\frac{0.46\cdot0.54}{250}}\approx0.088481694.
+\]
+\[
+\boxed{IC_{\text{99.5\%}}\approx(0.371518306,\ 0.548481694).}
+\]
+Los recuentos $115$ y $135$ permiten la aproximación normal habitual. Se requiere una muestra aleatoria representativa y observaciones independientes en el modelo; el nivel de confianza se refiere a la cobertura del procedimiento.
+
+\textbf{b) Error estrictamente inferior a 0.05.}\par\nopagebreak[4]
+Se conserva la proporción piloto y la confianza:
+\[
+z_{0.9975}\sqrt{\frac{0.46\cdot0.54}{n}}<0.05
+\quad\Longleftrightarrow\quad
+n>\frac{z_{0.9975}^2\cdot0.46\cdot0.54}{0.05^2}
+\approx782.901016973.
+\]
+\boxed{n_{\min}=783\text{ con el cuantil preciso}.}
+Se verifica directamente que $n=782$ no cumple y $n=783$ sí. Por ser estricta la desigualdad, en general se usa $\lfloor\text{cota}\rfloor+1$, incluso cuando la cota fuera entera.
+
+\textbf{Efecto de la tabla.}\par\nopagebreak[4]
+En la tabla, $0.9975$ cae entre $\Phi(2.80)=0.99744$ y $\Phi(2.81)=0.99752$. Si se adopta $2.81$ sin interpolar, la cota se convierte en $784.556496$ y el cálculo tabulado exige \boxed{785}. Es una elección conservadora debida al redondeo del cuantil; no es el mínimo con el cuantil preciso. Para comparar procedimientos hay que declarar la aproximación utilizada. Los criterios asociados no fijan un resultado numérico único ni un método de redondeo.

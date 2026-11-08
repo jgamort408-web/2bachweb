@@ -1,12 +1,12 @@
 # Plan del banco modular de Selectividad
 
-Actualización: **7 de noviembre de 2026**. Documento de seguimiento por tandas; las entradas del diario describen cambios como commits, sin crear commits de Git.
+Actualización: **8 de noviembre de 2026**. Documento de seguimiento por tandas; las entradas del diario describen cambios como commits, sin crear commits de Git.
 
 ## 1. Objetivo y alcance de esta entrega
 
 Preparar un banco LaTeX para Overleaf con ejercicios de `../Selectividad/`, filtros por procedencia y contenidos, y composición de preguntas o preguntas con soluciones futuras.
 
-**L001-L084 cerradas: 640 enunciados únicos cotejados y 640 clasificaciones verificadas.** Son 83 exámenes canónicos y 84 de 84 candidatos cerrados; ninguno pendiente de transcripción. L057 es una reedición sin ejercicios nuevos. L084 añade ocho enunciados desde DOC convertidos, curso 2011-2012 impreso. S001-S009 incorporan 64 soluciones validadas;576 siguen sin redactar. La transcripción completa permanece intacta.
+**L001-L084 cerradas: 640 enunciados únicos cotejados y 640 clasificaciones verificadas.** Son 83 exámenes canónicos y 84 de 84 candidatos cerrados; ninguno pendiente de transcripción. L057 es una reedición sin ejercicios nuevos. L084 añade ocho enunciados desde DOC convertidos, curso 2011-2012 impreso. S001-S011 incorporan 80 soluciones validadas;560 siguen sin redactar. La transcripción completa permanece intacta.
 
 En L005-L056 y L058-L084, el cotejo consta de segundas pasadas visuales completas del mismo autor, separadas de la escritura; no se atribuye a un segundo revisor distinto. L001-L004 conservan sus propias evidencias de revisión.
 
@@ -21,9 +21,9 @@ En L005-L056 y L058-L084, el cotejo consta de segundas pasadas visuales completa
 | Lotes candidatos cerrados | **84 de 84: L001-L084; 83 exámenes canónicos** |
 | Enunciados `cotejada` | **640** |
 | Clasificaciones `verificada` | **640** |
-| Soluciones redactadas | **64:validadas en S001-S009** |
-| Soluciones `no_redactada` | **576** |
-| Soluciones `validada` | **64** |
+| Soluciones redactadas | **80:validadas en S001-S011** |
+| Soluciones `no_redactada` | **560** |
+| Soluciones `validada` | **80** |
 | Fuentes con huellas coincidentes | **215 de 215, verificadas en L084** |
 | Pruebas superadas en L084 | **21** |
 
@@ -33,7 +33,7 @@ L007-L018 usan cuatro bloques A-D y números globales 1-8, sin opciones. Sus IDs
 
 **Verificación L084:** 21 pruebas superadas en 507.023s;640 ejercicios y215 fuentes válidas. Cuatro páginas fuente y7 páginas finales revisadas;PDF de3/4páginas. Los1428 archivos anteriores intactos:632 enunciados,632 soluciones y164 PDF. ZIP aislado de1908 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
 
-**Siguiente fase:** continuar S010 (EXA-0009). S001-S009:64 soluciones explicadas y validadas;576 pendientes. Tres pasadas del mismo autor, sin revisor independiente; revisar incidencias antes de validar cada caso afectado.
+**Siguiente fase:** continuar S012 (EXA-0011). S001-S011:80 soluciones explicadas y validadas;560 pendientes. Tres pasadas del mismo autor, sin revisor independiente; revisar incidencias antes de validar cada caso afectado.
 
 ### Estado inicial histórico, anterior a L001
 
@@ -1432,3 +1432,15 @@ EXA-0007: ocho soluciones nuevas;56 validadas y584 pendientes. Tres pasadas del 
 EXA-0008: ocho soluciones nuevas;64 validadas y576 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. Se comprueban potencias, mínimo sobre un segmento, áreas y dados; E7 documenta4898 con cuantil preciso y4899 con1.96 tabulado. [Informe](docs/soluciones/S009_2021_ORD_SUPLENTE.md). Siguiente:S010.
 
 - **2026-11-07** · S009: ocho soluciones de EXA-0008 explicadas y validadas;64 acumuladas y576 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](docs/soluciones/S009_2021_ORD_SUPLENTE.md). Siguiente S010.
+
+## Soluciones: avance S010
+
+EXA-0009: ocho soluciones nuevas;72 validadas y568 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. E1a se formula sin resolver; E7b explica ambas convenciones de reemplazamiento; E8 distingue amplitud y error y comprueba el mínimo 71. [Informe](docs/soluciones/S010_2021_ORD_RESERVA.md). Siguiente:S011.
+
+- **2026-11-08** · S010: ocho soluciones de EXA-0009 explicadas y validadas;72 acumuladas y568 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](docs/soluciones/S010_2021_ORD_RESERVA.md). Siguiente S011.
+
+## Soluciones: avance S011
+
+EXA-0010: ocho soluciones nuevas;80 validadas y560 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. E3 distingue integral definida y área; E7 explica 783 con cuantil preciso y 785 con 2.81 tabulado; E8 verifica el mínimo 53. [Informe](docs/soluciones/S011_2021_EXTRAORDINARIA.md). Siguiente:S012.
+
+- **2026-11-08** · S011: ocho soluciones de EXA-0010 explicadas y validadas;80 acumuladas y560 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](docs/soluciones/S011_2021_EXTRAORDINARIA.md). Siguiente S012.

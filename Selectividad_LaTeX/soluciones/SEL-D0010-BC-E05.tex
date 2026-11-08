@@ -1,5 +1,32 @@
 % ID: SEL-D0010-BC-E05
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S011; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{Datos y árbol de probabilidades.}\par\nopagebreak[4]
+Sean $E$ el suceso estar enfermo y $+$ el resultado positivo. Los datos son $P(E)=0.15$, $P(+\mid E)=0.92$ y $P(+\mid E^c)=0.04$. Por complemento, $P(E^c)=0.85$.
+Las cuatro hojas se calculan multiplicando la probabilidad del primer suceso por la condicionada:
+\[
+\begin{array}{c|rr|r}
+&+&- &\text{Total}\\\hline
+E&0.138&0.012&0.15\\
+E^c&0.034&0.816&0.85\\\hline
+\text{Total}&0.172&0.828&1
+\end{array}
+\]
+\textbf{a) Enfermedad, condicionado al positivo.}\par\nopagebreak[4]
+Aplicamos Bayes, con denominador dado por la probabilidad total de positivo:
+\[
+\boxed{P(E\mid+)=\frac{0.15\cdot0.92}{0.172}
+=\frac{69}{86}\approx0.802326.}
+\]
+No se confunde con $P(+\mid E)=0.92$: son condiciones distintas.
+
+\textbf{b) Enfermedad y resultado negativo.}\par\nopagebreak[4]
+Se pide una intersección:
+\[
+\boxed{P(E\cap-)=P(E)P(-\mid E)=0.15\cdot0.08=0.012.}
+\]
+\textbf{c) Enfermedad, condicionado al negativo.}\par\nopagebreak[4]
+\[
+\boxed{P(E\mid-)=\frac{P(E\cap-)}{P(-)}
+=\frac{0.012}{0.828}=\frac1{69}\approx0.014493.}
+\]
+Los denominadores son positivos y las cuatro hojas suman uno. Se han usado únicamente los datos probabilísticos del enunciado.
