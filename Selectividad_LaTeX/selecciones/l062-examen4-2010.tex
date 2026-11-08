@@ -1,0 +1,19 @@
+% L062:curso2009-2010;junio sólo por carpeta;tipo,reserva/modelo no acreditados.
+\input{selecciones/l062-ids}
+\providecommand{\TituloSeleccion}{L062: archivo EXAMEN-ANDALUCÍA-4, curso 2009-2010, opciones A/B}
+\providecommand{\ContextoSeleccion}{\input{recursos/comunes/EXA-0062-instrucciones}}
+
+% Espaciado local sólo cuando se seleccionan los ocho ejercicios de L062.
+\ifdefined\EspaciadoLoteSesentaDos\else
+\gdef\EspaciadoLoteSesentaDos{si}
+\AtBeginDocument{%
+\edef\SeleccionActualEspaciado{\ListaEjercicios}%
+\def\SeleccionLoteSesentaDos{SEL-D0062-OA-E01,SEL-D0062-OA-E02,SEL-D0062-OA-E03,SEL-D0062-OA-E04,SEL-D0062-OB-E01,SEL-D0062-OB-E02,SEL-D0062-OB-E03,SEL-D0062-OB-E04}%
+\ifx\SeleccionActualEspaciado\SeleccionLoteSesentaDos
+\setlength{\parskip}{0.2em}\setlist[enumerate]{itemsep=0.15em,topsep=0.2em}%
+\fi}
+\fi
+
+
+
+

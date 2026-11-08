@@ -30,6 +30,9 @@ def main():
     parser.add_argument('fuentes', nargs='+', help='etiqueta=SRC-ID (examen, criterios, tabla...)')
     parser.add_argument('--esperados', type=int, help='número de archivos previos que deben existir')
     parser.add_argument('--escala', type=float, default=1.8, help='escala de renderizado de las páginas')
+    parser.add_argument('--pdf-convertido', action='append', default=[], metavar='ETIQUETA=RUTA',
+                        help='PDF de lectura de un DOC; debe estar dentro de la carpeta temporal del lote')
+    parser.add_argument('--conversor', help='herramienta y versión usadas para convertir las copias DOC')
     args = parser.parse_args()
     try:
         from pypdf import PdfReader
@@ -40,6 +43,18 @@ def main():
     lote = args.lote.lower()
     T = W / 'tmp/pdfs' / f'selectividad-{lote}'
     T.mkdir(parents=True, exist_ok=True)
+    convertidos = {}
+    for par in args.pdf_convertido:
+        etiqueta, separador, ruta = par.partition('=')
+        pdf = Path(ruta).resolve()
+        if not separador or etiqueta in convertidos or not pdf.is_relative_to(T.resolve()) or not pdf.is_file() or pdf.suffix.lower() != '.pdf':
+            raise SystemExit('PDF convertido inválido: usar una etiqueta única y un PDF dentro de ' + str(T))
+        convertidos[etiqueta] = pdf
+    etiquetas = [par.partition('=')[0] for par in args.fuentes]
+    if len(set(etiquetas)) != len(etiquetas) or set(convertidos) - set(etiquetas):
+        raise SystemExit('Etiquetas duplicadas o conversiones sin fuente asociada')
+    if convertidos and not args.conversor:
+        raise SystemExit('Indicar --conversor con herramienta y versión para registrar la procedencia')
 
     previos = [*(R / 'enunciados').glob('*.tex'), *(R / 'soluciones').glob('*.tex'), *(R / 'output/pdf').glob('*.pdf')]
     if args.esperados is not None and len(previos) != args.esperados:
@@ -53,6 +68,7 @@ def main():
     with (R / 'datos/fuentes.csv').open(encoding='utf-8-sig', newline='') as f:
         filas = {fila['fuente_id']: fila for fila in csv.DictReader(f)}
 
+    lecturas = []
     for par in args.fuentes:
         etiqueta, _, ident = par.partition('=')
         if not ident:
@@ -64,12 +80,25 @@ def main():
         huella = sha(ruta)
         if huella != fila['sha256']:
             raise SystemExit(f'Huella distinta en {ident}: {ruta}')
-        texto = '\n\n'.join(f'PÁGINA {i}\n' + pagina.extract_text() for i, pagina in enumerate(PdfReader(ruta).pages, 1))
+        lectura = convertidos.get(etiqueta, ruta)
+        if etiqueta in convertidos and ruta.suffix.lower() != '.doc':
+            raise SystemExit('La opción --pdf-convertido se reserva para originales DOC')
+        if lectura.suffix.lower() != '.pdf':
+            raise SystemExit('El DOC requiere una copia convertida con --pdf-convertido; no se modifica el original')
+        paginas = PdfReader(lectura).pages
+        texto = '\n\n'.join(f'PÁGINA {i}\n' + pagina.extract_text() for i, pagina in enumerate(paginas, 1))
         (T / f'extraccion-{etiqueta}.txt').write_text(texto, encoding='utf-8')
         print(ident, huella)
         print(texto)
-        for i, pagina in enumerate(pdfium.PdfDocument(str(ruta)), 1):
+        for i, pagina in enumerate(pdfium.PdfDocument(str(lectura)), 1):
             pagina.render(scale=args.escala).to_pil().save(T / f'{etiqueta}-{i}.png')
+        lecturas.append({'etiqueta': etiqueta, 'fuente_id': ident, 'ruta_original': fila['ruta'],
+                         'sha256_original': huella, 'lectura_pdf': lectura.relative_to(W).as_posix(),
+                         'sha256_lectura_pdf': sha(lectura), 'paginas': len(paginas),
+                         'conversor': args.conversor if etiqueta in convertidos else None})
+
+    if convertidos:
+        (T / 'lectura-fuentes.json').write_text(json.dumps(lecturas, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
     print(f'Salidas en {T.relative_to(W).as_posix()}')
 

@@ -1,0 +1,163 @@
+{
+  "tanda": "S009",
+  "segundo_revisor_distinto": false,
+  "E1": {
+    "A40": [
+      [
+        1,
+        0
+      ],
+      [
+        -40,
+        1
+      ]
+    ],
+    "At30": [
+      [
+        1,
+        -30
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "suma_cuadrada": [
+      [
+        4,
+        0
+      ],
+      [
+        0,
+        4
+      ]
+    ],
+    "X": [
+      [
+        "0",
+        "-1/2"
+      ],
+      [
+        "0",
+        "0"
+      ]
+    ],
+    "residuo_nulo": true
+  },
+  "E2": {
+    "vertices": [
+      [
+        0,
+        3
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        0
+      ]
+    ],
+    "maximo": 60,
+    "punto_maximo": [
+      6,
+      0
+    ],
+    "minimo": -18,
+    "segmento_minimo": [
+      [
+        0,
+        3
+      ],
+      [
+        3,
+        8
+      ]
+    ],
+    "punto_5_7_factible": false
+  },
+  "E3": {
+    "dominio": "R",
+    "salto_en_menos_1": [
+      -1,
+      1
+    ],
+    "continua_en_1": true,
+    "derivadas_en_1": [
+      -6,
+      2
+    ],
+    "areas_por_tramos": [
+      3,
+      6
+    ],
+    "area_total": 9
+  },
+  "E4": {
+    "minimo_x": 3,
+    "coste_miles": 1,
+    "produccion_kg": 3000,
+    "coste_euros": 1000,
+    "tangente": [
+      2,
+      -6
+    ],
+    "diferencia_cuadrado": true
+  },
+  "E5": {
+    "mujeres": [
+      420,
+      120,
+      200
+    ],
+    "probabilidad_mujer": 0.37,
+    "bombero_dado_hombre": "8/21"
+  },
+  "E6": {
+    "convencion": "dos dados de seis caras equilibrados e independientes",
+    "pares_totales": 36,
+    "pares_suma_ge9": 10,
+    "P_A": "5/18",
+    "verde_B": "13/54",
+    "roja": "49/81"
+  },
+  "E7": {
+    "proporcion": 0.15,
+    "intervalo": [
+      0.12786889068215285,
+      0.17213110931784714
+    ],
+    "cuantil_preciso": {
+      "z": 1.9599639845400536,
+      "umbral_n": 4897.859996385007,
+      "n_minimo": 4898,
+      "error_n": 0.009999857079812713,
+      "error_anterior": 0.010000878046386389
+    },
+    "cuantil_tabulado": {
+      "z": 1.96,
+      "umbral_n": 4898.039999999999,
+      "n_minimo": 4899,
+      "error_n": 0.009999020160201455,
+      "error_anterior": 0.010000040832909693
+    },
+    "redondeo_cambia_minimo": true
+  },
+  "E8": {
+    "sigma": 16,
+    "error_tipico": 2,
+    "prob_media_menor_996": 0.022750131948179216,
+    "media_muestral": 996,
+    "z90": 1.6448536269514715,
+    "intervalo": [
+      992.710292746097,
+      999.289707253903
+    ],
+    "mil_fuera_por_encima": true
+  }
+}

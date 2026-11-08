@@ -1,0 +1,17 @@
+% L049: reserva B sólo de carpeta; convocatoria y modelo no confirmados.
+\input{selecciones/l049-ids}
+\providecommand{\TituloSeleccion}{L049: archivo reserva B, curso 2012-2013, opciones A/B}
+\providecommand{\ContextoSeleccion}{\input{recursos/comunes/EXA-0049-instrucciones}}
+
+% Espaciado local sólo cuando se seleccionan los ocho ejercicios de L049.
+\ifdefined\EspaciadoLoteCuarentaNueve\else
+\gdef\EspaciadoLoteCuarentaNueve{si}
+\AtBeginDocument{%
+\edef\SeleccionActualEspaciado{\ListaEjercicios}%
+\def\SeleccionLoteCuarentaNueve{SEL-D0049-OA-E01,SEL-D0049-OA-E02,SEL-D0049-OA-E03,SEL-D0049-OA-E04,SEL-D0049-OB-E01,SEL-D0049-OB-E02,SEL-D0049-OB-E03,SEL-D0049-OB-E04}%
+\ifx\SeleccionActualEspaciado\SeleccionLoteCuarentaNueve
+\setlength{\parskip}{0.2em}\setlist[enumerate]{itemsep=0.15em,topsep=0.2em}%
+\fi}
+\fi
+
+

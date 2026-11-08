@@ -1,5 +1,21 @@
 % ID: SEL-D0007-BD-E08
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S008, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Estimación e intervalo bilateral.}\par\nopagebreak[4]
+La proporción muestral es $\widehat p=45/100=0.45$. Con muestreo aleatorio independiente, usamos la aproximación normal para proporciones; los recuentos 45 y 55 permiten la aproximación habitual. La confianza 92\,\% da $\alpha=0.08$ y $z_{0.96}\approx1.750686071$ (tabla: 1.75).
+\[
+\widehat p\pm z_{0.96}\sqrt{\frac{\widehat p(1-\widehat p)}n}
+=0.45\pm1.750686071\sqrt{\frac{0.45(0.55)}{100}}.
+\]
+\[
+\boxed{IC_{\text{92\%}}\approx(0.362904468,\ 0.537095532).}
+\]
+En porcentajes, aproximadamente entre 36.29\,\% y 53.71\,\%. La confianza es la cobertura del procedimiento para la proporción poblacional al repetir el muestreo bajo sus hipótesis.
+
+\textbf{b) Tamaño mínimo con la misma confianza.}\par\nopagebreak[4]
+Se conserva $\widehat p=0.45$ y el mismo cuantil. El 5\,\% de error significa 0.05 en unidades de proporción, no el 5\,\% de 0.45 ni la amplitud total del intervalo:
+\[
+z_{0.96}\sqrt{\frac{0.45(0.55)}n}<0.05
+\iff n>\frac{z_{0.96}^2(0.45)(0.55)}{0.05^2}
+\approx303.425270.
+\]
+El menor tamaño total es \boxed{n=304\text{ personas}}. Con 303 el error supera 0.05; con 304 es menor. Usando 1.75 se obtiene también 304. No se redondea el tamaño al entero más cercano: se elige el menor entero que cumpla la desigualdad estricta.

@@ -1,5 +1,28 @@
 % ID: SEL-D0003-OA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S004, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Rectas y región factible.}\par\nopagebreak[4]
+Escribimos las restricciones como semiplanos:
+\[
+y\leq\frac{15+3x}{7},\qquad y\geq x-3,\qquad y\geq\frac{11-x}{3}.
+\]
+Las tres fronteras se incluyen. No añadimos restricciones de no negatividad que no figuran en el problema. Intersectamos cada pareja de rectas:
+\[
+\begin{array}{c|c|c}
+\text{Fronteras}&\text{Ecuación para }x&\text{Intersección}\\\hline
+7y=15+3x,\ y=x-3&7x-21=15+3x&(9,6)\\
+7y=15+3x,\ 3y=11-x&45+9x=77-7x&(2,3)\\
+y=x-3,\ 3y=11-x&3x-9=11-x&(5,2)
+\end{array}
+\]
+Las tres intersecciones satisfacen la desigualdad restante. El recinto es el triángulo cerrado de vértices \boxed{(2,3),\ (5,2),\ (9,6)}. Para comprobar que no es una región exterior, la compatibilidad de la cota superior con las dos inferiores exige $x\geq2$ y $x\leq9$. Entre ellas, tomamos el mayor de los dos límites inferiores.
+\begin{center}\includegraphics[width=0.52\linewidth]{figuras/s004-region.pdf}\end{center}
+
+\textbf{b) Máximo y mínimo.}\par\nopagebreak[4]
+Una función lineal alcanza sus extremos sobre un polígono cerrado y acotado en sus vértices. Evaluamos:
+\[
+\begin{array}{c|ccc}
+(x,y)&(2,3)&(5,2)&(9,6)\\\hline
+H(x,y)=4x-y-16&-11&2&14
+\end{array}
+\]
+El \textbf{mínimo} es \boxed{-11\text{ en }(2,3)} y el \textbf{máximo} es \boxed{14\text{ en }(9,6)}. Son únicos: cualquier punto del triángulo es combinación convexa de los vértices y su valor de $H$ es la misma combinación de $-11,2,14$; para lograr un extremo debe concentrarse todo el peso en su único vértice extremo.

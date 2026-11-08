@@ -1,5 +1,26 @@
 % ID: SEL-D0003-OB-E02
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S004, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Condiciones en el punto.}\par\nopagebreak[4]
+El punto $(1,3)$ debe pertenecer a la gráfica y, al ser un extremo interior donde existe derivada, debe cumplirse $f'(1)=0$:
+\[
+f(1)=a+b=3,\qquad f'(x)=2ax-\frac{b}{x^2},\qquad f'(1)=2a-b=0.
+\]
+Del sistema $a+b=3$, $b=2a$ obtenemos \boxed{a=1,\ b=2}. Anular la derivada es una condición necesaria; falta comprobar que hay extremo, lo que hacemos a continuación.
+
+\textbf{b) Clasificación del extremo.}\par\nopagebreak[4]
+Para estos parámetros y $x\ne0$,
+\[
+f'(x)=2x-\frac2{x^2},\qquad f''(x)=2+\frac4{x^3},\qquad f''(1)=6>0.
+\]
+Por el criterio de la segunda derivada, $(1,3)$ es un \textbf{mínimo relativo estricto}. También se comprueba el cambio de signo con
+\[
+f'(x)=\frac{2(x-1)(x^2+x+1)}{x^2}:
+\]
+cerca de 1, los otros factores son positivos, de modo que $f'$ pasa de negativa a positiva. Es mínimo absoluto en la componente $(0,\infty)$, pero no en todo el dominio: cuando $x\to0^-$, $f(x)\to-\infty$.
+
+\textbf{c) Integral indefinida.}\par\nopagebreak[4]
+Integramos término a término, usando $\int x^2\,dx=x^3/3$ y $\int (1/x)\,dx=\ln|x|$:
+\[
+\boxed{\int\left(x^2+\frac2x\right)\,dx=\frac{x^3}{3}+2\ln|x|+K,\qquad x\ne0.}
+\]
+El valor absoluto permite trabajar tanto con $x>0$ como con $x<0$. La constante puede ser distinta en cada componente del dominio. Comprobación: la derivada de $x^3/3$ es $x^2$ y la de $2\ln|x|$ es $2/x$ para todo $x\ne0$.

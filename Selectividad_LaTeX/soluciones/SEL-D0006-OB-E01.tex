@@ -1,5 +1,28 @@
 % ID: SEL-D0006-OB-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S007, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Determinante e inversa.}\par\nopagebreak[4]
+La matriz $A$ es cuadrada de orden 3. Desarrollando por la primera fila,
+\[
+\det A=1(-3)-1(0)+3(-3)=-12\ne0.
+\]
+Por tanto, existe inversa. La matriz de cofactores es
+\[
+\operatorname{Cof}(A)=\begin{pmatrix}-3&0&-3\\-2&-4&2\\-7&4&1\end{pmatrix}.
+\]
+La adjunta es la \emph{traspuesta} de esa matriz, y se divide por el determinante:
+\[
+\boxed{A^{-1}=\frac{\operatorname{Cof}(A)^t}{-12}
+=\begin{pmatrix}1/4&1/6&7/12\\0&1/3&-1/3\\1/4&-1/6&-1/12\end{pmatrix}.}
+\]
+Comprobación: los productos $AA^{-1}$ y $A^{-1}A$ dan ambos $I_3$.
+
+\textbf{b) Resolución de AX=B.}\par\nopagebreak[4]
+$B$ es $3\times1$, luego $X$ debe ser $3\times1$. Multiplicamos por $A^{-1}$ por la izquierda:
+\[
+X=A^{-1}B=
+\begin{pmatrix}(1/4)2+(1/6)3\\(1/3)3\\(1/4)2-(1/6)3\end{pmatrix}
+=\boxed{\begin{pmatrix}1\\1\\0\end{pmatrix}.}
+\]
+La solución existe y es única, pues $A$ es invertible. Sustitución: $A(1,1,0)^t=(2,3,0)^t=B$.
+
+El enunciado conserva el literal original ``matrix'' (INC-006); ese detalle editorial no cambia la operación ni los datos.

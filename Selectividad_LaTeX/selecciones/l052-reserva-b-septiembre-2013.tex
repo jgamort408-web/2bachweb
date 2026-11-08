@@ -1,0 +1,18 @@
+% L052:reserva B sólo de carpeta;convocatoria/modelo no confirmados.
+\input{selecciones/l052-ids}
+\providecommand{\TituloSeleccion}{L052: archivo reserva B septiembre, curso 2012-2013, opciones A/B}
+\providecommand{\ContextoSeleccion}{\input{recursos/comunes/EXA-0052-instrucciones}}
+
+% Espaciado local sólo cuando se seleccionan los ocho ejercicios de L052.
+\ifdefined\EspaciadoLoteCincuentaDos\else
+\gdef\EspaciadoLoteCincuentaDos{si}
+\AtBeginDocument{%
+\edef\SeleccionActualEspaciado{\ListaEjercicios}%
+\def\SeleccionLoteCincuentaDos{SEL-D0052-OA-E01,SEL-D0052-OA-E02,SEL-D0052-OA-E03,SEL-D0052-OA-E04,SEL-D0052-OB-E01,SEL-D0052-OB-E02,SEL-D0052-OB-E03,SEL-D0052-OB-E04}%
+\ifx\SeleccionActualEspaciado\SeleccionLoteCincuentaDos
+\setlength{\parskip}{0.2em}\setlist[enumerate]{itemsep=0.15em,topsep=0.2em}%
+\fi}
+\fi
+
+
+

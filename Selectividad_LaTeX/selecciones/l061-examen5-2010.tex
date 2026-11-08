@@ -1,0 +1,19 @@
+% L061:curso2009-2010;junio sólo por carpeta;tipo,reserva/modelo no acreditados.
+\input{selecciones/l061-ids}
+\providecommand{\TituloSeleccion}{L061: archivo EXAMEN-ANDALUCÍA-5, curso 2009-2010, opciones A/B}
+\providecommand{\ContextoSeleccion}{\input{recursos/comunes/EXA-0061-instrucciones}}
+
+% Espaciado local sólo cuando se seleccionan los ocho ejercicios de L061.
+\ifdefined\EspaciadoLoteSesentaUno\else
+\gdef\EspaciadoLoteSesentaUno{si}
+\AtBeginDocument{%
+\edef\SeleccionActualEspaciado{\ListaEjercicios}%
+\def\SeleccionLoteSesentaUno{SEL-D0061-OA-E01,SEL-D0061-OA-E02,SEL-D0061-OA-E03,SEL-D0061-OA-E04,SEL-D0061-OB-E01,SEL-D0061-OB-E02,SEL-D0061-OB-E03,SEL-D0061-OB-E04}%
+\ifx\SeleccionActualEspaciado\SeleccionLoteSesentaUno
+\setlength{\parskip}{0.2em}\setlist[enumerate]{itemsep=0.15em,topsep=0.2em}%
+\fi}
+\fi
+
+
+
+

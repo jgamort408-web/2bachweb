@@ -1,5 +1,33 @@
 % ID: SEL-D0007-BD-E07
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S008, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a.1) Tipo de muestreo.}\par\nopagebreak[4]
+Debe utilizarse \textbf{muestreo aleatorio estratificado con afijación proporcional}: cada titulación es un estrato y aporta a la muestra la misma fracción de su alumnado. Dentro de cada titulación se seleccionan los estudiantes al azar; la afijación por sí sola no garantiza aleatoriedad.
+
+\textbf{a.2) Tamaño total y distribución.}\par\nopagebreak[4]
+La población tiene $N=60+40+30+50+20=200$ estudiantes. La muestra es el 20\,\%:
+\[
+\boxed{n=0.20(200)=40\text{ estudiantes}.}
+\]
+Cada estrato recibe $n_h=nN_h/N=0.2N_h$:
+\[
+\begin{array}{c|r|r}
+\text{Titulación}&N_h&n_h\\\hline
+\text{Eléctrica}&60&12\\
+\text{Informática}&40&8\\
+\text{Civil}&30&6\\
+\text{Mecánica}&50&10\\
+\text{Aeronáutica}&20&4\\\hline
+\text{Total}&200&40
+\end{array}
+\]
+Los tamaños son enteros y suman 40, sin necesidad de redondeo.
+
+\textbf{b) Media de la distribución muestral.}\par\nopagebreak[4]
+La media muestral es un estimador insesgado de la media poblacional bajo muestreo aleatorio simple: $E(\overline X)=\mu$, también para muestras de tamaño 3. Por tanto,
+\[
+13.2=\mu=\frac{a+10+12+11+18}{5}=\frac{a+51}{5}
+\quad\Longrightarrow\quad\boxed{a=15}.
+\]
+No se divide la suma de la población entre 3: ese es el tamaño de cada muestra, no el de la población.
+
+Comprobación: con $a=15$ la suma poblacional es 66 y su media 13.2. En las diez muestras no ordenadas de tamaño 3 sin reposición, cada elemento aparece en seis muestras; la suma de sus medias es $6(66)/3=132$ y su media es $132/10=13.2$. Con extracciones uniformes con reposición, la esperanza de cada extracción también es 13.2 y el resultado para $a$ coincide.

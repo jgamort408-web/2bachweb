@@ -1,0 +1,154 @@
+{
+  "tanda": "S007",
+  "segundo_revisor_distinto": false,
+  "A1": {
+    "vertices": [
+      [
+        "0",
+        "5"
+      ],
+      [
+        "2/3",
+        "10/3"
+      ],
+      [
+        "3",
+        "1"
+      ],
+      [
+        "6",
+        "0"
+      ]
+    ],
+    "optimo": [
+      3,
+      1
+    ],
+    "coste": 2.8,
+    "aportes": [
+      17,
+      20,
+      6
+    ],
+    "certificado_global": true,
+    "optimo_entero_comprobado": true
+  },
+  "A2": {
+    "dominio_excluye": -1,
+    "pendiente": "-11/25",
+    "puntos_horizontales": [
+      [
+        -3,
+        -8
+      ],
+      [
+        1,
+        0
+      ]
+    ]
+  },
+  "A3": {
+    "curacion": 0.72,
+    "A_dado_curacion": 0.25
+  },
+  "A4": {
+    "z97": 2.17009037758456,
+    "umbral_n": 17.085867562394917,
+    "n_minimo": 18,
+    "error_n": 2.045980829036957,
+    "error_anterior": 2.1052969044512126,
+    "datos": [
+      15,
+      120,
+      50,
+      40,
+      5,
+      46,
+      52,
+      48,
+      10
+    ],
+    "suma": 386,
+    "media": "386/9",
+    "media_decimal": 42.888888888888886,
+    "error_n9": 2.8934538367794134,
+    "intervalo": [
+      39.99543505210947,
+      45.7823427256683
+    ]
+  },
+  "B1": {
+    "determinante": -12,
+    "inversa": [
+      [
+        "1/4",
+        "1/6",
+        "7/12"
+      ],
+      [
+        "0",
+        "1/3",
+        "-1/3"
+      ],
+      [
+        "1/4",
+        "-1/6",
+        "-1/12"
+      ]
+    ],
+    "X": [
+      1,
+      1,
+      0
+    ],
+    "ambos_productos_identidad": true
+  },
+  "B2": {
+    "maximo": [
+      "1",
+      "7/3"
+    ],
+    "minimo": [
+      3,
+      1
+    ],
+    "inflexion": [
+      "2",
+      "5/3"
+    ],
+    "pendiente_0": 3,
+    "primitiva_coeficientes": [
+      "0",
+      "1",
+      "3/2",
+      "-2/3",
+      "1/12"
+    ],
+    "primitiva_comprobada": true
+  },
+  "B3": {
+    "interseccion": 0.1,
+    "A": 0.5,
+    "union": 0.8,
+    "independientes": false,
+    "incompatibles": false
+  },
+  "B4": {
+    "z95": 1.9599639845400536,
+    "z98": 2.3263478740408408,
+    "proporcion": 0.3,
+    "intervalo": [
+      0.24979086386841018,
+      0.3502091361315898
+    ],
+    "umbral_n": 113.64978305214109,
+    "n_minimo": 114,
+    "error_n": 0.09984627792311589,
+    "error_anterior": 0.10028710248565485
+  },
+  "incidencia_006": {
+    "literal_preservado": "matrix",
+    "efecto_matematico": false,
+    "estado_csv_modificado": false
+  }
+}

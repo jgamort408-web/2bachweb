@@ -1,5 +1,37 @@
 % ID: SEL-D0003-OA-E02
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S004, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Dominio y reglas de derivación.}\par\nopagebreak[4]
+Para $f$, el argumento del logaritmo debe ser positivo:
+\[
+\frac{1-x}{1+x}>0\iff -1<x<1.
+\]
+En este intervalo $1-x$ y $1+x$ son positivos y podemos escribir
+\[
+f(x)=\frac12[\ln(1-x)-\ln(1+x)].
+\]
+Aplicando la regla de la cadena,
+\[
+f'(x)=\frac12\left(-\frac1{1-x}-\frac1{1+x}\right)
+=\boxed{\frac1{x^2-1}},\qquad -1<x<1.
+\]
+Aunque la expresión de la derivada tenga sentido en otros puntos, no amplía el dominio real de la función original.
+
+Para $g$, definida en $\mathbb R$, usamos la regla del producto y la cadena:
+\[
+\begin{aligned}
+g'(x)&=4x(x^2+1)e^{2x-1}+2(x^2+1)^2e^{2x-1}\\
+&=2(x^2+1)e^{2x-1}[2x+x^2+1]\\
+&=\boxed{2(x^2+1)(x+1)^2e^{2x-1}}.
+\end{aligned}
+\]
+
+\textbf{b) Tangente y representación.}\par\nopagebreak[4]
+La tangente en $x_0$ pasa por $(x_0,h(x_0))$ y tiene pendiente $h'(x_0)$. Aquí
+\[
+h(4)=16-24+8=0,\quad h'(x)=2x-6,\quad h'(4)=2.
+\]
+Por tanto, $y-h(4)=h'(4)(x-4)$ da \boxed{y=2x-8}.
+
+La parábola $h(x)=(x-3)^2-1$ tiene vértice $(3,-1)$, eje $x=3$, cortes horizontales $(2,0)$ y $(4,0)$, y corte vertical $(0,8)$. Abre hacia arriba. La recta pasa por $(0,-8)$ y $(4,0)$ y toca la curva en este último punto.
+\begin{center}\includegraphics[width=0.70\linewidth]{figuras/s004-tangente.pdf}\end{center}
+Comprobación algebraica: $h(x)-(2x-8)=(x-4)^2\geq0$, con igualdad sólo en $x=4$; además, las dos pendientes allí son 2.

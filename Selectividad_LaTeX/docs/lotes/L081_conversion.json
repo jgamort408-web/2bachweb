@@ -1,0 +1,83 @@
+{
+  "conversion": [
+    {
+      "etiqueta": "examen",
+      "fuente_id": "SRC-47DD01146BF2",
+      "ruta_original": "Selectividad/sel_2012_matematicas_aplicadas/3 MATEMÁT. APLIC. CC. SS/EXAMEN 2-ANDALUCÍA.doc",
+      "sha256_original": "bcec57ae525fa5e23ce74631274a2abda0b5b16ac47ce6108ba8b5572d4aa634",
+      "copia": "C:\\Users\\usuario\\OneDrive\\Documentos\\Aplicaciones\\2º Bachillerato Matemáticas Aplicadas a las Ciencias Sociales\\tmp\\pdfs\\selectividad-l081\\copias\\examen.doc",
+      "pdf": "C:\\Users\\usuario\\OneDrive\\Documentos\\Aplicaciones\\2º Bachillerato Matemáticas Aplicadas a las Ciencias Sociales\\tmp\\pdfs\\selectividad-l081\\convertidos\\examen.pdf",
+      "sha256_pdf": "a285bebfac7524ae7eebf35c196fe571102936a83cebab6774433623da73a12a",
+      "conversor": "LibreOffice 26.8.2.2 9dea406ab7695df6325b11b0e19fdca8db4b7276",
+      "ejecutable": "C:\\Users\\usuario\\OneDrive\\Documentos\\Aplicaciones\\2º Bachillerato Matemáticas Aplicadas a las Ciencias Sociales\\tmp\\selectividad\\conversor\\LibreOffice\\program\\soffice.com",
+      "argumentos": [
+        "-env:UserInstallation=file:///C:/Users/usuario/AppData/Local/Temp/selectividad-lo-l081",
+        "--headless",
+        "--norestore",
+        "--convert-to",
+        "pdf:writer_pdf_Export",
+        "--outdir",
+        "C:\\Users\\usuario\\AppData\\Local\\Temp\\selectividad-lo-l081\\exportaciones",
+        "C:\\Users\\usuario\\OneDrive\\Documentos\\Aplicaciones\\2º Bachillerato Matemáticas Aplicadas a las Ciencias Sociales\\tmp\\pdfs\\selectividad-l081\\copias\\examen.doc"
+      ],
+      "salida": "convert C:\\Users\\usuario\\OneDrive\\Documentos\\Aplicaciones\\2º Bachillerato Matemáticas Aplicadas a las Ciencias Sociales\\tmp\\pdfs\\selectividad-l081\\copias\\examen.doc as a Writer document -> C:\\Users\\usuario\\AppData\\Local\\Temp\\selectividad-lo-l081\\exportaciones\\examen.pdf using filter : writer_pdf_Export",
+      "reanudado": false
+    },
+    {
+      "etiqueta": "criterios",
+      "fuente_id": "SRC-3FB62DEC9998",
+      "ruta_original": "Selectividad/sel_2012_matematicas_aplicadas/3 MATEMÁT. APLIC. CC. SS/CRITERIOS 3/CRITERIOS 2-ANDALUCÍA.doc",
+      "sha256_original": "f080088b57517d78529dbef6e242c1ac172e4c97a6dbee806517ae3ee5ac568f",
+      "copia": "C:\\Users\\usuario\\OneDrive\\Documentos\\Aplicaciones\\2º Bachillerato Matemáticas Aplicadas a las Ciencias Sociales\\tmp\\pdfs\\selectividad-l081\\copias\\criterios.doc",
+      "pdf": "C:\\Users\\usuario\\OneDrive\\Documentos\\Aplicaciones\\2º Bachillerato Matemáticas Aplicadas a las Ciencias Sociales\\tmp\\pdfs\\selectividad-l081\\convertidos\\criterios.pdf",
+      "sha256_pdf": "d9a95c827e62fd45d758088c9673af154d9ef5f83a05e60270ccdb8ab6d414ae",
+      "conversor": "LibreOffice 26.8.2.2 9dea406ab7695df6325b11b0e19fdca8db4b7276",
+      "ejecutable": "C:\\Users\\usuario\\OneDrive\\Documentos\\Aplicaciones\\2º Bachillerato Matemáticas Aplicadas a las Ciencias Sociales\\tmp\\selectividad\\conversor\\LibreOffice\\program\\soffice.com",
+      "argumentos": [
+        "-env:UserInstallation=file:///C:/Users/usuario/AppData/Local/Temp/selectividad-lo-l081",
+        "--headless",
+        "--norestore",
+        "--convert-to",
+        "pdf:writer_pdf_Export",
+        "--outdir",
+        "C:\\Users\\usuario\\AppData\\Local\\Temp\\selectividad-lo-l081\\exportaciones",
+        "C:\\Users\\usuario\\OneDrive\\Documentos\\Aplicaciones\\2º Bachillerato Matemáticas Aplicadas a las Ciencias Sociales\\tmp\\pdfs\\selectividad-l081\\copias\\criterios.doc"
+      ],
+      "salida": "convert C:\\Users\\usuario\\OneDrive\\Documentos\\Aplicaciones\\2º Bachillerato Matemáticas Aplicadas a las Ciencias Sociales\\tmp\\pdfs\\selectividad-l081\\copias\\criterios.doc as a Writer document -> C:\\Users\\usuario\\AppData\\Local\\Temp\\selectividad-lo-l081\\exportaciones\\criterios.pdf using filter : writer_pdf_Export",
+      "reanudado": false
+    }
+  ],
+  "lectura": [
+    {
+      "etiqueta": "examen",
+      "fuente_id": "SRC-47DD01146BF2",
+      "ruta_original": "Selectividad/sel_2012_matematicas_aplicadas/3 MATEMÁT. APLIC. CC. SS/EXAMEN 2-ANDALUCÍA.doc",
+      "sha256_original": "bcec57ae525fa5e23ce74631274a2abda0b5b16ac47ce6108ba8b5572d4aa634",
+      "lectura_pdf": "tmp/pdfs/selectividad-l081/convertidos/examen.pdf",
+      "sha256_lectura_pdf": "a285bebfac7524ae7eebf35c196fe571102936a83cebab6774433623da73a12a",
+      "paginas": 2,
+      "conversor": "LibreOffice 26.8.2.2 9dea406ab7695df6325b11b0e19fdca8db4b7276"
+    },
+    {
+      "etiqueta": "criterios",
+      "fuente_id": "SRC-3FB62DEC9998",
+      "ruta_original": "Selectividad/sel_2012_matematicas_aplicadas/3 MATEMÁT. APLIC. CC. SS/CRITERIOS 3/CRITERIOS 2-ANDALUCÍA.doc",
+      "sha256_original": "f080088b57517d78529dbef6e242c1ac172e4c97a6dbee806517ae3ee5ac568f",
+      "lectura_pdf": "tmp/pdfs/selectividad-l081/convertidos/criterios.pdf",
+      "sha256_lectura_pdf": "d9a95c827e62fd45d758088c9673af154d9ef5f83a05e60270ccdb8ab6d414ae",
+      "paginas": 1,
+      "conversor": "LibreOffice 26.8.2.2 9dea406ab7695df6325b11b0e19fdca8db4b7276"
+    },
+    {
+      "etiqueta": "tabla",
+      "fuente_id": "SRC-ED0C33BA1784",
+      "ruta_original": "Selectividad/sel_2012_matematicas_aplicadas/3 MATEMÁT. APLIC. CC. SS/TABLA/tabla normal oficial.pdf",
+      "sha256_original": "736bceb2982b4e3a6028d099a3250704f61154f0bd1251d29285609fe481cae7",
+      "lectura_pdf": "Selectividad/sel_2012_matematicas_aplicadas/3 MATEMÁT. APLIC. CC. SS/TABLA/tabla normal oficial.pdf",
+      "sha256_lectura_pdf": "736bceb2982b4e3a6028d099a3250704f61154f0bd1251d29285609fe481cae7",
+      "paginas": 1,
+      "conversor": null
+    }
+  ],
+  "nota": "Originales intactos; PDF derivados de lectura, fórmulas OLE cotejadas visualmente. Inventario original conservado sin reinterpretar su estado histórico DOC sin convertir."
+}

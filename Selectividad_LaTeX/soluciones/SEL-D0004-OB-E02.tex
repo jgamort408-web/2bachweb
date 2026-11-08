@@ -1,5 +1,30 @@
 % ID: SEL-D0004-OB-E02
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S005, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Continuidad y derivabilidad de f.}\par\nopagebreak[4]
+El dominio es $\mathbb R$. Cada rama es continua y derivable en su intervalo abierto. Sólo hay que examinar $x=0$:
+\[
+\lim_{x\to0^-}(x^2+4x+1)=1,\quad
+\lim_{x\to0^+}e^{-x}=1,\quad f(0)=1.
+\]
+Coinciden límites y valor; $f$ es \textbf{continua en todo $\mathbb R$}.
+
+Para derivabilidad, comparamos derivadas laterales:
+\[
+f'_-(0)=\lim_{x\to0^-}(2x+4)=4,\qquad
+f'_+(0)=\lim_{x\to0^+}(-e^{-x})=-1.
+\]
+Como $4\ne-1$, \textbf{no es derivable en 0}. En los demás puntos sí lo es:
+\[
+f'(x)=\begin{cases}2x+4&x<0,\\-e^{-x}&x>0.\end{cases}
+\]
+Comprobación directa con cocientes incrementales: a la izquierda, $[f(h)-1]/h=h+4\to4$; a la derecha, $(e^{-h}-1)/h\to-1$. La continuidad no garantiza derivabilidad.
+
+\textbf{b) Parámetros de g.}\par\nopagebreak[4]
+Un extremo relativo en $x=-1$ exige $g'(-1)=0$ y el paso por $(-1,3)$ exige $g(-1)=3$:
+\[
+g'(x)=3x^2+2bx,\qquad 3-2b=0\Rightarrow b=\frac32.
+\]
+\[
+-1+b+c=3\Rightarrow c=4-b=\frac52.
+\]
+Por tanto, \boxed{b=3/2,\quad c=5/2}. Hay que comprobar que el punto estacionario sí es extremo: $g''(x)=6x+2b$ y $g''(-1)=-3<0$, luego es un máximo relativo estricto. Sustituyendo, $g(-1)=-1+3/2+5/2=3$ y $g'(-1)=3-3=0$.

@@ -1,0 +1,116 @@
+{
+  "tanda": "S004",
+  "segundo_revisor_distinto": false,
+  "A1": {
+    "vertices": [
+      [
+        2,
+        3
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        9,
+        6
+      ]
+    ],
+    "minimo": -11,
+    "punto_minimo": [
+      2,
+      3
+    ],
+    "maximo": 14,
+    "punto_maximo": [
+      9,
+      6
+    ]
+  },
+  "A2": {
+    "dominio_f": [
+      -1,
+      1
+    ],
+    "extremos_dominio_excluidos": true,
+    "pendiente_tangente": 2,
+    "ordenada_tangente": -8,
+    "comprobaciones_derivadas": true
+  },
+  "A3": {
+    "union": 0.42,
+    "deporte": 0.34,
+    "dieta": 0.25,
+    "deporte_dado_dieta": 0.68,
+    "independientes": false
+  },
+  "A4": {
+    "z90": 1.6448536269514715,
+    "intervalo": [
+      170.0654391191456,
+      179.9345608808544
+    ],
+    "z80": 1.2815515655446008,
+    "umbral_n": 59.125478945393425,
+    "n_minimo": 60,
+    "amplitud_n_anterior": 5.0053140805206455,
+    "amplitud_n": 4.963427870660282,
+    "n_por_redondeo_prematuro_1_28": 59
+  },
+  "B1": {
+    "suma_columnas": [
+      [
+        4
+      ],
+      [
+        -9
+      ]
+    ],
+    "B2_mas_CD": [
+      [
+        -2,
+        6
+      ],
+      [
+        -10,
+        6
+      ]
+    ],
+    "X": [
+      [
+        -12,
+        -9
+      ],
+      [
+        18,
+        12
+      ]
+    ],
+    "residuo_nulo": true
+  },
+  "B2": {
+    "a": 1,
+    "b": 2,
+    "segunda_derivada_en_1": 6,
+    "primitiva_comprobada": true
+  },
+  "B3": {
+    "interseccion": 0.2,
+    "P_B": 0.45,
+    "condicionada": "6/11",
+    "independientes": false,
+    "incompatibles": false
+  },
+  "B4": {
+    "z975": 2.2414027276049464,
+    "intervalo": [
+      0.4342303339834958,
+      0.4657696660165042
+    ],
+    "z925": 1.7804643416920258,
+    "umbral_n": 880.5703533435609,
+    "n_minimo": 881,
+    "error_n_anterior": 0.030009720357236768,
+    "error_n": 0.029992683898096367
+  }
+}

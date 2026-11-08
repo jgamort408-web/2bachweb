@@ -1,5 +1,48 @@
 % ID: SEL-D0001-OA-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir hasta terminar y validar los enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; plan; pasos razonados;
-% comprobación independiente; interpretación; errores frecuentes y vínculo con el tema.
+% ESTADO: validada. S002, 2026-11-07. Tres pasadas del mismo autor; ver informe.
+\textbf{Datos y modelo.} Queremos estimar la proporción poblacional $p$. La proporción observada es
+\[
+\widehat p=\frac{135}{300}=0.45,\qquad 1-\widehat p=0.55.
+\]
+Para una muestra aleatoria suficientemente grande se utiliza el intervalo normal aproximado para una proporción. Aquí hay 135 respuestas favorables y 165 desfavorables, por lo que la aproximación es adecuada para el procedimiento del ejercicio.
+
+\textbf{a) Intervalo de confianza del $97\%$.}\par\nopagebreak[4]
+
+Si $1-\alpha=0.97$, entonces $\alpha=0.03$ y cada cola tiene probabilidad $0.015$. El percentil positivo satisface
+\[
+\Phi(z)=1-\frac\alpha2=0.985,
+\qquad z=\Phi^{-1}(0.985)\approx2.170090.
+\]
+En la tabla se obtiene aproximadamente $2.17$. El error de estimación es el semiancho del intervalo, no su amplitud total:
+\[
+E=z\sqrt{\frac{\widehat p(1-\widehat p)}{n}}
+=2.170090\ldots\sqrt{\frac{0.45\cdot0.55}{300}}
+\approx0.0623311.
+\]
+Por tanto,
+\[
+IC_{97\%}(p)=\left(0.45-E,\ 0.45+E\right)
+\approx\boxed{(0.387669,\ 0.512331)}.
+\]
+Equivale aproximadamente a un intervalo del $38.77\%$ al $51.23\%$. Es una estimación por el procedimiento de confianza indicado; no es una afirmación de que el parámetro fijo cambie aleatoriamente dentro del intervalo.
+
+\textbf{b) Tamaño mínimo con error inferior al $2\%$.}\par\nopagebreak[4]
+
+Se mantienen la proporción muestral y la confianza, así que conservamos $\widehat p=0.45$ y el mismo percentil. El error pedido es $E<0.02$, estrictamente:
+\[
+z\sqrt{\frac{0.45\cdot0.55}{n}}<0.02
+\quad\Longleftrightarrow\quad
+n>\frac{z^2\,0.45\cdot0.55}{0.02^2}
+\approx2913.874578.
+\]
+El menor entero que cumple esta desigualdad es
+\[
+\boxed{n_{\min}=2914\text{ individuos}.}
+\]
+La regla general para una cota estricta $n>K$ es $\lfloor K\rfloor+1$; si $K$ fuese entero, no bastaría tomar ese mismo entero.
+
+\textbf{Comprobación del mínimo.} Manteniendo el percentil sin redondear:
+\[
+E(2913)>0.02,\qquad E(2914)<0.02.
+\]
+Como el error decrece al crecer $n$, el segundo tamaño es el mínimo admisible. Se conserva la proporción observada $0.45$, tal como exige el enunciado.

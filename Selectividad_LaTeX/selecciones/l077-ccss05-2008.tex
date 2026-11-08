@@ -1,0 +1,19 @@
+% L077:año2008 por carpeta;curso no impreso;otros metadatos no indicados;criterios integrados en página3.
+\input{selecciones/l077-ids}
+\providecommand{\TituloSeleccion}{L077: archivo Mat CCSS 5, año 2008 por carpeta; curso no impreso, opciones A/B}
+\providecommand{\ContextoSeleccion}{\input{recursos/comunes/EXA-0077-instrucciones}}
+
+% Espaciado local sólo cuando se seleccionan los seis ejercicios de L077.
+\ifdefined\EspaciadoLoteSetentaSiete\else
+\gdef\EspaciadoLoteSetentaSiete{si}
+\AtBeginDocument{%
+\edef\SeleccionActualEspaciado{\ListaEjercicios}%
+\def\SeleccionLoteSetentaSiete{SEL-D0077-OA-E01,SEL-D0077-OA-E02,SEL-D0077-OA-E03,SEL-D0077-OB-E01,SEL-D0077-OB-E02,SEL-D0077-OB-E03}%
+\ifx\SeleccionActualEspaciado\SeleccionLoteSetentaSiete
+\setlength{\parskip}{0.1em}\setlist[enumerate]{itemsep=0.1em,topsep=0.1em}%
+\fi}
+\fi
+
+
+
+

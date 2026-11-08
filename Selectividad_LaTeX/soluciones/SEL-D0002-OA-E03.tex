@@ -1,5 +1,28 @@
 % ID: SEL-D0002-OA-E03
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S003, 2026-11-07; tres pasadas del mismo autor, comprobación separada y revisión didáctica/visual.
+\textbf{Datos.}\par\nopagebreak[4]
+Sea $V$ el suceso ``presenta avería''. Los modelos $A,B,C$ forman una partición: $P(A)=0.25$, $P(B)=0.40$ y $P(C)=1-0.25-0.40=0.35$. Las tasas de avería son probabilidades condicionadas, no probabilidades conjuntas.
+
+\textbf{a) Probabilidad total.}\par\nopagebreak[4]
+\[
+\begin{aligned}
+P(V)&=P(A)P(V\mid A)+P(B)P(V\mid B)+P(C)P(V\mid C)\\
+&=0.25(0.15)+0.40(0.10)+0.35(0.12)\\
+&=0.0375+0.04+0.042=\boxed{0.1195}.
+\end{aligned}
+\]
+Esto equivale al $11.95$\,\%.
+
+\textbf{b) Complementario dentro del modelo A.}\par\nopagebreak[4]
+Ya sabemos el modelo: no multiplicamos de nuevo por $P(A)$.
+\[
+P(V^c\mid A)=1-P(V\mid A)=1-0.15=\boxed{0.85}.
+\]
+
+\textbf{c) Unión.}\par\nopagebreak[4]
+Los sucesos $V$ y $C$ no son incompatibles. Aplicamos inclusión-exclusión:
+\[
+P(V\cup C)=P(V)+P(C)-P(V\cap C)
+=0.1195+0.35-0.042=\boxed{0.4275}.
+\]
+Comprobación por sucesos disjuntos: todos los patinetes C, más los averiados A y B, suman $0.35+0.0375+0.04=0.4275$. Además, las probabilidades conjuntas de avería y no avería suman 1.

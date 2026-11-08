@@ -1,0 +1,17 @@
+% L050: junio/titular sólo de carpeta; modelo no confirmado.
+\input{selecciones/l050-ids}
+\providecommand{\TituloSeleccion}{L050: archivo titular junio, curso 2012-2013, opciones A/B}
+\providecommand{\ContextoSeleccion}{\input{recursos/comunes/EXA-0050-instrucciones}}
+
+% Espaciado local sólo cuando se seleccionan los ocho ejercicios de L050.
+\ifdefined\EspaciadoLoteCincuenta\else
+\gdef\EspaciadoLoteCincuenta{si}
+\AtBeginDocument{%
+\edef\SeleccionActualEspaciado{\ListaEjercicios}%
+\def\SeleccionLoteCincuenta{SEL-D0050-OA-E01,SEL-D0050-OA-E02,SEL-D0050-OA-E03,SEL-D0050-OA-E04,SEL-D0050-OB-E01,SEL-D0050-OB-E02,SEL-D0050-OB-E03,SEL-D0050-OB-E04}%
+\ifx\SeleccionActualEspaciado\SeleccionLoteCincuenta
+\setlength{\parskip}{0.2em}\setlist[enumerate]{itemsep=0.15em,topsep=0.2em}%
+\fi}
+\fi
+
+

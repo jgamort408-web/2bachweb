@@ -1,5 +1,30 @@
 % ID: SEL-D0009-BC-E05
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S010; tres pasadas del mismo autor y comprobación matemática; sin segundo revisor.
+\textbf{Datos y descomposición en sucesos disjuntos.}\par\nopagebreak[4]
+$P(A)=1-P(A^c)=0.65$. Como $A$ se descompone en $A\setminus B$ y $A\cap B$,
+\[
+P(A\cap B)=0.65-0.30=0.35.
+\]
+Por tanto $P(B\setminus A)=0.55-0.35=0.20$.
+
+\textbf{a) Unión.}\par\nopagebreak[4]
+La inclusión-exclusión evita contar dos veces la intersección:
+\[
+\boxed{P(A\cup B)=0.65+0.55-0.35=0.85.}
+\]
+\textbf{b) Probabilidad condicionada.}\par\nopagebreak[4]
+Se restringe el espacio al suceso $A^c$, que tiene probabilidad positiva:
+\[
+\boxed{P(B\mid A^c)=\frac{P(B\cap A^c)}{P(A^c)}=\frac{0.20}{0.35}=\frac47.}
+\]
+\textbf{c) Ninguno de los dos.}\par\nopagebreak[4]
+Por las leyes de De Morgan,
+\[
+\boxed{P(A^c\cap B^c)=1-P(A\cup B)=0.15.}
+\]
+\textbf{d) Independencia.}\par\nopagebreak[4]
+Serían independientes si $P(A\cap B)=P(A)P(B)$. Sin redondear:
+\[
+0.35\ne0.65\cdot0.55=0.3575.
+\]
+\textbf{No son independientes}. Como comprobación, las cuatro regiones disjuntas tienen probabilidades $0.35$, $0.30$, $0.20$ y $0.15$: son no negativas y suman $1$.

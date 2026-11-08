@@ -1,5 +1,32 @@
 % ID: SEL-D0003-OA-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S004, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{Modelo y unidades.}\par\nopagebreak[4]
+La población es normal, con varianza conocida $\sigma^2=225\,\mathrm{mg}^2$; por tanto, $\sigma=15\,\mathrm{mg}$, no 225. Para observaciones aleatorias independientes, el intervalo bilateral para la media poblacional es
+\[
+\overline x\pm z_{1-\alpha/2}\frac{\sigma}{\sqrt n},
+\qquad E=z_{1-\alpha/2}\frac{\sigma}{\sqrt n},\qquad L=2E.
+\]
+$E$ es el error o semiamplitud y $L$ la amplitud total.
+
+\textbf{a) Confianza del 90\,\%.}\par\nopagebreak[4]
+$\alpha=0.10$, luego $\Phi(z)=0.95$ y $z_{0.95}\approx1.644854$. Como $n=25$, el error típico es $15/5=3\,\mathrm{mg}$:
+\[
+E=3z_{0.95}\approx4.934561\,\mathrm{mg},
+\]
+\[
+\boxed{IC_{\text{90\%}}\approx(170.065439,\ 179.934561)\,\mathrm{mg}.}
+\]
+Con $z\approx1.645$, interpolado en la tabla, resulta $(170.065,179.935)$ mg. La confianza describe la cobertura del procedimiento en muestreos repetidos; no el porcentaje de refrescos individuales comprendidos en ese intervalo.
+
+\textbf{b) Confianza del 80\,\% y amplitud como máximo 5 mg.}\par\nopagebreak[4]
+Ahora $\Phi(z)=0.90$, por lo que $z_{0.90}\approx1.281551566$. Como se pide amplitud total, imponemos
+\[
+L=\frac{30z_{0.90}}{\sqrt n}\leq5
+\iff n\geq\left(\frac{30z_{0.90}}5\right)^2
+\approx59.125479.
+\]
+El tamaño mínimo es \boxed{n=60}. Comprobamos:
+\[
+L(59)\approx5.005314>5,\qquad L(60)\approx4.963428<5\quad(\mathrm{mg}).
+\]
+\textbf{Precisión de la tabla:} en la tabla asociada $\Phi(1.28)=0.8997$ y $\Phi(1.29)=0.9015$. Interpolar para 0.9000 da $z\approx1.281667$ y también $n=60$. Redondear prematuramente a 1.28 produciría 59, pero ese tamaño no satisface el límite con el cuantil preciso. Los criterios oficiales asociados no especifican una respuesta numérica ni un redondeo obligatorio.

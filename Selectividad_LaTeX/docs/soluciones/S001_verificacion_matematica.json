@@ -1,0 +1,70 @@
+{
+  "S001": "comprobación matemática exacta",
+  "A1": {
+    "vertices": [
+      [
+        "0",
+        "10"
+      ],
+      [
+        "0",
+        "70"
+      ],
+      [
+        "12",
+        "56"
+      ],
+      [
+        "20",
+        "10"
+      ],
+      [
+        "32",
+        "16"
+      ]
+    ],
+    "beneficio_maximo": 284,
+    "produccion": [
+      12,
+      56
+    ],
+    "producciones_enteras_comprobadas": 1175,
+    "optimo_entero_unico": true,
+    "certificado_cota": "(3/5)(7x+6y)+(2/5)(2x+y)<=284",
+    "recursos_comprobados": true
+  },
+  "A2": {
+    "derivada": [
+      -9,
+      0,
+      3
+    ],
+    "segunda_derivada": [
+      0,
+      6
+    ],
+    "tangencias": [
+      -2,
+      2
+    ],
+    "rectas": [
+      "y=3x+18",
+      "y=3x-14"
+    ],
+    "signos_monotonia": [
+      "+",
+      "-",
+      "+"
+    ],
+    "signos_curvatura": [
+      "-",
+      "+"
+    ],
+    "inflexion": [
+      0,
+      2
+    ],
+    "primitiva_verificada_por_derivacion": true
+  },
+  "metodo": "Aritmética racional, intersecciones de restricciones, enumeración entera y operaciones sobre coeficientes; no usa los resultados impresos en un PDF como oráculo."
+}

@@ -1,5 +1,46 @@
 % ID: SEL-D0009-BD-E07
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S010; tres pasadas del mismo autor y comprobación matemática; sin segundo revisor.
+\textbf{a) Afijación proporcional.}\par\nopagebreak[4]
+La afijación proporcional mantiene la misma fracción $n_i/N_i$ en todos los estratos. Para el primero,
+\[
+\frac{375}{15000}=\frac1{40}.
+\]
+Aplicamos esa fracción a cada población:
+\[
+\begin{array}{c|rrrr|r}
+\text{Estrato}&0\text{--}25&26\text{--}45&46\text{--}60&61\text{ o más}&\text{Total}\\\hline
+N_i&15000&16800&11400&6000&49200\\
+n_i&375&420&285&150&1230
+\end{array}
+\]
+\boxed{n=1230}, con composición $(375,420,285,150)$. Cada cociente vale $1/40$ y los tamaños suman el total.
+
+\textbf{b) Convención y distribución de la media.}\par\nopagebreak[4]
+El enunciado no precisa reemplazamiento. Los criterios asociados piden muestras, media y desviación, pero no fijan esta convención. Presentamos ambas para no atribuir una única desviación a datos incompletos.
+
+\emph{Muestreo aleatorio simple sin reemplazamiento.} Las tres muestras no ordenadas equiprobables son
+\[
+\{1,3\},\quad\{1,5\},\quad\{3,5\},
+\qquad\overline x=2,3,4.
+\]
+Si se registra el orden, son $(1,3),(3,1),(1,5),(5,1),(3,5),(5,3)$; cada media aparece dos veces y la distribución es la misma. Calculamos la desviación de la \emph{distribución} de las medias, sin corrección de Bessel:
+\[
+E(\overline X)=\frac{2+3+4}{3}=3,\qquad
+\operatorname{Var}(\overline X)=\frac{(2-3)^2+(3-3)^2+(4-3)^2}{3}=\frac23.
+\]
+\[
+\boxed{\sigma_{\overline X}=\sqrt{2/3}\approx0.816497\quad\text{(sin reemplazamiento)}.}
+\]
+\emph{Extracciones independientes con reemplazamiento.} Los nueve pares ordenados son equiprobables:
+\[
+\begin{array}{c|rrrrrrrrr}
+\text{Par}&(1,1)&(1,3)&(1,5)&(3,1)&(3,3)&(3,5)&(5,1)&(5,3)&(5,5)\\\hline
+\overline x&1&2&3&2&3&4&3&4&5
+\end{array}
+\]
+Su media es $3$; las frecuencias de $1,2,3,4,5$ son $1,2,3,2,1$ sobre $9$. Así,
+\[
+\operatorname{Var}(\overline X)=\frac{4+2+0+2+4}{9}=\frac43,
+\qquad\boxed{\sigma_{\overline X}=\sqrt{4/3}\approx1.154701.}
+\]
+También se comprueba con $\sigma^2=8/3$ de la población y $\operatorname{Var}(\overline X)=\sigma^2/2$ para extracciones independientes. Si los pares con reemplazamiento se escriben sin orden, los pares distintos pesan $2/9$ y los repetidos $1/9$; no serían seis casos equiprobables.

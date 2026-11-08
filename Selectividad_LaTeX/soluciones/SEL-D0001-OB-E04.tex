@@ -1,5 +1,48 @@
 % ID: SEL-D0001-OB-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir hasta terminar y validar los enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; plan; pasos razonados;
-% comprobación independiente; interpretación; errores frecuentes y vínculo con el tema.
+% ESTADO: validada. S002, 2026-11-07. Tres pasadas del mismo autor; ver informe.
+\textbf{Datos y teoría.} El tiempo poblacional es Normal y su desviación típica es conocida: $\sigma=8$ minutos. Por ello se emplea un percentil de la Normal estándar para la media, incluso siendo pequeña la muestra; no se sustituye $\sigma$ por una desviación muestral ni se usa una distribución $t$.
+
+La suma de los nueve tiempos es 135 minutos y la media muestral es
+\[
+\overline x=\frac{10+17+8+27+6+9+32+5+21}{9}=\frac{135}{9}=15\ \text{minutos}.
+\]
+\textbf{a) Intervalo de confianza del $92\%$.}\par\nopagebreak[4]
+
+La probabilidad de cada cola es $(1-0.92)/2=0.04$. Buscamos $\Phi(z)=0.96$, de donde $z\approx1.750686$ (aproximadamente $1.75$ con tabla). El error de estimación es
+\[
+E=z\frac\sigma{\sqrt n}=1.750686\ldots\frac8{\sqrt9}
+\approx4.668496\ \text{minutos}.
+\]
+Así,
+\[
+IC_{92\%}(\mu)=\left(\overline x-E,\overline x+E\right)
+\approx\boxed{(10.331504,\ 19.668496)\ \text{minutos}}.
+\]
+El semiancho es $E$; la amplitud total sería $2E$.
+
+\textbf{b) Tamaño mínimo con confianza del $95.5\%$.}\par\nopagebreak[4]
+
+La confianza cambia, por lo que debemos calcular un nuevo percentil:
+\[
+\alpha=0.045,\qquad 1-\frac\alpha2=0.9775,
+\qquad z=\Phi^{-1}(0.9775)\approx2.004654462.
+\]
+Con la tabla, $0.9775$ queda entre los valores de $2.00$ y $2.01$; una interpolación da aproximadamente $2.005$. Conservamos más cifras para decidir el mínimo. Sustituir sin más el percentil por 2 modificaría esa decisión.
+
+El error debe ser estrictamente menor de $1.5$ minutos:
+\[
+z\frac8{\sqrt n}<1.5
+\quad\Longleftrightarrow\quad
+n>\left(\frac{8z}{1.5}\right)^2
+\approx114.307968.
+\]
+Por tanto,
+\[
+\boxed{n_{\min}=115\text{ empleados}.}
+\]
+\textbf{Comprobación del mínimo.} Con el percentil sin redondear,
+\[
+E(114)\approx1.502025>1.5,\qquad
+E(115)\approx1.495480<1.5.
+\]
+El error disminuye con el tamaño muestral, por lo que 115 es el menor tamaño que cumple la condición con la confianza solicitada.

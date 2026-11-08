@@ -41,9 +41,68 @@ Actualizado: 22 de octubre de 2026. Índice operativo; los criterios detallados 
 - [x] S23 · L023: ocho enunciados cotejados e indexados; sin soluciones. [Informe](../Selectividad_LaTeX/docs/lotes/L023_2016_reserva_b.md).
 - [x] S24 · L024: ocho enunciados cotejados e indexados; sin soluciones. [Informe](../Selectividad_LaTeX/docs/lotes/L024_2017_reserva_b.md).
 - [x] S25 · L025: ocho enunciados cotejados e indexados; sin soluciones. [Informe](../Selectividad_LaTeX/docs/lotes/L025_2017_suplemente_junio.md).
-- [ ] S26 · L026: SRC-251685BD691B, suplemente_septiembre_EXAMEN 4-ANDALUCÍA.pdf; confirmar curso/naturaleza y transcribir sin soluciones.
+- [x] S26 · L026: ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L026_2016_suplemente_septiembre.md).
+- [x] S27 · L027: ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L027_2017_suplemente_septiembre.md).
+- [x] S28 · L028: ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L028_2018_suplente_junio.md).
+- [x] S29 · L029: ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L029_2018_suplente_septiembre.md).
+- [x] S30 · L030: ocho enunciados cotejados y clasificados; INC-010 documentada para revisión de muestreo. [Informe](../Selectividad_LaTeX/docs/lotes/L030_2018_titular_junio.md).
+- [x] S31 · L031: ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L031_2016_titular_junio.md).
+- [x] S32 · L032: ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L032_2017_titular_junio.md).
+- [x] S33 · L033: ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L033_2018_titular_septiembre.md).
+- [x] S34 · L034: ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L034_2016_titular_septiembre.md).
+- [x] S35 · L035: ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L035_2017_titular_septiembre.md).
+- [x] S36 · L036:ocho enunciados cotejados y clasificados;alias comprobados. [Informe](../Selectividad_LaTeX/docs/lotes/L036_2015_Ua1.md).
+- [x] S37 · L037:ocho enunciados cotejados y clasificados;alias comprobados. [Informe](../Selectividad_LaTeX/docs/lotes/L037_2015_Ua2.md).
+- [x] S38 · L038:ocho enunciados cotejados y clasificados;alias comprobados. [Informe](../Selectividad_LaTeX/docs/lotes/L038_2015_Ua3.md).
+- [x] S39 · L039:ocho enunciados cotejados y clasificados;alias comprobados. [Informe](../Selectividad_LaTeX/docs/lotes/L039_2015_Ua4.md).
+- [x] S40 · L040:ocho enunciados cotejados y clasificados;alias comprobados. [Informe](../Selectividad_LaTeX/docs/lotes/L040_2015_Ua5.md).
+- [x] S41 · L041:ocho enunciados cotejados y clasificados;alias comprobados. [Informe](../Selectividad_LaTeX/docs/lotes/L041_2015_Ua6.md).
+- [x] S42 · L042:ocho enunciados cotejados y clasificados;procedencia comprobada. [Informe](../Selectividad_LaTeX/docs/lotes/L042_2014_ANDAL1.md).
+- [x] S43 · L043:ocho enunciados cotejados y clasificados;procedencia comprobada. [Informe](../Selectividad_LaTeX/docs/lotes/L043_2014_ANDAL2.md).
+- [x] S44 · L044:ocho enunciados cotejados y clasificados;procedencia comprobada. [Informe](../Selectividad_LaTeX/docs/lotes/L044_2014_ANDAL3.md).
+- [x] S45 · L045:ocho enunciados cotejados y clasificados;procedencia comprobada. [Informe](../Selectividad_LaTeX/docs/lotes/L045_2014_ANDAL5.md).
+- [x] S46 · L046:ocho enunciados cotejados y clasificados;procedencia comprobada. [Informe](../Selectividad_LaTeX/docs/lotes/L046_2014_JUN.md).
+- [x] S47 · L047:ocho enunciados cotejados y clasificados;procedencia comprobada. [Informe](../Selectividad_LaTeX/docs/lotes/L047_2014_SEPT.md).
+- [x] S48 · L048:ocho enunciados cotejados y clasificados;procedencia comprobada. [Informe](../Selectividad_LaTeX/docs/lotes/L048_2013_RESERVA_A.md).
+- [x] S49 · L049:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L049_2013_RESERVA_B.md).
+- [x] S50 · L050:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L050_2013_TITULAR_JUNIO.md).
+- [x] S51 · L051:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L051_2013_RESERVA_A_SEPTIEMBRE.md).
+- [x] S52 · L052:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L052_2013_RESERVA_B_SEPTIEMBRE.md).
+- [x] S53 · L053:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L053_2013_TITULAR_SEPTIEMBRE.md).
+- [x] S54 · L054:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L054_2011_EXAMEN_4.md).
+- [x] S55 · L055:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L055_2011_EXAMEN_6.md).
+- [x] S56 · L056:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L056_2011_EXAMEN_1.md).
+- [x] S57 · L057:reedición de EXA-0054 cotejada;ocho correspondencias sin duplicar. [Informe](../Selectividad_LaTeX/docs/lotes/L057_2011_REEDICION_EXAMEN_4.md).
+- [x] S58 · L058:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L058_2011_EXAMEN_5.md).
+- [x] S59 · L059:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L059_2011_EXAMEN_2.md).
+- [x] S60 · L060:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L060_2011_EXAMEN_3.md).
+- [x] S61 · L061:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L061_2010_EXAMEN_5.md).
+- [x] S62 · L062:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L062_2010_EXAMEN_4.md).
+- [x] S63 · L063:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L063_2010_EXAMEN_6.md).
+- [x] S64 · L064:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L064_2010_EXAMEN_3.md).
+- [x] S65 · L065:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L065_2010_EXAMEN_1.md).
+- [x] S66 · L066:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L066_2010_EXAMEN_2.md).
+- [x] S67 · L067:seis enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L067_2009_CCSS01.md).
+- [x] S68 · L068:seis enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L068_2009_CCSS02.md).
+- [x] S69 · L069:seis enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L069_2009_CCSS03.md).
+- [x] S70 · L070:seis enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L070_2009_CCSS04.md).
+- [x] S71 · L071:seis enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L071_2009_CCSS05.md).
+- [x] S72 · L072:seis enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L072_2009_CCSS06.md).
+- [x] S73 · L073:seis enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L073_2008_CCSS01.md).
+- [x] S74 · L074:seis enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L074_2008_CCSS02.md).
+- [x] S75 · L075:seis enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L075_2008_CCSS03.md).
+- [x] S76 · L076:seis enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L076_2008_CCSS04.md).
+- [x] S77 · L077:seis enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L077_2008_CCSS05.md).
+- [x] S78 · L078:seis enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L078_2008_CCSS06.md).
+- [x] S79 · L079:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L079_2012_EXAMEN_1.md).
+- [x] S80 · L080:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L080_2012_EXAMEN_5.md).
+- [x] S81 · L081:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L081_2012_EXAMEN_2.md).
+- [x] S82 · L082:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L082_2012_EXAMEN_4.md).
+- [x] S83 · L083:ocho enunciados cotejados y clasificados. [Informe](../Selectividad_LaTeX/docs/lotes/L083_2012_EXAMEN_3.md).
+- [x] S84 · L084:ocho enunciados cotejados y clasificados; primera pasada completa. [Informe](../Selectividad_LaTeX/docs/lotes/L084_2012_EXAMEN_6.md).
+- [ ] SEL-SOL-01 · Revisar incidencias y preparar tandas de soluciones según el [balance](../Selectividad_LaTeX/docs/CIERRE_TRANSCRIPCIONES.md).
 
-**Estado actual de Selectividad:** 25 de 84 candidatos cerrados, 59 pendientes; 200 enunciados cotejados/clasificados y cero soluciones. L025: 21 pruebas, 215 fuentes verificadas, ocho páginas finales revisadas, ZIP aislado y entrada principal comprobados; 432 archivos previos intactos. Curso2016-2017 impreso; suplemente_junio sólo del nombre, criterios concordantes asociados y sin tabla específica.
+**Estado actual de Selectividad:**84 de84 candidatos de transcripción cerrados;83 exámenes canónicos,640 enunciados cotejados/clasificados;64 soluciones validadas y576 pendientes. [Tandas de soluciones](../Selectividad_LaTeX/docs/LOTES_DE_SOLUCIONES.md).
 
 Las tareas del libro siguientes conservan su estado. T07 sigue pendiente: esta ampliación no equivale al cierre de la biblioteca web ni modifica el diseño.
 
@@ -418,3 +477,14 @@ Las tareas del libro siguientes conservan su estado. T07 sigue pendiente: esta a
 - audit: 30 originales, 24 parejas y 154 páginas comprobados conjuntamente; informe reproducible sin modificar originales.
 - docs: [auditoría](docs/auditoria-pdf-subida-nota-curso.md), [cierre global](docs/cierre-t06-latex-pdf.md), [verificación](docs/verificacion-entrega-176.md).
 - next: T07, biblioteca con búsqueda/filtros/etiquetas. Libro completo aún en desarrollo.
+
+- [x] SEL-S001 · Dos soluciones explicadas y validadas; tres pasadas del mismo autor y22 pruebas. [Informe](../Selectividad_LaTeX/docs/soluciones/S001_2019_A1_A2.md).
+- [x] SEL-S002 · Seis soluciones restantes de EXA-0001 validadas;22 pruebas, revisión PDF y ZIP aislado documentados al cierre. [Informe](../Selectividad_LaTeX/docs/soluciones/S002_2019_RESTO_EXAMEN.md).
+- [x] SEL-S003 · Ocho soluciones de EXA-0002 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S003_2019_SEPTIEMBRE.md).
+- [x] SEL-S004 · Ocho soluciones de EXA-0003 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S004_2019_SUPLENTE_JUNIO.md).
+- [x] SEL-S005 · Ocho soluciones de EXA-0004 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S005_2019_SUPLENTE_SEPTIEMBRE.md).
+- [x] SEL-S006 · Ocho soluciones de EXA-0005 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S006_2019_RESERVA_A.md).
+- [x] SEL-S007 · Ocho soluciones de EXA-0006 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S007_2019_RESERVA_B.md).
+- [x] SEL-S008 · Ocho soluciones de EXA-0007 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S008_2021_ORDINARIA.md).
+- [x] SEL-S009 · Ocho soluciones de EXA-0008 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S009_2021_ORD_SUPLENTE.md).
+- [ ] SEL-S010 · Ocho ejercicios de EXA-0009 según el plan de tandas.

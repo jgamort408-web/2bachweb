@@ -1,5 +1,73 @@
 % ID: SEL-D0001-OA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir hasta terminar y validar los enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; plan; pasos razonados;
-% comprobación independiente; interpretación; errores frecuentes y vínculo con el tema.
+% ESTADO: validada. S001, 2026-11-07. Tres pasadas del mismo autor; ver informe S001.
+\textbf{1. Datos, incógnitas y objetivo.}
+Sean $x$ el número de camisetas lisas e $y$ el de estampadas. Son cantidades no negativas y enteras. El beneficio, en euros, es
+\[
+B(x,y)=5x+4y.
+\]
+Cada recurso disponible impone una cota superior; las condiciones de producción imponen cotas inferiores:
+\[
+\begin{array}{rcll}
+70x+60y&\leq&4200&\text{algodón, en gramos},\\
+20x+10y&\leq&800&\text{poliéster, en gramos},\\
+y&\geq&10&\text{al menos diez estampadas},\\
+x&\leq&2y&\text{el doble de estampadas es al menos }x,\\
+x&\geq&0.&
+\end{array}
+\]
+La condición $y\geq0$ ya está incluida en $y\geq10$. Dividiendo las dos primeras desigualdades entre 10:
+\[
+7x+6y\leq420,\qquad 2x+y\leq80.
+\]
+\textbf{2. Teoría y región factible.}
+La programación lineal optimiza una función lineal en una región definida por semiplanos. Aquí la región es un polígono cerrado, acotado y no vacío; por ejemplo, $(0,10)$ es factible. Una función lineal alcanza su máximo en algún vértice. Primero estudiamos el polígono continuo y después comprobamos que el óptimo también respeta la condición de cantidades enteras.
+
+Sus vértices, recorriendo la frontera, son:
+\[
+\begin{array}{c|c|c}
+\text{Vértice}&\text{Rectas que lo determinan}&(x,y)\\\hline
+A&x=0,\ y=10&(0,10)\\
+B&y=10,\ x=2y&(20,10)\\
+C&x=2y,\ 2x+y=80&(32,16)\\
+D&7x+6y=420,\ 2x+y=80&(12,56)\\
+E&x=0,\ 7x+6y=420&(0,70)
+\end{array}
+\]
+Cada punto de la tabla satisface todas las desigualdades. Las intersecciones de rectas que incumplen alguna restricción no son vértices factibles.
+
+Por ejemplo, para $C$ sustituimos $x=2y$ en $2x+y=80$: $5y=80$, de donde $y=16$ y $x=32$. Para $D$:
+\[
+y=80-2x,\quad 7x+6(80-2x)=420
+\quad\Longrightarrow\quad -5x=-60,
+\]
+por lo que $x=12$ e $y=56$.
+
+\begin{center}
+\includegraphics[width=52mm]{figuras/s001-region-factible.pdf}
+
+\small Región factible: interior y frontera del polígono $ABCDE$.
+\end{center}
+
+\textbf{3. Evaluación del beneficio.}
+\[
+\begin{array}{c|rrrrr}
+\text{Vértice}&A&B&C&D&E\\\hline
+B(x,y)\ (\text{euros})&40&140&224&284&280
+\end{array}
+\]
+El mayor valor es $284$, que se alcanza en $(12,56)$. Como sus coordenadas son enteras, también es una fabricación admisible de camisetas completas.
+
+\textbf{4. Comprobación y respuesta.}
+Con 12 lisas y 56 estampadas se consumen
+\[
+70\cdot12+60\cdot56=4200\ \text{g de algodón},\qquad
+20\cdot12+10\cdot56=800\ \text{g de poliéster}.
+\]
+Además, $56\geq10$ y $12\leq2\cdot56$. Como comprobación alternativa, toda producción factible cumple
+\[
+5x+4y=\frac35(7x+6y)+\frac25(2x+y)
+\leq\frac35\,420+\frac25\,80=284.
+\]
+Se ha encontrado una producción que alcanza esa cota, por lo que ninguna otra puede mejorarla.
+
+\textbf{Debe fabricar 12 camisetas lisas y 56 estampadas; el beneficio máximo es de 284 euros.}

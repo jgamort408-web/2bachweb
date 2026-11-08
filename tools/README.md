@@ -33,3 +33,21 @@ python tools/selectividad/leer_lote.py l027 examen=SRC-XXXXXXXXXXXX criterios=SR
 ```
 
 Comprueba la huella de cada fuente en `Selectividad_LaTeX/datos/fuentes.csv`, guarda el control de los archivos previos y deja texto y páginas renderizadas en `tmp/pdfs/selectividad-<lote>/`. Sustituye a los `tmp/leer_lNNN.py` que se copiaban a mano en cada lote.
+
+
+## DOC de Selectividad (L079 y siguientes)
+
+`selectividad/convertir_doc.ps1` convierte copias de los DOC inventariados y comprueba SHA-256 antes y después. Requiere un ejecutable local de LibreOffice, indicado con `-Soffice`; no descarga ni instala software. Exporta primero a una carpeta temporal corta para evitar fallos de guardado del conversor en rutas largas o sincronizadas y copia los PDF al lote. Registra versión, argumentos, originales y derivados en `conversion-doc.json`. No sobrescribe conversiones existentes.
+
+Ejemplo desde la raíz, en PowerShell:
+
+```powershell
+& tools/selectividad/convertir_doc.ps1 -Lote l080 -Soffice RUTA/soffice.com -Fuentes @('examen=SRC-233B0EB573AE','criterios=SRC-E63EDEDF9977')
+```
+
+Después usar `leer_lote.py` con las fuentes originales, `--pdf-convertido examen=tmp/pdfs/selectividad-l080/convertidos/examen.pdf`, el PDF de criterios y `--conversor` con la versión registrada. Sólo se admiten PDF derivados dentro de la carpeta del lote; `lectura-fuentes.json` conserva su relación con los DOC originales. La conversión no certifica por sí sola las fórmulas: es obligatorio revisar todas las páginas y las expresiones incrustadas.
+
+En L079 se usó LibreOffice 26.8.2.2 extraído administrativamente bajo `tmp/selectividad/conversor/`, sin instalación del producto en Windows. Los binarios y el paquete se mantienen fuera del versionado; los scripts sí forman parte del proyecto.
+
+
+En una conversión interrumpida, `-Reanudar` permite conservar un PDF ya generado únicamente después de comprobar su procedencia. El script exige que el DOC original y su copia mantengan la huella inventariada, verifica la cabecera del PDF y registra `reanudado=true` sin afirmar una nueva exportación. Cada éxito deja además `conversion-doc.parcial.json`; no se sobrescriben PDF por defecto. La revisión visual sigue siendo obligatoria.

@@ -1,5 +1,31 @@
 % ID: SEL-D0008-BB-E03
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S009, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Dominio, continuidad y derivabilidad.}\par\nopagebreak[4]
+El dominio es $\mathbb R$: el término $1/x$ sólo se usa para $x\leq-1$, por lo que no impide que la función esté definida en 0 mediante la rama central. Cada rama es continua y derivable en su interior.
+
+En $x=-1$, el valor y límite izquierdo son $f(-1)=-1$; el límite derecho es $-3(-1)^2+4=1$. Hay \textbf{salto}, por lo que no es continua ni derivable allí.
+
+En $x=1$, ambos límites y el valor son 1; es continua. Sin embargo,
+\[
+f'_-(1)=-6,\qquad f'_+(1)=2,
+\]
+por lo que \textbf{no es derivable en 1}. En los demás puntos,
+\[
+f'(x)=\begin{cases}-1/x^2&x<-1,\\-6x&-1<x<1,\\2&x>1.\end{cases}
+\]
+En consecuencia, es continua en $\mathbb R\setminus\{-1\}$ y derivable en $\mathbb R\setminus\{-1,1\}$.
+
+\textbf{b) Representación.}\par\nopagebreak[4]
+La rama $1/x$ es negativa, tiende a 0 por debajo cuando $x\to-\infty$ y termina con punto incluido en $(-1,-1)$. La parábola central tiene vértice $(0,4)$ y extremo excluido $(-1,1)$. En $(1,1)$ se une continuamente a la recta $y=2x-1$, cuyo punto inicial está incluido. Se representan el salto y los puntos abiertos/cerrados.
+\begin{center}\includegraphics[width=0.62\linewidth]{figuras/s009-trozos.pdf}\end{center}
+
+\textbf{c) Área entre 0 y 3.}\par\nopagebreak[4]
+La función es positiva en $[0,3]$ y cambia de fórmula en 1. Dividimos allí la integral:
+\[
+\begin{aligned}
+S&=\int_0^1(-3x^2+4)\,dx+\int_1^3(2x-1)\,dx\\
+&=[-x^3+4x]_0^1+[x^2-x]_1^3\\
+&=3+6=\boxed{9\text{ unidades cuadradas}.}
+\end{aligned}
+\]
+El salto en $-1$ no interviene porque está fuera del recinto solicitado. Usar una sola fórmula en todo $[0,3]$ daría un área incorrecta.

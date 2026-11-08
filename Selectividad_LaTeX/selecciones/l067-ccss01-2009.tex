@@ -1,0 +1,19 @@
+% L067:curso2008-2009;otros metadatos no indicados;criterios integrados en página3.
+\input{selecciones/l067-ids}
+\providecommand{\TituloSeleccion}{L067: archivo mat apli CC SS01, curso 2008-2009, opciones A/B}
+\providecommand{\ContextoSeleccion}{\input{recursos/comunes/EXA-0067-instrucciones}}
+
+% Espaciado local sólo cuando se seleccionan los seis ejercicios de L067.
+\ifdefined\EspaciadoLoteSesentaSiete\else
+\gdef\EspaciadoLoteSesentaSiete{si}
+\AtBeginDocument{%
+\edef\SeleccionActualEspaciado{\ListaEjercicios}%
+\def\SeleccionLoteSesentaSiete{SEL-D0067-OA-E01,SEL-D0067-OA-E02,SEL-D0067-OA-E03,SEL-D0067-OB-E01,SEL-D0067-OB-E02,SEL-D0067-OB-E03}%
+\ifx\SeleccionActualEspaciado\SeleccionLoteSesentaSiete
+\setlength{\parskip}{0.1em}\setlist[enumerate]{itemsep=0.1em,topsep=0.1em}%
+\fi}
+\fi
+
+
+
+

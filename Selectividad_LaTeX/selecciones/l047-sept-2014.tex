@@ -1,0 +1,16 @@
+% L047: SEPT sólo del nombre,sin tipo ni modelo acreditados.
+\input{selecciones/l047-ids}
+\providecommand{\TituloSeleccion}{L047: archivo SEPT, curso 2013-2014, opciones A/B}
+\providecommand{\ContextoSeleccion}{\input{recursos/comunes/EXA-0047-instrucciones}}
+
+% Espaciado local sólo cuando se seleccionan los ocho ejercicios de L047.
+\ifdefined\EspaciadoLoteCuarentaSiete\else
+\gdef\EspaciadoLoteCuarentaSiete{si}
+\AtBeginDocument{%
+\edef\SeleccionActualEspaciado{\ListaEjercicios}%
+\def\SeleccionLoteCuarentaSiete{SEL-D0047-OA-E01,SEL-D0047-OA-E02,SEL-D0047-OA-E03,SEL-D0047-OA-E04,SEL-D0047-OB-E01,SEL-D0047-OB-E02,SEL-D0047-OB-E03,SEL-D0047-OB-E04}%
+\ifx\SeleccionActualEspaciado\SeleccionLoteCuarentaSiete
+\setlength{\parskip}{0.2em}\setlist[enumerate]{itemsep=0.15em,topsep=0.2em}%
+\fi}
+\fi
+

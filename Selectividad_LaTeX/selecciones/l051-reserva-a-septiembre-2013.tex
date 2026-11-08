@@ -1,0 +1,18 @@
+% L051:reserva A sólo de carpeta;convocatoria/modelo no confirmados.
+\input{selecciones/l051-ids}
+\providecommand{\TituloSeleccion}{L051: archivo reserva A septiembre, curso 2012-2013, opciones A/B}
+\providecommand{\ContextoSeleccion}{\input{recursos/comunes/EXA-0051-instrucciones}}
+
+% Espaciado local sólo cuando se seleccionan los ocho ejercicios de L051.
+\ifdefined\EspaciadoLoteCincuentaUno\else
+\gdef\EspaciadoLoteCincuentaUno{si}
+\AtBeginDocument{%
+\edef\SeleccionActualEspaciado{\ListaEjercicios}%
+\def\SeleccionLoteCincuentaUno{SEL-D0051-OA-E01,SEL-D0051-OA-E02,SEL-D0051-OA-E03,SEL-D0051-OA-E04,SEL-D0051-OB-E01,SEL-D0051-OB-E02,SEL-D0051-OB-E03,SEL-D0051-OB-E04}%
+\ifx\SeleccionActualEspaciado\SeleccionLoteCincuentaUno
+\setlength{\parskip}{0.2em}\setlist[enumerate]{itemsep=0.15em,topsep=0.2em}%
+\fi}
+\fi
+
+
+

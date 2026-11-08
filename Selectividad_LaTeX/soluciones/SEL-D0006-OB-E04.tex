@@ -1,5 +1,23 @@
 % ID: SEL-D0006-OB-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S007, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Intervalo para la proporción.}\par\nopagebreak[4]
+La proporción observada es $\widehat p=96/320=0.3$. Usamos el intervalo normal aproximado, bajo muestreo aleatorio independiente. Los recuentos 96 y 224 permiten la aproximación usual. Para confianza 95\,\%, $\alpha=0.05$ y $z_{0.975}\approx1.959963985$ (tabla: 1.96).
+\[
+\widehat p\pm z_{0.975}\sqrt{\frac{\widehat p(1-\widehat p)}n}
+=0.3\pm1.959963985\sqrt{\frac{0.3(0.7)}{320}}.
+\]
+\[
+\boxed{IC_{\text{95\%}}\approx(0.249790864,\ 0.350209136).}
+\]
+En porcentajes, entre 24.98\,\% y 35.02\,\% aproximadamente. La confianza se refiere a la cobertura del método para la proporción poblacional en muestras repetidas, no a una proporción fija de personas individuales dentro del intervalo.
+
+\textbf{b) Tamaño con confianza del 98\,\%.}\par\nopagebreak[4]
+Se mantiene $\widehat p=0.3$, pero cambia la confianza: ahora $z_{0.99}\approx2.326347874$. Para error estrictamente inferior a 0.1,
+\[
+z_{0.99}\sqrt{\frac{0.3(0.7)}n}<0.1
+\iff n>\frac{z_{0.99}^2(0.21)}{0.1^2}
+\approx113.649783.
+\]
+El tamaño total mínimo es \boxed{n=114\text{ personas}}. Se verifica que el error con 113 supera 0.1 y con 114 es menor. Con tabla 2.33 se obtiene también 114.
+
+Este tamaño puede ser inferior al inicial 320 porque aquí se admite un error mayor. No se pide aumentar la muestra existente en 114 personas ni sustituir la proporción piloto por 0.5.

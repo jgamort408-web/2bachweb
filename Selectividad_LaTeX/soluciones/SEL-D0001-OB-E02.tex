@@ -1,5 +1,40 @@
 % ID: SEL-D0001-OB-E02
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir hasta terminar y validar los enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; plan; pasos razonados;
-% comprobación independiente; interpretación; errores frecuentes y vínculo con el tema.
+% ESTADO: validada. S002, 2026-11-07. Tres pasadas del mismo autor; ver informe.
+\textbf{Dominio.} El tramo racional se utiliza sólo cuando $x<0$, de modo que su denominador nunca es cero en ese tramo. El polinomio se utiliza para $x\geq0$. En consecuencia, el dominio de la función a trozos es todo $\mathbb R$; no se excluye $x=1$, que pertenece al tramo polinómico.
+
+\textbf{a) Continuidad y derivabilidad.}\par\nopagebreak[4]
+
+Cada expresión es continua en su tramo. El único punto donde es necesario comprobar el enlace es $x=0$:
+\[
+\lim_{x\to0^-}f(x)=\frac1{-1}=-1,\qquad
+\lim_{x\to0^+}f(x)=a,\qquad f(0)=a.
+\]
+Los límites laterales y el valor coinciden exactamente cuando $\boxed{a=-1}$. Para ese valor, la función es continua en todo su dominio.
+
+Las derivadas de los tramos son
+\[
+f'(x)=\begin{cases}-\dfrac1{(x-1)^2}&x<0,\\2x&x>0.\end{cases}
+\]
+La continuidad permite estudiar las derivadas laterales en el enlace: $f'_-(0)=-1$ y $f'_+(0)=0$. Al ser distintas, \textbf{la función no es derivable en 0}; sí lo es en $(-\infty,0)\cup(0,+\infty)$. Ser continua no basta para ser derivable.
+
+\textbf{b) Monotonía y curvatura para $a=-2$.}\par\nopagebreak[4]
+
+En este apartado cambia el valor del parámetro. Ahora $f(0)=-2$ y los límites laterales son $-1$ y $-2$, así que la función tiene una discontinuidad de salto en 0.
+
+Las derivadas dentro de cada tramo no dependen de $a$:
+\[
+\begin{array}{c|cc}
+x&(-\infty,0)&(0,+\infty)\\\hline
+f'(x)&-\dfrac1{(x-1)^2}<0&2x>0\\
+f&\text{decreciente}&\text{creciente}
+\end{array}
+\]
+Puede incluirse 0 como extremo en ambos intervalos de monotonía: para $x<0$, $f(x)>-1>-2=f(0)$, y para $x>0$, $f(x)=x^2-2>-2$. En particular, $(0,-2)$ es un mínimo absoluto.
+
+Para la curvatura calculamos
+\[
+f''(x)=\begin{cases}\dfrac2{(x-1)^3}<0&x<0,\\2>0&x>0.\end{cases}
+\]
+La gráfica es cóncava hacia abajo en $(-\infty,0)$ y convexa hacia arriba en $(0,+\infty)$.
+
+\textbf{No hay punto de inflexión.} En cada tramo la curvatura mantiene su signo. Aunque las orientaciones son distintas a ambos lados de 0, allí la función es discontinua; no existe un punto continuo de la gráfica que conecte ese cambio. El cambio de signo entre tramos separados por un salto no basta para afirmar una inflexión.

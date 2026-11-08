@@ -1,5 +1,30 @@
 % ID: SEL-D0003-OA-E03
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S004, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{Datos y traducción a sucesos.}\par\nopagebreak[4]
+Sean $D$ ``seguir dieta'' y $S$ ``practicar deporte''. Los datos son
+\[
+P(D\cap S)=0.17,\qquad P(D^c\cap S^c)=0.58,\qquad P(D\mid S)=0.50.
+\]
+La última probabilidad está condicionada al deporte: no es $P(S\mid D)$.
+
+\textbf{a) Unión.}\par\nopagebreak[4]
+Por De Morgan, no hacer ninguna de las dos actividades es el complementario de hacer al menos una:
+\[
+P(D\cup S)=1-P(D^c\cap S^c)=1-0.58=\boxed{0.42}.
+\]
+
+\textbf{b) Probabilidad de deporte sabiendo dieta.}\par\nopagebreak[4]
+Primero recuperamos $P(S)$ mediante la definición de probabilidad condicionada:
+\[
+0.50=\frac{0.17}{P(S)}\ \Longrightarrow\ P(S)=0.34.
+\]
+La unión proporciona $P(D)=0.42-0.34+0.17=0.25$. Así,
+\[
+P(S\mid D)=\frac{P(D\cap S)}{P(D)}=\frac{0.17}{0.25}=\boxed{0.68}.
+\]
+No se invierte una probabilidad condicionada intercambiando sus símbolos.
+
+\textbf{c) Independencia.}\par\nopagebreak[4]
+$P(D)P(S)=0.25(0.34)=0.085\ne0.17=P(D\cap S)$, luego \textbf{no son independientes}. También lo prueba $P(S\mid D)=0.68\ne0.34$.
+
+Comprobación por regiones disjuntas: ambas actividades 0.17; sólo dieta 0.08; sólo deporte 0.17; ninguna 0.58. Suman 1 y reproducen todos los datos, incluido $P(D\mid S)=0.17/0.34=0.5$.

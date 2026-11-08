@@ -1,5 +1,19 @@
 % ID: SEL-D0002-OB-E02
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S003, 2026-11-07; tres pasadas del mismo autor, comprobación separada y revisión didáctica/visual.
+\textbf{a) Variación y extremos relativos.}\par\nopagebreak[4]
+El dato es la \emph{derivada}, no la función: $f'(x)=3(x-1)(x+1)$. Sus ceros son $x=-1,1$. El signo es positivo en $(-\infty,-1)$, negativo en $(-1,1)$ y positivo en $(1,\infty)$.
+
+Así, $f$ crece en $(-\infty,-1)$ y $(1,\infty)$, y decrece en $(-1,1)$. El cambio de $+$ a $-$ en $x=-1$ da un \textbf{máximo relativo}; el cambio de $-$ a $+$ en $x=1$ da un \textbf{mínimo relativo}. No son extremos absolutos sobre $\mathbb R$.
+
+\textbf{b) Curvatura.}\par\nopagebreak[4]
+Derivamos de nuevo: $f''(x)=6x$. Para $x<0$, $f''<0$: curvatura hacia abajo. Para $x>0$, $f''>0$: curvatura hacia arriba. Como cambia el signo y $f$ es continua, la abscisa del punto de inflexión es \boxed{x=0}. No basta en general con anular la segunda derivada; aquí se ha comprobado el cambio de curvatura.
+
+\textbf{c) Recuperar $f$ mediante integración.}\par\nopagebreak[4]
+\[
+f(x)=\int(3x^2-3)\,dx=x^3-3x+k.
+\]
+El dato $f(-1)=3$ permite determinar la constante: $-1+3+k=3$, luego $k=1$ y
+\[
+\boxed{f(x)=x^3-3x+1.}
+\]
+Comprobación: su derivada es $3x^2-3$ y $f(-1)=3$. Los extremos son $(-1,3)$ y $(1,-1)$; el punto de inflexión es $(0,1)$. La constante traslada verticalmente la curva, sin cambiar las abscisas calculadas.

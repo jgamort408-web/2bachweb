@@ -1,5 +1,31 @@
 % ID: SEL-D0005-OA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S006, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Extremos sobre el cuadrado.}\par\nopagebreak[4]
+El recinto es el cuadrado cerrado $|x|+|y|\leq1$. Las funciones son lineales y sus valores en los vértices son
+\[
+\begin{array}{c|rrrr}
+(x,y)&(1,0)&(0,1)&(-1,0)&(0,-1)\\\hline
+F=3x+2y+7&10&9&4&5\\
+G=x+y+6&7&7&5&5
+\end{array}
+\]
+El \textbf{máximo de F} es \boxed{10\text{ en }(1,0)}, único, pues cualquier combinación convexa de los otros valores es menor que 10.
+
+El \textbf{mínimo de G} es \boxed{5}, alcanzado en \emph{todo el segmento} que une $(-1,0)$ y $(0,-1)$:
+\[
+\boxed{(x,y)=(-t,t-1),\quad0\leq t\leq1.}
+\]
+No basta con indicar los dos vértices: en ese lado $x+y=-1$, por lo que $G=5$ en cada punto. En todo el recinto $x+y\geq-1$, que prueba que no hay valores menores.
+
+\textbf{b) Ecuación matricial.}\par\nopagebreak[4]
+Primero calculamos la traspuesta y la diferencia:
+\[
+A^t=\begin{pmatrix}5&3\\-2&1\end{pmatrix},\quad
+M=A-A^t=\begin{pmatrix}0&-5\\5&0\end{pmatrix},\quad\det M=25.
+\]
+Como $M$ es invertible, multiplicamos $MX=B$ por $M^{-1}$ por la izquierda:
+\[
+M^{-1}=\begin{pmatrix}0&1/5\\-1/5&0\end{pmatrix},\qquad
+\boxed{X=M^{-1}B=\begin{pmatrix}2/5&-1/5\\1/5&-3/5\end{pmatrix}.}
+\]
+Comprobación: $MX=\begin{pmatrix}-1&3\\2&-1\end{pmatrix}=B$. La solución es única y de orden 2. No se intercambia el orden de los factores.

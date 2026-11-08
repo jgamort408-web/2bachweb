@@ -1,5 +1,23 @@
 % ID: SEL-D0004-OA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S005, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{Planteamiento.}\par\nopagebreak[4]
+Sean $x,y$ los kg de pienso A y B. Son cantidades continuas no negativas; no se exige integridad. El coste en euros es $K=x+y$, y las restricciones son
+\[
+2x+y\geq2\quad\text{(calcio)},\qquad x+2y\geq2\quad\text{(hierro)},\qquad x,y\geq0.
+\]
+La región es la intersección de los semiplanos superiores de las dos rectas, en el primer cuadrante. Es cerrada y no acotada, con vértices $(0,2)$, $(2/3,2/3)$ y $(2,0)$. El vértice interior se calcula resolviendo $2x+y=2$, $x+2y=2$: al restar resulta $x=y$, y entonces $3x=2$.
+\begin{center}\includegraphics[width=0.53\linewidth]{figuras/s005-dieta.pdf}\end{center}
+
+\textbf{Mínimo global.}\par\nopagebreak[4]
+En los vértices, los costes son $2$, $4/3$ y $2$ euros. Como la región no es acotada, justificamos además que ningún otro punto mejora el resultado. Sumando las restricciones:
+\[
+3(x+y)\geq4\quad\Longrightarrow\quad K\geq\frac43.
+\]
+La igualdad exige que las dos restricciones nutricionales sean igualdades, lo que da únicamente $x=y=2/3$. Por tanto,
+\[
+\boxed{x=\frac23\text{ kg de A},\quad y=\frac23\text{ kg de B},\quad K_{\min}=\frac43\text{ euros}.}
+\]
+El coste es aproximadamente $1.33$ euros; el valor exacto es $4/3$. No se redondean las cantidades antes de comprobar la dieta.
+
+\textbf{Aportes y comprobación.}\par\nopagebreak[4]
+El calcio aportado es $2(2/3)+2/3=2$ unidades y el hierro es $2/3+2(2/3)=2$ unidades. Se satisfacen exactamente ambos mínimos, con una masa total de $4/3$ kg. La región se prolonga indefinidamente hacia arriba y hacia la derecha; el sombreado de la figura sólo muestra una ventana de ella.

@@ -1,0 +1,19 @@
+% L070:curso2008-2009;otros metadatos no indicados;criterios integrados en página3.
+\input{selecciones/l070-ids}
+\providecommand{\TituloSeleccion}{L070: archivo mat apli CC SS04, curso 2008-2009, opciones A/B}
+\providecommand{\ContextoSeleccion}{\input{recursos/comunes/EXA-0070-instrucciones}}
+
+% Espaciado local sólo cuando se seleccionan los seis ejercicios de L070.
+\ifdefined\EspaciadoLoteSetenta\else
+\gdef\EspaciadoLoteSetenta{si}
+\AtBeginDocument{%
+\edef\SeleccionActualEspaciado{\ListaEjercicios}%
+\def\SeleccionLoteSetenta{SEL-D0070-OA-E01,SEL-D0070-OA-E02,SEL-D0070-OA-E03,SEL-D0070-OB-E01,SEL-D0070-OB-E02,SEL-D0070-OB-E03}%
+\ifx\SeleccionActualEspaciado\SeleccionLoteSetenta
+\setlength{\parskip}{0.1em}\setlist[enumerate]{itemsep=0.1em,topsep=0.1em}%
+\fi}
+\fi
+
+
+
+
