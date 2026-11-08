@@ -302,3 +302,23 @@ W03 → W04 → **D01–D05 (consulta)** → S01–S06 → L01–L08 → F01–F
 - **2026-11-07** · Selectividad en la web planificada (P08 concretada, P09 relaciones y P10 exámenes). Decidido: PDF por impresión + LaTeX, soluciones ocultas hasta activarlas, formato de la PAU vigente (falta modelo) y no publicar las tarjetas hasta completar la identificación.
 - **2026-11-07** · Formato de la PAU vigente documentado a partir de las orientaciones 2025-26 que aporta el docente: estructura, notación, criterios, cobertura del banco y reglas propuestas para el generador. P10 deja de estar bloqueada.
 - **2026-11-07** · P08 hecho en `feature/selectividad`, sin publicar: banco de 640 ejercicios en tarjetas por tema con filtros, 72 soluciones validadas ocultas hasta que el docente las active y enlaces desde las lecciones. 370 unitarias; 165, 158, 159, 11, 160, 121 y la de fórmulas pasan.
+
+- **2026-11-07** · L084:ocho ejercicios originales cotejados y clasificados;640 únicos,84/84 candidatos cerrados y0 pendientes. DOC convertidos y cotejados;21pruebas y1428archivos anteriores intactos. Dos PDF revisados y ZIP aislado compilado. [Informe](Selectividad_LaTeX/docs/lotes/L084_2012_EXAMEN_6.md). Primera pasada completada;revisión de incidencias y soluciones posteriores;sin soluciones ni cambios en implementación web.
+
+- **2026-11-07** · S001:dos soluciones explicadas y validadas,638 pendientes;640 enunciados intactos. Tres pasadas del mismo autor, comprobación matemática exacta,22 pruebas, PDF revisados y ZIP aislado. [Informe](Selectividad_LaTeX/docs/soluciones/S001_2019_A1_A2.md). Siguiente S002; sin cambios en implementación web.
+
+- **2026-11-07** · S002:seis soluciones explicadas y validadas,632 pendientes;640 enunciados intactos. Tres pasadas del mismo autor, comprobación matemática exacta,22 pruebas, PDF revisados y ZIP aislado. [Informe](Selectividad_LaTeX/docs/soluciones/S002_2019_RESTO_EXAMEN.md). Siguiente S003; sin cambios en implementación web.
+
+- **2026-11-07** · S003:ocho soluciones de EXA-0002 explicadas y validadas;16 acumuladas y624 pendientes. Tres pasadas del mismo autor,22 pruebas, dos PDF revisados y ZIP aislado.640 enunciados intactos. [Informe](Selectividad_LaTeX/docs/soluciones/S003_2019_SEPTIEMBRE.md). Siguiente S004; sin cambios en implementación web.
+
+- **2026-11-07** · S004: ocho soluciones de EXA-0003 explicadas y validadas;24 acumuladas y616 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](Selectividad_LaTeX/docs/soluciones/S004_2019_SUPLENTE_JUNIO.md). Siguiente S005.
+
+- **2026-11-07** · S005: ocho soluciones de EXA-0004 explicadas y validadas;32 acumuladas y608 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](Selectividad_LaTeX/docs/soluciones/S005_2019_SUPLENTE_SEPTIEMBRE.md). Siguiente S006.
+
+- **2026-11-07** · S006: ocho soluciones de EXA-0005 explicadas y validadas;40 acumuladas y600 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](Selectividad_LaTeX/docs/soluciones/S006_2019_RESERVA_A.md). Siguiente S007.
+
+- **2026-11-07** · S007: ocho soluciones de EXA-0006 explicadas y validadas;48 acumuladas y592 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](Selectividad_LaTeX/docs/soluciones/S007_2019_RESERVA_B.md). Siguiente S008.
+
+- **2026-11-07** · S008: ocho soluciones de EXA-0007 explicadas y validadas;56 acumuladas y584 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](Selectividad_LaTeX/docs/soluciones/S008_2021_ORDINARIA.md). Siguiente S009.
+
+- **2026-11-07** · S009: ocho soluciones de EXA-0008 explicadas y validadas;64 acumuladas y576 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](Selectividad_LaTeX/docs/soluciones/S009_2021_ORD_SUPLENTE.md). Siguiente S010.
