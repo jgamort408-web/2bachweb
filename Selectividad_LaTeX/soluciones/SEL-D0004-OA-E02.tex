@@ -1,5 +1,29 @@
 % ID: SEL-D0004-OA-E02
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S005, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Continuidad.}\par\nopagebreak[4]
+El dominio es $[-2,4]$. Las ramas son polinomios y sólo hay que comprobar la unión $x=1$ (en los extremos del dominio, la continuidad se entiende unilateralmente):
+\[
+\lim_{x\to1^-}f(x)=3,\qquad f(1)=\lim_{x\to1^+}f(x)=a+4.
+\]
+La igualdad $a+4=3$ da \boxed{a=-1}. Con ese valor la función es continua en todo su dominio.
+
+\textbf{b) Derivabilidad en la unión.}\par\nopagebreak[4]
+Para $a=-1$, las derivadas laterales se obtienen de las dos ramas:
+\[
+f'_-(1)=2(1)+2=4,\qquad f'_+(1)=-2(1)+4=2.
+\]
+Son distintas; por tanto, \textbf{no es derivable en $x=1$}, aunque sí es continua. No existe una única tangente en ese punto.
+
+\textbf{c) Extremos relativos interiores.}\par\nopagebreak[4]
+En $(-2,1)$, $f'(x)=2x+2$ se anula en $x=-1$: pasa de negativa a positiva y da un \textbf{mínimo} con $f(-1)=-1$.
+
+En $(1,4)$, $f'(x)=-2x+4$ se anula en $x=2$: pasa de positiva a negativa y da un \textbf{máximo} con $f(2)=4$. El punto $x=1$ no es extremo: la función crece a ambos lados, aunque cambia su pendiente.
+\[
+\boxed{\text{Mínimo interior }(-1,-1),\qquad\text{máximo interior }(2,4).}
+\]
+Estos son también los extremos absolutos. Si se admiten extremos relativos unilaterales en la topología del dominio, $(-2,0)$ es además máximo local unilateral y $(4,0)$ mínimo local unilateral. Se distinguen de los extremos interiores habitualmente pedidos en Bachillerato.
+
+\textbf{d) Representación y comprobación.}\par\nopagebreak[4]
+La primera rama es $(x+1)^2-1$ en $[-2,1)$; la segunda es $4-(x-2)^2$ en $[1,4]$. Se unen en $(1,3)$, que pertenece a la segunda rama. Los extremos del dominio están incluidos. La función decrece de $-2$ a $-1$, crece de $-1$ a $2$ y decrece de $2$ a $4$.
+\begin{center}\includegraphics[width=0.62\linewidth]{figuras/s005-trozos.pdf}\end{center}
+Los valores $f(-2)=0$, $f(-1)=-1$, $f(1)=3$, $f(2)=4$ y $f(4)=0$ concuerdan con el esbozo y el estudio de signos.

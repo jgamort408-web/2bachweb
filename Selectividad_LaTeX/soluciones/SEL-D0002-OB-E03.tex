@@ -1,5 +1,22 @@
 % ID: SEL-D0002-OB-E03
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S003, 2026-11-07; tres pasadas del mismo autor, comprobación separada y revisión didáctica/visual.
+\textbf{a) Condicionamiento e inclusión-exclusión.}\par\nopagebreak[4]
+La notación $P(A/B)$ del enunciado significa $P(A\mid B)$. Por definición,
+\[
+0.8=\frac{P(A\cap B)}{P(B)}=\frac{0.2}{P(B)}
+\quad\Longrightarrow\quad\boxed{P(B)=0.25}.
+\]
+De $P(A\cup B)=P(A)+P(B)-P(A\cap B)$ obtenemos
+\[
+\boxed{P(A)=0.4-0.25+0.2=0.35}.
+\]
+
+\textbf{b) Independencia.}\par\nopagebreak[4]
+Serían independientes si $P(A\cap B)=P(A)P(B)$. Pero $0.35(0.25)=0.0875\ne0.2$; por tanto, \textbf{no son independientes}. También $P(A\mid B)=0.8\ne0.35=P(A)$. No se debe confundir independencia con incompatibilidad: su intersección tampoco es vacía en probabilidad.
+
+\textbf{c) Ley de De Morgan.}\par\nopagebreak[4]
+\[
+A^c\cup B^c=(A\cap B)^c,\qquad
+\boxed{P(A^c\cup B^c)=1-0.2=0.8}.
+\]
+Comprobación: las cuatro regiones disjuntas $A\cap B$, $A\cap B^c$, $A^c\cap B$, $A^c\cap B^c$ tienen probabilidades $0.20,0.15,0.05,0.60$. Suman1; las tres últimas suman 0.80.

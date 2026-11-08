@@ -1,5 +1,24 @@
 % ID: SEL-D0008-BC-E06
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S009, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{Elección de la urna.}\par\nopagebreak[4]
+Usamos la convención habitual de dos dados de seis caras, equilibrados e independientes: hay 36 pares ordenados equiprobables. Las sumas 9,10,11,12 tienen respectivamente 4,3,2,1 resultados; por tanto,
+\[
+P(A)=\frac{10}{36}=\frac5{18},\qquad P(B)=\frac{26}{36}=\frac{13}{18}.
+\]
+No se consideran equiprobables las once sumas posibles. Sin esa convención sobre los dados harían falta sus probabilidades para obtener una respuesta numérica.
+
+\textbf{a) Verde y de B.}\par\nopagebreak[4]
+Sea $V$ ``extraer verde''. La pregunta es una intersección:
+\[
+P(V\cap B)=P(B)P(V\mid B)
+=\frac{13}{18}\frac39=\boxed{\frac{13}{54}\approx0.240741}.
+\]
+
+\textbf{b) Probabilidad total de roja.}\par\nopagebreak[4]
+Sea $R$ ``extraer roja''. Como las urnas forman una partición,
+\[
+P(R)=P(A)P(R\mid A)+P(B)P(R\mid B)
+=\frac5{18}\frac49+\frac{13}{18}\frac69
+=\boxed{\frac{49}{81}\approx0.604938}.
+\]
+Comprobación: $P(V)=(5/18)(5/9)+(13/18)(3/9)=32/81$, complementaria de $49/81$. Sólo se extrae una bola; no es necesario introducir reposición entre extracciones.

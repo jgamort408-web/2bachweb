@@ -1,5 +1,26 @@
 % ID: SEL-D0003-OB-E03
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S004, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Diferencia e intersección.}\par\nopagebreak[4]
+$A-B=A\cap B^c$. Los sucesos $A-B$ y $A\cap B$ son disjuntos y forman $A$:
+\[
+P(A\cap B)=P(A)-P(A-B)=0.5-0.3=\boxed{0.2}.
+\]
+
+\textbf{b) Probabilidad condicionada al complementario.}\par\nopagebreak[4]
+Primero obtenemos la probabilidad de $B$ por inclusión-exclusión:
+\[
+P(B)=P(A\cup B)-P(A)+P(A\cap B)=0.75-0.5+0.2=0.45.
+\]
+Por tanto, $P(B^c)=0.55>0$ y
+\[
+P(A/B^c)=P(A\mid B^c)=\frac{P(A\cap B^c)}{P(B^c)}
+=\frac{0.3}{0.55}=\boxed{\frac6{11}\approx0.545455}.
+\]
+El numerador es la diferencia dada, no $P(A\cap B)$.
+
+\textbf{c) Independencia e incompatibilidad.}\par\nopagebreak[4]
+No son independientes, porque $P(A)P(B)=0.5(0.45)=0.225\ne0.2=P(A\cap B)$.
+
+Tampoco son incompatibles: su intersección tiene probabilidad 0.2, mientras que dos sucesos incompatibles tendrían intersección vacía y probabilidad 0.
+
+Comprobación de coherencia: las cuatro regiones disjuntas $A\cap B$, $A\cap B^c$, $A^c\cap B$, $A^c\cap B^c$ tienen probabilidades $0.20,0.30,0.25,0.25$. Suman 1 y reconstruyen los datos.

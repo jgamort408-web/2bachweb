@@ -1,5 +1,23 @@
 % ID: SEL-D0009-BD-E08
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S010; tres pasadas del mismo autor y comprobación matemática; sin segundo revisor.
+\textbf{a) Intervalo de confianza para una proporción.}\par\nopagebreak[4]
+La estimación muestral es $\widehat p=12/50=0.24$. Usamos el intervalo normal aproximado para una muestra aleatoria representativa, con confianza 95\,\%:
+\[
+\widehat p\pm z_{0.975}\sqrt{\frac{\widehat p(1-\widehat p)}{n}},
+\quad z_{0.975}\approx1.959963985.
+\]
+Los recuentos $n\widehat p=12$ y $n(1-\widehat p)=38$ permiten la aproximación habitual. El error es aproximadamente $0.118379229$, por lo que
+\[
+\boxed{IC_{\text{95\%}}\approx(0.121620771,\ 0.358379229).}
+\]
+Equivale aproximadamente a entre el 12.16\,\% y el 35.84\,\%. El método tiene cobertura aproximada del 95\,\% bajo sus hipótesis; el intervalo concreto no asigna una probabilidad posterior a la proporción fija.
+
+\textbf{b) Tamaño para una amplitud máxima de 0.2.}\par\nopagebreak[4]
+La amplitud es el ancho completo $L=2E$, por tanto $L\leq0.2$ equivale a $E\leq0.1$. Conservando la estimación piloto $\widehat p=0.24$:
+\[
+2z_{0.975}\sqrt{\frac{0.24\cdot0.76}{n}}\leq0.2
+\quad\Longleftrightarrow\quad
+n\geq\frac{4z_{0.975}^2\cdot0.24\cdot0.76}{0.2^2}
+\approx70.068208889.
+\]
+Se redondea hacia arriba: \boxed{n_{\min}=71}. Para $n=70$ el ancho supera $0.2$; para $71$ ya no. Con el cuantil tabulado $1.96$ se obtiene el mismo entero. No se interpreta $0.2$ como error ni se sustituye la estimación piloto por $0.5$ si se pide mantenerla.

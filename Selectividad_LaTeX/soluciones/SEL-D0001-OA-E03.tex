@@ -1,5 +1,41 @@
 % ID: SEL-D0001-OA-E03
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir hasta terminar y validar los enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; plan; pasos razonados;
-% comprobación independiente; interpretación; errores frecuentes y vínculo con el tema.
+% ESTADO: validada. S002, 2026-11-07. Tres pasadas del mismo autor; ver informe.
+\textbf{Datos y teoría.} Sean $C$ alojarse en la capital, $R$ alojarse en una zona rural, $H$ hospedarse en un hotel y $T$ en un apartamento turístico. Capital y zona rural forman una partición de los alojamientos, y lo mismo sucede con hotel y apartamento:
+\[
+P(C)=0.65,\quad P(R)=0.35,\quad P(H\mid C)=0.75,\quad P(H\mid R)=0.15.
+\]
+Una probabilidad condicionada se refiere sólo al grupo indicado tras la barra. La regla del producto permite pasar a la probabilidad conjunta: $P(U\cap V)=P(U)P(V\mid U)$.
+
+\textbf{a) Probabilidad de hospedarse en un hotel.}\par\nopagebreak[4]
+
+Aplicamos la probabilidad total, separando los casos capital y zona rural:
+\[
+P(H)=P(C)P(H\mid C)+P(R)P(H\mid R)
+=0.65\cdot0.75+0.35\cdot0.15=\boxed{0.54}.
+\]
+Por tanto, la probabilidad es del $54\%$.
+
+\textbf{b) Zona rural sabiendo que se alojó en un apartamento.}\par\nopagebreak[4]
+
+Los datos sobre hoteles permiten calcular sus complementarios dentro de cada zona:
+\[
+P(T\mid C)=0.25,\qquad P(T\mid R)=0.85.
+\]
+La probabilidad total de apartamento es $P(T)=1-P(H)=0.46$. Por Bayes,
+\[
+P(R\mid T)=\frac{P(R)P(T\mid R)}{P(T)}
+=\frac{0.35\cdot0.85}{0.46}
+=\boxed{\frac{119}{184}\approx0.646739}.
+\]
+Entre quienes se han alojado en apartamentos, aproximadamente el $64.67\%$ lo ha hecho en zonas rurales. No se intercambia $P(R\mid T)$ con $P(T\mid R)$.
+
+\textbf{Comprobación mediante una tabla conjunta.}
+\[
+\begin{array}{c|cc|c}
+&H&T&\text{Total}\\\hline
+C&0.4875&0.1625&0.65\\
+R&0.0525&0.2975&0.35\\\hline
+\text{Total}&0.54&0.46&1
+\end{array}
+\]
+Todas las celdas son no negativas, suman 1 y el cociente de la celda rural-apartamento entre el total de apartamentos reproduce el resultado.

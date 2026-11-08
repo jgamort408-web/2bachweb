@@ -1,0 +1,19 @@
+% L060:curso2010-2011;convocatoria,tipo,reserva y modelo no confirmados.
+\input{selecciones/l060-ids}
+\providecommand{\TituloSeleccion}{L060: archivo 223A-EXAMEN 3, curso 2010-2011, opciones A/B}
+\providecommand{\ContextoSeleccion}{\input{recursos/comunes/EXA-0060-instrucciones}}
+
+% Espaciado local sólo cuando se seleccionan los ocho ejercicios de L060.
+\ifdefined\EspaciadoLoteSesenta\else
+\gdef\EspaciadoLoteSesenta{si}
+\AtBeginDocument{%
+\edef\SeleccionActualEspaciado{\ListaEjercicios}%
+\def\SeleccionLoteSesenta{SEL-D0060-OA-E01,SEL-D0060-OA-E02,SEL-D0060-OA-E03,SEL-D0060-OA-E04,SEL-D0060-OB-E01,SEL-D0060-OB-E02,SEL-D0060-OB-E03,SEL-D0060-OB-E04}%
+\ifx\SeleccionActualEspaciado\SeleccionLoteSesenta
+\setlength{\parskip}{0.2em}\setlist[enumerate]{itemsep=0.15em,topsep=0.2em}%
+\fi}
+\fi
+
+
+
+

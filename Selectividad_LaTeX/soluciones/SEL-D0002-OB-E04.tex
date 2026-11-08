@@ -1,5 +1,27 @@
 % ID: SEL-D0002-OB-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S003, 2026-11-07; tres pasadas del mismo autor, comprobación separada y revisión didáctica/visual.
+\textbf{Modelo y estimación.}\par\nopagebreak[4]
+Estimamos la proporción poblacional $p$ de ingresos relacionados con tabaco, mediante $\widehat p=0.22=11/50$. No es la proporción de fumadores en general ni una probabilidad causal individual. Con muestreo aleatorio independiente, usamos el intervalo normal aproximado para proporciones; $n\widehat p=11$ y $n(1-\widehat p)=39$ permiten la aproximación habitual. No se dispone de un tamaño poblacional para aplicar corrección por población finita.
+
+\textbf{a) Intervalo bilateral del $92$\,\%.}\par\nopagebreak[4]
+Como $\alpha=0.08$, $\Phi(z)=1-\alpha/2=0.96$, luego $z\approx1.750686$ (tabla: 1.75). La fórmula es
+\[
+\widehat p\pm z_{0.96}\sqrt{\frac{\widehat p(1-\widehat p)}{n}}.
+\]
+\[
+E=1.750686\sqrt{\frac{0.22(0.78)}{50}}\approx0.102561.
+\]
+\[\boxed{IC_{\text{92\%}}\approx(0.117439,\ 0.322561)}.
+\]
+En porcentajes, aproximadamente entre 11.74\,\% y 32.26\,\%. Con tabla 1.75, el intervalo aproximado es
+\[(0.117479,\ 0.322521).\]
+Tiene el mismo redondeo a dos decimales porcentuales. Es un intervalo aproximado para $p$; la confianza se refiere a la cobertura del procedimiento en muestreos repetidos.
+
+\textbf{b) Tamaño mínimo.}\par\nopagebreak[4]
+Se mantiene la proporción piloto 0.22, como pide el enunciado. El 3\,\% de error significa 0.03 en unidades de proporción, no 0.03 veces 0.22 ni una amplitud total de 0.03:
+\[
+z_{0.96}\sqrt{\frac{0.22(0.78)}n}<0.03
+\iff n>\frac{z_{0.96}^2(0.22)(0.78)}{0.03^2}
+\approx584.374595.
+\]
+El menor tamaño total es \boxed{n=585\text{ expedientes}}. Comprobamos $E(584)\approx0.03000962>0.03$ y $E(585)\approx0.02998396<0.03$. Con $z=1.75$ también resulta 585. No se sustituye la proporción piloto por 0.5 porque aquí se indica expresamente conservarla.

@@ -1,5 +1,30 @@
 % ID: SEL-D0008-BA-E02
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S009, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Semiplanos y vértices.}\par\nopagebreak[4]
+Las restricciones equivalen a
+\[
+y\leq(5x+9)/3,\qquad y\leq11-x,\qquad y\leq36-6x,\qquad y\geq3-x/2.
+\]
+Se toman sus semiplanos comunes, incluidas las fronteras, sin añadir restricciones nuevas sobre $x$ o $y$. Las intersecciones factibles consecutivas son
+\[
+\boxed{(0,3),\quad(3,8),\quad(5,6),\quad(6,0).}
+\]
+Se obtienen de las parejas de fronteras 1/4, 1/2, 2/3 y 3/4, respectivamente. Las otras dos intersecciones se descartan por incumplir alguna desigualdad. La región es un cuadrilátero cerrado y acotado.
+\begin{center}\includegraphics[width=0.55\linewidth]{figuras/s009-region.pdf}\end{center}
+
+\textbf{b) Pertenencia de (5,7).}\par\nopagebreak[4]
+No pertenece: $5+7=12>11$ y $6(5)+7=37>36$. Aunque cumpla otras restricciones, debe cumplirlas todas.
+
+\textbf{c) Extremos de F.}\par\nopagebreak[4]
+Para una función lineal en un polígono cerrado y acotado, evaluamos los vértices:
+\[
+\begin{array}{c|rrrr}
+(x,y)&(0,3)&(3,8)&(5,6)&(6,0)\\\hline
+F=10x-6y&-18&-18&14&60
+\end{array}
+\]
+El \textbf{máximo} es \boxed{60\text{ en }(6,0)}, único. El \textbf{mínimo} es \boxed{-18}, alcanzado en \emph{todo el segmento} entre $(0,3)$ y $(3,8)$:
+\[
+\boxed{(x,y)=(3t,3+5t),\quad0\leq t\leq1.}
+\]
+Comprobación global: $F=2(5x-3y)\geq-18$ por la primera restricción, y la igualdad corresponde precisamente al lado indicado. No basta con listar sus dos extremos.

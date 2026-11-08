@@ -38,6 +38,16 @@ class IndividualAccessTests(unittest.TestCase):
         table = rendered.split("## Tabla completa", 1)[1].split("## T01", 1)[0]
         self.assertEqual(re.findall(r"\]\((enunciados/[^)]+)\)", table), [self.rows[0]["ruta_enunciado"]])
 
+    def test_indice_cuenta_solo_soluciones_validadas_de_enunciados_cotejados(self):
+        self.rows[0]["estado_solucion"] = "validada"
+        self.rows[1]["estado_solucion"] = "revisada_matematicamente"
+        rendered = render_index({"ejercicios": self.rows, "temas": []})
+        self.assertIn("1 validadas y 1 pendientes de validación", rendered)
+        self.assertNotIn("soluciones/", rendered)
+        self.rows[0]["estado_transcripcion"] = "borrador"
+        rendered = render_index({"ejercicios": self.rows, "temas": []})
+        self.assertIn("Las soluciones siguen pendientes", rendered)
+
     def test_indice_no_inventa_convocatoria_modelo_ni_soluciones(self):
         rendered = render_index({"ejercicios": self.rows, "temas": []})
         self.assertIn("EXA-9000, 2020, bloque A", rendered)

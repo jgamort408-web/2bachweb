@@ -1,0 +1,19 @@
+% L059:curso2010-2011;convocatoria,tipo,reserva y modelo no confirmados.
+\input{selecciones/l059-ids}
+\providecommand{\TituloSeleccion}{L059: archivo 222-EXAMEN 2, curso 2010-2011, opciones A/B}
+\providecommand{\ContextoSeleccion}{\input{recursos/comunes/EXA-0059-instrucciones}}
+
+% Espaciado local sólo cuando se seleccionan los ocho ejercicios de L059.
+\ifdefined\EspaciadoLoteCincuentaNueve\else
+\gdef\EspaciadoLoteCincuentaNueve{si}
+\AtBeginDocument{%
+\edef\SeleccionActualEspaciado{\ListaEjercicios}%
+\def\SeleccionLoteCincuentaNueve{SEL-D0059-OA-E01,SEL-D0059-OA-E02,SEL-D0059-OA-E03,SEL-D0059-OA-E04,SEL-D0059-OB-E01,SEL-D0059-OB-E02,SEL-D0059-OB-E03,SEL-D0059-OB-E04}%
+\ifx\SeleccionActualEspaciado\SeleccionLoteCincuentaNueve
+\setlength{\parskip}{0.2em}\setlist[enumerate]{itemsep=0.15em,topsep=0.2em}%
+\fi}
+\fi
+
+
+
+

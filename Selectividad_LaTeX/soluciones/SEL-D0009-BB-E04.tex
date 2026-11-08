@@ -1,5 +1,30 @@
 % ID: SEL-D0009-BB-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S010; tres pasadas del mismo autor y comprobación matemática; sin segundo revisor.
+\textbf{a) Reglas del producto, cociente y cadena.}\par\nopagebreak[4]
+Para evitar perder factores, llamamos $P=5x^3+4x-2$ y $Q=2x^5-4x^3+x$. Entonces $P'=15x^2+4$ y $Q'=10x^4-12x^2+1$. La derivada de $\ln Q$ es $Q'/Q$, y exige $Q>0$ en el dominio real:
+\[
+\boxed{f'=4P^3(15x^2+4)\ln Q+P^4\frac{10x^4-12x^2+1}{Q}.}
+\]
+Es la regla del producto aplicada a $P^4\ln Q$, con la cadena en ambos factores. Para la segunda función ponemos $U=3x^2-5x$ y $V=6x^2+2>0$:
+\[
+g'=e^U U' V^{-3}-3e^U V^{-4}V',
+\]
+\[
+\boxed{g'(x)=\frac{e^{3x^2-5x}\big[(6x-5)(6x^2+2)-36x\big]}{(6x^2+2)^4}.}
+\]
+Esta expresión está definida en todo $\mathbb R$. El factor $36x$ procede de $3V'=3\cdot12x$.
+
+\textbf{b) Recuperar la función a partir de su derivada.}\par\nopagebreak[4]
+Integramos término a término y conservamos la constante:
+\[
+h(x)=x^4+\frac{x^3}{3}-2x^2-x+K.
+\]
+La condición inicial determina $K$:
+\[
+h(2)=16+\frac83-8-2+K=\frac{26}{3}+K=\frac{11}{3},
+\qquad K=-5.
+\]
+\[
+\boxed{h(x)=x^4+\frac{x^3}{3}-2x^2-x-5.}
+\]
+Comprobamos derivando esta expresión y sustituyendo $x=2$: se recuperan tanto $h'$ como $11/3$.

@@ -1,5 +1,23 @@
 % ID: SEL-D0005-OA-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S006, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{Modelo y estimador.}\par\nopagebreak[4]
+La proporción muestral es $\widehat p=16/60=4/15$, que se conserva sin redondear. Con muestreo aleatorio independiente usamos el intervalo normal aproximado para la proporción; los recuentos 16 y 44 permiten la aproximación usual. No se conoce tamaño poblacional para una corrección finita.
+
+\textbf{a) Confianza del 90\,\%.}\par\nopagebreak[4]
+$\alpha=0.10$, luego $z_{0.95}\approx1.644853627$ (tabla interpolada: 1.645). El intervalo es
+\[
+\widehat p\pm z_{0.95}\sqrt{\frac{\widehat p(1-\widehat p)}{60}}.
+\]
+\[
+\boxed{IC_{\text{90\%}}\approx(0.172762100,\ 0.360571233).}
+\]
+Equivale aproximadamente a entre 17.28\,\% y 36.06\,\%. La confianza se refiere a la cobertura del procedimiento para la proporción poblacional en muestras repetidas.
+
+\textbf{b) Tamaño mínimo para error inferior a 0.1.}\par\nopagebreak[4]
+Con el mismo cuantil y la misma proporción piloto,
+\[
+z_{0.95}\sqrt{\frac{(4/15)(11/15)}n}<0.1
+\iff n>\frac{z_{0.95}^2(4/15)(11/15)}{0.1^2}
+\approx52.908405.
+\]
+El tamaño total mínimo es \boxed{n=53\text{ empleados}}. Con 52 el error supera 0.1; con 53 es menor. También se obtiene 53 usando 1.645. Que el tamaño requerido sea inferior a 60 es coherente: la muestra inicial ya cumplía esta precisión. No se pide añadir 53 empleados ni se debe usar 0.1 como amplitud total del intervalo.

@@ -1,0 +1,16 @@
+% L043: ANDAL-2 sólo del nombre,sin tipo ni modelo acreditados.
+\input{selecciones/l043-ids}
+\providecommand{\TituloSeleccion}{L043: archivo ANDAL-2, curso 2013-2014, opciones A/B}
+\providecommand{\ContextoSeleccion}{\input{recursos/comunes/EXA-0043-instrucciones}}
+
+% Espaciado local sólo cuando se seleccionan los ocho ejercicios de L043.
+\ifdefined\EspaciadoLoteCuarentaTres\else
+\gdef\EspaciadoLoteCuarentaTres{si}
+\AtBeginDocument{%
+\edef\SeleccionActualEspaciado{\ListaEjercicios}%
+\def\SeleccionLoteCuarentaTres{SEL-D0043-OA-E01,SEL-D0043-OA-E02,SEL-D0043-OA-E03,SEL-D0043-OA-E04,SEL-D0043-OB-E01,SEL-D0043-OB-E02,SEL-D0043-OB-E03,SEL-D0043-OB-E04}%
+\ifx\SeleccionActualEspaciado\SeleccionLoteCuarentaTres
+\setlength{\parskip}{0.2em}\setlist[enumerate]{itemsep=0.15em,topsep=0.2em}%
+\fi}
+\fi
+

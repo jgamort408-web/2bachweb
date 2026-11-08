@@ -1,5 +1,28 @@
 % ID: SEL-D0002-OA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S003, 2026-11-07; tres pasadas del mismo autor, comprobación separada y revisión didáctica/visual.
+\textbf{Datos y teoría.}\par\nopagebreak[4]
+$A$ es $2\times3$; $A^t$ es $3\times2$, por lo que $AA^t$ es cuadrada de orden 2. Una matriz cuadrada es invertible si su determinante no es cero. En una ecuación matricial se conserva el orden de los factores.
+
+\textbf{a) Simetría e inversa.}\par\nopagebreak[4]
+Calculando productos escalares de las filas de $A$:
+\[
+ AA^t=\begin{pmatrix}5&-1\\-1&2\end{pmatrix}.
+\]
+La primera afirmación es \textbf{cierta}: coincide con su traspuesta. En general, $(AA^t)^t=(A^t)^tA^t=AA^t$.
+\[
+ AA^t+B=\begin{pmatrix}6&-4\\-3&2\end{pmatrix},\qquad
+ \det(AA^t+B)=12-12=0.
+\]
+La segunda afirmación es \textbf{falsa}: esta matriz no tiene inversa.
+
+\textbf{b) Resolución de $BX+A=C$.}\par\nopagebreak[4]
+$X$ debe ser $2\times3$. Restamos $A$ y multiplicamos por $B^{-1}$ por la izquierda:
+\[
+ C-A=\begin{pmatrix}6&-12&18\\0&6&12\end{pmatrix},\quad
+ \det B=-6,\quad
+ B^{-1}=\begin{pmatrix}0&-1/2\\-1/3&-1/6\end{pmatrix}.
+\]
+\[
+ \boxed{X=B^{-1}(C-A)=\begin{pmatrix}0&-3&-6\\-2&3&-8\end{pmatrix}.}
+\]
+Comprobación: $BX=\begin{pmatrix}6&-12&18\\0&6&12\end{pmatrix}=C-A$; al sumar $A$ se recupera exactamente $C$. La solución es única porque $B$ es invertible.

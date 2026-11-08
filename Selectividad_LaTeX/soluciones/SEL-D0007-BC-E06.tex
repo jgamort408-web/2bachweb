@@ -1,5 +1,26 @@
 % ID: SEL-D0007-BC-E06
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S008, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{Datos.}\par\nopagebreak[4]
+Sean $E$ ``producto electrónico'' e $I$ ``compra por Internet''. Tenemos $P(E)=0.55$, $P(I)=0.72$ y $P(E\mid I)=0.64$. Esta última es condicionada, no conjunta.
+
+\textbf{a) Intersección.}\par\nopagebreak[4]
+\[
+P(E\cap I)=P(E\mid I)P(I)=0.64(0.72)=\boxed{0.4608}.
+\]
+
+\textbf{b) Unión.}\par\nopagebreak[4]
+Restamos la intersección para no contarla dos veces:
+\[
+P(E\cup I)=P(E)+P(I)-P(E\cap I)
+=0.55+0.72-0.4608=\boxed{0.8092}.
+\]
+
+\textbf{c) No Internet sabiendo no electrónico.}\par\nopagebreak[4]
+Por De Morgan, $E^c\cap I^c=(E\cup I)^c$ y su probabilidad es $1-0.8092=0.1908$. La condición tiene probabilidad $P(E^c)=0.45$:
+\[
+P(I^c\mid E^c)=\frac{P(I^c\cap E^c)}{P(E^c)}
+=\frac{0.1908}{0.45}=\boxed{0.424}.
+\]
+Comprobación mediante regiones disjuntas:
+\[\begin{array}{c|cccc}\text{Región}&E\cap I&E\cap I^c&E^c\cap I&E^c\cap I^c\\\hline P&0.4608&0.0892&0.2592&0.1908\end{array}\]
+ Suman 1; las dos últimas suman 0.45 y su última parte representa el 42.4\,\% de esa condición.

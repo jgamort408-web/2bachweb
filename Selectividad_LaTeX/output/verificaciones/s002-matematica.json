@@ -1,0 +1,106 @@
+{
+  "tanda": "S002",
+  "metodo": "Fracciones exactas; eliminación de Gauss frente a cofactores; residuo matricial; derivación racional; percentiles Normal contrastados con bisección de CDF erfc.",
+  "A3": {
+    "hotel": "27/50",
+    "rural_dado_apartamento": "119/184",
+    "tabla_conjunta": [
+      "39/80",
+      "13/80",
+      "21/400",
+      "119/400"
+    ]
+  },
+  "A4": {
+    "proporcion": 0.45,
+    "percentil": 2.17009037758456,
+    "intervalo": [
+      0.38766889938658067,
+      0.5123311006134194
+    ],
+    "umbral_n": 2913.8745777601553,
+    "n_minimo": 2914,
+    "error_anterior": 0.02000300210135875,
+    "error_minimo": 0.019999569582740368
+  },
+  "B1": {
+    "determinante": "-1",
+    "inversa": [
+      [
+        "-3",
+        "-2",
+        "-2"
+      ],
+      [
+        "-2",
+        "-1",
+        "-1"
+      ],
+      [
+        "2",
+        "1",
+        "2"
+      ]
+    ],
+    "X": [
+      [
+        "-4",
+        "-4",
+        "-3"
+      ],
+      [
+        "-4",
+        "-1/2",
+        "-2"
+      ],
+      [
+        "3",
+        "2",
+        "7/2"
+      ]
+    ],
+    "residuo_nulo": true
+  },
+  "B2": {
+    "dominio": "R",
+    "a_continuidad": -1,
+    "derivadas_laterales": [
+      -1,
+      0
+    ],
+    "a_apartado_b": -2,
+    "limites_laterales_b": [
+      -1,
+      -2
+    ],
+    "signos_primera": [
+      "-",
+      "+"
+    ],
+    "signos_segunda": [
+      "-",
+      "+"
+    ],
+    "inflexion": false
+  },
+  "B3": {
+    "union": "41/50",
+    "interseccion": "11/50",
+    "peliculas_dadas_series": "22/69",
+    "solo_series": "47/100"
+  },
+  "B4": {
+    "suma": 135,
+    "media": 15,
+    "percentil_92": 1.7506860712521695,
+    "intervalo_92": [
+      10.331503809994214,
+      19.668496190005786
+    ],
+    "percentil_95_5": 2.0046544617650963,
+    "umbral_n": 114.30796831501392,
+    "n_minimo": 115,
+    "error_114": 1.5020247408105014,
+    "error_115": 1.4954799395650804
+  }
+}

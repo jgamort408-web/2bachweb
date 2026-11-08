@@ -1,0 +1,9 @@
+﻿lote,fuente_alternativa_id,fuente_canonica_id,examen_id,ejercicio_id,pagina_alternativa,pagina_canonica,opcion,numero_original,tipo_relacion,estado_revision,informe
+L057,SRC-98312D373CA4,SRC-45EF64533A19,EXA-0054,SEL-D0054-OA-E01,1,1,A,1,reedicion_mismo_enunciado_sha_distinto,cotejada,docs/lotes/L057_2011_REEDICION_EXAMEN_4.md
+L057,SRC-98312D373CA4,SRC-45EF64533A19,EXA-0054,SEL-D0054-OA-E02,1,1,A,2,reedicion_mismo_enunciado_sha_distinto,cotejada,docs/lotes/L057_2011_REEDICION_EXAMEN_4.md
+L057,SRC-98312D373CA4,SRC-45EF64533A19,EXA-0054,SEL-D0054-OA-E03,1,1,A,3,reedicion_mismo_enunciado_sha_distinto,cotejada,docs/lotes/L057_2011_REEDICION_EXAMEN_4.md
+L057,SRC-98312D373CA4,SRC-45EF64533A19,EXA-0054,SEL-D0054-OA-E04,1,1,A,4,reedicion_mismo_enunciado_sha_distinto,cotejada,docs/lotes/L057_2011_REEDICION_EXAMEN_4.md
+L057,SRC-98312D373CA4,SRC-45EF64533A19,EXA-0054,SEL-D0054-OB-E01,2,2,B,1,reedicion_mismo_enunciado_sha_distinto,cotejada,docs/lotes/L057_2011_REEDICION_EXAMEN_4.md
+L057,SRC-98312D373CA4,SRC-45EF64533A19,EXA-0054,SEL-D0054-OB-E02,2,2,B,2,reedicion_mismo_enunciado_sha_distinto,cotejada,docs/lotes/L057_2011_REEDICION_EXAMEN_4.md
+L057,SRC-98312D373CA4,SRC-45EF64533A19,EXA-0054,SEL-D0054-OB-E03,2,2,B,3,reedicion_mismo_enunciado_sha_distinto,cotejada,docs/lotes/L057_2011_REEDICION_EXAMEN_4.md
+L057,SRC-98312D373CA4,SRC-45EF64533A19,EXA-0054,SEL-D0054-OB-E04,2,2,B,4,reedicion_mismo_enunciado_sha_distinto,cotejada,docs/lotes/L057_2011_REEDICION_EXAMEN_4.md

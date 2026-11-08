@@ -1,5 +1,28 @@
 % ID: SEL-D0006-OA-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S007, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{Modelo y fórmula.}\par\nopagebreak[4]
+La población se supone normal con desviación conocida $\sigma=4$ kg. Para una muestra aleatoria independiente, el intervalo bilateral para la media es $\overline x\pm z\sigma/\sqrt n$. La confianza del 97\,\% da $\alpha=0.03$ y $z_{0.985}\approx2.170090378$ (tabla: 2.17).
+
+\textbf{a) Tamaño mínimo.}\par\nopagebreak[4]
+Se exige error estrictamente inferior a 2.1 kg:
+\[
+\frac{4z_{0.985}}{\sqrt n}<2.1
+\iff n>\left(\frac{4z_{0.985}}{2.1}\right)^2
+\approx17.085868.
+\]
+El menor entero admisible es \boxed{n=18\text{ árboles}}. Con 17 el error supera 2.1; con 18 es menor. Usar 2.17 también produce 18. El tamaño es total, no árboles adicionales.
+
+\textbf{b) Intervalo y error con los nueve datos.}\par\nopagebreak[4]
+Se conserva el dato 120 tal como aparece en el original. La suma y la media son
+\[
+15+120+50+40+5+46+52+48+10=386,\qquad
+\overline x=\frac{386}{9}\approx42.888889\text{ kg}.
+\]
+Se utiliza $\sigma=4$, que es la desviación \emph{poblacional dada}; no se reemplaza por la desviación muestral calculada con esos datos.
+\[
+\boxed{E=z_{0.985}\frac4{\sqrt9}\approx2.893454\text{ kg}.}
+\]
+\[
+\boxed{IC_{\text{97\%}}\approx(39.995435,\ 45.782343)\text{ kg por árbol}.}
+\]
+El centro del intervalo es $386/9$ y su amplitud es $2E$. La muestra de 9 del apartado b no satisface la precisión del apartado a, lo cual no es una contradicción: son preguntas diferentes. La confianza describe la cobertura del método para la media poblacional en muestreos repetidos. El cálculo aplica el modelo indicado por el ejercicio, sin afirmar que los nueve valores demuestren su adecuación.

@@ -1,5 +1,26 @@
 % ID: SEL-D0009-BA-E02
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S010; tres pasadas del mismo autor y comprobación matemática; sin segundo revisor.
+\textbf{a) Dimensiones.}\par\nopagebreak[4]
+$10I_3-A$ tiene orden $3\times3$ y $B$ tiene tamaño $3\times1$. Para que el producto y la igualdad estén definidos, \boxed{X\text{ debe ser }3\times1}.
+
+\textbf{b) Existencia y unicidad.}\par\nopagebreak[4]
+\[
+M=10I_3-A=\begin{pmatrix}8&-1&0\\-4&8&0\\-2&-2&5\end{pmatrix},
+\qquad\det M=5(64-4)=300\ne0.
+\]
+Una matriz cuadrada con determinante no nulo es invertible. Por ello $MX=B$ tiene solución única para cualquier columna $B$ del tamaño indicado: $X=M^{-1}B$. Se multiplica a la izquierda; no se cambia el orden de los factores.
+
+\textbf{c) Resolución para la columna dada.}\par\nopagebreak[4]
+Escribiendo $X=(u,v,w)^t$, la igualdad matricial equivale a
+\[
+8u-v=5,\qquad-4u+8v=20,\qquad-2u-2v+5w=-3.
+\]
+De la primera, $v=8u-5$. Sustituimos en la segunda:
+\[
+-4u+8(8u-5)=20\ \Longrightarrow\ 60u=60\ \Longrightarrow\ u=1.
+\]
+Entonces $v=3$ y $-2-6+5w=-3$, de donde $w=1$. Por tanto,
+\[
+\boxed{X=\begin{pmatrix}1\\3\\1\end{pmatrix}.}
+\]
+Comprobación directa: $MX=(8-3,-4+24,-2-6+5)^t=(5,20,-3)^t=B$.

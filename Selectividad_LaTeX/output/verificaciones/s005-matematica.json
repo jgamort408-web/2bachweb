@@ -1,0 +1,143 @@
+{
+  "tanda": "S005",
+  "segundo_revisor_distinto": false,
+  "A1": {
+    "vertices": [
+      [
+        "0",
+        "2"
+      ],
+      [
+        "2/3",
+        "2/3"
+      ],
+      [
+        "2",
+        "0"
+      ]
+    ],
+    "optimo": [
+      "2/3",
+      "2/3"
+    ],
+    "coste": "4/3",
+    "calcio": 2,
+    "hierro": 2,
+    "certificado_global": true
+  },
+  "A2": {
+    "a_continuidad": -1,
+    "derivadas_laterales": [
+      4,
+      2
+    ],
+    "minimo_interior": [
+      -1,
+      -1
+    ],
+    "maximo_interior": [
+      2,
+      4
+    ],
+    "extremos_unilaterales_separados": true
+  },
+  "A3": {
+    "no_superar": 0.3,
+    "A_dado_aprobado": 0.5,
+    "C_y_no_superar": 0.054,
+    "aprobados": [
+      175,
+      102,
+      73
+    ]
+  },
+  "A4": {
+    "z97": 2.17009037758456,
+    "intervalo": [
+      0.08884221037826669,
+      0.23115778962173333
+    ],
+    "z94": 1.8807936081512504,
+    "umbral_n": 190.1697959058293,
+    "n_minimo": 191,
+    "error_n": 0.04989121620350402,
+    "error_n_anterior": 0.05002233657732962
+  },
+  "B1": {
+    "A_cuadrada": [
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        -1
+      ]
+    ],
+    "A_cuarta": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "X": [
+      [
+        0,
+        -2
+      ],
+      [
+        4,
+        0
+      ]
+    ],
+    "C_singular": true
+  },
+  "B2": {
+    "limites_y_valor_0": [
+      1,
+      1,
+      1
+    ],
+    "derivadas_laterales": [
+      4,
+      -1
+    ],
+    "b": "3/2",
+    "c": "5/2",
+    "segunda_derivada_en_menos_1": -3
+  },
+  "B3": {
+    "propietario": 0.489,
+    "mayor_dado_no_propietario": "280/511",
+    "union": 0.72
+  },
+  "B4": {
+    "datos": [
+      9500,
+      10000,
+      8500,
+      10500,
+      16500,
+      10000,
+      12000,
+      14000,
+      17000
+    ],
+    "suma": 108000,
+    "media": 12000,
+    "z99": 2.5758293035489,
+    "intervalo": [
+      10282.780464300733,
+      13717.219535699267
+    ],
+    "z95": 1.9599639845400536,
+    "umbral_n": 61.46334113110598,
+    "n_minimo": 62,
+    "error_n": 497.8313499047724,
+    "error_n_anterior": 501.8953467227104
+  }
+}

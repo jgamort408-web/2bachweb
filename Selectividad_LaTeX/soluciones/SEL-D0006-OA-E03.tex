@@ -1,5 +1,19 @@
 % ID: SEL-D0006-OA-E03
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S007, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Probabilidad total.}\par\nopagebreak[4]
+Sea $S$ el suceso ``curarse''. Cada paciente recibe un único fármaco, de modo que $A,B,C$ forman una partición y $P(C)=1-0.3-0.5=0.2$. Las tasas dadas son probabilidades condicionadas:
+\[
+\begin{aligned}
+P(S)&=P(A)P(S\mid A)+P(B)P(S\mid B)+P(C)P(S\mid C)\\
+&=0.3(0.6)+0.5(0.8)+0.2(0.7)\\
+&=0.18+0.40+0.14=\boxed{0.72}.
+\end{aligned}
+\]
+
+\textbf{b) Fármaco A sabiendo curación.}\par\nopagebreak[4]
+Por Bayes, dividimos la probabilidad conjunta de recibir A y curarse entre la probabilidad de curación:
+\[
+P(A\mid S)=\frac{P(A)P(S\mid A)}{P(S)}
+=\frac{0.18}{0.72}=\boxed{0.25}.
+\]
+No se confunde con $P(S\mid A)=0.6$, que tiene una condición distinta. Comprobación: las probabilidades conjuntas de no curación son $0.12,0.10,0.06$, cuya suma es $0.28=1-0.72$; junto con las de curación suman 1.

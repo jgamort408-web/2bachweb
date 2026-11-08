@@ -1,5 +1,64 @@
 % ID: SEL-D0001-OA-E02
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir hasta terminar y validar los enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; plan; pasos razonados;
-% comprobación independiente; interpretación; errores frecuentes y vínculo con el tema.
+% ESTADO: validada. S001, 2026-11-07. Tres pasadas del mismo autor; ver informe S001.
+La función es polinómica, por lo que está definida y es derivable tantas veces como sea necesario en $\mathbb R$. Sus dos primeras derivadas son
+\[
+f'(x)=3x^2-9,\qquad f''(x)=6x.
+\]
+\textbf{a) Rectas tangentes paralelas a $y=3x-3$.}
+
+La pendiente de una tangente en $x=a$ es $f'(a)$. Dos rectas no verticales son paralelas cuando tienen la misma pendiente; por tanto, debemos imponer $f'(a)=3$, no $f'(a)=0$:
+\[
+3a^2-9=3\quad\Longleftrightarrow\quad a^2=4
+\quad\Longrightarrow\quad a=-2\ \text{o}\ a=2.
+\]
+Las ordenadas de los puntos de tangencia se obtienen en la función original:
+\[
+f(-2)=-8+18+2=12,\qquad f(2)=8-18+2=-8.
+\]
+Usamos la ecuación punto-pendiente $y-f(a)=f'(a)(x-a)$:
+\begin{itemize}
+\item En $(-2,12)$: $y-12=3(x+2)$, es decir, $\boxed{y=3x+18}$.
+\item En $(2,-8)$: $y+8=3(x-2)$, es decir, $\boxed{y=3x-14}$.
+\end{itemize}
+Ambas pendientes valen 3 y cada recta pasa por su punto de tangencia.
+
+\textbf{b) Monotonía y curvatura.}
+
+El signo de $f'$ determina el crecimiento o decrecimiento. Sus ceros son
+\[
+3(x^2-3)=0\quad\Longleftrightarrow\quad x=\pm\sqrt3.
+\]
+\[
+\begin{array}{c|ccc}
+x&(-\infty,-\sqrt3)&(-\sqrt3,\sqrt3)&(\sqrt3,+\infty)\\\hline
+f'(x)&+&-&+\\
+f&\text{creciente}&\text{decreciente}&\text{creciente}
+\end{array}
+\]
+El cambio de $+$ a $-$ proporciona un máximo relativo en $x=-\sqrt3$, y el cambio de $-$ a $+$ un mínimo relativo en $x=\sqrt3$. Sus coordenadas son
+\[
+\left(-\sqrt3,\,2+6\sqrt3\right),\qquad
+\left(\sqrt3,\,2-6\sqrt3\right),
+\]
+respectivamente. Son extremos relativos, no extremos absolutos en todo $\mathbb R$.
+
+Para la curvatura estudiamos la segunda derivada:
+\[
+\begin{array}{c|cc}
+x&(-\infty,0)&(0,+\infty)\\\hline
+f''(x)=6x&-&+\\
+\text{Curvatura}&\text{hacia abajo }(\cap)&\text{hacia arriba }(\cup)
+\end{array}
+\]
+Así, $f$ es cóncava hacia abajo en $(-\infty,0)$ y convexa hacia arriba en $(0,+\infty)$. En $x=0$ cambia el signo de $f''$ y la función es continua, de modo que existe un punto de inflexión en $\boxed{(0,2)}$. La orientación indicada evita ambigüedades en el nombre de la curvatura.
+
+\textbf{c) Integral indefinida.}
+
+Integramos término a término. Para $n\ne-1$, una primitiva de $x^n$ es $x^{n+1}/(n+1)$. La constante final representa toda la familia de primitivas:
+\[
+\boxed{\int (x^3-9x+2)\,dx=\frac{x^4}{4}-\frac{9x^2}{2}+2x+C,\qquad C\in\mathbb R.}
+\]
+La comprobación consiste en derivar el resultado:
+\[
+\left(\frac{x^4}{4}-\frac{9x^2}{2}+2x+C\right)'=x^3-9x+2=f(x).
+\]

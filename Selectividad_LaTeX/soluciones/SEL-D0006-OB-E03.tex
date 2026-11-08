@@ -1,5 +1,24 @@
 % ID: SEL-D0006-OB-E03
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S007, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Condicionamiento e intersección.}\par\nopagebreak[4]
+La notación $P(A/B)$ significa $P(A\mid B)$. Como $P(B)=0.4>0$,
+\[
+P(A\cap B)=P(A\mid B)P(B)=0.25(0.4)=\boxed{0.1}.
+\]
+
+\textbf{b) Probabilidad de A y de la unión.}\par\nopagebreak[4]
+$A-B=A\cap B^c$ y forma con $A\cap B$ una partición de $A$:
+\[
+P(A)=P(A-B)+P(A\cap B)=0.4+0.1=\boxed{0.5}.
+\]
+Por inclusión-exclusión,
+\[
+P(A\cup B)=P(A)+P(B)-P(A\cap B)=0.5+0.4-0.1=\boxed{0.8}.
+\]
+
+\textbf{c) Independencia e incompatibilidad.}\par\nopagebreak[4]
+No son independientes: $P(A)P(B)=0.5(0.4)=0.2\ne0.1=P(A\cap B)$.
+
+Tampoco son incompatibles: la intersección tiene probabilidad 0.1 y por tanto no es vacía. Son propiedades distintas y deben justificarse por separado.
+
+Comprobación: las cuatro regiones $A\cap B$, $A\cap B^c$, $A^c\cap B$, $A^c\cap B^c$ tienen probabilidades $0.1,0.4,0.3,0.2$. Suman 1 y recuperan $P(B)=0.4$ y $P(A\mid B)=0.1/0.4=0.25$.

@@ -1,5 +1,32 @@
 % ID: SEL-D0009-BB-E03
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S010; tres pasadas del mismo autor y comprobación matemática; sin segundo revisor.
+\textbf{a) Continuidad y derivabilidad.}\par\nopagebreak[4]
+Cada expresión polinómica es continua en su tramo. Para la continuidad global sólo hay que igualar valores y límites en las uniones:
+\[
+\begin{aligned}
+x=-2:&\quad4+2a=-8-4a\quad\Longrightarrow\quad a=-2,\\
+x=2:&\quad-8-4a=-16+b\quad\Longrightarrow\quad b=16.
+\end{aligned}
+\]
+Con estos valores la función es continua en todo $[-4,3]$. Sus ramas quedan $-2x-4$, $8-2x^2$ y $-8x+16$. Las derivadas interiores de las ramas son $-2$, $-4x$ y $-8$.
+En $x=-2$, las derivadas laterales son $-2$ y $8$: \textbf{no es derivable}. En $x=2$ ambas valen $-8$: \textbf{sí es derivable}. En los demás puntos interiores es derivable por ser polinómica. Los extremos del dominio sólo admiten la correspondiente derivada unilateral.
+
+\textbf{b) Monotonía y extremos para esos parámetros.}\par\nopagebreak[4]
+El signo de la derivada da: decrece en $[-4,-2]$, crece en $[-2,0]$ y decrece en $[0,3]$. El cambio de fórmula en $2$ no altera el sentido de variación.
+\[
+\begin{array}{c|rrrrr}
+x&-4&-2&0&2&3\\\hline
+f(x)&4&0&8&0&-8
+\end{array}
+\]
+Hay un mínimo local interior en $(-2,0)$, aunque no exista derivada allí, y un máximo local interior en $(0,8)$. El máximo absoluto es $8$ en $x=0$ y el mínimo absoluto es $-8$ en $x=3$. Si se admiten extremos locales unilaterales relativos al dominio, $x=-4$ es además máximo local y $x=3$ mínimo local. En $2$ no hay extremo.
+
+\textbf{c) Área entre la curva y el eje.}\par\nopagebreak[4]
+En $[-2,2]$, $8-2x^2\geq0$, de modo que área e integral coinciden:
+\[
+A=\int_{-2}^{2}(8-2x^2)\,dx
+=\left[8x-\frac{2x^3}{3}\right]_{-2}^{2}
+=\frac{32}{3}-\left(-\frac{32}{3}\right)
+=\boxed{\frac{64}{3}\text{ unidades cuadradas}.}
+\]
+La simetría permite comprobarlo también como $2\int_0^2(8-2x^2)\,dx$.

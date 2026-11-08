@@ -1,5 +1,30 @@
 % ID: SEL-D0005-OB-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S006, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Producto, diferencia e inversa.}\par\nopagebreak[4]
+$A$ es $2\times3$, $B$ es $3\times2$ y $C$ es $2\times2$; por tanto, la operación $AB-C$ está definida y es cuadrada:
+\[
+AB=\begin{pmatrix}-2&0\\6&-1\end{pmatrix},\qquad
+M=AB-C=\begin{pmatrix}-3&-2\\4&2\end{pmatrix}.
+\]
+\[
+\det M=(-3)(2)-(-2)(4)=2\ne0.
+\]
+Sí tiene inversa. Para una matriz $2\times2$ aplicamos la fórmula de la adjunta:
+\[
+\boxed{M^{-1}=\frac12\begin{pmatrix}2&2\\-4&-3\end{pmatrix}
+=\begin{pmatrix}1&1\\-2&-3/2\end{pmatrix}.}
+\]
+Se comprueba multiplicando: $MM^{-1}=M^{-1}M=I_2$.
+
+\textbf{b) Factorización de la ecuación.}\par\nopagebreak[4]
+En $ABX-CX=C^t$, el factor común $X$ está a la derecha:
+\[
+(AB-C)X=C^t\quad\Longrightarrow\quad X=M^{-1}C^t.
+\]
+Aquí $C^t=C$ porque $C$ es simétrica. Así,
+\[
+\boxed{X=\begin{pmatrix}1&1\\-2&-3/2\end{pmatrix}
+\begin{pmatrix}1&2\\2&-3\end{pmatrix}
+=\begin{pmatrix}3&-1\\-5&1/2\end{pmatrix}.}
+\]
+Comprobación: $MX=\begin{pmatrix}1&2\\2&-3\end{pmatrix}=C^t$, que equivale a la ecuación original. La solución es única por la invertibilidad de $M$.

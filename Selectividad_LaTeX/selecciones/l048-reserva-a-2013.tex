@@ -1,0 +1,16 @@
+% L048: reserva A sólo del nombre,sin tipo ni modelo acreditados.
+\input{selecciones/l048-ids}
+\providecommand{\TituloSeleccion}{L048: archivo reserva A, curso 2012-2013, opciones A/B}
+\providecommand{\ContextoSeleccion}{\input{recursos/comunes/EXA-0048-instrucciones}}
+% Espaciado local sólo cuando se seleccionan los ocho ejercicios de L048.
+\ifdefined\EspaciadoLoteCuarentaOcho\else
+\gdef\EspaciadoLoteCuarentaOcho{si}
+\AtBeginDocument{%
+\edef\SeleccionActualEspaciado{\ListaEjercicios}%
+\def\SeleccionLoteCuarentaOcho{SEL-D0048-OA-E01,SEL-D0048-OA-E02,SEL-D0048-OA-E03,SEL-D0048-OA-E04,SEL-D0048-OB-E01,SEL-D0048-OB-E02,SEL-D0048-OB-E03,SEL-D0048-OB-E04}%
+\ifx\SeleccionActualEspaciado\SeleccionLoteCuarentaOcho
+\setlength{\parskip}{0.2em}\setlist[enumerate]{itemsep=0.15em,topsep=0.2em}%
+\fi}
+\fi
+
+

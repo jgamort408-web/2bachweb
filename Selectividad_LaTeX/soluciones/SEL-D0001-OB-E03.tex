@@ -1,5 +1,37 @@
 % ID: SEL-D0001-OB-E03
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir hasta terminar y validar los enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; plan; pasos razonados;
-% comprobación independiente; interpretación; errores frecuentes y vínculo con el tema.
+% ESTADO: validada. S002, 2026-11-07. Tres pasadas del mismo autor; ver informe.
+Sean $S$ ver series y $P$ ver películas. Los datos son $P(S)=0.69$, $P(P)=0.35$ y $P(S^c\cap P^c)=0.18$.
+
+\textbf{a) Series o películas.}\par\nopagebreak[4]
+
+El suceso complementario de no ver ninguna es ver al menos una de las dos:
+\[
+P(S\cup P)=1-P(S^c\cap P^c)=1-0.18=\boxed{0.82}.
+\]
+La palabra ``o'' incluye a quienes ven ambas.
+
+\textbf{b) Películas sabiendo que ve series.}\par\nopagebreak[4]
+
+La fórmula de la unión permite recuperar la intersección, que no está dada directamente:
+\[
+P(S\cap P)=P(S)+P(P)-P(S\cup P)
+=0.69+0.35-0.82=0.22.
+\]
+Condicionar a que ve series cambia el grupo de referencia a $S$:
+\[
+P(P\mid S)=\frac{P(P\cap S)}{P(S)}
+=\boxed{\frac{22}{69}\approx0.318841}.
+\]
+La probabilidad es aproximadamente del $31.88\%$. No se necesita suponer independencia.
+
+\textbf{c) Series y no películas.}\par\nopagebreak[4]
+
+Dentro de quienes ven series distinguimos los que también ven películas y los que no:
+\[
+P(S\cap P^c)=P(S)-P(S\cap P)=0.69-0.22=\boxed{0.47}.
+\]
+\textbf{Comprobación.} Las probabilidades de ver ambas, sólo series, sólo películas o ninguna son, respectivamente,
+\[
+0.22,\qquad0.47,\qquad0.13,\qquad0.18.
+\]
+Son no negativas, suman 1 y reproducen los marginales $0.22+0.47=0.69$ y $0.22+0.13=0.35$.

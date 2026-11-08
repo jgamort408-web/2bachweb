@@ -1,5 +1,24 @@
 % ID: SEL-D0005-OB-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S006, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual. B4 conserva la limitación de redondeo explicada.
+\textbf{a) Centro, error y tamaño con tabla.}\par\nopagebreak[4]
+Para una población normal con desviación conocida $\sigma=150$ horas, el intervalo bilateral es $\overline x\pm z\sigma/\sqrt n$. Su centro es la media muestral y su semiamplitud el error:
+\[
+\boxed{\overline x=\frac{18475.7+18524.3}{2}=18500\text{ horas}},
+\qquad E=\frac{18524.3-18475.7}{2}=24.3\text{ horas}.
+\]
+Con confianza 98.5\,\%, cada cola tiene 0.0075; buscamos $\Phi(z)=0.9925$. La tabla asociada da ese valor redondeado en $z=2.43$. Usando esa precisión de tabla,
+\[
+24.3=\frac{2.43(150)}{\sqrt n}
+\quad\Longrightarrow\quad\boxed{n=225\text{ con el cuantil tabulado}.}
+\]
+\textbf{Límite de lo que permiten deducir los datos publicados.}\par\nopagebreak[4]
+Los extremos están publicados a una decimal. No se puede tratar simultáneamente esa semiamplitud como exacta y usar el cuantil preciso $z_{0.9925}\approx2.432379059$: se obtendría $n\approx225.440782$, que no es un entero. Tampoco corresponde redondear hacia arriba como si se pidiera un tamaño mínimo: aquí se intenta recuperar una muestra anterior.
+
+En efecto, con media 18500 y cuantil preciso, $n=225$ da $E\approx24.323791$ y $n=226$ da $E\approx24.269917$. \emph{Ambos} intervalos se redondean a $(18475.7,18524.3)$. Así, 225 es la respuesta obtenida con la convención tabulada del examen; los límites redondeados por sí solos no determinan un tamaño único. Los criterios asociados no añaden un resultado numérico que elimine esta limitación. El centro 18500 es el recuperado de los límites publicados.
+
+\textbf{b) Nuevo error máximo de estimación.}\par\nopagebreak[4]
+Con $n=100$ y confianza 96.6\,\%, $\alpha=0.034$ y $1-\alpha/2=0.983$. El cuantil es $z_{0.983}\approx2.120071690$ y
+\[
+\boxed{E=z_{0.983}\frac{150}{\sqrt{100}}\approx31.801075\text{ horas}.}
+\]
+Con tabla 2.12, resulta 31.8 horas. Es semiamplitud del intervalo, no amplitud total ni una garantía determinista sobre cada estimación: corresponde al nivel de confianza indicado bajo el modelo y el muestreo aleatorio independiente.

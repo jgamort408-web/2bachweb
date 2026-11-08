@@ -1,0 +1,18 @@
+% L081: curso 2011-2012 visible; DOC convertido y cotejado.
+\input{selecciones/l081-ids}
+\providecommand{\TituloSeleccion}{L081: curso 2011-2012, archivo Examen 2, opciones A/B}
+\providecommand{\ContextoSeleccion}{\input{recursos/comunes/EXA-0081-instrucciones}}
+% Espaciado local sólo cuando se seleccionan los ocho ejercicios de L081.
+\ifdefined\EspaciadoLoteOchentaUno\else
+\gdef\EspaciadoLoteOchentaUno{si}
+\AtBeginDocument{%
+\edef\SeleccionActualEspaciado{\ListaEjercicios}%
+\def\SeleccionLoteOchentaUno{SEL-D0081-OA-E01,SEL-D0081-OA-E02,SEL-D0081-OA-E03,SEL-D0081-OA-E04,SEL-D0081-OB-E01,SEL-D0081-OB-E02,SEL-D0081-OB-E03,SEL-D0081-OB-E04}%
+\ifx\SeleccionActualEspaciado\SeleccionLoteOchentaUno
+\setlength{\parskip}{0.2em}\setlist[enumerate]{itemsep=0.15em,topsep=0.2em}%
+\fi}
+\fi
+
+
+
+

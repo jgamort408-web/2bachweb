@@ -1,5 +1,23 @@
 % ID: SEL-D0002-OA-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S003, 2026-11-07; tres pasadas del mismo autor, comprobación separada y revisión didáctica/visual.
+\textbf{Modelo y fórmula.}\par\nopagebreak[4]
+La población es normal y su varianza es conocida: $\sigma^2=36$, luego $\sigma=6$ puntos. Para una muestra aleatoria independiente, $\overline X$ es normal de media $\mu$ y desviación $\sigma/\sqrt n$. El intervalo bilateral es
+\[
+\overline x\pm z_{1-\alpha/2}\frac{\sigma}{\sqrt n}.
+\]
+\textbf{a) Confianza del $92$\,\%.}\par\nopagebreak[4]
+$\alpha=0.08$; cada cola tiene 0.04 y buscamos $\Phi(z)=0.96$. Así, $z_{0.96}\approx1.750686$ (tabla: 1.75). Con $n=64$ y $\overline x=35$:
+\[
+E=1.750686\frac6{\sqrt{64}}\approx1.313015,\qquad
+\boxed{IC_{\text{92\%}}\approx(33.686985,\ 36.313015)\text{ puntos}.}
+\]
+Con tabla resulta $(33.6875,36.3125)$, equivalente al redondear a dos decimales: $(33.69,36.31)$. El procedimiento produce intervalos que cubren la media poblacional en el $92$\,\% de las repeticiones; no describe el intervalo del $92$\,\% de las puntuaciones individuales.
+
+\textbf{b) Tamaño con confianza del $98$\,\%.}\par\nopagebreak[4]
+Ahora $\alpha=0.02$, $z_{0.99}\approx2.326348$. Se exige error \emph{inferior} a 2:
+\[
+\frac{6z_{0.99}}{\sqrt n}<2
+\iff n>\left(\frac{6z_{0.99}}2\right)^2
+\approx48.707050.
+\]
+El menor entero es \boxed{n=49}. Comprobación: $E(48)\approx2.014676>2$ y $E(49)\approx1.994012<2$. Usando $z=2.33$ de la tabla se obtiene igualmente 49. Se trata del tamaño total, no de 49 participantes adicionales.

@@ -1,0 +1,150 @@
+{
+  "tanda": "S008",
+  "segundo_revisor_distinto": false,
+  "E1": {
+    "vertices": [
+      [
+        0,
+        10
+      ],
+      [
+        10,
+        0
+      ],
+      [
+        20,
+        30
+      ],
+      [
+        40,
+        0
+      ]
+    ],
+    "optimo": [
+      20,
+      30
+    ],
+    "beneficio": 6800,
+    "certificado_global": true,
+    "optimo_entero": true
+  },
+  "E2": {
+    "determinante_coeficientes": [
+      5,
+      3,
+      -2
+    ],
+    "singulares": [
+      "-1",
+      "5/2"
+    ],
+    "inversa_m2": [
+      [
+        "5/3",
+        "1",
+        "-1/3"
+      ],
+      [
+        "-2",
+        "-1",
+        "1"
+      ],
+      [
+        "-4/3",
+        "-1",
+        "2/3"
+      ]
+    ],
+    "X": [
+      [
+        "8/3",
+        "0",
+        "5/3"
+      ],
+      [
+        "-2",
+        "1",
+        "-2"
+      ],
+      [
+        "2/3",
+        "0",
+        "5/3"
+      ]
+    ],
+    "residuo_nulo": true
+  },
+  "E3": {
+    "maximo": [
+      "2/3",
+      "32/27"
+    ],
+    "minimo": [
+      2,
+      0
+    ],
+    "inflexion": [
+      "4/3",
+      "16/27"
+    ],
+    "primitiva_comprobada": true,
+    "area": "4/3"
+  },
+  "E4": {
+    "dominio_log": "(-infinito,-1) union (1,infinito)",
+    "derivadas_comprobadas": true,
+    "vertice": [
+      "-1/2",
+      "3/4"
+    ],
+    "corte_vertical": [
+      0,
+      1
+    ],
+    "cortes_horizontales": [],
+    "area": "5/12"
+  },
+  "E5": {
+    "anticuerpos": 0.825,
+    "placebo_sin_anticuerpos": "4/7",
+    "recuentos": [
+      2700,
+      1425,
+      500
+    ]
+  },
+  "E6": {
+    "interseccion": 0.4608,
+    "union": 0.8092,
+    "ninguno": 0.1908,
+    "no_internet_dado_no_electronico": 0.424
+  },
+  "E7": {
+    "N": 200,
+    "n": 40,
+    "afijacion": [
+      12,
+      8,
+      6,
+      10,
+      4
+    ],
+    "a": 15,
+    "media_medias_sin_reposicion": 13.2,
+    "muestras_sin_reposicion": 10,
+    "media_medias_con_reposicion": 13.2,
+    "muestras_con_reposicion": 125
+  },
+  "E8": {
+    "z92": 1.7506860712521695,
+    "proporcion": 0.45,
+    "intervalo": [
+      0.3629044676393273,
+      0.5370955323606726
+    ],
+    "umbral_n": 303.4252702875592,
+    "n_minimo": 304,
+    "error_n": 0.049952713683427456,
+    "error_anterior": 0.050035076004293626
+  }
+}

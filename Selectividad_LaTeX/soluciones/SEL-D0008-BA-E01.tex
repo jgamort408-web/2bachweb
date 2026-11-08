@@ -1,5 +1,30 @@
 % ID: SEL-D0008-BA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S009, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Estructura de las potencias.}\par\nopagebreak[4]
+Escribimos $A=I_2+N$, con $N=\begin{pmatrix}0&0\\-1&0\end{pmatrix}$. Como $N^2=0$, el binomio da $A^n=I_2+nN$ para todo entero positivo $n$; los términos de grado 2 o mayor se anulan. También se prueba por inducción multiplicando $I_2+nN$ por $I_2+N$.
+\[
+\boxed{A^{40}=\begin{pmatrix}1&0\\-40&1\end{pmatrix}.}
+\]
+La traspuesta conserva los productos al invertir su orden; para potencias de la misma matriz, $(A^t)^n=(A^n)^t$. Por tanto,
+\[
+\boxed{(A^t)^{30}=\begin{pmatrix}1&-30\\0&1\end{pmatrix}.}
+\]
+
+\textbf{b) Inversa y cuadrado.}\par\nopagebreak[4]
+Como $(I_2+N)(I_2-N)=I_2-N^2=I_2$,
+\[
+A^{-1}=I_2-N=\begin{pmatrix}1&0\\1&1\end{pmatrix},\qquad A^{-1}+A=2I_2.
+\]
+Así, \boxed{(A^{-1}+A)^2=4I_2=\begin{pmatrix}4&0\\0&4\end{pmatrix}}.
+
+\textbf{c) Ecuación matricial.}\par\nopagebreak[4]
+\[
+M=A^t+I_2=\begin{pmatrix}2&-1\\0&2\end{pmatrix},\quad
+R=A^t-I_2=\begin{pmatrix}0&-1\\0&0\end{pmatrix}.
+\]
+$\det M=4\ne0$, luego multiplicamos $MX=R$ por la inversa a la izquierda:
+\[
+M^{-1}=\begin{pmatrix}1/2&1/4\\0&1/2\end{pmatrix},\qquad
+\boxed{X=M^{-1}R=\begin{pmatrix}0&-1/2\\0&0\end{pmatrix}.}
+\]
+Comprobación: $MX=R$. La solución es única, de orden 2, y no se modifica el orden de los factores.

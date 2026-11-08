@@ -1,0 +1,16 @@
+% L031: Suplente septiembre sólo de carpeta; opciones A/B impresas.
+\input{selecciones/l031-ids}
+\providecommand{\TituloSeleccion}{L031: archivo titular\_junio\_6, curso 2015-2016, opciones A/B}
+\providecommand{\ContextoSeleccion}{\input{recursos/comunes/EXA-0031-instrucciones}}
+
+% Espaciado local sólo cuando se seleccionan los ocho ejercicios de L031.
+\ifdefined\EspaciadoLoteTreintaUno\else
+\gdef\EspaciadoLoteTreintaUno{si}
+\AtBeginDocument{%
+\edef\SeleccionActualEspaciado{\ListaEjercicios}%
+\def\SeleccionLoteTreintaUno{SEL-D0031-OA-E01,SEL-D0031-OA-E02,SEL-D0031-OA-E03,SEL-D0031-OA-E04,SEL-D0031-OB-E01,SEL-D0031-OB-E02,SEL-D0031-OB-E03,SEL-D0031-OB-E04}%
+\ifx\SeleccionActualEspaciado\SeleccionLoteTreintaUno
+\setlength{\parskip}{0.2em}\setlist[enumerate]{itemsep=0.15em,topsep=0.2em}%
+\fi}
+\fi
+

@@ -1,5 +1,27 @@
 % ID: SEL-D0007-BA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S008, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{Variables y restricciones.}\par\nopagebreak[4]
+Sean $x,y$ las baterías semanales A y B. La producción mínima, la diferencia entre tipos y el presupuesto imponen
+\[
+x+y\geq10,\quad y-x\leq10,\quad150x+100y\leq6000,\quad x,y\geq0.
+\]
+La restricción de coste equivale a $3x+2y\leq120$. No se interpreta $y-x\leq10$ como $y\leq10$ ni como una diferencia absoluta.
+
+La región factible es el polígono cerrado y acotado de vértices $(0,10)$, $(10,0)$, $(40,0)$ y $(20,30)$. Los cortes con $y=0$ dan $(10,0)$ y $(40,0)$; el eje vertical sólo admite $(0,10)$. El último vértice se obtiene de $y=x+10$ y $3x+2y=120$, que dan $5x=100$.
+\begin{center}\includegraphics[width=0.55\linewidth]{figuras/s008-baterias.pdf}\end{center}
+
+\textbf{Función objetivo y máximo.}\par\nopagebreak[4]
+El beneficio ya está dado por batería: $G=130x+140y$ euros. No se vuelve a restar el coste de producción a esas cantidades. En los vértices:
+\[
+\begin{array}{c|rrrr}
+(x,y)&(0,10)&(10,0)&(40,0)&(20,30)\\\hline
+G&1400&1300&5200&6800
+\end{array}
+\]
+El máximo se alcanza produciendo \boxed{20\text{ baterías A y }30\text{ B}}, con beneficio \boxed{6800\text{ euros por semana}}. El óptimo es entero, por lo que también es válido para unidades completas.
+
+Comprobación global y unicidad:
+\[
+G=54(3x+2y)+32(y-x)\leq54(120)+32(10)=6800.
+\]
+La igualdad exige simultáneamente $3x+2y=120$ e $y-x=10$, que determinan $(20,30)$. Se producen 50 baterías, la diferencia es 10 y el coste es $150(20)+100(30)=6000$ euros.

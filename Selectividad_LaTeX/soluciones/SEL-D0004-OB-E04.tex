@@ -1,5 +1,26 @@
 % ID: SEL-D0004-OB-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S005, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{Modelo y media muestral.}\par\nopagebreak[4]
+Se conoce la desviación poblacional $\sigma=2000$ horas; no se estima con estos datos. La población normal permite el intervalo para la media incluso con $n=9$, suponiendo observaciones aleatorias independientes. Conservamos los nueve valores, incluido el 10000 repetido:
+\[
+\sum_{i=1}^9 x_i=108000,\qquad \overline x=108000/9=12000\text{ horas}.
+\]
+
+\textbf{a) Intervalo bilateral del 99\,\%.}\par\nopagebreak[4]
+$\alpha=0.01$, cada cola tiene 0.005 y $z_{0.995}\approx2.575829304$. El error típico es $2000/\sqrt9=2000/3$ horas:
+\[
+E=z_{0.995}\frac{2000}{3}\approx1717.219536\text{ horas}.
+\]
+\[
+\boxed{IC_{\text{99\%}}\approx(10282.780464,\ 13717.219536)\text{ horas}.}
+\]
+Con el cuantil interpolado 2.576 se obtiene $(10282.67,13717.33)$ horas, La pequeña diferencia procede del redondeo del cuantil. La confianza es cobertura del procedimiento para la media, no probabilidad de que un filtro individual dure entre esos límites.
+
+\textbf{b) Tamaño mínimo con confianza del 95\,\%.}\par\nopagebreak[4]
+Ahora $z_{0.975}\approx1.959963985$ y el error debe ser \emph{inferior} a 500 horas:
+\[
+\frac{2000z_{0.975}}{\sqrt n}<500
+\iff n>\left(\frac{2000z_{0.975}}{500}\right)^2
+\approx61.463341.
+\]
+El tamaño total mínimo es \boxed{n=62\text{ filtros}}. Para comprobar la minimalidad, el error con 61 es mayor que 500 y con 62 es menor. El cuantil tabulado 1.96 conduce también a 62. No se usa la confianza del 99\,\% del apartado anterior ni se confunde el error con la amplitud total, que sería el doble.

@@ -1,5 +1,55 @@
 % ID: SEL-D0001-OB-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir hasta terminar y validar los enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; plan; pasos razonados;
-% comprobación independiente; interpretación; errores frecuentes y vínculo con el tema.
+% ESTADO: validada. S002, 2026-11-07. Tres pasadas del mismo autor; ver informe.
+\textbf{a) Simetría.}\par\nopagebreak[4]
+
+Una matriz cuadrada es simétrica si coincide con su traspuesta: $a_{ij}=a_{ji}$ para todos los pares de índices. En este caso
+\[
+a_{23}=-1\ne1=a_{32},
+\]
+por lo que \textbf{$A$ no es simétrica}. Basta un par de entradas distintas para descartar la simetría.
+
+\textbf{b) Cálculo de la inversa.}\par\nopagebreak[4]
+
+Una matriz cuadrada tiene inversa si su determinante es distinto de cero. Desarrollando por la primera fila,
+\[
+\det A=1\begin{vmatrix}2&-1\\1&1\end{vmatrix}
+-(-2)\begin{vmatrix}-2&-1\\0&1\end{vmatrix}
+=3-4=-1.
+\]
+El cofactor $C_{ij}$ se obtiene eliminando la fila $i$ y la columna $j$, calculando el determinante restante y aplicando el signo $(-1)^{i+j}$. La matriz de cofactores y su traspuesta son
+\[
+C=\begin{pmatrix}3&2&-2\\2&1&-1\\2&1&-2\end{pmatrix},
+\qquad
+\operatorname{adj}(A)=C^t=\begin{pmatrix}3&2&2\\2&1&1\\-2&-1&-2\end{pmatrix}.
+\]
+Así,
+\[
+\boxed{A^{-1}=\frac{\operatorname{adj}(A)}{\det A}
+=\begin{pmatrix}-3&-2&-2\\-2&-1&-1\\2&1&2\end{pmatrix}.}
+\]
+Se comprueba multiplicando: $AA^{-1}=A^{-1}A=I_3$.
+
+\textbf{c) Ecuación matricial.}\par\nopagebreak[4]
+
+En el enunciado $O$ representa la matriz nula de orden 3. Aislamos el producto que contiene la incógnita:
+\[
+2XA=A^2+3I_3.
+\]
+Como $A$ multiplica a $X$ por la derecha, multiplicamos ambos miembros por $A^{-1}$ también por la derecha. El orden de los factores es esencial:
+\[
+2XAA^{-1}=(A^2+3I_3)A^{-1}
+\quad\Longrightarrow\quad
+X=\frac12(A+3A^{-1}).
+\]
+La simplificación usa asociatividad y $AA^{-1}=I_3$, sin suponer que matrices arbitrarias conmuten. Sustituyendo los valores,
+\[
+A+3A^{-1}=\begin{pmatrix}-8&-8&-6\\-8&-1&-4\\6&4&7\end{pmatrix},
+\qquad
+\boxed{X=\begin{pmatrix}-4&-4&-3\\-4&-\frac12&-2\\3&2&\frac72\end{pmatrix}.}
+\]
+\textbf{Comprobación.} El cuadrado de $A$ y el producto obtenido son
+\[
+A^2=\begin{pmatrix}5&-6&2\\-6&7&-3\\-2&3&0\end{pmatrix},\qquad
+2XA=\begin{pmatrix}8&-6&2\\-6&10&-3\\-2&3&3\end{pmatrix}=A^2+3I_3.
+\]
+Por tanto, $2XA-A^2-3I_3=O$, exactamente como exige la ecuación.

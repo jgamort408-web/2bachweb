@@ -1,5 +1,32 @@
 % ID: SEL-D0007-BB-E03
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S008, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Monotonía y extremos.}\par\nopagebreak[4]
+El dominio es $\mathbb R$ y $f(x)=x(x-2)^2$. La derivada es
+\[
+f'(x)=3x^2-8x+4=(3x-2)(x-2).
+\]
+Es positiva en $(-\infty,2/3)$ y $(2,\infty)$ y negativa en $(2/3,2)$. Así, $f$ crece en los dos intervalos de signo positivo y decrece entre 2/3 y 2. Los cambios de signo dan
+\[
+\boxed{\text{máximo relativo }(2/3,32/27),\qquad\text{mínimo relativo }(2,0).}
+\]
+No hay extremos absolutos sobre $\mathbb R$, porque la cúbica no está acotada.
+
+\textbf{b) Representación.}\par\nopagebreak[4]
+Sus cortes con el eje horizontal son $(0,0)$ y $(2,0)$; en 2 la raíz es doble y la curva toca el eje sin cruzarlo. Es negativa para $x<0$ y no negativa para $x\geq0$. Además, $f''(x)=6x-8$ cambia de signo en 4/3, con inflexión en $(4/3,16/27)$. En los extremos del eje real, $f(x)\to-\infty$ cuando $x\to-\infty$ y $f(x)\to\infty$ cuando $x\to\infty$.
+\begin{center}\includegraphics[width=0.62\linewidth]{figuras/s008-cubica.pdf}\end{center}
+
+\textbf{c) Integral indefinida.}\par\nopagebreak[4]
+Por la regla de potencias y la linealidad,
+\[
+\boxed{\int f(x)\,dx=\frac{x^4}{4}-\frac43x^3+2x^2+K.}
+\]
+Derivando la expresión se recupera $x^3-4x^2+4x$.
+
+\textbf{d) Área del recinto acotado.}\par\nopagebreak[4]
+El único recinto acotado con el eje horizontal está entre las raíces 0 y 2. Como $f\geq0$ en $[0,2]$, el área geométrica coincide con la integral:
+\[
+S=\int_0^2 f(x)\,dx
+=\left[\frac{x^4}{4}-\frac43x^3+2x^2\right]_0^2
+=4-\frac{32}{3}+8=\boxed{\frac43\text{ unidades cuadradas}.}
+\]
+No se extiende el área hacia las ramas no acotadas de la curva.

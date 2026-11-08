@@ -91,3 +91,28 @@ signo-funcion,"Valores del dominio para los que la función es positiva o negati
 diferencia-simetrica,"Suceso exactamente uno de dos, distinto de al menos uno, según la pregunta original."
 seleccion-sin-reposicion,Selección de personas u objetos distintos sin reposición; sin añadir condiciones al texto original.
 clasificacion-discontinuidades,"Clasificación de discontinuidades solicitada expresamente, sin anticipar tipos ni puntos."
+contraste-unilateral-proporcion,"Contraste unilateral sobre una proporción solicitado en un examen histórico, sin anticipar decisión."
+espacio-muestral,"Descripción del espacio muestral solicitada expresamente, sin listar resultados en los metadatos."
+sucesos-elementales,Probabilidad de cada suceso elemental pedida en el enunciado; no supone equiprobabilidad.
+orden-extraccion,"El enunciado exige anotar el orden de extracción, conservado al definir los resultados."
+cortes-ejes,"Puntos de corte con los ejes de coordenadas solicitados expresamente, sin anticipar coordenadas."
+varianza-medias-muestrales,"Varianza de la distribución de medias muestrales solicitada, distinta de la varianza poblacional y de la desviación."
+igualdad-matricial,"Verificación de una igualdad matricial propuesta, sin anticipar si se cumple."
+interpretacion-matrices,Interpretación contextual de los elementos de una matriz o producto matricial solicitada expresamente.
+interpretacion-asintota,"Interpretación contextual de una asíntota pedida en el enunciado, sin anticipar su valor."
+urna-dinamica,Extracción que modifica la composición de la urna mediante una sustitución descrita expresamente.
+igualdad-derivadas,Determinación de abscisas para las que coinciden las derivadas de dos funciones dadas.
+comparacion-reposicion,Comparación solicitada de extracciones con devolución y sin devolución en apartados del mismo ejercicio.
+despeje-matricial,Despeje simbólico de una matriz solicitado sin calcular sus elementos.
+contraste-bilateral-media,Contraste bilateral sobre una media solicitado expresamente en un examen histórico.
+diagnostico-correcto,Probabilidad solicitada de que una prueba clasifique correctamente el estado de la persona.
+contraste-bilateral-proporcion,Contraste bilateral sobre una proporción solicitado expresamente en un examen histórico.
+peritaje-correcto,Probabilidad solicitada de que un experto clasifique correctamente la autenticidad de un objeto.
+recursos-sobrantes,Cantidad de recursos que queda tras la producción óptima solicitada;sin anticipar valores.
+region-aceptacion,Región de aceptación de una hipótesis solicitada expresamente;sin anticipar límites ni conclusión.
+matriz-adyacencia,Matriz de adyacencia de un grafo proporcionada o solicitada;sin anticipar aristas ni dibujo.
+extraccion-con-reposicion,"Extracciones con devolución explícita del objeto antes de la siguiente extracción,sin anticipar probabilidades."
+sistemas-lineales,Sistema lineal dado o solicitado en el enunciado.
+clasificacion-sistemas,Clasificación de un sistema solicitada sin anticipar el tipo.
+efecto-tamano-muestral,"Efecto solicitado de variar el tamaño muestral sobre una probabilidad, sin anticipar la respuesta."
+coste-maximo,Maximización del coste solicitada expresamente en el enunciado; conservar el sentido de la optimización.

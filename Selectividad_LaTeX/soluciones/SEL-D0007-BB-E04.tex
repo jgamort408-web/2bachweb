@@ -1,5 +1,36 @@
 % ID: SEL-D0007-BB-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S008, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Derivadas y dominios.}\par\nopagebreak[4]
+El argumento del logaritmo debe ser positivo:
+\[
+\frac{x-1}{x+1}>0\iff x\in(-\infty,-1)\cup(1,\infty).
+\]
+Sea $u=(x-1)/(x+1)$; entonces $u'=2/(x+1)^2$. Por la regla de la cadena,
+\[
+f'(x)=\frac{u'}u=\boxed{\frac2{x^2-1}},
+\qquad x\in(-\infty,-1)\cup(1,\infty).
+\]
+No se amplía el dominio a $(-1,1)$ porque la fórmula derivada allí tenga sentido. Tampoco se separa el logaritmo en $\ln(x-1)-\ln(x+1)$ cuando ambos argumentos son negativos.
+
+Para $g$, definida en $\mathbb R$, usamos producto y cadena:
+\[
+g'(x)=3x^2e^{2x^2}+x^3e^{2x^2}(4x)
+=\boxed{x^2(3+4x^2)e^{2x^2}}.
+\]
+
+\textbf{b) Parábola.}\par\nopagebreak[4]
+Completando el cuadrado,
+\[
+h(x)=(x+1/2)^2+3/4.
+\]
+Abre hacia arriba y tiene vértice \boxed{(-1/2,3/4)}, eje $x=-1/2$ y corte vertical \boxed{(0,1)}. No corta el eje horizontal: su discriminante es $1-4=-3<0$, y además $h(x)\geq3/4>0$ en todo $\mathbb R$.
+\begin{center}\includegraphics[width=0.60\linewidth]{figuras/s008-parabola.pdf}\end{center}
+
+\textbf{c) Área entre x=-1/2 y x=0.}\par\nopagebreak[4]
+Como $h$ es positiva, no hace falta cambiar el signo de la integral:
+\[
+S=\int_{-1/2}^{0}(x^2+x+1)\,dx
+=\left[\frac{x^3}{3}+\frac{x^2}{2}+x\right]_{-1/2}^{0}
+=\boxed{\frac5{12}\text{ unidades cuadradas}.}
+\]
+Comprobación: en ese intervalo $3/4\leq h\leq1$ y su anchura es 1/2, por lo que $3/8\leq S\leq1/2$, coherente con $5/12$.

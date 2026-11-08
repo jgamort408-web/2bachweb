@@ -14,10 +14,15 @@ def cell(value: str) -> str:
 
 def render_index(catalog: dict) -> str:
     rows = [r for r in catalog["ejercicios"] if r["estado_transcripcion"] == "cotejada"]
+    validated = sum(r.get("estado_solucion") == "validada" for r in rows)
+    solution_summary = (
+        f"Soluciones: {validated} validadas y {len(rows) - validated} pendientes de validación; este índice no presenta respuestas."
+        if validated else "Las soluciones siguen pendientes; este índice no presenta respuestas."
+    )
     lines = [
         "# Índice de ejercicios de Selectividad", "",
         f"**{len(rows)} enunciados cotejados**, con acceso al archivo individual y categorías. "
-        "Las soluciones siguen pendientes; este índice no presenta respuestas.", "",
+        + solution_summary, "",
         "[Guía para crear relaciones](docs/GUIA_RELACIONES.md) · "
         "[Tabla completa](#tabla-completa) · [Etiquetas](#etiquetas) · "
         "[Índice maestro CSV](datos/ejercicios.csv)", "",

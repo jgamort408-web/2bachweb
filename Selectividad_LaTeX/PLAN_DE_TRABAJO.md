@@ -1,34 +1,39 @@
 # Plan del banco modular de Selectividad
 
-Actualización: **27 de octubre de 2026**. Documento de seguimiento por tandas; las entradas del diario describen cambios como commits, sin crear commits de Git.
+Actualización: **7 de noviembre de 2026**. Documento de seguimiento por tandas; las entradas del diario describen cambios como commits, sin crear commits de Git.
 
 ## 1. Objetivo y alcance de esta entrega
 
 Preparar un banco LaTeX para Overleaf con ejercicios de `../Selectividad/`, filtros por procedencia y contenidos, y composición de preguntas o preguntas con soluciones futuras.
 
-**L001-L025 cerradas: 200 enunciados cotejados y 200 clasificaciones verificadas.** L025 incorpora ocho ejercicios del curso 2016-2017, archivo suplemente_junio_EXAMEN 4; se conservan los 192 anteriores. Las 200 soluciones contienen sólo comentarios, sin respuestas. Veinticinco de 84 candidatos cerrados, 59 pendientes. Fase de soluciones inactiva.
+**L001-L084 cerradas: 640 enunciados únicos cotejados y 640 clasificaciones verificadas.** Son 83 exámenes canónicos y 84 de 84 candidatos cerrados; ninguno pendiente de transcripción. L057 es una reedición sin ejercicios nuevos. L084 añade ocho enunciados desde DOC convertidos, curso 2011-2012 impreso. S001-S009 incorporan 64 soluciones validadas;576 siguen sin redactar. La transcripción completa permanece intacta.
 
-En L005-L025, el cotejo consta de segundas pasadas visuales completas del mismo autor, separadas de la escritura; no se atribuye a un segundo revisor distinto. L001-L004 conservan sus propias evidencias de revisión.
+En L005-L056 y L058-L084, el cotejo consta de segundas pasadas visuales completas del mismo autor, separadas de la escritura; no se atribuye a un segundo revisor distinto. L001-L004 conservan sus propias evidencias de revisión.
 
-## Estado actual tras L025
+## Mejora detectada al transcribir L067
+
+- [ ] SEL-PARTES:permitir seleccionar Partes I/II aisladas sin alterar numeración,procedencia ni agrupación del ejercicio original. Hoy los filtros recuperan el ejercicio completo;documentado en el informe de L067.
+
+## Estado actual tras L084
 
 | Medida | Estado comprobado |
 |---|---:|
-| Lotes candidatos cerrados | **25 de 84: L001-L025** |
-| Enunciados `cotejada` | **200** |
-| Clasificaciones `verificada` | **200** |
-| Soluciones redactadas | **0** |
-| Soluciones `no_redactada` | **200: 192 anteriores intactas y ocho nuevas de sólo comentarios** |
-| Fuentes con huellas coincidentes | **215 de 215, verificadas en L025** |
-| Pruebas superadas en L025 | **21** |
+| Lotes candidatos cerrados | **84 de 84: L001-L084; 83 exámenes canónicos** |
+| Enunciados `cotejada` | **640** |
+| Clasificaciones `verificada` | **640** |
+| Soluciones redactadas | **64:validadas en S001-S009** |
+| Soluciones `no_redactada` | **576** |
+| Soluciones `validada` | **64** |
+| Fuentes con huellas coincidentes | **215 de 215, verificadas en L084** |
+| Pruebas superadas en L084 | **21** |
 
 Los primeros dieciocho exámenes conservan límites de identificación documentados. L001-L004 tienen convocatoria/tipo de carpeta; L005/L006, reserva y letras de carpeta con convocatoria vacía. L007 confirma ordinaria y curso 2020-2021; L010 confirma extraordinaria y ese curso. L008/L009/L011/L012 sólo imprimen curso: convocatoria y tipo proceden de nombres. L012 conserva reserva B sólo con evidencia del nombre. **L013-L018 confirman curso 2019-2020; convocatoria, tipo, reserva y modelo quedan vacíos.** Los sufijos A-F de P_A/P_B/P_C/P_D/P_E/P_F no acreditan modelos ni opciones; tampoco hay tabla específicamente asociada para estos seis. Todos mantienen modelo vacío, identificación parcialmente confirmada y requiere_revision=si por esos límites. INC-006 conserva matrix de L006; INC-007, (1 puntos) de L015. L010 tiene tabla normal en su página 3. Las fechas del relato, como caducidad 2021 en C6 de L014, no datan el examen.
 
 L007-L018 usan cuatro bloques A-D y números globales 1-8, sin opciones. Sus IDs son BA-E01/E02, BB-E03/E04, BC-E05/E06 y BD-E07/E08 por documento. El original exige cuatro ejercicios de al menos tres bloques y corrige los cuatro primeros que cumplen la regla; la colección reúne ocho para consulta, sin imponer esa regla a la selección didáctica. En L016 A1 imprime total 2.5, sin apartados; otros siete totales derivados de apartados y concordantes con criterios, sin añadir totales al cuerpo. B3 conserva dos derivadas bajo 1.2 y tangentes más corte bajo 1.3; B4a y D7a conservan sus preguntas con puntuación conjunta.
 
-**Verificación L025:** 21 pruebas superadas en 33.915 s; 200 ejercicios válidos y 215 huellas originales coincidentes. Dos PDF de cuatro páginas, ocho páginas finales revisadas y ocho avisos pendientes en combinado. Los 192 enunciados, 192 soluciones y 48 PDF anteriores intactos (432 archivos). ZIP aislado compilado: ambas salidas L025 y enunciados L024 idénticos byte a byte; main.tex con texto y cuatro renderizados idénticos al PDF de preguntas. Comprobación local con Tectonic y caché; servicio Overleaf no probado.
+**Verificación L084:** 21 pruebas superadas en 507.023s;640 ejercicios y215 fuentes válidas. Cuatro páginas fuente y7 páginas finales revisadas;PDF de3/4páginas. Los1428 archivos anteriores intactos:632 enunciados,632 soluciones y164 PDF. ZIP aislado de1908 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
 
-**Siguiente: L026**, fuente candidata `SRC-251685BD691B`, archivo `Selectividad/matematicas_aplicadas/suplemente_septiembre_EXAMEN 4-ANDALUCÍA.pdf`. Confirmar curso, naturaleza y auxiliares desde el contenido, conservando el nombre original.
+**Siguiente fase:** continuar S010 (EXA-0009). S001-S009:64 soluciones explicadas y validadas;576 pendientes. Tres pasadas del mismo autor, sin revisor independiente; revisar incidencias antes de validar cada caso afectado.
 
 ### Estado inicial histórico, anterior a L001
 
@@ -156,14 +161,38 @@ La cola detallada y sus fuentes están en [LOTES_DE_TRANSCRIPCION.md](docs/LOTES
 20. **L020 cerrada: carpeta reserva b, curso 2017-2018.** Ocho ejercicios cotejados y clasificados. [Informe](docs/lotes/L020_2018_reserva_b.md). L021 cerrada; siguiente L022: confirmar curso/naturaleza.
 21. **L021 cerrada: archivo reserva_a_EXAMEN 3, curso 2016-2017.** Ocho ejercicios cotejados y clasificados. [Informe](docs/lotes/L021_2017_reserva_a.md). L022 cerrada; L023 y L024 cerradas.
 22. **L022 cerrada: archivo reserva_a_EXAMEN 5, curso 2015-2016.** Ocho ejercicios cotejados y clasificados. [Informe](docs/lotes/L022_2016_reserva_a.md). L023 cerrada; L024 cerrada.
-23. **L023 cerrada: archivo reserva_b_EXAMEN 2, curso 2015-2016.** Ocho enunciados cotejados y clasificados. [Informe](docs/lotes/L023_2016_reserva_b.md). L024 cerrada; L025 cerrada; siguiente L026, confirmar curso/naturaleza.
-24. **L024 cerrada: archivo reserva_b_EXAMEN 2, curso 2016-2017.** Ocho enunciados cotejados y clasificados. [Informe](docs/lotes/L024_2017_reserva_b.md). L025 cerrada; siguiente L026: confirmar curso/naturaleza.
-25. **L025 cerrada: archivo suplemente_junio_EXAMEN 4, curso 2016-2017.** Ocho enunciados cotejados y clasificados. [Informe](docs/lotes/L025_2017_suplemente_junio.md). Siguiente L026: confirmar curso/naturaleza.
-26. Fuentes de 2021 y documentos de 2020 en la carpeta mixta: revisar estructura de bloques y regla de elección, distintas de la antigua opción A/B.
-27. Resto de la carpeta mixta: confirmar años visualmente antes de distribuir por cursos; resolver sus copias de 2015 con las carpetas anuales.
-28. Fuentes anuales de 2015, 2014 y 2013, con deduplicación y cotejo de opciones.
-29. Fuentes de 2011, 2010, 2009 y 2008. Para escaneados, OCR sólo como ayuda; verificar visualmente cada signo y separar examen/criterios en documentos combinados.
-30. DOC de 2012: convertir **copias** a un formato legible y cotejar la conversión página a página antes de transcribir. No inferir el modelo del número de carpeta. Se deja este grupo al final para disponer de una tanda específica de conversión y cotejo.
+23. **L023 cerrada: archivo reserva_b_EXAMEN 2, curso 2015-2016.** Ocho enunciados cotejados y clasificados. [Informe](docs/lotes/L023_2016_reserva_b.md). L024 cerrada; L025 cerrada; L026 cerrada; L027 cerrada; L028 cerrada; L029 cerrada; L030 cerrada; L031 cerrada; L032 cerrada; L033 cerrada; L034 cerrada; L035 cerrada; L036 cerrada;L037 cerrada;L038 cerrada;L039 cerrada;L040 cerrada;L041 cerrada;L042 cerrada;L043 cerrada;L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+24. **L024 cerrada: archivo reserva_b_EXAMEN 2, curso 2016-2017.** Ocho enunciados cotejados y clasificados. [Informe](docs/lotes/L024_2017_reserva_b.md). L025 cerrada; L026 cerrada; L027 cerrada; L028 cerrada; L029 cerrada; L030 cerrada; L031 cerrada; L032 cerrada; L033 cerrada; L034 cerrada; L035 cerrada; L036 cerrada;L037 cerrada;L038 cerrada;L039 cerrada;L040 cerrada;L041 cerrada;L042 cerrada;L043 cerrada;L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+25. **L025 cerrada: archivo suplemente_junio_EXAMEN 4, curso 2016-2017.** Ocho enunciados cotejados y clasificados. [Informe](docs/lotes/L025_2017_suplemente_junio.md). L026 cerrada; L027 cerrada; L028 cerrada; L029 cerrada; L030 cerrada; L031 cerrada; L032 cerrada; L033 cerrada; L034 cerrada; L035 cerrada; L036 cerrada;L037 cerrada;L038 cerrada;L039 cerrada;L040 cerrada;L041 cerrada;L042 cerrada;L043 cerrada;L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+26. **L026 cerrada: curso2015-2016, archivo suplemente_septiembre_EXAMEN 4.** [Informe](docs/lotes/L026_2016_suplemente_septiembre.md). L027 cerrada; L028 cerrada; L029 cerrada; L030 cerrada; L031 cerrada; L032 cerrada; L033 cerrada; L034 cerrada; L035 cerrada; L036 cerrada;L037 cerrada;L038 cerrada;L039 cerrada;L040 cerrada;L041 cerrada;L042 cerrada;L043 cerrada;L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+27. **L027 cerrada: curso2016-2017, archivo suplemente_septiembre_EXAMEN 6.** [Informe](docs/lotes/L027_2017_suplemente_septiembre.md). L028 cerrada; L029 cerrada; L030 cerrada; L031 cerrada; L032 cerrada; L033 cerrada; L034 cerrada; L035 cerrada; L036 cerrada;L037 cerrada;L038 cerrada;L039 cerrada;L040 cerrada;L041 cerrada;L042 cerrada;L043 cerrada;L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+28. **L028 cerrada: curso2017-2018, carpeta suplente junio.** [Informe](docs/lotes/L028_2018_suplente_junio.md). L029 cerrada; L030 cerrada; L031 cerrada; L032 cerrada; L033 cerrada; L034 cerrada; L035 cerrada; L036 cerrada;L037 cerrada;L038 cerrada;L039 cerrada;L040 cerrada;L041 cerrada;L042 cerrada;L043 cerrada;L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+29. **L029 cerrada: curso2017-2018, carpeta suplente septiembre.** [Informe](docs/lotes/L029_2018_suplente_septiembre.md). L030 cerrada; L031 cerrada; L032 cerrada; L033 cerrada; L034 cerrada; L035 cerrada; L036 cerrada;L037 cerrada;L038 cerrada;L039 cerrada;L040 cerrada;L041 cerrada;L042 cerrada;L043 cerrada;L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+30. **L030 cerrada: curso2017-2018, carpeta titular_junio.** [Informe](docs/lotes/L030_2018_titular_junio.md). L031 cerrada; L032 cerrada; L033 cerrada; L034 cerrada; L035 cerrada; L036 cerrada;L037 cerrada;L038 cerrada;L039 cerrada;L040 cerrada;L041 cerrada;L042 cerrada;L043 cerrada;L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+31. **L031 cerrada: curso2015-2016, archivo titular_junio_6.** [Informe](docs/lotes/L031_2016_titular_junio.md). L032 cerrada; L033 cerrada; L034 cerrada; L035 cerrada; L036 cerrada;L037 cerrada;L038 cerrada;L039 cerrada;L040 cerrada;L041 cerrada;L042 cerrada;L043 cerrada;L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+32. **L032 cerrada: curso visible2016-2017, archivo titular_junio_EXAMEN 5.** [Informe](docs/lotes/L032_2017_titular_junio.md). L033 cerrada; L034 cerrada; L035 cerrada; L036 cerrada;L037 cerrada;L038 cerrada;L039 cerrada;L040 cerrada;L041 cerrada;L042 cerrada;L043 cerrada;L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+33. **L033 cerrada: curso 2017-2018, carpeta titular_septiembre.** [Informe](docs/lotes/L033_2018_titular_septiembre.md). L034 cerrada; L035 cerrada; L036 cerrada;L037 cerrada;L038 cerrada;L039 cerrada;L040 cerrada;L041 cerrada;L042 cerrada;L043 cerrada;L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+34. **L034 cerrada: curso 2015-2016, archivo titular_septiembre_1.** [Informe](docs/lotes/L034_2016_titular_septiembre.md). L035 cerrada; L036 cerrada;L037 cerrada;L038 cerrada;L039 cerrada;L040 cerrada;L041 cerrada;L042 cerrada;L043 cerrada;L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+35. **L035 cerrada: curso2016-2017, archivo titular_septiembre_EXAMEN 1.** [Informe](docs/lotes/L035_2017_titular_septiembre.md). L036 cerrada;L037 cerrada;L038 cerrada;L039 cerrada;L040 cerrada;L041 cerrada;L042 cerrada;L043 cerrada;L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+36. **L036 cerrada:curso2014-2015,archivo Ua1;alias verificados.** [Informe](docs/lotes/L036_2015_Ua1.md). L037 cerrada;L038 cerrada;L039 cerrada;L040 cerrada;L041 cerrada;L042 cerrada;L043 cerrada;L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+37. **L037 cerrada:curso 2014-2015,Ua2;alias verificados.** [Informe](docs/lotes/L037_2015_Ua2.md). L038 cerrada;L039 cerrada;L040 cerrada;L041 cerrada;L042 cerrada;L043 cerrada;L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+38. **L038 cerrada:curso 2014-2015,Ua3;alias verificados.** [Informe](docs/lotes/L038_2015_Ua3.md). L039 cerrada;L040 cerrada;L041 cerrada;L042 cerrada;L043 cerrada;L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+39. **L039 cerrada:curso 2014-2015,Ua4;alias verificados.** [Informe](docs/lotes/L039_2015_Ua4.md). L040 cerrada;L041 cerrada;L042 cerrada;L043 cerrada;L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+40. **L040 cerrada:curso 2014-2015,Ua5;alias verificados.** [Informe](docs/lotes/L040_2015_Ua5.md). L041 cerrada;L042 cerrada;L043 cerrada;L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+41. **L041 cerrada:curso 2014-2015,Ua6;alias verificados.** [Informe](docs/lotes/L041_2015_Ua6.md). L042 cerrada;L043 cerrada;L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+42. **L042 cerrada:curso 2013-2014,ANDAL-1;alias verificados.** [Informe](docs/lotes/L042_2014_ANDAL1.md). L043 cerrada;L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+43. **L043 cerrada:curso 2013-2014,ANDAL-2;alias verificados.** [Informe](docs/lotes/L043_2014_ANDAL2.md). L044 cerrada;L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+44. **L044 cerrada:curso 2013-2014,ANDAL-3;alias verificados.** [Informe](docs/lotes/L044_2014_ANDAL3.md). L045 cerrada;L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+45. **L045 cerrada:curso 2013-2014,ANDAL-5;alias verificados.** [Informe](docs/lotes/L045_2014_ANDAL5.md). L046 cerrada;L047 cerrada;L048 cerrada;siguiente L049.
+46. **L046 cerrada:curso 2013-2014,JUN;alias verificados.** [Informe](docs/lotes/L046_2014_JUN.md). L047 cerrada;L048 cerrada;siguiente L049.
+47. **L047 cerrada:curso 2013-2014,SEPT;alias verificados.** [Informe](docs/lotes/L047_2014_SEPT.md). L048 cerrada;siguiente L049.
+48. **L048 cerrada:curso 2012-2013,reserva A;alias verificados.** [Informe](docs/lotes/L048_2013_RESERVA_A.md). Siguiente L049.
+49. **L049 cerrada: reserva B por carpeta,curso2012-2013.** [Informe](docs/lotes/L049_2013_RESERVA_B.md).
+50. Fuentes de 2021 y documentos de 2020 en la carpeta mixta: revisar estructura de bloques y regla de elección, distintas de la antigua opción A/B.
+50. Resto de la carpeta mixta: confirmar años visualmente antes de distribuir por cursos; resolver sus copias de 2015 con las carpetas anuales.
+51. Fuentes anuales de 2015, 2014 y 2013, con deduplicación y cotejo de opciones.
+52. Fuentes de 2011, 2010, 2009 y 2008. Para escaneados, OCR sólo como ayuda; verificar visualmente cada signo y separar examen/criterios en documentos combinados.
+53. DOC de 2012: convertir **copias** a un formato legible y cotejar la conversión página a página antes de transcribir. No inferir el modelo del número de carpeta. Se deja este grupo al final para disponer de una tanda específica de conversión y cotejo.
 
 No se marca una tanda como escrita por haber extraído su texto automáticamente. Las figuras, signos de desigualdad, extremos de intervalos, parámetros, porcentajes y condiciones de muestreo exigen revisión visual.
 
@@ -226,7 +255,7 @@ El CSV es la fuente del catálogo. El generador local escribe `catalogo/registro
 - `main.tex` reúne paquetes, opciones, selección, comandos y catálogo.
 - Cada ID apunta a un fragmento de enunciado y a otro de solución. Ninguno contiene `documentclass`, preámbulo o un documento completo.
 - Los estados controlan la salida normal: sólo `cotejada` carga el enunciado y sólo `validada` carga la solución. Otros estados producen un aviso visible. Para revisar futuros enunciados `borrador` se puede activar `\IncluirBorradores=si`; aparecen identificados como borradores. Este control no habilita soluciones sin validar.
-- La selección inicial apunta a L025: `selecciones/l025-suplemente-junio-2017.tex`; dos modos compilados y 200 soluciones pendientes.
+La selección inicial carga `selecciones/l084-examen6-2012.tex`,lista l084-ids.tex y contexto EXA-0084. Entradas l084-enunciados.tex y l084-con-soluciones.tex; anteriores conservadas y632 soluciones pendientes, con8 validadas. En relaciones nuevas vaciar ContextoSeleccion según la guía.
 
 ## 11. Criterio de cierre de cada entrega
 
@@ -235,7 +264,7 @@ Una entrega sólo se cierra cuando constan: fuentes usadas, IDs afectados, cambi
 
 ## Acceso y selección dirigida
 
-Acceso individual: [índice de los 200 ejercicios](INDICE_EJERCICIOS.md), con enlace directo al enunciado, procedencia, temas, epígrafes y etiquetas; [guía de relaciones dirigidas](docs/GUIA_RELACIONES.md). Ejemplo listo para compilar: `relacion-ejemplo.tex`. Las selecciones combinan IDs sin copiar contenidos; se conserva el orden del catálogo. Las etiquetas de unidades y comparación de tamaño muestral describen lo solicitado, sin resolverlo.
+Acceso individual: [índice de los 640 ejercicios](INDICE_EJERCICIOS.md), con enlace directo al enunciado, procedencia, temas, epígrafes y etiquetas; [guía de relaciones dirigidas](docs/GUIA_RELACIONES.md). Ejemplo listo para compilar: `relacion-ejemplo.tex`. Las selecciones combinan IDs sin copiar contenidos; se conserva el orden del catálogo. Las etiquetas de unidades y comparación de tamaño muestral describen lo solicitado, sin resolverlo.
 
 ### Cierre secuencial añadido
 
@@ -247,7 +276,23 @@ Acceso individual: [índice de los 200 ejercicios](INDICE_EJERCICIOS.md), con en
 - [x] L023 · transcripción, cotejo, clasificación y controles. [Informe](docs/lotes/L023_2016_reserva_b.md).
 - [x] L024 · transcripción, cotejo, clasificación y controles. [Informe](docs/lotes/L024_2017_reserva_b.md).
 - [x] L025 · transcripción, cotejo, clasificación y controles. [Informe](docs/lotes/L025_2017_suplemente_junio.md).
-- [ ] L026 · confirmar curso/naturaleza de suplemente_septiembre_EXAMEN 4-ANDALUCÍA.pdf; transcribir sin soluciones.
+- [x] L026 · transcripción, cotejo, clasificación y controles. [Informe](docs/lotes/L026_2016_suplemente_septiembre.md).
+- [x] L027 · transcripción, cotejo, clasificación y controles. [Informe](docs/lotes/L027_2017_suplemente_septiembre.md).
+- [x] L028 · transcripción, cotejo, clasificación y controles. [Informe](docs/lotes/L028_2018_suplente_junio.md).
+- [x] L029 · transcripción, cotejo, clasificación y controles. [Informe](docs/lotes/L029_2018_suplente_septiembre.md).
+- [x] L030 · transcripción, cotejo, clasificación y controles. [Informe](docs/lotes/L030_2018_titular_junio.md).
+- [x] L031 · transcripción, cotejo, clasificación y controles. [Informe](docs/lotes/L031_2016_titular_junio.md).
+- [x] L032 · ocho enunciados cotejados y clasificados. [Informe](docs/lotes/L032_2017_titular_junio.md).
+- [x] L033 · ocho enunciados cotejados y clasificados. [Informe](docs/lotes/L033_2018_titular_septiembre.md).
+- [x] L034 · ocho enunciados cotejados y clasificados. [Informe](docs/lotes/L034_2016_titular_septiembre.md).
+- [x] L035 · ocho enunciados cotejados y clasificados. [Informe](docs/lotes/L035_2017_titular_septiembre.md).
+- [x] L036 · ocho enunciados cotejados y clasificados;alias comprobados. [Informe](docs/lotes/L036_2015_Ua1.md).
+- [x] L037 · ocho enunciados cotejados y clasificados;alias comprobados. [Informe](docs/lotes/L037_2015_Ua2.md).
+- [x] L038 · ocho enunciados cotejados y clasificados;alias comprobados. [Informe](docs/lotes/L038_2015_Ua3.md).
+- [x] L039 · ocho enunciados cotejados y clasificados;alias comprobados. [Informe](docs/lotes/L039_2015_Ua4.md).
+- [x] L040 · ocho enunciados cotejados y clasificados;alias comprobados. [Informe](docs/lotes/L040_2015_Ua5.md).
+- [x] L041 · ocho enunciados cotejados y clasificados;alias comprobados. [Informe](docs/lotes/L041_2015_Ua6.md).
+- [ ] L042 · confirmar curso,alias y transcribir sin soluciones.
 
 ## Procedencia y estructura de L019
 
@@ -276,6 +321,366 @@ Acceso individual: [índice de los 200 ejercicios](INDICE_EJERCICIOS.md), con en
 ## Procedencia y estructura de L025
 
 **Identificación L025:** curso 2016-2017 impreso; suplemente_junio sólo del nombre, sin acreditar convocatoria ordinaria ni fecha. Convocatoria, tipo, reserva y modelo vacíos; 4 no acredita modelo. Opciones A/B de cuatro ejercicios, sin bloques. Criterios SRC-57188FF1F0A8 asociados por curso, contenido y puntuaciones. Sin tabla específicamente asociada. A1 imprime total 2.5; los siete restantes derivan de apartados y concuerdan con criterios, sin añadirlos al cuerpo. Requiere_revision=si por límites de metadatos. Nuevas etiquetas: seleccion-sin-reposicion y clasificacion-discontinuidades. B4 pide amplitud total e intervalo, no tamaño muestral; A4 mantiene error estrictamente inferior a0.03.
+
+## Procedencia y estructura de L026
+
+Curso2015-2016 impreso; suplemente_septiembre sólo del nombre, sin acreditar convocatoria extraordinaria ni fecha. Convocatoria/tipo/reserva/modelo vacíos;4 no acredita modelo. Criterios SRC-0CCBF6368E87 concordantes por curso/contenido/puntos; sin tabla específica. B4 imprime2.5;otros siete totales derivados de apartados, corroborados con criterios. Contraste histórico B4 conservado en T09.1/T08.3, sin epígrafe inventado.
+
+La fase posterior de resoluciones sigue [este plan](docs/FASE_SOLUCIONES.md). La autorización del27-10-2026 sustituye la restricción inicial de no redactar soluciones cuando termine la fase de transcripción.
+
+## Procedencia y estructura de L027
+
+Curso 2016-2017 impreso; suplemente_septiembre sólo del nombre, sin acreditar convocatoria extraordinaria ni fecha. Convocatoria/tipo/reserva/modelo vacíos; 6 no acredita modelo. Criterios SRC-FC94E50B392D concordantes por contenido, puntuaciones y cabecera visible 2016-2017; la extracción incluye un curso antiguo oculto que no se usa para datar. Sin tabla específica. Ocho totales 2.5 derivados de apartados y corroborados con criterios, sin añadirlos al cuerpo. A4: error no superior a 0.04 inclusivo; B4: error menor que 2 estricto.
+
+La fase posterior de resoluciones sigue [este plan](docs/FASE_SOLUCIONES.md). La autorización del 27-10-2026 sustituye la restricción inicial de no redactar soluciones cuando termine la fase de transcripción.
+
+## Procedencia y estructura de L028
+
+Curso 2017-2018 impreso; tipo suplente y junio sólo de carpeta, sin acreditar convocatoria ordinaria ni fecha. Convocatoria/reserva/modelo vacíos; no hay modelo impreso. Cabecera sin UNIVERSIDADES DE ANDALUCÍA; instrucción final sin el uso de la misma. Criterios SRC-D3E2788903E8 concordantes. Tabla normal SRC-03976ECEE4F8 asociada por carpeta y revisada por imagen; genérica, copia exacta ya inventariada, no ejercicio ni tabla fechada exclusiva. Ocho totales 2.5 derivados de apartados y corroborados con criterios. B3 exige orden y sin reposición; A4 error máximo 2 inclusivo y B4 menor que 0.02 estricto.
+
+La fase posterior de resoluciones sigue [este plan](docs/FASE_SOLUCIONES.md). La autorización del 27-10-2026 sustituye la restricción inicial de no redactar soluciones cuando termine la fase de transcripción.
+
+## Procedencia y estructura de L029
+
+Curso 2017-2018 impreso; tipo suplente y septiembre sólo de carpeta, sin acreditar convocatoria extraordinaria ni fecha. Convocatoria/reserva/modelo vacíos. Criterios SRC-6D24250C0DCF concordantes; tabla SRC-DF745539FC83 normal acumulada genérica de misma carpeta, copia exacta inventariada y revisada por imagen. B1 imprime total2.5 sin apartados; otros siete derivados de apartados y corroborados con criterios. B2 conserva e^(5x)(x²−5)^3 y (x³+1)^2/ln(x²+2), sin respuestas. A4 cambia confianza95→99%; B4 cambia proporción a0.25 y confianza a92.5% con error inferior0.03 estricto.
+
+La fase posterior de resoluciones sigue [este plan](docs/FASE_SOLUCIONES.md). La autorización del 27-10-2026 sustituye la restricción inicial de no redactar soluciones cuando termine la fase de transcripción.
+
+## Procedencia y estructura de L030
+
+Curso 2017-2018 impreso; titular y junio sólo de carpeta, sin acreditar convocatoria ordinaria ni fecha. Convocatoria/reserva/modelo vacíos. Criterios SRC-969E0FA37C16 concordantes; tabla SRC-7CE2805F3B2B normal acumulada genérica de misma carpeta, copia exacta ya inventariada. Ocho totales2.5 derivados de apartados y corroborados, sin añadirlos al cuerpo. A1a pide formular sin resolver y A1b trata otro recinto. INC-010: A4 no explicita reposición ni orden de las muestras; conservar el texto y revisar convención antes de redactar solución. No se añade hipótesis ni se anticipan respuestas. B1 conserva XA=2B^t+I_2; B4 cambia confianza97→96 y error no superior2% inclusivo.
+
+La fase posterior de resoluciones sigue [este plan](docs/FASE_SOLUCIONES.md). La autorización del 27-10-2026 sustituye la restricción inicial de no redactar soluciones cuando termine la fase de transcripción.
+
+## Procedencia y estructura de L031
+
+Curso 2015-2016 impreso; tipo titular y junio sólo del nombre, sin acreditar convocatoria ordinaria ni fecha. Convocatoria/reserva/modelo vacíos; número6 del nombre no acredita modelo. Criterios SRC-06A33DC598A0 concordantes. Sin tabla específicamente asociada. B1 imprime total2.5 sin apartados;otros siete derivados de apartados y corroborados, sin añadir totales al cuerpo. A1 pide interpretar los elementos de productos matriciales; B2 pide interpretar la asíntota horizontal. A4 mantiene error inferior1 estricto. B4 distingue n64 de n100 y probabilidad de media de un intervalo de confianza.
+
+La fase posterior de resoluciones sigue [este plan](docs/FASE_SOLUCIONES.md). La autorización del 27-10-2026 sustituye la restricción inicial de no redactar soluciones cuando termine la fase de transcripción.
+
+## Procedencia y estructura de L032
+
+Curso visible 2016-2017, año2017. El texto oculto 2015-2016 no se usa para fechar. Titular/junio sólo del nombre; 5 no acredita modelo. Criterios SRC-3B05F22DF1BE concordantes; sin tabla específica. Ocho IDs D0032, archivos individuales y soluciones de sólo comentarios. [Informe](docs/lotes/L032_2017_titular_junio.md).
+
+**Siguiente: L049**, fuente `SRC-18FB5F1BBA03`, archivo `Selectividad/sel_2013_matematicas_aplicadas/junio/reserva b/EXAMEN 1-ANDALUCÍA.pdf`. Revisar cabecera,curso,criterios y tabla;separar evidencia de carpeta y datos impresos antes de asignar metadatos.
+
+## Procedencia y estructura de L033
+
+Curso 2017-2018 visible, año 2018. Titular/septiembre sólo de carpeta; convocatoria, reserva y modelo vacíos. Criterios SRC-42767DB22262 concordantes, salvo tercera etiqueta b) repetida en B2 frente a c) del examen. A4c conserva afijación proporcional con 121 y razones 1:2:3; criterio de redondeo reservado a la resolución futura. Tabla Normal genérica SRC-91337370C760 de la misma carpeta, sin vínculo explícito de fecha/modelo. [Informe](docs/lotes/L033_2018_titular_septiembre.md).
+
+**Siguiente: L049**, fuente `SRC-18FB5F1BBA03`, archivo `Selectividad/sel_2013_matematicas_aplicadas/junio/reserva b/EXAMEN 1-ANDALUCÍA.pdf`. Revisar cabecera,curso,criterios y tabla;separar evidencia de carpeta y datos impresos antes de asignar metadatos.
+
+## Procedencia y estructura de L034
+
+Curso 2015-2016 visible, año 2016. La fuente preliminar otro contiene un examen completo A/B, sin criterios combinados. Titular/septiembre sólo del nombre; 1 no acredita modelo. Convocatoria, reserva y modelo vacíos. Criterios SRC-E33A07DB6B02 concordantes; sin tabla específica. INC-013: B4b no explicita reposición ni orden; revisar convención antes de resolver, sin añadir hipótesis al enunciado. [Informe](docs/lotes/L034_2016_titular_septiembre.md).
+
+**Siguiente: L049**, fuente `SRC-18FB5F1BBA03`, archivo `Selectividad/sel_2013_matematicas_aplicadas/junio/reserva b/EXAMEN 1-ANDALUCÍA.pdf`. Revisar cabecera,curso,criterios y tabla;separar evidencia de carpeta y datos impresos antes de asignar metadatos.
+
+## Procedencia y estructura de L035
+
+Curso 2016-2017 visible, año2017. Titular/septiembre sólo del nombre;1 no acredita modelo. Convocatoria,reserva,modelo vacíos. Criterios SRC-15FF6FFF34D6 concordantes; sin tabla específica. A4 conserva error no superior5años inclusivo y B4 error inferior0.03 estricto con confianza92.5%. Urna con sustitución por dos del otro color; sin añadir hipótesis ni anticipar respuestas. Nuevas etiquetas urna-dinamica e igualdad-derivadas. [Informe](docs/lotes/L035_2017_titular_septiembre.md).
+
+**Siguiente: L049**, fuente `SRC-18FB5F1BBA03`, archivo `Selectividad/sel_2013_matematicas_aplicadas/junio/reserva b/EXAMEN 1-ANDALUCÍA.pdf`. Revisar cabecera,curso,criterios y tabla;separar evidencia de carpeta y datos impresos antes de asignar metadatos.
+
+## Procedencia y estructura de L036
+
+Curso 2014-2015 visible, año2015. Convocatoria,tipo,reserva,modelo vacíos;Ua1 sólo del nombre. Examen SRC-D4199CAE2EC3 y alias SRC-96902844B9A7 idénticos; criterios SRC-B7CB1F935609 y alias SRC-022F67F8B3D8 idénticos. Las cuatro rutas quedan en el inventario; ocho transcripciones canónicas. Criterios concordantes,sin tabla específica. A4 conserva un contraste histórico unilateral de media bajo T09.1/T08.3,con significación1% y H0:mu<=170;sin inventar un epígrafe. B4 es IC90 y error no superior0.1horas. Etiqueta comparacion-reposicion para A3. [Informe](docs/lotes/L036_2015_Ua1.md).
+
+**Siguiente: L049**, fuente `SRC-18FB5F1BBA03`, archivo `Selectividad/sel_2013_matematicas_aplicadas/junio/reserva b/EXAMEN 1-ANDALUCÍA.pdf`. Revisar cabecera,curso,criterios y tabla;separar evidencia de carpeta y datos impresos antes de asignar metadatos.
+
+## Procedencia y estructura de L037
+
+Curso2014-2015 visible,año 2015. Convocatoria,tipo,reserva,modelo vacíos;Ua2 sólo del nombre. Examen SRC-20170EF2B2D5 y alias SRC-3C3C0BA557E4 idénticos;criterios SRC-8F3B9C58D85E y alias SRC-6557CA8734E1 idénticos. Cuatro rutas conservadas y ocho transcripciones canónicas. Criterios concordantes,sin tabla específica. A1b pide despejar sin calcular elementos;B1 maximiza ingresos;B2c conserva log. A4 es contraste histórico bilateral de media bajo T09.1/T08.3,con N(mu,2.1),H0:mu=5.5 y significación8%. B4 pide IC99.2% y error,sin tamaño mínimo. Etiquetas nuevas:despeje-matricial y contraste-bilateral-media. [Informe](docs/lotes/L037_2015_Ua2.md).
+
+**Siguiente: L049**, fuente `SRC-18FB5F1BBA03`, archivo `Selectividad/sel_2013_matematicas_aplicadas/junio/reserva b/EXAMEN 1-ANDALUCÍA.pdf`. Revisar cabecera,curso,criterios y tabla;separar evidencia de carpeta y datos impresos antes de asignar metadatos.
+
+## Procedencia y estructura de L038
+
+Curso2014-2015 visible,año2015. Convocatoria,tipo,reserva,modelo vacíos;Ua3 sólo del nombre. Examen SRC-DED70B2939A7 y alias SRC-98DB47100206 idénticos;criterios SRC-34AF76192C3D y alias SRC-C308B33F0C93 idénticos. Cuatro rutas conservadas y ocho transcripciones canónicas. Criterios concordantes,sin tabla específica. A2 contiene dos funciones independientes;A4 solicita IC95 y tamaño con error inferior0.5cl. B1 conserva beneficio literal y datos de venta,sin inventar costes. B4 conserva contraste histórico unilateral de media bajo T09.1/T08.3,H0:mu<=80,significación5% y umbral histórico del enunciado. Sin soluciones. [Informe](docs/lotes/L038_2015_Ua3.md).
+
+**Siguiente: L049**, fuente `SRC-18FB5F1BBA03`, archivo `Selectividad/sel_2013_matematicas_aplicadas/junio/reserva b/EXAMEN 1-ANDALUCÍA.pdf`. Revisar cabecera,curso,criterios y tabla;separar evidencia de carpeta y datos impresos antes de asignar metadatos.
+
+## Procedencia y estructura de L039
+
+Curso2014-2015 visible,año2015. Convocatoria,tipo,reserva,modelo vacíos;Ua4 sólo del nombre. El candidato2022 del texto extraído no fecha el examen. Examen SRC-6129A8DBCD4F y alias SRC-014DA3092BF3 idénticos;criterios SRC-4F8A35ED2B35 y alias SRC-CD6448FF91C4 idénticos. Cuatro rutas y ocho transcripciones canónicas. Criterios concordantes,sin tabla específica. A1 maximiza número de tarrinas;A4 contrasta H0:mu<=5 y compara significaciones5/15% bajo T09.1/T08.3. B3 pide diagnóstico correcto y probabilidades dado positivo. B4 aporta varianza0.25mm² y limita amplitud inferior2mm,no error2mm. Etiqueta diagnostico-correcto. Sin soluciones. [Informe](docs/lotes/L039_2015_Ua4.md).
+
+**Siguiente: L049**, fuente `SRC-18FB5F1BBA03`, archivo `Selectividad/sel_2013_matematicas_aplicadas/junio/reserva b/EXAMEN 1-ANDALUCÍA.pdf`. Revisar cabecera,curso,criterios y tabla;separar evidencia de carpeta y datos impresos antes de asignar metadatos.
+
+## Procedencia y estructura de L040
+
+Curso2014-2015 visible,año2015. Convocatoria,tipo,reserva,modelo vacíos;Ua5 sólo del nombre. Examen SRC-5D9E6A5CB42C y alias SRC-8E44CA3AEC52 idénticos;criterios SRC-D7A2E4F81DC6 y alias SRC-6620057F9E36 idénticos. Cuatro rutas y ocho transcripciones canónicas. Criterios concordantes,sin tabla específica. A1 incluye potencias4/80;A2 tres tramos;A3 pregunta incompatibilidad. A4 contrasta H0:mu<=7 con varianza16 y significación0.05 bajo T09.1/T08.3. B1 conserva cinco restricciones;B2 pide dos tangentes;B3 Reserva y Bayes;B4 IC92 y tamaño para reducir error a la mitad. Sin etiquetas nuevas ni soluciones. [Informe](docs/lotes/L040_2015_Ua5.md).
+
+**Siguiente: L049**, fuente `SRC-18FB5F1BBA03`, archivo `Selectividad/sel_2013_matematicas_aplicadas/junio/reserva b/EXAMEN 1-ANDALUCÍA.pdf`. Revisar cabecera,curso,criterios y tabla;separar evidencia de carpeta y datos impresos antes de asignar metadatos.
+
+## Procedencia y estructura de L041
+
+Curso2014-2015 visible,año2015. Convocatoria,tipo,reserva,modelo vacíos;Ua6 sólo del nombre. Examen SRC-417302754109 y alias SRC-FD67A988445D idénticos;criterios SRC-4283A8F81C69 y alias SRC-E27DBB823B7A idénticos. Cuatro rutas y ocho transcripciones canónicas. Criterios concordantes,sin tabla específica. A1 conserva matrices y parámetros;A2 racional/cúbica y tangente−3;A3 pregunta independencia. A4 usa nueve capitales,IC95 y error máximo4000euros. B1 inversión100000euros y mínimoB10000;B2 dos tramos y monotonía;B3 hospitalización y Bayes;B4 H0:mu>=110,sigma6 y significación5% bajo T09.1/T08.3. Sin etiquetas nuevas ni soluciones. [Informe](docs/lotes/L041_2015_Ua6.md).
+
+**Siguiente: L049**, fuente `SRC-18FB5F1BBA03`, archivo `Selectividad/sel_2013_matematicas_aplicadas/junio/reserva b/EXAMEN 1-ANDALUCÍA.pdf`. Revisar cabecera,curso,criterios y tabla;separar evidencia de carpeta y datos impresos antes de asignar metadatos.
+
+## Procedencia y estructura de L042
+
+Curso2013-2014 visible,año2014. Convocatoria,tipo,reserva,modelo vacíos;ANDAL-1 sólo del nombre. Examen SRC-987D141AC72B y criterios SRC-805FB552E609,sin alias exactos en inventario. Criterios concordantes,sin tabla específica. A1 conserva signos,traspuesta y datos parciales;A2 mínimo y tangente;A3 independencia y complemento;A4 media/error desde intervalo y tamaño96%. B1 dieta de coste mínimo;B2 derivabilidad en0;B3 defectos;B4 contraste H0:p>=0.25 y significaciones5/1% bajo T09.1. Sin etiquetas nuevas ni soluciones. [Informe](docs/lotes/L042_2014_ANDAL1.md).
+
+**Siguiente: L049**, fuente `SRC-18FB5F1BBA03`, archivo `Selectividad/sel_2013_matematicas_aplicadas/junio/reserva b/EXAMEN 1-ANDALUCÍA.pdf`. Revisar cabecera,curso,criterios y tabla;separar evidencia de carpeta y datos impresos antes de asignar metadatos.
+
+## Procedencia y estructura de L043
+
+Curso2013-2014 visible,año2014. Convocatoria,tipo,reserva,modelo vacíos;ANDAL-2 sólo del nombre. Examen SRC-B7376BBA6509 y criterios SRC-44E6C9B92F20,sin alias exactos en inventario. Criterios concordantes,sin tabla específica. A1 región y extremos;A2 derivabilidad y tangente;A3 cámaras;A4 nueve precios,IC95 y error no superior0.08euros. B1 conserva orden y signos de matrices;B2 audiencia en6/12h;B3 conjunto de16números;B4 estructura1a/1b/2 y muestreo. INC-014 reserva la justificación de convención de muestreo en B4.2 para la fase de soluciones. Sin etiquetas nuevas ni soluciones. [Informe](docs/lotes/L043_2014_ANDAL2.md).
+
+**Siguiente: L049**, fuente `SRC-18FB5F1BBA03`, archivo `Selectividad/sel_2013_matematicas_aplicadas/junio/reserva b/EXAMEN 1-ANDALUCÍA.pdf`. Revisar cabecera,curso,criterios y tabla;separar evidencia de carpeta y datos impresos antes de asignar metadatos.
+
+## Procedencia y estructura de L044
+
+Curso2013-2014 visible,año2014. Convocatoria,tipo,reserva,modelo vacíos;ANDAL-3 sólo del nombre. Examen SRC-12C7C27227F3 y criterios SRC-C7810D495446,sin alias exactos en inventario. Criterios concordantes en puntuaciones,sin tabla específica. A1 traspuesta y matriz fila;A2 cúbica;A3 dos adultos;A4 proporción con confianza95/99%. B1 conserva cuatro restricciones sin añadir y>=0;B2 dos tramos y tangente2;B3 museo;B4 muestras de{6,9,12} y afijación proporcional. INC-015 reserva convención de muestreo para solución futura;INC-016 conserva a/b del examen frente1/2 de criterios. Sin etiquetas nuevas ni soluciones. [Informe](docs/lotes/L044_2014_ANDAL3.md).
+
+**Siguiente: L049**, fuente `SRC-18FB5F1BBA03`, archivo `Selectividad/sel_2013_matematicas_aplicadas/junio/reserva b/EXAMEN 1-ANDALUCÍA.pdf`. Revisar cabecera,curso,criterios y tabla;separar evidencia de carpeta y datos impresos antes de asignar metadatos.
+
+## Procedencia y estructura de L045
+
+Curso2013-2014 visible,año2014. Convocatoria,tipo,reserva,modelo vacíos;ANDAL-5 sólo del nombre. Examen SRC-FF289770F60D y criterios SRC-8FFDC913699D,sin alias exactos en inventario. Criterios concordantes,sin tabla específica. A1 matrices;A2 producto logarítmico y cociente exponencial;A3 deportes;A4 H0:p>=0.65 y significaciones10/1%. B1 mezcla matriz y región de cinco vértices,bajo T04/T06,sin dividir el ejercicio;B2 cúbica;B3 prensa y exclusividad;B4 intervalo94%,proporción,recuento y tamaño. Sin incidencias ni etiquetas nuevas;sin soluciones. [Informe](docs/lotes/L045_2014_ANDAL5.md).
+
+**Siguiente: L049**, fuente `SRC-18FB5F1BBA03`, archivo `Selectividad/sel_2013_matematicas_aplicadas/junio/reserva b/EXAMEN 1-ANDALUCÍA.pdf`. Revisar cabecera,curso,criterios y tabla;separar evidencia de carpeta y datos impresos antes de asignar metadatos.
+
+## Procedencia y estructura de L046
+
+Curso2013-2014 visible,año2014. Fuente SRC-9B38A4843707 inicialmente otro,cotejada como examen completo A/B de dos páginas,sin criterios intercalados. Junio sólo del nombre JUN;convocatoria,tipo,reserva,modelo vacíos. Criterios separados SRC-1F22C9DEEB02 concordantes;sin alias exactos ni tabla específica. A1 potencia2014 y ecuación cúbica matricial;A2 beneficios y signo de derivada;A3 moneda/urnas;A4 IC98.8 y tamaño para error no excede1euro. B1 conserva cuatro restricciones sin añadir x>=0;B2 dos tramos;B3 ofertas y unión;B4 H0:p=0.7,bilateral,significación1%. Nueva etiqueta contraste-bilateral-proporcion;sin incidencias nuevas ni soluciones. [Informe](docs/lotes/L046_2014_JUN.md).
+
+**Siguiente: L049**, fuente `SRC-18FB5F1BBA03`, archivo `Selectividad/sel_2013_matematicas_aplicadas/junio/reserva b/EXAMEN 1-ANDALUCÍA.pdf`. Revisar cabecera,curso,criterios y tabla;separar evidencia de carpeta y datos impresos antes de asignar metadatos.
+
+## Procedencia y estructura de L047
+
+Curso2013-2014 visible,año2014. Fuente SRC-3753985712BC inicialmente otro,cotejada como examen completo A/B de dos páginas,sin criterios intercalados. Septiembre sólo del nombre SEPT;convocatoria,tipo,reserva,modelo vacíos. Criterios separados SRC-4E7EB7A5A236 concordantes;sin alias exactos ni tabla específica. A1 sistema y traspuesta;A2 beneficios;A3 asistencia85/35%;A4 H0:mu<=8 y significación5%. B1a exige plantear sin resolver y B1b tiene recinto propio;B2 parábola;B3 peritaje correcto y autenticidad dadoerror;B4 peso total1615.2g,dosdocenas,IC96 y amplitud máxima0.8. Nueva etiqueta peritaje-correcto;sin incidencias nuevas ni soluciones. [Informe](docs/lotes/L047_2014_SEPT.md).
+
+**Siguiente: L049**, fuente `SRC-18FB5F1BBA03`, archivo `Selectividad/sel_2013_matematicas_aplicadas/junio/reserva b/EXAMEN 1-ANDALUCÍA.pdf`. Revisar cabecera,curso,criterios y tabla;separar evidencia de carpeta y datos impresos antes de asignar metadatos.
+
+## Procedencia y estructura de L048
+
+Curso2012-2013 visible,año2013. Examen SRC-551C95013DE9 y criterios SRC-1A43EA28D160,sin alias exactos. Tipo reserva y letra A sólo de carpeta;convocatoria/modelo vacíos,junio sólo de ruta,5no acredita modelo. Tabla normal separada SRC-5773393B0621 asociada por carpeta:cinco rutas idénticas,conservadas en inventario,cuatro copias exactas adicionales. A1 formulación sin resolver y recinto;A2 tres tramos y derivabilidad;A3 calibres y rotura;A4 contraste histórico de media con H0:mu<=25. B1 potencias2013;B2 tangente0;B3 votación por grupos;B4 IC90proporción y cotaerror0.1. INC-017 registra total2.5 frente desglose2en criteriosA2;se conserva el examen. Sin etiquetas nuevas ni soluciones. [Informe](docs/lotes/L048_2013_RESERVA_A.md).
+
+**Siguiente: L049**, fuente `SRC-18FB5F1BBA03`, archivo `Selectividad/sel_2013_matematicas_aplicadas/junio/reserva b/EXAMEN 1-ANDALUCÍA.pdf`. Revisar cabecera,curso,criterios y tabla;separar evidencia de carpeta y datos impresos antes de asignar metadatos.
+
+## Procedencia de L049
+
+Curso2012-2013 impreso; reserva B sólo por carpeta,convocatoria/modelo vacíos. Ocho ejercicios A/B; B1 mixto T04/T06 conservado completo. Criterios concordantes. Tabla SRC-8304DD8AE43B asociada por carpeta,copia exacta de SRC-5773393B0621. INC-018 registra reposición/orden no explícitos de B4b para fase futura. Nueva etiqueta varianza-medias-muestrales, sin resultados. [Informe](docs/lotes/L049_2013_RESERVA_B.md).
+
+**Siguiente: L050**, fuente `SRC-6CABE043886D`, archivo `Selectividad/sel_2013_matematicas_aplicadas/junio/titular/EXAMEN 6 -ANDALUCÍA.pdf`. Revisar cabecera, curso, criterios, tabla y posibles alias antes de asignar metadatos.
+
+## Procedencia de L050
+
+Curso2012-2013 impreso;junio y titular sólo por carpeta,reserva/modelo vacíos. Ocho ejercicios A/B:matrices,beneficios,transporte,piscifactoría,tapices,derivada dada,sucesos independientes y televisión. Criterios concordantes,examen/criterios sin alias exactos. Tabla SRC-D2928B91F5AA asociada por carpeta,copia de SRC-5773393B0621,cinco procedencias idénticas. Beneficio literal de B1 conservado;etiqueta recursos-sobrantes añadida. Sin incidencias nuevas ni soluciones. [Informe](docs/lotes/L050_2013_TITULAR_JUNIO.md).
+
+**Siguiente: L051**, fuente `SRC-48C4AF791735`, archivo `Selectividad/sel_2013_matematicas_aplicadas/septiembre/reserva a/EXAMEN 3 -ANDALUCÍA.pdf`. Revisar cabecera,curso,criterios,tabla y alias antes de asignar metadatos.
+
+## Procedencia de L051
+
+Curso2012-2013 impreso;reserva A sólo de carpeta,septiembre sólo de ruta;convocatoria/modelo vacíos. Ocho ejercicios A/B:ecuaciones matriciales,tres tramos,urnas,café,recinto,curvatura,idiomas y contraste histórico de proporción. A1 relacionado también con T05 por notación matricial;B4 en T09.1 y etiquetas de contraste,sin epígrafe específico actual. Criterios concordantes,examen/criterios sin alias exactos. Tabla SRC-8312DBB75351 asociada por carpeta,copia de SRC-5773393B0621,cinco procedencias idénticas. Sin etiquetas nuevas,incidencias nuevas ni soluciones. [Informe](docs/lotes/L051_2013_RESERVA_A_SEPTIEMBRE.md).
+
+**Siguiente: L052**, fuente `SRC-F90FB6B40256`, archivo `Selectividad/sel_2013_matematicas_aplicadas/septiembre/reserva b/EXAMEN 4-ANDALUCÍA.pdf`. Revisar cabecera,curso,criterios,tabla y alias antes de asignar metadatos.
+
+## Procedencia de L052
+
+Curso2012-2013 impreso;reserva B sólo de carpeta,septiembre sólo de ruta;convocatoria/modelo vacíos. Ocho ejercicios A/B:matrices,derivadas,terapias,acidez,región factible,dos tramos,sucesos independientes y muestreo/intervalo de proporción. INC-019 registra reposición/orden no explícitos en B4a;convención para la fase de soluciones. Criterios concordantes,examen/criterios sin alias exactos. Tabla SRC-C8FC9A3149DF asociada por carpeta,copia de SRC-5773393B0621,cinco procedencias idénticas. Sin etiquetas nuevas ni respuestas. [Informe](docs/lotes/L052_2013_RESERVA_B_SEPTIEMBRE.md).
+
+**Siguiente: L053**, fuente `SRC-A5DF0494F1A7`, archivo `Selectividad/sel_2013_matematicas_aplicadas/septiembre/titular/EXAMEN 2-ANDALUCÍA.pdf`. Revisar cabecera,curso,criterios,tabla y alias antes de asignar metadatos.
+
+## Procedencia de L053
+
+Curso2012-2013 impreso;septiembre y titular sólo de carpeta,reserva/modelo vacíos. Ocho ejercicios A/B:región factible,montajes,baile,contraste bilateral,matrices fraccionarias,parámetros,préstamos y gasto familiar. A4 en T09.1 con varianza25 literal. Criterios concordantes;examen,criterios y tabla sin alias exactos. Tabla específica SRC-B65557E07CB9 asociada por carpeta,distinta en bytes de las cinco copias de tabla anteriores. Separación local de filas en matrices de B1 para legibilidad,sin alterar entradas. Sin etiquetas ni incidencias nuevas ni soluciones. [Informe](docs/lotes/L053_2013_TITULAR_SEPTIEMBRE.md).
+
+**Siguiente: L054**, fuente `SRC-45EF64533A19`, archivo `Selectividad/sel_2011_matematicas_aplicadas/121-EXAMEN 4.pdf`. Revisar cabecera,curso,auxiliares y alias antes de asignar metadatos.
+
+## Procedencia de L054
+
+Curso2010-2011 impreso,año2011. Convocatoria,tipo,reserva y modelo vacíos;121y4 sólo del nombre. Ocho ejercicios A/B:matrices,derivada/afluencia,transferencia de bolas,contraste unilateral,recinto,beneficios,errores en libro y muestreo/tamaño. A2 mixto T02principal1.5puntos/T01secundario1punto,conservado completo. INC-020 preserva media sus longitudes literal de A4. Nueva etiqueta region-aceptacion. Criterios concordantes,examen/criterios sin alias exactos. Tabla SRC-0DF80B854632 asociada por prefijo121 y carpeta,con cuatro procedencias de huella idéntica. Sin respuestas. [Informe](docs/lotes/L054_2011_EXAMEN_4.md).
+
+**Siguiente: L055**, fuente `SRC-471D895044A9`, archivo `Selectividad/sel_2011_matematicas_aplicadas/122A-EXAMEN 6.pdf`. Revisar cabecera,curso,auxiliares y alias antes de asignar metadatos.
+
+## Procedencia de L055
+
+Curso2010-2011 impreso,año2011. Convocatoria,tipo,reserva y modelo vacíos;122Ay6 sólo del nombre. Ocho ejercicios A/B:recinto,tres tramos,examen,contraste televisivo,matrices/café,derivadas,paraguas y chocolate. B1 conserva Nt como dato y etiquetas natural/descafein.,A/B/C en P/Q. B2 total2.5impreso sin apartados ni puntuaciones por función;criterios0.8/0.9/0.8 no añadidos al texto. B4 peso total5274g y amplitud total como máximo3g preservados. Criterios concordantes,examen/criterios sin alias exactos. Tabla SRC-CEDD41219D14 asociada por prefijo122A y carpeta,copia de SRC-0DF80B854632,cuatro procedencias idénticas. Sin etiquetas nuevas,incidencias nuevas ni soluciones. [Informe](docs/lotes/L055_2011_EXAMEN_6.md).
+
+**Siguiente: L056**, fuente `SRC-6437A476F758`, archivo `Selectividad/sel_2011_matematicas_aplicadas/123-EXAMEN 1.pdf`. Revisar cabecera,curso,auxiliares y alias antes de asignar metadatos.
+
+## Procedencia de L056
+
+Curso2010-2011 impreso,año2011. Convocatoria,tipo,reserva y modelo vacíos;123y1 sólo del nombre. Criterios SRC-C0D9348217F0 concordantes. Sin tabla específicamente acreditada. Etiqueta matriz-adyacencia añadida. El homónimo SRC-98312D373CA4 reproduce EXA-0054 con distinta SHA y no se usa como fuente de L056 ni como tabla. Cinco páginas fuente revisadas. Sin incidencias nuevas ni soluciones. [Informe](docs/lotes/L056_2011_EXAMEN_1.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Equivalencias de contenido: L057
+
+[Informe y acceso individual](docs/lotes/L057_2011_REEDICION_EXAMEN_4.md). `datos/equivalencias_contenido.csv` relaciona SRC-98312D373CA4 con los ocho ID de EXA-0054. Las huellas son distintas:se conserva el inventario de duplicados exactos sin cambios. No se crean EXA-0057 ni D0057. La selección reutilizable es `selecciones/l057-ids.tex`;la selección inicial usa L084.
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L058
+
+Curso2010-2011 impreso;convocatoria,tipo,reserva y modelo vacíos. 221Ay5 sólo del nombre. Criterios concordantes y tabla acumulada N(0,1) asociada por prefijo y carpeta,sin cita expresa. Tres fuentes sin alias exactos. A3 conserva el literal «sin que haya incidente»;interpretación del0.03 pendiente para soluciones,sin convertir el dato en notación condicionada o conjunta. No se redactan respuestas. Sin etiquetas nuevas. [Informe](docs/lotes/L058_2011_EXAMEN_5.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L059
+
+Curso2010-2011 impreso;convocatoria,tipo,reserva y modelo vacíos. 222y2 sólo del nombre. Criterios concordantes;examen y criterios sin alias exactos. Tabla acumulada N(0,1) asociada por prefijo y carpeta,sin cita expresa;cuatro procedencias exactas. Matrices,unidades monetarias,dado y moneda,media muestral,dos regiones distintas,tres ramas,bolas con devolución y contraste de proporción conservados. Etiqueta nueva extraccion-con-reposicion. Sin soluciones. [Informe](docs/lotes/L059_2011_EXAMEN_2.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L060
+
+Curso2010-2011 impreso;convocatoria,tipo,reserva y modelo vacíos. 223Ay3 sólo del nombre. Criterios concordantes;examen y criterios sin alias exactos. Tabla acumulada N(0,1) asociada por prefijo y carpeta,sin cita expresa;cuatro procedencias exactas. Se conservan elementos de matrices,beneficio por tramos,aceites,media muestral,recinto,derivada descrita,tangente,garantía y ocho pesos. Sin etiquetas nuevas ni soluciones. [Informe](docs/lotes/L060_2011_EXAMEN_3.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L061
+
+Curso2009-2010 impreso,año2010. Junio sólo por carpeta,no confirmado en cabecera;tipo,reserva y modelo vacíos. El5del nombre no acredita modelo. Criterios concordantes;examen y criterios sin alias exactos. Tabla normal asociada por carpeta,sin cita expresa;doce procedencias exactas. Se conservan el10%de puntualidad en coche,la confianza93%,el orden de factores,tres derivadas y diez producciones. Sin etiquetas nuevas ni soluciones. [Informe](docs/lotes/L061_2010_EXAMEN_5.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L062
+
+Curso2009-2010 impreso,año2010. Junio sólo por carpeta,no confirmado en cabecera;tipo,reserva y modelo vacíos. Ra sólo parte de la ruta;4no acredita modelo. Criterios concordantes;examen y criterios sin alias exactos. Tabla por carpeta,sin cita expresa;doce procedencias exactas. Se conservan ingreso de lotes,tres ramas,condicionales,cuatro niveles de confianza,semiplanos,depósito,dado y dos cotas estrictas. Sin etiquetas nuevas ni soluciones. [Informe](docs/lotes/L062_2010_EXAMEN_4.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L063
+
+Curso2009-2010 impreso,año2010. Junio sólo por carpeta,no confirmado en cabecera;tipo,reserva y modelo vacíos. Rb sólo parte de la ruta;6no acredita modelo. Criterios concordantes;examen y criterios sin alias exactos. Tabla por carpeta,sin cita expresa;doce procedencias exactas. Se conservan coste mínimo,parábola,complementos,proteína,recinto,dos derivadas bajo puntuación conjunta,función racional,alarma y sacos. Sin etiquetas nuevas ni soluciones. [Informe](docs/lotes/L063_2010_EXAMEN_6.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L064
+
+Curso2009-2010 impreso,año2010. Septiembre sólo por carpeta,no confirmado en cabecera;tipo,reserva y modelo vacíos. El3del nombre no acredita modelo. Criterios concordantes;examen y criterios sin alias exactos. Tabla por carpeta,sin cita expresa;doce procedencias exactas. Se conservan recinto,consultorio,periódicos,H0 impresa,matrices,trozos,dado y muestreo. INC-021 registra reposición y orden no explicitados en B4b,pendientes de justificar al resolver. Sin etiquetas nuevas ni soluciones. [Informe](docs/lotes/L064_2010_EXAMEN_3.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L065
+
+Curso2009-2010 impreso,año2010. Septiembre sólo por carpeta,no confirmado en cabecera;tipo,reserva y modelo vacíos. El1del nombre no acredita modelo. Criterios concordantes;examen y criterios sin alias exactos. Tabla por carpeta,sin cita expresa;doce procedencias exactas. Se conservan recinto,publicidad,fracciones,muestreo,matrices,trozos,camareros y contraste bilateral. INC-022 registra reposición y orden no explicitados en A4b,pendientes de justificar al resolver. Sin etiquetas nuevas ni soluciones. [Informe](docs/lotes/L065_2010_EXAMEN_1.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L066
+
+Curso2009-2010 impreso,año2010. Septiembre sólo por carpeta,no confirmado en cabecera;tipo,reserva y modelo vacíos. El2del nombre no acredita modelo. Criterios concordantes;examen y criterios sin alias exactos. Tabla por carpeta,sin cita expresa;doce procedencias exactas. Se conservan matrices,perfiles de arcos,servidores,intervalo de proporción,recinto,beneficio,deportes y contraste unilateral. No se añaden incidencias ni se alteran las anteriores. Sin etiquetas nuevas ni soluciones. [Informe](docs/lotes/L066_2010_EXAMEN_2.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L067
+
+Curso 2008-2009 impreso,año2009;otros metadatos vacíos. PDF escaneado de tres páginas:examen en1/2 y criterios concordantes en3. Sin tabla asociada. Seis ejercicios originales,con Partes I/II preservadas en E3. Tres etiquetas nuevas:sistemas-lineales,clasificacion-sistemas,efecto-tamano-muestral. Sin soluciones. [Informe](docs/lotes/L067_2009_CCSS01.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L068
+
+Curso 2008-2009 impreso,año2009;otros metadatos vacíos. PDF escaneado de tres páginas:examen en1/2 y criterios concordantes en3. Sin tabla asociada. Seis ejercicios originales,con Partes I/II preservadas en E3. Sin etiquetas ni incidencias nuevas. Sin soluciones. [Informe](docs/lotes/L068_2009_CCSS02.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L069
+
+Curso 2008-2009 impreso,año2009;otros metadatos vacíos. PDF escaneado de tres páginas:examen en1/2 y criterios concordantes en3. Sin tabla asociada. Seis ejercicios originales,con Partes I/II preservadas en E3. Sin etiquetas ni incidencias nuevas. Sin soluciones. [Informe](docs/lotes/L069_2009_CCSS03.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L070
+
+Curso 2008-2009 impreso,año2009;otros metadatos vacíos. PDF escaneado de tres páginas:examen en1/2 y criterios concordantes en3. Sin tabla asociada. Seis ejercicios originales,con Partes I/II preservadas en E3. Sin etiquetas ni incidencias nuevas. Sin soluciones. [Informe](docs/lotes/L070_2009_CCSS04.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L071
+
+Curso 2008-2009 impreso,año2009;otros metadatos vacíos. PDF escaneado de tres páginas:examen en1/2 y criterios concordantes en3. Sin tabla asociada. Seis ejercicios originales,con Partes I/II preservadas en E3. Sin etiquetas ni incidencias nuevas. Sin soluciones. [Informe](docs/lotes/L071_2009_CCSS05.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L072
+
+Curso 2008-2009 impreso,año2009;otros metadatos vacíos. PDF escaneado de tres páginas:examen en1/2 y criterios concordantes en3. Sin tabla asociada. Seis ejercicios originales,con Partes I/II preservadas en E3. Sin etiquetas ni incidencias nuevas. Sin soluciones. [Informe](docs/lotes/L072_2009_CCSS06.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L073
+
+Año2008 sólo por carpeta;curso,convocatoria,tipo,reserva y modelo vacíos. PDF combinado de tres páginas:examen en1/2 y criterios concordantes en3. Sin tabla asociada. Seis ejercicios originales,con Partes I/II preservadas en E3. Sin etiquetas ni incidencias nuevas. Sin soluciones. [Informe](docs/lotes/L073_2008_CCSS01.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L074
+
+Año2008 sólo por carpeta;curso,convocatoria,tipo,reserva y modelo vacíos. PDF combinado de tres páginas:examen en1/2 y criterios concordantes en3. Sin tabla asociada. Seis ejercicios originales,con Partes I/II preservadas en E3. Etiqueta nueva coste-maximo; sin incidencias nuevas. Sin soluciones. [Informe](docs/lotes/L074_2008_CCSS02.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L075
+
+Año2008 sólo por carpeta;curso,convocatoria,tipo,reserva y modelo vacíos. PDF combinado de tres páginas:examen en1/2 y criterios concordantes en3. Sin tabla asociada. Seis ejercicios originales,con Partes I/II preservadas en E3. INC-024: muestreo sin reposición ni orden explícitos. Sin etiquetas nuevas. Sin soluciones. [Informe](docs/lotes/L075_2008_CCSS03.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L076
+
+Año2008 sólo por carpeta;curso,convocatoria,tipo,reserva y modelo vacíos. PDF combinado de tres páginas:examen en1/2 y criterios en3 (puntuaciones concordantes; rotulación B2 documentada en INC-025). Sin tabla asociada. Seis ejercicios originales,con Partes I/II preservadas en E3. INC-025: criterios B2 rotulados a,c,c,d; examen a,b,c,d intacto. Sin etiquetas nuevas. Sin soluciones. [Informe](docs/lotes/L076_2008_CCSS04.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L077
+
+Año2008 sólo por carpeta;curso,convocatoria,tipo,reserva y modelo vacíos. PDF combinado de tres páginas:examen en1/2 y criterios concordantes en3. Sin tabla asociada. Seis ejercicios originales,con Partes I/II preservadas en E3. Sin incidencias nuevas. Sin etiquetas nuevas. Sin soluciones. [Informe](docs/lotes/L077_2008_CCSS05.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L078
+
+Año2008 sólo por carpeta;curso,convocatoria,tipo,reserva y modelo vacíos. PDF combinado de tres páginas:examen en1/2 y criterios concordantes en3. Sin tabla asociada. Seis ejercicios originales,con Partes I/II preservadas en E3. INC-026: comilla abierta sin cierre visible en A3-I. Sin etiquetas nuevas. Sin soluciones. [Informe](docs/lotes/L078_2008_CCSS06.md).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L079
+
+Curso 2011-2012 visible en los DOC de examen y criterios convertidos. Examen de dos páginas; criterios de una y tabla normal de una, asociada por carpeta. Ocho ejercicios de 2.5 puntos, sin soluciones. Originales intactos; fórmulas OLE cotejadas visualmente. Sin etiquetas ni incidencias nuevas. [Informe](docs/lotes/L079_2012_EXAMEN_1.md) y [conversión](docs/lotes/L079_conversion.json).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L080
+
+Curso 2011-2012 visible en los DOC de examen y criterios convertidos. Examen de dos páginas; criterios de una y tabla normal de una, asociada por carpeta. Ocho ejercicios de 2.5 puntos, sin soluciones. Originales intactos; fórmulas OLE cotejadas visualmente. Sin etiquetas ni incidencias nuevas. [Informe](docs/lotes/L080_2012_EXAMEN_5.md) y [conversión](docs/lotes/L080_conversion.json).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L081
+
+Curso 2011-2012 visible en los DOC de examen y criterios convertidos. Examen de dos páginas; criterios de una y tabla normal de una, asociada por carpeta. Ocho ejercicios de 2.5 puntos, sin soluciones. Originales intactos; fórmulas OLE cotejadas visualmente. Sin etiquetas nuevas. INC-027 registra que B4b no explicita reposición ni orden en el muestreo. [Informe](docs/lotes/L081_2012_EXAMEN_2.md) y [conversión](docs/lotes/L081_conversion.json).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L082
+
+Curso 2011-2012 visible en los DOC de examen y criterios convertidos. Examen de dos páginas; criterios de una y tabla normal de una, asociada por carpeta. Ocho ejercicios de 2.5 puntos, sin soluciones. Originales intactos; fórmulas OLE cotejadas visualmente. Sin etiquetas ni incidencias nuevas. [Informe](docs/lotes/L082_2012_EXAMEN_4.md) y [conversión](docs/lotes/L082_conversion.json).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Procedencia de L083
+
+Curso 2011-2012 visible en los DOC de examen y criterios convertidos. Examen de dos páginas; criterios de una y tabla normal de una, asociada por carpeta. Ocho ejercicios de 2.5 puntos, sin soluciones. Originales intactos; fórmulas OLE cotejadas visualmente. Sin etiquetas ni incidencias nuevas. [Informe](docs/lotes/L083_2012_EXAMEN_3.md) y [conversión](docs/lotes/L083_conversion.json).
+
+**Siguiente fase:** continuar S003 (ocho ejercicios de EXA-0002) y revisar las incidencias antes de validar los casos afectados. S001/S002:ocho soluciones explicadas y validadas;632 pendientes. Tres pasadas del mismo autor, sin revisor independiente.
+
+## Cierre de la primera pasada y procedencia de L084
+
+Curso 2011-2012 visible en los DOC convertidos. Examen de dos páginas, criterios de una y tabla normal de una asociada por carpeta. Ocho ejercicios, sin soluciones. INC-028 registra un trazo literal tras B2c; no se interpreta como parte de la función. [Informe](docs/lotes/L084_2012_EXAMEN_6.md), [conversión](docs/lotes/L084_conversion.json) y [balance y siguientes tareas](docs/CIERRE_TRANSCRIPCIONES.md).
+
+## Soluciones: avance histórico S001
+
+Dos soluciones validadas, A1/A2 de EXA-0001;638 pendientes. Incluyen teoría, desarrollo, comprobaciones exactas y figura del recinto.22 pruebas superadas; PDF revisados y comprobación del ZIP aislado documentada en el informe al cierre. [Informe](docs/soluciones/S001_2019_A1_A2.md), [tandas secuenciales](docs/LOTES_DE_SOLUCIONES.md) y [auditoría de incidencias](docs/AUDITORIA_INCIDENCIAS_SOLUCIONES.md).
+
+## Soluciones: avance S002
+
+Seis soluciones nuevas validadas; ocho acumuladas y632 pendientes. Se completa EXA-0001, conservando los640 enunciados y sus categorías. Comprobaciones racionales de probabilidades y matrices; derivación racional y percentiles contrastados con bisección de la CDF; tamaños mínimos verificados en n y n-1.22 pruebas y PDF revisados. [Informe](docs/soluciones/S002_2019_RESTO_EXAMEN.md); [tandas](docs/LOTES_DE_SOLUCIONES.md).
 ## Diario
 
 ### 2026-10-22 · docs/data/scaffold: preparación de Selectividad
@@ -522,3 +927,508 @@ Acceso individual: [índice de los 200 ejercicios](INDICE_EJERCICIOS.md), con en
 - `build`: dos PDF de cuatro páginas; ocho avisos pendientes. ZIP aislado con caché local: ambos modos y anterior L024 idénticos byte a byte; main.tex por texto y renderizados comprobado.
 - `docs`: [informe L025](docs/lotes/L025_2017_suplemente_junio.md); 25 de 84 candidatos cerrados, 59 pendientes. Sin soluciones ni commit de Git.
 - `next`: L026, SRC-251685BD691B, suplemente_septiembre_EXAMEN 4-ANDALUCÍA.pdf; confirmar curso/naturaleza y auxiliares antes de transcribir.
+
+### 2026-10-27 · feat/review/build/test/docs: L026
+
+- `feat`: ocho enunciados D0026/EXA-0026;208 cotejados/clasificados, cero soluciones. Etiqueta contraste-unilateral-proporcion. Índice individual regenerado.
+- `review`: tres páginas fuente, cuatro de borrador y ocho finales revisadas; segunda pasada del mismo autor, sin atribuir revisión independiente. Matrices, a>0, dominios y H0 preservados.
+- `test`:21pruebas en105.011s;215originales y450archivos previos intactos. Filtros por temas secundarios, epígrafes, IDs y etiquetas comprobados.
+- `build`: dos PDF de cuatro páginas; ajuste local del combinado para mantener avisos con enunciados; ZIP aislado compilado, modos y anterior L025 idénticos byte a byte; main texto/renderizados coincidentes.
+- `docs`: [informe L026](docs/lotes/L026_2016_suplemente_septiembre.md);26/84candidatos cerrados,58pendientes. [Fase de soluciones](docs/FASE_SOLUCIONES.md) autorizada para después de las transcripciones, con comprobación matemática y didáctica. Sin soluciones redactadas.
+- `next`: L027,SRC-5236F1F4258C;confirmar curso/naturaleza antes de transcribir.
+
+### 2026-10-27 · feat/review/build/test/docs: L027
+
+- `feat`: ocho enunciados D0027/EXA-0027, 216 cotejados y clasificados; cero soluciones. Índice individual actualizado con etiquetas existentes.
+- `review`: tres páginas fuente, cuatro de borrador y ocho finales revisadas. Segunda pasada del mismo autor; curso visible 2016-2017 y capa oculta antigua en criterios diferenciados.
+- `test`: 21 pruebas en 137.158 s; 215 originales y 468 archivos previos intactos. Filtros de matrices, tangentes, independencia, vértices, Bayes y cotas inclusiva/estricta comprobados.
+- `build`: dos PDF de cuatro páginas; ZIP aislado compilado y comparado, anterior L026 preservada; main coincide por texto y renderizados.
+- `docs`: [informe L027](docs/lotes/L027_2017_suplemente_septiembre.md); 27/84 candidatos cerrados, 57 pendientes. Resoluciones autorizadas para fase posterior, aún no iniciadas.
+- `next`: L028, SRC-F8C8F9912AB9; confirmar curso y contenido.
+
+### 2026-10-27 · feat/review/build/test/docs: L028
+
+- `feat`: ocho enunciados D0028/EXA-0028; 224 cotejados y clasificados, cero soluciones. Etiquetas espacio-muestral, sucesos-elementales y orden-extraccion añadidas.
+- `review`: cuatro páginas fuente, cuatro de borrador y ocho finales revisadas. Segunda pasada del mismo autor; tabla normal genérica asociada por carpeta. Tipo suplente sólo de carpeta; convocatoria/modelo no acreditados.
+- `test`: 21 pruebas en 194.544 s, 215 originales y 486 archivos previos intactos; filtros por contenidos, tipo, temas secundarios, epígrafes y cotas comprobados.
+- `build`: dos PDF de cuatro páginas; ZIP aislado compilado, ambos modos y anterior L027 idénticos byte a byte; main por texto/renderizados coincidente.
+- `docs`: [informe L028](docs/lotes/L028_2018_suplente_junio.md); 28/84 candidatos cerrados, 56 pendientes. Fase de soluciones posterior, aún sin redactar.
+- `next`: L029, SRC-DBB5831F5A47; confirmar curso y contenido.
+
+### 2026-10-27 · feat/review/build/test/docs: L029
+
+- `feat`: ocho enunciados D0029/EXA-0029; 232 cotejados y clasificados, cero soluciones. Etiqueta cortes-ejes añadida.
+- `review`: cuatro páginas fuente y cinco de borrador revisadas; ocho finales inspeccionadas. Segunda pasada del mismo autor. Matrices, exponente5x, logaritmo, elección de urna y cambios de confianza/proporción preservados.
+- `test`: 21 pruebas; 215 originales y 504 archivos previos intactos. Filtros por tema secundario, epígrafe, etiquetas y tipo comprobados.
+- `build`: dos PDF de cuatro páginas; ZIP aislado compilado, ambos modos y anterior L028 idénticos byte a byte; main por texto/renderizados coincidente.
+- `docs`: [informe L029](docs/lotes/L029_2018_suplente_septiembre.md); 29/84 candidatos cerrados, 55 pendientes. Fase de soluciones posterior, aún sin redactar.
+- `next`: L030, SRC-B12009F18588; confirmar curso y contenido.
+
+### 2026-10-27 · feat/review/build/test/docs: L030
+
+- `feat`: ocho enunciados D0030/EXA-0030; 240 cotejados y clasificados, cero soluciones. Etiquetas varianza-medias-muestrales e igualdad-matricial.
+- `review`: cuatro páginas fuente y cuatro de borrador revisadas; ocho finales inspeccionadas. Segunda pasada del mismo autor. INC-010 registra reposición/orden no explícitos en A4 para revisar antes de resolver.
+- `test`: 21 pruebas, 215 fuentes y 522 archivos previos intactos. Filtros de formulación sin resolver, varianza de medias, igualdad matricial, Bayes y error inclusivo comprobados; no se presume sin reposición.
+- `build`: dos PDF de cuatro páginas; ZIP aislado compilado, ambos modos y anterior L029 idénticos byte a byte; main por texto/renderizados coincidente.
+- `docs`: [informe L030](docs/lotes/L030_2018_titular_junio.md); 30/84 candidatos cerrados, 54 pendientes. Soluciones autorizadas para fase posterior, aún sin redactar.
+- `next`: L031, SRC-5A4395CDE486; confirmar curso y auxiliares.
+
+### 2026-10-27 · feat/review/build/test/docs: L031
+
+- `feat`: ocho enunciados D0031/EXA-0031; 248 cotejados y clasificados, cero soluciones. Etiquetas interpretacion-matrices e interpretacion-asintota añadidas.
+- `review`: tres páginas fuente y cuatro de borrador revisadas; ocho finales inspeccionadas. Segunda pasada del mismo autor; P/Q, tramos, n64/n100 y error estricto preservados. Curso2015-2016 impreso;6 no acredita modelo.
+- `test`: 21 pruebas; 215 fuentes y 540 archivos previos intactos. Filtros de interpretación, asíntotas, ropa, Bayes, tamaño estricto y probabilidad de media comprobados.
+- `build`: dos PDF de cuatro páginas; espaciado local condicionado a los IDs de L031; ZIP aislado con ambos modos y anterior L030 idénticos byte a byte, main texto/renderizados coincidente.
+- `docs`: [informe L031](docs/lotes/L031_2016_titular_junio.md); 31/84 candidatos cerrados, 53 pendientes. Soluciones autorizadas para fase posterior, aún sin redactar.
+- `next`: L032, SRC-9DA5CEBDAB8C; confirmar curso y auxiliares.
+
+### 2026-10-27 · feat/review/test: L032
+
+- `feat`: ocho enunciados D0032/EXA-0032;256 cotejados y clasificados, cero soluciones. Identificadores, temas y etiquetas individuales.
+- `review`: dos páginas de examen y una de criterios; cuatro páginas de borrador y ocho finales revisadas por el mismo autor en pasadas separadas. Curso visible2016-2017 prevalece sobre texto oculto2015-2016.
+- `test`:21 pruebas en99.988s,215fuentes y558archivos previos intactos; filtros individuales y combinados comprobados.
+- `next`:L033,SRC-267D479DF51C;52candidatos pendientes. Resoluciones para fase posterior.
+
+- `build/docs L032`: ZIP772archivos extraído y compilado; ambos modos y anterior L031 idénticos byte a byte, main texto y cuatro renderizados coincidentes. Tanda cerrada; siguiente L033.
+
+- `build/docs L033`: ZIP795archivos extraído y compilado; ambos modos y anterior L032 idénticos byte a byte, main texto y cuatro renderizados coincidentes. Tanda cerrada; siguiente L034.
+
+### 2026-10-27 · feat/review/build/test/docs: L033
+
+- `feat`: ocho enunciados D0033/EXA-0033; 264 cotejados y clasificados, cero soluciones. Temas, epígrafes y etiquetas enlazados individualmente.
+- `review`: cuatro páginas fuente (examen, criterios y tabla auxiliar), cuatro de borrador y ocho finales revisadas en pasadas separadas del mismo autor. INC-011 registra asignación entera en A4c; INC-012 rotulación de criterios B2. Texto del examen preservado.
+- `test`: 21 pruebas en 285.690 s, 215 fuentes y 576 archivos previos intactos. Filtros de región factible, unidades, independencia, afijación, ecuación matricial, derivabilidad, Bayes y varianza conocida comprobados.
+- `build`: dos PDF de cuatro páginas; espaciado local sólo para IDs de L033. ZIP aislado de 795 archivos compilado; ambos modos y anterior L032 idénticos byte a byte, main texto y cuatro renderizados coincidentes.
+- `next`: L034, SRC-F6770A154C02; 51 candidatos pendientes. Soluciones para fase posterior.
+
+### 2026-10-27 · feat/review/build/test/docs: L034
+
+- `feat`: ocho enunciados D0034/EXA-0034; 272 cotejados y clasificados, cero soluciones. Temas, epígrafes y etiquetas enlazados individualmente.
+- `review`: tres páginas fuente, cuatro de borrador y ocho finales revisadas en pasadas separadas del mismo autor. Documento preliminar otro confirmado como examen; INC-013 registra reposición/orden no explícitos en B4b. Texto preservado, sin añadir hipótesis.
+- `test`: 21 pruebas en119.941s,215 fuentes y594 archivos previos intactos. Filtros de dimensiones, derivada dada, complementarios, cota inclusiva, programación lineal, asíntotas, Bayes y muestreo comprobados.
+- `build`: dos PDF de cuatro páginas, sin ajustes locales ni cambios compartidos. ZIP aislado de818 archivos compilado; ambos modos y anterior L033 idénticos byte a byte, main texto y cuatro renderizados coincidentes.
+- `next`: L035,SRC-3B33B8F88C00;50 candidatos pendientes. Soluciones para fase posterior.
+
+### 2026-10-27 · feat/review/build/test/docs: L035
+
+- `feat`: ocho enunciados D0035/EXA-0035; 280 cotejados y clasificados, cero soluciones. Temas, epígrafes y etiquetas enlazados individualmente.
+- `review`: tres páginas fuente, cuatro de borrador y ocho finales revisadas en pasadas separadas del mismo autor. Cotas de error inclusiva/estricta, proporciones distintas en B4 y sustitución por dos bolas cotejadas. Texto preservado, sin añadir hipótesis.
+- `test`: 21 pruebas en90.681s,215 fuentes y612 archivos previos intactos. Filtros de dimensiones, inflexión, igualdad de derivadas, urna dinámica, Bayes y cotas distintas comprobados.
+- `build`: dos PDF de cuatro páginas, sin ajustes locales ni cambios compartidos. ZIP aislado de841 archivos compilado; ambos modos y anterior L034 idénticos byte a byte, main texto y cuatro renderizados coincidentes.
+- `next`: L036,SRC-D4199CAE2EC3;49 candidatos pendientes. Soluciones para fase posterior.
+
+### 2026-10-27 · feat/review/build/test/docs: L036
+
+- `feat`: ocho enunciados D0036/EXA-0036; 288 cotejados y clasificados, cero soluciones. Temas, epígrafes y etiquetas enlazados individualmente.
+- `review`: tres páginas fuente, cuatro de borrador y ocho finales revisadas en pasadas separadas del mismo autor. Alias de examen y criterios verificados por SHA-256;contraste histórico de media,comparación de reposición y unidades cotejados. Texto preservado, sin añadir hipótesis.
+- `test`: 21 pruebas en300.123s,215 fuentes y630 archivos previos intactos. Filtros de matrices,inversión,reposición,contraste unilateral,derivabilidad,complementarios e intervalo de media comprobados.
+- `build`: dos PDF de cuatro páginas, sin ajustes locales ni cambios compartidos. ZIP aislado de864 archivos compilado; ambos modos y anterior L035 idénticos byte a byte, main texto y cuatro renderizados coincidentes.
+- `next`: L037,SRC-20170EF2B2D5;48 candidatos pendientes. Soluciones para fase posterior.
+
+### 2026-10-28 · feat/review/build/test/docs: L037
+
+- `feat`: ocho enunciados D0037/EXA-0037; 296 cotejados y clasificados, cero soluciones. Temas, epígrafes y etiquetas enlazados individualmente.
+- `review`: tres páginas fuente, cuatro de borrador y siete finales revisadas en pasadas separadas del mismo autor. Alias de examen y criterios verificados por SHA-256;contraste bilateral,despeje sin calcular,ingresos y logaritmo cotejados. Texto preservado, sin añadir hipótesis.
+- `test`: 21 pruebas en250.344s,215 fuentes y648 archivos previos intactos. Filtros de dimensiones,despeje,temperatura,Bayes,contraste bilateral,ingresos,derivadas e intervalo de proporción comprobados.
+- `build`: PDF de enunciados de tres páginas y combinado de cuatro páginas, espaciado local condicionado a los IDs de L037,sin cambios compartidos. ZIP aislado de887 archivos compilado; ambos modos y anterior L036 idénticos byte a byte, main texto y tres renderizados coincidentes.
+- `next`: L038,SRC-DED70B2939A7;47 candidatos pendientes. Soluciones para fase posterior.
+
+### 2026-10-28 · feat/review/build/test/docs: L038
+
+- `feat`: ocho enunciados D0038/EXA-0038; 304 cotejados y clasificados, cero soluciones. Temas, epígrafes y etiquetas enlazados individualmente.
+- `review`: tres páginas fuente, cuatro de borrador y ocho finales revisadas en pasadas separadas del mismo autor. Alias de examen y criterios verificados por SHA-256;dos funciones independientes en A2,unidades,cota estricta y contraste unilateral cotejados. Texto preservado, sin añadir hipótesis.
+- `test`: 21 pruebas en162.998s,215 fuentes y666 archivos previos intactos. Filtros de matrices,continuidad,inflexión,beneficio literal,Bayes,intervalo de media y contraste unilateral comprobados.
+- `build`: dos PDF de cuatro páginas, sin ajustes locales ni cambios compartidos. ZIP aislado de910 archivos compilado; ambos modos y anterior L037 idénticos byte a byte, main texto y cuatro renderizados coincidentes.
+- `next`: L039,SRC-6129A8DBCD4F;46 candidatos pendientes. Soluciones para fase posterior.
+
+### 2026-10-28 · feat/review/build/test/docs: L039
+
+- `feat`: ocho enunciados D0039/EXA-0039; 312 cotejados y clasificados, cero soluciones. Temas, epígrafes y etiquetas enlazados individualmente.
+- `review`: tres páginas fuente, cuatro de borrador y ocho finales revisadas en pasadas separadas del mismo autor. Alias de examen y criterios verificados por SHA-256;derivadas,dimensiones,diagnóstico,significaciones y amplitud cotejados. Texto preservado, sin añadir hipótesis.
+- `test`: 21 pruebas en340.878s,215 fuentes y684 archivos previos intactos. Filtros de máxima cantidad,derivadas,matrices,Bayes,diagnóstico correcto,comparación de significaciones y amplitud estricta comprobados.
+- `build`: dos PDF de cuatro páginas, sin ajustes locales ni cambios compartidos. ZIP aislado de933 archivos compilado; ambos modos y anterior L038 idénticos byte a byte, main texto y cuatro renderizados coincidentes.
+- `next`: L040,SRC-5D9E6A5CB42C;45 candidatos pendientes. Soluciones para fase posterior.
+
+### 2026-10-28 · feat/review/build/test/docs: L040
+
+- `feat`: ocho enunciados D0040/EXA-0040; 320 cotejados y clasificados, cero soluciones. Temas, epígrafes y etiquetas enlazados individualmente.
+- `review`: tres páginas fuente, cuatro de borrador y ocho finales revisadas en pasadas separadas del mismo autor. Alias de examen y criterios verificados por SHA-256;matrices,tres tramos,incompatibilidad,varianza,restricciones y reducción del error cotejados. Texto preservado, sin añadir hipótesis.
+- `test`: 21 pruebas en109.487s,215 fuentes y702 archivos previos intactos. Filtros de matrices,potencias,derivabilidad,incompatibilidad,contraste,varianza,Bayes e intervalo con comparación de error comprobados.
+- `build`: dos PDF de cuatro páginas, sin ajustes locales ni cambios compartidos. ZIP aislado de956 archivos compilado; ambos modos y anterior L039 idénticos byte a byte, main texto y cuatro renderizados coincidentes.
+- `next`: L041,SRC-417302754109;44 candidatos pendientes. Soluciones para fase posterior.
+
+### 2026-10-28 · feat/review/build/test/docs: L041
+
+- `feat`: ocho enunciados D0041/EXA-0041; 328 cotejados y clasificados, cero soluciones. Temas, epígrafes y etiquetas enlazados individualmente.
+- `review`: tres páginas fuente, cuatro de borrador y ocho finales revisadas en pasadas separadas del mismo autor. Alias de examen y criterios verificados por SHA-256;matrices,asíntotas,independencia,capitales,restricciones y contraste de disminución cotejados. Texto preservado, sin añadir hipótesis.
+- `test`: 21 pruebas en370.973s,215 fuentes y720 archivos previos intactos. Filtros de matrices,parámetros,asíntotas,independencia,intervalo y error máximo,inversión,derivabilidad,Bayes y contraste comprobados.
+- `build`: dos PDF de cuatro páginas, sin ajustes locales ni cambios compartidos. ZIP aislado de979 archivos compilado; ambos modos y anterior L040 idénticos byte a byte, main texto y cuatro renderizados coincidentes.
+- `next`: L042,SRC-987D141AC72B;43 candidatos pendientes. Soluciones para fase posterior.
+
+### 2026-10-28 · feat/review/build/test/docs: L042
+
+- `feat`: ocho enunciados D0042/EXA-0042; 336 cotejados y clasificados, cero soluciones. Temas, epígrafes y etiquetas enlazados individualmente.
+- `review`: tres páginas fuente, cuatro de borrador y ocho finales revisadas en pasadas separadas del mismo autor. Huellas de examen y criterios verificadas;sin alias exactos;matrices,traspuesta,mínimo,complementarios,intervalo,dieta y contraste de proporción cotejados. Texto preservado, sin añadir hipótesis.
+- `test`: 21 pruebas en115.599s,215 fuentes y738 archivos previos intactos. Filtros de traspuesta,parámetros,mínimo,independencia,intervalo,dieta,derivabilidad y contraste de proporción con comparación de significaciones comprobados.
+- `build`: dos PDF de cuatro páginas, sin ajustes locales ni cambios compartidos. ZIP aislado de1002 archivos compilado; ambos modos y anterior L041 idénticos byte a byte, main texto y cuatro renderizados coincidentes.
+- `next`: L043,SRC-B7376BBA6509;42 candidatos pendientes. Soluciones para fase posterior.
+
+### 2026-10-28 · feat/review/build/test/docs: L043
+
+- `feat`: ocho enunciados D0043/EXA-0043; 344 cotejados y clasificados, cero soluciones. Temas, epígrafes y etiquetas enlazados individualmente.
+- `review`: tres páginas fuente, cuatro de borrador y ocho finales revisadas en pasadas separadas del mismo autor. Huellas de examen y criterios verificadas;sin alias exactos;restricciones,tramos,matrices,datos,horas,conjunto de16números y estructura1a/1b/2 cotejados. Texto preservado, sin añadir hipótesis.
+- `test`: 21 pruebas en238.255s,215 fuentes y756 archivos previos intactos. Filtros de región y extremos,derivabilidad,Bayes,intervalo con cota inclusiva,matrices,audiencia,independencia y muestreo comprobados.
+- `build`: dos PDF de cuatro páginas, con espaciado local limitado a los ocho IDs de L043; sin cambios compartidos. ZIP aislado de1025 archivos compilado; ambos modos y anterior L042 idénticos byte a byte, main texto y cuatro renderizados coincidentes.
+- `next`: L044,SRC-12C7C27227F3;41 candidatos pendientes. Soluciones para fase posterior.
+
+### 2026-10-28 · feat/review/build/test/docs: L044
+
+- `feat`: ocho enunciados D0044/EXA-0044; 352 cotejados y clasificados, cero soluciones. Temas, epígrafes y etiquetas enlazados individualmente.
+- `review`: tres páginas fuente, cuatro de borrador y ocho finales revisadas en pasadas separadas del mismo autor. Huellas de examen y criterios verificadas;sin alias exactos;traspuestas,cúbica,proporciones,restricciones impresas,tramos y muestras cotejados. Texto preservado, sin añadir hipótesis.
+- `test`: 21 pruebas en158.532s,215 fuentes y774 archivos previos intactos. Filtros de traspuesta,curvatura,experimento compuesto,intervalo de proporción,región,derivabilidad,condicional y muestreo comprobados.
+- `build`: dos PDF de cuatro páginas, sin ajustes locales ni cambios compartidos. ZIP aislado de1048 archivos compilado; ambos modos y anterior L043 idénticos byte a byte, main texto y cuatro renderizados coincidentes.
+- `next`: L045,SRC-FF289770F60D;40 candidatos pendientes. Soluciones para fase posterior.
+
+### 2026-10-28 · feat/review/build/test/docs: L045
+
+- `feat`: ocho enunciados D0045/EXA-0045; 360 cotejados y clasificados, cero soluciones. Temas, epígrafes y etiquetas enlazados individualmente.
+- `review`: tres páginas fuente, cuatro de borrador y ocho finales revisadas en pasadas separadas del mismo autor. Huellas de examen y criterios verificadas;sin alias exactos;matrices,derivadas,contraste,cinco vértices,cúbica,prensa e intervalo cotejados. Texto preservado, sin añadir hipótesis.
+- `test`: 21 pruebas en67.504s,215 fuentes y792 archivos previos intactos. Filtros de matrices,derivadas,independencia,contraste,ejercicio mixto T04/T06,cúbica,prensa e intervalo comprobados.
+- `build`: PDF de tres páginas de enunciados y cuatro con soluciones pendientes, sin ajustes locales ni cambios compartidos. ZIP aislado de1071 archivos compilado; ambos modos y anterior L044 idénticos byte a byte, main texto y tres renderizados coincidentes.
+- `next`: L046,SRC-9B38A4843707;39 candidatos pendientes. Soluciones para fase posterior.
+
+### 2026-10-28 · feat/review/build/test/docs: L046
+
+- `feat`: ocho enunciados D0046/EXA-0046; 368 cotejados y clasificados, cero soluciones. Temas, epígrafes y etiquetas enlazados individualmente.
+- `review`: tres páginas fuente, cuatro de borrador y ocho finales revisadas en pasadas separadas del mismo autor. Huellas de examen y criterios verificadas;sin alias exactos;potencia2014,beneficios,urnas,intervalo98.8,restricciones,tramos,ofertas y contraste bilateral cotejados. Texto preservado, sin añadir hipótesis.
+- `test`: 21 pruebas en116.998s,215 fuentes y810 archivos previos intactos. Filtros de potencia,beneficios,Bayes,intervalo de media,región,derivabilidad,unión y contraste bilateral de proporción comprobados.
+- `build`: dos PDF de cuatro páginas, sin ajustes locales ni cambios compartidos. ZIP aislado de1094 archivos compilado; ambos modos y anterior L045 idénticos byte a byte, main texto y cuatro renderizados coincidentes.
+- `next`: L047,SRC-3753985712BC;38 candidatos pendientes. Soluciones para fase posterior.
+
+### 2026-10-28 · feat/review/build/test/docs: L047
+
+- `feat`: ocho enunciados D0047/EXA-0047; 376 cotejados y clasificados, cero soluciones. Temas, epígrafes y etiquetas enlazados individualmente.
+- `review`: tres páginas fuente, cuatro de borrador y ocho finales revisadas en pasadas separadas del mismo autor. Huellas de examen y criterios verificadas;sin alias exactos;matrices,beneficios,asistencia,contraste de media,formulación sin resolver,parábola,peritaje y amplitud cotejados. Texto preservado, sin añadir hipótesis.
+- `test`: 21 pruebas en130.967s,215 fuentes y828 archivos previos intactos. Filtros de traspuesta,beneficios,independencia,contraste de media,formulación sin resolver,tangente,peritaje y amplitud comprobados.
+- `build`: PDF de tres páginas de enunciados y cuatro con soluciones pendientes, con espaciado local limitado a los ocho IDs de L047;sin cambios compartidos. ZIP aislado de1117 archivos compilado; ambos modos y anterior L046 idénticos byte a byte, main texto y tres renderizados coincidentes.
+- `next`: L048,SRC-551C95013DE9;37 candidatos pendientes. Soluciones para fase posterior.
+
+### 2026-10-28 · feat/review/build/test/docs: L048
+
+- `feat`: ocho enunciados D0048/EXA-0048; 384 cotejados y clasificados, cero soluciones. Temas, epígrafes y etiquetas enlazados individualmente.
+- `review`: cuatro páginas fuente, cuatro de borrador y siete finales revisadas en pasadas separadas del mismo autor. Huellas de examen y criterios verificadas;sin alias exactos;formulación,tres tramos,roturas,contraste histórico,potencias,tangente,votación e intervalo cotejados. Texto preservado, sin añadir hipótesis.
+- `test`: 21 pruebas en115.350s,215 fuentes y846 archivos previos intactos. Filtros de formulación,tres tramos,Bayes,contraste de media,potencias,tangente,votación e intervalo de proporción comprobados.
+- `build`: dos PDF de tres y cuatro páginas, con espaciado local protegido y sin cambios compartidos. ZIP aislado de1140 archivos compilado; ambos modos y anterior L047 idénticos byte a byte, main texto y tres renderizados coincidentes.
+- `next`: L049,SRC-18FB5F1BBA03;36 candidatos pendientes. Soluciones para fase posterior.
+
+### 2026-10-28 · feat/review/test/build/docs: L049
+
+- `feat`: ocho enunciados D0049/EXA-0049 enlazados individualmente;392 cotejados y clasificados,cero soluciones. B1 mixto T04/T06 conservado completo;etiqueta varianza-medias-muestrales añadida.
+- `review`: cuatro páginas fuente,cuatro de borrador y siete finales cotejadas en pasadas separadas del mismo autor. Sin segundo revisor distinto. Examen y criterios sin alias exactos;cinco procedencias de tabla verificadas. INC-018 conserva reposición/orden no explícitos de B4b para la futura solución.
+- `test`: 21 pruebas en94.034s,215 fuentes y864 archivos anteriores intactos. Temporales de pruebas dentro del espacio de trabajo. Filtros individuales,opciones,temas secundarios y etiquetas comprobados.
+- `build`: PDF de tres y cuatro páginas con espaciado local protegido;ZIP aislado de1163 archivos compilado. Ambos modos L049 y anterior L048 idénticos byte a byte;main con texto y tres renderizados coincidentes. Servicio Overleaf no probado.
+- `next`: L050,SRC-6CABE043886D;35 candidatos pendientes. Soluciones para después de completar transcripciones.
+
+### 2026-10-28 · feat/review/test/build/docs: L050
+
+- `feat`: ocho enunciados D0050/EXA-0050 enlazados individualmente;400 cotejados y clasificados,cero soluciones. Nueva etiqueta recursos-sobrantes para la petición de hilo remanente de B1.
+- `review`: cuatro páginas fuente,cuatro de borrador y siete finales cotejadas en pasadas separadas del mismo autor;sin segundo revisor distinto. Examen/criterios sin alias exactos;cinco procedencias de tabla verificadas. Matrices,datos de derivada y probabilidades preservados. Beneficio literal de B1 conservado,sin inventar costes. Sin incidencias nuevas.
+- `test`: 21 pruebas en89.822s,215 fuentes y882 archivos anteriores intactos. Temporales de pruebas en espacio de trabajo. Filtros individuales,opciones,temas secundarios,epígrafes y etiquetas comprobados.
+- `build`: PDF de tres y cuatro páginas con espaciado local protegido;ZIP aislado de1186 archivos compilado. Ambos modos L050 y anterior L049 idénticos byte a byte;main texto y tres renderizados coincidentes. Servicio Overleaf no probado.
+- `next`: L051,SRC-48C4AF791735;34 candidatos pendientes. Soluciones para después de completar transcripciones.
+
+### 2026-10-28 · feat/review/test/build/docs: L051
+
+- `feat`: ocho enunciados D0051/EXA-0051 enlazados individualmente;408 cotejados y clasificados,cero soluciones. A1 relacionado con T04/T05;B4 contraste histórico de proporción en T09.1,sin confundirlo con intervalo de confianza. Sin etiquetas nuevas.
+- `review`: cuatro páginas fuente,cuatro de borrador y siete finales cotejadas en pasadas separadas del mismo autor;sin segundo revisor distinto. Examen/criterios sin alias exactos;cinco procedencias de tabla verificadas. Matrices,tres tramos,nueve pesos de café,recinto,curvatura,idiomas e hipótesis nula preservados. Sin incidencias nuevas.
+- `test`: 21 pruebas en121.366s,215 fuentes y900 archivos anteriores intactos. Temporales de pruebas en espacio de trabajo. Filtros individuales,opciones,temas secundarios,epígrafes y etiquetas comprobados.
+- `build`: PDF de tres y cuatro páginas con espaciado local protegido;ZIP aislado de1209 archivos compilado. Ambos modos L051 y anterior L050 idénticos byte a byte;main texto y tres renderizados coincidentes. Servicio Overleaf no probado.
+- `next`: L052,SRC-F90FB6B40256;33 candidatos pendientes. Soluciones para después de completar transcripciones.
+
+### 2026-10-28 · feat/review/test/build/docs: L052
+
+- `feat`: ocho enunciados D0052/EXA-0052 enlazados individualmente;416 cotejados y clasificados,cero soluciones. B4 conserva muestreo e intervalo de proporción en una unidad. Sin etiquetas nuevas.
+- `review`: cuatro páginas fuente,cuatro de borrador y siete finales cotejadas en pasadas separadas del mismo autor;sin segundo revisor distinto. Examen/criterios sin alias exactos;cinco procedencias de tabla verificadas. Matrices,derivadas,terapias,cinco medidas de acidez,recinto y dos tramos preservados. INC-019 registra reposición/orden no explícitos de B4a.
+- `test`: 21 pruebas en93.663s,215 fuentes y918 archivos anteriores intactos. Temporales de pruebas en espacio de trabajo. Filtros individuales,opciones,temas secundarios,epígrafes y etiquetas comprobados.
+- `build`: PDF de tres y cuatro páginas con espaciado local protegido;ZIP aislado de1232 archivos compilado. Ambos modos L052 y anterior L051 idénticos byte a byte;main texto y tres renderizados coincidentes. Servicio Overleaf no probado.
+- `next`: L053,SRC-A5DF0494F1A7;32 candidatos pendientes. Soluciones para después de completar transcripciones.
+
+### 2026-10-28 · feat/review/test/build/docs: L053
+
+- `feat`: ocho enunciados D0053/EXA-0053 enlazados individualmente;424 cotejados y clasificados,cero soluciones. A4 contraste bilateral de media con varianza25 literal;B4 intervalo y cota inclusiva de error. Sin etiquetas nuevas.
+- `review`: cuatro páginas fuente,cuatro de borrador y ocho finales cotejadas en pasadas separadas del mismo autor;sin segundo revisor distinto. Examen,criterios y tabla específica sin alias exactos. Matrices fraccionarias,orden de productos,parámetros,región y varianza25 preservados. Separación de filas de B1 corregida antes de finalizar. Sin incidencias nuevas.
+- `test`: 21 pruebas en155.750s,215 fuentes y936 archivos anteriores intactos. Temporales de pruebas en espacio de trabajo. Filtros individuales,opciones,temas secundarios,epígrafes y etiquetas comprobados.
+- `build`: Dos PDF de cuatro páginas con espaciado local protegido;ZIP aislado de1255 archivos compilado. Ambos modos L053 y anterior L052 idénticos byte a byte;main texto y cuatro renderizados coincidentes. Servicio Overleaf no probado.
+- `next`: L054,SRC-45EF64533A19;31 candidatos pendientes. Soluciones para después de completar transcripciones.
+
+### 2026-10-29 · feat/review/test/build/docs: L054
+
+- `feat`: ocho enunciados D0054/EXA-0054 enlazados individualmente;432 cotejados y clasificados,cero soluciones. A2 mixto T02/T01 conservado completo;region-aceptacion añadida para petición expresa de A4.
+- `review`: cuatro páginas fuente,cuatro de borrador y ocho finales cotejadas en pasadas separadas del mismo autor;sin segundo revisor distinto. Examen/criterios sin alias exactos;cuatro procedencias de tabla verificadas. Matrices,derivada,transferencia,10.0037cm,ingresos/gastos,capítulos y estratos preservados. INC-020 conserva media sus longitudes literal. Convocatoria,tipo,reserva y modelo vacíos;121y4 sólo del nombre.
+- `test`: 21 pruebas en91.502s,215 fuentes y954 archivos anteriores intactos. Temporales de pruebas en espacio de trabajo. Filtros individuales,opciones,temas secundarios,epígrafes y etiquetas comprobados.
+- `build`: Dos PDF de cuatro páginas con espaciado local protegido;ZIP aislado de1278 archivos compilado. Ambos modos L054 y anterior L053 idénticos byte a byte;main texto y cuatro renderizados coincidentes. Servicio Overleaf no probado.
+- `next`: L055,SRC-471D895044A9;30 candidatos pendientes. Soluciones para después de completar transcripciones.
+
+### 2026-10-29 · feat/review/test/build/docs: L055
+
+- `feat`: ocho enunciados D0055/EXA-0055 enlazados individualmente;440 cotejados y clasificados,cero soluciones. B1 con Nt y etiquetas de café;B2 total impreso sin apartados;B4 con peso total5274g y amplitud máxima3g. Sin etiquetas nuevas.
+- `review`: cuatro páginas fuente,cuatro de borrador y ocho finales cotejadas en pasadas separadas del mismo autor;sin segundo revisor distinto. Examen/criterios sin alias exactos;cuatro procedencias de tabla verificadas. Inecuaciones,tres tramos,puntuaciones1.2/0.9/0.4,significación5.5%,matrices y tres derivadas preservados. Separación vertical de A2 mejorada. Convocatoria,tipo,reserva y modelo vacíos;122Ay6 sólo del nombre. Sin incidencias nuevas.
+- `test`: 21 pruebas en107.916s,215 fuentes y972 archivos anteriores intactos. Temporales de pruebas en espacio de trabajo. Filtros individuales,opciones,temas secundarios,epígrafes y etiquetas comprobados.
+- `build`: Dos PDF de cuatro páginas con espaciado local protegido;ZIP aislado de1301 archivos compilado. Ambos modos L055 y anterior L054 idénticos byte a byte;main texto y cuatro renderizados coincidentes. Servicio Overleaf no probado.
+- `next`: L056,SRC-6437A476F758;29 candidatos pendientes. Soluciones para después de completar transcripciones.
+
+### 2026-10-29 · feat/review/test/build/docs: L056
+
+- `feat`: ocho enunciados D0056/EXA-0056 enlazados individualmente;448 cotejados y clasificados,cero soluciones. Matrices de adyacencia,consumo,probabilidad,contraste,producción,ramas racionales,seguros e intervalo de media. Etiqueta matriz-adyacencia añadida.
+- `review`: cinco páginas fuente,cuatro de borrador y ocho finales cotejadas en pasadas separadas del mismo autor;sin segundo revisor distinto. Examen/criterios sin alias exactos. Sin tabla acreditada. Homónimo identificado como reedición de EXA-0054 con distinta SHA,sin duplicar ejercicios. Convocatoria,tipo,reserva y modelo vacíos;123y1 sólo del nombre. Sin incidencias nuevas.
+- `test`: 21 pruebas en104.514s,215 fuentes y990 archivos anteriores intactos. Filtros individuales,opciones,temas secundarios,epígrafes y etiquetas comprobados.
+- `build`: Dos PDF de cuatro páginas;ZIP aislado de1324 archivos compilado. Ambos modos L056 y anterior L055 idénticos byte a byte;main texto y cuatro renderizados coincidentes. Servicio Overleaf no probado.
+- `next`: L057,SRC-98312D373CA4;revisar y reclasificar reedición de EXA-0054 sin duplicar ejercicios. 28 candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-10-29 · feat/review/test/build/docs: L057
+
+- `review`: comparación de cuatro páginas originales;los ocho enunciados de SRC-98312D373CA4 coinciden con EXA-0054,con otra maquetación y SHA distinta. Mismo autor,sin segundo revisor distinto. Se conserva INC-020 y no se acreditan metadatos por el nombre.
+- `feat`: ocho correspondencias en datos/equivalencias_contenido.csv,selección l057-ids.tex y acceso individual con categorías canónicas. No se crean D0057/EXA-0057 ni ejercicios/soluciones nuevos. Inventario de fuentes intacto;equivalencia semántica separada de duplicado exacto.
+- `test/build`: **Verificación L057:** 21 pruebas superadas en88.953s;448 ejercicios únicos,56 exámenes canónicos y215 fuentes válidas. Ocho correspondencias comprobadas;1008 archivos anteriores y todos los CSV preexistentes intactos. ZIP aislado de1328 archivos:ambos modos L054 idénticos byte a byte a los PDF ya revisados;main con texto y cuatro renderizados idénticos a L056. Compilación local,sin nuevos PDF entregables ni soluciones;servicio Overleaf no probado.
+- `next`: L058,SRC-C2BAB5B3B438. 57de84 candidatos cerrados,27pendientes;56exámenes canónicos,448ejercicios únicos y cero soluciones.
+
+### 2026-10-29 · feat/review/test/build/docs: L058
+
+- `feat`: ocho enunciados D0058/EXA-0058 enlazados individualmente;456 únicos cotejados y clasificados,cero soluciones. Recinto,dos funciones,alarma,contraste,matrices,trozos,sucesos y media muestral. Sin etiquetas nuevas.
+- `review`: cuatro páginas fuente,cuatro de borrador y siete finales cotejadas en pasadas separadas del mismo autor;sin segundo revisor distinto. Examen/criterios/tabla sin alias exactos. Tabla por prefijo y carpeta,sin cita expresa. Literal de alarma0.03 conservado con interpretación pendiente para soluciones. Convocatoria,tipo,reserva y modelo vacíos;221Ay5 sólo del nombre.
+- `test/build`: **Verificación L058:** 21 pruebas superadas en90.117s;456 ejercicios válidos y215 huellas originales coincidentes. PDF de3/4páginas,siete páginas finales revisadas y ocho avisos pendientes. Los1008 archivos anteriores intactos:448 enunciados,448 soluciones y112 PDF. Equivalencias de L057 conservadas. ZIP aislado de1351 archivos compilado:ambos modos L058 y anterior L056 idénticos byte a byte;main comprobado por texto y tres renderizados. Compilación local Tectonic con caché;servicio Overleaf no probado. Filtros por identificación,temas,epígrafes y etiquetas comprobados,con recuperación individual de los ocho ID.
+- `next`: L059,SRC-DD6B2EA62339;26 candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-10-29 · feat/review/test/build/docs: L059
+
+- `feat`: ocho enunciados D0059/EXA-0059 enlazados individualmente;464 únicos cotejados y clasificados,cero soluciones. Matrices,inversión,dado y moneda,media muestral,dos regiones,tres ramas,bolas con devolución y contraste de proporción. Etiqueta extraccion-con-reposicion añadida.
+- `review`: cuatro páginas fuente,cuatro de borrador y ocho finales cotejadas en pasadas separadas del mismo autor;sin segundo revisor distinto. Examen/criterios sin alias exactos;cuatro procedencias de tabla verificadas. Tabla por prefijo y carpeta,sin cita expresa. B1 mantiene las dos regiones independientes y B3 la extracción con devolución. Convocatoria,tipo,reserva y modelo vacíos;222y2 sólo del nombre.
+- `test/build`: **Verificación L059:** 21 pruebas superadas en96.374s;464 ejercicios válidos y215 huellas originales coincidentes. PDF de4/4páginas,ocho páginas finales revisadas y ocho avisos pendientes. Los1026 archivos anteriores intactos:456 enunciados,456 soluciones y114 PDF. Equivalencias de L057 conservadas. ZIP aislado de1374 archivos compilado:ambos modos L059 y anterior L058 idénticos byte a byte;main comprobado por texto y cuatro renderizados. Compilación local Tectonic con caché;servicio Overleaf no probado. Filtros por identificación,temas,epígrafes y etiquetas comprobados,con recuperación individual de los ocho ID.
+- `next`: L060,SRC-C91521A7BB96;25 candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-10-29 · feat/review/test/build/docs: L060
+
+- `feat`: ocho enunciados D0060/EXA-0060 enlazados individualmente;472 únicos cotejados y clasificados,cero soluciones. Elementos de matriz,beneficio por tramos,aceites,media muestral,recinto,derivada descrita y tangente,garantía y ocho pesos de cachorros. Sin etiquetas nuevas.
+- `review`: cuatro páginas fuente,cuatro de borrador y siete finales cotejadas en pasadas separadas del mismo autor;sin segundo revisor distinto. Examen/criterios sin alias exactos;cuatro procedencias de tabla verificadas. Tabla por prefijo y carpeta,sin cita expresa. Convocatoria,tipo,reserva y modelo vacíos;223Ay3 sólo del nombre.
+- `test/build`: **Verificación L060:** 21 pruebas superadas en107.297s;472 ejercicios válidos y215 huellas originales coincidentes. PDF de3/4páginas,siete páginas finales revisadas y ocho avisos pendientes. Los1044 archivos anteriores intactos:464 enunciados,464 soluciones y116 PDF. Equivalencias de L057 conservadas. ZIP aislado de1397 archivos compilado:ambos modos L060 y anterior L059 idénticos byte a byte;main comprobado por texto y tres renderizados. Compilación local Tectonic con caché;servicio Overleaf no probado. Filtros individuales,temas secundarios,epígrafes y etiquetas comprobados.
+- `next`: L061,SRC-306357537112;24candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-10-29 · feat/review/test/build/docs: L061
+
+- `feat`: ocho enunciados D0061/EXA-0061 enlazados individualmente;480 únicos cotejados y clasificados,cero soluciones. Recinto,cúbica,puntualidad,intervalo de proporción,matrices,tres derivadas,congreso y contraste de producción. Sin etiquetas nuevas.
+- `review`: cuatro páginas fuente,cuatro de borrador y siete finales cotejadas en pasadas separadas del mismo autor;sin segundo revisor distinto. Examen/criterios sin alias exactos;doce procedencias de tabla verificadas. Tabla por carpeta,sin cita expresa. Junio sólo por carpeta,no confirmado en cabecera;tipo,reserva y modelo vacíos;5sólo del nombre.
+- `test/build`: **Verificación L061:** 21 pruebas superadas en101.463s;480 ejercicios válidos y215 huellas originales coincidentes. PDF de3/4páginas,siete páginas finales revisadas y ocho avisos pendientes. Los1062 archivos anteriores intactos:472 enunciados,472 soluciones y118 PDF. Equivalencias de L057 conservadas. ZIP aislado de1420 archivos compilado:ambos modos L061 y anterior L060 idénticos byte a byte;main comprobado por texto y tres renderizados. Compilación local Tectonic con caché;servicio Overleaf no probado. Filtros individuales,temas secundarios,epígrafes y etiquetas comprobados.
+- `next`: L062,SRC-43E638B60B56;23candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-10-29 · feat/review/test/build/docs: L062
+
+- `feat`: ocho enunciados D0062/EXA-0062 enlazados individualmente;488 únicos cotejados y clasificados,cero soluciones. Lotes,tres ramas,aprobados,votantes,semiplanos,depósito,dado y tiempos de reacción. Sin etiquetas nuevas.
+- `review`: cuatro páginas fuente,cuatro de borrador y ocho finales cotejadas en pasadas separadas del mismo autor;sin segundo revisor distinto. Examen/criterios sin alias exactos;doce procedencias de tabla verificadas. Tabla por carpeta,sin cita expresa. Junio sólo por carpeta,no confirmado en cabecera;tipo,reserva y modelo vacíos;ra no acredita reserva y4sólo del nombre.
+- `test/build`: **Verificación L062:** 21 pruebas superadas en133.546s;488 ejercicios válidos y215 huellas originales coincidentes. PDF de4/4páginas,ocho páginas finales revisadas y ocho avisos pendientes. Los1080 archivos anteriores intactos:480 enunciados,480 soluciones y120 PDF. Equivalencias de L057 conservadas. ZIP aislado de1443 archivos compilado:ambos modos L062 y anterior L061 idénticos byte a byte;main comprobado por texto y cuatro renderizados. Compilación local Tectonic con caché;servicio Overleaf no probado. Filtros individuales,temas secundarios,epígrafes y etiquetas comprobados.
+- `next`: L063,SRC-FC436D7335B2;22candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-10-29 · feat/review/test/build/docs: L063
+
+- `feat`: ocho enunciados D0063/EXA-0063 enlazados individualmente;496 únicos cotejados y clasificados,cero soluciones. Marisco,parábola,sucesos,proteína,recinto,derivadas y racional,alarma y sacos. Sin etiquetas nuevas.
+- `review`: cuatro páginas fuente,cuatro de borrador y siete finales cotejadas en pasadas separadas del mismo autor;sin segundo revisor distinto. Examen/criterios sin alias exactos;doce procedencias de tabla verificadas. Tabla por carpeta,sin cita expresa. Junio sólo por carpeta,no confirmado en cabecera;tipo,reserva y modelo vacíos;rb no acredita reserva y6sólo del nombre.
+- `test/build`: **Verificación L063:** 21 pruebas superadas en172.096s;496 ejercicios válidos y215 huellas originales coincidentes. PDF de3/4páginas,siete páginas finales revisadas y ocho avisos pendientes. Los1098 archivos anteriores intactos:488 enunciados,488 soluciones y122 PDF. Equivalencias de L057 conservadas. ZIP aislado de1466 archivos compilado:ambos modos L063 y anterior L062 idénticos byte a byte;main comprobado por texto y tres renderizados. Compilación local Tectonic con caché;servicio Overleaf no probado. Filtros individuales,temas secundarios,epígrafes y etiquetas comprobados.
+- `next`: L064,SRC-1F4AABFD6B04;21candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-10-29 · feat/review/test/build/docs: L064
+
+- `feat`: ocho enunciados D0064/EXA-0064 enlazados individualmente;504 únicos cotejados y clasificados,cero soluciones. Recinto,consultorio,periódicos,contraste de proporción,matrices,trozos,dado y muestreo. INC-021 añadida,sin alterar enunciado. Sin etiquetas nuevas.
+- `review`: cuatro páginas fuente,cuatro de borrador y siete finales cotejadas en pasadas separadas del mismo autor;sin segundo revisor distinto. Examen/criterios sin alias exactos;doce procedencias de tabla verificadas. Tabla por carpeta,sin cita expresa. Septiembre sólo por carpeta,no confirmado en cabecera;tipo,reserva y modelo vacíos;3sólo del nombre.
+- `test/build`: **Verificación L064:** 21 pruebas superadas en364.667s;504 ejercicios válidos y215 huellas originales coincidentes. PDF de3/4páginas,siete páginas finales revisadas y ocho avisos pendientes. Los1116 archivos anteriores intactos:496 enunciados,496 soluciones y124 PDF. Equivalencias de L057 conservadas. ZIP aislado de1489 archivos compilado:ambos modos L064 y anterior L063 idénticos byte a byte;main comprobado por texto y tres renderizados. Compilación local Tectonic con caché;servicio Overleaf no probado. Filtros individuales,temas secundarios,epígrafes y etiquetas comprobados.
+- `next`: L065,SRC-16565937A157;20candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-11-05 · feat/review/test/build/docs: L065
+
+- `feat`: ocho enunciados D0065/EXA-0065 enlazados individualmente;512 únicos cotejados y clasificados,cero soluciones. Recinto,publicidad,fracciones,muestreo,matrices,trozos,camareros y contraste bilateral. INC-022 añadida,sin alterar enunciado. Sin etiquetas nuevas.
+- `review`: cuatro páginas fuente,cuatro de borrador y siete finales cotejadas en pasadas separadas del mismo autor;sin segundo revisor distinto. Examen/criterios sin alias exactos;doce procedencias de tabla verificadas. Tabla por carpeta,sin cita expresa. Septiembre sólo por carpeta,no confirmado en cabecera;tipo,reserva y modelo vacíos;1sólo del nombre.
+- `test/build`: **Verificación L065:** 21 pruebas superadas en154.542s;512 ejercicios válidos y215 huellas originales coincidentes. PDF de3/4páginas,siete páginas finales revisadas y ocho avisos pendientes. Los1134 archivos anteriores intactos:504 enunciados,504 soluciones y126 PDF. Equivalencias de L057 conservadas. ZIP aislado de1512 archivos compilado:ambos modos L065 y anterior L064 idénticos byte a byte;main comprobado por texto y tres renderizados. Compilación local Tectonic con caché;servicio Overleaf no probado. Filtros individuales,temas secundarios,epígrafes y etiquetas comprobados.
+- `next`: L066,SRC-5E3C4915F73D;19candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-11-05 · feat/review/test/build/docs: L066
+
+- `feat`: ocho enunciados D0066/EXA-0066 enlazados individualmente;520 únicos cotejados y clasificados,cero soluciones. Matrices,perfiles de arcos,servidores,intervalo de proporción,recinto,beneficio,deportes y contraste unilateral. Sin incidencias nuevas. Sin etiquetas nuevas.
+- `review`: cuatro páginas fuente,cuatro de borrador y ocho finales cotejadas en pasadas separadas del mismo autor;sin segundo revisor distinto. Examen/criterios sin alias exactos;doce procedencias de tabla verificadas. Tabla por carpeta,sin cita expresa. Septiembre sólo por carpeta,no confirmado en cabecera;tipo,reserva y modelo vacíos;2sólo del nombre.
+- `test/build`: **Verificación L066:** 21 pruebas superadas en167.626s;520 ejercicios válidos y215 huellas originales coincidentes. PDF de4/4páginas,ocho páginas finales revisadas y ocho avisos pendientes. Los1152 archivos anteriores intactos:512 enunciados,512 soluciones y128 PDF. Equivalencias de L057 conservadas. ZIP aislado de1535 archivos compilado:ambos modos L066 y anterior L065 idénticos byte a byte;main comprobado por texto y cuatro renderizados. Compilación local Tectonic con caché;servicio Overleaf no probado. Filtros individuales,temas secundarios,epígrafes y etiquetas comprobados.
+- `next`: L067,SRC-061692157CA6;18candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-11-05 · feat/review/test/build/docs: L067
+
+- `feat`:seis ejercicios originales D0067/EXA-0067;Partes I/II en A3/B3 preservadas y clasificadas también en inferencia.526 únicos,cero soluciones.
+- `review`:lectura visual de tres páginas escaneadas y segunda pasada del mismo autor;sin segundo revisor distinto. Curso2008-2009;resto de identificación vacío. Criterios integrados en página3;sin tabla.
+- `test/build`:**Verificación L067:** 21 pruebas superadas en 282.435s;526 ejercicios y215 fuentes válidas. Tres páginas fuente y6 páginas finales revisadas;PDF de3/3páginas. Los1170 archivos anteriores intactos:520 enunciados,520 soluciones y130 PDF. ZIP aislado de1554 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
+- `next`:L068,SRC-5D54D8A258B8;17candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-11-05 · feat/review/test/build/docs: L068
+
+- `feat`:seis ejercicios originales D0068/EXA-0068;Partes I/II en A3/B3 preservadas y clasificadas también en inferencia.532 únicos,cero soluciones.
+- `review`:lectura visual de tres páginas escaneadas y segunda pasada del mismo autor;sin segundo revisor distinto. Curso2008-2009;resto de identificación vacío. Criterios integrados en página3;sin tabla.
+- `test/build`:**Verificación L068:** 21 pruebas superadas en 182.837s;532 ejercicios y215 fuentes válidas. Tres páginas fuente y6 páginas finales revisadas;PDF de3/3páginas. Los1184 archivos anteriores intactos:526 enunciados,526 soluciones y132 PDF. ZIP aislado de1573 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
+- `next`:L069,SRC-37AA7593D4BE;16candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-11-05 · feat/review/test/build/docs: L069
+
+- `feat`:seis ejercicios originales D0069/EXA-0069;Partes I/II en A3/B3 preservadas y clasificadas también en inferencia.538 únicos,cero soluciones.
+- `review`:lectura visual de tres páginas escaneadas y segunda pasada del mismo autor;sin segundo revisor distinto. Curso2008-2009;resto de identificación vacío. Criterios integrados en página3;sin tabla.
+- `test/build`:**Verificación L069:** 21 pruebas superadas en 179.773s;538 ejercicios y215 fuentes válidas. Tres páginas fuente y6 páginas finales revisadas;PDF de3/3páginas. Los1198 archivos anteriores intactos:532 enunciados,532 soluciones y134 PDF. ZIP aislado de1592 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
+- `next`:L070,SRC-DF64DB539DBD;15candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-11-05 · feat/review/test/build/docs: L070
+
+- `feat`:seis ejercicios originales D0070/EXA-0070;Partes I/II en A3/B3 preservadas y clasificadas también en inferencia.544 únicos,cero soluciones.
+- `review`:lectura visual de tres páginas escaneadas y segunda pasada del mismo autor;sin segundo revisor distinto. Curso2008-2009;resto de identificación vacío. Criterios integrados en página3;sin tabla.
+- `test/build`:**Verificación L070:** 21 pruebas superadas en 165.101s;544 ejercicios y215 fuentes válidas. Tres páginas fuente y6 páginas finales revisadas;PDF de3/3páginas. Los1212 archivos anteriores intactos:538 enunciados,538 soluciones y136 PDF. ZIP aislado de1611 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
+- `next`:L071,SRC-4851FA416EC1;14candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-11-05 · feat/review/test/build/docs: L071
+
+- `feat`:seis ejercicios originales D0071/EXA-0071;Partes I/II en A3/B3 preservadas y clasificadas también en inferencia.550 únicos,cero soluciones.
+- `review`:lectura visual de tres páginas escaneadas y segunda pasada del mismo autor;sin segundo revisor distinto. Curso2008-2009;resto de identificación vacío. Criterios integrados en página3;sin tabla.
+- `test/build`:**Verificación L071:** 21 pruebas superadas en 180.557s;550 ejercicios y215 fuentes válidas. Tres páginas fuente y6 páginas finales revisadas;PDF de3/3páginas. Los1226 archivos anteriores intactos:544 enunciados,544 soluciones y138 PDF. ZIP aislado de1630 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
+- `next`:L072,SRC-3A4F3F974F95;13candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-11-06 · feat/review/test/build/docs: L072
+
+- `feat`:seis ejercicios originales D0072/EXA-0072;Partes I/II en A3/B3 preservadas y clasificadas también en inferencia.556 únicos,cero soluciones.
+- `review`:lectura visual de tres páginas escaneadas y segunda pasada del mismo autor;sin segundo revisor distinto. Curso2008-2009;resto de identificación vacío. Criterios integrados en página3;sin tabla.
+- `test/build`:**Verificación L072:** 21 pruebas superadas en 131.411s;556 ejercicios y215 fuentes válidas. Tres páginas fuente y6 páginas finales revisadas;PDF de3/3páginas. Los1240 archivos anteriores intactos:550 enunciados,550 soluciones y140 PDF. ZIP aislado de1649 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
+- `next`:L073,SRC-4A6808049A76;12candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-11-06 · feat/review/test/build/docs: L073
+
+- `feat`:seis ejercicios originales D0073/EXA-0073;Partes I/II en A3/B3 preservadas y clasificadas también en inferencia.562 únicos,cero soluciones.
+- `review`:lectura visual de tres páginas del PDF combinado y segunda pasada del mismo autor;sin segundo revisor distinto. Año2008 sólo por carpeta;curso y resto de identificación vacíos. Criterios integrados en página3;sin tabla.
+- `test/build`:**Verificación L073:** 21 pruebas superadas en 249.685s;562 ejercicios y215 fuentes válidas. Tres páginas fuente y6 páginas finales revisadas;PDF de3/3páginas. Los1254 archivos anteriores intactos:556 enunciados,556 soluciones y142 PDF. ZIP aislado de1668 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
+- `next`:L074,SRC-F4CC74AC55E7;11candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-11-06 · feat/review/test/build/docs: L074
+
+- `feat`:seis ejercicios originales D0074/EXA-0074;Partes I/II en A3/B3 preservadas y clasificadas también en inferencia.568 únicos,cero soluciones.
+- `review`:lectura visual de tres páginas del PDF combinado y segunda pasada del mismo autor;sin segundo revisor distinto. Año2008 sólo por carpeta;curso y resto de identificación vacíos. Criterios integrados en página3;sin tabla.
+- `test/build`:**Verificación L074:** 21 pruebas superadas en 148.611s;568 ejercicios y215 fuentes válidas. Tres páginas fuente y6 páginas finales revisadas;PDF de3/3páginas. Los1268 archivos anteriores intactos:562 enunciados,562 soluciones y144 PDF. ZIP aislado de1687 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
+- `next`:L075,SRC-D3A4758DB80F;10 candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-11-06 · feat/review/test/build/docs: L075
+
+- `feat`:seis ejercicios originales D0075/EXA-0075;Partes I/II en A3/B3 preservadas y clasificadas también en inferencia.574 únicos,cero soluciones.
+- `review`:lectura visual de tres páginas del PDF combinado y segunda pasada del mismo autor;sin segundo revisor distinto. Año2008 sólo por carpeta;curso y resto de identificación vacíos. Criterios integrados en página3;sin tabla.
+- `test/build`:**Verificación L075:** 21 pruebas superadas en 174.322s;574 ejercicios y215 fuentes válidas. Tres páginas fuente y6 páginas finales revisadas;PDF de3/3páginas. Los1282 archivos anteriores intactos:568 enunciados,568 soluciones y146 PDF. ZIP aislado de1706 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
+- `next`:L076,SRC-B77DF3612646;9 candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-11-06 · feat/review/test/build/docs: L076
+
+- `feat`:seis ejercicios originales D0076/EXA-0076;Partes I/II en A3/B3 preservadas y clasificadas también en inferencia.580 únicos,cero soluciones.
+- `review`:lectura visual de tres páginas del PDF combinado y segunda pasada del mismo autor;sin segundo revisor distinto. Año2008 sólo por carpeta;curso y resto de identificación vacíos. Criterios integrados en página3;sin tabla.
+- `test/build`:**Verificación L076:** 21 pruebas superadas en 158.081s;580 ejercicios y215 fuentes válidas. Tres páginas fuente y6 páginas finales revisadas;PDF de3/3páginas. Los1296 archivos anteriores intactos:574 enunciados,574 soluciones y148 PDF. ZIP aislado de1725 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
+- `next`:L077,SRC-AC589B64F248;8 candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-11-06 · feat/review/test/build/docs: L077
+
+- `feat`:seis ejercicios originales D0077/EXA-0077;Partes I/II en A3/B3 preservadas y clasificadas también en inferencia.586 únicos,cero soluciones.
+- `review`:lectura visual de tres páginas del PDF combinado y segunda pasada del mismo autor;sin segundo revisor distinto. Año2008 sólo por carpeta;curso y resto de identificación vacíos. Criterios integrados en página3;sin tabla.
+- `test/build`:**Verificación L077:** 21 pruebas superadas en 127.449s;586 ejercicios y215 fuentes válidas. Tres páginas fuente y6 páginas finales revisadas;PDF de3/3páginas. Los1310 archivos anteriores intactos:580 enunciados,580 soluciones y150 PDF. ZIP aislado de1744 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
+- `next`:L078,SRC-AA1E8E5E167F;7 candidatos pendientes. Soluciones después de completar transcripciones.
+
+### 2026-11-06 · feat/review/test/build/docs: L078
+
+- `feat`:seis ejercicios originales D0078/EXA-0078;Partes I/II en A3/B3 preservadas y clasificadas también en inferencia.592 únicos,cero soluciones.
+- `review`:lectura visual de tres páginas del PDF combinado y segunda pasada del mismo autor;sin segundo revisor distinto. Año2008 sólo por carpeta;curso y resto de identificación vacíos. Criterios integrados en página3;sin tabla.
+- `test/build`:**Verificación L078:** 21 pruebas superadas en 133.400s;592 ejercicios y215 fuentes válidas. Tres páginas fuente y6 páginas finales revisadas;PDF de3/3páginas. Los1324 archivos anteriores intactos:586 enunciados,586 soluciones y152 PDF. ZIP aislado de1763 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
+- `next`:L079,SRC-CAE51951D43C;6 candidatos pendientes. Próxima tanda en DOC: convertir copia, registrar herramienta y cotejar fórmulas antes de transcribir. Soluciones después de completar transcripciones.
+
+### 2026-11-07 · feat/review/test/build/docs: L079
+
+- `feat`:ocho ejercicios originales D0079/EXA-0079;Curso 2011-2012 confirmado; transcripción desde DOC convertidos y fórmulas cotejadas visualmente.600 únicos,cero soluciones.
+- `review`:lectura visual de dos páginas del examen DOC convertido, una de criterios y una de tabla y segunda pasada del mismo autor;sin segundo revisor distinto. Curso 2011-2012 impreso; convocatoria, tipo, reserva y modelo vacíos. Criterios DOC separados y tabla normal asociada por carpeta.
+- `test/build`:**Verificación L079:** 21 pruebas superadas en 311.376s;600 ejercicios y215 fuentes válidas. Cuatro páginas fuente y7 páginas finales revisadas;PDF de3/4páginas. Los1338 archivos anteriores intactos:592 enunciados,592 soluciones y154 PDF. ZIP aislado de1787 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
+- `next`:L080,SRC-233B0EB573AE;5 candidatos pendientes. Próxima tanda en DOC: convertir copia, registrar herramienta y cotejar fórmulas antes de transcribir. Soluciones después de completar transcripciones.
+
+### 2026-11-07 · feat/review/test/build/docs: L080
+
+- `feat`:ocho ejercicios originales D0080/EXA-0080;Curso 2011-2012 confirmado; transcripción desde DOC convertidos y fórmulas cotejadas visualmente.608 únicos,cero soluciones.
+- `review`:lectura visual de dos páginas del examen DOC convertido, una de criterios y una de tabla y segunda pasada del mismo autor;sin segundo revisor distinto. Curso 2011-2012 impreso; convocatoria, tipo, reserva y modelo vacíos. Criterios DOC separados y tabla normal asociada por carpeta.
+- `test/build`:**Verificación L080:** 21 pruebas superadas en 261.391s;608 ejercicios y215 fuentes válidas. Cuatro páginas fuente y8 páginas finales revisadas;PDF de4/4páginas. Los1356 archivos anteriores intactos:600 enunciados,600 soluciones y156 PDF. ZIP aislado de1811 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
+- `next`:L081,SRC-47DD01146BF2;4 candidatos pendientes. Próxima tanda en DOC: convertir copia, registrar herramienta y cotejar fórmulas antes de transcribir. Soluciones después de completar transcripciones.
+
+### 2026-11-07 · feat/review/test/build/docs: L081
+
+- `feat`:ocho ejercicios originales D0081/EXA-0081;Curso 2011-2012 confirmado; transcripción desde DOC convertidos y fórmulas cotejadas visualmente.616 únicos,cero soluciones.
+- `review`:lectura visual de dos páginas del examen DOC convertido, una de criterios y una de tabla y segunda pasada del mismo autor;sin segundo revisor distinto. Curso 2011-2012 impreso; convocatoria, tipo, reserva y modelo vacíos. Criterios DOC separados y tabla normal asociada por carpeta.
+- `test/build`:**Verificación L081:** 21 pruebas superadas en 615.284s;616 ejercicios y215 fuentes válidas. Cuatro páginas fuente y7 páginas finales revisadas;PDF de3/4páginas. Los1374 archivos anteriores intactos:608 enunciados,608 soluciones y158 PDF. ZIP aislado de1835 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
+- `next`:L082,SRC-D6F4BADE71FA;3 candidatos pendientes. Próxima tanda en DOC: convertir copia, registrar herramienta y cotejar fórmulas antes de transcribir. Soluciones después de completar transcripciones.
+
+### 2026-11-07 · feat/review/test/build/docs: L082
+
+- `feat`:ocho ejercicios originales D0082/EXA-0082;Curso 2011-2012 confirmado; transcripción desde DOC convertidos y fórmulas cotejadas visualmente.624 únicos,cero soluciones.
+- `review`:lectura visual de dos páginas del examen DOC convertido, una de criterios y una de tabla y segunda pasada del mismo autor;sin segundo revisor distinto. Curso 2011-2012 impreso; convocatoria, tipo, reserva y modelo vacíos. Criterios DOC separados y tabla normal asociada por carpeta.
+- `test/build`:**Verificación L082:** 21 pruebas superadas en 221.537s;624 ejercicios y215 fuentes válidas. Cuatro páginas fuente y7 páginas finales revisadas;PDF de3/4páginas. Los1392 archivos anteriores intactos:616 enunciados,616 soluciones y160 PDF. ZIP aislado de1859 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
+- `next`:L083,SRC-BE7FD9AED84C;2 candidatos pendientes. Próxima tanda en DOC: convertir copia, registrar herramienta y cotejar fórmulas antes de transcribir. Soluciones después de completar transcripciones.
+
+### 2026-11-07 · feat/review/test/build/docs: L083
+
+- `feat`:ocho ejercicios originales D0083/EXA-0083;Curso 2011-2012 confirmado; transcripción desde DOC convertidos y fórmulas cotejadas visualmente.632 únicos,cero soluciones.
+- `review`:lectura visual de dos páginas del examen DOC convertido, una de criterios y una de tabla y segunda pasada del mismo autor;sin segundo revisor distinto. Curso 2011-2012 impreso; convocatoria, tipo, reserva y modelo vacíos. Criterios DOC separados y tabla normal asociada por carpeta.
+- `test/build`:**Verificación L083:** 21 pruebas superadas en 158.372s;632 ejercicios y215 fuentes válidas. Cuatro páginas fuente y8 páginas finales revisadas;PDF de4/4páginas. Los1410 archivos anteriores intactos:624 enunciados,624 soluciones y162 PDF. ZIP aislado de1883 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
+- `next`:L084,SRC-0C2E07B0E73E;1 candidato pendiente. Próxima tanda en DOC: convertir copia, registrar herramienta y cotejar fórmulas antes de transcribir. Soluciones después de completar transcripciones.
+
+### 2026-11-07 · feat/review/test/build/docs: L084
+
+- `feat`:ocho ejercicios originales D0084/EXA-0084;Curso 2011-2012 confirmado; transcripción desde DOC convertidos y fórmulas cotejadas visualmente.640 únicos,cero soluciones.
+- `review`:lectura visual de dos páginas del examen DOC convertido, una de criterios y una de tabla y segunda pasada del mismo autor;sin segundo revisor distinto. Curso 2011-2012 impreso; convocatoria, tipo, reserva y modelo vacíos. Criterios DOC separados y tabla normal asociada por carpeta.
+- `test/build`:**Verificación L084:** 21 pruebas superadas en 507.023s;640 ejercicios y215 fuentes válidas. Cuatro páginas fuente y7 páginas finales revisadas;PDF de3/4páginas. Los1428 archivos anteriores intactos:632 enunciados,632 soluciones y164 PDF. ZIP aislado de1908 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
+- `next`:Primera pasada de las84 tandas terminada. Revisar incidencias y preparar tandas de soluciones según docs/FASE_SOLUCIONES.md, sin marcar respuestas pendientes como resueltas.
+
+### 2026-11-07 · feat/review/test/build/docs: S001
+
+Dos soluciones explicadas y validadas (A1/A2, EXA-0001);638 pendientes. Aritmética exacta y comprobaciones separadas, revisión didáctica y cotejo de criterios.22 pruebas; ZIP aislado y dos PDF revisados.640 enunciados intactos. [Informe](docs/soluciones/S001_2019_A1_A2.md). Siguiente S002.
+
+### 2026-11-07 · feat/review/test/build/docs: S002
+
+Seis soluciones explicadas y validadas (A3/A4 y B1-B4, EXA-0001);632 pendientes. Aritmética exacta y comprobaciones separadas, revisión didáctica y cotejo de criterios.22 pruebas; ZIP aislado y dos PDF revisados.640 enunciados intactos. [Informe](docs/soluciones/S002_2019_RESTO_EXAMEN.md). Siguiente S003.
+
+## Soluciones: avance S003
+
+EXA-0002: ocho soluciones nuevas validadas;16 acumuladas y624 pendientes. Enunciados y categorías intactos. Tres pasadas del mismo autor;22 pruebas, PDF y ZIP aislado revisados. [Informe](docs/soluciones/S003_2019_SEPTIEMBRE.md). Siguiente:S004.
+
+### 2026-11-07 · feat/review/test/build/docs: S003
+
+Ocho soluciones de EXA-0002 validadas,16 acumuladas y624 pendientes. Aritmética exacta, cuantiles contrastados y mínimos comprobados en n/n−1. Tres pasadas del mismo autor,22 pruebas, PDF y ZIP aislado revisados.640 enunciados intactos. [Informe](docs/soluciones/S003_2019_SEPTIEMBRE.md). Siguiente S004.
+
+## Soluciones: avance S004
+
+EXA-0003: ocho soluciones nuevas;24 validadas y616 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. A4b documenta la diferencia entre amplitud y error y el efecto del redondeo prematuro del cuantil. [Informe](docs/soluciones/S004_2019_SUPLENTE_JUNIO.md). Siguiente:S005.
+
+- **2026-11-07** · S004: ocho soluciones de EXA-0003 explicadas y validadas;24 acumuladas y616 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](docs/soluciones/S004_2019_SUPLENTE_JUNIO.md). Siguiente S005.
+
+## Soluciones: avance S005
+
+EXA-0004: ocho soluciones nuevas;32 validadas y608 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. Se justifican el mínimo sobre una región no acotada y los extremos de las funciones a trozos. [Informe](docs/soluciones/S005_2019_SUPLENTE_SEPTIEMBRE.md). Siguiente:S006.
+
+- **2026-11-07** · S005: ocho soluciones de EXA-0004 explicadas y validadas;32 acumuladas y608 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](docs/soluciones/S005_2019_SUPLENTE_SEPTIEMBRE.md). Siguiente S006.
+
+## Soluciones: avance S006
+
+EXA-0005: ocho soluciones nuevas;40 validadas y600 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. Se documenta el mínimo sobre un segmento y la limitación del tamaño muestral deducido de límites redondeados. [Informe](docs/soluciones/S006_2019_RESERVA_A.md). Siguiente:S007.
+
+- **2026-11-07** · S006: ocho soluciones de EXA-0005 explicadas y validadas;40 acumuladas y600 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](docs/soluciones/S006_2019_RESERVA_A.md). Siguiente S007.
+
+## Soluciones: avance S007
+
+EXA-0006: ocho soluciones nuevas;48 validadas y592 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. Se conserva el dato120 de A4 y se revisa INC-006 sin modificar el original ni cerrar automáticamente su estado. [Informe](docs/soluciones/S007_2019_RESERVA_B.md). Siguiente:S008.
+
+- **2026-11-07** · S007: ocho soluciones de EXA-0006 explicadas y validadas;48 acumuladas y592 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](docs/soluciones/S007_2019_RESERVA_B.md). Siguiente S008.
+
+## Soluciones: avance S008
+
+EXA-0007: ocho soluciones nuevas;56 validadas y584 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. Se mantienen los cuatro bloques y la numeración global; gráficas, áreas e insesgadez de la media muestral comprobadas. [Informe](docs/soluciones/S008_2021_ORDINARIA.md). Siguiente:S009.
+
+- **2026-11-07** · S008: ocho soluciones de EXA-0007 explicadas y validadas;56 acumuladas y584 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](docs/soluciones/S008_2021_ORDINARIA.md). Siguiente S009.
+
+## Soluciones: avance S009
+
+EXA-0008: ocho soluciones nuevas;64 validadas y576 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. Se comprueban potencias, mínimo sobre un segmento, áreas y dados; E7 documenta4898 con cuantil preciso y4899 con1.96 tabulado. [Informe](docs/soluciones/S009_2021_ORD_SUPLENTE.md). Siguiente:S010.
+
+- **2026-11-07** · S009: ocho soluciones de EXA-0008 explicadas y validadas;64 acumuladas y576 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](docs/soluciones/S009_2021_ORD_SUPLENTE.md). Siguiente S010.

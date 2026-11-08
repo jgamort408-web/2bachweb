@@ -1,5 +1,23 @@
 % ID: SEL-D0008-BD-E08
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S009, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Distribución de la media muestral.}\par\nopagebreak[4]
+La varianza poblacional es 256 g$^2$, por lo que la desviación es $\sigma=16$ g, no 256. Para 64 observaciones independientes de una población normal, la media es exactamente normal de media 1000 g y desviación $16/\sqrt{64}=2$ g.
+\[
+P(\overline X<996)=P\left(Z<\frac{996-1000}{2}\right)
+=P(Z<-2)\approx\boxed{0.0227501}.
+\]
+Se usa la distribución de la \emph{media}, no la de un paquete individual. La desigualdad estricta o no estricta da la misma probabilidad para una distribución continua.
+
+\textbf{b) Intervalo para la media real.}\par\nopagebreak[4]
+En este apartado se estima una media desconocida a partir de la muestra; no se impone que la media real siga siendo 1000. Se conserva la desviación poblacional dada y se obtiene
+\[
+\overline x=\frac{63744}{64}=996\text{ g}.
+\]
+Para confianza 90\,\%, $z_{0.95}\approx1.644853627$ y el error es $E=2z_{0.95}\approx3.289707$ g:
+\[
+\boxed{IC_{\text{90\%}}\approx(992.710293,\ 999.289707)\text{ g}.}
+\]
+Con 1.645 interpolado en la tabla se obtiene $(992.71,999.29)$ g. La cobertura del método depende del modelo normal, de la desviación conocida y de una muestra aleatoria representativa.
+
+\textbf{c) Interpretación estadística.}\par\nopagebreak[4]
+Sí hay base estadística para sospechar un peso medio inferior al anunciado: el intervalo está íntegramente por debajo de 1000 g, pues incluso su extremo superior es aproximadamente 999.29 g. Se trata de una conclusión sobre la \emph{media poblacional}, al nivel de confianza empleado y bajo las hipótesis del procedimiento; no demuestra que todos los paquetes pesen menos de 1000 g ni constituye por sí sola una decisión jurídica.

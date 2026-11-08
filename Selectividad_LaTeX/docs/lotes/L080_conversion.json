@@ -1,0 +1,74 @@
+{
+  "conversion": [
+    {
+      "etiqueta": "examen",
+      "fuente_id": "SRC-233B0EB573AE",
+      "ruta_original": "Selectividad/sel_2012_matematicas_aplicadas/2 MATEMÁT. APLIC. CC. SS/EXAMEN 5-ANDALUCÍA.doc",
+      "sha256_original": "87b729cdd4632386690a9390bdfa17dd7d5c902a2cf7e5801feea45e2b181969",
+      "copia": "C:\\Users\\usuario\\OneDrive\\Documentos\\Aplicaciones\\2º Bachillerato Matemáticas Aplicadas a las Ciencias Sociales\\tmp\\pdfs\\selectividad-l080\\copias\\examen.doc",
+      "pdf": "C:\\Users\\usuario\\OneDrive\\Documentos\\Aplicaciones\\2º Bachillerato Matemáticas Aplicadas a las Ciencias Sociales\\tmp\\pdfs\\selectividad-l080\\convertidos\\examen.pdf",
+      "sha256_pdf": "d380099438340161bfed1b37d2c07c2244d99478f21cb1fd073fd90c87c010f0",
+      "conversor": "LibreOffice 26.8.2.2 9dea406ab7695df6325b11b0e19fdca8db4b7276",
+      "ejecutable": "C:\\Users\\usuario\\OneDrive\\Documentos\\Aplicaciones\\2º Bachillerato Matemáticas Aplicadas a las Ciencias Sociales\\tmp\\selectividad\\conversor\\LibreOffice\\program\\soffice.com",
+      "argumentos": [],
+      "salida": "Reanudación explícita: PDF de la ejecución interrumpida; copia y original verificados. No se ha reexportado.",
+      "reanudado": true
+    },
+    {
+      "etiqueta": "criterios",
+      "fuente_id": "SRC-E63EDEDF9977",
+      "ruta_original": "Selectividad/sel_2012_matematicas_aplicadas/2 MATEMÁT. APLIC. CC. SS/CRITERIOS 2/CRITERIOS 5-ANDALUCÍA.doc",
+      "sha256_original": "ea22be12e4ec0fa50a1cc4176fab48b718218ffdee0d6899817b8486c6283a5c",
+      "copia": "C:\\Users\\usuario\\OneDrive\\Documentos\\Aplicaciones\\2º Bachillerato Matemáticas Aplicadas a las Ciencias Sociales\\tmp\\pdfs\\selectividad-l080\\copias\\criterios.doc",
+      "pdf": "C:\\Users\\usuario\\OneDrive\\Documentos\\Aplicaciones\\2º Bachillerato Matemáticas Aplicadas a las Ciencias Sociales\\tmp\\pdfs\\selectividad-l080\\convertidos\\criterios.pdf",
+      "sha256_pdf": "63bf44e0a750da87c66a0a7503b3bc5b7543bedf22f79f69d82adaa771300878",
+      "conversor": "LibreOffice 26.8.2.2 9dea406ab7695df6325b11b0e19fdca8db4b7276",
+      "ejecutable": "C:\\Users\\usuario\\OneDrive\\Documentos\\Aplicaciones\\2º Bachillerato Matemáticas Aplicadas a las Ciencias Sociales\\tmp\\selectividad\\conversor\\LibreOffice\\program\\soffice.com",
+      "argumentos": [
+        "-env:UserInstallation=file:///C:/Users/usuario/AppData/Local/Temp/selectividad-lo-l080",
+        "--headless",
+        "--norestore",
+        "--convert-to",
+        "pdf:writer_pdf_Export",
+        "--outdir",
+        "C:\\Users\\usuario\\AppData\\Local\\Temp\\selectividad-lo-l080\\exportaciones",
+        "C:\\Users\\usuario\\OneDrive\\Documentos\\Aplicaciones\\2º Bachillerato Matemáticas Aplicadas a las Ciencias Sociales\\tmp\\pdfs\\selectividad-l080\\copias\\criterios.doc"
+      ],
+      "salida": "convert C:\\Users\\usuario\\OneDrive\\Documentos\\Aplicaciones\\2º Bachillerato Matemáticas Aplicadas a las Ciencias Sociales\\tmp\\pdfs\\selectividad-l080\\copias\\criterios.doc as a Writer document -> C:\\Users\\usuario\\AppData\\Local\\Temp\\selectividad-lo-l080\\exportaciones\\criterios.pdf using filter : writer_pdf_Export",
+      "reanudado": false
+    }
+  ],
+  "lectura": [
+    {
+      "etiqueta": "examen",
+      "fuente_id": "SRC-233B0EB573AE",
+      "ruta_original": "Selectividad/sel_2012_matematicas_aplicadas/2 MATEMÁT. APLIC. CC. SS/EXAMEN 5-ANDALUCÍA.doc",
+      "sha256_original": "87b729cdd4632386690a9390bdfa17dd7d5c902a2cf7e5801feea45e2b181969",
+      "lectura_pdf": "tmp/pdfs/selectividad-l080/convertidos/examen.pdf",
+      "sha256_lectura_pdf": "d380099438340161bfed1b37d2c07c2244d99478f21cb1fd073fd90c87c010f0",
+      "paginas": 2,
+      "conversor": "LibreOffice 26.8.2.2 9dea406ab7695df6325b11b0e19fdca8db4b7276"
+    },
+    {
+      "etiqueta": "criterios",
+      "fuente_id": "SRC-E63EDEDF9977",
+      "ruta_original": "Selectividad/sel_2012_matematicas_aplicadas/2 MATEMÁT. APLIC. CC. SS/CRITERIOS 2/CRITERIOS 5-ANDALUCÍA.doc",
+      "sha256_original": "ea22be12e4ec0fa50a1cc4176fab48b718218ffdee0d6899817b8486c6283a5c",
+      "lectura_pdf": "tmp/pdfs/selectividad-l080/convertidos/criterios.pdf",
+      "sha256_lectura_pdf": "63bf44e0a750da87c66a0a7503b3bc5b7543bedf22f79f69d82adaa771300878",
+      "paginas": 1,
+      "conversor": "LibreOffice 26.8.2.2 9dea406ab7695df6325b11b0e19fdca8db4b7276"
+    },
+    {
+      "etiqueta": "tabla",
+      "fuente_id": "SRC-7E1FA2C52E10",
+      "ruta_original": "Selectividad/sel_2012_matematicas_aplicadas/2 MATEMÁT. APLIC. CC. SS/TABLA/tabla normal oficial.pdf",
+      "sha256_original": "736bceb2982b4e3a6028d099a3250704f61154f0bd1251d29285609fe481cae7",
+      "lectura_pdf": "Selectividad/sel_2012_matematicas_aplicadas/2 MATEMÁT. APLIC. CC. SS/TABLA/tabla normal oficial.pdf",
+      "sha256_lectura_pdf": "736bceb2982b4e3a6028d099a3250704f61154f0bd1251d29285609fe481cae7",
+      "paginas": 1,
+      "conversor": null
+    }
+  ],
+  "nota": "Originales intactos; PDF derivados de lectura, fórmulas OLE cotejadas visualmente. Inventario original conservado sin reinterpretar su estado histórico DOC sin convertir."
+}

@@ -1,5 +1,20 @@
 % ID: SEL-D0008-BC-E05
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S009, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Probabilidad total de mujer.}\par\nopagebreak[4]
+Sean $P,B,C$ los cuerpos de policía, bomberos y protección civil; forman una partición de la plantilla, con 2000 integrantes. Sea $M$ ``ser mujer''.
+\[
+P(P)=0.5,\qquad P(B)=0.3,\qquad P(C)=0.2.
+\]
+Las tasas de mujeres son condicionadas al cuerpo correspondiente:
+\[
+P(M)=0.5(0.42)+0.3(0.20)+0.2(0.50)
+=0.21+0.06+0.10=\boxed{0.37}.
+\]
+
+\textbf{b) Bombero sabiendo que es hombre.}\par\nopagebreak[4]
+Sea $H=M^c$ en la clasificación de datos del ejercicio. Entonces $P(H)=0.63$ y $P(B\cap H)=0.3(0.80)=0.24$. Por Bayes,
+\[
+P(B\mid H)=\frac{P(B\cap H)}{P(H)}
+=\frac{0.24}{0.63}=\boxed{\frac8{21}\approx0.380952}.
+\]
+Comprobación por recuentos: las mujeres son $420+120+200=740$; los hombres, $580+480+200=1260$. Hay 480 bomberos hombres y $480/1260=8/21$. La tasa de hombres entre bomberos 0.80 no es la probabilidad pedida.

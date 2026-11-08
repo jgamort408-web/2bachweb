@@ -1,0 +1,18 @@
+% L053:reserva A sólo de carpeta;convocatoria/modelo no confirmados.
+\input{selecciones/l053-ids}
+\providecommand{\TituloSeleccion}{L053: archivo titular septiembre, curso 2012-2013, opciones A/B}
+\providecommand{\ContextoSeleccion}{\input{recursos/comunes/EXA-0053-instrucciones}}
+
+% Espaciado local sólo cuando se seleccionan los ocho ejercicios de L053.
+\ifdefined\EspaciadoLoteCincuentaTres\else
+\gdef\EspaciadoLoteCincuentaTres{si}
+\AtBeginDocument{%
+\edef\SeleccionActualEspaciado{\ListaEjercicios}%
+\def\SeleccionLoteCincuentaTres{SEL-D0053-OA-E01,SEL-D0053-OA-E02,SEL-D0053-OA-E03,SEL-D0053-OA-E04,SEL-D0053-OB-E01,SEL-D0053-OB-E02,SEL-D0053-OB-E03,SEL-D0053-OB-E04}%
+\ifx\SeleccionActualEspaciado\SeleccionLoteCincuentaTres
+\setlength{\parskip}{0.2em}\setlist[enumerate]{itemsep=0.15em,topsep=0.2em}%
+\fi}
+\fi
+
+
+

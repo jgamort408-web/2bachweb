@@ -1,5 +1,25 @@
 % ID: SEL-D0008-BD-E07
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S009, 2026-11-07; tres pasadas del mismo autor y revisión matemática, didáctica y visual.
+\textbf{a) Intervalo normal aproximado.}\par\nopagebreak[4]
+La estimación es $\widehat p=0.15$. Con muestra aleatoria independiente y recuentos 150 y 850, usamos el intervalo aproximado para proporciones. Para confianza 95\,\%, $\alpha=0.05$ y $z_{0.975}\approx1.959963985$.
+\[
+\widehat p\pm z_{0.975}\sqrt{\frac{\widehat p(1-\widehat p)}n}
+=0.15\pm1.959963985\sqrt{\frac{0.15(0.85)}{1000}}.
+\]
+\[
+\boxed{IC_{\text{95\%}}\approx(0.127868891,\ 0.172131109).}
+\]
+En porcentajes, aproximadamente entre 12.79\,\% y 17.21\,\%. La confianza es cobertura del procedimiento para la proporción poblacional, bajo el modelo de muestreo del ejercicio.
+
+\textbf{b) Tamaño mínimo y precisión del cuantil.}\par\nopagebreak[4]
+Se mantiene la proporción piloto 0.15 y se exige $E<0.01$, un punto porcentual:
+\[
+z_{0.975}\sqrt{\frac{0.15(0.85)}n}<0.01
+\iff n>\frac{z_{0.975}^2(0.1275)}{0.01^2}
+\approx4897.859996.
+\]
+Con el cuantil preciso, el tamaño mínimo es \boxed{n=4898}. Se comprueba que $E(4897)>0.01$ y $E(4898)<0.01$.
+
+\textbf{Si se trabaja con la tabla del examen:} usando $z=1.96$, el umbral es $n>4898.04$, por lo que resulta \boxed{n=4899\text{ con }z=1.96}. El redondeo del cuantil hace fallar por muy poco a 4898 en este segundo cálculo. 4899 es una elección conservadora que también cumple con el cuantil preciso.
+
+Se muestran ambos procedimientos para no mezclar un tamaño mínimo calculado con un cuantil y una comprobación hecha con otro. Los criterios asociados no fijan un resultado numérico. El tamaño indicado es total y la desigualdad de error es estricta; no se sustituye la proporción dada por 0.5.
