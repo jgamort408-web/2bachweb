@@ -45,9 +45,9 @@ Comprobaciones al generar:
 
 ## Dependencia de la otra herramienta
 
-Las páginas se generan desde la copia de trabajo de `Selectividad_LaTeX`. A 7 de noviembre, en Git solo constan 200 de los 640 enunciados y ninguna solución; el resto está sin confirmar en la carpeta, que solo protege OneDrive. Antes de fusionar esta rama:
+Las páginas se generan desde la copia de trabajo de `Selectividad_LaTeX`. El 8 de noviembre se confirmó en Git todo el trabajo de la otra herramienta (rama `selectividad/banco`, fusionada aquí). Las páginas coinciden con ese estado. Antes de fusionar esta rama:
 
-1. La otra herramienta confirma su trabajo y completa la identificación.
+1. La otra herramienta confirma su trabajo posterior y completa la identificación.
 2. Se regenera con `npm run build:selectividad` y se comprueba con `npm test` y la prueba 165.
 3. La integración continua ejecuta `--check` contra lo confirmado: si las páginas se generaron con archivos sin confirmar, falla.
 
