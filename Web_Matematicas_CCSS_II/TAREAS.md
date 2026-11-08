@@ -102,7 +102,7 @@ Actualizado: 22 de octubre de 2026. Índice operativo; los criterios detallados 
 - [x] S84 · L084:ocho enunciados cotejados y clasificados; primera pasada completa. [Informe](../Selectividad_LaTeX/docs/lotes/L084_2012_EXAMEN_6.md).
 - [ ] SEL-SOL-01 · Revisar incidencias y preparar tandas de soluciones según el [balance](../Selectividad_LaTeX/docs/CIERRE_TRANSCRIPCIONES.md).
 
-**Estado actual de Selectividad:**84 de84 candidatos de transcripción cerrados;83 exámenes canónicos,640 enunciados cotejados/clasificados;64 soluciones validadas y576 pendientes. [Tandas de soluciones](../Selectividad_LaTeX/docs/LOTES_DE_SOLUCIONES.md).
+**Estado actual de Selectividad:**84 de84 candidatos de transcripción cerrados;83 exámenes canónicos,640 enunciados cotejados/clasificados;80 soluciones validadas y560 pendientes. [Tandas de soluciones](../Selectividad_LaTeX/docs/LOTES_DE_SOLUCIONES.md).
 
 Las tareas del libro siguientes conservan su estado. T07 sigue pendiente: esta ampliación no equivale al cierre de la biblioteca web ni modifica el diseño.
 
@@ -487,4 +487,6 @@ Las tareas del libro siguientes conservan su estado. T07 sigue pendiente: esta a
 - [x] SEL-S007 · Ocho soluciones de EXA-0006 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S007_2019_RESERVA_B.md).
 - [x] SEL-S008 · Ocho soluciones de EXA-0007 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S008_2021_ORDINARIA.md).
 - [x] SEL-S009 · Ocho soluciones de EXA-0008 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S009_2021_ORD_SUPLENTE.md).
-- [ ] SEL-S010 · Ocho ejercicios de EXA-0009 según el plan de tandas.
+- [x] SEL-S010 · Ocho soluciones de EXA-0009 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S010_2021_ORD_RESERVA.md).
+- [x] SEL-S011 · Ocho soluciones de EXA-0010 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S011_2021_EXTRAORDINARIA.md).
+- [ ] SEL-S012 · Ocho ejercicios de EXA-0011 según el plan de tandas.

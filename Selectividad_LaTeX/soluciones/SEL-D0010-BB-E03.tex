@@ -1,5 +1,30 @@
 % ID: SEL-D0010-BB-E03
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S011; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{a) Dominio, continuidad y derivabilidad.}\par\nopagebreak[4]
+El dominio es $\mathbb R$. Cada rama es continua y derivable en su intervalo abierto. En la unión,
+\[
+\lim_{x\to0^-}f(x)=2,\qquad
+\lim_{x\to0^+}f(x)=f(0)=0.
+\]
+Hay discontinuidad de salto en $0$, por lo que tampoco es derivable allí: la derivabilidad implica continuidad. Fuera de ese punto,
+\[
+f'(x)=\begin{cases}(\ln2)2^{x+1}&x<0,\\2x-2&x>0.\end{cases}
+\]
+La derivada de la expresión exponencial al prolongarla a $0$ no es una derivada lateral de la función dada en $0$; ésta usa el valor real $f(0)=0$.
+
+\textbf{b) Monotonía y mínimo.}\par\nopagebreak[4]
+Para $x<0$, $f'>0$: crece en $(-\infty,0)$. Para $0<x<1$, $f'<0$: decrece en $[0,1]$. Para $x>1$, $f'>0$: crece en $[1,+\infty)$. No se incluye $0$ en el primer intervalo creciente, debido al salto.
+La rama cuadrática es $(x-1)^2-1\geq-1$, mientras que la exponencial es positiva. Por ello el mínimo absoluto y único es \boxed{f(1)=-1}. No hay máximo absoluto, ya que la rama cuadrática crece sin cota superior.
+
+\textbf{c) Integral definida, con signo.}\par\nopagebreak[4]
+Una discontinuidad aislada no impide esta integral. Separamos en $0$:
+\[
+\begin{aligned}
+\int_{-2}^{2}f(x)\,dx
+&=\int_{-2}^{0}2^{x+1}\,dx+\int_0^2(x^2-2x)\,dx\\
+&=\left[\frac{2^{x+1}}{\ln2}\right]_{-2}^{0}
++\left[\frac{x^3}{3}-x^2\right]_0^2\\
+&=\boxed{\frac{3}{2\ln2}-\frac43\approx0.830709228.}
+\end{aligned}
+\]
+El enunciado pide una integral definida, no un área geométrica. Los criterios mencionan un área, pero aquí prevalece la pregunta impresa. Como la rama cuadrática es negativa en $(0,2)$, el área geométrica sería $3/(2\ln2)+4/3$, un valor distinto que no sustituye la respuesta.

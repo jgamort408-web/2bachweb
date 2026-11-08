@@ -1,7 +1,7 @@
 {
   "tanda": "S010",
   "fecha": "2026-11-07",
-  "estado": "PDF revisados; ZIP aislado pendiente",
+  "estado": "cerrado",
   "ids": [
     "SEL-D0009-BA-E01",
     "SEL-D0009-BA-E02",
@@ -3374,5 +3374,15 @@
     "segundo_revisor_distinto": false
   },
   "incidencias_csv_modificadas": false,
-  "clasificacion_modificada": false
+  "clasificacion_modificada": false,
+  "fuentes_verificadas": 215,
+  "examen_completo_EXA0009_comprobado": true,
+  "zip_aislado": {
+    "miembros": 2005,
+    "ambos_modos_identicos": true,
+    "s009_anterior_identico": true,
+    "main_L084_texto_y_renderizados_identicos": true,
+    "servicio_remoto_overleaf_probado": false
+  },
+  "fecha_cierre": "2026-11-08"
 }

@@ -1,5 +1,27 @@
 % ID: SEL-D0010-BB-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S011; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{a) Continuidad y derivabilidad del modelo.}\par\nopagebreak[4]
+El dominio dado es $[0.2,10]$. Cada rama polinómica es continua y derivable en su interior. Comprobamos las uniones:
+\[
+\begin{array}{c|rr}
+t&\text{valor de la rama izquierda}&\text{límite de la derecha}\\\hline
+1.8&-1.8^2+2(1.8)-0.3=0.06&0.1(1.8)-0.12=0.06\\
+5&0.1(5)-0.12=0.38&-0.5(5)^2+8.3(5)-28.62=0.38
+\end{array}
+\]
+La función es continua en todo el dominio, con continuidad unilateral en sus extremos. Sus derivadas en los interiores de los tramos son
+\[
+f'(t)=\begin{cases}-2t+2&0.2<t<1.8,\\0.1&1.8<t<5,\\-t+8.3&5<t<10.\end{cases}
+\]
+En $1.8$ las derivadas laterales son $-1.6$ y $0.1$; en $5$ son $0.1$ y $3.3$. \textbf{No es derivable en ninguna de esas dos uniones}; sí en los restantes puntos interiores. En $0.2$ y $10$ sólo se considera la correspondiente derivada unilateral.
+
+\textbf{b) Máximo global e interpretación de unidades.}\par\nopagebreak[4]
+En el primer tramo la derivada se anula en $t=1$, con cambio de positiva a negativa. El tramo lineal es creciente. En el tercero la derivada se anula en $t=8.3$, también con cambio de positiva a negativa. Comparamos estos candidatos, uniones y extremos:
+\[
+\begin{array}{c|rrrrrr}
+t&0.2&1&1.8&5&8.3&10\\\hline
+f(t)&0.06&0.7&0.06&0.38&5.825&4.38
+\end{array}
+\]
+\boxed{t=8.3\text{ meses},\qquad f(8.3)=5.825\text{ miles}=5825\text{ personas}.}
+Es el máximo absoluto único del modelo: en cada tramo ya se han examinado todos los candidatos. $t=1$ sólo da un máximo local menor. El tiempo se mide desde el inicio del conteo indicado en marzo de 2020; no se convierte en una fecha exacta que el modelo no proporciona. Las cifras describen este ejercicio histórico.

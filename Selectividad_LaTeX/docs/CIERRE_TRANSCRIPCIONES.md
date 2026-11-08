@@ -72,3 +72,11 @@ Ocho soluciones nuevas de EXA-0007;56 acumuladas y584 pendientes.640 enunciados 
 ## Avance S009 · 2026-11-07
 
 Ocho soluciones nuevas de EXA-0008;64 acumuladas y576 pendientes.640 enunciados y categorías intactos. Tres pasadas del mismo autor, sin segundo revisor. [Informe](soluciones/S009_2021_ORD_SUPLENTE.md). Siguiente:S010. Estados históricos conservados.
+
+## Avance S010 · 2026-11-08
+
+Ocho soluciones nuevas de EXA-0009;72 acumuladas y568 pendientes.640 enunciados y categorías intactos. Tres pasadas del mismo autor, sin segundo revisor. [Informe](soluciones/S010_2021_ORD_RESERVA.md). Siguiente:S011. Estados históricos conservados.
+
+## Avance S011 · 2026-11-08
+
+Ocho soluciones nuevas de EXA-0010;80 acumuladas y560 pendientes.640 enunciados y categorías intactos. Tres pasadas del mismo autor, sin segundo revisor. [Informe](soluciones/S011_2021_EXTRAORDINARIA.md). Siguiente:S012. Estados históricos conservados.

@@ -4,7 +4,7 @@ Fecha de preparación: 2026-10-22. Aplicables a los originales conservados en `.
 
 ## 1. Encargo y alcance actual
 
-**L001-L084 cerradas: 640 enunciados únicos cotejados y 640 clasificaciones verificadas.** Son 83 exámenes canónicos y 84 de 84 candidatos cerrados; ninguno pendiente de transcripción. L057 es una reedición sin ejercicios nuevos. L084 añade ocho enunciados desde DOC convertidos, curso 2011-2012 impreso. S001-S009 incorporan 64 soluciones validadas;576 siguen sin redactar. La transcripción completa permanece intacta.
+**L001-L084 cerradas: 640 enunciados únicos cotejados y 640 clasificaciones verificadas.** Son 83 exámenes canónicos y 84 de 84 candidatos cerrados; ninguno pendiente de transcripción. L057 es una reedición sin ejercicios nuevos. L084 añade ocho enunciados desde DOC convertidos, curso 2011-2012 impreso. S001-S011 incorporan 80 soluciones validadas;560 siguen sin redactar. La transcripción completa permanece intacta.
 
 En L005-L056 y L058-L084, el cotejo consta de segundas pasadas visuales completas del mismo autor, separadas de la escritura; no se atribuye a un segundo revisor distinto. L001-L004 conservan sus propias evidencias de revisión.
 
@@ -683,3 +683,11 @@ EXA-0007: ocho soluciones nuevas;56 validadas y584 pendientes. Tres pasadas del 
 ## Soluciones: avance S009
 
 EXA-0008: ocho soluciones nuevas;64 validadas y576 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. Se comprueban potencias, mínimo sobre un segmento, áreas y dados; E7 documenta4898 con cuantil preciso y4899 con1.96 tabulado. [Informe](soluciones/S009_2021_ORD_SUPLENTE.md). Siguiente:S010.
+
+## Soluciones: avance S010
+
+EXA-0009: ocho soluciones nuevas;72 validadas y568 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. E1a se formula sin resolver; E7b explica ambas convenciones de reemplazamiento; E8 distingue amplitud y error y comprueba el mínimo 71. [Informe](soluciones/S010_2021_ORD_RESERVA.md). Siguiente:S011.
+
+## Soluciones: avance S011
+
+EXA-0010: ocho soluciones nuevas;80 validadas y560 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. E3 distingue integral definida y área; E7 explica 783 con cuantil preciso y 785 con 2.81 tabulado; E8 verifica el mínimo 53. [Informe](soluciones/S011_2021_EXTRAORDINARIA.md). Siguiente:S012.
