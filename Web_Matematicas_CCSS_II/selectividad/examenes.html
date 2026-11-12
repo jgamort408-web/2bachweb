@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" data-skin="mc">
+<head>
+  <script src="../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Generador de exámenes · Matemáticas CCSS II</title>
+  <meta name="description" content="Exámenes de práctica con el formato de la PAU vigente a partir de ejercicios de Selectividad, en PDF y LaTeX.">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <script type="module" src="../assets/js/app.js"></script>
+  <script type="module" src="../assets/js/learning/selectividad-exams.js"></script>
+</head>
+<body data-page-id="selectividad-examenes" class="mc-skin">
+  <!-- Generado por scripts/build-selectividad.mjs a partir de Selectividad_LaTeX: no editar a mano. -->
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main mc-page">
+    <h1>Generador de exámenes</h1>
+    <p class="mc-lead">Exámenes de práctica con la estructura de la PAU de 2025-2026, hechos con ejercicios de Selectividad: al azar o eligiendo el tema, el contenido o el ejercicio de cada pregunta. Se imprimen, se guardan en PDF o se descargan en LaTeX.</p>
+    <p>Estructura: <strong>ejercicio 1</strong> (3 puntos, matrices, sistemas y programación lineal) y <strong>ejercicio 2</strong> (3 puntos, análisis), cada uno con opción A o B; <strong>ejercicios 3 y 4</strong> (2 puntos cada uno, probabilidad e inferencia), obligatorios. Las puntuaciones de los apartados se adaptan a esos valores. Más detalles en <a href="index.html#formato">cómo es la prueba actual</a>.</p>
+    <noscript><p class="mc-rel__notice">El generador necesita JavaScript. Puedes consultar los ejercicios en las <a href="index.html">páginas de cada tema</a>.</p></noscript>
+    <form class="mc-rel__form" data-exam-form hidden aria-labelledby="examen-criterios">
+      <h2 id="examen-criterios">Opciones del examen</h2>
+      <div class="mc-rel__row">
+        <label class="mc-field">Semilla <input type="text" name="semilla" autocomplete="off" spellcheck="false" aria-describedby="examen-semilla-ayuda"></label>
+        <label class="mc-field mc-rel__title">Título <input type="text" name="titulo" autocomplete="off"></label>
+      </div>
+      <p class="mc-rel__hint" id="examen-semilla-ayuda">Con la misma semilla y las mismas elecciones sale el mismo examen; el enlace de la página lo reproduce.</p>
+      <p class="mc-rel__options"><label class="mc-sel__check"><input type="checkbox" name="op1" checked> Ejercicio 1 con opción A o B</label>
+      <label class="mc-sel__check"><input type="checkbox" name="op2" checked> Ejercicio 2 con opción A o B</label>
+      <label class="mc-sel__check"><input type="checkbox" name="tabla" checked> Añadir la tabla de la N(0, 1)</label>
+      <label class="mc-sel__check" data-exam-solutions-field hidden><input type="checkbox" name="soluciones"> Añadir las soluciones al final</label></p>
+      <fieldset class="mc-exam-slots">
+        <legend>Preguntas <span class="mc-rel__hint">(sin cambiar nada, cada una se elige al azar entre sus temas habituales)</span></legend>
+        <div data-exam-slots></div>
+      </fieldset>
+      <p class="mc-rel__actions"><button type="submit" class="mc-btn mc-btn--primary">Generar examen</button> <button type="button" class="mc-btn" data-exam-reroll>Otro examen</button></p>
+    </form>
+    <div class="mc-exam-warnings" data-exam-warnings role="status" aria-live="polite"></div>
+    <section class="mc-rel__output" data-exam-output hidden aria-labelledby="examen-titulo">
+      <p class="mc-rel__downloads"><button type="button" class="mc-btn mc-btn--primary" data-exam-print>Imprimir o guardar en PDF</button> <button type="button" class="mc-btn" data-exam-tex>Descargar LaTeX (.tex)</button> <button type="button" class="mc-btn" data-exam-zip>Proyecto para Overleaf (.zip)</button></p>
+      <article class="mc-rel__sheet mc-exam-sheet" data-exam-sheet></article>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

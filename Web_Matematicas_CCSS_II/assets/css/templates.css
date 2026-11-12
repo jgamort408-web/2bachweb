@@ -430,15 +430,50 @@
 .mc-rel__notice { padding: var(--mc-space-3) var(--mc-space-4); background: var(--mc-error-bg); border-radius: var(--mc-radius-box); }
 @media (max-width: 30rem) { .mc-rel__form, .mc-rel__sheet { padding-inline: var(--mc-space-3); } }
 @media print {
-  body[data-page-id="selectividad-relaciones"] > :not(main),
-  body[data-page-id="selectividad-relaciones"] main > :not([data-rel-output]),
+  body:is([data-page-id="selectividad-relaciones"], [data-page-id="selectividad-examenes"]) > :not(main),
+  body:is([data-page-id="selectividad-relaciones"], [data-page-id="selectividad-examenes"]) main > :not([data-rel-output], [data-exam-output]),
   .mc-rel__downloads { display: none !important; }
-  body[data-page-id="selectividad-relaciones"], body[data-page-id="selectividad-relaciones"] main { margin: 0; padding: 0; background: #FFFFFF; }
+  body:is([data-page-id="selectividad-relaciones"], [data-page-id="selectividad-examenes"]), body:is([data-page-id="selectividad-relaciones"], [data-page-id="selectividad-examenes"]) main { margin: 0; padding: 0; background: #FFFFFF; }
   .mc-rel__output, .mc-rel__sheet { margin: 0; padding: 0; border: 0; }
   /* Tinta oscura sobre papel también con el tema oscuro: se redefinen los colores de la página. */
-  body[data-page-id="selectividad-relaciones"] { --mc-text: #000000; --mc-text-2: #333333; --mc-text-3: #222222; --mc-paper: #FFFFFF; --mc-border: #CCCCCC; --mc-border-strong: #999999; --mc-link: #000000; color: #000000; }
+  body:is([data-page-id="selectividad-relaciones"], [data-page-id="selectividad-examenes"]) { --mc-text: #000000; --mc-text-2: #333333; --mc-text-3: #222222; --mc-paper: #FFFFFF; --mc-border: #CCCCCC; --mc-border-strong: #999999; --mc-link: #000000; color: #000000; }
   .mc-rel__list { display: block; }
   .mc-rel__exercise + .mc-rel__exercise { margin-top: var(--mc-space-5); }
   .mc-rel__solutions { break-before: page; border-top: 0; }
   .mc-rel__sheet .math-scroll { overflow: visible; }
+}
+
+/* Generador de exámenes con formato PAU (P10). */
+.mc-exam-slots { display: grid; gap: var(--mc-space-3); }
+.mc-exam-slot { display: grid; gap: var(--mc-space-2); padding: var(--mc-space-3) var(--mc-space-4); border: 1px solid var(--mc-border); border-inline-start: 4px solid var(--mc-accent, var(--mc-action)); border-radius: var(--mc-radius-box); }
+.mc-exam-slot__title { margin: 0; font-weight: 700; }
+.mc-exam-slot__controls { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--mc-space-2) var(--mc-space-3); align-items: end; }
+@media (min-width: 48rem) { .mc-exam-slot__controls { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr) minmax(0, 1fr) auto; } }
+.mc-exam-slot__controls :is(select, input) { width: 100%; min-height: var(--mc-target); font-size: 1rem; }
+.mc-exam-slot__chosen { margin: 0; font-size: var(--mc-text-sm); color: var(--mc-text-2); }
+.mc-exam-warnings:empty { display: none; }
+.mc-exam-warnings { margin-top: var(--mc-space-4); padding: var(--mc-space-3) var(--mc-space-4); background: var(--mc-error-bg); border: 1px solid var(--mc-error-border); border-radius: var(--mc-radius-box); color: var(--mc-error-text); }
+.mc-exam-warnings ul { margin: 0; padding-inline-start: 1.25rem; }
+.mc-exam-instructions { margin-top: var(--mc-space-4); padding: var(--mc-space-3) var(--mc-space-4); border: 1px solid var(--mc-border-strong); border-radius: var(--mc-radius-box); font-size: var(--mc-text-sm); }
+.mc-exam-instructions__title { margin: 0; font-weight: 700; }
+.mc-exam-instructions ol { margin: var(--mc-space-2) 0 0; padding-inline-start: 1.5rem; }
+.mc-exam-instructions li::marker { content: counter(list-item, lower-alpha) ") "; }
+.mc-exam-exercise { margin-top: var(--mc-space-5); padding-top: var(--mc-space-4); border-top: 1px solid var(--mc-border); }
+.mc-exam-exercise h3 { margin: 0; font-size: 1.1875rem; }
+@media (min-width: 40rem) { [data-exam-form] .mc-rel__row { grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); } }
+.mc-exam-exercise__choice { margin: var(--mc-space-2) 0 0; font-weight: 600; }
+.mc-exam-option { margin-top: var(--mc-space-4); }
+.mc-exam-option h4 { margin: 0; font-size: 1.0625rem; }
+.mc-exam-option .mc-sel__statement { margin-top: var(--mc-space-2); }
+.mc-rel__solutions h4 { margin: var(--mc-space-5) 0 0; font-size: 1.0625rem; }
+.mc-exam-table { margin-top: var(--mc-space-6); overflow-x: auto; }
+.mc-exam-table table { margin-inline: auto; border-collapse: collapse; font-size: 0.8125rem; font-variant-numeric: tabular-nums; }
+.mc-exam-table caption { margin-bottom: var(--mc-space-2); font-weight: 700; font-size: 1rem; }
+.mc-exam-table :is(th, td) { padding: 0.125rem 0.375rem; border: 1px solid var(--mc-border); text-align: center; white-space: nowrap; }
+.mc-exam-table thead th, .mc-exam-table tbody th { background: var(--mc-paper-2); }
+@media print {
+  .mc-exam-option { break-inside: avoid-page; }
+  .mc-exam-table { break-before: page; overflow: visible; }
+  .mc-exam-table table { font-size: 9pt; }
+  .mc-exam-instructions { break-inside: avoid; }
 }

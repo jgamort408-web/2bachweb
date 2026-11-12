@@ -850,6 +850,13 @@
     "kind": "section"
   },
   {
+    "id": "selectividad-examenes",
+    "title": "Generador de exámenes",
+    "path": "selectividad/examenes.html",
+    "parentId": "selectividad",
+    "kind": "section"
+  },
+  {
     "id": "tools",
     "title": "Herramientas",
     "path": "herramientas/index.html",

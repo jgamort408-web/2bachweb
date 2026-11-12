@@ -60,7 +60,19 @@ El banco (640 ejercicios, 2008–2021) procede del formato anterior: dos opcione
 
 Contenido del banco **fuera de los saberes vigentes**: el contraste de hipótesis (31 ejercicios con la etiqueta `contraste-hipotesis`). D3 solo incluye estimación, intervalos de confianza y tamaño muestral.
 
-## Reglas propuestas para el generador (P10)
+## Generador de exámenes (P10)
+
+Hecho el 12 de noviembre de 2026: [selectividad/examenes.html](../selectividad/examenes.html), con el modelo en [selectividad-exams.js](../content/models/selectividad-exams.js) y la interfaz en `assets/js/learning/selectividad-exams.js`. Aplica las reglas de abajo con estas concreciones:
+
+- **Huecos.** El ejercicio 1 tiene la opción A de matrices o sistemas (T04–T05) y la B de programación lineal (T06). El ejercicio 2 tiene la opción A de límites y derivadas (T01) y la B de representación o integrales (T02–T03). El 3 es de probabilidad (T07) y el 4 de inferencia (T09). Cada hueco puede fijar otro tema de su bloque, un contenido (etiqueta) o una referencia `SEL-…`, y pedir «Otro ejercicio». La opcionalidad de los ejercicios 1 y 2 se puede quitar. Sin opción, el hueco admite los tres temas del bloque y el examen avisa de que la parte obligatoria pasa del 50 %.
+- **Opción A u opción B.** Las orientaciones hablan de elegir «entre el apartado a) o el apartado b)». Aquí se dice «opción A u opción B» porque los enunciados y las soluciones del banco ya usan a), b), c) para sus propios apartados. La instrucción c) se redacta en consecuencia y desaparece si no hay opcionalidad.
+- **Puntuaciones.** Las de los apartados se reparten en proporción hasta los 3 o 2 puntos del ejercicio, en cuartos de punto, y suman exactamente ese valor (comprobado en los 640 enunciados, a 3 y a 2 puntos). La procedencia indica «puntuación adaptada». Las soluciones no se tocan: avisan de que sus puntuaciones son las del examen original.
+- **Tabla de la N(0, 1).** Se adjunta la tabla oficial de la página 8 del documento, copiada cifra a cifra en `content/selectividad/tabla-normal.json`. Una prueba la compara con la función de distribución exacta (serie de Marsaglia): coincide en 398 de 410 valores y difiere en una unidad de la última cifra en 12 (por ejemplo, 0.7258 para z = 0.60, cuando el valor exacto es 0.72575…). Se conserva la oficial porque es la que tendrá el alumnado en la prueba.
+- **Salidas.** Impresión del navegador; `.tex` autónomo (las figuras de las soluciones, sustituidas por un aviso); `.zip` para Overleaf con `examen.tex` y sus figuras en `recursos/figuras`. Diez exámenes con soluciones y tabla compilan con pdfLaTeX sin errores (de 6 a 8 páginas).
+- **Reproducible.** La semilla y las elecciones de cada hueco viajan en la dirección (`?semilla=7&tema1a=t06&otro3=1&ref4=SEL-D0001-OA-E04&soluciones=1`).
+- Pruebas: `selectividad-exams.test.mjs` y 167.
+
+## Reglas para el generador (P10)
 
 Valores por defecto razonados a partir del documento; el docente puede cambiarlos.
 

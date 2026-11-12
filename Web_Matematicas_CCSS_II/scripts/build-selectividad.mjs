@@ -414,7 +414,7 @@ function indexPage(bank) {
   const body = [
     '<h1>Selectividad</h1>',
     `<p class="mc-lead">${total} ejercicios de los exámenes de Matemáticas Aplicadas a las Ciencias Sociales II de Andalucía (${Math.min(...years)}–${Math.max(...years)}), ordenados por tema. Cada tarjeta indica el año, la convocatoria y el ejercicio de origen, y enlaza con las lecciones que necesitas.</p>`,
-    '<p>Para practicar con una selección al azar por temas y contenidos, en PDF o LaTeX, usa el <a href="relaciones.html">generador de relaciones</a>.</p>',
+    '<p>Para practicar con una selección al azar por temas y contenidos, en PDF o LaTeX, usa el <a href="relaciones.html">generador de relaciones</a>. Para un examen completo con la estructura de la prueba actual, el <a href="examenes.html">generador de exámenes</a>.</p>',
     '<section aria-labelledby="temas">',
     '  <h2 id="temas">Elige un tema</h2>',
     '  <ul class="mc-mode-list">',
@@ -485,6 +485,42 @@ function relationsPage(bank) {
   });
 }
 
+function examsPage() {
+  const body = [
+    '<h1>Generador de exámenes</h1>',
+    '<p class="mc-lead">Exámenes de práctica con la estructura de la PAU de 2025-2026, hechos con ejercicios de Selectividad: al azar o eligiendo el tema, el contenido o el ejercicio de cada pregunta. Se imprimen, se guardan en PDF o se descargan en LaTeX.</p>',
+    '<p>Estructura: <strong>ejercicio 1</strong> (3 puntos, matrices, sistemas y programación lineal) y <strong>ejercicio 2</strong> (3 puntos, análisis), cada uno con opción A o B; <strong>ejercicios 3 y 4</strong> (2 puntos cada uno, probabilidad e inferencia), obligatorios. Las puntuaciones de los apartados se adaptan a esos valores. Más detalles en <a href="index.html#formato">cómo es la prueba actual</a>.</p>',
+    '<noscript><p class="mc-rel__notice">El generador necesita JavaScript. Puedes consultar los ejercicios en las <a href="index.html">páginas de cada tema</a>.</p></noscript>',
+    '<form class="mc-rel__form" data-exam-form hidden aria-labelledby="examen-criterios">',
+    '  <h2 id="examen-criterios">Opciones del examen</h2>',
+    '  <div class="mc-rel__row">',
+    '    <label class="mc-field">Semilla <input type="text" name="semilla" autocomplete="off" spellcheck="false" aria-describedby="examen-semilla-ayuda"></label>',
+    '    <label class="mc-field mc-rel__title">Título <input type="text" name="titulo" autocomplete="off"></label>',
+    '  </div>',
+    '  <p class="mc-rel__hint" id="examen-semilla-ayuda">Con la misma semilla y las mismas elecciones sale el mismo examen; el enlace de la página lo reproduce.</p>',
+    '  <p class="mc-rel__options"><label class="mc-sel__check"><input type="checkbox" name="op1" checked> Ejercicio 1 con opción A o B</label>',
+    '  <label class="mc-sel__check"><input type="checkbox" name="op2" checked> Ejercicio 2 con opción A o B</label>',
+    '  <label class="mc-sel__check"><input type="checkbox" name="tabla" checked> Añadir la tabla de la N(0, 1)</label>',
+    '  <label class="mc-sel__check" data-exam-solutions-field hidden><input type="checkbox" name="soluciones"> Añadir las soluciones al final</label></p>',
+    '  <fieldset class="mc-exam-slots">',
+    '    <legend>Preguntas <span class="mc-rel__hint">(sin cambiar nada, cada una se elige al azar entre sus temas habituales)</span></legend>',
+    '    <div data-exam-slots></div>',
+    '  </fieldset>',
+    '  <p class="mc-rel__actions"><button type="submit" class="mc-btn mc-btn--primary">Generar examen</button> <button type="button" class="mc-btn" data-exam-reroll>Otro examen</button></p>',
+    '</form>',
+    '<div class="mc-exam-warnings" data-exam-warnings role="status" aria-live="polite"></div>',
+    '<section class="mc-rel__output" data-exam-output hidden aria-labelledby="examen-titulo">',
+    '  <p class="mc-rel__downloads"><button type="button" class="mc-btn mc-btn--primary" data-exam-print>Imprimir o guardar en PDF</button> <button type="button" class="mc-btn" data-exam-tex>Descargar LaTeX (.tex)</button> <button type="button" class="mc-btn" data-exam-zip>Proyecto para Overleaf (.zip)</button></p>',
+    '  <article class="mc-rel__sheet mc-exam-sheet" data-exam-sheet></article>',
+    '</section>'
+  ].join('\n');
+  return page({
+    pageId: 'selectividad-examenes', title: 'Generador de exámenes',
+    description: 'Exámenes de práctica con el formato de la PAU vigente a partir de ejercicios de Selectividad, en PDF y LaTeX.',
+    body, scripts: ['../assets/js/learning/selectividad-exams.js']
+  });
+}
+
 export function buildAll(bank) {
   const files = new Map();
   files.set('selectividad/index.html', indexPage(bank));
@@ -521,6 +557,7 @@ export function buildAll(bank) {
       const { origin, place } = provenance(exercise.row);
       return {
         id: exercise.id, topicId: exercise.topicId, title: exercise.row.titulo_descriptivo, year: exercise.row.anio,
+        exam: exercise.row.examen_id,
         origin, place, points: exercise.row.puntuacion_original, tags: exercise.tags,
         outside: exercise.tags.includes(OUT_OF_SYLLABUS_TAG), html: exercise.statement, latex: exercise.statementSource
       };
@@ -531,6 +568,7 @@ export function buildAll(bank) {
     files.set(`content/selectividad/latex/recursos/figuras/${name}.pdf`, fs.readFileSync(path.join(bankRoot, 'recursos', 'figuras', name + '.pdf')));
   }
   files.set('selectividad/relaciones.html', relationsPage(bank));
+  files.set('selectividad/examenes.html', examsPage());
   return files;
 }
 
