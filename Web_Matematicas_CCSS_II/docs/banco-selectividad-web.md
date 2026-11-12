@@ -1,6 +1,6 @@
 # Banco de Selectividad en la web
 
-Actualizado: 7 de noviembre de 2026 · Tarea P08 del [plan operativo](../../PLAN_WEB_OPERATIVA.md). Rama `feature/selectividad`, **sin publicar** hasta que se complete la identificación de convocatoria y tipo (decisión del docente).
+Actualizado: 12 de noviembre de 2026 · Tareas P08 y P09 del [plan operativo](../../PLAN_WEB_OPERATIVA.md). Rama `feature/selectividad`, **sin publicar** hasta que se complete la identificación de convocatoria y tipo (decisión del docente).
 
 ## Qué hay
 
@@ -24,14 +24,16 @@ Actualizado: 7 de noviembre de 2026 · Tarea P08 del [plan operativo](../../PLAN
 | `selectividad/*.html` | Índice y páginas por tema (no editar a mano). |
 | `config/selectividad.json` | Temas, recuento por epígrafe y soluciones publicables; el catálogo lo carga. |
 | `content/selectividad/soluciones.json` | HTML de las soluciones validadas; solo se descarga si alguna está visible. |
-| `assets/img/selectividad/*.png` | Figuras de las soluciones, convertidas de PDF con `scripts/render-pdf-figure.py` (pypdfium2). |
+| `assets/img/selectividad/*.png` | Figuras de las soluciones: las PDF de `recursos/figuras`, convertidas con `scripts/render-pdf-figure.py` (pypdfium2), y los dibujos del entorno `picture` (`dib-<huella>.png`), compilados con pdfLaTeX y recortados con `scripts/render-latex-pictures.py`. |
 
-El conversor (`scripts/lib/latex-html.mjs`) admite solo el subconjunto de LaTeX del banco. Ese subconjunto incluye párrafos, `enumerate` con las etiquetas `a)`, `1)` y `1.`, `itemize`, negrita, cursiva y subrayado, los símbolos de texto (¿, €, º), `center`, `minipage`, `\boxed` en el texto, figuras y `\bordermatrix`, que se reescribe como tabla con paréntesis porque MathJax no lo conoce. Las fórmulas pasan sin cambios. Cualquier otra orden detiene la generación con el ID del ejercicio, para que nada se publique mal convertido. Comprobado con los 640 enunciados y las 72 soluciones validadas a 7 de noviembre: ninguna fórmula da error en MathJax (prueba 165).
+El conversor (`scripts/lib/latex-html.mjs`) admite solo el subconjunto de LaTeX del banco. Ese subconjunto incluye párrafos, `enumerate` con las etiquetas `a)`, `1)` y `1.`, `itemize`, negrita, cursiva y subrayado, los símbolos de texto (¿, €, º), `center`, `minipage`, `\boxed` en el texto, figuras, dibujos `picture` (ver abajo) y `\bordermatrix`, que se reescribe como tabla con paréntesis porque MathJax no lo conoce. Las fórmulas pasan sin cambios. Cualquier otra orden detiene la generación con el ID del ejercicio, para que nada se publique mal convertido. Comprobado con los 640 enunciados y las 640 soluciones a 12 de noviembre: con todas las soluciones activadas, ninguna fórmula da error en MathJax y todas las imágenes cargan (prueba 165).
+
+**Dibujos `picture`.** 94 soluciones dibujan sus gráficas con `\setlength{\unitlength}` y el entorno `picture` (`\qbezier`, `\line`, `\vector`, `\put` con rótulos). MathJax no los presenta. El generador los compila todos en un documento con el preámbulo del banco (uno por página) y recorta cada página a PNG de 32 colores (de 3 a 11 KB). El nombre es la huella del código del dibujo: solo se recompila lo que cambia, y `--check` comprueba que existen sin compilar. Se usa pdfLaTeX (`PDFLATEX_BIN`; aquí, TinyTeX), el compilador del banco en Overleaf: la caché de Tectonic del repositorio no tiene las fuentes de `\line` y `\vector`. En las descargas LaTeX los dibujos siguen siendo código LaTeX y compilan tal cual.
 
 Comprobaciones al generar:
 
 - solo enunciados `cotejada`;
-- el estado de la solución coincide en el CSV y en la cabecera del `.tex`;
+- el estado de la solución sale del CSV; si el `.tex` lleva cabecera `% ESTADO:`, debe coincidir (las tandas S073–S084 no la llevan) y una solución validada no puede ser la plantilla vacía;
 - toda etiqueta tiene nombre visible (`TAG_LABELS`) y todo epígrafe tiene lección;
 - cada figura tiene descripción (`FIGURE_ALT`);
 - cada página de tema está registrada en `config/pages.json`.
@@ -61,7 +63,7 @@ Las páginas se generan desde la copia de trabajo de `Selectividad_LaTeX`. El 8 
 - **LaTeX (.tex):** un archivo autónomo con el preámbulo del banco (`tex/paquetes.tex`). Las figuras de las soluciones no caben en un archivo: se sustituyen por un aviso que remite al .zip.
 - **Overleaf (.zip):** proyecto con la estructura del banco (`main.tex`, `tex/`, `config/`, `catalogo/registro.tex` solo con los elegidos, `selecciones/relacion.tex`, `enunciados/`, `soluciones/` publicadas y `recursos/figuras/`). El .zip se crea en el navegador, sin compresión, y lleva un LEEME.
 - **Datos:** `content/selectividad/ejercicios.json` (enunciados en HTML y LaTeX, unos 1.3 MB sin comprimir); `soluciones.json` (versión 2: HTML y LaTeX); `content/selectividad/latex/` (archivos del banco y figuras PDF de las soluciones). Lo genera `build-selectividad.mjs`.
-- **Comprobado:** una relación con 16 ejercicios (soluciones con figuras, `ordermatrix` y contraste) compila con Tectonic, tanto el .tex como el proyecto del .zip. El punto medio de la procedencia se escribe como `	extperiodcentered{}`, porque con la codificación T1 del banco XeTeX lo imprimiría como «ů». Pruebas: `selectividad-relations.test.mjs` y 166.
+- **Comprobado (12-11-2026):** con pdfLaTeX, la relación de los 640 ejercicios compila en un archivo suelto sin errores, tanto con soluciones (426 páginas) como sin ellas (187). El proyecto del .zip con todas las soluciones que tienen figura o dibujo también compila. Antes, una relación con 16 ejercicios (soluciones con figuras, `ordermatrix` y contraste) compila con Tectonic, tanto el .tex como el proyecto del .zip. El punto medio de la procedencia se escribe como `	extperiodcentered{}`, porque con la codificación T1 del banco XeTeX lo imprimiría como «ů». Pruebas: `selectividad-relations.test.mjs` y 166.
 
 ## Pendiente
 

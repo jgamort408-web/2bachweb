@@ -37,6 +37,16 @@ test('LaTeX del banco: escapes, \\boxed en el texto, bordermatrix y errores expl
   assert.throws(() => latexToHtml('\\includegraphics{figuras/a.pdf}'), /Figura sin conversor/);
 });
 
+test('LaTeX del banco: macros de selección parcial muestran el ejercicio completo', () => {
+  const html = latexToHtml(String.raw`\ParteSeleccionable{I}{Texto $x$.
+\begin{enumerate}[label=\alph*)]
+\ItemSeleccionable{a}{Uno}
+\ApartadoSeleccionable{b}{\item Dos}
+\end{enumerate}}
+\ContextoParcial{Solo en una selección parcial}`);
+  assert.equal(html, '<p>Texto \\(x\\).</p>\n<ol class="mc-sel__list mc-sel__list--lower-alpha-paren" type="a"><li data-label="a)">Uno</li><li>Dos</li></ol>');
+});
+
 test('CSV: comillas, comas y saltos de línea dentro de un campo', () => {
   assert.deepEqual(parseCsv('\ufeffa,b\r\n"x, y","dijo ""no""\notra"\r\n'.replace(/^\ufeff/, '')), [{ a: 'x, y', b: 'dijo "no"\notra' }]);
 });

@@ -66,8 +66,11 @@ test('relaciones: los criterios viajan en la dirección', () => {
 test('relaciones: LaTeX autónomo con soluciones y caracteres especiales escapados', () => {
   assert.equal(escapeLatex('50% & #1 · {x}_2'), '50\\% \\& \\#1 \\textperiodcentered{} \\{x\\}\\_2');
   const withFigure = Object.keys(solutions).find(id => figuresIn(solutions[id].latex).length);
-  const exercises = [data.exercises.find(e => e.id === withFigure), data.exercises.find(e => !solutions[e.id])];
-  const tex = standaloneTex({ title: 'Prueba 100%', exercises, solutions, withSolutions: true, preamble: assets['tex/paquetes.tex'] });
+  // Todas las soluciones están validadas: se simula una sin publicar quitándola del conjunto.
+  const unsolved = data.exercises.find(e => e.id !== withFigure && !figuresIn(solutions[e.id]?.latex ?? '').length);
+  const published = Object.fromEntries(Object.entries(solutions).filter(([id]) => id !== unsolved.id));
+  const exercises = [data.exercises.find(e => e.id === withFigure), unsolved];
+  const tex = standaloneTex({ title: 'Prueba 100%', exercises, solutions: published, withSolutions: true, preamble: assets['tex/paquetes.tex'] });
   assert.match(tex, /^% Relación generada/);
   assert.match(tex, /\\documentclass\[11pt,a4paper\]\{article\}/);
   assert.match(tex, /\\hypersetup\{pdftitle=\{Prueba 100\\%\}\}/);
@@ -82,10 +85,13 @@ test('relaciones: LaTeX autónomo con soluciones y caracteres especiales escapad
 
 test('relaciones: proyecto para Overleaf con la estructura del banco y .zip válido', () => {
   const withFigure = Object.keys(solutions).find(id => figuresIn(solutions[id].latex).length);
-  const exercises = [data.exercises.find(e => e.id === withFigure), data.exercises.find(e => !solutions[e.id])];
+  // Todas las soluciones están validadas: se simula una sin publicar quitándola del conjunto.
+  const unsolved = data.exercises.find(e => e.id !== withFigure && !figuresIn(solutions[e.id]?.latex ?? '').length);
+  const published = Object.fromEntries(Object.entries(solutions).filter(([id]) => id !== unsolved.id));
+  const exercises = [data.exercises.find(e => e.id === withFigure), unsolved];
   const names = figuresIn(solutions[withFigure].latex);
   const figures = Object.fromEntries(names.map(name => [name, fs.readFileSync(new URL(`../content/selectividad/latex/recursos/figuras/${name}.pdf`, import.meta.url))]));
-  const files = overleafFiles({ title: 'Repaso', exercises, solutions, withSolutions: true, assets, figures });
+  const files = overleafFiles({ title: 'Repaso', exercises, solutions: published, withSolutions: true, assets, figures });
   assert.deepEqual([...files.keys()].sort(), [
     'LEEME.txt', 'catalogo/registro.tex', 'config/opciones.tex', 'config/seleccion.tex', 'enunciados/' + exercises[0].id + '.tex',
     'enunciados/' + exercises[1].id + '.tex', 'main.tex', ...names.map(name => `recursos/figuras/${name}.pdf`),
@@ -96,9 +102,9 @@ test('relaciones: proyecto para Overleaf con la estructura del banco y .zip vál
   assert.match(files.get('catalogo/registro.tex'), new RegExp(`\\{${exercises[0].id}: .*\\}\\{cotejada\\}\\{validada\\}`));
   assert.match(files.get('catalogo/registro.tex'), new RegExp(`\\{${exercises[1].id}: .*\\}\\{cotejada\\}\\{no_redactada\\}`));
   // Sin soluciones: no viajan los archivos de solución ni las figuras.
-  const statementsOnly = overleafFiles({ exercises, solutions, assets });
+  const statementsOnly = overleafFiles({ exercises, solutions: published, assets });
   assert.ok(![...statementsOnly.keys()].some(name => name.startsWith('soluciones/') || name.endsWith('.pdf')));
-  assert.throws(() => overleafFiles({ exercises, solutions, withSolutions: true, assets, figures: {} }), /Falta la figura/);
+  assert.throws(() => overleafFiles({ exercises, solutions: published, withSolutions: true, assets, figures: {} }), /Falta la figura/);
 
   // El .zip se lee con un lector estándar: firmas, CRC y contenido de cada entrada.
   const zip = Buffer.from(zipFiles(files));

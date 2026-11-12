@@ -1004,6 +1004,2806 @@
       "id": "SEL-D0010-BD-E08",
       "topicId": "t09",
       "title": "Media normal: distribución muestral, intervalo y muestra"
+    },
+    {
+      "id": "SEL-D0011-BA-E01",
+      "topicId": "t06",
+      "title": "Producción farmacéutica y beneficio máximo"
+    },
+    {
+      "id": "SEL-D0011-BA-E02",
+      "topicId": "t04",
+      "title": "Inversibilidad, ecuación por la derecha y potencias"
+    },
+    {
+      "id": "SEL-D0011-BB-E03",
+      "topicId": "t01",
+      "title": "Parábolas a trozos: continuidad, extremos y área"
+    },
+    {
+      "id": "SEL-D0011-BB-E04",
+      "topicId": "t01",
+      "title": "Gráfica de la derivada, monotonía y tangente"
+    },
+    {
+      "id": "SEL-D0011-BC-E05",
+      "topicId": "t07",
+      "title": "Baloncesto: victorias, derrotas y prórroga"
+    },
+    {
+      "id": "SEL-D0011-BC-E06",
+      "topicId": "t07",
+      "title": "Complementarios, independencia y tres probabilidades"
+    },
+    {
+      "id": "SEL-D0011-BD-E07",
+      "topicId": "t09",
+      "title": "Muestras y comparación de intervalos de proporción"
+    },
+    {
+      "id": "SEL-D0011-BD-E08",
+      "topicId": "t09",
+      "title": "Horas de estudio: intervalo y tamaño con distinta confianza"
+    },
+    {
+      "id": "SEL-D0012-BA-E01",
+      "topicId": "t06",
+      "title": "Misiones y programas: inversión y función objetivo"
+    },
+    {
+      "id": "SEL-D0012-BA-E02",
+      "topicId": "t04",
+      "title": "Potencia general, inversibilidad y ecuación matricial"
+    },
+    {
+      "id": "SEL-D0012-BB-E03",
+      "topicId": "t01",
+      "title": "Parámetros en función a trozos y área"
+    },
+    {
+      "id": "SEL-D0012-BB-E04",
+      "topicId": "t01",
+      "title": "Cotización a partir de su derivada y valor inicial"
+    },
+    {
+      "id": "SEL-D0012-BC-E05",
+      "topicId": "t07",
+      "title": "Plantas de fabricación y coches sin defecto"
+    },
+    {
+      "id": "SEL-D0012-BC-E06",
+      "topicId": "t07",
+      "title": "Contagio independiente y prueba diagnóstica"
+    },
+    {
+      "id": "SEL-D0012-BD-E07",
+      "topicId": "t09",
+      "title": "Transporte público: intervalo y error a lo sumo"
+    },
+    {
+      "id": "SEL-D0012-BD-E08",
+      "topicId": "t09",
+      "title": "Estatura: intervalo y muestra con cambio de confianza"
+    },
+    {
+      "id": "SEL-D0013-BA-E01",
+      "topicId": "t04",
+      "title": "Alojamiento en Roma: precios, demanda e inversas"
+    },
+    {
+      "id": "SEL-D0013-BA-E02",
+      "topicId": "t06",
+      "title": "Región factible y extremos de x más y"
+    },
+    {
+      "id": "SEL-D0013-BB-E03",
+      "topicId": "t01",
+      "title": "Función racional y exponencial con parámetros"
+    },
+    {
+      "id": "SEL-D0013-BB-E04",
+      "topicId": "t01",
+      "title": "Tres tramos: regularidad, monotonía e integral"
+    },
+    {
+      "id": "SEL-D0013-BC-E05",
+      "topicId": "t07",
+      "title": "Urna con reemplazo por seis bolas del otro color"
+    },
+    {
+      "id": "SEL-D0013-BC-E06",
+      "topicId": "t07",
+      "title": "Bombillas LED y halógenas defectuosas"
+    },
+    {
+      "id": "SEL-D0013-BD-E07",
+      "topicId": "t09",
+      "title": "Afijación proporcional y desviación de medias"
+    },
+    {
+      "id": "SEL-D0013-BD-E08",
+      "topicId": "t09",
+      "title": "Tiempos de consulta con varianza conocida"
+    },
+    {
+      "id": "SEL-D0014-BA-E01",
+      "topicId": "t06",
+      "title": "Bolsas de merienda: recaudación y posibilidades de venta"
+    },
+    {
+      "id": "SEL-D0014-BA-E02",
+      "topicId": "t04",
+      "title": "Inversa paramétrica y ecuación con traspuesta"
+    },
+    {
+      "id": "SEL-D0014-BB-E03",
+      "topicId": "t01",
+      "title": "Condición de tangente y área de otra función"
+    },
+    {
+      "id": "SEL-D0014-BB-E04",
+      "topicId": "t01",
+      "title": "Función a trozos: regularidad, curvatura y asíntotas"
+    },
+    {
+      "id": "SEL-D0014-BC-E05",
+      "topicId": "t07",
+      "title": "Dos llaves electrónicas elegidas de un conjunto"
+    },
+    {
+      "id": "SEL-D0014-BC-E06",
+      "topicId": "t07",
+      "title": "Latas de tres sabores y año de caducidad"
+    },
+    {
+      "id": "SEL-D0014-BD-E07",
+      "topicId": "t09",
+      "title": "Precio de frambuesas: distribución, intervalo y tamaño"
+    },
+    {
+      "id": "SEL-D0014-BD-E08",
+      "topicId": "t09",
+      "title": "Estrellas de mar: media, error y cambios de condiciones"
+    },
+    {
+      "id": "SEL-D0015-BA-E01",
+      "topicId": "t04",
+      "title": "Matrices invertibles y relaciones entre incógnitas"
+    },
+    {
+      "id": "SEL-D0015-BA-E02",
+      "topicId": "t06",
+      "title": "Formulación de coste y otro recinto factible"
+    },
+    {
+      "id": "SEL-D0015-BB-E03",
+      "topicId": "t01",
+      "title": "Parámetros, extremos y primitiva con condición"
+    },
+    {
+      "id": "SEL-D0015-BB-E04",
+      "topicId": "t01",
+      "title": "Derivadas compuestas y área de una parábola"
+    },
+    {
+      "id": "SEL-D0015-BC-E05",
+      "topicId": "t07",
+      "title": "Lectura de libros y sucesos condicionados"
+    },
+    {
+      "id": "SEL-D0015-BC-E06",
+      "topicId": "t07",
+      "title": "Calidad de bicicletas por empresa y dato global"
+    },
+    {
+      "id": "SEL-D0015-BD-E07",
+      "topicId": "t09",
+      "title": "Vida útil: intervalo y error con otra muestra dada"
+    },
+    {
+      "id": "SEL-D0015-BD-E08",
+      "topicId": "t09",
+      "title": "Renta anual: tamaño, distribución y probabilidad muestral"
+    },
+    {
+      "id": "SEL-D0016-BA-E01",
+      "topicId": "t06",
+      "title": "Postres y beneficio máximo con recursos limitados"
+    },
+    {
+      "id": "SEL-D0016-BA-E02",
+      "topicId": "t04",
+      "title": "Producto con traspuesta, inversa y ecuación matricial"
+    },
+    {
+      "id": "SEL-D0016-BB-E03",
+      "topicId": "t01",
+      "title": "Derivadas y corte de rectas tangentes"
+    },
+    {
+      "id": "SEL-D0016-BB-E04",
+      "topicId": "t01",
+      "title": "Tres tramos: parámetros, derivabilidad e integral"
+    },
+    {
+      "id": "SEL-D0016-BC-E05",
+      "topicId": "t07",
+      "title": "Personas que cobran en caja y errores"
+    },
+    {
+      "id": "SEL-D0016-BC-E06",
+      "topicId": "t07",
+      "title": "Cargos directivos y comisiones docentes"
+    },
+    {
+      "id": "SEL-D0016-BD-E07",
+      "topicId": "t09",
+      "title": "Kilómetros diarios: intervalo, error y tamaño mínimo"
+    },
+    {
+      "id": "SEL-D0016-BD-E08",
+      "topicId": "t09",
+      "title": "Espera hospitalaria: intervalo y error máximo inclusivo"
+    },
+    {
+      "id": "SEL-D0017-BA-E01",
+      "topicId": "t06",
+      "title": "Tartas y beneficio máximo con tres recursos"
+    },
+    {
+      "id": "SEL-D0017-BA-E02",
+      "topicId": "t04",
+      "title": "Compatibilidad de operaciones e inversa con parámetro"
+    },
+    {
+      "id": "SEL-D0017-BB-E03",
+      "topicId": "t01",
+      "title": "Función por tramos: parámetros, tangente y asíntotas"
+    },
+    {
+      "id": "SEL-D0017-BB-E04",
+      "topicId": "t01",
+      "title": "Cultivo bacteriano a partir de su derivada"
+    },
+    {
+      "id": "SEL-D0017-BC-E05",
+      "topicId": "t07",
+      "title": "Independencia, incompatibilidad y álgebra de sucesos"
+    },
+    {
+      "id": "SEL-D0017-BC-E06",
+      "topicId": "t07",
+      "title": "Viajes al extranjero y composición del censo"
+    },
+    {
+      "id": "SEL-D0017-BD-E07",
+      "topicId": "t09",
+      "title": "Desfase de autobús: media, tamaño y unidades"
+    },
+    {
+      "id": "SEL-D0017-BD-E08",
+      "topicId": "t09",
+      "title": "Pago móvil: proporción, intervalo y muestra mínima"
+    },
+    {
+      "id": "SEL-D0018-BA-E01",
+      "topicId": "t04",
+      "title": "Inversa con parámetro y ecuación matricial por la derecha"
+    },
+    {
+      "id": "SEL-D0018-BA-E02",
+      "topicId": "t06",
+      "title": "Región factible: vértices, pertenencia y extremos"
+    },
+    {
+      "id": "SEL-D0018-BB-E03",
+      "topicId": "t01",
+      "title": "Derivada y punto: tangente, monotonía y recuperación de función"
+    },
+    {
+      "id": "SEL-D0018-BB-E04",
+      "topicId": "t01",
+      "title": "Función por tramos: continuidad, tangente y área"
+    },
+    {
+      "id": "SEL-D0018-BC-E05",
+      "topicId": "t07",
+      "title": "Erasmus+ y mejora en lengua extranjera"
+    },
+    {
+      "id": "SEL-D0018-BC-E06",
+      "topicId": "t07",
+      "title": "Sedentarismo y obesidad: intersección, total y Bayes"
+    },
+    {
+      "id": "SEL-D0018-BD-E07",
+      "topicId": "t09",
+      "title": "Fluidez en inglés: intervalo, admisibilidad y muestra mínima"
+    },
+    {
+      "id": "SEL-D0018-BD-E08",
+      "topicId": "t09",
+      "title": "Café por taza: estimador, intervalo y tamaño muestral"
+    },
+    {
+      "id": "SEL-D0019-OA-E01",
+      "topicId": "t06",
+      "title": "Pañuelos y corbatas con capacidad semanal y compromiso mínimo"
+    },
+    {
+      "id": "SEL-D0019-OA-E02",
+      "topicId": "t01",
+      "title": "Derivadas logarítmica y exponencial; tangente y representación"
+    },
+    {
+      "id": "SEL-D0019-OA-E03",
+      "topicId": "t07",
+      "title": "Asignaturas superadas y composición por sexo"
+    },
+    {
+      "id": "SEL-D0019-OA-E04",
+      "topicId": "t09",
+      "title": "Peso de ciruelas: intervalo y tamaño mínimo"
+    },
+    {
+      "id": "SEL-D0019-OB-E01",
+      "topicId": "t04",
+      "title": "Dimensiones de productos cuadrados y ecuación matricial"
+    },
+    {
+      "id": "SEL-D0019-OB-E02",
+      "topicId": "t01",
+      "title": "Función racional: parámetros por tangencia y asíntotas"
+    },
+    {
+      "id": "SEL-D0019-OB-E03",
+      "topicId": "t07",
+      "title": "Álgebra de sucesos, condición complementaria e independencia"
+    },
+    {
+      "id": "SEL-D0019-OB-E04",
+      "topicId": "t09",
+      "title": "Uso de red social: intervalo de proporción y muestra mínima"
+    },
+    {
+      "id": "SEL-D0020-OA-E01",
+      "topicId": "t06",
+      "title": "Collares de perlas: beneficio y viabilidad de producción"
+    },
+    {
+      "id": "SEL-D0020-OA-E02",
+      "topicId": "t02",
+      "title": "Costes cúbicos con capacidad limitada: monotonía y extremos"
+    },
+    {
+      "id": "SEL-D0020-OA-E03",
+      "topicId": "t07",
+      "title": "Duchas del polideportivo: grupos de edad y probabilidad"
+    },
+    {
+      "id": "SEL-D0020-OA-E04",
+      "topicId": "t09",
+      "title": "Gasto juvenil: recuperar media y tamaño desde un intervalo"
+    },
+    {
+      "id": "SEL-D0020-OB-E01",
+      "topicId": "t04",
+      "title": "Sistema de ecuaciones matriciales e identidad de orden dos"
+    },
+    {
+      "id": "SEL-D0020-OB-E02",
+      "topicId": "t01",
+      "title": "Función de tres tramos: parámetros y monotonía"
+    },
+    {
+      "id": "SEL-D0020-OB-E03",
+      "topicId": "t07",
+      "title": "Aceitunas picual y arbequina: total, Bayes y unión"
+    },
+    {
+      "id": "SEL-D0020-OB-E04",
+      "topicId": "t09",
+      "title": "Accidentes por uso de móvil: intervalo y muestra mínima"
+    },
+    {
+      "id": "SEL-D0021-OA-E01",
+      "topicId": "t04",
+      "title": "Potencias de matrices y ecuación con suma matricial"
+    },
+    {
+      "id": "SEL-D0021-OA-E02",
+      "topicId": "t02",
+      "title": "Beneficio cuadrático: objetivo, máximo y ausencia de pérdidas"
+    },
+    {
+      "id": "SEL-D0021-OA-E03",
+      "topicId": "t07",
+      "title": "Independencia, incompatibilidad y sucesos condicionados"
+    },
+    {
+      "id": "SEL-D0021-OA-E04",
+      "topicId": "t09",
+      "title": "Alumnos con gafas: intervalo y proporción previa externa"
+    },
+    {
+      "id": "SEL-D0021-OB-E01",
+      "topicId": "t06",
+      "title": "Recinto de inecuaciones: pertenencia y extremos de x menos y"
+    },
+    {
+      "id": "SEL-D0021-OB-E02",
+      "topicId": "t01",
+      "title": "Función por tramos: derivabilidad con parámetros y tangente"
+    },
+    {
+      "id": "SEL-D0021-OB-E03",
+      "topicId": "t07",
+      "title": "Exámenes teórico y práctico: unión, condición e independencia"
+    },
+    {
+      "id": "SEL-D0021-OB-E04",
+      "topicId": "t09",
+      "title": "Tarros de mermelada: intervalo, error y muestra mínima"
+    },
+    {
+      "id": "SEL-D0022-OA-E01",
+      "topicId": "t04",
+      "title": "Ecuación matricial y compatibilidad de cuatro operaciones"
+    },
+    {
+      "id": "SEL-D0022-OA-E02",
+      "topicId": "t02",
+      "title": "Coste de bombillas: mínimo con dominio de producción"
+    },
+    {
+      "id": "SEL-D0022-OA-E03",
+      "topicId": "t07",
+      "title": "Facebook y WhatsApp: porcentajes, condición e independencia"
+    },
+    {
+      "id": "SEL-D0022-OA-E04",
+      "topicId": "t09",
+      "title": "Tallas y club deportivo: intervalo, tamaño y estratificación"
+    },
+    {
+      "id": "SEL-D0022-OB-E01",
+      "topicId": "t06",
+      "title": "Colonias: maximizar el importe de venta"
+    },
+    {
+      "id": "SEL-D0022-OB-E02",
+      "topicId": "t01",
+      "title": "Beneficios por tramos en 25 años: regularidad y máximo"
+    },
+    {
+      "id": "SEL-D0022-OB-E03",
+      "topicId": "t07",
+      "title": "Complementario de unión, compatibilidad y probabilidad condicionada"
+    },
+    {
+      "id": "SEL-D0022-OB-E04",
+      "topicId": "t09",
+      "title": "Mensajes diarios: contraste histórico de media poblacional"
+    },
+    {
+      "id": "SEL-D0023-OA-E01",
+      "topicId": "t06",
+      "title": "Región factible, punto decimal y extremos de x menos y más seis"
+    },
+    {
+      "id": "SEL-D0023-OA-E02",
+      "topicId": "t01",
+      "title": "Derivadas compuestas y asíntotas de función racional"
+    },
+    {
+      "id": "SEL-D0023-OA-E03",
+      "topicId": "t07",
+      "title": "Problemas visuales y auditivos con independencia dada"
+    },
+    {
+      "id": "SEL-D0023-OA-E04",
+      "topicId": "t09",
+      "title": "Estrellas de mar: contraste histórico con dos significaciones"
+    },
+    {
+      "id": "SEL-D0023-OB-E01",
+      "topicId": "t04",
+      "title": "Ecuación con producto por traspuesta y dimensiones"
+    },
+    {
+      "id": "SEL-D0023-OB-E02",
+      "topicId": "t02",
+      "title": "Costes cuadráticos: mínimo, signo de derivada y unidades"
+    },
+    {
+      "id": "SEL-D0023-OB-E03",
+      "topicId": "t07",
+      "title": "Retrasos aéreos en tres terminales: total y Bayes"
+    },
+    {
+      "id": "SEL-D0023-OB-E04",
+      "topicId": "t09",
+      "title": "Paquetes de azúcar: intervalo y tamaño con error máximo"
+    },
+    {
+      "id": "SEL-D0024-OA-E01",
+      "topicId": "t06",
+      "title": "Bebidas energéticas: recursos en gramos y kilogramos"
+    },
+    {
+      "id": "SEL-D0024-OA-E02",
+      "topicId": "t02",
+      "title": "Rentabilidad por tramos: continuidad, máximo y positividad"
+    },
+    {
+      "id": "SEL-D0024-OA-E03",
+      "topicId": "t07",
+      "title": "Audiencias de radio: alguna, sólo B y exactamente una"
+    },
+    {
+      "id": "SEL-D0024-OA-E04",
+      "topicId": "t09",
+      "title": "Comisión docente con representación proporcional por cursos"
+    },
+    {
+      "id": "SEL-D0024-OB-E01",
+      "topicId": "t06",
+      "title": "Recinto: punto decimal, extremos y anulación de objetivo"
+    },
+    {
+      "id": "SEL-D0024-OB-E02",
+      "topicId": "t01",
+      "title": "Función cuadrática por tramos: derivabilidad y curvatura"
+    },
+    {
+      "id": "SEL-D0024-OB-E03",
+      "topicId": "t07",
+      "title": "Votación universitaria por titulaciones: total y Bayes"
+    },
+    {
+      "id": "SEL-D0024-OB-E04",
+      "topicId": "t09",
+      "title": "Horas en redes sociales: intervalo y tamaño mínimo"
+    },
+    {
+      "id": "SEL-D0025-OA-E01",
+      "topicId": "t06",
+      "title": "Envasado de leche: beneficio diario y límites de producción"
+    },
+    {
+      "id": "SEL-D0025-OA-E02",
+      "topicId": "t02",
+      "title": "Contracción del iris: gráfica por tramos y máximo"
+    },
+    {
+      "id": "SEL-D0025-OA-E03",
+      "topicId": "t07",
+      "title": "Comisión universitaria: dos personas sin reposición"
+    },
+    {
+      "id": "SEL-D0025-OA-E04",
+      "topicId": "t09",
+      "title": "Audiencia de una serie: intervalo de proporción y error estricto"
+    },
+    {
+      "id": "SEL-D0025-OB-E01",
+      "topicId": "t04",
+      "title": "Matrices rectangulares: compatibilidad y ecuación con producto"
+    },
+    {
+      "id": "SEL-D0025-OB-E02",
+      "topicId": "t01",
+      "title": "Tres tramos: continuidad, clasificación y derivabilidad"
+    },
+    {
+      "id": "SEL-D0025-OB-E03",
+      "topicId": "t07",
+      "title": "Exámenes teórico y práctico: unión y condición con negación"
+    },
+    {
+      "id": "SEL-D0025-OB-E04",
+      "topicId": "t09",
+      "title": "Paquetes de levadura: amplitud e intervalo para la media"
+    },
+    {
+      "id": "SEL-D0026-OA-E01",
+      "topicId": "t04",
+      "title": "Producto de Gram: dimensiones, ecuación y producto ordenado"
+    },
+    {
+      "id": "SEL-D0026-OA-E02",
+      "topicId": "t01",
+      "title": "Parámetro positivo: continuidad, derivabilidad y tangente"
+    },
+    {
+      "id": "SEL-D0026-OA-E03",
+      "topicId": "t07",
+      "title": "Tres monedas diferentes: total y Bayes tras una cruz"
+    },
+    {
+      "id": "SEL-D0026-OA-E04",
+      "topicId": "t09",
+      "title": "Entradas de cine: intervalo para la media y error máximo"
+    },
+    {
+      "id": "SEL-D0026-OB-E01",
+      "topicId": "t04",
+      "title": "Matrices fila y columna: productos y ecuación con traspuesta"
+    },
+    {
+      "id": "SEL-D0026-OB-E02",
+      "topicId": "t01",
+      "title": "Función racional y cuadrática: regularidad, monotonía y curvatura"
+    },
+    {
+      "id": "SEL-D0026-OB-E03",
+      "topicId": "t07",
+      "title": "Geografía: aprobados según opción y probabilidad inversa"
+    },
+    {
+      "id": "SEL-D0026-OB-E04",
+      "topicId": "t09",
+      "title": "Nacimientos y luna llena: contraste histórico de una proporción"
+    },
+    {
+      "id": "SEL-D0027-OA-E01",
+      "topicId": "t04",
+      "title": "Cuatro matrices: compatibilidad de sumas y ecuación"
+    },
+    {
+      "id": "SEL-D0027-OA-E02",
+      "topicId": "t01",
+      "title": "Cúbica: monotonía, extremos relativos y tangente"
+    },
+    {
+      "id": "SEL-D0027-OA-E03",
+      "topicId": "t07",
+      "title": "Probabilidades condicionadas: total, unión e independencia"
+    },
+    {
+      "id": "SEL-D0027-OA-E04",
+      "topicId": "t09",
+      "title": "Menú del peregrino: proporción, confianza y error inclusivo"
+    },
+    {
+      "id": "SEL-D0027-OB-E01",
+      "topicId": "t06",
+      "title": "Recinto con cinco restricciones: vértices, punto y extremos"
+    },
+    {
+      "id": "SEL-D0027-OB-E02",
+      "topicId": "t01",
+      "title": "Cúbica con parámetros: extremo dado y tangente"
+    },
+    {
+      "id": "SEL-D0027-OB-E03",
+      "topicId": "t07",
+      "title": "Urgencias y tabaquismo: intersección y Bayes con negación"
+    },
+    {
+      "id": "SEL-D0027-OB-E04",
+      "topicId": "t09",
+      "title": "Precios: distribución de la media, intervalo y tamaño estricto"
+    },
+    {
+      "id": "SEL-D0028-OA-E01",
+      "topicId": "t06",
+      "title": "Región factible: vértices, pertenencia y objetivo con resta"
+    },
+    {
+      "id": "SEL-D0028-OA-E02",
+      "topicId": "t01",
+      "title": "Velocidad por tramos: parámetros, derivabilidad y máximo"
+    },
+    {
+      "id": "SEL-D0028-OA-E03",
+      "topicId": "t07",
+      "title": "Primera opción universitaria: no terminar y Bayes"
+    },
+    {
+      "id": "SEL-D0028-OA-E04",
+      "topicId": "t09",
+      "title": "Gastos de clientes: distribución muestral, intervalo y tamaño"
+    },
+    {
+      "id": "SEL-D0028-OB-E01",
+      "topicId": "t04",
+      "title": "Matrices fila y columna: operaciones y ecuación con factor"
+    },
+    {
+      "id": "SEL-D0028-OB-E02",
+      "topicId": "t01",
+      "title": "Racional y cuadrática: continuidad, derivabilidad y extremos"
+    },
+    {
+      "id": "SEL-D0028-OB-E03",
+      "topicId": "t07",
+      "title": "Bolas de colores: espacio muestral ordenado sin reposición"
+    },
+    {
+      "id": "SEL-D0028-OB-E04",
+      "topicId": "t09",
+      "title": "Asistencia al cine: intervalo de proporción y error estricto"
+    },
+    {
+      "id": "SEL-D0029-OA-E01",
+      "topicId": "t04",
+      "title": "Ecuación con potencia y vector: dimensiones de operaciones"
+    },
+    {
+      "id": "SEL-D0029-OA-E02",
+      "topicId": "t01",
+      "title": "Racional y cuadrática: regularidad, cortes y asíntotas"
+    },
+    {
+      "id": "SEL-D0029-OA-E03",
+      "topicId": "t07",
+      "title": "Referéndum: tres urnas, probabilidad total y Bayes"
+    },
+    {
+      "id": "SEL-D0029-OA-E04",
+      "topicId": "t09",
+      "title": "Calificaciones: intervalo para la media y tamaño con otra confianza"
+    },
+    {
+      "id": "SEL-D0029-OB-E01",
+      "topicId": "t06",
+      "title": "Palas de pádel: beneficio, conversión de unidades y producción viable"
+    },
+    {
+      "id": "SEL-D0029-OB-E02",
+      "topicId": "t01",
+      "title": "Derivadas compuestas y tangente a una función racional"
+    },
+    {
+      "id": "SEL-D0029-OB-E03",
+      "topicId": "t07",
+      "title": "Deportistas y afición al ciclismo: total y probabilidad inversa"
+    },
+    {
+      "id": "SEL-D0029-OB-E04",
+      "topicId": "t09",
+      "title": "Clientes de supermercado: intervalo y otra muestra con error estricto"
+    },
+    {
+      "id": "SEL-D0030-OA-E01",
+      "topicId": "t06",
+      "title": "Alimentación mínima sin resolver y máximo en otro recinto"
+    },
+    {
+      "id": "SEL-D0030-OA-E02",
+      "topicId": "t02",
+      "title": "Coste cuadrático: mínimo, producción para un coste y gráfica"
+    },
+    {
+      "id": "SEL-D0030-OA-E03",
+      "topicId": "t07",
+      "title": "Restricción de tráfico: total, intersección y Bayes"
+    },
+    {
+      "id": "SEL-D0030-OA-E04",
+      "topicId": "t09",
+      "title": "Tornillos: muestras posibles y media y varianza de las medias"
+    },
+    {
+      "id": "SEL-D0030-OB-E01",
+      "topicId": "t04",
+      "title": "Igualdad de cuadrados y ecuación con traspuesta e identidad"
+    },
+    {
+      "id": "SEL-D0030-OB-E02",
+      "topicId": "t01",
+      "title": "Función por tramos: parámetros y tangente con otro valor"
+    },
+    {
+      "id": "SEL-D0030-OB-E03",
+      "topicId": "t07",
+      "title": "Aparcamientos por zonas: unión, sombra y Bayes"
+    },
+    {
+      "id": "SEL-D0030-OB-E04",
+      "topicId": "t09",
+      "title": "Red social: intervalo y tamaño con error inclusivo"
+    },
+    {
+      "id": "SEL-D0031-OA-E01",
+      "topicId": "t04",
+      "title": "Precios y compras: productos matriciales e interpretación"
+    },
+    {
+      "id": "SEL-D0031-OA-E02",
+      "topicId": "t01",
+      "title": "Parámetros de derivabilidad, monotonía y asíntotas"
+    },
+    {
+      "id": "SEL-D0031-OA-E03",
+      "topicId": "t07",
+      "title": "Trajes y zapatos: intersección, complemento y unión"
+    },
+    {
+      "id": "SEL-D0031-OA-E04",
+      "topicId": "t09",
+      "title": "Media Normal: intervalo, error y tamaño estricto"
+    },
+    {
+      "id": "SEL-D0031-OB-E01",
+      "topicId": "t06",
+      "title": "Alfombras de seda y lana: horas y beneficio máximo"
+    },
+    {
+      "id": "SEL-D0031-OB-E02",
+      "topicId": "t02",
+      "title": "Créditos y liquidez: continuidad, máximo e interpretación de asíntota"
+    },
+    {
+      "id": "SEL-D0031-OB-E03",
+      "topicId": "t07",
+      "title": "Veraneantes: no hotel, Bayes e independencia"
+    },
+    {
+      "id": "SEL-D0031-OB-E04",
+      "topicId": "t09",
+      "title": "Pesos: distribución y probabilidad de la media con tamaños distintos"
+    },
+    {
+      "id": "SEL-D0032-OA-E01",
+      "topicId": "t04",
+      "title": "Potencia 2017 e identidad entre productos matriciales"
+    },
+    {
+      "id": "SEL-D0032-OA-E02",
+      "topicId": "t01",
+      "title": "Ocupación hotelera: continuidad y comportamiento temporal"
+    },
+    {
+      "id": "SEL-D0032-OA-E03",
+      "topicId": "t07",
+      "title": "Redes sociales y notas: unión y condicionada"
+    },
+    {
+      "id": "SEL-D0032-OA-E04",
+      "topicId": "t09",
+      "title": "Altura: distribución y probabilidad de la media"
+    },
+    {
+      "id": "SEL-D0032-OB-E01",
+      "topicId": "t06",
+      "title": "Clientes de software: beneficio máximo"
+    },
+    {
+      "id": "SEL-D0032-OB-E02",
+      "topicId": "t01",
+      "title": "Derivación de cociente y producto y recta tangente"
+    },
+    {
+      "id": "SEL-D0032-OB-E03",
+      "topicId": "t07",
+      "title": "Fábricas de pasta: probabilidad total y procedencia"
+    },
+    {
+      "id": "SEL-D0032-OB-E04",
+      "topicId": "t09",
+      "title": "Puntuaciones: intervalo para la media y tamaño mínimo"
+    },
+    {
+      "id": "SEL-D0033-OA-E01",
+      "topicId": "t06",
+      "title": "Región factible, extremos y pertenencia de un punto"
+    },
+    {
+      "id": "SEL-D0033-OA-E02",
+      "topicId": "t02",
+      "title": "Consumo de cereales: máximo, decrecimiento y gráfica"
+    },
+    {
+      "id": "SEL-D0033-OA-E03",
+      "topicId": "t07",
+      "title": "Dentista y analítica: independencia y condicionada"
+    },
+    {
+      "id": "SEL-D0033-OA-E04",
+      "topicId": "t09",
+      "title": "Móviles: intervalo de proporción, error y afijación proporcional"
+    },
+    {
+      "id": "SEL-D0033-OB-E01",
+      "topicId": "t04",
+      "title": "Potencias consecutivas y ecuación matricial con traspuesta"
+    },
+    {
+      "id": "SEL-D0033-OB-E02",
+      "topicId": "t02",
+      "title": "Beneficios de almazara: continuidad, derivabilidad y máximo"
+    },
+    {
+      "id": "SEL-D0033-OB-E03",
+      "topicId": "t07",
+      "title": "Lavadoras: no defectuoso y procedencia condicionada"
+    },
+    {
+      "id": "SEL-D0033-OB-E04",
+      "topicId": "t09",
+      "title": "Edades: intervalo para la media y tamaño mínimo"
+    },
+    {
+      "id": "SEL-D0034-OA-E01",
+      "topicId": "t04",
+      "title": "Ecuación matricial y dimensiones de productos cuadrados"
+    },
+    {
+      "id": "SEL-D0034-OA-E02",
+      "topicId": "t01",
+      "title": "Monotonía y tangente a partir de la gráfica de la derivada"
+    },
+    {
+      "id": "SEL-D0034-OA-E03",
+      "topicId": "t07",
+      "title": "Sucesos: intersección, condicionada e independencia"
+    },
+    {
+      "id": "SEL-D0034-OA-E04",
+      "topicId": "t09",
+      "title": "Defectos de envoltorios: intervalo y tamaño de muestra"
+    },
+    {
+      "id": "SEL-D0034-OB-E01",
+      "topicId": "t06",
+      "title": "Región factible y extremos de una función lineal"
+    },
+    {
+      "id": "SEL-D0034-OB-E02",
+      "topicId": "t01",
+      "title": "Parámetro de continuidad, derivabilidad, monotonía y asíntotas"
+    },
+    {
+      "id": "SEL-D0034-OB-E03",
+      "topicId": "t07",
+      "title": "Aparcamiento y conciertos: probabilidad total y Bayes"
+    },
+    {
+      "id": "SEL-D0034-OB-E04",
+      "topicId": "t09",
+      "title": "Afijación proporcional y varianza de medias muestrales"
+    },
+    {
+      "id": "SEL-D0035-OA-E01",
+      "topicId": "t04",
+      "title": "Compatibilidad de operaciones y ecuación matricial"
+    },
+    {
+      "id": "SEL-D0035-OA-E02",
+      "topicId": "t02",
+      "title": "Parámetros de una cúbica: mínimo, inflexión y gráfica"
+    },
+    {
+      "id": "SEL-D0035-OA-E03",
+      "topicId": "t07",
+      "title": "Grupo de votantes: probabilidad total, Bayes y unión"
+    },
+    {
+      "id": "SEL-D0035-OA-E04",
+      "topicId": "t09",
+      "title": "Vida de tortugas: intervalo para la media y error inclusivo"
+    },
+    {
+      "id": "SEL-D0035-OB-E01",
+      "topicId": "t06",
+      "title": "Recinto: pertenencia, vértices, extremos y valor objetivo"
+    },
+    {
+      "id": "SEL-D0035-OB-E02",
+      "topicId": "t01",
+      "title": "Igualdad de derivadas y corte de rectas tangentes"
+    },
+    {
+      "id": "SEL-D0035-OB-E03",
+      "topicId": "t07",
+      "title": "Urna con sustitución por dos bolas del otro color"
+    },
+    {
+      "id": "SEL-D0035-OB-E04",
+      "topicId": "t09",
+      "title": "Cafetería: intervalo de proporción y tamaño con error estricto"
+    },
+    {
+      "id": "SEL-D0036-OA-E01",
+      "topicId": "t04",
+      "title": "Productos y ecuaciones matriciales de dos tamaños"
+    },
+    {
+      "id": "SEL-D0036-OA-E02",
+      "topicId": "t02",
+      "title": "Plan de inversión: rentabilidad máxima y mínima"
+    },
+    {
+      "id": "SEL-D0036-OA-E03",
+      "topicId": "t07",
+      "title": "Cartas: probabilidad condicionada con y sin devolución"
+    },
+    {
+      "id": "SEL-D0036-OA-E04",
+      "topicId": "t09",
+      "title": "Talla universitaria: contraste unilateral de media"
+    },
+    {
+      "id": "SEL-D0036-OB-E01",
+      "topicId": "t06",
+      "title": "Región factible y extremos de una función objetivo"
+    },
+    {
+      "id": "SEL-D0036-OB-E02",
+      "topicId": "t01",
+      "title": "Parámetros de derivabilidad y tangente de función a trozos"
+    },
+    {
+      "id": "SEL-D0036-OB-E03",
+      "topicId": "t07",
+      "title": "Lectores de diarios: ninguno y condicionada al complemento"
+    },
+    {
+      "id": "SEL-D0036-OB-E04",
+      "topicId": "t09",
+      "title": "Mensajería: intervalo para la media y tamaño de muestra"
+    },
+    {
+      "id": "SEL-D0037-OA-E01",
+      "topicId": "t04",
+      "title": "Dimensiones, despeje simbólico y producto matricial"
+    },
+    {
+      "id": "SEL-D0037-OA-E02",
+      "topicId": "t02",
+      "title": "Vida de una mosca: extremos y temperatura"
+    },
+    {
+      "id": "SEL-D0037-OA-E03",
+      "topicId": "t07",
+      "title": "Compra presencial o por internet: total y Bayes"
+    },
+    {
+      "id": "SEL-D0037-OA-E04",
+      "topicId": "t09",
+      "title": "Característica Normal: contraste bilateral de media"
+    },
+    {
+      "id": "SEL-D0037-OB-E01",
+      "topicId": "t06",
+      "title": "Bolsas de fruta: maximización de ingresos"
+    },
+    {
+      "id": "SEL-D0037-OB-E02",
+      "topicId": "t01",
+      "title": "Derivadas de cociente, producto exponencial y logaritmo"
+    },
+    {
+      "id": "SEL-D0037-OB-E03",
+      "topicId": "t07",
+      "title": "Sucesos: intersecciones, condicionada e independencia"
+    },
+    {
+      "id": "SEL-D0037-OB-E04",
+      "topicId": "t09",
+      "title": "Lanzamientos de un dado: intervalo de proporción y error"
+    },
+    {
+      "id": "SEL-D0038-OA-E01",
+      "topicId": "t04",
+      "title": "Potencia y ecuación matricial con traspuesta"
+    },
+    {
+      "id": "SEL-D0038-OA-E02",
+      "topicId": "t01",
+      "title": "Parámetros de continuidad y de un punto de inflexión"
+    },
+    {
+      "id": "SEL-D0038-OA-E03",
+      "topicId": "t07",
+      "title": "Lluvia y viento: total, Bayes y complementarios"
+    },
+    {
+      "id": "SEL-D0038-OA-E04",
+      "topicId": "t09",
+      "title": "Agua embotellada: intervalo de media y tamaño estricto"
+    },
+    {
+      "id": "SEL-D0038-OB-E01",
+      "topicId": "t06",
+      "title": "Trajes y abrigos: máximo y viabilidad de una combinación"
+    },
+    {
+      "id": "SEL-D0038-OB-E02",
+      "topicId": "t02",
+      "title": "Cúbica: extremos, inflexión y tangente"
+    },
+    {
+      "id": "SEL-D0038-OB-E03",
+      "topicId": "t07",
+      "title": "Dado y dos urnas: condicionada, total y Bayes"
+    },
+    {
+      "id": "SEL-D0038-OB-E04",
+      "topicId": "t09",
+      "title": "Arsénico: contraste unilateral de media"
+    },
+    {
+      "id": "SEL-D0039-OA-E01",
+      "topicId": "t06",
+      "title": "Heladería: máximo número de tarrinas"
+    },
+    {
+      "id": "SEL-D0039-OA-E02",
+      "topicId": "t01",
+      "title": "Tres derivadas y asíntotas de una función racional"
+    },
+    {
+      "id": "SEL-D0039-OA-E03",
+      "topicId": "t07",
+      "title": "Aprobados: probabilidad total y composición condicionada"
+    },
+    {
+      "id": "SEL-D0039-OA-E04",
+      "topicId": "t09",
+      "title": "Calificaciones: contraste unilateral y comparación de significaciones"
+    },
+    {
+      "id": "SEL-D0039-OB-E01",
+      "topicId": "t04",
+      "title": "Sistema de ecuaciones matriciales y compatibilidad dimensional"
+    },
+    {
+      "id": "SEL-D0039-OB-E02",
+      "topicId": "t01",
+      "title": "Función a trozos: continuidad, crecimiento puntual y asíntotas"
+    },
+    {
+      "id": "SEL-D0039-OB-E03",
+      "topicId": "t07",
+      "title": "Prueba diagnóstica: acierto y probabilidades dado positivo"
+    },
+    {
+      "id": "SEL-D0039-OB-E04",
+      "topicId": "t09",
+      "title": "Tuberías: intervalo de media y tamaño para amplitud estricta"
+    },
+    {
+      "id": "SEL-D0040-OA-E01",
+      "topicId": "t04",
+      "title": "Ecuación matricial y potencias cuarta y ochenta"
+    },
+    {
+      "id": "SEL-D0040-OA-E02",
+      "topicId": "t01",
+      "title": "Tres tramos: gráfica, continuidad y derivabilidad"
+    },
+    {
+      "id": "SEL-D0040-OA-E03",
+      "topicId": "t07",
+      "title": "Dos dados y pregunta de incompatibilidad de sucesos"
+    },
+    {
+      "id": "SEL-D0040-OA-E04",
+      "topicId": "t09",
+      "title": "Atención al cliente: contraste unilateral de media"
+    },
+    {
+      "id": "SEL-D0040-OB-E01",
+      "topicId": "t06",
+      "title": "Recinto factible y máximo de una función lineal"
+    },
+    {
+      "id": "SEL-D0040-OB-E02",
+      "topicId": "t02",
+      "title": "Cúbica: extremos, inflexión, cortes y dos tangentes"
+    },
+    {
+      "id": "SEL-D0040-OB-E03",
+      "topicId": "t07",
+      "title": "Secaderos: complemento y procedencia condicionada"
+    },
+    {
+      "id": "SEL-D0040-OB-E04",
+      "topicId": "t09",
+      "title": "Media Normal: intervalo, error y reducción a la mitad"
+    },
+    {
+      "id": "SEL-D0041-OA-E01",
+      "topicId": "t04",
+      "title": "Dos ecuaciones matriciales: incógnita X y parámetros"
+    },
+    {
+      "id": "SEL-D0041-OA-E02",
+      "topicId": "t02",
+      "title": "Racional y cúbica por tramos: asíntotas y tangente"
+    },
+    {
+      "id": "SEL-D0041-OA-E03",
+      "topicId": "t07",
+      "title": "Conducción y alcohol: independencia y probabilidad condicionada"
+    },
+    {
+      "id": "SEL-D0041-OA-E04",
+      "topicId": "t09",
+      "title": "Hipotecas: intervalo de confianza y tamaño mínimo"
+    },
+    {
+      "id": "SEL-D0041-OB-E01",
+      "topicId": "t06",
+      "title": "Inversión en dos productos financieros y beneficio máximo"
+    },
+    {
+      "id": "SEL-D0041-OB-E02",
+      "topicId": "t02",
+      "title": "Parábola y recta: continuidad, derivabilidad y gráfica"
+    },
+    {
+      "id": "SEL-D0041-OB-E03",
+      "topicId": "t07",
+      "title": "Tres causas de enfermedad y hospitalización"
+    },
+    {
+      "id": "SEL-D0041-OB-E04",
+      "topicId": "t09",
+      "title": "Peso de pájaros: contraste unilateral de disminución"
+    },
+    {
+      "id": "SEL-D0042-OA-E01",
+      "topicId": "t04",
+      "title": "Dimensiones y ecuación matricial con traspuesta y datos parciales"
+    },
+    {
+      "id": "SEL-D0042-OA-E02",
+      "topicId": "t01",
+      "title": "Parámetros de una función con mínimo y recta tangente"
+    },
+    {
+      "id": "SEL-D0042-OA-E03",
+      "topicId": "t07",
+      "title": "Sucesos independientes: incompatibilidad y complemento"
+    },
+    {
+      "id": "SEL-D0042-OA-E04",
+      "topicId": "t09",
+      "title": "Longitud del pan: media y error desde un intervalo y tamaño mínimo"
+    },
+    {
+      "id": "SEL-D0042-OB-E01",
+      "topicId": "t06",
+      "title": "Dieta de lácteos y pescado de coste mínimo"
+    },
+    {
+      "id": "SEL-D0042-OB-E02",
+      "topicId": "t01",
+      "title": "Parámetros para derivabilidad de una función por tramos"
+    },
+    {
+      "id": "SEL-D0042-OB-E03",
+      "topicId": "t07",
+      "title": "Defectos de batidoras: unión, condicional e independencia"
+    },
+    {
+      "id": "SEL-D0042-OB-E04",
+      "topicId": "t09",
+      "title": "Marca de ropa: contraste de proporción con dos significaciones"
+    },
+    {
+      "id": "SEL-D0043-OA-E01",
+      "topicId": "t06",
+      "title": "Región factible y extremos de una función objetivo"
+    },
+    {
+      "id": "SEL-D0043-OA-E02",
+      "topicId": "t01",
+      "title": "Parámetros para derivabilidad y recta tangente"
+    },
+    {
+      "id": "SEL-D0043-OA-E03",
+      "topicId": "t07",
+      "title": "Cámaras de dos modelos: reparación y procedencia"
+    },
+    {
+      "id": "SEL-D0043-OA-E04",
+      "topicId": "t09",
+      "title": "Gasolina: intervalo y tamaño con error no superior"
+    },
+    {
+      "id": "SEL-D0043-OB-E01",
+      "topicId": "t04",
+      "title": "Igualdad de productos y ecuación matricial por la derecha"
+    },
+    {
+      "id": "SEL-D0043-OB-E02",
+      "topicId": "t02",
+      "title": "Audiencia de radio: extremos en un intervalo horario"
+    },
+    {
+      "id": "SEL-D0043-OB-E03",
+      "topicId": "t07",
+      "title": "Elección en un conjunto: paridad, condicional e independencia"
+    },
+    {
+      "id": "SEL-D0043-OB-E04",
+      "topicId": "t09",
+      "title": "Afijación proporcional y parámetros desde medias muestrales"
+    },
+    {
+      "id": "SEL-D0044-OA-E01",
+      "topicId": "t04",
+      "title": "Parámetro en una traspuesta y ecuación con matriz fila"
+    },
+    {
+      "id": "SEL-D0044-OA-E02",
+      "topicId": "t02",
+      "title": "Cúbica: monotonía, curvatura y representación"
+    },
+    {
+      "id": "SEL-D0044-OA-E03",
+      "topicId": "t07",
+      "title": "Dos adultos: no fumadores y fumador ocasional"
+    },
+    {
+      "id": "SEL-D0044-OA-E04",
+      "topicId": "t09",
+      "title": "Balances incorrectos: intervalo de proporción y tamaño mínimo"
+    },
+    {
+      "id": "SEL-D0044-OB-E01",
+      "topicId": "t06",
+      "title": "Región y mínimo con cuatro restricciones impresas"
+    },
+    {
+      "id": "SEL-D0044-OB-E02",
+      "topicId": "t01",
+      "title": "Función a trozos: continuidad, derivabilidad y asíntotas"
+    },
+    {
+      "id": "SEL-D0044-OB-E03",
+      "topicId": "t07",
+      "title": "Visitantes del museo: edad y procedencia"
+    },
+    {
+      "id": "SEL-D0044-OB-E04",
+      "topicId": "t09",
+      "title": "Muestras de tres valores y afijación por productos"
+    },
+    {
+      "id": "SEL-D0045-OA-E01",
+      "topicId": "t04",
+      "title": "Producto con traspuesta y dos ecuaciones matriciales"
+    },
+    {
+      "id": "SEL-D0045-OA-E02",
+      "topicId": "t01",
+      "title": "Derivadas de un producto logarítmico y un cociente exponencial"
+    },
+    {
+      "id": "SEL-D0045-OA-E03",
+      "topicId": "t07",
+      "title": "Fútbol y baloncesto: complemento, condicional e independencia"
+    },
+    {
+      "id": "SEL-D0045-OA-E04",
+      "topicId": "t09",
+      "title": "Carril-bici: contraste de proporción a dos significaciones"
+    },
+    {
+      "id": "SEL-D0045-OB-E01",
+      "topicId": "t04",
+      "title": "Ecuación matricial y extremos sobre una región de cinco vértices"
+    },
+    {
+      "id": "SEL-D0045-OB-E02",
+      "topicId": "t02",
+      "title": "Estudio completo y representación de una cúbica"
+    },
+    {
+      "id": "SEL-D0045-OB-E03",
+      "topicId": "t07",
+      "title": "Prensa en papel y digital: unión, condicional y exclusividad"
+    },
+    {
+      "id": "SEL-D0045-OB-E04",
+      "topicId": "t09",
+      "title": "Centro comercial: proporción desde un intervalo y nueva muestra"
+    },
+    {
+      "id": "SEL-D0046-OA-E01",
+      "topicId": "t04",
+      "title": "Potencia 2014 y ecuación con el cubo de una matriz"
+    },
+    {
+      "id": "SEL-D0046-OA-E02",
+      "topicId": "t02",
+      "title": "Beneficios: inversión óptima e interpretación de la derivada"
+    },
+    {
+      "id": "SEL-D0046-OA-E03",
+      "topicId": "t07",
+      "title": "Moneda y dos urnas: paridad, probabilidad total y Bayes"
+    },
+    {
+      "id": "SEL-D0046-OA-E04",
+      "topicId": "t09",
+      "title": "Libros de narrativa: intervalo de media y tamaño mínimo"
+    },
+    {
+      "id": "SEL-D0046-OB-E01",
+      "topicId": "t06",
+      "title": "Recinto de cuatro restricciones y extremos de función lineal"
+    },
+    {
+      "id": "SEL-D0046-OB-E02",
+      "topicId": "t01",
+      "title": "Continuidad y derivabilidad por parámetros y monotonía"
+    },
+    {
+      "id": "SEL-D0046-OB-E03",
+      "topicId": "t07",
+      "title": "Compra y fruta de oferta: total y unión de sucesos"
+    },
+    {
+      "id": "SEL-D0046-OB-E04",
+      "topicId": "t09",
+      "title": "Redes sociales: contraste bilateral de proporción"
+    },
+    {
+      "id": "SEL-D0047-OA-E01",
+      "topicId": "t04",
+      "title": "Sistema de matrices y ecuación con traspuesta"
+    },
+    {
+      "id": "SEL-D0047-OA-E02",
+      "topicId": "t02",
+      "title": "Beneficios de diez años: extremos absolutos"
+    },
+    {
+      "id": "SEL-D0047-OA-E03",
+      "topicId": "t07",
+      "title": "Asistencia independiente de dos alumnos"
+    },
+    {
+      "id": "SEL-D0047-OA-E04",
+      "topicId": "t09",
+      "title": "Lectura semanal: contraste unilateral de media"
+    },
+    {
+      "id": "SEL-D0047-OB-E01",
+      "topicId": "t06",
+      "title": "Formulación sin resolver de almacenaje y representación de un recinto"
+    },
+    {
+      "id": "SEL-D0047-OB-E02",
+      "topicId": "t02",
+      "title": "Parábola con parámetros, máximo y tangente"
+    },
+    {
+      "id": "SEL-D0047-OB-E03",
+      "topicId": "t07",
+      "title": "Peritaje de bolsos: acierto y autenticidad condicionado al error"
+    },
+    {
+      "id": "SEL-D0047-OB-E04",
+      "topicId": "t09",
+      "title": "Peso de huevos: intervalo y muestra con amplitud máxima"
+    },
+    {
+      "id": "SEL-D0048-OA-E01",
+      "topicId": "t06",
+      "title": "Formulación de transporte y puntos de mínimo en un recinto"
+    },
+    {
+      "id": "SEL-D0048-OA-E02",
+      "topicId": "t01",
+      "title": "Derivabilidad de una función de tres tramos"
+    },
+    {
+      "id": "SEL-D0048-OA-E03",
+      "topicId": "t07",
+      "title": "Calibres de huevos: roturas y procedencia condicionada"
+    },
+    {
+      "id": "SEL-D0048-OA-E04",
+      "topicId": "t09",
+      "title": "IMC: contraste unilateral de media en un enunciado histórico"
+    },
+    {
+      "id": "SEL-D0048-OB-E01",
+      "topicId": "t04",
+      "title": "Potencias de una matriz y ecuación con traspuesta"
+    },
+    {
+      "id": "SEL-D0048-OB-E02",
+      "topicId": "t01",
+      "title": "Continuidad, derivabilidad y tangente de dos tramos"
+    },
+    {
+      "id": "SEL-D0048-OB-E03",
+      "topicId": "t07",
+      "title": "Accionistas: grupos de edad y aceptación de una propuesta"
+    },
+    {
+      "id": "SEL-D0048-OB-E04",
+      "topicId": "t09",
+      "title": "Navegación: intervalo de proporción y tamaño mínimo"
+    },
+    {
+      "id": "SEL-D0049-OA-E01",
+      "topicId": "t06",
+      "title": "Anillos de oro y plata: ingresos máximos"
+    },
+    {
+      "id": "SEL-D0049-OA-E02",
+      "topicId": "t02",
+      "title": "Función a trozos: derivabilidad y extremos absolutos"
+    },
+    {
+      "id": "SEL-D0049-OA-E03",
+      "topicId": "t07",
+      "title": "Dos sucesos: intersección, diferencia y condicional"
+    },
+    {
+      "id": "SEL-D0049-OA-E04",
+      "topicId": "t09",
+      "title": "Internet móvil: intervalo y efecto del tamaño muestral"
+    },
+    {
+      "id": "SEL-D0049-OB-E01",
+      "topicId": "t04",
+      "title": "Objetivo con parámetro y ecuación matricial rectangular"
+    },
+    {
+      "id": "SEL-D0049-OB-E02",
+      "topicId": "t01",
+      "title": "Extremos de una cúbica y tangente a su derivada"
+    },
+    {
+      "id": "SEL-D0049-OB-E03",
+      "topicId": "t07",
+      "title": "Préstamos hipotecarios y personales: ninguno y condicional"
+    },
+    {
+      "id": "SEL-D0049-OB-E04",
+      "topicId": "t09",
+      "title": "Afijación proporcional y varianza de medias muestrales"
+    },
+    {
+      "id": "SEL-D0050-OA-E01",
+      "topicId": "t04",
+      "title": "Parámetros de una matriz, simetría y ecuación matricial"
+    },
+    {
+      "id": "SEL-D0050-OA-E02",
+      "topicId": "t02",
+      "title": "Beneficios de una empresa: monotonía, extremos y evolución"
+    },
+    {
+      "id": "SEL-D0050-OA-E03",
+      "topicId": "t07",
+      "title": "Desplazamiento al centro y probabilidad condicionada por sexo"
+    },
+    {
+      "id": "SEL-D0050-OA-E04",
+      "topicId": "t09",
+      "title": "Hembras en una piscifactoría: intervalo y tamaño mínimo"
+    },
+    {
+      "id": "SEL-D0050-OB-E01",
+      "topicId": "t06",
+      "title": "Tapices: máximo beneficio y recursos sobrantes"
+    },
+    {
+      "id": "SEL-D0050-OB-E02",
+      "topicId": "t01",
+      "title": "Monotonía y tangente a partir de una parábola derivada"
+    },
+    {
+      "id": "SEL-D0050-OB-E03",
+      "topicId": "t07",
+      "title": "Sucesos independientes: unión, complementarios y condicional"
+    },
+    {
+      "id": "SEL-D0050-OB-E04",
+      "topicId": "t09",
+      "title": "Televisión: recuperar media y muestra desde un intervalo"
+    },
+    {
+      "id": "SEL-D0051-OA-E01",
+      "topicId": "t04",
+      "title": "Ecuaciones matriciales con traspuesta y matriz rectangular"
+    },
+    {
+      "id": "SEL-D0051-OA-E02",
+      "topicId": "t01",
+      "title": "Tres tramos: continuidad, derivabilidad y monotonía"
+    },
+    {
+      "id": "SEL-D0051-OA-E03",
+      "topicId": "t07",
+      "title": "Elección de urna mediante un dado y color de la bola"
+    },
+    {
+      "id": "SEL-D0051-OA-E04",
+      "topicId": "t09",
+      "title": "Sobres de café: amplitud e intervalo de confianza"
+    },
+    {
+      "id": "SEL-D0051-OB-E01",
+      "topicId": "t06",
+      "title": "Recinto: vértices, extremos y alcance de un valor objetivo"
+    },
+    {
+      "id": "SEL-D0051-OB-E02",
+      "topicId": "t01",
+      "title": "Cúbica: curvatura, inflexión, tangente y monotonía puntual"
+    },
+    {
+      "id": "SEL-D0051-OB-E03",
+      "topicId": "t07",
+      "title": "Idiomas en una empresa: intersección, total y Bayes"
+    },
+    {
+      "id": "SEL-D0051-OB-E04",
+      "topicId": "t09",
+      "title": "Intención de voto: contraste unilateral de proporción"
+    },
+    {
+      "id": "SEL-D0052-OA-E01",
+      "topicId": "t04",
+      "title": "Potencia de matriz y ecuación con productos rectangulares"
+    },
+    {
+      "id": "SEL-D0052-OA-E02",
+      "topicId": "t01",
+      "title": "Derivación de cocientes, exponenciales y logaritmos"
+    },
+    {
+      "id": "SEL-D0052-OA-E03",
+      "topicId": "t07",
+      "title": "Terapias para dejar de fumar: total y Bayes"
+    },
+    {
+      "id": "SEL-D0052-OA-E04",
+      "topicId": "t09",
+      "title": "Acidez: intervalo, error y reducción a la mitad"
+    },
+    {
+      "id": "SEL-D0052-OB-E01",
+      "topicId": "t06",
+      "title": "Región factible: óptimo y otro punto admisible"
+    },
+    {
+      "id": "SEL-D0052-OB-E02",
+      "topicId": "t02",
+      "title": "Dos tramos: dominio, continuidad, extremos y curvatura"
+    },
+    {
+      "id": "SEL-D0052-OB-E03",
+      "topicId": "t07",
+      "title": "Sucesos independientes: probabilidad, condicional e incompatibilidad"
+    },
+    {
+      "id": "SEL-D0052-OB-E04",
+      "topicId": "t09",
+      "title": "Medias de muestras e intervalo de proporción sobre móviles"
+    },
+    {
+      "id": "SEL-D0053-OA-E01",
+      "topicId": "t06",
+      "title": "Región factible: pertenencia, extremos y valores objetivo"
+    },
+    {
+      "id": "SEL-D0053-OA-E02",
+      "topicId": "t02",
+      "title": "Montajes diarios: función racional, límite y crecimiento"
+    },
+    {
+      "id": "SEL-D0053-OA-E03",
+      "topicId": "t07",
+      "title": "Salsa y merengue: condicionales, independencia y compatibilidad"
+    },
+    {
+      "id": "SEL-D0053-OA-E04",
+      "topicId": "t09",
+      "title": "Envasado de vino: contraste bilateral con varianza conocida"
+    },
+    {
+      "id": "SEL-D0053-OB-E01",
+      "topicId": "t04",
+      "title": "Matrices fraccionarias: ecuación y dimensiones de operaciones"
+    },
+    {
+      "id": "SEL-D0053-OB-E02",
+      "topicId": "t01",
+      "title": "Parámetros por continuidad y mínimo; tangente con valores dados"
+    },
+    {
+      "id": "SEL-D0053-OB-E03",
+      "topicId": "t07",
+      "title": "Préstamos: pago total y procedencia condicionada de impagos"
+    },
+    {
+      "id": "SEL-D0053-OB-E04",
+      "topicId": "t09",
+      "title": "Gasto familiar: intervalo de media y tamaño mínimo"
+    },
+    {
+      "id": "SEL-D0054-OA-E01",
+      "topicId": "t04",
+      "title": "Potencia, producto con traspuesta y ecuación matricial"
+    },
+    {
+      "id": "SEL-D0054-OA-E02",
+      "topicId": "t02",
+      "title": "Derivada exponencial y parámetros de una afluencia máxima"
+    },
+    {
+      "id": "SEL-D0054-OA-E03",
+      "topicId": "t07",
+      "title": "Transferencia de una bola entre bolsas: total y Bayes"
+    },
+    {
+      "id": "SEL-D0054-OA-E04",
+      "topicId": "t09",
+      "title": "Longitud de piezas: contraste unilateral y región de aceptación"
+    },
+    {
+      "id": "SEL-D0054-OB-E01",
+      "topicId": "t06",
+      "title": "Recinto: pertenencia, vértices y extremos de un objetivo"
+    },
+    {
+      "id": "SEL-D0054-OB-E02",
+      "topicId": "t02",
+      "title": "Ingresos y gastos: beneficio, representación y máximo"
+    },
+    {
+      "id": "SEL-D0054-OB-E03",
+      "topicId": "t07",
+      "title": "Errores en capítulos de un libro: total y procedencia"
+    },
+    {
+      "id": "SEL-D0054-OB-E04",
+      "topicId": "t09",
+      "title": "Afijación proporcional y tamaño mínimo para estimar peso"
+    },
+    {
+      "id": "SEL-D0055-OA-E01",
+      "topicId": "t06",
+      "title": "Región de tres inecuaciones: vértices y extremos"
+    },
+    {
+      "id": "SEL-D0055-OA-E02",
+      "topicId": "t01",
+      "title": "Tres tramos: continuidad, derivabilidad, extremos y tangente"
+    },
+    {
+      "id": "SEL-D0055-OA-E03",
+      "topicId": "t07",
+      "title": "Examen teórico y práctico: unión, condicional e independencia"
+    },
+    {
+      "id": "SEL-D0055-OA-E04",
+      "topicId": "t09",
+      "title": "Audiencia televisiva: hipótesis y región crítica de proporción"
+    },
+    {
+      "id": "SEL-D0055-OB-E01",
+      "topicId": "t04",
+      "title": "Compatibilidad matricial y significado económico del producto"
+    },
+    {
+      "id": "SEL-D0055-OB-E02",
+      "topicId": "t01",
+      "title": "Derivadas de potencia exponencial, logaritmo y cocientes"
+    },
+    {
+      "id": "SEL-D0055-OB-E03",
+      "topicId": "t07",
+      "title": "Riesgo de lluvia y uso del paraguas: total y Bayes"
+    },
+    {
+      "id": "SEL-D0055-OB-E04",
+      "topicId": "t09",
+      "title": "Chocolate: peso total, intervalo y amplitud máxima"
+    },
+    {
+      "id": "SEL-D0056-OA-E01",
+      "topicId": "t04",
+      "title": "Ecuación matricial y representación de grafos de adyacencia"
+    },
+    {
+      "id": "SEL-D0056-OA-E02",
+      "topicId": "t02",
+      "title": "Consumo de gasolina: monotonía y extremos en un intervalo"
+    },
+    {
+      "id": "SEL-D0056-OA-E03",
+      "topicId": "t07",
+      "title": "Dos sucesos: unión, condicional e independencia"
+    },
+    {
+      "id": "SEL-D0056-OA-E04",
+      "topicId": "t09",
+      "title": "Extracciones de cajero: contraste de media y aceptación"
+    },
+    {
+      "id": "SEL-D0056-OB-E01",
+      "topicId": "t06",
+      "title": "Producción semanal con dos máquinas: beneficio máximo"
+    },
+    {
+      "id": "SEL-D0056-OB-E02",
+      "topicId": "t01",
+      "title": "Dos ramas racionales: continuidad, derivabilidad y asíntotas"
+    },
+    {
+      "id": "SEL-D0056-OB-E03",
+      "topicId": "t07",
+      "title": "Seguros médicos y de vida: porcentajes de retrasos"
+    },
+    {
+      "id": "SEL-D0056-OB-E04",
+      "topicId": "t09",
+      "title": "Estaturas: intervalo y amplitud estrictamente inferior"
+    },
+    {
+      "id": "SEL-D0058-OA-E01",
+      "topicId": "t06",
+      "title": "Recinto factible y extremos de una función objetivo"
+    },
+    {
+      "id": "SEL-D0058-OA-E02",
+      "topicId": "t02",
+      "title": "Estudio de una función racional y de una función cúbica"
+    },
+    {
+      "id": "SEL-D0058-OA-E03",
+      "topicId": "t07",
+      "title": "Alarma: probabilidad total y ausencia de incidente"
+    },
+    {
+      "id": "SEL-D0058-OA-E04",
+      "topicId": "t09",
+      "title": "Años de vida: contraste unilateral de media y región crítica"
+    },
+    {
+      "id": "SEL-D0058-OB-E01",
+      "topicId": "t04",
+      "title": "Productos con traspuestas y ecuación matricial"
+    },
+    {
+      "id": "SEL-D0058-OB-E02",
+      "topicId": "t01",
+      "title": "Función a trozos con parámetro y asíntotas"
+    },
+    {
+      "id": "SEL-D0058-OB-E03",
+      "topicId": "t07",
+      "title": "Álgebra de sucesos: condicionales, incompatibilidad e independencia"
+    },
+    {
+      "id": "SEL-D0058-OB-E04",
+      "topicId": "t09",
+      "title": "Distribución de la media muestral y probabilidad entre dos valores"
+    },
+    {
+      "id": "SEL-D0059-OA-E01",
+      "topicId": "t04",
+      "title": "Potencia de una diferencia matricial y parámetros de un producto"
+    },
+    {
+      "id": "SEL-D0059-OA-E02",
+      "topicId": "t02",
+      "title": "Rentabilidad de una inversión expresada en miles de euros"
+    },
+    {
+      "id": "SEL-D0059-OA-E03",
+      "topicId": "t07",
+      "title": "Dado y moneda: espacio muestral y probabilidad condicionada"
+    },
+    {
+      "id": "SEL-D0059-OA-E04",
+      "topicId": "t09",
+      "title": "Calificaciones: distribución y probabilidad de la media muestral"
+    },
+    {
+      "id": "SEL-D0059-OB-E01",
+      "topicId": "t06",
+      "title": "Dos regiones: recinto por inecuaciones y extremos con vértices dados"
+    },
+    {
+      "id": "SEL-D0059-OB-E02",
+      "topicId": "t01",
+      "title": "Tres ramas polinómicas: parámetro, continuidad y derivabilidad"
+    },
+    {
+      "id": "SEL-D0059-OB-E03",
+      "topicId": "t07",
+      "title": "Juego de bolas con devolución: ganadores y empate"
+    },
+    {
+      "id": "SEL-D0059-OB-E04",
+      "topicId": "t09",
+      "title": "Cena y televisión: contraste bilateral de proporción"
+    },
+    {
+      "id": "SEL-D0060-OA-E01",
+      "topicId": "t04",
+      "title": "Elementos desconocidos de una matriz y potencia de otra matriz"
+    },
+    {
+      "id": "SEL-D0060-OA-E02",
+      "topicId": "t02",
+      "title": "Beneficio por tramos: derivabilidad, gráfica y extremos"
+    },
+    {
+      "id": "SEL-D0060-OA-E03",
+      "topicId": "t07",
+      "title": "Consumo de aceites: condicionales y complemento de la unión"
+    },
+    {
+      "id": "SEL-D0060-OA-E04",
+      "topicId": "t09",
+      "title": "Peso de adultos: distribución y probabilidades de media muestral"
+    },
+    {
+      "id": "SEL-D0060-OB-E01",
+      "topicId": "t06",
+      "title": "Recinto por tres inecuaciones y máximo de la función objetivo"
+    },
+    {
+      "id": "SEL-D0060-OB-E02",
+      "topicId": "t02",
+      "title": "Monotonía desde la derivada descrita y tangente a una exponencial"
+    },
+    {
+      "id": "SEL-D0060-OB-E03",
+      "topicId": "t07",
+      "title": "Servicio técnico: garantía, reparación previa y primera visita"
+    },
+    {
+      "id": "SEL-D0060-OB-E04",
+      "topicId": "t09",
+      "title": "Peso de cachorros: intervalo, error y variación de amplitud"
+    },
+    {
+      "id": "SEL-D0061-OA-E01",
+      "topicId": "t06",
+      "title": "Recinto con cota doble y máximo de una función objetivo"
+    },
+    {
+      "id": "SEL-D0061-OA-E02",
+      "topicId": "t02",
+      "title": "Función cúbica: monotonía, extremos y punto de pendiente dada"
+    },
+    {
+      "id": "SEL-D0061-OA-E03",
+      "topicId": "t07",
+      "title": "Autobús y coche: puntualidad y probabilidad condicionada"
+    },
+    {
+      "id": "SEL-D0061-OA-E04",
+      "topicId": "t09",
+      "title": "Residencia de trabajadores: intervalo de proporción y error"
+    },
+    {
+      "id": "SEL-D0061-OB-E01",
+      "topicId": "t04",
+      "title": "Productos con traspuestas y ecuación con orden de factores"
+    },
+    {
+      "id": "SEL-D0061-OB-E02",
+      "topicId": "t01",
+      "title": "Derivadas de cociente exponencial, logaritmo y potencia exponencial"
+    },
+    {
+      "id": "SEL-D0061-OB-E03",
+      "topicId": "t07",
+      "title": "Congreso médico: mujeres y pediatras"
+    },
+    {
+      "id": "SEL-D0061-OB-E04",
+      "topicId": "t09",
+      "title": "Producción de naranjos: contraste unilateral de media"
+    },
+    {
+      "id": "SEL-D0062-OA-E01",
+      "topicId": "t06",
+      "title": "Lotes de frutos secos: maximización del ingreso"
+    },
+    {
+      "id": "SEL-D0062-OA-E02",
+      "topicId": "t01",
+      "title": "Tres ramas: continuidad, derivabilidad y recta tangente"
+    },
+    {
+      "id": "SEL-D0062-OA-E03",
+      "topicId": "t07",
+      "title": "Aprobados por sexo: probabilidades condicionadas y comparación"
+    },
+    {
+      "id": "SEL-D0062-OA-E04",
+      "topicId": "t09",
+      "title": "Votantes: intervalo de proporción y tamaño con error estricto"
+    },
+    {
+      "id": "SEL-D0062-OB-E01",
+      "topicId": "t06",
+      "title": "Recinto de semiplanos: extremos y rango de la función objetivo"
+    },
+    {
+      "id": "SEL-D0062-OB-E02",
+      "topicId": "t02",
+      "title": "Vaciado de un depósito: volumen, gráfica y derivada contextual"
+    },
+    {
+      "id": "SEL-D0062-OB-E03",
+      "topicId": "t07",
+      "title": "Dos lanzamientos de dado: sucesos e independencia"
+    },
+    {
+      "id": "SEL-D0062-OB-E04",
+      "topicId": "t09",
+      "title": "Tiempo de reacción: intervalo de media y tamaño con error estricto"
+    },
+    {
+      "id": "SEL-D0063-OA-E01",
+      "topicId": "t06",
+      "title": "Contenedores de marisco: abastecimiento con coste mínimo"
+    },
+    {
+      "id": "SEL-D0063-OA-E02",
+      "topicId": "t02",
+      "title": "Parámetros de una parábola, curvatura, mínimo y ceros"
+    },
+    {
+      "id": "SEL-D0063-OA-E03",
+      "topicId": "t07",
+      "title": "Dado: álgebra de sucesos y complementos"
+    },
+    {
+      "id": "SEL-D0063-OA-E04",
+      "topicId": "t09",
+      "title": "Proteína en sangre: intervalo y suficiencia del tamaño muestral"
+    },
+    {
+      "id": "SEL-D0063-OB-E01",
+      "topicId": "t06",
+      "title": "Recinto de inecuaciones y extremos de una función afín"
+    },
+    {
+      "id": "SEL-D0063-OB-E02",
+      "topicId": "t01",
+      "title": "Derivadas compuestas y estudio de una función racional"
+    },
+    {
+      "id": "SEL-D0063-OB-E03",
+      "topicId": "t07",
+      "title": "Alarma de fábrica: ausencia de alarma y falsa alarma"
+    },
+    {
+      "id": "SEL-D0063-OB-E04",
+      "topicId": "t09",
+      "title": "Sacos de patatas: contraste unilateral de media"
+    },
+    {
+      "id": "SEL-D0064-OA-E01",
+      "topicId": "t06",
+      "title": "Recinto con cota doble y extremos de una función objetivo"
+    },
+    {
+      "id": "SEL-D0064-OA-E02",
+      "topicId": "t02",
+      "title": "Pacientes de un consultorio: máximo, cierre y gráfica"
+    },
+    {
+      "id": "SEL-D0064-OA-E03",
+      "topicId": "t07",
+      "title": "Lectura de periódicos: unión, complemento y condicional"
+    },
+    {
+      "id": "SEL-D0064-OA-E04",
+      "topicId": "t09",
+      "title": "Mortalidad y fármaco: contraste unilateral de proporción"
+    },
+    {
+      "id": "SEL-D0064-OB-E01",
+      "topicId": "t04",
+      "title": "Productos rectangulares y parámetros en una ecuación matricial"
+    },
+    {
+      "id": "SEL-D0064-OB-E02",
+      "topicId": "t02",
+      "title": "Parámetro en función a trozos y estudio gráfico"
+    },
+    {
+      "id": "SEL-D0064-OB-E03",
+      "topicId": "t07",
+      "title": "Tres lanzamientos de un dado con caras repetidas"
+    },
+    {
+      "id": "SEL-D0064-OB-E04",
+      "topicId": "t09",
+      "title": "Tamaño muestral para altura y distribución de medias en población finita"
+    },
+    {
+      "id": "SEL-D0065-OA-E01",
+      "topicId": "t06",
+      "title": "Recinto y extremos de una función objetivo con coeficientes negativos"
+    },
+    {
+      "id": "SEL-D0065-OA-E02",
+      "topicId": "t02",
+      "title": "Inversión publicitaria: pérdidas y beneficio máximo en un intervalo"
+    },
+    {
+      "id": "SEL-D0065-OA-E03",
+      "topicId": "t07",
+      "title": "Sucesos con probabilidades fraccionarias y condicional"
+    },
+    {
+      "id": "SEL-D0065-OA-E04",
+      "topicId": "t09",
+      "title": "Afijación proporcional y parámetro de una población finita"
+    },
+    {
+      "id": "SEL-D0065-OB-E01",
+      "topicId": "t04",
+      "title": "Dimensiones de un producto triple y ecuación matricial"
+    },
+    {
+      "id": "SEL-D0065-OB-E02",
+      "topicId": "t01",
+      "title": "Función racional y polinómica por tramos: continuidad, derivabilidad y gráfica"
+    },
+    {
+      "id": "SEL-D0065-OB-E03",
+      "topicId": "t07",
+      "title": "Camareros: edad y propiedad del local"
+    },
+    {
+      "id": "SEL-D0065-OB-E04",
+      "topicId": "t09",
+      "title": "Envasado de almendras: contraste bilateral de media con varianza conocida"
+    },
+    {
+      "id": "SEL-D0066-OA-E01",
+      "topicId": "t04",
+      "title": "Matrices con parámetros, producto por la traspuesta y ecuación matricial"
+    },
+    {
+      "id": "SEL-D0066-OA-E02",
+      "topicId": "t01",
+      "title": "Perfiles de arcos: continuidad y derivabilidad en el punto de unión"
+    },
+    {
+      "id": "SEL-D0066-OA-E03",
+      "topicId": "t07",
+      "title": "Servidores de Internet y bloqueo de ordenadores"
+    },
+    {
+      "id": "SEL-D0066-OA-E04",
+      "topicId": "t09",
+      "title": "Intervalo de confianza para proporción de adultos e interpretación"
+    },
+    {
+      "id": "SEL-D0066-OB-E01",
+      "topicId": "t06",
+      "title": "Región factible y extremos de una función objetivo"
+    },
+    {
+      "id": "SEL-D0066-OB-E02",
+      "topicId": "t02",
+      "title": "Inversión empresarial: beneficio no negativo, máximo y crecimiento"
+    },
+    {
+      "id": "SEL-D0066-OB-E03",
+      "topicId": "t07",
+      "title": "Fútbol y atletismo: intersección, complementario y condicional"
+    },
+    {
+      "id": "SEL-D0066-OB-E04",
+      "topicId": "t09",
+      "title": "Años de vida: contraste unilateral de media con desviación conocida"
+    },
+    {
+      "id": "SEL-D0067-OA-E01",
+      "topicId": "t05",
+      "title": "Listones de madera: planteamiento y clasificación de un sistema"
+    },
+    {
+      "id": "SEL-D0067-OA-E02",
+      "topicId": "t01",
+      "title": "Derivadas, dominio y asíntotas"
+    },
+    {
+      "id": "SEL-D0067-OA-E03",
+      "topicId": "t07",
+      "title": "Parte I: tiro con arco; Parte II: intervalo para edad media"
+    },
+    {
+      "id": "SEL-D0067-OB-E01",
+      "topicId": "t06",
+      "title": "Mínimo de una función objetivo y valoración de dos respuestas"
+    },
+    {
+      "id": "SEL-D0067-OB-E02",
+      "topicId": "t01",
+      "title": "Continuidad y derivabilidad por tramos; derivadas de funciones"
+    },
+    {
+      "id": "SEL-D0067-OB-E03",
+      "topicId": "t07",
+      "title": "Parte I: préstamos bancarios; Parte II: media muestral del cociente intelectual"
+    },
+    {
+      "id": "SEL-D0068-OA-E01",
+      "topicId": "t06",
+      "title": "Región con restricciones fraccionarias y extremos de una función objetivo"
+    },
+    {
+      "id": "SEL-D0068-OA-E02",
+      "topicId": "t01",
+      "title": "Estudio de una función a partir de su derivada y recta tangente"
+    },
+    {
+      "id": "SEL-D0068-OA-E03",
+      "topicId": "t07",
+      "title": "Parte I: diagnóstico; Parte II: estimación de proporción de fumadores"
+    },
+    {
+      "id": "SEL-D0068-OB-E01",
+      "topicId": "t04",
+      "title": "Potencias de matrices y ecuación matricial con identidad"
+    },
+    {
+      "id": "SEL-D0068-OB-E02",
+      "topicId": "t01",
+      "title": "Polinomio con parámetros, máximo y tangente"
+    },
+    {
+      "id": "SEL-D0068-OB-E03",
+      "topicId": "t07",
+      "title": "Parte I: encuadernación; Parte II: intervalo y tamaño muestral para tiempo medio"
+    },
+    {
+      "id": "SEL-D0069-OA-E01",
+      "topicId": "t04",
+      "title": "Despeje y cálculo de una matriz en AX+B=A"
+    },
+    {
+      "id": "SEL-D0069-OA-E02",
+      "topicId": "t01",
+      "title": "Función por tramos: continuidad, derivabilidad y asíntotas"
+    },
+    {
+      "id": "SEL-D0069-OA-E03",
+      "topicId": "t07",
+      "title": "Parte I: visitas de un crucero; Parte II: tiempo de reparación"
+    },
+    {
+      "id": "SEL-D0069-OB-E01",
+      "topicId": "t06",
+      "title": "Recinto, extremos y pertenencia de un punto fraccionario"
+    },
+    {
+      "id": "SEL-D0069-OB-E02",
+      "topicId": "t02",
+      "title": "Contaminación atmosférica: máximo, nivel cero e interpretación de pendiente"
+    },
+    {
+      "id": "SEL-D0069-OB-E03",
+      "topicId": "t07",
+      "title": "Parte I: asignaturas optativas; Parte II: proporción de turismos diésel"
+    },
+    {
+      "id": "SEL-D0070-OA-E01",
+      "topicId": "t04",
+      "title": "Sistema dado por un producto matricial y producto de traspuesta por inversa"
+    },
+    {
+      "id": "SEL-D0070-OA-E02",
+      "topicId": "t02",
+      "title": "Venta de fresas: beneficio por kilogramo y beneficio total máximo"
+    },
+    {
+      "id": "SEL-D0070-OA-E03",
+      "topicId": "t07",
+      "title": "Parte I: independencia y complementarios; Parte II: muestras con reemplazamiento"
+    },
+    {
+      "id": "SEL-D0070-OB-E01",
+      "topicId": "t06",
+      "title": "Distribución de cultivos con límites de agua y presupuesto"
+    },
+    {
+      "id": "SEL-D0070-OB-E02",
+      "topicId": "t01",
+      "title": "Función exponencial y polinómica por tramos y tangente"
+    },
+    {
+      "id": "SEL-D0070-OB-E03",
+      "topicId": "t07",
+      "title": "Parte I: bolas de pádel y tenis; Parte II: media muestral y afijación proporcional"
+    },
+    {
+      "id": "SEL-D0071-OA-E01",
+      "topicId": "t06",
+      "title": "Extremos de una función objetivo en una región con cota fraccionaria"
+    },
+    {
+      "id": "SEL-D0071-OA-E02",
+      "topicId": "t02",
+      "title": "Función cúbica: cortes, monotonía, curvatura y tangentes de pendiente dada"
+    },
+    {
+      "id": "SEL-D0071-OA-E03",
+      "topicId": "t07",
+      "title": "Parte I: incompatibilidad e independencia; Parte II: intervalo y recuperación de tamaño muestral"
+    },
+    {
+      "id": "SEL-D0071-OB-E01",
+      "topicId": "t05",
+      "title": "Latas de tomate: planteamiento y resolución de un sistema con pesos y precios"
+    },
+    {
+      "id": "SEL-D0071-OB-E02",
+      "topicId": "t01",
+      "title": "Función lineal por tramos: representación, continuidad y derivabilidad"
+    },
+    {
+      "id": "SEL-D0071-OB-E03",
+      "topicId": "t07",
+      "title": "Parte I: sucesos independientes; Parte II: proporción de empleados con gafas"
+    },
+    {
+      "id": "SEL-D0072-OA-E01",
+      "topicId": "t04",
+      "title": "Ecuación matricial de orden tres con incógnita multiplicando por la izquierda"
+    },
+    {
+      "id": "SEL-D0072-OA-E02",
+      "topicId": "t01",
+      "title": "Función racional: tangente, monotonía, asíntotas y representación"
+    },
+    {
+      "id": "SEL-D0072-OA-E03",
+      "topicId": "t07",
+      "title": "Parte I: recuperación de probabilidades e independencia; Parte II: gasto en Navidad"
+    },
+    {
+      "id": "SEL-D0072-OB-E01",
+      "topicId": "t06",
+      "title": "Formulación de producción de camisas y optimización de otro recinto"
+    },
+    {
+      "id": "SEL-D0072-OB-E02",
+      "topicId": "t01",
+      "title": "Función exponencial y cúbica por tramos: continuidad, derivabilidad y tangente"
+    },
+    {
+      "id": "SEL-D0072-OB-E03",
+      "topicId": "t07",
+      "title": "Parte I: visitantes de un museo; Parte II: horas de sueño"
+    },
+    {
+      "id": "SEL-D0073-OA-E01",
+      "topicId": "t04",
+      "title": "Matriz con parámetro y cuadrado de un producto de inversa por traspuesta"
+    },
+    {
+      "id": "SEL-D0073-OA-E02",
+      "topicId": "t02",
+      "title": "Función racional: cortes, curvatura, asíntotas y representación"
+    },
+    {
+      "id": "SEL-D0073-OA-E03",
+      "topicId": "t07",
+      "title": "Parte I: monedas de dos monederos; Parte II: proporción de individuos zurdos"
+    },
+    {
+      "id": "SEL-D0073-OB-E01",
+      "topicId": "t06",
+      "title": "Producción de hornadas de tartas con tres recursos limitados"
+    },
+    {
+      "id": "SEL-D0073-OB-E02",
+      "topicId": "t01",
+      "title": "Monotonía desde la gráfica de la derivada y cálculo de derivadas"
+    },
+    {
+      "id": "SEL-D0073-OB-E03",
+      "topicId": "t07",
+      "title": "Parte I: coches por motor y estado; Parte II: tamaño muestral para una media"
+    },
+    {
+      "id": "SEL-D0074-OA-E01",
+      "topicId": "t04",
+      "title": "Sistema dado mediante un producto matricial e inversa de una matriz"
+    },
+    {
+      "id": "SEL-D0074-OA-E02",
+      "topicId": "t01",
+      "title": "Tangente a una función racional y parámetros de un extremo relativo"
+    },
+    {
+      "id": "SEL-D0074-OA-E03",
+      "topicId": "t07",
+      "title": "Parte I: resolución de dos ejercicios; Parte II: longitud de cables de auriculares"
+    },
+    {
+      "id": "SEL-D0074-OB-E01",
+      "topicId": "t06",
+      "title": "Tratamiento con dos marcas de píldoras de máximo coste diario"
+    },
+    {
+      "id": "SEL-D0074-OB-E02",
+      "topicId": "t02",
+      "title": "Función cúbica: monotonía, curvatura, extremos y tangente"
+    },
+    {
+      "id": "SEL-D0074-OB-E03",
+      "topicId": "t07",
+      "title": "Parte I: operaciones con sucesos; Parte II: respuesta positiva a un medicamento"
+    },
+    {
+      "id": "SEL-D0075-OA-E01",
+      "topicId": "t04",
+      "title": "Productos matriciales con parámetros y ecuación X por B menos A igual a la identidad"
+    },
+    {
+      "id": "SEL-D0075-OA-E02",
+      "topicId": "t01",
+      "title": "Función a trozos: dominio, derivabilidad y recta tangente"
+    },
+    {
+      "id": "SEL-D0075-OA-E03",
+      "topicId": "t07",
+      "title": "Parte I: sucesos condicionados e independientes; Parte II: estancia hospitalaria"
+    },
+    {
+      "id": "SEL-D0075-OB-E01",
+      "topicId": "t06",
+      "title": "Región factible, vértices y máximo de una función objetivo"
+    },
+    {
+      "id": "SEL-D0075-OB-E02",
+      "topicId": "t01",
+      "title": "Función a trozos polinómica y logarítmica: parámetros y derivabilidad"
+    },
+    {
+      "id": "SEL-D0075-OB-E03",
+      "topicId": "t07",
+      "title": "Parte I: estudios superiores y empleo; Parte II: muestras y varianza de sus medias"
+    },
+    {
+      "id": "SEL-D0076-OA-E01",
+      "topicId": "t06",
+      "title": "Fabricación de dos modelos de anillos con beneficio máximo"
+    },
+    {
+      "id": "SEL-D0076-OA-E02",
+      "topicId": "t02",
+      "title": "Beneficio empresarial según el gasto en publicidad"
+    },
+    {
+      "id": "SEL-D0076-OA-E03",
+      "topicId": "t07",
+      "title": "Parte I: inmigración por sexo; Parte II: alumnos que hablan inglés"
+    },
+    {
+      "id": "SEL-D0076-OB-E01",
+      "topicId": "t04",
+      "title": "Productos de fila por columna y ecuación con inversa matricial"
+    },
+    {
+      "id": "SEL-D0076-OB-E02",
+      "topicId": "t01",
+      "title": "Derivadas de productos, funciones compuestas y cociente"
+    },
+    {
+      "id": "SEL-D0076-OB-E03",
+      "topicId": "t07",
+      "title": "Parte I: bombillas sin reemplazamiento; Parte II: utilización diaria de ordenador"
+    },
+    {
+      "id": "SEL-D0077-OA-E01",
+      "topicId": "t06",
+      "title": "Recinto, vértices y valores extremos de una función objetivo"
+    },
+    {
+      "id": "SEL-D0077-OA-E02",
+      "topicId": "t02",
+      "title": "Función cúbica: cortes, extremos, inflexión y representación"
+    },
+    {
+      "id": "SEL-D0077-OA-E03",
+      "topicId": "t07",
+      "title": "Parte I: puestos de ordenador; Parte II: media muestral de pesos"
+    },
+    {
+      "id": "SEL-D0077-OB-E01",
+      "topicId": "t04",
+      "title": "Ecuación matricial con producto exterior y sistema de dos incógnitas"
+    },
+    {
+      "id": "SEL-D0077-OB-E02",
+      "topicId": "t01",
+      "title": "Función a trozos: continuidad con parámetros y recta tangente"
+    },
+    {
+      "id": "SEL-D0077-OB-E03",
+      "topicId": "t07",
+      "title": "Parte I: equipamiento de hogares; Parte II: aves portadoras de una bacteria"
+    },
+    {
+      "id": "SEL-D0078-OA-E01",
+      "topicId": "t06",
+      "title": "Producción de leche entera y desnatada con beneficio máximo"
+    },
+    {
+      "id": "SEL-D0078-OA-E02",
+      "topicId": "t01",
+      "title": "Función a trozos exponencial y polinómica: continuidad, derivabilidad y monotonía"
+    },
+    {
+      "id": "SEL-D0078-OA-E03",
+      "topicId": "t07",
+      "title": "Parte I: juego de Ana y Blas; Parte II: uso del transporte público"
+    },
+    {
+      "id": "SEL-D0078-OB-E01",
+      "topicId": "t04",
+      "title": "Producto de suma por diferencia y ecuación matricial de orden dos"
+    },
+    {
+      "id": "SEL-D0078-OB-E02",
+      "topicId": "t01",
+      "title": "Recta tangente y parámetros de una función con punto de inflexión"
+    },
+    {
+      "id": "SEL-D0078-OB-E03",
+      "topicId": "t07",
+      "title": "Parte I: calzado no defectuoso; Parte II: consumo con varianza conocida"
+    },
+    {
+      "id": "SEL-D0079-OA-E01",
+      "topicId": "t04",
+      "title": "Producto por traspuesta con parámetros y ecuación matricial"
+    },
+    {
+      "id": "SEL-D0079-OA-E02",
+      "topicId": "t01",
+      "title": "Monotonía, curvatura y tangente a partir de la derivada dada"
+    },
+    {
+      "id": "SEL-D0079-OA-E03",
+      "topicId": "t07",
+      "title": "Contratación de viajes por internet en un congreso"
+    },
+    {
+      "id": "SEL-D0079-OA-E04",
+      "topicId": "t09",
+      "title": "Tiempo de reacción: intervalo de media y tamaño mínimo"
+    },
+    {
+      "id": "SEL-D0079-OB-E01",
+      "topicId": "t06",
+      "title": "Pertenencia al recinto, vértices y máximo de una función objetivo"
+    },
+    {
+      "id": "SEL-D0079-OB-E02",
+      "topicId": "t01",
+      "title": "Parámetros de una cuadrática con extremo y tangente a otra función"
+    },
+    {
+      "id": "SEL-D0079-OB-E03",
+      "topicId": "t07",
+      "title": "Dado que selecciona una urna: probabilidades y condicionamiento"
+    },
+    {
+      "id": "SEL-D0079-OB-E04",
+      "topicId": "t09",
+      "title": "Carril bici: contraste unilateral de una proporción"
+    },
+    {
+      "id": "SEL-D0080-OA-E01",
+      "topicId": "t06",
+      "title": "Compra y venta de manzanas con presupuesto y capacidad limitados"
+    },
+    {
+      "id": "SEL-D0080-OA-E02",
+      "topicId": "t02",
+      "title": "Asíntotas de una racional y estudio de una función cúbica"
+    },
+    {
+      "id": "SEL-D0080-OA-E03",
+      "topicId": "t07",
+      "title": "Artículos defectuosos de tres máquinas"
+    },
+    {
+      "id": "SEL-D0080-OA-E04",
+      "topicId": "t09",
+      "title": "Muestra de nueve datos: intervalo de media y tamaño mínimo"
+    },
+    {
+      "id": "SEL-D0080-OB-E01",
+      "topicId": "t04",
+      "title": "Ingredientes de pasteles: construcción e interpretación de matrices"
+    },
+    {
+      "id": "SEL-D0080-OB-E02",
+      "topicId": "t01",
+      "title": "Función a trozos con continuidad, mínimo y representación"
+    },
+    {
+      "id": "SEL-D0080-OB-E03",
+      "topicId": "t07",
+      "title": "Preocupación por el trabajo y las notas: recuento y probabilidad condicionada"
+    },
+    {
+      "id": "SEL-D0080-OB-E04",
+      "topicId": "t09",
+      "title": "Telefonía móvil: contraste unilateral de una proporción"
+    },
+    {
+      "id": "SEL-D0081-OA-E01",
+      "topicId": "t04",
+      "title": "Ecuación matricial con potencia y producto"
+    },
+    {
+      "id": "SEL-D0081-OA-E02",
+      "topicId": "t02",
+      "title": "Estudio y representación de una función racional"
+    },
+    {
+      "id": "SEL-D0081-OA-E03",
+      "topicId": "t07",
+      "title": "Curso de conducción eficiente: probabilidad total y condicionada"
+    },
+    {
+      "id": "SEL-D0081-OA-E04",
+      "topicId": "t09",
+      "title": "Rendimientos bancarios: intervalo y tamaño mínimo"
+    },
+    {
+      "id": "SEL-D0081-OB-E01",
+      "topicId": "t06",
+      "title": "Región factible y extremos de una función objetivo"
+    },
+    {
+      "id": "SEL-D0081-OB-E02",
+      "topicId": "t01",
+      "title": "Evolución de células afectadas mediante una función a trozos"
+    },
+    {
+      "id": "SEL-D0081-OB-E03",
+      "topicId": "t07",
+      "title": "Población activa: paro y probabilidad condicionada"
+    },
+    {
+      "id": "SEL-D0081-OB-E04",
+      "topicId": "t09",
+      "title": "Muestreo estratificado y varianza de las medias muestrales"
+    },
+    {
+      "id": "SEL-D0082-OA-E01",
+      "topicId": "t06",
+      "title": "Recinto de inecuaciones y mínimo de una función objetivo"
+    },
+    {
+      "id": "SEL-D0082-OA-E02",
+      "topicId": "t01",
+      "title": "Derivabilidad con parámetros y tangente de una función racional"
+    },
+    {
+      "id": "SEL-D0082-OA-E03",
+      "topicId": "t07",
+      "title": "Accidentes de coches por marcas: proporciones y probabilidad condicionada"
+    },
+    {
+      "id": "SEL-D0082-OA-E04",
+      "topicId": "t09",
+      "title": "Alumnos aptos: intervalo de proporción y tamaño con error estricto"
+    },
+    {
+      "id": "SEL-D0082-OB-E01",
+      "topicId": "t04",
+      "title": "Ecuación con matriz traspuesta y compatibilidad de productos"
+    },
+    {
+      "id": "SEL-D0082-OB-E02",
+      "topicId": "t02",
+      "title": "Beneficio empresarial a trozos: continuidad, gráfica y máximo"
+    },
+    {
+      "id": "SEL-D0082-OB-E03",
+      "topicId": "t07",
+      "title": "Compras en supermercados: unión, complemento y exactamente uno"
+    },
+    {
+      "id": "SEL-D0082-OB-E04",
+      "topicId": "t09",
+      "title": "Artículos defectuosos: contraste unilateral de una proporción"
+    },
+    {
+      "id": "SEL-D0083-OA-E01",
+      "topicId": "t06",
+      "title": "Confección de camisas y pantalones con recursos limitados"
+    },
+    {
+      "id": "SEL-D0083-OA-E02",
+      "topicId": "t01",
+      "title": "Función a trozos derivable con dos parámetros"
+    },
+    {
+      "id": "SEL-D0083-OA-E03",
+      "topicId": "t07",
+      "title": "Pesca de salmón: carnada adecuada y teorema de Bayes"
+    },
+    {
+      "id": "SEL-D0083-OA-E04",
+      "topicId": "t09",
+      "title": "Planes de pensiones: contraste de proporción y región de aceptación"
+    },
+    {
+      "id": "SEL-D0083-OB-E01",
+      "topicId": "t04",
+      "title": "Compras trimestrales y facturación mediante matrices"
+    },
+    {
+      "id": "SEL-D0083-OB-E02",
+      "topicId": "t02",
+      "title": "Mancha submarina: crecimiento y límite de superficie"
+    },
+    {
+      "id": "SEL-D0083-OB-E03",
+      "topicId": "t07",
+      "title": "Unión e intersección bajo incompatibilidad, independencia y condición"
+    },
+    {
+      "id": "SEL-D0083-OB-E04",
+      "topicId": "t09",
+      "title": "Peso de calabazas: tamaño mínimo y variación del error"
+    },
+    {
+      "id": "SEL-D0084-OA-E01",
+      "topicId": "t04",
+      "title": "Ganancias por artículos y formatos con productos de matrices"
+    },
+    {
+      "id": "SEL-D0084-OA-E02",
+      "topicId": "t01",
+      "title": "Monotonía y reconocimiento de funciones a partir de sus derivadas"
+    },
+    {
+      "id": "SEL-D0084-OA-E03",
+      "topicId": "t07",
+      "title": "Bolas blancas y negras marcadas: probabilidad e independencia"
+    },
+    {
+      "id": "SEL-D0084-OA-E04",
+      "topicId": "t09",
+      "title": "Madurez lectora: contraste unilateral sobre una media"
+    },
+    {
+      "id": "SEL-D0084-OB-E01",
+      "topicId": "t06",
+      "title": "Estanterías grandes y pequeñas con madera limitada"
+    },
+    {
+      "id": "SEL-D0084-OB-E02",
+      "topicId": "t01",
+      "title": "Derivadas con producto, cociente y regla de la cadena"
+    },
+    {
+      "id": "SEL-D0084-OB-E03",
+      "topicId": "t07",
+      "title": "Independencia, probabilidad condicionada y unión de complementos"
+    },
+    {
+      "id": "SEL-D0084-OB-E04",
+      "topicId": "t09",
+      "title": "Velocidad de conductores: intervalo de media y error máximo"
     }
   ]
 }

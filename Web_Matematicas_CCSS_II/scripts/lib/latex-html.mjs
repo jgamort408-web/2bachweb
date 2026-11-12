@@ -132,6 +132,31 @@ function splitItems(body) {
   return items;
 }
 
+/**
+ * Macros de selección parcial del banco (tex/comandos.tex): en el ejercicio completo, \ParteSeleccionable{I}{…} y
+ * \ApartadoSeleccionable{a}{…} muestran su contenido, \ItemSeleccionable{a}{…} es el apartado a) y \ContextoParcial{…}
+ * solo aparece en una selección parcial, así que se omite.
+ */
+export function expandSelectable(source) {
+  let text = source;
+  for (;;) {
+    const match = /\\(ParteSeleccionable|ApartadoSeleccionable|ItemSeleccionable|ContextoParcial)\s*\{/.exec(text);
+    if (!match) return text;
+    const first = match.index + match[0].length - 1;
+    const firstEnd = matchBrace(text, first);
+    let replacement, end = firstEnd;
+    if (match[1] === 'ContextoParcial') replacement = '';
+    else {
+      let second = firstEnd + 1;
+      while (/\s/.test(text[second])) second++;
+      end = matchBrace(text, second);
+      const label = text.slice(first + 1, firstEnd).trim(), body = text.slice(second + 1, end);
+      replacement = match[1] === 'ItemSeleccionable' ? `\\item[${label})] ${body}` : body;
+    }
+    text = text.slice(0, match.index) + replacement + text.slice(end + 1);
+  }
+}
+
 function render(text, context, inline = false) {
   const blocks = [];
   let paragraph = '';
@@ -174,8 +199,11 @@ function render(text, context, inline = false) {
       i = end + env.length + 6;
       if (env === 'enumerate' || env === 'itemize') {
         const items = splitItems(body).map(item => {
-          const html = render(item, context);
-          return `<li>${/^<p>((?:(?!<\/?p>).)*)<\/p>$/s.test(html) ? html.slice(3, -4) : html}</li>`;
+          // \item[a)] (apartados seleccionables): la etiqueta escrita sustituye al contador de la lista.
+          const label = /^\s*\[([^\]]*)\]/.exec(item);
+          const html = render(label ? item.slice(label[0].length) : item, context);
+          const content = /^<p>((?:(?!<\/?p>).)*)<\/p>$/s.test(html) ? html.slice(3, -4) : html;
+          return label ? `<li data-label="${escapeHtml(label[1].trim())}">${content}</li>` : `<li>${content}</li>`;
         }).join('');
         if (env === 'itemize') block(`<ul class="mc-sel__list">${items}</ul>`);
         else { const { type, className } = listClass(options); block(`<ol class="mc-sel__list ${className}" type="${type}">${items}</ol>`); }
@@ -185,6 +213,12 @@ function render(text, context, inline = false) {
           const caption = render(body.slice(0, figure.index) + body.slice(figure.index + figure[0].length), context);
           block(context.figure(figure[2], caption.replace(/^<p>|<\/p>$/g, '')));
         } else block(`<div class="mc-sel__center">${render(body, context)}</div>`);
+      } else if (env === 'picture') {
+        // Dibujo de LaTeX (\\qbezier, \\put…): MathJax no lo presenta; se compila aparte y se muestra como imagen.
+        const unit = context.unitlength;
+        if (!unit) throw new Error('picture sin \\setlength{\\unitlength} previo');
+        block(context.picture(`\\setlength{\\unitlength}{${unit}}\n\\begin{picture}${text.slice(nameEnd + 1, cursor)}${body}\\end{picture}`));
+        context.unitlength = null;
       } else if (env === 'minipage' || env === 'samepage') {
         flush(); const html = render(body, context); if (html) block(html);
       } else if (MATH_ENVIRONMENTS.has(env)) {
@@ -212,6 +246,13 @@ function render(text, context, inline = false) {
         i = close + 1;
         paragraph += name === 'underline' ? `<span class="mc-sel__underline">${inner}</span>` : `<${WRAPPERS[name]}>${inner}</${WRAPPERS[name]}>`;
         continue;
+      }
+      if (name === 'setlength') {
+        // Solo la unidad de un dibujo: se guarda para el entorno picture que la sigue.
+        const first = matchBrace(text, i), second = matchBrace(text, first + 1);
+        if (text.slice(i + 1, first).trim() !== '\\unitlength') throw new Error('\\setlength solo se admite para \\unitlength');
+        context.unitlength = text.slice(first + 2, second).trim();
+        i = second + 1; continue;
       }
       if (name === 'boxed') {
         // amsmath define \boxed con su propio modo matemático: en el texto equivale a una fórmula recuadrada.
@@ -245,13 +286,15 @@ function render(text, context, inline = false) {
  * Convierte un archivo del banco. `figure(path, captionHtml)` devuelve el HTML de una figura; si no se
  * proporciona, las figuras detienen la conversión.
  */
-export function latexToHtml(source, { id = 'fragmento', figure } = {}) {
+export function latexToHtml(source, { id = 'fragmento', figure, picture } = {}) {
   const context = {
     math: tex => adaptMath(replaceBordermatrix(tex)),
-    figure: figure ?? (() => { throw new Error('Figura sin conversor'); })
+    figure: figure ?? (() => { throw new Error('Figura sin conversor'); }),
+    picture: picture ?? (() => { throw new Error('Dibujo picture sin conversor'); }),
+    unitlength: null
   };
   try {
-    return render(stripComments(source).trim(), context);
+    return render(expandSelectable(stripComments(source)).trim(), context);
   } catch (error) {
     throw new Error(`${id}: ${error.message}`);
   }

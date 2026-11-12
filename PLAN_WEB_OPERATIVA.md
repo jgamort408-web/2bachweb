@@ -328,3 +328,158 @@ W03 → W04 → **D01–D05 (consulta)** → S01–S06 → L01–L08 → F01–F
 
 - **2026-11-08** · S011: ocho soluciones de EXA-0010 explicadas y validadas;80 acumuladas y560 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](Selectividad_LaTeX/docs/soluciones/S011_2021_EXTRAORDINARIA.md). Siguiente S012.
 - **2026-11-08** · P09 hecho en `feature/selectividad`: generador de relaciones con selección reproducible por semilla, vista de impresión, LaTeX autónomo y proyecto para Overleaf con la estructura del banco; compilados con Tectonic. Pruebas 166 y unitarias de relaciones.
+
+- **2026-11-08** · S012: ocho soluciones de EXA-0011 explicadas y validadas;88 acumuladas y552 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](Selectividad_LaTeX/docs/soluciones/S012_2021_EXTRA_SUPLENTE.md). Siguiente S013.
+
+- **2026-11-08** · S013: ocho soluciones de EXA-0012 explicadas y validadas;96 acumuladas y544 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](Selectividad_LaTeX/docs/soluciones/S013_2021_EXTRA_RESERVA_B.md). Siguiente S014.
+
+- **2026-11-08** · S014: ocho soluciones de EXA-0013 explicadas y validadas;104 acumuladas y536 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](Selectividad_LaTeX/docs/soluciones/S014_2020_PA.md). Siguiente S015.
+
+- **2026-11-08** · S015: ocho soluciones de EXA-0014 explicadas y validadas;112 acumuladas y528 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](Selectividad_LaTeX/docs/soluciones/S015_2020_PB.md). Siguiente S016.
+
+- **2026-11-08** · S016: ocho soluciones de EXA-0015 explicadas y validadas;120 acumuladas y520 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](Selectividad_LaTeX/docs/soluciones/S016_2020_PC.md). Siguiente S017.
+
+- **2026-11-08** · S017: ocho soluciones de EXA-0016 explicadas y validadas;128 acumuladas y512 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](Selectividad_LaTeX/docs/soluciones/S017_2020_PD.md). Siguiente S018.
+
+- **2026-11-08** · S018: ocho soluciones de EXA-0017 explicadas y validadas;136 acumuladas y504 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](Selectividad_LaTeX/docs/soluciones/S018_2020_PE.md). Siguiente S019.
+
+- **2026-11-08** · S019: ocho soluciones de EXA-0018 explicadas y validadas;144 acumuladas y496 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP aislado.640 enunciados intactos; sin cambios en implementación web. [Informe](Selectividad_LaTeX/docs/soluciones/S019_2020_PF.md). Siguiente S020.
+
+- **2026-11-08** · S020 cerrada con ocho soluciones de EXA-0019. El banco suma 152 validadas y 488 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S020_2018_RESERVA_A.md).
+
+- **2026-11-08** · S021 cerrada con ocho soluciones de EXA-0020. El banco suma 160 validadas y 480 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S021_2018_RESERVA_B.md).
+
+- **2026-11-08** · S022 cerrada con ocho soluciones de EXA-0021. El banco suma 168 validadas y 472 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S022_2017_RESERVA_A.md).
+
+- **2026-11-08** · S023 cerrada con ocho soluciones de EXA-0022. El banco suma 176 validadas y 464 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S023_2016_RESERVA_A.md).
+
+- **2026-11-08** · S024 cerrada con ocho soluciones de EXA-0023. El banco suma 184 validadas y 456 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S024_2016_RESERVA_B.md).
+
+- **2026-11-08** · S025 cerrada con ocho soluciones de EXA-0024. El banco suma 192 validadas y 448 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S025_2017_RESERVA_B.md).
+
+- **2026-11-08** · S026 cerrada con ocho soluciones de EXA-0025. El banco suma 200 validadas y 440 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S026_2017_EXA0025.md).
+
+- **2026-11-08** · S027 cerrada con ocho soluciones de EXA-0026. El banco suma 208 validadas y 432 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S027_2016_EXA0026.md).
+
+- **2026-11-08** · S028 cerrada con ocho soluciones de EXA-0027. El banco suma 216 validadas y 424 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S028_2017_EXA0027.md).
+
+- **2026-11-09** · S029 cerrada con ocho soluciones de EXA-0028. El banco suma 224 validadas y 416 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S029_2018_SUPLENTE.md).
+
+- **2026-11-09** · S030 cerrada con ocho soluciones de EXA-0029. El banco suma 232 validadas y 408 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S030_2018_EXA0029.md).
+
+- **2026-11-09** · S031 cerrada con ocho soluciones de EXA-0030. El banco suma 240 validadas y 400 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S031_2018_EXA0030.md).
+
+- **2026-11-09** · S032 cerrada con ocho soluciones de EXA-0031. El banco suma 248 validadas y 392 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S032_2016_EXA0031.md).
+
+- **2026-11-09** · S033 cerrada con ocho soluciones de EXA-0032. El banco suma 256 validadas y 384 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S033_2017_EXA0032.md).
+
+- **2026-11-09** · S034 cerrada con ocho soluciones de EXA-0033. El banco suma 264 validadas y 376 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S034_2018_EXA0033.md).
+
+- **2026-11-09** · S035 cerrada con ocho soluciones de EXA-0034. El banco suma 272 validadas y 368 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S035_2016_EXA0034.md).
+
+- **2026-11-09** · S036 cerrada con ocho soluciones de EXA-0035. El banco suma 280 validadas y 360 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S036_2017_EXA0035.md).
+
+- **2026-11-09** · S037 cerrada con ocho soluciones de EXA-0036. El banco suma 288 validadas y 352 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S037_2015_EXA0036.md).
+
+- **2026-11-09** · S038 cerrada con ocho soluciones de EXA-0037. El banco suma 296 validadas y 344 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S038_2015_EXA0037.md).
+
+- **2026-11-09** · S039 cerrada con ocho soluciones de EXA-0038. El banco suma 304 validadas y 336 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S039_2015_EXA0038.md).
+
+- **2026-11-09** · S040 cerrada con ocho soluciones de EXA-0039. El banco suma 312 validadas y 328 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S040_2015_EXA0039.md).
+
+- **2026-11-09** · S041 cerrada con ocho soluciones de EXA-0040. El banco suma 320 validadas y 320 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S041_2015_EXA0040.md).
+
+- **2026-11-09** · S042 cerrada con ocho soluciones de EXA-0041. El banco suma 328 validadas y 312 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S042_2015_EXA0041.md).
+
+- **2026-11-09** · S043 cerrada con ocho soluciones de EXA-0042. El banco suma 336 validadas y 304 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S043_2014_EXA0042.md).
+
+- **2026-11-09** · S044 cerrada con ocho soluciones de EXA-0043. El banco suma 344 validadas y 296 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S044_2014_EXA0043.md).
+
+- **2026-11-09** · S045 cerrada con ocho soluciones de EXA-0044. El banco suma 352 validadas y 288 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S045_2014_EXA0044.md).
+
+- **2026-11-09** · S046 cerrada con ocho soluciones de EXA-0045. El banco suma 360 validadas y 280 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S046_2014_EXA0045.md).
+
+- **2026-11-09** · S047 cerrada con ocho soluciones de EXA-0046. El banco suma 368 validadas y 272 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S047_2014_EXA0046.md).
+
+- **2026-11-09** · S048 cerrada con ocho soluciones de EXA-0047. El banco suma 376 validadas y 264 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S048_2014_EXA0047.md).
+
+- **2026-11-09** · S049 cerrada con ocho soluciones de EXA-0048. El banco suma 384 validadas y 256 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S049_2013_EXA0048.md).
+
+- **2026-11-09** · S050 cerrada con ocho soluciones de EXA-0049. El banco suma 392 validadas y 248 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S050_2013_EXA0049.md).
+
+- **2026-11-09** · S051 cerrada con ocho soluciones de EXA-0050. El banco suma 400 validadas y 240 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S051_2013_EXA0050.md).
+
+- **2026-11-09** · S052 cerrada con ocho soluciones de EXA-0051. El banco suma 408 validadas y 232 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S052_2013_EXA0051.md).
+
+- **2026-11-09** · S053 cerrada con ocho soluciones de EXA-0052. El banco suma 416 validadas y 224 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S053_2013_EXA0052.md).
+
+- **2026-11-09** · S054 cerrada con ocho soluciones de EXA-0053. El banco suma 424 validadas y 216 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S054_2013_EXA0053.md).
+
+- **2026-11-09** · S055 cerrada con ocho soluciones de EXA-0054. El banco suma 432 validadas y 208 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S055_2011_EXA0054.md).
+
+- **2026-11-09** · S056 cerrada con ocho soluciones de EXA-0055. El banco suma 440 validadas y 200 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S056_2011_EXA0055.md).
+
+- **2026-11-09** · S057 cerrada con ocho soluciones de EXA-0056. El banco suma 448 validadas y 192 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S057_2011_EXA0056.md).
+
+- **2026-11-09** · S058 cerrada con ocho soluciones de EXA-0058. El banco suma 456 validadas y 184 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S058_2011_EXA0058.md).
+
+- **2026-11-09** · S059 cerrada con ocho soluciones de EXA-0059. El banco suma 464 validadas y 176 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S059_2011_EXA0059.md).
+
+- **2026-11-10** · S060 cerrada con ocho soluciones de EXA-0060. El banco suma 472 validadas y 168 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S060_2011_EXA0060.md).
+
+- **2026-11-10** · S061 cerrada con ocho soluciones de EXA-0061. El banco suma 480 validadas y 160 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S061_2010_EXA0061.md).
+
+- **2026-11-10** · S062 cerrada con ocho soluciones de EXA-0062. El banco suma 488 validadas y 152 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S062_2010_EXA0062.md).
+
+- **2026-11-10** · S063 cerrada con ocho soluciones de EXA-0063. El banco suma 496 validadas y 144 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S063_2010_EXA0063.md).
+
+- **2026-11-10** · S064 cerrada con ocho soluciones de EXA-0064. El banco suma 504 validadas y 136 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S064_2010_EXA0064.md).
+
+- **2026-11-10** · S065 cerrada con ocho soluciones de EXA-0065. El banco suma 512 validadas y 128 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S065_2010_EXA0065.md).
+
+- **2026-11-10** · S066 cerrada con ocho soluciones de EXA-0066. El banco suma 520 validadas y 120 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S066_2010_EXA0066.md).
+
+- **2026-11-10** · S067 cerrada con seis soluciones de EXA-0067. El banco suma 526 validadas y 114 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S067_2009_EXA0067.md).
+
+- **2026-11-10** · S068 cerrada con seis soluciones de EXA-0068. El banco suma 532 validadas y 108 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S068_2009_EXA0068.md).
+
+- **2026-11-10** · S069 cerrada con seis soluciones de EXA-0069. El banco suma 538 validadas y 102 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S069_2009_EXA0069.md).
+
+- **2026-11-10** · S070 cerrada con seis soluciones de EXA-0070. El banco suma 544 validadas y 96 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S070_2009_EXA0070.md).
+
+- **2026-11-10** · S071 cerrada con seis soluciones de EXA-0071. El banco suma 550 validadas y 90 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S071_2009_EXA0071.md).
+
+- **2026-11-10** · S072 cerrada con seis soluciones de EXA-0072. El banco suma 556 validadas y 84 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S072_2009_EXA0072.md).
+
+- **2026-11-10** · S073 cerrada con seis soluciones de EXA-0073. El banco suma 562 validadas y 78 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S073_2008_EXA0073.md).
+
+- **2026-11-10** · S074 cerrada con seis soluciones de EXA-0074. El banco suma 568 validadas y 72 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S074_2008_EXA0074.md).
+
+- **2026-11-10** · S075 cerrada con seis soluciones de EXA-0075. El banco suma 574 validadas y 66 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S075_2008_EXA0075.md).
+
+- **2026-11-12** · S076 cerrada con seis soluciones de EXA-0076. El banco suma 580 validadas y 60 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S076_2008_EXA0076.md).
+
+- **2026-11-12** · S077 cerrada con seis soluciones de EXA-0077. El banco suma 586 validadas y 54 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S077_2008_EXA0077.md).
+
+- **2026-11-12** · S078 cerrada con seis soluciones de EXA-0078. El banco suma 592 validadas y 48 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S078_2008_EXA0078.md).
+
+- **2026-11-12** · S079 cerrada con ocho soluciones de EXA-0079. El banco suma 600 validadas y 40 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S079_2012_EXA0079.md).
+
+- **2026-11-12** · S080 cerrada con ocho soluciones de EXA-0080. El banco suma 608 validadas y 32 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S080_2012_EXA0080.md).
+
+- **2026-11-12** · S081 cerrada con ocho soluciones de EXA-0081. El banco suma 616 validadas y 24 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S081_2012_EXA0081.md).
+
+- **2026-11-12** · S082 cerrada con ocho soluciones de EXA-0082. El banco suma 624 validadas y 16 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S082_2012_EXA0082.md).
+
+- **2026-11-12** · S083 cerrada con ocho soluciones de EXA-0083. El banco suma 632 validadas y 8 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S083_2012_EXA0083.md).
+
+- **2026-11-12** · S084 cerrada con ocho soluciones de EXA-0084. El banco suma 640 validadas y 0 pendientes. [Informe](Selectividad_LaTeX/docs/soluciones/S084_2012_EXA0084.md).
+
+- [x] AUD001 · Revisar doce incidencias de hipótesis de muestreo. [Informe](Selectividad_LaTeX/docs/soluciones/AUD001_HIPOTESIS_MUESTREO.md).
+- [x] AUD002 · Revisar once incidencias editoriales del banco.
+- [x] AUD003 · Revisar cinco incidencias generales de fuentes.
+
+- **2026-11-12** · AUD002 cerrada. Once incidencias editoriales revisadas. [Informe](Selectividad_LaTeX/docs/soluciones/AUD002_INCIDENCIAS_EDITORIALES.md). Siguiente AUD003.
+
+- **2026-11-12** · AUD003 cerrada. Cinco incidencias generales resueltas. [Informe](Selectividad_LaTeX/docs/soluciones/AUD003_FUENTES_Y_METADATOS.md). Siguiente implementación, SEL-PARTES.
+- **2026-11-12** · Banco completo integrado en `feature/selectividad`: trabajo de la otra herramienta confirmado (640 soluciones, S012–S084 y AUD001) y web regenerada con las 640 soluciones, 31 figuras PDF y 94 dibujos `picture` compilados con pdfLaTeX. Relaciones de los 640 ejercicios compiladas sin errores con y sin soluciones. Pruebas 165 (todas las soluciones sin errores de MathJax) y 166.

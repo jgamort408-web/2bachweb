@@ -382,6 +382,7 @@
 .mc-sel__list--decimal-paren > li::marker { content: counter(list-item) ") "; }
 .mc-sel__list--lower-roman-paren > li::marker { content: counter(list-item, lower-roman) ") "; }
 .mc-sel__list > li::marker { font-weight: 700; }
+.mc-sel__list > li[data-label]::marker { content: attr(data-label) " "; }
 .mc-sel__underline { text-decoration: underline; text-underline-offset: 0.2em; }
 .mc-sel__center { text-align: center; }
 .mc-sel__epigraphs { display: flex; flex-wrap: wrap; gap: 0.25rem var(--mc-space-3); font-size: var(--mc-text-sm); }

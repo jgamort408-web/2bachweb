@@ -13,6 +13,8 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import os from 'node:os';
+import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { latexToHtml, plainText } from './lib/latex-html.mjs';
@@ -83,7 +85,8 @@ const FIGURE_ALT = {
   'region-factible': 'Gráfica de la región factible', region: 'Gráfica del recinto', dieta: 'Gráfica de la región factible',
   baterias: 'Gráfica de la región factible', coste: 'Gráfica de la función de coste',
   tangente: 'Gráfica de la función con su recta tangente', trozos: 'Gráfica de la función definida a trozos',
-  cubica: 'Gráfica de la función cúbica', parabola: 'Gráfica de la parábola'
+  cubica: 'Gráfica de la función cúbica', parabola: 'Gráfica de la parábola',
+  area: 'Gráfica del recinto cuya área se calcula', derivada: 'Gráfica de la función derivada'
 };
 // Saberes que ya no evalúa la PAU vigente (docs/formato-pau-vigente.md): se muestran con aviso.
 export const OUT_OF_SYLLABUS_TAG = 'contraste-hipotesis';
@@ -124,6 +127,40 @@ function pngSize(file) {
   return { width: bytes.readUInt32BE(16), height: bytes.readUInt32BE(20) };
 }
 
+// Cambiar si cambia la forma de compilar los dibujos: invalida todas las imágenes generadas.
+const PICTURE_VERSION = 'picture-v1|';
+
+/**
+ * Compila los dibujos pendientes en un único documento (uno por página) con el preámbulo del banco y pdfLaTeX, el
+ * compilador del banco en Overleaf, y recorta cada página a PNG (render-latex-pictures.py). La caché de Tectonic del
+ * repositorio no tiene las fuentes de \line y \vector del entorno picture. PDFLATEX_BIN permite otra ruta.
+ */
+function renderPictures(pending) {
+  const pdflatex = process.env.PDFLATEX_BIN ?? 'pdflatex';
+  const work = fs.mkdtempSync(path.join(os.tmpdir(), 'selectividad-dibujos-'));
+  const names = [...pending.keys()];
+  const document = [
+    '\\documentclass[11pt]{article}',
+    readBank('tex/paquetes.tex'),
+    '\\geometry{paperwidth=42cm,paperheight=42cm,margin=1cm}',
+    '\\pagestyle{empty}',
+    '\\begin{document}',
+    ...names.flatMap(name => ['\\begin{center}', pending.get(name), '\\end{center}', '\\newpage']),
+    '\\end{document}', ''
+  ].join('\n');
+  fs.writeFileSync(path.join(work, 'dibujos.tex'), document, 'utf8');
+  try {
+    execFileSync(pdflatex, ['-interaction=nonstopmode', '-halt-on-error', 'dibujos.tex'], { cwd: work, stdio: 'ignore' });
+  } catch (error) {
+    const log = fs.existsSync(path.join(work, 'dibujos.log')) ? fs.readFileSync(path.join(work, 'dibujos.log'), 'utf8') : '';
+    throw new Error('No se pudieron compilar los dibujos con pdfLaTeX (PDFLATEX_BIN): ' + (/^!.*$/m.exec(log)?.[0] ?? error.message) + ' · ' + work);
+  }
+  fs.mkdirSync(figureDir, { recursive: true });
+  execFileSync('python', ['-I', path.join(root, 'scripts', 'render-latex-pictures.py'), path.join(work, 'dibujos.pdf'), figureDir, ...names], { stdio: 'inherit' });
+  fs.rmSync(work, { recursive: true, force: true });
+  console.log(`Dibujos convertidos: ${names.length}.`);
+}
+
 /** Lee el banco, comprueba su coherencia y devuelve los ejercicios con su HTML. */
 export function loadBank({ convertFigures = false } = {}) {
   const exercises = parseCsv(readBank('datos/ejercicios.csv'));
@@ -156,6 +193,20 @@ export function loadBank({ convertFigures = false } = {}) {
     // (1.5 veces el tamaño del PDF): las figuras del banco son pequeñas y sus rótulos deben leerse.
     return `<figure class="mc-sel__figure"><img src="../assets/img/selectividad/${name}.png" alt="${FIGURE_ALT[kind]}, descrita en el texto de la solución" width="${Math.round(width / 2)}" height="${Math.round(height / 2)}" loading="lazy">${caption ? `<figcaption>${caption}</figcaption>` : ''}</figure>`;
   };
+  // Dibujos con el entorno picture de LaTeX: se compilan aparte (renderPictures) y se nombran por su contenido.
+  const pendingPictures = new Map();
+  const picture = (id, source) => {
+    const name = 'dib-' + createHash('sha256').update(PICTURE_VERSION + source).digest('hex').slice(0, 12);
+    const png = path.join(figureDir, name + '.png');
+    figures.add(name + '.png');
+    if (!fs.existsSync(png)) {
+      if (convertFigures) { pendingPictures.set(name, source); return ''; }
+      throw new Error(`${id}: falta el dibujo convertido ${name}.png (node scripts/build-selectividad.mjs)`);
+    }
+    const { width, height } = pngSize(png);
+    // Como en las figuras PDF, la solución explica en el texto lo que el esbozo muestra (vértices, cortes, extremos).
+    return `<figure class="mc-sel__figure"><img src="../assets/img/selectividad/${name}.png" alt="Esbozo de la solución; lo que representa se explica en el texto" width="${Math.round(width / 2)}" height="${Math.round(height / 2)}" loading="lazy"></figure>`;
+  };
   const result = exercises.map(row => {
     const id = row.ejercicio_id;
     if (!/^SEL-D\d{4}-[A-Z]{2}-E\d{2}$/.test(id)) throw new Error('ID inesperado: ' + id);
@@ -168,9 +219,16 @@ export function loadBank({ convertFigures = false } = {}) {
     const statementSource = readBank(row.ruta_enunciado);
     const solutionSource = readBank(row.ruta_solucion);
     const validated = row.estado_solucion === 'validada';
-    if (validated !== /^% ESTADO: validada/m.test(solutionSource)) throw new Error(`${id}: estado de la solución distinto en el CSV y en el .tex`);
+    // El CSV manda. La cabecera «% ESTADO:» del .tex, si existe, debe coincidir (las tandas S073-S084 no la llevan);
+    // una solución validada nunca puede ser la plantilla vacía.
+    const header = /^% ESTADO: (\S+?)[.\s]/m.exec(solutionSource)?.[1];
+    if (header && validated !== (header === 'validada')) throw new Error(`${id}: estado de la solución distinto en el CSV y en el .tex`);
+    if (validated && (/No contiene solución/.test(solutionSource) || !solutionSource.replace(/^%.*$/gm, '').trim())) {
+      throw new Error(`${id}: marcada como validada pero sin solución escrita`);
+    }
     const statement = latexToHtml(statementSource, { id });
-    const solution = validated ? latexToHtml(solutionSource, { id: id + ' (solución)', figure: (source, caption) => figure(id, source, caption) }) : null;
+    const solution = validated ? latexToHtml(solutionSource, { id: id + ' (solución)',
+      figure: (source, caption) => figure(id, source, caption), picture: source => picture(id, source) }) : null;
     return {
       id, row, statement, validated, statementSource, solutionSource: validated ? solutionSource : null,
       solutionFigures: figureUse.get(id) ?? [],
@@ -181,6 +239,10 @@ export function loadBank({ convertFigures = false } = {}) {
       search: fold([row.titulo_descriptivo, id, plainText(statement), ...list(row.tags).map(tag => TAG_LABELS[tag])].join(' '))
     };
   });
+  if (pendingPictures.size) {
+    renderPictures(pendingPictures);
+    return loadBank({ convertFigures });
+  }
   const topicIds = [...new Set(result.map(exercise => exercise.topicId))].sort();
   const topics = topicIds.map(topicId => {
     const topicPage = pageById.get(topicId);

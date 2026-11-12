@@ -93,6 +93,28 @@ const visibility = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'config
       assert.ok(await image.evaluate(img => img.complete && img.naturalWidth > 0));
     }
 
+    // Todas las soluciones activadas: cada fórmula de cada solución se presenta sin errores y cada imagen carga.
+    const all = structuredClone(visibility);
+    for (const key of Object.keys(all.entries)) if (key.startsWith('group:selectividad-soluciones-')) delete all.entries[key];
+    await page.unroute('**/config/visibility.json');
+    await page.route('**/config/visibility.json', route => route.fulfill({ json: all }));
+    for (const topic of config.topics) {
+      await page.goto(base + topic.path);
+      await ready(page);
+      const expected = config.solutions.filter(solution => solution.topicId === topic.topicId).length;
+      await page.waitForFunction(n => document.querySelectorAll('.mc-sel__solution-body').length === n, expected, { timeout: 60000 });
+      // MathJax sustituye los delimitadores \( \[ al presentar cada fórmula: no debe quedar ninguno sin procesar.
+      await page.waitForFunction(() => ![...document.querySelectorAll('.mc-sel__solution-body')]
+        .some(body => [...body.querySelectorAll('*:not(mjx-container *)')].some(node => [...node.childNodes]
+          .some(child => child.nodeType === 3 && /\\\(|\\\[/.test(child.textContent)))), null, { timeout: 180000 });
+      assert.equal(await page.locator('[data-mml-node="merror"]').count(), 0, topic.path);
+      const broken = await page.locator('.mc-sel__figure img').evaluateAll(images => Promise.all(images.map(image => {
+        image.loading = 'eager';
+        return image.decode().then(() => null, () => image.getAttribute('src'));
+      })).then(results => results.filter(Boolean)));
+      assert.deepEqual(broken, [], topic.path);
+    }
+
     // Respaldo: si no se puede leer la configuración publicada, ninguna solución se muestra.
     await page.unroute('**/config/visibility.json');
     await page.route('**/config/visibility.json', route => route.fulfill({ status: 503, body: '' }));
