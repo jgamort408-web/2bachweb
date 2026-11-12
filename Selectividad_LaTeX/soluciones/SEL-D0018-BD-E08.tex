@@ -1,5 +1,23 @@
 % ID: SEL-D0018-BD-E08
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S019. Revisión matemática, didáctica y visual.
+\textbf{a) Estimación puntual.}\par\nopagebreak[4]
+La media muestral es el volumen total dividido por el número de tazas:
+\[
+\boxed{\bar x=\frac{5400}{45}=120\text{ cm}^3}.
+\]
+
+\textbf{b) Intervalo al 97\,\%.}\par\nopagebreak[4]
+Con desviación conocida $\sigma=0.8$ y $z_{0.985}\approx2.170090378$,
+\[
+120\pm z_{0.985}\frac{0.8}{\sqrt{45}}
+\approx\boxed{(119.741202,\ 120.258798)\text{ cm}^3}.
+\]
+El intervalo usa la distribución normal de la media bajo muestreo independiente.
+
+\textbf{c) Tamaño mínimo con margen estricto.}\par\nopagebreak[4]
+\[
+z_{0.985}\frac{0.8}{\sqrt n}<0.2
+\quad\Longleftrightarrow\quad
+n>16z_{0.985}^2\approx75.348675950.
+\]
+El margen con $75$ tazas supera $0.2\text{ cm}^3$ y con $76$ queda por debajo. Se requieren $\boxed{76\text{ tazas}}$.

@@ -1,5 +1,18 @@
 % ID: SEL-D0049-OB-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante transcripción.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S050.
+\textbf{a)} La afijación proporcional mantiene en cada estrato la misma fracción de muestreo. En el tercero es $15/1500=0{,}01$. Por tanto, los tamaños de los tres estratos son $10$, $35$ y $15$, para un total de $\boxed{60}$ personas.
+
+\textbf{b)} Interpretamos el muestreo aleatorio simple como selección sin reposición, con subconjuntos equiprobables. Las tres muestras y sus medias son
+\[
+\begin{array}{c|ccc}
+\text{Muestra}&\{1,4\}&\{1,7\}&\{4,7\}\\\hline
+\bar X&2{,}5&4&5{,}5
+\end{array}
+\]
+La media de esta distribución es $4$. Como calculamos la varianza de toda la distribución de medias, ponderamos cada valor por $1/3$:
+\[
+\operatorname{Var}(\bar X)=
+\frac{(2{,}5-4)^2+(4-4)^2+(5{,}5-4)^2}{3}
+=\boxed{1{,}5}.
+\]
+Si se entiende que las extracciones son independientes y con reposición, hay nueve pares ordenados equiprobables. Sus medias son $1,2{,}5,4,2{,}5,4,5{,}5,4,5{,}5,7$. En ese caso, la varianza es $6/2=3$, pues $6$ es la varianza poblacional y se promedian dos extracciones independientes.

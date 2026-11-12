@@ -1,5 +1,35 @@
 % ID: SEL-D0081-OB-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA.
-% Guion futuro: datos, teoría, estrategia, desarrollo paso a paso,
-% comprobación independiente e interpretación de resultados.
+% Tanda S081.
+\textbf{a)} La población total es $400+320=720$. La afijación proporcional distribuye el tamaño de la muestra según el peso de cada estrato:
+\[
+ n_H=54\frac{400}{720}=30,\qquad
+ n_M=54\frac{320}{720}=24.
+\]
+Se seleccionan aleatoriamente 30 hombres y 24 mujeres dentro de sus respectivos estratos.
+
+\textbf{b)} El enunciado no especifica reposición ni orden (INC-027). Adoptamos muestreo aleatorio simple sin reemplazo, con subconjuntos equiprobables. El orden no afecta a la media y las seis muestras son
+\[
+ \begin{array}{c|cccccc}
+ \text{Muestra}&\{1,2\}&\{1,3\}&\{1,4\}&\{2,3\}&\{2,4\}&\{3,4\}\\
+ \bar X&1{,}5&2&2{,}5&2{,}5&3&3{,}5
+ \end{array}
+\]
+Su esperanza es $2{,}5$ y su varianza es
+\[
+ \operatorname{Var}(\bar X)
+ =\frac{(1{,}5-2{,}5)^2+(2-2{,}5)^2+0+0+(3-2{,}5)^2+(3{,}5-2{,}5)^2}{6}
+ =\boxed{\frac5{12}}.
+\]
+Si se considera el orden sin reemplazo, aparecen doce pares, dos por subconjunto, y se obtiene la misma varianza.
+
+\textit{Convención alternativa con reemplazo.} En ese caso hay dieciséis pares ordenados equiprobables, $(i,j)$ con $i,j\in\{1,2,3,4\}$. La tabla enumera todos los pares y sus medias mediante la fila $i$ y la columna $j$:
+\[
+ \begin{array}{c|cccc}
+ i\backslash j&1&2&3&4\\\hline
+ 1&1&1{,}5&2&2{,}5\\
+ 2&1{,}5&2&2{,}5&3\\
+ 3&2&2{,}5&3&3{,}5\\
+ 4&2{,}5&3&3{,}5&4
+ \end{array}
+\]
+La varianza de la población es $5/4$. Con dos extracciones independientes, $\operatorname{Var}(\bar X)=(5/4)/2=\boxed{5/8}$. Esta alternativa requiere el supuesto de reposición.

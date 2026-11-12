@@ -1,5 +1,24 @@
 % ID: SEL-D0018-BA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S019. Revisión matemática, didáctica y visual.
+\textbf{a) Determinante.}\par\nopagebreak[4]
+Por la primera fila,
+\[
+\det A=2(5-3)+m(3-m)=4+3m-m^2=(4-m)(m+1).
+\]
+La inversa existe si $\boxed{m\notin\{-1,4\}}$.
+
+\textbf{b) Resolución para $m=0$.}\par\nopagebreak[4]
+Con $m=0$ obtenemos
+\[
+A=\begin{pmatrix}2&0&0\\1&1&1\\0&3&5\end{pmatrix},
+\qquad AA^t=\begin{pmatrix}4&2&0\\2&3&8\\0&8&34\end{pmatrix}.
+\]
+En $XA=AA^t$ la inversa multiplica por la derecha. También podemos resolver por filas. Para una fila $(u,v,w)$ de $X$, su producto con $A$ es $(2u+v,v+3w,v+5w)$. Si la fila correspondiente de $AA^t$ es $(r,s,t)$, resulta
+\[
+w=\frac{t-s}{2},\qquad v=s-3w,\qquad u=\frac{r-v}{2}.
+\]
+Aplicando estas fórmulas a las tres filas,
+\[
+\boxed{X=\begin{pmatrix}-1/2&5&-1\\13/4&-9/2&5/2\\31/2&-31&13\end{pmatrix}.}
+\]
+La sustitución en $(2u+v,v+3w,v+5w)$ recupera las tres filas de $AA^t$. La solución es única porque $A$ es invertible.

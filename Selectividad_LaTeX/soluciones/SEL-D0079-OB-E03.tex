@@ -1,5 +1,18 @@
 % ID: SEL-D0079-OB-E03
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA.
-% Guion futuro: datos, teoría, estrategia, desarrollo paso a paso,
-% comprobación independiente e interpretación de resultados.
+% Tanda S079.
+Suponemos un dado equilibrado y extracciones equiprobables en cada urna. Sean $A$ y $B$ las urnas seleccionadas, $N$ bola negra y $W$ bola blanca. Se elige A con probabilidad $2/6=1/3$ y B con $4/6=2/3$.
+
+\textbf{a)} Por probabilidad total,
+\[
+ P(N)=\frac13\frac4{10}+\frac23\frac7{10}
+ =\boxed{\frac35}.
+\]
+\textbf{b)} La probabilidad conjunta es
+\[
+ P(B\cap N)=P(B)P(N\mid B)=\frac23\frac7{10}
+ =\boxed{\frac7{15}}.
+\]
+\textbf{c)} Obtener menos de 5 equivale a seleccionar B. La probabilidad de blanca es $P(W)=1-P(N)=2/5$. Por Bayes,
+\[
+ P(B\mid W)=\frac{(2/3)(3/10)}{2/5}=\boxed{\frac12}.
+\]

@@ -1,5 +1,15 @@
 % ID: SEL-D0083-OA-E03
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA.
-% Guion futuro: datos, teoría, estrategia, desarrollo paso a paso,
-% comprobación independiente e interpretación de resultados.
+% Tanda S083.
+Sean $C$ elegir la carnada correcta y $S$ pescar un salmón. La elección aleatoria entre los tres tipos da $P(C)=1/3$ y $P(C^c)=2/3$.
+
+\textbf{a)} Por probabilidad total,
+\[
+ P(S)=P(C)P(S\mid C)+P(C^c)P(S\mid C^c)
+ =\frac13\frac13+\frac23\frac15
+ =\boxed{\frac{11}{45}}.
+\]
+\textbf{b)} Aplicando Bayes,
+\[
+ P(C\mid S)=\frac{P(C)P(S\mid C)}{P(S)}
+ =\frac{1/9}{11/45}=\boxed{\frac5{11}}.
+\]

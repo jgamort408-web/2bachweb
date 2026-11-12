@@ -1,5 +1,19 @@
 % ID: SEL-D0016-BB-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S017. Revisión matemática, didáctica y visual.
+\textbf{a) Continuidad y derivabilidad.}\par\nopagebreak[4]
+El denominador $x+3$ es positivo en el tramo en que se usa. Así, el dominio es $\mathbb R$. La continuidad en $-1$ exige $-a+1/2=0$, y en $1$ exige $1-b=2/4$. Resulta
+\[
+\boxed{a=b=\frac12}.
+\]
+La derivada del tramo central es $2/(x+3)^2$. En $-1$ las derivadas laterales son $a=1/2$ y $2/2^2=1/2$. En $1$ son $2/4^2=1/8$ y $2-b=3/2$. La función es derivable en $-1$ y presenta una esquina en $1$.
+
+\textbf{b) Monotonía con $a=-1$ y $b=4$.}\par\nopagebreak[4]
+Las derivadas en los interiores de los tramos son $-1$, $2/(x+3)^2$ y $2x-4$. Decrece en $(-\infty,-1]$, crece en $(-1,1]$, decrece en $[1,2]$ y crece en $[2,+\infty)$. Hay saltos descendentes en ambos empalmes. En $-1$ el valor es $3/2$ y el límite derecho es $0$. En $1$ el valor es $1/2$ y el límite derecho es $-3$, lo que permite incluir $1$ en el tramo decreciente siguiente.
+
+\textbf{c) Integral definida.}\par\nopagebreak[4]
+El valor aislado de $f(1)$ no altera la integral. En $(1,2]$ se usa $x^2-4x$:
+\[
+\int_1^2 f(x)\,dx=\left[\frac{x^3}{3}-2x^2\right]_1^2
+=-\frac{16}{3}+\frac53=\boxed{-\frac{11}{3}}.
+\]
+El signo concuerda con que el integrando es negativo en $(1,2]$.

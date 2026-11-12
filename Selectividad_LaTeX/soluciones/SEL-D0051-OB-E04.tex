@@ -1,5 +1,9 @@
 % ID: SEL-D0051-OB-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante transcripción.
-% Guion futuro: datos y pregunta;teoría y condiciones;estrategia y pasos;
-% comprobación independiente;interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S052.
+Contrastamos $H_0:p\ge0{,}35$ frente a $H_1:p<0{,}35$. Para controlar el error de tipo I en esta prueba de cola izquierda, calculamos en la frontera $p_0=0{,}35$, donde es más probable observar una proporción tan baja bajo $H_0$. Los recuentos esperados son $420$ y $780$, adecuados para la aproximación normal.
+
+La proporción observada es $336/1200=0{,}28$. El estadístico es
+\[
+z=\frac{0{,}28-0{,}35}{\sqrt{0{,}35(1-0{,}35)/1200}}\approx-5{,}084.
+\]
+Al nivel $\alpha=0{,}01$ se rechaza si $z<-2{,}326$. Como el valor observado cae en esa región, rechazamos $H_0$. Al nivel del $1\%$ hay evidencia de que la proporción de partidarios es inferior al $35\%$.

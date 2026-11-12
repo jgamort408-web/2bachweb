@@ -1,5 +1,18 @@
 % ID: SEL-D0073-OA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante transcripción.
-% Guion futuro:datos y pregunta;teoría y condiciones;estrategia y pasos;
-% comprobación independiente;interpretación y revisión matemática/didáctica.
+% Tanda S073.
+\textbf{a)} Multiplicamos filas por columnas:
+\[
+ A^2=\begin{pmatrix}a^2+a&a\\a^2&a\end{pmatrix}.
+\]
+La entrada de la primera fila y segunda columna obliga a que $a=0$. Con ese valor, todas las entradas se anulan. Por tanto, $\boxed{a=0}$.
+
+\textbf{b)} Como $\det M=1-2=-1$, existe $M^{-1}$. Aplicando la fórmula de la inversa de orden dos y cambiando filas por columnas para transponer, obtenemos
+\[
+ M^{-1}=\begin{pmatrix}-1&2\\1&-1\end{pmatrix},
+ \qquad M^t=\begin{pmatrix}1&1\\2&1\end{pmatrix}.
+\]
+Primero calculamos el producto en el orden indicado y luego lo multiplicamos por sí mismo:
+\[
+ M^{-1}M^t=\begin{pmatrix}3&1\\-1&0\end{pmatrix},
+ \qquad (M^{-1}M^t)^2=\boxed{\begin{pmatrix}8&3\\-3&-1\end{pmatrix}}.
+\]

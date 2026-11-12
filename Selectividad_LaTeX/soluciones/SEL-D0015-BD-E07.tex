@@ -1,5 +1,19 @@
 % ID: SEL-D0015-BD-E07
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S016. Revisión matemática, didáctica y visual.
+\textbf{a) Intervalo para la vida útil media.}\par\nopagebreak[4]
+La varianza poblacional es $7.84$, por tanto $\sigma=\sqrt{7.84}=2.8$ años. Los doce datos suman $129.6$ años, de donde $\overline x=129.6/12=10.8$ años.
+Para confianza 93.5\,\%, $\alpha=0.065$ y $z_{0.9675}\approx1.845258117$. En el modelo normal con muestreo independiente y desviación conocida,
+\[
+IC=10.8\pm z_{0.9675}\frac{2.8}{\sqrt{12}},\qquad E\approx1.491504379\text{ años}.
+\]
+\[
+\boxed{IC_{\text{93.5\%}}\approx(9.308495621,\ 12.291504379)\text{ años}.}
+\]
+El cuantil corresponde a dos colas; la confianza describe la cobertura del procedimiento. No se usa $7.84$ como desviación.
+
+\textbf{b) Error con n=50 y confianza 99\,\%.}\par\nopagebreak[4]
+Se pide calcular el error para un tamaño ya dado, no buscar un tamaño mínimo. El cuantil cambia a $z_{0.995}\approx2.575829304$:
+\[
+\boxed{E=z_{0.995}\frac{2.8}{\sqrt{50}}\approx1.019976366\text{ años}.}
+\]
+Con $2.576$ tabulado resulta aproximadamente $1.020044$ años. No es necesario conocer una nueva media muestral para calcular este margen de error, ni se supone que siga siendo $10.8$.

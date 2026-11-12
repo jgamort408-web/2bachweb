@@ -1,5 +1,20 @@
 % ID: SEL-D0080-OA-E03
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA.
-% Guion futuro: datos, teoría, estrategia, desarrollo paso a paso,
-% comprobación independiente e interpretación de resultados.
+% Tanda S080.
+Sean $D$ ser defectuoso y $A$, $B$, $C$ las máquinas de procedencia.
+
+\textbf{a)} Por la regla del producto,
+\[
+ P(C\cap D)=P(C)P(D\mid C)=0{,}10\cdot0{,}03=\boxed{0{,}003}.
+\]
+\textbf{b)} Por probabilidad total,
+\[
+ P(D)=0{,}60\cdot0{,}05+0{,}30\cdot0{,}04+0{,}10\cdot0{,}03=0{,}045.
+\]
+Así, $P(D^c)=1-0{,}045=\boxed{0{,}955}$.
+
+\textbf{c)} Por Bayes, condicionando a que no sea defectuoso,
+\[
+ P(A\mid D^c)=\frac{P(A)P(D^c\mid A)}{P(D^c)}
+ =\frac{0{,}60\cdot0{,}95}{0{,}955}
+ =\boxed{\frac{114}{191}}\approx0{,}5969.
+\]

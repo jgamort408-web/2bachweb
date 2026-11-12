@@ -1,5 +1,16 @@
 % ID: SEL-D0017-BC-E05
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S018. Revisión matemática, didáctica y visual.
+\textbf{a) Independencia e incompatibilidad.}\par\nopagebreak[4]
+La incompatibilidad implica $P(A\cap B)=0$. La independencia exige $P(A\cap B)=P(A)P(B)>0$ bajo las hipótesis dadas. Ambas condiciones son incompatibles entre sí.
+
+\textbf{b) Las cuatro probabilidades.}\par\nopagebreak[4]
+La notación $P(A/B)$ representa $P(A\mid B)$. Usamos la definición de condicionada, inclusión-exclusión, De Morgan y la descomposición de $A$ en dos sucesos disjuntos:
+\[
+\begin{aligned}
+P(A\cap B)&=P(A\mid B)P(B)=0.2(0.5)=\boxed{0.1},\\
+P(A\cup B)&=0.3+0.5-0.1=\boxed{0.7},\\
+P(A^c\cup B^c)&=1-P(A\cap B)=\boxed{0.9},\\
+P(A-B)&=P(A)-P(A\cap B)=\boxed{0.2}.
+\end{aligned}
+\]
+La tercera igualdad usa $A^c\cup B^c=(A\cap B)^c$.

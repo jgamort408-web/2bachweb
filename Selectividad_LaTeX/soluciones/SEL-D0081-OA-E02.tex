@@ -1,5 +1,39 @@
 % ID: SEL-D0081-OA-E02
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA.
-% Guion futuro: datos, teoría, estrategia, desarrollo paso a paso,
-% comprobación independiente e interpretación de resultados.
+% Tanda S081.
+El dominio es $\mathbb R\setminus\{-2\}$.
+
+\textbf{a)} Las derivadas son
+\[
+ f'(x)=\frac2{(x+2)^2},\qquad f''(x)=-\frac4{(x+2)^3}.
+\]
+La primera es positiva en el dominio, así que la función crece estrictamente en cada intervalo $(-\infty,-2)$ y $(-2,\infty)$. La segunda es positiva a la izquierda de $-2$ y negativa a la derecha. Por tanto, la gráfica se curva hacia arriba en el primer intervalo y hacia abajo en el segundo. No hay punto de inflexión, pues $-2$ no pertenece al dominio.
+
+\textbf{b)} En $x=-2$ el límite izquierdo es $+\infty$ y el derecho es $-\infty$. La asíntota vertical es $\boxed{x=-2}$. Al tender $x$ a cualquiera de los infinitos, $2/(x+2)$ tiende a cero. La asíntota horizontal es $\boxed{y=1}$.
+
+\textbf{c)} La rama izquierda queda por encima de $y=1$ y la derecha por debajo. El único corte con ambos ejes es $(0,0)$.
+\begin{center}
+\setlength{\unitlength}{1mm}
+\begin{picture}(134,92)(-82,-42)
+\put(-78,0){\vector(1,0){125}}\put(0,-38){\vector(0,1){82}}
+\put(48,0){$x$}\put(1,44){$f$}
+{\color{gray}
+\qbezier(-20,-38)(-20,2)(-20,43)
+\qbezier(-78,8)(-16,8)(46,8)}
+\put(-37,44){\scriptsize $x=-2$}
+\put(26,11){\scriptsize $y=1$}
+\put(1,-5){\scriptsize $(0,0)$}
+\qbezier(-75.0000,10.9091)(-67.5000,11.2823)(-60.0000,12.0000)
+\qbezier(-60.0000,12.0000)(-52.5000,12.6462)(-45.0000,14.4000)
+\qbezier(-45.0000,14.4000)(-40.0000,15.4667)(-35.0000,18.6667)
+\qbezier(-35.0000,18.6667)(-32.5000,20.2667)(-30.0000,24.0000)
+\qbezier(-30.0000,24.0000)(-28.5000,26.2185)(-27.0000,30.8571)
+\qbezier(-27.0000,30.8571)(-26.0000,33.9048)(-25.0000,40.0000)
+\qbezier(-16.0000,-32.0000)(-15.2500,-24.8230)(-14.5000,-21.0909)
+\qbezier(-14.5000,-21.0909)(-13.2500,-14.8620)(-12.0000,-12.0000)
+\qbezier(-12.0000,-12.0000)(-10.0000,-7.3333)(-8.0000,-5.3333)
+\qbezier(-8.0000,-5.3333)(-4.0000,-1.3333)(0.0000,0.0000)
+\qbezier(0.0000,0.0000)(5.0000,1.8667)(10.0000,2.6667)
+\qbezier(10.0000,2.6667)(17.5000,3.9111)(25.0000,4.4444)
+\qbezier(25.0000,4.4444)(34.5000,5.1562)(44.0000,5.5000)
+\end{picture}
+\end{center}

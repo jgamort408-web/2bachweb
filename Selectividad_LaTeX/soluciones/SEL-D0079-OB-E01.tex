@@ -1,5 +1,42 @@
 % ID: SEL-D0079-OB-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA.
-% Guion futuro: datos, teoría, estrategia, desarrollo paso a paso,
-% comprobación independiente e interpretación de resultados.
+% Tanda S079.
+\textbf{a)} En $(7,3)$ se cumple $3\cdot7+4\cdot3=33\ge28$, $5\cdot7+2\cdot3=41\le42$ y $7-3=4\ge0$. Por tanto, el punto pertenece al recinto.
+
+\textbf{b)} Despejamos $y$:
+\[
+ y\ge7-\frac34x,\qquad y\le21-\frac52x,\qquad y\le x.
+\]
+El recinto es el triángulo cerrado situado por encima de la primera recta y por debajo de las otras dos. Intersecando cada pareja de fronteras, obtenemos
+\[
+ \begin{array}{c|c}
+ \text{Fronteras}&\text{Vértice}\\\hline
+ 3x+4y=28,\ y=x&(4,4)\\
+ 5x+2y=42,\ y=x&(6,6)\\
+ 3x+4y=28,\ 5x+2y=42&(8,1)
+ \end{array}
+\]
+Todos satisfacen la tercera restricción de cada pareja.
+\begin{center}
+\setlength{\unitlength}{1mm}
+\begin{picture}(102,70)(-9,-9)
+\put(0,0){\vector(1,0){86}}\put(0,0){\vector(0,1){58}}
+\put(88,0){$x$}\put(1,58){$y$}
+{\color{gray}
+\qbezier(0,49)(33.6,24.5)(67.2,0)
+\qbezier(38.88,52.5)(49.68,26.25)(60.48,0)
+\qbezier(0,0)(28.8,28)(57.6,56)}
+\linethickness{0.45mm}
+\qbezier(28.8,28)(36,35)(43.2,42)
+\qbezier(43.2,42)(50.4,24.5)(57.6,7)
+\qbezier(57.6,7)(43.2,17.5)(28.8,28)
+\put(17,28){\scriptsize $(4,4)$}
+\put(43,45){\scriptsize $(6,6)$}
+\put(59,7){\scriptsize $(8,1)$}
+\end{picture}
+\end{center}
+
+\textbf{c)} Evaluamos la función lineal en los vértices del polígono cerrado y acotado:
+\[
+ F(4,4)=10,\qquad F(6,6)=12,\qquad F(8,1)=28.
+\]
+El máximo es $\boxed{28}$ y se alcanza únicamente en $(8,1)$.

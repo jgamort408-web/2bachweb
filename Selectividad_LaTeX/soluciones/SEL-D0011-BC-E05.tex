@@ -1,5 +1,29 @@
 % ID: SEL-D0011-BC-E05
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S012; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{Datos y árbol.}\par\nopagebreak[4]
+Sean $C$ jugar en casa, $V$ victoria, $D$ derrota y $R$ que el partido se decidiera tras una prórroga. El modelo sólo contempla victorias o derrotas. Los datos son $P(C)=0.4$, $P(V\mid C)=0.6$ y $P(V\mid C^c)=0.3$.
+\[
+\begin{array}{c|rr|r}
+&V&D&\text{Total}\\\hline
+C&0.24&0.16&0.4\\
+C^c&0.18&0.42&0.6\\\hline
+\text{Total}&0.42&0.58&1
+\end{array}
+\]
+\textbf{a) Victoria.}\par\nopagebreak[4]
+Por probabilidad total,
+\[
+\boxed{P(V)=0.4\cdot0.6+0.6\cdot0.3=0.42.}
+\]
+\textbf{b) Casa, sabiendo que hubo derrota.}\par\nopagebreak[4]
+Se usa la definición de condicionada, equivalente aquí a Bayes:
+\[
+\boxed{P(C\mid D)=\frac{P(C\cap D)}{P(D)}
+=\frac{0.16}{0.58}=\frac8{29}\approx0.275862.}
+\]
+\textbf{c) Victoria y además tras prórroga.}\par\nopagebreak[4]
+Los nuevos porcentajes están condicionados a la victoria y al lugar. Se multiplican por las probabilidades de esas ramas:
+\[
+\boxed{P(V\cap R)=0.24\cdot0.10+0.18\cdot0.20=0.060.}
+\]
+Es una intersección respecto a todos los partidos, no la probabilidad de prórroga condicionada a haber ganado. Las cuatro hojas iniciales suman uno, y $0.060\leq P(V)$.

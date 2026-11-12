@@ -1,5 +1,24 @@
 % ID: SEL-D0022-OA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S023, revisada con los criterios oficiales.
+\textbf{a)} Sacamos $X$ como factor por la derecha.
+\[
+CB=\begin{pmatrix}1&7\\3&-9\end{pmatrix},\qquad
+M=CB-2A=\begin{pmatrix}-1&3\\3&-3\end{pmatrix}.
+\]
+Como $\det M=-6$, la ecuación $MX=A^t$ tiene solución única.
+Multiplicamos por $M^{-1}$ a la izquierda:
+\[
+X=\begin{pmatrix}1/2&1/2\\1/2&1/6\end{pmatrix}
+  \begin{pmatrix}1&0\\2&-3\end{pmatrix}
+=\boxed{\begin{pmatrix}3/2&-3/2\\5/6&-1/2\end{pmatrix}}.
+\]
+Al sustituir, $MX$ tiene filas $(1,0)$ y $(2,-3)$.
+
+\textbf{b)} Para multiplicar deben coincidir las dimensiones interiores.
+Para sumar o restar deben coincidir ambas dimensiones.
+\begin{itemize}
+\item $BC+2A$ es imposible: $BC$ sería $3\times3$ y $2A$ es $2\times2$.
+\item $AC+C$ es posible: ambos sumandos son $2\times3$.
+\item $B^tC$ es imposible: ambas matrices son $2\times3$ y $3\ne2$.
+\item $CB-A$ es posible: ambos términos son $2\times2$.
+\end{itemize}

@@ -1,5 +1,16 @@
 % ID: SEL-D0028-OB-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S029, cotejada con examen y criterios.
+\textbf{a)} $CA$ tiene dimensión $1\times2$ y $B$ es $2\times1$,
+así que $B+2CA$ no existe. En cambio $BC$ es $2\times2$,
+al igual que su traspuesta y $A$. Por tanto
+\[
+A-(BC)^t=
+\begin{pmatrix}6&0\\2&4\end{pmatrix}
+-\begin{pmatrix}8&-12\\8&-12\end{pmatrix}
+=\boxed{\begin{pmatrix}-2&12\\-6&16\end{pmatrix}}.
+\]
+\textbf{b)} Multiplicamos por 5 y restamos $B$:
+$AX=5C^t-B=(-6,-16)^t$. Con $X=(u,v)^t$, las filas dan
+$6u=-6$ y $2u+4v=-16$. De ahí
+$\boxed{X=\begin{pmatrix}-1\\-7/2\end{pmatrix}}$.
+Al sustituir, $B+AX=(-10,-10)^t=5C^t$.

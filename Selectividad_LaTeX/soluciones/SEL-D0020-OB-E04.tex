@@ -1,5 +1,16 @@
 % ID: SEL-D0020-OB-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S021, revisada con los criterios oficiales.
+\textbf{a)} La proporción muestral es $\hat p=90/250=0.36$.
+Los 90 casos y 160 restantes permiten usar la aproximación normal.
+Al $97\%$ el cuantil bilateral es $z_{0.985}\approx2.170090$.
+\[
+\hat p\pm z_{0.985}\sqrt{\frac{\hat p(1-\hat p)}{250}}
+=0.36\pm2.170090\sqrt{\frac{0.36\cdot0.64}{250}}
+\approx\boxed{[0.2941,\ 0.4259]}.
+\]
+\textbf{b)} Usamos $\hat p=0.36$ como estimación previa y
+$z_{0.995}\approx2.575829$. Exigir un margen como máximo $0.05$ da
+\[
+n\ge\frac{(2.575829)^2\cdot0.36\cdot0.64}{0.05^2}\approx611.47.
+\]
+El menor entero que lo cumple es $\boxed{612\text{ accidentes}}$.

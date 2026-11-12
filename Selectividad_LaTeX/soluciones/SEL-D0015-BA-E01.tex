@@ -1,5 +1,22 @@
 % ID: SEL-D0015-BA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S016. Revisión matemática, didáctica y visual.
+\textbf{a) Demostración respetando el orden.}\par\nopagebreak[4]
+De $AX=B$ y $BY=A$ se obtiene $A(XY)=BY=A$. Multiplicamos a la izquierda por $A^{-1}$ y queda $XY=I$. Como las matrices son invertibles, se deduce \boxed{X=Y^{-1}}.
+También puede verificarse con las expresiones generales
+\[
+X=A^{-1}B,\qquad Y=B^{-1}A,\qquad
+Y^{-1}=(B^{-1}A)^{-1}=A^{-1}B=X.
+\]
+Al invertir un producto se invierte el orden; no se presupone que $A$ y $B$ conmuten.
+
+\textbf{b) Cálculo de ambas incógnitas.}\par\nopagebreak[4]
+Los determinantes son $\det A=1$ y $\det B=-2$, por lo que
+\[
+A^{-1}=\begin{pmatrix}3&-2\\-1&1\end{pmatrix},\qquad
+B^{-1}=\begin{pmatrix}1/2&1/2\\0&-1\end{pmatrix}.
+\]
+\[
+\boxed{X=A^{-1}B=\begin{pmatrix}6&5\\-2&-2\end{pmatrix}},\qquad
+\boxed{Y=B^{-1}A=\begin{pmatrix}1&5/2\\-1&-3\end{pmatrix}}.
+\]
+Comprobación: $AX=B$, $BY=A$ y $XY=YX=I_2$. Las dos ecuaciones originales y la relación de a se verifican simultáneamente.

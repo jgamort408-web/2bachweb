@@ -1,5 +1,22 @@
 % ID: SEL-D0063-OA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante transcripción.
-% Guion futuro:datos y pregunta;teoría y condiciones;estrategia y pasos;
-% comprobación independiente;interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S063.
+Sean $x,y$ los números de contenedores de A y B. Hay que minimizar $C=350x+550y$ euros bajo las restricciones
+\[
+2x+y\ge50,\qquad 3x+5y\ge180,\qquad x+y\le50,\qquad x,y\ge0.
+\]
+Las dos cotas de demanda se cruzan en $(10,30)$. Al cruzar la cota de almacenamiento con cada una, se obtienen $(0,50)$ y $(35,15)$, respectivamente. Los tres puntos son factibles y delimitan el triángulo.
+\begin{center}
+\setlength{\unitlength}{0.85mm}
+\begin{picture}(92,65)(-12,-7)
+\qbezier(0,0)(40,0)(80,0)
+\qbezier(0,0)(0,27)(0,54)
+\qbezier(0,50)(10,40)(20,30)
+\qbezier(20,30)(45,22.5)(70,15)
+\qbezier(70,15)(35,32.5)(0,50)
+\put(81,0){$x$}\put(2,54){$y$}
+\put(-12,48){\scriptsize $(0,50)$}
+\put(15,23){\scriptsize $(10,30)$}
+\put(70,10){\scriptsize $(35,15)$}
+\end{picture}
+\end{center}
+Los costes son $20\,000$, $27\,500$ y $20\,500$ euros en $(10,30)$, $(0,50)$ y $(35,15)$, respectivamente. Una función lineal alcanza el mínimo en algún vértice. Como el mejor vértice ya es entero, también resuelve el problema de contenedores completos. El pedido óptimo es de $10$ a A y $30$ a B, por $\boxed{20\,000\text{ euros}}$.

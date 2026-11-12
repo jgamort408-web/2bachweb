@@ -34,3 +34,7 @@ Fecha:2026-11-07. Primera clasificación de las28 incidencias; sus estados en CS
 | INC-028 | [SEL-D0084-OB-E02](../enunciados/SEL-D0084-OB-E02.tex) | Conservar el literal y la puntuación del examen. Cotejar la discrepancia al resolver; no copiar una errata auxiliar ni dar significado matemático a un detalle tipográfico. |
 
 S001 selecciona A1/A2 de EXA-0001: sin incidencias directas. Se mantienen convocatoria/tipo de carpeta y modelo no acreditado; ello no cambia sus datos matemáticos. La conversión de los12 DOC ya tiene evidencias en L079-L084, pero el cierre formal de INC-002 se realizará con ese cotejo documentado, sin cerrar en bloque las demás.
+
+## AUD001 · 2026-11-12
+
+Revisadas las doce incidencias de hipótesis no explícita. Se amplían dos soluciones con el caso con reemplazo y se aclara una asignación entera. [Informe y resultados](soluciones/AUD001_HIPOTESIS_MUESTREO.md). Las incidencias de fuente conservan su estado original. Restan once incidencias editoriales y cinco generales en esta secuencia de revisión.

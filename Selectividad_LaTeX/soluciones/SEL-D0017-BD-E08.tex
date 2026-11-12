@@ -1,5 +1,17 @@
 % ID: SEL-D0017-BD-E08
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S018. Revisión matemática, didáctica y visual.
+\textbf{a) Intervalo aproximado al 97\,\%.}\par\nopagebreak[4]
+La proporción observada es $\hat p=150/200=0.75$. Las frecuencias de éxito y fracaso, $150$ y $50$, permiten aplicar la aproximación normal. Con $z_{0.985}\approx2.170090378$,
+\[
+\hat p\pm z_{0.985}\sqrt{\frac{\hat p(1-\hat p)}{200}}
+\approx\boxed{(0.683555,\ 0.816445)}.
+\]
+
+\textbf{b) Tamaño mínimo al 94\,\%.}\par\nopagebreak[4]
+Conservamos $\hat p=0.75$ según el enunciado. El error máximo es $0.03$ en unidades de proporción y el cuantil es $z_{0.97}\approx1.880793608$. Entonces
+\[
+z_{0.97}\sqrt{\frac{0.75(0.25)}n}\le0.03
+\quad\Longleftrightarrow\quad
+n\ge\frac{z_{0.97}^2(0.75)(0.25)}{0.03^2}\approx736.955124263.
+\]
+El mínimo es $\boxed{737}$. El margen supera $0.03$ con $736$ y cumple la cota con $737$. Con el cuantil tabulado $1.88$ también resulta $737$.

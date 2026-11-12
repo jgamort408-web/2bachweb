@@ -1,5 +1,24 @@
 % ID: SEL-D0012-BC-E05
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S013; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{Datos y partición por plantas.}\par\nopagebreak[4]
+Sea $D$ el suceso coche defectuoso. Las plantas forman una partición: $P(A)=0.45$, $P(B)=0.21$ y $P(C)=1-0.45-0.21=0.34$. Los complementos de las tasas de defecto son $0.99$, $0.97$ y $0.98$.
+
+\textbf{a) No defectuoso y procedente de C.}\par\nopagebreak[4]
+Se pide una intersección, por la regla del producto:
+\[
+\boxed{P(D^c\cap C)=P(C)P(D^c\mid C)=0.34\cdot0.98=0.3332.}
+\]
+\textbf{b) Planta A, condicionado a no ser defectuoso.}\par\nopagebreak[4]
+Primero calculamos la probabilidad total de no defecto:
+\[
+\begin{aligned}
+P(D^c)&=0.45\cdot0.99+0.21\cdot0.97+0.34\cdot0.98\\
+&=0.4455+0.2037+0.3332=0.9824.
+\end{aligned}
+\]
+Por Bayes,
+\[
+\boxed{P(A\mid D^c)=\frac{0.4455}{0.9824}
+=\frac{4455}{9824}\approx0.453481.}
+\]
+Comprobación complementaria: $P(D)=0.0045+0.0063+0.0068=0.0176$ y $P(D)+P(D^c)=1$. No se intercambian $P(D^c\mid A)$ y $P(A\mid D^c)$.

@@ -1,5 +1,10 @@
 % ID: SEL-D0065-OB-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante transcripción.
-% Guion futuro:datos y pregunta;teoría y condiciones;estrategia y pasos;
-% comprobación independiente;interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S065.
+\textbf{a)} Las columnas de $A$ deben igualar las filas de $B$, y las columnas de $B$ las filas de $C$. El número de columnas del resultado es el de $C$. Así, los órdenes son $A:2\times3$, $B:3\times2$ y $C:2\times4$.
+
+\textbf{b)} Primero restamos y multiplicamos en el orden dado:
+\[
+A-B^t=\begin{pmatrix}1&0\\0&-3\end{pmatrix},
+\qquad A(A-B^t)=\begin{pmatrix}1&3\\2&3\end{pmatrix}.
+\]
+Por tanto, $X=\tfrac12[I_2-A(A-B^t)]=\boxed{\begin{pmatrix}0&-3/2\\-1&-1\end{pmatrix}}$.

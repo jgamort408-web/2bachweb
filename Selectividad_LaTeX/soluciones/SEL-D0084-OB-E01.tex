@@ -1,5 +1,26 @@
 % ID: SEL-D0084-OB-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA.
-% Guion futuro: datos, teoría, estrategia, desarrollo paso a paso,
-% comprobación independiente e interpretación de resultados.
+% Tanda S084.
+Sean $x$ e $y$ los números de estanterías grandes y pequeñas. Las restricciones de madera, producción mínima y proporción entre tipos son
+\[
+ 4x+3y\le60,\qquad x\ge3,\qquad y\ge2x.
+\]
+Estas condiciones implican $y\ge6$ y delimitan un triángulo cerrado y acotado. Sus vértices son $(3,6)$, $(3,16)$ y $(6,12)$. El último surge de $4x+3(2x)=60$.
+
+Maximizamos $Z=60x+40y$, en euros. En los vértices,
+\[
+ Z(3,6)=420,\qquad Z(3,16)=820,\qquad Z(6,12)=840.
+\]
+Como la función es lineal, el máximo es $\boxed{840}$ euros y se obtiene con 6 estanterías grandes y 12 pequeñas. Son cantidades enteras, consumen $4\cdot6+3\cdot12=60$ metros cuadrados de tablero y cumplen la proporción mínima de pequeñas.
+\begin{center}
+\setlength{\unitlength}{1mm}
+\begin{picture}(106,77)(-10,-10)
+\put(-4,0){\vector(1,0){96}}\put(0,-5){\vector(0,1){66}}
+\put(94,0){$x$}\put(1,65){$y$}
+\qbezier(30,18)(30,33)(30,48)
+\qbezier(30,48)(45,42)(60,36)
+\qbezier(60,36)(45,27)(30,18)
+\put(13,13){\scriptsize $(3,6)$}
+\put(15,51){\scriptsize $(3,16)$}
+\put(61,36){\scriptsize $(6,12)$}
+\end{picture}
+\end{center}

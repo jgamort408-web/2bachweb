@@ -1,5 +1,32 @@
 % ID: SEL-D0050-OB-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante transcripción.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S051.
+\textbf{a)} Sean $x,y$ los números de tapices A y B. Como el ejercicio sólo da precios y supone que se vende toda la producción, maximizamos los ingresos $I=2000x+3000y$ con
+\[
+x+2y\le500,\qquad 2x+y\le400,\qquad 0\le y\le225,\qquad x\ge0.
+\]
+Primero estudiamos el recinto continuo. El corte de las fronteras de seda y plata es $(100,200)$. El corte de $y=225$ con la frontera de seda es $(50,225)$ y cumple la restricción de plata. Los otros vértices están en los ejes.
+\[
+\begin{array}{c|rrrrr}
+(x,y)&(0,0)&(200,0)&(100,200)&(50,225)&(0,225)\\\hline
+I&0&400000&800000&775000&675000
+\end{array}
+\]
+\begin{center}
+\setlength{\unitlength}{0.9mm}
+\begin{picture}(83,57)(-8,-7)
+\qbezier(0,0)(34,0)(68,0)
+\qbezier(0,0)(0,25)(0,50)
+\put(69,0){$x$}
+\put(1,49){$y$}
+\qbezier(60,0)(45,20)(30,40)
+\qbezier(30,40)(22.5,42.5)(15,45)
+\qbezier(15,45)(7.5,45)(0,45)
+\put(2,46){\scriptsize $(0,225)$}
+\put(17,45){\scriptsize $(50,225)$}
+\put(32,38){\scriptsize $(100,200)$}
+\put(52,-5){\scriptsize $(200,0)$}
+\end{picture}
+\end{center}
+La función lineal alcanza su máximo en un vértice. Como el vértice óptimo es entero, también es óptimo para el problema de fabricación. Se producen $100$ tapices A y $200$ B, con ingresos de $800\,000$ euros.
+
+\textbf{b)} Se usan $100+2\cdot200=500$ kg de seda, $2\cdot100+200=400$ kg de plata y $200$ kg de oro. Sobran $0$ kg de seda, $0$ kg de plata y $25$ kg de oro.

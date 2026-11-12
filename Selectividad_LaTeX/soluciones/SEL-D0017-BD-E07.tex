@@ -1,5 +1,16 @@
 % ID: SEL-D0017-BD-E07
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S018. Revisión matemática, didáctica y visual.
+\textbf{a) Intervalo al 97\,\%.}\par\nopagebreak[4]
+La suma de los diez desfases es $30.9$ minutos, incluyendo el dato $-0.2$. La media es $\bar x=3.09$ minutos. De la varianza $4$ obtenemos $\sigma=2$ minutos. El cuantil bilateral es $z_{0.985}\approx2.170090378$. En el modelo normal con observaciones independientes,
+\[
+IC_{97}=3.09\pm z_{0.985}\frac2{\sqrt{10}}
+\approx\boxed{(1.717514,\ 4.462486)\text{ minutos}.}
+\]
+
+\textbf{b) Margen y tamaño de muestra.}\par\nopagebreak[4]
+Treinta segundos son $0.5$ minutos. Al 95\,\%, con $z_{0.975}\approx1.959963985$,
+\[
+z_{0.975}\frac2{\sqrt n}<0.5
+\quad\Longleftrightarrow\quad n>16z_{0.975}^2\approx61.463341131.
+\]
+El mínimo es $\boxed{62}$, pues $61$ incumple la cota y $62$ la satisface. Con el margen fijado, una confianza mayor aumenta el cuantil y la cota de $n$. El mínimo entero no disminuye y puede mantenerse para aumentos pequeños de confianza.

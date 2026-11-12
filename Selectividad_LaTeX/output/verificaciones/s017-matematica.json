@@ -1,0 +1,34 @@
+{
+  "tanda": "S017",
+  "E1_optimo": [
+    4,
+    3,
+    27
+  ],
+  "E2_X": [
+    [
+      -1,
+      4
+    ],
+    [
+      -4,
+      -2
+    ]
+  ],
+  "E3_corte": [
+    "-1/3",
+    "-2/3"
+  ],
+  "E4_integral": "-11/3",
+  "E5_error": "43/2000",
+  "E5_condicionada": "873/1957",
+  "E6_condicionada": "6/11",
+  "E7_cota_n": 96.03647051735305,
+  "E7_minimo": 97,
+  "E8_intervalo": [
+    3.0155795658621862,
+    5.628864878582258
+  ],
+  "E8_minimo": 19,
+  "segundo_revisor_distinto": false
+}

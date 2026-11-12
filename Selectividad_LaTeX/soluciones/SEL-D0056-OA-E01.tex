@@ -1,5 +1,23 @@
 % ID: SEL-D0056-OA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante transcripción.
-% Guion futuro:datos y pregunta;teoría y condiciones;estrategia y pasos;
-% comprobación independiente;interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S057.
+\textbf{a)} Sumamos $CD$ y distribuimos $(I_3+D)C$. Como $C$ y $D$ son simétricas, $DC=(CD)^t$.
+\[
+CD=\begin{pmatrix}1&0&1\\1&2&1\\1&0&1\end{pmatrix},
+\qquad
+X=\tfrac12(C+DC+CD)
+=\boxed{\begin{pmatrix}1&1&1\\1&2&1\\1&1&1\end{pmatrix}}.
+\]
+\textbf{b)} Un $1$ fuera de la diagonal indica una arista. La simetría implica que las aristas son no dirigidas y las diagonales nulas excluyen lazos. $C$ da el camino $a-b-c$ y $D$ el triángulo de vértices $1,2,3$.
+\begin{center}
+\setlength{\unitlength}{0.9mm}
+\begin{picture}(113,35)(-5,-5)
+\qbezier(5,7)(25,7)(45,7)
+\put(5,7){\makebox(0,0){\rule{1.4pt}{1.4pt}}}\put(25,7){\makebox(0,0){\rule{1.4pt}{1.4pt}}}\put(45,7){\makebox(0,0){\rule{1.4pt}{1.4pt}}}
+\put(4,1){$a$}\put(24,1){$b$}\put(44,1){$c$}
+\qbezier(66,7)(76,16)(86,25)
+\qbezier(86,25)(96,16)(106,7)
+\qbezier(106,7)(86,7)(66,7)
+\put(66,7){\makebox(0,0){\rule{1.4pt}{1.4pt}}}\put(86,25){\makebox(0,0){\rule{1.4pt}{1.4pt}}}\put(106,7){\makebox(0,0){\rule{1.4pt}{1.4pt}}}
+\put(65,1){$1$}\put(85,28){$2$}\put(105,1){$3$}
+\end{picture}
+\end{center}

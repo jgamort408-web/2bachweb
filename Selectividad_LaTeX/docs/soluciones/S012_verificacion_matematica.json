@@ -1,0 +1,147 @@
+{
+  "tanda": "S012",
+  "metodos": [
+    "intersecciones y fracciones exactas",
+    "enumeración de producción entera",
+    "productos y potencia matricial directa",
+    "primitivas por tramos",
+    "diferencias centradas",
+    "enumeración de muestras",
+    "cuantiles contrastados por erfc y bisección"
+  ],
+  "E1_maximo": 460,
+  "E1_produccion": [
+    6,
+    4
+  ],
+  "E2_potencia": "11^7 A",
+  "E3_area": "2/3",
+  "E4_error_derivada_maximo": 6.013256095296185e-11,
+  "E7_muestras": [
+    {
+      "convencion": "sin_reemplazo_sin_orden",
+      "total": 36,
+      "favorables": [
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "probabilidad": "1/9"
+    },
+    {
+      "convencion": "sin_reemplazo_con_orden",
+      "total": 72,
+      "favorables": [
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          8,
+          2
+        ],
+        [
+          9,
+          1
+        ]
+      ],
+      "probabilidad": "1/9"
+    },
+    {
+      "convencion": "con_reemplazo_con_orden",
+      "total": 81,
+      "favorables": [
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          8,
+          2
+        ],
+        [
+          9,
+          1
+        ]
+      ],
+      "probabilidad": "1/9"
+    }
+  ],
+  "E7_intervalo": [
+    0.045270397672879444,
+    0.05472960232712056
+  ],
+  "E7_error_n10000": 0.00472960232712056,
+  "E7_error_n20000": 0.003344333877822624,
+  "E8_suma": 640,
+  "E8_media": 40,
+  "E8_desviacion": 9,
+  "E8_intervalo": [
+    35.59008103478488,
+    44.40991896521512
+  ],
+  "E8_cota_n": 109.59086222885038,
+  "E8_errores_109_110": [
+    2.0054134280921954,
+    1.9962771007220632
+  ],
+  "E8_minimo": 110,
+  "segundo_revisor_distinto": false
+}

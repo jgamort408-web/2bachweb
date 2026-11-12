@@ -1,5 +1,19 @@
 % ID: SEL-D0082-OB-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA.
-% Guion futuro: datos, teoría, estrategia, desarrollo paso a paso,
-% comprobación independiente e interpretación de resultados.
+% Tanda S082.
+\textbf{a)} Trasponemos $A$ y despejamos $AX=I_2-A^t$:
+\[
+ A^t=\begin{pmatrix}1&2\\-1&-1\end{pmatrix},
+ \qquad I_2-A^t=\begin{pmatrix}0&-2\\1&2\end{pmatrix}.
+\]
+Como $\det A=-1+2=1$, existe $A^{-1}$. Multiplicando a la izquierda,
+\[
+ X=A^{-1}(I_2-A^t)
+ =\begin{pmatrix}-1&1\\-2&1\end{pmatrix}
+  \begin{pmatrix}0&-2\\1&2\end{pmatrix}
+ =\boxed{\begin{pmatrix}1&4\\1&6\end{pmatrix}}.
+\]
+En efecto, $AX=\begin{pmatrix}0&-2\\1&2\end{pmatrix}$ y al sumar $A^t$ se obtiene $I_2$.
+
+\textbf{b)} En $AB$, el número de columnas de $A$ debe coincidir con el de filas de $B$. Como $A$ es $2\times2$, $B$ debe tener dos filas y cualquier número positivo de columnas, es decir, tamaño $2\times n$.
+
+\textbf{c)} El factor escalar 3 no altera las dimensiones. Para $BA$, $B$ debe tener dos columnas y cualquier número positivo de filas, es decir, tamaño $m\times2$.

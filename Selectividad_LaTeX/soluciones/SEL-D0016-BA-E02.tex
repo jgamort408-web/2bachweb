@@ -1,5 +1,22 @@
 % ID: SEL-D0016-BA-E02
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S017. Revisión matemática, didáctica y visual.
+\textbf{a) Existencia de la inversa.}\par\nopagebreak[4]
+El producto de la matriz $2\times3$ por su traspuesta es
+\[
+B=AA^t=\begin{pmatrix}5&a\\a&a^2+1\end{pmatrix}.
+\]
+Su determinante es $5(a^2+1)-a^2=4a^2+5>0$. Por tanto, $B$ es invertible para todo $a\in\mathbb R$.
+
+\textbf{b) Inversa para $a=1$.}\par\nopagebreak[4]
+Para $a=1$, el determinante es $9$. La fórmula de la adjunta da
+\[
+\boxed{B^{-1}=\frac19\begin{pmatrix}2&-1\\-1&5\end{pmatrix}.}
+\]
+Al multiplicar $B$ por la matriz entera se obtiene $9I_2$.
+
+\textbf{c) Ecuación matricial.}\par\nopagebreak[4]
+Como $B^t=B$, multiplicamos $B^tX=-9C$ a la izquierda por $B^{-1}$:
+\[
+\boxed{X=-9B^{-1}C=\begin{pmatrix}-1&4\\-4&-2\end{pmatrix}.}
+\]
+El producto $B^tX$ es $\begin{pmatrix}-9&18\\-9&0\end{pmatrix}=-9C$.

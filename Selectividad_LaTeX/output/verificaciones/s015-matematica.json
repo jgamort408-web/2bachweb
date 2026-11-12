@@ -1,0 +1,76 @@
+{
+  "tanda": "S015",
+  "metodos": [
+    "intersecciones y producción entera",
+    "determinantes y productos exactos",
+    "Gauss para comprobar ecuación original",
+    "primitivas y extremos exactos",
+    "fracciones y combinaciones sin reposición",
+    "cuantiles por erfc/bisección"
+  ],
+  "E1_optimo": [
+    50,
+    20
+  ],
+  "E1_maximo": 400,
+  "E2_inversa_numerador": [
+    [
+      4,
+      4,
+      -2
+    ],
+    [
+      5,
+      -5,
+      0
+    ],
+    [
+      3,
+      3,
+      -4
+    ]
+  ],
+  "E2_X": [
+    [
+      15,
+      1,
+      -5
+    ],
+    [
+      10,
+      -3,
+      -7
+    ],
+    [
+      24,
+      1,
+      -5
+    ]
+  ],
+  "E3_parametros": [
+    -1,
+    2
+  ],
+  "E3_area": "22/3",
+  "E5_ambas": "118/267",
+  "E5_alguna": "238/267",
+  "E5_exactamente_una": "40/89",
+  "E6_total": "6/25",
+  "E6_Bayes": "41/114",
+  "E7_media": 11,
+  "E7_intervalo": [
+    8.941271503525394,
+    13.058728496474606
+  ],
+  "E7_cota_n": 18.837168987540394,
+  "E7_errores_18_19": [
+    1.534485621777718,
+    1.493558629617019
+  ],
+  "E7_minimo": 19,
+  "E8_centro_impreso": "351/50",
+  "E8_semiamplitud_impresa": "49/50",
+  "E8_error49_tabla": "21/25",
+  "E8_error49_preciso": 0.8399845648028802,
+  "segundo_revisor_distinto": false
+}

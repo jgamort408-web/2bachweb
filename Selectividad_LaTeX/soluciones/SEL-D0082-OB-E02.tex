@@ -1,5 +1,26 @@
 % ID: SEL-D0082-OB-E02
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA.
-% Guion futuro: datos, teoría, estrategia, desarrollo paso a paso,
-% comprobación independiente e interpretación de resultados.
+% Tanda S082.
+\textbf{a)} Cada tramo es continuo en su intervalo. La continuidad en $6$ exige $6a-36=12$, de donde $\boxed{a=8}$.
+
+\textbf{b)} Para $a=8$, en $0<t<6$ se cumple $B'(t)=8-2t$, que cambia de positivo a negativo en $4$. En $6<t<10$, $B'(t)=2>0$. Por tanto, crece en $[0,4]$, decrece en $[4,6]$ y vuelve a crecer en $[6,10]$.
+
+La gráfica es el arco de parábola $8t-t^2$ desde $(0,0)$ hasta $(6,12)$, con vértice $(4,16)$, unido al segmento de recta $B=2t$ hasta $(10,20)$. Los puntos de unión pertenecen a la función.
+\begin{center}
+\setlength{\unitlength}{1mm}
+\begin{picture}(119,75)(-10,-10)
+\put(-4,0){\vector(1,0){109}}\put(0,-5){\vector(0,1){65}}
+\put(107,0){$t$}\put(1,60){$B$}
+\qbezier(0,0)(30,60)(60,30)
+\qbezier(60,30)(80,40)(100,50)
+\put(0,0){\circle*{1.4}}
+\put(40,40){\circle*{1.4}}
+\put(60,30){\circle*{1.4}}
+\put(100,50){\circle*{1.4}}
+\put(1,-6){\scriptsize $(0,0)$}
+\put(29,44){\scriptsize $(4,16)$}
+\put(59,24){\scriptsize $(6,12)$}
+\put(86,54){\scriptsize $(10,20)$}
+\end{picture}
+\end{center}
+
+\textbf{c)} Restringidos a los primeros seis años, el cambio de signo de la derivada y la comparación $B(0)=0$, $B(4)=16$, $B(6)=12$ muestran que el máximo es $\boxed{16}$ millones de euros a los $\boxed{4}$ años.

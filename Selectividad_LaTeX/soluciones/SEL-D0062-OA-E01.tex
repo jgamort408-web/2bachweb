@@ -1,5 +1,30 @@
 % ID: SEL-D0062-OA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante transcripción.
-% Guion futuro:datos y pregunta;teoría y condiciones;estrategia y pasos;
-% comprobación independiente;interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S062.
+Sean $x,y$ los números de lotes A y B. Los inventarios imponen
+\[
+2x+3y\le400,\quad 2x+y\le300,\quad x+4y\le400,\quad x,y\ge0.
+\]
+Maximizamos los ingresos $I=20x+40y$. En los ejes las cotas más restrictivas dan $(150,0)$ y $(0,100)$. En la frontera de avellanas, la intersección con la de nueces es $(125,50)$ y con la de almendras es $(80,80)$. Ambas son factibles. El cruce de las fronteras de nueces y almendras incumple la de avellanas.
+\begin{center}
+\setlength{\unitlength}{0.9mm}
+\begin{picture}(115,65)(-14,-8)
+\qbezier(0,0)(47,0)(94,0)
+\qbezier(0,0)(0,25.5)(0,51)
+\put(95,0){$x$}
+\put(1,52){$y$}
+\qbezier(0,45)(22,40.5)(44,36)
+\qbezier(44,36)(56.375,29.25)(68.75,22.5)
+\qbezier(68.75,22.5)(75.625,11.25)(82.5,0)
+\put(2,46){\scriptsize $(0,100)$}
+\put(42,38){\scriptsize $(80,80)$}
+\put(70,23){\scriptsize $(125,50)$}
+\put(77,-6){\scriptsize $(150,0)$}
+\end{picture}
+\end{center}
+\[
+\begin{array}{c|rrrrr}
+(x,y)&(0,0)&(150,0)&(125,50)&(80,80)&(0,100)\\\hline
+I&0&3000&4500&4800&4000
+\end{array}
+\]
+Una función lineal alcanza un máximo en algún vértice. Aquí el mejor vértice ya tiene coordenadas enteras. Conviene vender $80$ lotes A y $80$ lotes B, con un ingreso máximo de $\boxed{4800\text{ euros}}$.

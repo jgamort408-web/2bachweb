@@ -1,5 +1,37 @@
 % ID: SEL-D0020-OA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S021, revisada con los criterios oficiales.
+Sean $x$ e $y$ los números de collares A y B. Al dividir las
+restricciones de perlas por $10$, $20$ y $30$, respectivamente,
+obtenemos $2x+y\le90$, $x+y\le70$ y $x+2y\ge60$, con $x,y\ge0$.
+En el eje vertical queda $30\le y\le70$ y el eje horizontal
+no contiene puntos factibles. Las fronteras $2x+y=90$ y $x+y=70$
+se cortan en $(20,50)$, y $2x+y=90$ y $x+2y=60$ en $(40,10)$.
+La otra intersección tiene $y<0$. Estos son los cuatro vértices:
+\[
+\begin{array}{c|rrrr}
+(x,y)&(0,30)&(0,70)&(20,50)&(40,10)\\ \hline
+600x+500y&15000&35000&37000&29000
+\end{array}
+\]
+
+\begin{center}
+\setlength{\unitlength}{0.95mm}
+\begin{picture}(53,78)(-5,-3)
+\qbezier(0,0)(24,0)(48,0)\put(49,0){$x$}
+\qbezier(0,0)(0,37)(0,74)\put(0,74){$y$}
+\qbezier(0,30)(0,50)(0,70)
+\qbezier(0,70)(10,60)(20,50)
+\qbezier(20,50)(30,30)(40,10)
+\qbezier(40,10)(20,20)(0,30)
+\put(2,31){$(0,30)$}\put(2,70){$(0,70)$}
+\put(21,51){$(20,50)$}\put(40,12){$(40,10)$}
+\end{picture}
+\end{center}
+
+Una función lineal sobre este polígono acotado alcanza su máximo
+en un vértice. El vértice ganador tiene coordenadas enteras, así
+que también resuelve el problema de producción:
+$\boxed{20\text{ de A},\ 50\text{ de B},\ 37000\text{ euros}}$.
+
+Para $(40,20)$ se requieren $20\cdot40+10\cdot20=1000$ perlas blancas.
+La disponibilidad es de 900, de modo que esa producción es inviable.

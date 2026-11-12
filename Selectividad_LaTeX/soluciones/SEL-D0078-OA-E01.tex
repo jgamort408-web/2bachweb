@@ -1,5 +1,17 @@
 % ID: SEL-D0078-OA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante transcripción.
-% Guion futuro:datos y pregunta;teoría y condiciones;estrategia y pasos;
-% comprobación independiente;interpretación y revisión matemática/didáctica.
+% Tanda S078.
+Sean $x$ e $y$ las botellas diarias de leche entera y desnatada. El modelo, con beneficio en euros, es
+\[
+ x+y\le6000,\qquad \frac{x}{5}\le y\le3x,\qquad x,y\ge0,
+ \qquad Z=0{,}20x+0{,}32y.
+\]
+La región factible es el triángulo del primer cuadrante comprendido entre las semirrectas $y=x/5$ e $y=3x$ y la recta de capacidad. Sus vértices son $(0,0)$, $(5000,1000)$ y $(1500,4500)$. Los dos últimos se obtienen sustituyendo cada relación entre tipos de leche en $x+y=6000$.
+
+Al ser una función lineal sobre un polígono cerrado y acotado, basta comparar los vértices:
+\[
+ \begin{array}{c|rrr}
+ (x,y)&(0,0)&(5000,1000)&(1500,4500)\\
+ Z\text{ (euros)}&0&1320&1740
+ \end{array}
+\]
+El beneficio máximo es $\boxed{1740}$ euros diarios. Se alcanza fabricando 1500 botellas de leche entera y 4500 de desnatada. Las cantidades son enteras, agotan la capacidad y cumplen $y=3x$ y $y\ge x/5$.

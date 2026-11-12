@@ -1,0 +1,62 @@
+{
+  "tanda": "S013",
+  "metodos": [
+    "fracciones e intersecciones exactas",
+    "enumeración entera",
+    "potencias matriciales directas",
+    "Simpson",
+    "Bayes exacto",
+    "cuantiles por erfc y bisección"
+  ],
+  "E1_vertices_excluidos": [
+    [
+      "4",
+      "12"
+    ],
+    [
+      "5",
+      "10"
+    ]
+  ],
+  "E1_optimo": [
+    4,
+    16
+  ],
+  "E1_maximo": "44/5",
+  "E2_X": [
+    7,
+    -13,
+    -3
+  ],
+  "E3_area": "25/12",
+  "E3_area_Simpson": 2.083333333333333,
+  "E4_constante_con_modelo_continuo": 50,
+  "E4_extremos_relativos": [
+    75,
+    70
+  ],
+  "E5_no_defecto": "614/625",
+  "E5_Bayes": "4455/9824",
+  "E5_Bayes_decimal": 0.4534812703583062,
+  "E7_intervalo": [
+    0.3098813012251085,
+    0.39011869877489147
+  ],
+  "E7_cota_n": 2678.4099654159,
+  "E7_errores_2678_2679": [
+    0.020001530805552902,
+    0.019997797435328025
+  ],
+  "E7_minimo": 2679,
+  "E8_intervalo": [
+    167.12296841543503,
+    168.87703158456497
+  ],
+  "E8_cota_n": 120.36933696296346,
+  "E8_errores_120_121": [
+    1.2018452660619674,
+    1.196868659732614
+  ],
+  "E8_minimo": 121,
+  "segundo_revisor_distinto": false
+}

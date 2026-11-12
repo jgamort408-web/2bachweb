@@ -1,5 +1,24 @@
 % ID: SEL-D0081-OB-E02
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA.
-% Guion futuro: datos, teoría, estrategia, desarrollo paso a paso,
-% comprobación independiente e interpretación de resultados.
+% Tanda S081.
+\textbf{a)} El dominio del modelo es $[0,\infty)$. Cada tramo es continuo en su interior. En la unión,
+\[
+ P(5)=25,\qquad\lim_{t\to5^+}P(t)=\frac{500-250}{10}=25.
+\]
+La función es continua en todo su dominio, incluyendo la continuidad por la derecha en el extremo $t=0$.
+
+\textbf{b)} Las derivadas laterales en $5$ son
+\[
+ P'_-(5)=2\cdot5=10,\qquad
+ P'_+(5)=\left.\frac{100(t+5)-(100t-250)}{(t+5)^2}\right|_{t=5}
+ =\frac{750}{100}=7{,}5.
+\]
+Como son distintas, $P$ no es derivable en $5$.
+
+\textbf{c)} Para $0<t<5$, $P'(t)=2t>0$. Para $t>5$, $P'(t)=750/(t+5)^2>0$. Junto con la continuidad en $5$, esto prueba que es estrictamente creciente en $[0,\infty)$. El porcentaje aumenta desde el $0\%$ y se aproxima al $100\%$, pues el segundo tramo se escribe $100-750/(t+5)$. A partir del quinto mes sigue aumentando con una tasa cada vez menor.
+
+\textbf{d)} En el primer tramo el porcentaje no supera 25. En el segundo, imponemos
+\[
+ \frac{100t-250}{t+5}=50
+ \quad\Longrightarrow\quad100t-250=50t+250.
+\]
+Resulta $t=\boxed{10}$ meses, que cumple $t>5$.

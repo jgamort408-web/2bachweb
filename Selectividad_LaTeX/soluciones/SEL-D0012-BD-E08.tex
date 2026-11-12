@@ -1,5 +1,21 @@
 % ID: SEL-D0012-BD-E08
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S013; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{a) Intervalo normal para la media.}\par\nopagebreak[4]
+La población es normal con desviación conocida $\sigma=7$ cm. Para $n=300$, la media tiene desviación $7/\sqrt{300}$ cm. Con confianza 97\,\%, $z_{0.985}\approx2.170090378$:
+\[
+IC=168\pm z_{0.985}\frac7{\sqrt{300}},\qquad E\approx0.877031585\text{ cm}.
+\]
+\[
+\boxed{IC_{\text{97\%}}\approx(167.122968415,\ 168.877031585)\text{ cm}.}
+\]
+Se emplea la desviación poblacional conocida y el cuantil normal. La normalidad de la distribución de la media es exacta bajo el modelo de muestreo independiente; la cobertura del intervalo corresponde al procedimiento.
+
+\textbf{b) Confianza 94\,\% y error estrictamente inferior a 1.2 cm.}\par\nopagebreak[4]
+Ahora se usa $z_{0.97}\approx1.880793608$, manteniendo $\sigma=7$:
+\[
+z_{0.97}\frac7{\sqrt n}<1.2
+\quad\Longleftrightarrow\quad
+n>\left(\frac{7z_{0.97}}{1.2}\right)^2
+\approx120.369336963.
+\]
+\boxed{n_{\min}=121}. Para $120$ el error aún supera $1.2$ cm, y para $121$ ya es inferior. En una cota estricta se toma $\lfloor\text{cota}\rfloor+1$, incluso si la cota fuese entera. Con $1.88$ tabulado se mantiene $121$. Aquí se ha reducido la confianza respecto al apartado a; no se mantiene el cuantil anterior.
