@@ -483,3 +483,9 @@ W03 → W04 → **D01–D05 (consulta)** → S01–S06 → L01–L08 → F01–F
 
 - **2026-11-12** · AUD003 cerrada. Cinco incidencias generales resueltas. [Informe](Selectividad_LaTeX/docs/soluciones/AUD003_FUENTES_Y_METADATOS.md). Siguiente implementación, SEL-PARTES.
 - **2026-11-12** · Banco completo integrado en `feature/selectividad`: trabajo de la otra herramienta confirmado (640 soluciones, S012–S084 y AUD001) y web regenerada con las 640 soluciones, 31 figuras PDF y 94 dibujos `picture` compilados con pdfLaTeX. Relaciones de los 640 ejercicios compiladas sin errores con y sin soluciones. Pruebas 165 (todas las soluciones sin errores de MathJax) y 166.
+
+- [x] SEL-PARTES01 · Selección parcial de dos ejercicios piloto. [Informe](Selectividad_LaTeX/docs/soluciones/SEL_PARTES01_SELECCION_PARCIAL.md).
+- [x] SEL-PARTES02 · Preparar ocho ejercicios adicionales con Partes I/II.
+- **2026-11-12** · Decidido con el docente: activar las 640 soluciones (los ocho grupos visibles en `config/visibility.json`), de modo que las tarjetas las muestran y el generador ofrece relaciones con y sin soluciones en PDF y LaTeX. Se pueden volver a ocultar por tema o una a una.
+
+SEL-PARTES02 cerrada el 2026-11-12. Ocho ejercicios D0067–D0070 admiten partes completas, con diez IDs de cobertura acumulada. Próxima tanda SEL-PARTES03, D0071–D0074 OA/OB E03. Los apartados individuales y sus categorías siguen pendientes.

@@ -24,7 +24,13 @@ const config = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'config', '
     await page.goto(route);
     await ready();
     assert.match(await page.locator('[data-rel-status]').textContent(), /ejercicios cumplen los criterios; se elegirán 6\./);
-    // Sin soluciones publicadas no se ofrecen las opciones de soluciones.
+    // Con las soluciones publicadas se ofrecen sus opciones; con los grupos ocultos, no.
+    assert.equal(await page.locator('[data-rel-solutions-field]').isVisible(), true);
+    const hidden = structuredClone(visibility);
+    for (const key of Object.keys(hidden.entries)) hidden.entries[key] = { visibility: 'hidden' };
+    await page.route('**/config/visibility.json', request => request.fulfill({ json: hidden }));
+    await page.reload();
+    await ready();
     assert.equal(await page.locator('[data-rel-solutions-field]').isVisible(), false);
     await page.locator('[name="tema"][value="t07"]').check();
     await page.locator('[data-rel-tag-search]').fill('bayes');
@@ -67,6 +73,7 @@ const config = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'config', '
     }
     // registro.tex nombra siempre las rutas de soluciones; lo que no debe viajar es el contenido de ninguna.
     assert.ok(!zipBytes.includes(Buffer.from('% ESTADO: validada')));
+    assert.ok(zipBytes.includes(Buffer.from('\\providecommand{\\ModoSalida}{enunciados}')));
 
     // Impresión: solo la hoja, con el primer ejercicio en la primera página.
     await page.emulateMedia({ media: 'print' });
@@ -79,9 +86,7 @@ const config = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'config', '
 
     // Soluciones publicadas por el docente: opciones visibles, sección de soluciones y archivos en el .zip.
     const topic = config.solutions[0].topicId;
-    const published = structuredClone(visibility);
-    published.entries['group:selectividad-soluciones-' + topic] = { visibility: 'visible' };
-    await page.route('**/config/visibility.json', request => request.fulfill({ json: published }));
+    await page.unroute('**/config/visibility.json');
     await page.goto(route + `?temas=${topic}&n=3&semilla=7&resueltos=1&soluciones=1`);
     await page.waitForSelector('[data-rel-output]:not([hidden])');
     assert.equal(await page.locator('[data-rel-solutions-field]').isVisible(), true);

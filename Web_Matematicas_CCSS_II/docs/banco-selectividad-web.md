@@ -38,10 +38,10 @@ Comprobaciones al generar:
 - cada figura tiene descripción (`FIGURE_ALT`);
 - cada página de tema está registrada en `config/pages.json`.
 
-## Soluciones ocultas hasta que el docente las active
+## Soluciones: las controla el docente
 
 - El catálogo registra un grupo por tema (`group:selectividad-soluciones-t07`, dentro de la página del tema) y una entidad por solución validada (`solution:SEL-…`). En Administración aparecen bajo cada página «Selectividad: …».
-- `config/visibility.json` publica los grupos **ocultos**. Para publicar las soluciones de un tema, el grupo pasa a «Mostrar». Una solución concreta se puede seguir ocultando dentro de un grupo visible. Si se oculta la página del tema, se ocultan también sus soluciones.
+- **Activadas todas el 12-11-2026**, por decisión del docente al completarse el banco: `config/visibility.json` publica los ocho grupos como visibles. Hasta entonces estaban ocultos. Para retirar las soluciones de un tema, su grupo pasa a «Ocultar». Una solución concreta se puede seguir ocultando dentro de un grupo visible. Si se oculta la página del tema, se ocultan también sus soluciones.
 - Sin JavaScript, o si no se puede leer la configuración publicada (respaldo), no se muestra ninguna solución: el HTML de las tarjetas no las contiene.
 - Límite conocido, igual que en la biblioteca de exámenes: `soluciones.json` es un archivo público del sitio, así que ocultar evita que se muestren, pero no impide descargarlas a quien conozca la ruta. Para un secreto real habría que no publicar el archivo hasta activarlas.
 

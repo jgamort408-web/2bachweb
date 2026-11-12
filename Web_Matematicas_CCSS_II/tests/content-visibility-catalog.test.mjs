@@ -60,11 +60,11 @@ test('visibilidad: registra todas las páginas y actividades con IDs estables y 
       assert.ok(fs.existsSync(new URL('../' + path, import.meta.url)), path);
     }
   }
-  // La configuración publicada solo oculta, de partida, los grupos de soluciones de Selectividad (P08).
+  // La configuración publicada solo fija los grupos de soluciones de Selectividad: activados por el docente el 12-11-2026.
   const published = readConfig('visibility');
   assert.deepEqual({ ...published, entries: {} }, DEFAULT_VISIBILITY_CONFIG);
   assert.deepEqual(published.entries, Object.fromEntries(selectividad.topics.map(topic =>
-    ['group:selectividad-soluciones-' + topic.topicId, { visibility: 'hidden' }])));
+    ['group:selectividad-soluciones-' + topic.topicId, { visibility: 'visible' }])));
   const resources = readConfig('resources').resources;
   assert.equal(resources.length, 48);
   const solution = catalog.entities.find(e => e.id === 'resource:recuperacion-t1-soluciones');

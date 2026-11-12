@@ -4,8 +4,8 @@ const path = require('node:path');
 const { chromium } = require('playwright');
 
 // P08 · Banco de Selectividad: fórmulas sin errores en todas las páginas, filtros y enlaces directos, soluciones
-// ocultas hasta que el docente las activa (también con la configuración de respaldo), «Así cae en Selectividad»
-// en las lecciones, móvil al 200 % y sin JavaScript.
+// controladas por el docente (activadas el 12-11-2026; ocultas con la configuración de respaldo), «Así cae en
+// Selectividad» en las lecciones, móvil al 200 % y sin JavaScript.
 const config = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'config', 'selectividad.json'), 'utf8'));
 const visibility = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'config', 'visibility.json'), 'utf8'));
 
@@ -28,7 +28,10 @@ const visibility = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'config
     const requested = [];
     page.on('request', request => requested.push(request.url()));
 
-    // Todas las páginas: cada fórmula convertida se presenta sin errores de MathJax y sin soluciones.
+    // Con los grupos ocultos: cada fórmula de los enunciados se presenta sin errores y no se descarga ninguna solución.
+    const hidden = structuredClone(visibility);
+    for (const key of Object.keys(hidden.entries)) hidden.entries[key] = { visibility: 'hidden' };
+    await page.route('**/config/visibility.json', route => route.fulfill({ json: hidden }));
     for (const topic of config.topics) {
       await page.goto(base + topic.path);
       await ready(page);
@@ -67,12 +70,12 @@ const visibility = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'config
     const lesson = await page.locator('.mc-sel__epigraphs a').first().getAttribute('href');
     assert.equal((await page.request.get(new URL(lesson, page.url()).href)).status(), 200);
 
-    // Soluciones: el docente activa el grupo de programación lineal; aparecen plegadas y con fórmulas.
+    // Soluciones publicadas: aparecen plegadas y con fórmulas; el docente puede ocultar una sola.
     const solutions = config.solutions.filter(solution => solution.topicId === 't06');
     assert.ok(solutions.length > 0);
     const published = structuredClone(visibility);
-    published.entries['group:selectividad-soluciones-t06'] = { visibility: 'visible' };
     published.entries['solution:' + solutions[0].id] = { visibility: 'hidden' };
+    await page.unroute('**/config/visibility.json');
     await page.route('**/config/visibility.json', route => route.fulfill({ json: published }));
     await page.goto(base + 'selectividad/06-programacion-lineal.html');
     await ready(page);
@@ -89,15 +92,12 @@ const visibility = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'config
     if (await page.locator('.mc-sel__figure img').count()) {
       const image = page.locator('.mc-sel__figure img').first();
       await image.scrollIntoViewIfNeeded();
-      assert.match(await image.getAttribute('alt'), /descrita en el texto/);
+      assert.match(await image.getAttribute('alt'), /en el texto/);
       assert.ok(await image.evaluate(img => img.complete && img.naturalWidth > 0));
     }
 
-    // Todas las soluciones activadas: cada fórmula de cada solución se presenta sin errores y cada imagen carga.
-    const all = structuredClone(visibility);
-    for (const key of Object.keys(all.entries)) if (key.startsWith('group:selectividad-soluciones-')) delete all.entries[key];
+    // Configuración publicada (todas activadas): cada fórmula de cada solución se presenta sin errores y cada imagen carga.
     await page.unroute('**/config/visibility.json');
-    await page.route('**/config/visibility.json', route => route.fulfill({ json: all }));
     for (const topic of config.topics) {
       await page.goto(base + topic.path);
       await ready(page);
@@ -116,7 +116,6 @@ const visibility = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'config
     }
 
     // Respaldo: si no se puede leer la configuración publicada, ninguna solución se muestra.
-    await page.unroute('**/config/visibility.json');
     await page.route('**/config/visibility.json', route => route.fulfill({ status: 503, body: '' }));
     await page.goto(base + 'selectividad/06-programacion-lineal.html');
     await page.waitForFunction(() => document.querySelector('[data-sel-status]')?.textContent);

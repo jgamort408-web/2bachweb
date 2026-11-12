@@ -87,18 +87,21 @@ test('banco de Selectividad: datos coherentes y páginas al día', () => {
     outside.filter(exercise => exercise.topicId === 't09').length);
 });
 
-test('banco de Selectividad: las soluciones se publican ocultas, por tema o una a una', async () => {
+test('banco de Selectividad: el docente controla las soluciones por tema o una a una', async () => {
   const { projectCatalog, readConfig } = await import('./helpers/visibility-fixtures.mjs');
   const { createVisibilityModel } = await import('../assets/js/content/visibility.js');
   const catalog = projectCatalog();
   const config = readConfig('selectividad');
   const published = readConfig('visibility');
   const model = createVisibilityModel(catalog, published);
-  for (const solution of config.solutions) assert.equal(model.isVisible('solution:' + solution.id), false);
+  // Activadas por el docente (12-11-2026): todas visibles en la configuración publicada.
+  for (const solution of config.solutions) assert.equal(model.isVisible('solution:' + solution.id), true);
   for (const topic of config.topics) assert.equal(model.isVisible('page:' + topic.pageId), true);
   const [first, second] = config.solutions.filter(solution => solution.topicId === config.solutions[0].topicId);
+  const hiddenGroup = structuredClone(published);
+  hiddenGroup.entries['group:selectividad-soluciones-' + first.topicId] = { visibility: 'hidden' };
+  assert.equal(createVisibilityModel(catalog, hiddenGroup).isVisible('solution:' + first.id), false);
   const opened = structuredClone(published);
-  opened.entries['group:selectividad-soluciones-' + first.topicId] = { visibility: 'visible' };
   opened.entries['solution:' + second.id] = { visibility: 'hidden' };
   const next = createVisibilityModel(catalog, opened);
   assert.equal(next.isVisible('solution:' + first.id), true);
