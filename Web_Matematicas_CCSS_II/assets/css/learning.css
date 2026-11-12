@@ -94,6 +94,12 @@ button:disabled { opacity: 0.6; cursor: default; }
 .definite-figure svg text { font: 15px system-ui, sans-serif; fill: #202020; }
 [data-definite-result] table { min-width: 32rem; }
 [data-definite-explorer] .actions > label { min-width: 0; max-width: 100%; }
+/* Sumas de Riemann con una curva (3.5, laboratorio de integrales). */
+.riemann-figure { margin-inline: 0; }
+.riemann-figure > svg { display: block; width: 100%; max-width: 34rem; height: auto; background: #ffffff; border-radius: 8px; }
+.riemann-figure svg text { font: 14px system-ui, sans-serif; fill: #202020; }
+[data-riemann-explorer] .actions > label { min-width: 0; max-width: 100%; }
+[data-riemann-explorer] input[type="range"] { width: min(16rem, 100%); vertical-align: middle; }
 [data-page-id="t03-e05"] #propiedades table { min-width: 42rem; }
 
 .fundamental-figure { margin-inline: 0; }

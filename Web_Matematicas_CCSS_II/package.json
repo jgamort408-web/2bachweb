@@ -130,7 +130,8 @@
     "build:selectividad": "node scripts/build-selectividad.mjs",
     "test:selectividad": "node tests/selectividad-165-browser.cjs",
     "test:relaciones": "node tests/selectividad-relations-166-browser.cjs",
-    "test:examenes": "node tests/selectividad-exams-167-browser.cjs"
+    "test:examenes": "node tests/selectividad-exams-167-browser.cjs",
+    "test:laboratorio-integrales": "node tests/laboratorio-integrales-168-browser.cjs"
   },
   "devDependencies": {
     "playwright": "1.64.1"
