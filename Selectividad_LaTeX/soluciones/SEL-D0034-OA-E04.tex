@@ -1,5 +1,25 @@
 % ID: SEL-D0034-OA-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S035, cotejada con examen y criterios.
+\textbf{a)} La proporción observada es $\hat p=19/2000=0.0095$.
+Con 19 defectos y 1981 artículos sin defecto, usamos la
+aproximación normal bilateral:
+\[
+0.0095\pm1.959964\sqrt{\frac{0.0095(0.9905)}{2000}}
+\approx\boxed{[0.00525,\ 0.01375]}.
+\]
+El intervalo va aproximadamente del $0.525\%$ al $1.375\%$.
+El $95\%$ se refiere a la cobertura del procedimiento:
+al repetir el muestreo, aproximadamente el $95\%$ de los
+intervalos así construidos contendrían la proporción real.
+
+\textbf{b)} Interpretamos $1\%$ como un punto porcentual y
+usamos $0.0095$ como estimación previa de la proporción.
+En el mismo modelo normal, al $99\%$ se requiere
+\[
+n\ge z_{0.995}^2\frac{0.0095(0.9905)}{0.01^2}
+\approx624.3272.
+\]
+El mínimo planificado es $\boxed{625}$ artículos. Con esa
+proporción se esperan unos seis defectos, por lo que el margen
+es aproximado. Si se planifica para el peor caso sin estimación
+previa, $p(1-p)\le1/4$ da 16588 artículos.

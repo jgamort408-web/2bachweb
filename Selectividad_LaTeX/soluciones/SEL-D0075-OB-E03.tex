@@ -1,5 +1,47 @@
 % ID: SEL-D0075-OB-E03
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante transcripción.
-% Guion futuro:datos y pregunta;teoría y condiciones;estrategia y pasos;
-% comprobación independiente;interpretación y revisión matemática/didáctica.
+% Tanda S075.
+\textbf{Parte I.} Denotamos por $S$ tener estudios superiores y por $E$ tener empleo.
+
+\textbf{a)} Separamos los dos grupos de población. Por la probabilidad total,
+\[
+ P(E)=P(E\mid S)P(S)+P(E\mid S^c)P(S^c)
+ =0{,}95\cdot0{,}30+0{,}60\cdot0{,}70=\boxed{0{,}705}.
+\]
+\textbf{b)} Por Bayes, $P(S\mid E)=0{,}285/0{,}705=\boxed{19/47}\approx0{,}4043$.
+
+\textbf{Parte II. a)} Tomamos muestreo aleatorio simple sin reemplazo. Como el orden no afecta a la media, hay $\binom42=6$ pares equiprobables:
+\[
+ \begin{array}{c|cccccc}
+ \text{Muestra}&\{1,2\}&\{1,3\}&\{1,4\}&\{2,3\}&\{2,4\}&\{3,4\}\\
+ \bar X&1{,}5&2&2{,}5&2{,}5&3&3{,}5
+ \end{array}
+\]
+\textbf{b)} La esperanza de las medias es $2{,}5$. La varianza de su distribución es el promedio ponderado de las desviaciones al cuadrado:
+\[
+ \operatorname{Var}(\bar X)=\frac{1+0{,}25+0+0+0{,}25+1}{6}
+ =\boxed{\frac5{12}}.
+\]
+
+% AUD001: alternativa para hipótesis no explícita.
+
+\textit{Hipótesis de muestreo.} El enunciado no explicita la reposición.
+Si se distingue el orden sin reemplazo, las doce parejas equiprobables
+producen la misma distribución de medias que los seis subconjuntos.
+
+Con reemplazo, en cambio, hay dieciséis pares ordenados equiprobables.
+En la tabla, la fila representa la primera extracción y la columna
+la segunda. Cada celda da la media del par:
+\[
+\begin{array}{c|cccc}
+i\backslash j&1&2&3&4\\\hline
+1&1&1{,}5&2&2{,}5\\
+2&1{,}5&2&2{,}5&3\\
+3&2&2{,}5&3&3{,}5\\
+4&2{,}5&3&3{,}5&4
+\end{array}
+\]
+La esperanza sigue siendo $2{,}5$. La varianza poblacional es
+$[(1-2{,}5)^2+(2-2{,}5)^2+(3-2{,}5)^2+(4-2{,}5)^2]/4=5/4$.
+Por independencia de las dos extracciones,
+$\operatorname{Var}(\bar X)=(5/4)/2=\boxed{5/8}$.
+La elección entre $5/12$ y $5/8$ depende de la hipótesis de reposición.

@@ -1,5 +1,11 @@
 % ID: SEL-D0058-OA-E03
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante transcripción.
-% Guion futuro:datos y pregunta;teoría y condiciones;estrategia y pasos;
-% comprobación independiente;interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S058.
+Sea $I$ el suceso «hay incidente» y $S$ el suceso «suena la alarma». Leemos «suene la alarma sin que haya incidente» como el suceso conjunto $S\cap I^c$.
+
+\textbf{a)} $P(S\cap I)=P(I)P(S\mid I)=0{,}10\cdot0{,}95=0{,}095$. Sumando los dos casos disjuntos,
+\[
+P(S)=P(S\cap I)+P(S\cap I^c)=0{,}095+0{,}03=\boxed{0{,}125}.
+\]
+\textbf{b)} Al condicionar a que suene la alarma, $P(I^c\mid S)=0{,}03/0{,}125=\boxed{0{,}24}$.
+
+Si el $0{,}03$ se entiende como tasa de falsas alarmas \emph{entre los casos sin incidente}, sería $P(S\mid I^c)=0{,}03$. Entonces $P(S\cap I^c)=0{,}90\cdot0{,}03=0{,}027$, y los resultados serían $0{,}122$ y $27/122\approx0{,}2213$.

@@ -1,5 +1,30 @@
 % ID: SEL-D0012-BB-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S013; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{a) Crecimiento a partir de la derivada.}\par\nopagebreak[4]
+Factorizamos sin cambiar el signo del coeficiente:
+\[
+c'(t)=0.03(t^2-30t+200)=0.03(t-10)(t-20).
+\]
+\[
+\begin{array}{c|ccc}
+t&(0,10)&(10,20)&(20,24)\\\hline
+\operatorname{signo}c'&+&-&+
+\end{array}
+\]
+La cotización \textbf{crece en $(0,10)$ y $(20,24)$} y decrece entre $10$ y $20$. En el modelo continuo en $[0,24]$, estos intervalos pueden escribirse incluyendo sus extremos correspondientes.
+
+\textbf{b) Puntos críticos interiores.}\par\nopagebreak[4]
+La derivada es polinómica y se anula sólo en $t=10$ y $t=20$. En $10$ pasa de positiva a negativa: \textbf{máximo relativo}. En $20$ pasa de negativa a positiva: \textbf{mínimo relativo}. No se confunden estos extremos relativos con una comparación global de extremos del dominio.
+
+\textbf{c) Recuperación de la función.}\par\nopagebreak[4]
+Integramos término a término:
+\[
+c(t)=0.01t^3-0.45t^2+6t+K\qquad(0<t<24).
+\]
+En la interpretación habitual de un modelo continuo de cotización, el dato inicial $c(0)=50$ fija $K=50$. Su extensión continua es
+\[
+\boxed{c(t)=0.01t^3-0.45t^2+6t+50,\qquad0\leq t\leq24.}
+\]
+Derivando se recupera la función dada y en $0$ se obtiene $50$. Con esta expresión, los valores en los extremos relativos son $c(10)=75$ euros y $c(20)=70$ euros.
+
+\emph{Precisión sobre los extremos del dominio:} la derivada sólo está prescrita en $(0,24)$. Sin continuidad en los extremos, el valor aislado $c(0)=50$ no determinaría la constante interior y tampoco quedaría fijado $c(24)$. La fórmula del recuadro declara expresamente la interpretación continua que se utiliza.

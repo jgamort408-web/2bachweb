@@ -1,5 +1,16 @@
 % ID: SEL-D0016-BD-E08
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S017. Revisión matemática, didáctica y visual.
+\textbf{a) Intervalo para la media.}\par\nopagebreak[4]
+Los nueve datos suman $38.9$ meses. La media es $38.9/9=389/90$ meses y el error típico es $2/\sqrt9=2/3$ meses. Bajo el modelo normal con muestreo independiente y desviación conocida,
+\[
+IC_{95}=\frac{389}{90}\pm z_{0.975}\frac23,\qquad
+\boxed{IC_{95}\approx(3.015580,\ 5.628865)\text{ meses}.}
+\]
+
+\textbf{b) Confianza del 97\,\% y error de un mes como máximo.}\par\nopagebreak[4]
+Se usa $z_{0.985}\approx2.170090378$. Como «no exceda» admite igualdad,
+\[
+z_{0.985}\frac2{\sqrt n}\leq1
+\quad\Longleftrightarrow\quad n\geq4z_{0.985}^2\approx18.837168988.
+\]
+El tamaño mínimo es $\boxed{19}$. Para $18$, el margen supera un mes. Para $19$ cumple la cota. El cuantil redondeado $2.17$ también lleva a $19$.

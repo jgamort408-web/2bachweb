@@ -1,5 +1,34 @@
 % ID: SEL-D0019-OA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S020, cotejada con examen y criterios oficiales.
+Sean $x$ los pañuelos e $y$ las corbatas. El recinto viene dado por
+$x,y\ge0$, $2x+3y\le60$ y $2x+y\ge28$. Queremos maximizar
+$B=4x+6y=2(2x+3y)$, en euros.
+
+En el eje horizontal las restricciones dejan $14\le x\le30$.
+En el eje vertical exigirían simultáneamente $y\ge28$ e $y\le20$.
+Las dos fronteras oblicuas se cruzan en $(6,16)$, al restar las
+ecuaciones para obtener $2y=32$. El recinto es el triángulo de vértices
+$(14,0)$, $(30,0)$ y $(6,16)$.
+\begin{center}
+\setlength{\unitlength}{3mm}
+\begin{picture}(35,22)(-2,-3)
+\qbezier(0,0)(16.5,0)(33,0)\put(33,0){\makebox(0,0)[l]{$x$}}
+\qbezier(0,0)(0,9)(0,18)\put(0,18){\makebox(0,0)[b]{$y$}}
+\qbezier(14,0)(22,0)(30,0)
+\qbezier(14,0)(10,8)(6,16)
+\qbezier(6,16)(18,8)(30,0)
+\put(14,0){\makebox(0,0){$\bullet$}}\put(30,0){\makebox(0,0){$\bullet$}}\put(6,16){\makebox(0,0){$\bullet$}}
+\put(14,-1){\makebox(0,0)[t]{$(14,0)$}}
+\put(30,-1){\makebox(0,0)[t]{$(30,0)$}}
+\put(7,16){\makebox(0,0)[l]{$(6,16)$}}
+\end{picture}
+\end{center}
+
+La restricción de horas implica $B\le120$. Todo el lado que une
+$(30,0)$ y $(6,16)$ agota las horas y alcanza ese máximo.
+Como las prendas son indivisibles, $2x+3y=60$ exige que $y$ sea par.
+Al escribir $y=2k$ queda $x=30-3k$ y el compromiso se traduce en
+$60-4k\ge28$. Por tanto todas las combinaciones óptimas son
+\[
+\boxed{(x,y)=(30-3k,2k),\quad k=0,1,\ldots,8,\qquad B_{\max}=120\text{ euros}.}
+\]

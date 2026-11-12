@@ -1,5 +1,34 @@
 % ID: SEL-D0083-OA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA.
-% Guion futuro: datos, teoría, estrategia, desarrollo paso a paso,
-% comprobación independiente e interpretación de resultados.
+% Tanda S083.
+Sean $x$ las camisas e $y$ los pantalones. El consumo de tela, botones y cremalleras impone
+\[
+ 2x+3y\le1050,\qquad5x+2y\le1250,\qquad y\le300,\qquad x,y\ge0.
+\]
+Maximizamos el beneficio $Z=30x+50y$, en euros.
+
+La región factible es un polígono cerrado y acotado. Los vértices de los ejes son $(0,0)$, $(250,0)$ y $(0,300)$. La intersección de las rectas de tela y botones es $(150,250)$. Al imponer $y=300$ en la recta de tela se obtiene $(75,300)$. El cruce de la recta de botones con $y=300$ incumple la restricción de tela y queda fuera del recinto.
+\begin{center}
+\setlength{\unitlength}{1mm}
+\begin{picture}(105,75)(-13,-11)
+\put(0,0){\vector(1,0){76}}\put(0,0){\vector(0,1){62}}
+\put(78,0){$x$}\put(1,62){$y$}
+\qbezier(0,0)(25,0)(50,0)
+\qbezier(50,0)(40,20.8333)(30,41.6667)
+\qbezier(30,41.6667)(22.5,45.8333)(15,50)
+\qbezier(15,50)(7.5,50)(0,50)
+\qbezier(0,50)(0,25)(0,0)
+\put(-8,-6){\scriptsize $(0,0)$}
+\put(43,-6){\scriptsize $(250,0)$}
+\put(31,39){\scriptsize $(150,250)$}
+\put(15,53){\scriptsize $(75,300)$}
+\put(-12,55){\scriptsize $(0,300)$}
+\end{picture}
+\end{center}
+Evaluamos los vértices, donde una función lineal alcanza sus extremos:
+\[
+ \begin{array}{c|rrrrr}
+ (x,y)&(0,0)&(250,0)&(150,250)&(75,300)&(0,300)\\
+ Z\text{ (euros)}&0&7500&17000&17250&15000
+ \end{array}
+\]
+El máximo es $\boxed{17250}$ euros, confeccionando 75 camisas y 300 pantalones. Se usan 1050 m de tela, 975 botones y 300 cremalleras, dentro de las existencias. Las cantidades son enteras.

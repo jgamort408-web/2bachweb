@@ -1,5 +1,16 @@
 % ID: SEL-D0048-OA-E02
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S049.
+Cada rama es continua y derivable en su intervalo abierto. Allí,
+\[
+f'(x)=
+\begin{cases}
+e^x & x<0,\\
+0 & 0<x<3,\\
+-2x+6 & x>3.
+\end{cases}
+\]
+\textbf{En $x=0$.} El valor y los límites laterales son $1$, así que hay continuidad. El cociente incremental izquierdo tiende a $1$ y el derecho vale $0$. Las derivadas laterales difieren, por lo que $f$ no es derivable en $0$.
+
+\textbf{En $x=3$.} Se tiene $f(3)=1$, mientras que por la derecha el límite es $-9+18+2=11$. Hay un salto y, por tanto, no hay derivada. De hecho, el cociente derecho es $[11-h^2-1]/h=10/h-h$ para $h>0$, que diverge aunque la derivada de la rama parabólica tienda a cero.
+
+En conjunto, $f$ es derivable exactamente en $\mathbb R\setminus\{0,3\}$.

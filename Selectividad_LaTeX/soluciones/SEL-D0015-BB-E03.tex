@@ -1,5 +1,34 @@
 % ID: SEL-D0015-BB-E03
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S016. Revisión matemática, didáctica y visual.
+\textbf{a) Paso por el punto y condición de extremo.}\par\nopagebreak[4]
+Un extremo relativo en $(2,36)$ exige $f(2)=36$ y $f'(2)=0$. Como $f'=3ax^2+b$,
+\[
+8a+2b+4=36,\qquad12a+b=0.
+\]
+La primera equivale a $4a+b=16$. Restando la segunda, $-8a=16$, de donde
+\[
+\boxed{a=-2,\qquad b=24.}
+\]
+Se comprueba que $f(2)=36$. Además, $f''(2)=12a=-24<0$, por lo que es efectivamente un máximo relativo, no sólo un punto estacionario.
+
+\textbf{b) Monotonía para a=4 y b=-3.}\par\nopagebreak[4]
+Estos parámetros son distintos de los obtenidos en a. Ahora $f(x)=4x^3-3x+4$ y
+\[
+f'(x)=12x^2-3=3(2x-1)(2x+1).
+\]
+La derivada es positiva para $x<-1/2$ y $x>1/2$, y negativa entre ambas raíces. Así, crece en $(-\infty,-1/2)$ y $(1/2,+\infty)$ y decrece en $(-1/2,1/2)$.
+\[
+\boxed{\text{Máximo relativo }(-1/2,5);\qquad\text{mínimo relativo }(1/2,3).}
+\]
+Los cambios de signo justifican ambos extremos; no son extremos absolutos de la función cúbica en $\mathbb R$.
+
+\textbf{c) Primitiva con condición inicial.}\par\nopagebreak[4]
+Para los mismos parámetros de b,
+\[
+F(x)=x^4-\frac32x^2+4x+K.
+\]
+La condición $F(2)=10$ da $16-6+8+K=10$, es decir, $K=-8$:
+\[
+\boxed{F(x)=x^4-\frac32x^2+4x-8.}
+\]
+Derivando se recupera $f$ y sustituyendo $2$ se obtiene $10$. Se conserva el literal tipográfico del enunciado en a sin modificar su puntuación ni el problema matemático.

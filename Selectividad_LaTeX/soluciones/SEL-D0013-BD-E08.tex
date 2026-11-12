@@ -1,5 +1,22 @@
 % ID: SEL-D0013-BD-E08
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S014; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{a) Intervalo para el tiempo medio.}\par\nopagebreak[4]
+Los dieciséis datos suman $144$ minutos, de modo que $\overline x=144/16=9$ minutos. La varianza conocida es $4$, luego $\sigma=2$ minutos y el error típico de la media es $2/\sqrt{16}=0.5$ minutos.
+Para confianza 97.5\,\%, $\alpha=0.025$ y $z_{0.9875}\approx2.241402728$. Bajo el modelo normal con muestreo independiente,
+\[
+IC=9\pm z_{0.9875}\cdot0.5,
+\]
+\[
+\boxed{IC_{\text{97.5\%}}\approx(7.879298636,\ 10.120701364)\text{ minutos}.}
+\]
+Con $2.24$ tabulado resulta $(7.88,10.12)$ minutos. Se usa la desviación conocida, no la varianza como si fuera desviación ni una estimación de ella a partir de la muestra. El nivel de confianza describe la cobertura del procedimiento.
+
+\textbf{b) Confianza 90\,\% y error a lo sumo 0.3 minutos.}\par\nopagebreak[4]
+Ahora $z_{0.95}\approx1.644853627$. ``A lo sumo'' incluye la igualdad:
+\[
+z_{0.95}\frac2{\sqrt n}\leq0.3
+\quad\Longleftrightarrow\quad
+n\geq\left(\frac{2z_{0.95}}{0.3}\right)^2
+\approx120.246375738.
+\]
+\boxed{n_{\min}=121}. Se comprueba que $120$ no cumple y $121$ sí. Con $1.645$ tabulado se mantiene el resultado. Se ha cambiado el nivel de confianza respecto al apartado a y se ha redondeado hacia arriba la cota inclusiva.

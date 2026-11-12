@@ -1,5 +1,19 @@
 % ID: SEL-D0083-OB-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA.
-% Guion futuro: datos, teoría, estrategia, desarrollo paso a paso,
-% comprobación independiente e interpretación de resultados.
+% Tanda S083.
+\textbf{a)} Ordenamos las filas por clientes 1, 2 y 3, y las columnas por productos A y B. Las compras mensuales son
+\[
+ E=\begin{pmatrix}9&5\\3&7\\4&6\end{pmatrix},\qquad
+ F=\begin{pmatrix}18&10\\6&14\\5&7\end{pmatrix},\qquad
+ M=\begin{pmatrix}0&0\\6&14\\5&7\end{pmatrix}.
+\]
+\textbf{b)} Sumamos entrada a entrada para obtener el trimestre:
+\[
+ T=E+F+M=\boxed{\begin{pmatrix}27&15\\15&35\\14&20\end{pmatrix}}.
+\]
+\textbf{c)} Multiplicamos por la columna de precios en euros:
+\[
+ T\begin{pmatrix}80\\100\end{pmatrix}
+ =\begin{pmatrix}27\cdot80+15\cdot100\\15\cdot80+35\cdot100\\14\cdot80+20\cdot100\end{pmatrix}
+ =\begin{pmatrix}3660\\4700\\3120\end{pmatrix}.
+\]
+La facturación por cliente es 3660, 4700 y 3120 euros, respectivamente. La facturación total es $\boxed{11480}$ euros.

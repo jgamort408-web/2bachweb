@@ -1,6 +1,6 @@
 # Índice de ejercicios de Selectividad
 
-**640 enunciados cotejados**, con acceso al archivo individual y categorías. Soluciones: 80 validadas y 560 pendientes de validación; este índice no presenta respuestas.
+**640 enunciados cotejados**, con acceso al archivo individual y categorías. Soluciones: 640 validadas y 0 pendientes de validación; este índice no presenta respuestas.
 
 [Guía para crear relaciones](docs/GUIA_RELACIONES.md) · [Tabla completa](#tabla-completa) · [Etiquetas](#etiquetas) · [Índice maestro CSV](datos/ejercicios.csv)
 

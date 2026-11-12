@@ -1,5 +1,42 @@
 % ID: SEL-D0013-BD-E07
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S014; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{a) Afijación proporcional.}\par\nopagebreak[4]
+Todos los estratos comparten la fracción de muestreo. A partir del tercero,
+\[
+\frac{n_3}{N_3}=\frac{36}{3000}=0.012.
+\]
+Multiplicamos cada tamaño poblacional por esa fracción:
+\[
+\begin{array}{c|rrrr|r}
+\text{Estrato}&1&2&3&4&\text{Total}\\\hline
+N_i&15000&5000&3000&2000&25000\\
+n_i&180&60&36&24&300
+\end{array}
+\]
+\boxed{n=300,\qquad(n_1,n_2,n_3,n_4)=(180,60,36,24).}
+La suma y los cuatro cocientes comprueban la proporcionalidad.
+
+\textbf{b) Muestras, media y desviación de las medias.}\par\nopagebreak[4]
+El enunciado no precisa reposición ni orden y los criterios no fijan una respuesta numérica que los aclare. Presentamos las dos convenciones de extracción.
+
+\emph{Sin reemplazamiento.} Las tres muestras no ordenadas equiprobables son $\{2,4\},\{2,6\},\{4,6\}$ y sus medias son $3,4,5$. Si se registra el orden, son $(2,4),(4,2),(2,6),(6,2),(4,6),(6,4)$: cada media aparece dos veces y su distribución no cambia.
+\[
+E(\overline X)=4,\qquad
+\operatorname{Var}(\overline X)=\frac{(3-4)^2+(4-4)^2+(5-4)^2}{3}=\frac23.
+\]
+\[
+\boxed{\sigma_{\overline X}=\sqrt{2/3}\approx0.816497\quad\text{sin reemplazamiento}.}
+\]
+\emph{Con reemplazamiento y extracciones independientes.} Los nueve pares ordenados son equiprobables:
+\[
+\begin{array}{c|rrrrrrrrr}
+\text{Par}&(2,2)&(2,4)&(2,6)&(4,2)&(4,4)&(4,6)&(6,2)&(6,4)&(6,6)\\\hline
+\overline x&2&3&4&3&4&5&4&5&6
+\end{array}
+\]
+Las medias $2,3,4,5,6$ tienen frecuencias $1,2,3,2,1$ sobre $9$. Su esperanza es $4$ y
+\[
+\operatorname{Var}(\overline X)=\frac{4+2+0+2+4}{9}=\frac43,
+\qquad\boxed{\sigma_{\overline X}=\sqrt{4/3}\approx1.154701.}
+\]
+Se calcula la desviación de la distribución de medias, sin corrección de Bessel. Con reemplazamiento, los seis pares escritos sin orden no son equiprobables: los repetidos pesan $1/9$ y los distintos $2/9$. Por eso no se atribuye una sola desviación al enunciado sin declarar la convención.

@@ -1,5 +1,14 @@
 % ID: SEL-D0070-OB-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante transcripción.
-% Guion futuro:datos y pregunta;teoría y condiciones;estrategia y pasos;
-% comprobación independiente;interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S070.
+Sean $x$ e $y$ las hectáreas de cereales y hortalizas. Interpretamos las $10$ hectáreas como superficie disponible. Maximizamos $B=2000x+8000y$ bajo
+\[
+x+y\le10,\qquad y\le5,\qquad x+3y\le16,\qquad x,y\ge0.
+\]
+El borde de presupuesto corta a $y=5$ en $(1,5)$ y al borde de superficie $x+y=10$ en $(7,3)$. Junto con los cortes factibles de los ejes, se obtienen los vértices y sus beneficios:
+\[
+\begin{array}{c|rrrrr}
+(x,y)&(0,0)&(10,0)&(7,3)&(1,5)&(0,5)\\\hline
+B&0&20000&38000&42000&40000
+\end{array}
+\]
+Por linealidad, el máximo es $\boxed{42\,000\text{ euros}}$ en $(1,5)$. Quedan $4$ ha sin cultivar. Si se exige sembrar las $10$ ha, entonces $x=10-y$ y el presupuesto impone $y\le3$. En ese caso $B=20000+6000y$ y el máximo es $38\,000$ euros en $(7,3)$.

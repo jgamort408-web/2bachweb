@@ -1,5 +1,22 @@
 % ID: SEL-D0023-OB-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S024, cotejada con el examen.
+\textbf{a)} Sea $M=BB^t$ y $N=A/2-2A^t$. Al operar,
+\[
+M=\begin{pmatrix}2&1\\1&5\end{pmatrix},\qquad
+N=\begin{pmatrix}-3&6\\-9&9\end{pmatrix}.
+\]
+Como $\det M=9$, multiplicamos $XM=N$ por $M^{-1}$ a la derecha:
+\[
+X=\frac19\begin{pmatrix}-3&6\\-9&9\end{pmatrix}
+\begin{pmatrix}5&-1\\-1&2\end{pmatrix}
+=\boxed{\begin{pmatrix}-7/3&5/3\\-6&3\end{pmatrix}}.
+\]
+Al sustituir en $XM$, recuperamos las filas $(-3,6)$ y $(-9,9)$.
+
+\textbf{b)} Las dimensiones son $2\times2$ para $A$ y $A^{-1}$
+(existe porque $\det A=-4$), $2\times3$ para $B$ y $3\times2$ para $B^t$.
+\begin{itemize}
+\item $AB$ es posible y resulta $2\times3$.
+\item $AB^t$ y $BA^{-1}$ son imposibles: sus dimensiones interiores difieren.
+\item $B^tA$ es $3\times2$, así que no se puede sumar a $A^{-1}$.
+\end{itemize}

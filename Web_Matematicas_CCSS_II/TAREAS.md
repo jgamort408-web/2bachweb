@@ -102,7 +102,7 @@ Actualizado: 22 de octubre de 2026. Índice operativo; los criterios detallados 
 - [x] S84 · L084:ocho enunciados cotejados y clasificados; primera pasada completa. [Informe](../Selectividad_LaTeX/docs/lotes/L084_2012_EXAMEN_6.md).
 - [ ] SEL-SOL-01 · Revisar incidencias y preparar tandas de soluciones según el [balance](../Selectividad_LaTeX/docs/CIERRE_TRANSCRIPCIONES.md).
 
-**Estado actual de Selectividad:**84 de84 candidatos de transcripción cerrados;83 exámenes canónicos,640 enunciados cotejados/clasificados;80 soluciones validadas y560 pendientes. [Tandas de soluciones](../Selectividad_LaTeX/docs/LOTES_DE_SOLUCIONES.md).
+**Estado actual de Selectividad:**84 de84 candidatos de transcripción cerrados;83 exámenes canónicos,640 enunciados cotejados/clasificados. Hay 640 soluciones validadas y 0 pendientes. [Tandas de soluciones](../Selectividad_LaTeX/docs/LOTES_DE_SOLUCIONES.md).
 
 Las tareas del libro siguientes conservan su estado. T07 sigue pendiente: esta ampliación no equivale al cierre de la biblioteca web ni modifica el diseño.
 
@@ -489,4 +489,82 @@ Las tareas del libro siguientes conservan su estado. T07 sigue pendiente: esta a
 - [x] SEL-S009 · Ocho soluciones de EXA-0008 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S009_2021_ORD_SUPLENTE.md).
 - [x] SEL-S010 · Ocho soluciones de EXA-0009 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S010_2021_ORD_RESERVA.md).
 - [x] SEL-S011 · Ocho soluciones de EXA-0010 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S011_2021_EXTRAORDINARIA.md).
-- [ ] SEL-S012 · Ocho ejercicios de EXA-0011 según el plan de tandas.
+- [x] SEL-S012 · Ocho soluciones de EXA-0011 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S012_2021_EXTRA_SUPLENTE.md).
+- [x] SEL-S013 · Ocho soluciones de EXA-0012 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S013_2021_EXTRA_RESERVA_B.md).
+- [x] SEL-S014 · Ocho soluciones de EXA-0013 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S014_2020_PA.md).
+- [x] SEL-S015 · Ocho soluciones de EXA-0014 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S015_2020_PB.md).
+- [x] SEL-S016 · Ocho soluciones de EXA-0015 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S016_2020_PC.md).
+- [x] SEL-S017 · Ocho soluciones de EXA-0016 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S017_2020_PD.md).
+- [x] SEL-S018 · Ocho soluciones de EXA-0017 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S018_2020_PE.md).
+- [x] SEL-S019 · Ocho soluciones de EXA-0018 validadas;22 pruebas, revisión PDF y ZIP aislado. [Informe](../Selectividad_LaTeX/docs/soluciones/S019_2020_PF.md).
+- [x] SEL-S020 · Ocho soluciones de EXA-0019 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S020_2018_RESERVA_A.md).
+- [x] SEL-S021 · Ocho soluciones de EXA-0020 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S021_2018_RESERVA_B.md).
+- [x] SEL-S022 · Ocho soluciones de EXA-0021 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S022_2017_RESERVA_A.md).
+- [x] SEL-S023 · Ocho soluciones de EXA-0022 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S023_2016_RESERVA_A.md).
+- [x] SEL-S024 · Ocho soluciones de EXA-0023 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S024_2016_RESERVA_B.md).
+- [x] SEL-S025 · Ocho soluciones de EXA-0024 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S025_2017_RESERVA_B.md).
+- [x] SEL-S026 · Ocho soluciones de EXA-0025 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S026_2017_EXA0025.md).
+- [x] SEL-S027 · Ocho soluciones de EXA-0026 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S027_2016_EXA0026.md).
+- [x] SEL-S028 · Ocho soluciones de EXA-0027 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S028_2017_EXA0027.md).
+- [x] SEL-S029 · Ocho soluciones de EXA-0028 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S029_2018_SUPLENTE.md).
+- [x] SEL-S030 · Ocho soluciones de EXA-0029 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S030_2018_EXA0029.md).
+- [x] SEL-S031 · Ocho soluciones de EXA-0030 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S031_2018_EXA0030.md).
+- [x] SEL-S032 · Ocho soluciones de EXA-0031 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S032_2016_EXA0031.md).
+- [x] SEL-S033 · Ocho soluciones de EXA-0032 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S033_2017_EXA0032.md).
+- [x] SEL-S034 · Ocho soluciones de EXA-0033 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S034_2018_EXA0033.md).
+- [x] SEL-S035 · Ocho soluciones de EXA-0034 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S035_2016_EXA0034.md).
+- [x] SEL-S036 · Ocho soluciones de EXA-0035 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S036_2017_EXA0035.md).
+- [x] SEL-S037 · Ocho soluciones de EXA-0036 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S037_2015_EXA0036.md).
+- [x] SEL-S038 · Ocho soluciones de EXA-0037 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S038_2015_EXA0037.md).
+- [x] SEL-S039 · Ocho soluciones de EXA-0038 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S039_2015_EXA0038.md).
+- [x] SEL-S040 · Ocho soluciones de EXA-0039 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S040_2015_EXA0039.md).
+- [x] SEL-S041 · Ocho soluciones de EXA-0040 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S041_2015_EXA0040.md).
+- [x] SEL-S042 · Ocho soluciones de EXA-0041 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S042_2015_EXA0041.md).
+- [x] SEL-S043 · Ocho soluciones de EXA-0042 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S043_2014_EXA0042.md).
+- [x] SEL-S044 · Ocho soluciones de EXA-0043 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S044_2014_EXA0043.md).
+- [x] SEL-S045 · Ocho soluciones de EXA-0044 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S045_2014_EXA0044.md).
+- [x] SEL-S046 · Ocho soluciones de EXA-0045 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S046_2014_EXA0045.md).
+- [x] SEL-S047 · Ocho soluciones de EXA-0046 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S047_2014_EXA0046.md).
+- [x] SEL-S048 · Ocho soluciones de EXA-0047 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S048_2014_EXA0047.md).
+- [x] SEL-S049 · Ocho soluciones de EXA-0048 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S049_2013_EXA0048.md).
+- [x] SEL-S050 · Ocho soluciones de EXA-0049 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S050_2013_EXA0049.md).
+- [x] SEL-S051 · Ocho soluciones de EXA-0050 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S051_2013_EXA0050.md).
+- [x] SEL-S052 · Ocho soluciones de EXA-0051 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S052_2013_EXA0051.md).
+- [x] SEL-S053 · Ocho soluciones de EXA-0052 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S053_2013_EXA0052.md).
+- [x] SEL-S054 · Ocho soluciones de EXA-0053 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S054_2013_EXA0053.md).
+- [x] SEL-S055 · Ocho soluciones de EXA-0054 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S055_2011_EXA0054.md).
+- [x] SEL-S056 · Ocho soluciones de EXA-0055 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S056_2011_EXA0055.md).
+- [x] SEL-S057 · Ocho soluciones de EXA-0056 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S057_2011_EXA0056.md).
+- [x] SEL-S058 · Ocho soluciones de EXA-0058 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S058_2011_EXA0058.md).
+- [x] SEL-S059 · Ocho soluciones de EXA-0059 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S059_2011_EXA0059.md).
+- [x] SEL-S060 · Ocho soluciones de EXA-0060 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S060_2011_EXA0060.md).
+- [x] SEL-S061 · Ocho soluciones de EXA-0061 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S061_2010_EXA0061.md).
+- [x] SEL-S062 · Ocho soluciones de EXA-0062 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S062_2010_EXA0062.md).
+- [x] SEL-S063 · Ocho soluciones de EXA-0063 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S063_2010_EXA0063.md).
+- [x] SEL-S064 · Ocho soluciones de EXA-0064 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S064_2010_EXA0064.md).
+- [x] SEL-S065 · Ocho soluciones de EXA-0065 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S065_2010_EXA0065.md).
+- [x] SEL-S066 · Ocho soluciones de EXA-0066 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S066_2010_EXA0066.md).
+- [x] SEL-S067 · Seis soluciones de EXA-0067 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S067_2009_EXA0067.md).
+- [x] SEL-S068 · Seis soluciones de EXA-0068 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S068_2009_EXA0068.md).
+- [x] SEL-S069 · Seis soluciones de EXA-0069 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S069_2009_EXA0069.md).
+- [x] SEL-S070 · Seis soluciones de EXA-0070 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S070_2009_EXA0070.md).
+- [x] SEL-S071 · Seis soluciones de EXA-0071 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S071_2009_EXA0071.md).
+- [x] SEL-S072 · Seis soluciones de EXA-0072 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S072_2009_EXA0072.md).
+- [x] SEL-S073 · Seis soluciones de EXA-0073 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S073_2008_EXA0073.md).
+- [x] SEL-S074 · Seis soluciones de EXA-0074 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S074_2008_EXA0074.md).
+- [x] SEL-S075 · Seis soluciones de EXA-0075 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S075_2008_EXA0075.md).
+- [x] SEL-S076 · Seis soluciones de EXA-0076 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S076_2008_EXA0076.md).
+- [x] SEL-S077 · Seis soluciones de EXA-0077 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S077_2008_EXA0077.md).
+- [x] SEL-S078 · Seis soluciones de EXA-0078 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S078_2008_EXA0078.md).
+- [x] SEL-S079 · Ocho soluciones de EXA-0079 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S079_2012_EXA0079.md).
+- [x] SEL-S080 · Ocho soluciones de EXA-0080 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S080_2012_EXA0080.md).
+- [x] SEL-S081 · Ocho soluciones de EXA-0081 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S081_2012_EXA0081.md).
+- [x] SEL-S082 · Ocho soluciones de EXA-0082 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S082_2012_EXA0082.md).
+- [x] SEL-S083 · Ocho soluciones de EXA-0083 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S083_2012_EXA0083.md).
+- [x] SEL-S084 · Ocho soluciones de EXA-0084 validadas. [Informe](../Selectividad_LaTeX/docs/soluciones/S084_2012_EXA0084.md).
+
+- [ ] SEL-AUD · Auditoría global de las soluciones, incidencias y selección por apartados. [Tareas detalladas](../Selectividad_LaTeX/docs/FASE_SOLUCIONES.md).
+
+- [x] AUD001 · Revisar doce incidencias de hipótesis de muestreo. [Informe](../Selectividad_LaTeX/docs/soluciones/AUD001_HIPOTESIS_MUESTREO.md).
+- [ ] AUD002 · Revisar once incidencias editoriales del banco.
+- [ ] AUD003 · Revisar cinco incidencias generales de fuentes.

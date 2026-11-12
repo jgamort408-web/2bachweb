@@ -1,5 +1,26 @@
 % ID: SEL-D0031-OB-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S032, cotejada con examen y criterios.
+Sean $x,y$ las alfombras de seda y lana. Las restricciones son
+$x,y\ge0$, $2x+3y\le600$ para el trabajo manual y $2x+y\le480$
+para el trabajo de máquina. El beneficio es $150x+100y$.
+
+Sobre los ejes, los límites más restrictivos son $x=240$ e $y=200$.
+Al restar las dos ecuaciones frontera se obtiene $2y=120$,
+luego su intersección es $(210,60)$.
+\begin{center}
+\setlength{\unitlength}{7mm}
+\begin{picture}(12,9)(-2,-1)
+\qbezier(0,0)(4.5,0)(9,0)\put(9.2,0){$x$}
+\qbezier(0,0)(0,3.6)(0,7.2)\put(0,7.3){$y$}
+\qbezier(0,6.667)(3.5,4.3335)(7,2)
+\qbezier(7,2)(7.5,1)(8,0)
+\put(-0.2,6.67){\makebox(0,0)[r]{$(0,200)$}}
+\put(7.2,2.2){$(210,60)$}
+\put(8,-0.5){\makebox(0,0)[t]{$(240,0)$}}
+\end{picture}
+\end{center}
+El beneficio toma los valores $0,36000,37500,20000$ en
+$(0,0)$, $(240,0)$, $(210,60)$ y $(0,200)$. Por linealidad,
+el máximo se alcanza en el mejor vértice, que además es entero.
+Se deben producir \textbf{210 alfombras de seda y 60 de lana}.
+El beneficio máximo es $\boxed{37500}$ euros.

@@ -1,5 +1,17 @@
 % ID: SEL-D0022-OB-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S023, revisada con los criterios oficiales.
+Contrastamos $H_0:\mu\ge40$ frente a $H_1:\mu<40$, con
+$\alpha=0.05$. El error estándar es $2/\sqrt{100}=0.2$.
+Bajo la frontera $\mu=40$, $Z=(\bar X-40)/0.2$ tiene distribución
+normal estándar. Para cualquier $\mu>40$ la probabilidad de caer
+en la cola izquierda es menor, por lo que calibramos en la frontera.
+
+El cuantil inferior del $5\%$ es aproximadamente $-1.644854$.
+La región de rechazo es
+\[
+Z<-1.644854\quad\Longleftrightarrow\quad
+\bar X<40-1.644854(0.2)\approx\boxed{39.6710}.
+\]
+La media observada es 38, que da $Z=-10$ y cae en la región de
+rechazo. Al $5\%$ se rechaza la afirmación del artículo. Los datos
+aportan evidencia de que la media es inferior a 40 mensajes diarios.

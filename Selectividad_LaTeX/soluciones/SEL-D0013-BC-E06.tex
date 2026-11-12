@@ -1,5 +1,21 @@
 % ID: SEL-D0013-BC-E06
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S014; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{a) Probabilidad de no defecto.}\par\nopagebreak[4]
+Sean $L$ bombilla LED, $H$ halógena y $D$ defecto. De la composición de la caja,
+\[
+P(L)=40/50=0.8,\qquad P(H)=10/50=0.2.
+\]
+Por probabilidad total, usando los complementos de las tasas de defecto:
+\[
+\boxed{P(D^c)=0.8\cdot0.95+0.2\cdot0.98=0.76+0.196=0.956.}
+\]
+\textbf{b) LED condicionado a defecto.}\par\nopagebreak[4]
+\[
+P(D)=0.8\cdot0.05+0.2\cdot0.02=0.044.
+\]
+Por Bayes,
+\[
+\boxed{P(L\mid D)=\frac{0.8\cdot0.05}{0.044}
+=\frac{0.040}{0.044}=\frac{10}{11}\approx0.909091.}
+\]
+Comprobación: $P(D)+P(D^c)=1$. Las tasas dadas se usan como probabilidades del modelo, no se redondean a un número entero de defectuosas dentro de esta caja. No se confunde $P(D\mid L)$ con $P(L\mid D)$.

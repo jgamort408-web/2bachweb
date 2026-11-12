@@ -1,5 +1,25 @@
 % ID: SEL-D0048-OA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S049.
+\textbf{a)} Sean $x$ el número de coches e $y$ el de motos. El modelo pide maximizar $x+y$ con
+\[
+x,y\in\mathbb Z_{\ge0},\qquad x/4\le y\le 2x,\qquad y+2x\le 100.
+\]
+
+\textbf{b)} Las intersecciones de las rectas frontera que cumplen todas las restricciones son $(60,30)$, $(105,30)$ y $(70,60)$. En efecto, sobre $y=30$ se tiene $60\le x\le105$, y al sustituir $y=3x-150$ en $6x+7y=840$ resulta $x=70$, $y=60$.
+\begin{center}
+\setlength{\unitlength}{0.9mm}
+\begin{picture}(115,55)(-7,-7)
+\qbezier(0,0)(51,0)(102,0)
+\qbezier(0,0)(0,22)(0,44)
+\put(103,0){$x$}
+\put(2,43){$y$}
+\qbezier(8,10)(53,10)(98,10)
+\qbezier(98,10)(63,25)(28,40)
+\qbezier(8,10)(18,25)(28,40)
+\put(3,4){\scriptsize $(60,30)$}
+\put(80,4){\scriptsize $(105,30)$}
+\put(30,40){\scriptsize $(70,60)$}
+\put(1,-5){\scriptsize Ejes con origen desplazado a $(56,20)$.}
+\end{picture}
+\end{center}
+Como $F=2(3x-y)$, la segunda restricción da directamente $F\ge300$. Hay igualdad exactamente en el lado $y=3x-150$ con $60\le x\le70$. Por tanto, el mínimo es $300$ en todo el segmento entre $(60,30)$ y $(70,60)$.

@@ -1,5 +1,40 @@
 % ID: SEL-D0081-OB-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA.
-% Guion futuro: datos, teoría, estrategia, desarrollo paso a paso,
-% comprobación independiente e interpretación de resultados.
+% Tanda S081.
+\textbf{a)} Despejamos las restricciones:
+\[
+ y\le7x+10,\qquad y\le2-x,\qquad y\ge\frac{3x-14}{5}.
+\]
+El recinto es el triángulo cerrado que queda por debajo de las dos primeras rectas y por encima de la tercera. Intersecando las fronteras por parejas:
+\[
+ \begin{array}{c|c}
+ \text{Rectas}&\text{Vértice}\\\hline
+ y=7x+10,\ y=2-x&(-1,3)\\
+ y=7x+10,\ 5y=3x-14&(-2,-4)\\
+ y=2-x,\ 5y=3x-14&(3,-1)
+ \end{array}
+\]
+Cada vértice satisface la restricción restante.
+\begin{center}
+\setlength{\unitlength}{1mm}
+\begin{picture}(120,100)(-45,-50)
+\put(-40,0){\vector(1,0){106}}\put(0,-45){\vector(0,1){86}}
+\put(68,0){$x$}\put(1,41){$y$}
+{\color{gray}
+\qbezier(-33,-43.2)(-22.5,-4)(-12,35.2)
+\qbezier(-37.5,36)(11.25,10)(60,-16)
+\qbezier(-37.5,-34.4)(11.25,-18.8)(60,-3.2)}
+\linethickness{0.45mm}
+\qbezier(-15,24)(-22.5,-4)(-30,-32)
+\qbezier(-30,-32)(7.5,-20)(45,-8)
+\qbezier(45,-8)(15,8)(-15,24)
+\put(-26,28){\scriptsize $(-1,3)$}
+\put(-40,-40){\scriptsize $(-2,-4)$}
+\put(46,-12){\scriptsize $(3,-1)$}
+\end{picture}
+\end{center}
+
+\textbf{b)} Como la función es lineal y el recinto es un polígono cerrado y acotado, comparamos los vértices:
+\[
+ F(-1,3)=7,\qquad F(-2,-4)=-16,\qquad F(3,-1)=3.
+\]
+El máximo es $\boxed{7}$ en $(-1,3)$ y el mínimo es $\boxed{-16}$ en $(-2,-4)$. Ambos se alcanzan en un único punto.

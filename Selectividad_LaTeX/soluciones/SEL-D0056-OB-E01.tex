@@ -1,5 +1,27 @@
 % ID: SEL-D0056-OB-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante transcripción.
-% Guion futuro:datos y pregunta;teoría y condiciones;estrategia y pasos;
-% comprobación independiente;interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S057.
+Sean $x,y$ las unidades semanales de A y B. Maximizamos $70x+50y$ con
+\[
+2x+4y\le100,\qquad5x+3y\le110,\qquad x,y\ge0.
+\]
+Las dos fronteras de capacidad se cortan en $(10,20)$. En los ejes, las restricciones más exigentes dan $(22,0)$ y $(0,25)$. Junto con el origen forman el recinto.
+\begin{center}
+\setlength{\unitlength}{0.9mm}
+\begin{picture}(92,62)(-10,-7)
+\qbezier(0,0)(38,0)(76,0)
+\qbezier(0,0)(0,26)(0,52)
+\put(77,0){$x$}\put(2,52){$y$}
+\qbezier(0,50)(15,45)(30,40)
+\qbezier(30,40)(48,20)(66,0)
+\put(-9,51){\scriptsize $(0,25)$}
+\put(31,41){\scriptsize $(10,20)$}
+\put(61,-5){\scriptsize $(22,0)$}
+\end{picture}
+\end{center}
+\[
+\begin{array}{c|rrrr}
+(x,y)&(0,0)&(22,0)&(10,20)&(0,25)\\\hline
+\text{Beneficio}&0&1540&1700&1250
+\end{array}
+\]
+El mayor beneficio se alcanza en el vértice $(10,20)$. Como las coordenadas son enteras, la solución también es óptima si las unidades son indivisibles. Se deben producir $10$ unidades de A y $20$ de B, con beneficio de $\boxed{1700\text{ euros}}$.

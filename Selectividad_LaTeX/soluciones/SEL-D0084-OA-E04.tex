@@ -1,5 +1,15 @@
 % ID: SEL-D0084-OA-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA.
-% Guion futuro: datos, teoría, estrategia, desarrollo paso a paso,
-% comprobación independiente e interpretación de resultados.
+% Tanda S084.
+Planteamos $H_0:\mu\ge11$ frente a $H_1:\mu<11$, un contraste unilateral a la izquierda. La población es normal y la desviación típica $\sigma=2$ es conocida. Suponiendo una muestra aleatoria de observaciones independientes, bajo la frontera $\mu_0=11$ el estadístico
+\[
+ Z=\frac{\bar X-11}{2/\sqrt{18}}
+\]
+tiene distribución normal estándar.
+
+Con significación $\alpha=0{,}01$, la región crítica es $Z<-2{,}32635$ y la región de no rechazo es $Z\ge-2{,}32635$. En términos de la media, se rechaza si $\bar X<9{,}90335$.
+
+El resultado observado es
+\[
+ Z_{\mathrm{obs}}=\frac{10{,}8-11}{2/\sqrt{18}}\approx-0{,}4243.
+\]
+Queda fuera de la región crítica. No se rechaza $H_0$ al $1\%$, por lo que los datos son compatibles con la hipótesis de una media no inferior a 11. En el sentido de la pregunta, puede mantenerse esa hipótesis, sin considerarla demostrada. El valor $p$ es aproximadamente $\Phi(-0{,}4243)=0{,}3357$.

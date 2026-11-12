@@ -1,5 +1,24 @@
 % ID: SEL-D0022-OB-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S023, revisada con los criterios oficiales.
+Sean $x,y$ los litros de colonia A y B. Las restricciones de extracto
+y alcohol son $0.05x+0.10y\le70$ y $0.10x+0.15y\le120$.
+Equivalentemente, $x+2y\le1400$ y $2x+3y\le2400$, con $x,y\ge0$.
+En los ejes quedan $(1200,0)$ y $(0,700)$. Al resolver las dos
+ecuaciones frontera simultáneamente se obtiene $(600,400)$.
+\begin{center}
+\setlength{\unitlength}{5mm}
+\begin{picture}(16,10)(-2,-2)
+\qbezier(0,0)(7,0)(14,0)\put(14.2,0){$x$}
+\qbezier(0,0)(0,3.8)(0,7.6)\put(0,8){$y$}
+\qbezier(0,7)(3,5.5)(6,4)
+\qbezier(6,4)(9,2)(12,0)
+\put(0,6.6){\makebox(0,0)[r]{$(0,700)$}}
+\put(6,4.4){$(600,400)$}
+\put(12,-1){\makebox(0,0){$(1200,0)$}}
+\end{picture}
+\end{center}
+El ingreso $24x+40y$ es lineal. En $(0,0)$, $(1200,0)$, $(600,400)$
+y $(0,700)$ vale, respectivamente, 0, 28800, 30400 y 28000 euros.
+El máximo se obtiene al fabricar
+$\boxed{600\text{ L de A y }400\text{ L de B}}$, con ingreso de
+$\boxed{30400\text{ euros}}$.

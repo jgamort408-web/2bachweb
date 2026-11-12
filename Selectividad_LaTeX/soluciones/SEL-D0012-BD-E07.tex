@@ -1,5 +1,21 @@
 % ID: SEL-D0012-BD-E07
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S013; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{a) Intervalo para una proporción con confianza 94\,\%.}\par\nopagebreak[4]
+La estimación es $\widehat p=175/500=0.35$. Para confianza 94\,\%, $\alpha=0.06$ y $z_{0.97}\approx1.880793608$. El error normal aproximado es
+\[
+E=z_{0.97}\sqrt{\frac{0.35\cdot0.65}{500}}\approx0.040118699.
+\]
+\[
+\boxed{IC_{\text{94\%}}\approx(0.309881301,\ 0.390118699).}
+\]
+Los recuentos $175$ y $325$ permiten la aproximación normal habitual. El procedimiento presupone muestreo aleatorio representativo e independencia en el modelo; la confianza se refiere a su cobertura al repetir las muestras.
+
+\textbf{b) Confianza 97\,\% y error a lo sumo 0.02.}\par\nopagebreak[4]
+Se conserva $\widehat p=0.35$, pero cambia el cuantil a $z_{0.985}\approx2.170090378$. ``A lo sumo'' incluye la igualdad:
+\[
+z_{0.985}\sqrt{\frac{0.35\cdot0.65}{n}}\leq0.02
+\quad\Longleftrightarrow\quad
+n\geq\frac{z_{0.985}^2\cdot0.35\cdot0.65}{0.02^2}
+\approx2678.409965416.
+\]
+\boxed{n_{\min}=2679}. Se comprueba que $2678$ no cumple y $2679$ sí. Con $2.17$ tabulado se obtiene el mismo entero. Se ha usado error $0.02$, no amplitud $0.02$, y no se ha reutilizado la confianza del apartado anterior.

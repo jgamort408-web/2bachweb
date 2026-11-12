@@ -1,5 +1,33 @@
 % ID: SEL-D0012-BA-E02
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S013; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{a) Potencias y fórmula general.}\par\nopagebreak[4]
+Multiplicando filas por columnas se obtiene
+\[
+A^2=\begin{pmatrix}2&0&2\\0&1&0\\2&0&2\end{pmatrix},\qquad
+A^3=\begin{pmatrix}4&0&4\\0&1&0\\4&0&4\end{pmatrix},\qquad
+A^4=\begin{pmatrix}8&0&8\\0&1&0\\8&0&8\end{pmatrix}.
+\]
+El bloque de las filas y columnas primera y tercera duplica sus entradas en cada multiplicación; la entrada central sigue siendo $1$. Para $n\geq1$,
+\[
+\boxed{A^n=\begin{pmatrix}2^{n-1}&0&2^{n-1}\\0&1&0\\2^{n-1}&0&2^{n-1}\end{pmatrix}.}
+\]
+La base $n=1$ reproduce $A$; multiplicar la fórmula por $A$ duplica las cuatro entradas y deja fija la central, lo que prueba la inducción. Si la convención de naturales incluye $0$, se añade por separado $A^0=I_3$; la fórmula anterior no se aplica a $0$.
+
+\textbf{b) Inversa de B.}\par\nopagebreak[4]
+Desarrollamos por la primera fila:
+\[
+\det B=1\begin{vmatrix}1&-1\\1&0\end{vmatrix}
++2\begin{vmatrix}1&1\\2&1\end{vmatrix}=1+2(-1)=-1\ne0.
+\]
+Por tanto, $B$ es invertible. No es necesario calcular toda su inversa para justificarlo.
+
+\textbf{c) Existencia y resolución.}\par\nopagebreak[4]
+$B$ es $3\times3$ y $C$ una columna, así que $X=(u,v,w)^t$ tiene tamaño $3\times1$. Al ser $B$ invertible, existe solución única. Las ecuaciones son
+\[
+u+2w=1,\qquad u+v-w=-3,\qquad2u+v=1.
+\]
+De la primera $u=1-2w$ y de la tercera $v=-1+4w$. En la segunda queda $w=-3$; entonces $u=7$ y $v=-13$:
+\[
+\boxed{X=\begin{pmatrix}7\\-13\\-3\end{pmatrix}.}
+\]
+Comprobación directa: $BX=(7-6,\ 7-13+3,\ 14-13)^t=(1,-3,1)^t=C$.

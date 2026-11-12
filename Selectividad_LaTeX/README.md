@@ -2,7 +2,7 @@
 
 Proyecto preparado para **Overleaf** y para trabajar por tandas con los originales de `../Selectividad/`. La planificación y el seguimiento están en [PLAN_DE_TRABAJO.md](PLAN_DE_TRABAJO.md).
 
-**L001-L084 cerradas: 640 enunciados únicos cotejados y 640 clasificaciones verificadas.** Son 83 exámenes canónicos y 84 de 84 candidatos cerrados; ninguno pendiente de transcripción. L057 es una reedición sin ejercicios nuevos. L084 añade ocho enunciados desde DOC convertidos, curso 2011-2012 impreso. S001-S011 incorporan 80 soluciones validadas;560 siguen sin redactar. La transcripción completa permanece intacta.
+**L001-L084 cerradas: 640 enunciados únicos cotejados y 640 clasificaciones verificadas.** Son 83 exámenes canónicos y 84 de 84 candidatos cerrados; ninguno pendiente de transcripción. L057 es una reedición sin ejercicios nuevos. L084 añade ocho enunciados desde DOC convertidos, curso 2011-2012 impreso. S001-S084 incorporan 640 soluciones validadas. Quedan 0 por redactar. La transcripción completa permanece intacta.
 
 En L005-L056 y L058-L084, el cotejo consta de segundas pasadas visuales completas del mismo autor, separadas de la escritura; no se atribuye a un segundo revisor distinto. L001-L004 conservan sus propias evidencias de revisión.
 
@@ -24,6 +24,79 @@ Para compilar directamente un lote, elegir una de estas entradas:
 
 | Sólo enunciados | Enunciados con avisos de soluciones pendientes |
 |---|---|
+| `s084-enunciados.tex` | `s084-con-soluciones.tex` |
+| `s083-enunciados.tex` | `s083-con-soluciones.tex` |
+| `s082-enunciados.tex` | `s082-con-soluciones.tex` |
+| `s081-enunciados.tex` | `s081-con-soluciones.tex` |
+| `s080-enunciados.tex` | `s080-con-soluciones.tex` |
+| `s079-enunciados.tex` | `s079-con-soluciones.tex` |
+| `s078-enunciados.tex` | `s078-con-soluciones.tex` |
+| `s077-enunciados.tex` | `s077-con-soluciones.tex` |
+| `s076-enunciados.tex` | `s076-con-soluciones.tex` |
+| `s075-enunciados.tex` | `s075-con-soluciones.tex` |
+| `s074-enunciados.tex` | `s074-con-soluciones.tex` |
+| `s073-enunciados.tex` | `s073-con-soluciones.tex` |
+| `s072-enunciados.tex` | `s072-con-soluciones.tex` |
+| `s071-enunciados.tex` | `s071-con-soluciones.tex` |
+| `s070-enunciados.tex` | `s070-con-soluciones.tex` |
+| `s069-enunciados.tex` | `s069-con-soluciones.tex` |
+| `s068-enunciados.tex` | `s068-con-soluciones.tex` |
+| `s067-enunciados.tex` | `s067-con-soluciones.tex` |
+| `s066-enunciados.tex` | `s066-con-soluciones.tex` |
+| `s065-enunciados.tex` | `s065-con-soluciones.tex` |
+| `s064-enunciados.tex` | `s064-con-soluciones.tex` |
+| `s063-enunciados.tex` | `s063-con-soluciones.tex` |
+| `s062-enunciados.tex` | `s062-con-soluciones.tex` |
+| `s061-enunciados.tex` | `s061-con-soluciones.tex` |
+| `s060-enunciados.tex` | `s060-con-soluciones.tex` |
+| `s059-enunciados.tex` | `s059-con-soluciones.tex` |
+| `s058-enunciados.tex` | `s058-con-soluciones.tex` |
+| `s057-enunciados.tex` | `s057-con-soluciones.tex` |
+| `s056-enunciados.tex` | `s056-con-soluciones.tex` |
+| `s055-enunciados.tex` | `s055-con-soluciones.tex` |
+| `s054-enunciados.tex` | `s054-con-soluciones.tex` |
+| `s053-enunciados.tex` | `s053-con-soluciones.tex` |
+| `s052-enunciados.tex` | `s052-con-soluciones.tex` |
+| `s051-enunciados.tex` | `s051-con-soluciones.tex` |
+| `s050-enunciados.tex` | `s050-con-soluciones.tex` |
+| `s049-enunciados.tex` | `s049-con-soluciones.tex` |
+| `s048-enunciados.tex` | `s048-con-soluciones.tex` |
+| `s047-enunciados.tex` | `s047-con-soluciones.tex` |
+| `s046-enunciados.tex` | `s046-con-soluciones.tex` |
+| `s045-enunciados.tex` | `s045-con-soluciones.tex` |
+| `s044-enunciados.tex` | `s044-con-soluciones.tex` |
+| `s043-enunciados.tex` | `s043-con-soluciones.tex` |
+| `s042-enunciados.tex` | `s042-con-soluciones.tex` |
+| `s041-enunciados.tex` | `s041-con-soluciones.tex` |
+| `s040-enunciados.tex` | `s040-con-soluciones.tex` |
+| `s039-enunciados.tex` | `s039-con-soluciones.tex` |
+| `s038-enunciados.tex` | `s038-con-soluciones.tex` |
+| `s037-enunciados.tex` | `s037-con-soluciones.tex` |
+| `s036-enunciados.tex` | `s036-con-soluciones.tex` |
+| `s035-enunciados.tex` | `s035-con-soluciones.tex` |
+| `s034-enunciados.tex` | `s034-con-soluciones.tex` |
+| `s033-enunciados.tex` | `s033-con-soluciones.tex` |
+| `s032-enunciados.tex` | `s032-con-soluciones.tex` |
+| `s031-enunciados.tex` | `s031-con-soluciones.tex` |
+| `s030-enunciados.tex` | `s030-con-soluciones.tex` |
+| `s029-enunciados.tex` | `s029-con-soluciones.tex` |
+| `s028-enunciados.tex` | `s028-con-soluciones.tex` |
+| `s027-enunciados.tex` | `s027-con-soluciones.tex` |
+| `s026-enunciados.tex` | `s026-con-soluciones.tex` |
+| `s025-enunciados.tex` | `s025-con-soluciones.tex` |
+| `s024-enunciados.tex` | `s024-con-soluciones.tex` |
+| `s023-enunciados.tex` | `s023-con-soluciones.tex` |
+| `s022-enunciados.tex` | `s022-con-soluciones.tex` |
+| `s021-enunciados.tex` | `s021-con-soluciones.tex` |
+| `s020-enunciados.tex` | `s020-con-soluciones.tex` |
+| `s019-enunciados.tex` | `s019-con-soluciones.tex` |
+| `s018-enunciados.tex` | `s018-con-soluciones.tex` |
+| `s017-enunciados.tex` | `s017-con-soluciones.tex` |
+| `s016-enunciados.tex` | `s016-con-soluciones.tex` |
+| `s015-enunciados.tex` | `s015-con-soluciones.tex` |
+| `s014-enunciados.tex` | `s014-con-soluciones.tex` |
+| `s013-enunciados.tex` | `s013-con-soluciones.tex` |
+| `s012-enunciados.tex` | `s012-con-soluciones.tex` |
 | `s011-enunciados.tex` | `s011-con-soluciones.tex` |
 | `s010-enunciados.tex` | `s010-con-soluciones.tex` |
 | `s009-enunciados.tex` | `s009-con-soluciones.tex` |
@@ -692,3 +765,295 @@ EXA-0009: ocho soluciones nuevas;72 validadas y568 pendientes. Tres pasadas del 
 ## Soluciones: avance S011
 
 EXA-0010: ocho soluciones nuevas;80 validadas y560 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. E3 distingue integral definida y área; E7 explica 783 con cuantil preciso y 785 con 2.81 tabulado; E8 verifica el mínimo 53. [Informe](docs/soluciones/S011_2021_EXTRAORDINARIA.md). Siguiente:S012.
+
+## Soluciones: avance S012
+
+EXA-0011: ocho soluciones nuevas;88 validadas y552 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. Tres figuras vectoriales; E7 explicita orden y reposición y verifica probabilidad 1/9; E8 usa sigma=9 y distingue las dos confianzas, con mínimo 110. [Informe](docs/soluciones/S012_2021_EXTRA_SUPLENTE.md). Siguiente:S013.
+
+## Soluciones: avance S013
+
+EXA-0012: ocho soluciones nuevas;96 validadas y544 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. Dos figuras vectoriales; E1 conserva la frontera estricta y demuestra el máximo; E4 declara continuidad del modelo; E7/E8 distinguen cambios de confianza y cotas inclusivas/estrictas. [Informe](docs/soluciones/S013_2021_EXTRA_RESERVA_B.md). Siguiente:S014.
+
+## Soluciones: avance S014
+
+EXA-0013: ocho soluciones nuevas;104 validadas y536 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. E2 demuestra el mínimo en todo un segmento; E5 actualiza la urna a 15 bolas; E7 explica ambas convenciones de muestreo; E8 distingue varianza, desviación y las dos confianzas. [Informe](docs/soluciones/S014_2020_PA.md). Siguiente:S015.
+
+## Soluciones: avance S015
+
+EXA-0014: ocho soluciones nuevas;112 validadas y528 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. Dos figuras; máximo 400 euros; ecuación matricial comprobada en su forma original; llaves sin reemplazamiento; reducción del error a 0.84 sin inventar una nueva media. [Informe](docs/soluciones/S015_2020_PB.md). Siguiente:S016.
+
+## Soluciones: avance S016
+
+EXA-0015: ocho soluciones nuevas;120 validadas y520 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. Dos figuras. Se coteja INC-007 y se comprueba la cobertura del 99 % para el tamaño mínimo de 166 hogares. [Informe](docs/soluciones/S016_2020_PC.md). Siguiente:S017.
+
+## Soluciones: avance S017
+
+EXA-0016: ocho soluciones nuevas;128 validadas y512 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. Región factible, tangentes y cotas de tamaño muestral comprobadas. [Informe](docs/soluciones/S017_2020_PD.md). Siguiente:S018.
+
+## Soluciones: avance S018
+
+EXA-0017: ocho soluciones nuevas;136 validadas y504 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. Región factible, inversa y tamaños muestrales comprobados. [Informe](docs/soluciones/S018_2020_PE.md). Siguiente:S019.
+
+## Soluciones: avance S019
+
+EXA-0018: ocho soluciones nuevas;144 validadas y496 pendientes. Tres pasadas del mismo autor,22 pruebas, PDF revisados y ZIP extraído comprobado. Tres figuras. Se documenta el segmento de máximos y el efecto del redondeo del cuantil. [Informe](docs/soluciones/S019_2020_PF.md). Siguiente:S020.
+
+## S020 · 2026-11-08
+
+Ocho soluciones nuevas de EXA-0019. El banco suma 152 validadas y 488 pendientes. [Informe](docs/soluciones/S020_2018_RESERVA_A.md). Siguiente tanda S021.
+
+## S021 · 2026-11-08
+
+Ocho soluciones nuevas de EXA-0020. El banco suma 160 validadas y 480 pendientes. [Informe](docs/soluciones/S021_2018_RESERVA_B.md). Siguiente tanda S022.
+
+## S022 · 2026-11-08
+
+Ocho soluciones nuevas de EXA-0021. El banco suma 168 validadas y 472 pendientes. [Informe](docs/soluciones/S022_2017_RESERVA_A.md). Siguiente tanda S023.
+
+## S023 · 2026-11-08
+
+Ocho soluciones nuevas de EXA-0022. El banco suma 176 validadas y 464 pendientes. [Informe](docs/soluciones/S023_2016_RESERVA_A.md). Siguiente tanda S024.
+
+## S024 · 2026-11-08
+
+Ocho soluciones nuevas de EXA-0023. El banco suma 184 validadas y 456 pendientes. [Informe](docs/soluciones/S024_2016_RESERVA_B.md). Siguiente tanda S025.
+
+## S025 · 2026-11-08
+
+Ocho soluciones nuevas de EXA-0024. El banco suma 192 validadas y 448 pendientes. [Informe](docs/soluciones/S025_2017_RESERVA_B.md). Siguiente tanda S026.
+
+## S026 · 2026-11-08
+
+Ocho soluciones nuevas de EXA-0025. El banco suma 200 validadas y 440 pendientes. [Informe](docs/soluciones/S026_2017_EXA0025.md). Siguiente tanda S027.
+
+## S027 · 2026-11-08
+
+Ocho soluciones nuevas de EXA-0026. El banco suma 208 validadas y 432 pendientes. [Informe](docs/soluciones/S027_2016_EXA0026.md). Siguiente tanda S028.
+
+## S028 · 2026-11-08
+
+Ocho soluciones nuevas de EXA-0027. El banco suma 216 validadas y 424 pendientes. [Informe](docs/soluciones/S028_2017_EXA0027.md). Siguiente tanda S029.
+
+## S029 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0028. El banco suma 224 validadas y 416 pendientes. [Informe](docs/soluciones/S029_2018_SUPLENTE.md). Siguiente tanda S030.
+
+## S030 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0029. El banco suma 232 validadas y 408 pendientes. [Informe](docs/soluciones/S030_2018_EXA0029.md). Siguiente tanda S031.
+
+## S031 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0030. El banco suma 240 validadas y 400 pendientes. [Informe](docs/soluciones/S031_2018_EXA0030.md). Siguiente tanda S032.
+
+## S032 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0031. El banco suma 248 validadas y 392 pendientes. [Informe](docs/soluciones/S032_2016_EXA0031.md). Siguiente tanda S033.
+
+## S033 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0032. El banco suma 256 validadas y 384 pendientes. [Informe](docs/soluciones/S033_2017_EXA0032.md). Siguiente tanda S034.
+
+## S034 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0033. El banco suma 264 validadas y 376 pendientes. [Informe](docs/soluciones/S034_2018_EXA0033.md). Siguiente tanda S035.
+
+## S035 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0034. El banco suma 272 validadas y 368 pendientes. [Informe](docs/soluciones/S035_2016_EXA0034.md). Siguiente tanda S036.
+
+## S036 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0035. El banco suma 280 validadas y 360 pendientes. [Informe](docs/soluciones/S036_2017_EXA0035.md). Siguiente tanda S037.
+
+## S037 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0036. El banco suma 288 validadas y 352 pendientes. [Informe](docs/soluciones/S037_2015_EXA0036.md). Siguiente tanda S038.
+
+## S038 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0037. El banco suma 296 validadas y 344 pendientes. [Informe](docs/soluciones/S038_2015_EXA0037.md). Siguiente tanda S039.
+
+## S039 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0038. El banco suma 304 validadas y 336 pendientes. [Informe](docs/soluciones/S039_2015_EXA0038.md). Siguiente tanda S040.
+
+## S040 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0039. El banco suma 312 validadas y 328 pendientes. [Informe](docs/soluciones/S040_2015_EXA0039.md). Siguiente tanda S041.
+
+## S041 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0040. El banco suma 320 validadas y 320 pendientes. [Informe](docs/soluciones/S041_2015_EXA0040.md). Siguiente tanda S042.
+
+## S042 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0041. El banco suma 328 validadas y 312 pendientes. [Informe](docs/soluciones/S042_2015_EXA0041.md). Siguiente tanda S043.
+
+## S043 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0042. El banco suma 336 validadas y 304 pendientes. [Informe](docs/soluciones/S043_2014_EXA0042.md). Siguiente tanda S044.
+
+## S044 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0043. El banco suma 344 validadas y 296 pendientes. [Informe](docs/soluciones/S044_2014_EXA0043.md). Siguiente tanda S045.
+
+## S045 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0044. El banco suma 352 validadas y 288 pendientes. [Informe](docs/soluciones/S045_2014_EXA0044.md). Siguiente tanda S046.
+
+## S046 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0045. El banco suma 360 validadas y 280 pendientes. [Informe](docs/soluciones/S046_2014_EXA0045.md). Siguiente tanda S047.
+
+## S047 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0046. El banco suma 368 validadas y 272 pendientes. [Informe](docs/soluciones/S047_2014_EXA0046.md). Siguiente tanda S048.
+
+## S048 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0047. El banco suma 376 validadas y 264 pendientes. [Informe](docs/soluciones/S048_2014_EXA0047.md). Siguiente tanda S049.
+
+## S049 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0048. El banco suma 384 validadas y 256 pendientes. [Informe](docs/soluciones/S049_2013_EXA0048.md). Siguiente tanda S050.
+
+## S050 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0049. El banco suma 392 validadas y 248 pendientes. [Informe](docs/soluciones/S050_2013_EXA0049.md). Siguiente tanda S051.
+
+## S051 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0050. El banco suma 400 validadas y 240 pendientes. [Informe](docs/soluciones/S051_2013_EXA0050.md). Siguiente tanda S052.
+
+## S052 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0051. El banco suma 408 validadas y 232 pendientes. [Informe](docs/soluciones/S052_2013_EXA0051.md). Siguiente tanda S053.
+
+## S053 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0052. El banco suma 416 validadas y 224 pendientes. [Informe](docs/soluciones/S053_2013_EXA0052.md). Siguiente tanda S054.
+
+## S054 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0053. El banco suma 424 validadas y 216 pendientes. [Informe](docs/soluciones/S054_2013_EXA0053.md). Siguiente tanda S055.
+
+## S055 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0054. El banco suma 432 validadas y 208 pendientes. [Informe](docs/soluciones/S055_2011_EXA0054.md). Siguiente tanda S056.
+
+## S056 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0055. El banco suma 440 validadas y 200 pendientes. [Informe](docs/soluciones/S056_2011_EXA0055.md). Siguiente tanda S057.
+
+## S057 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0056. El banco suma 448 validadas y 192 pendientes. [Informe](docs/soluciones/S057_2011_EXA0056.md). Siguiente tanda S058.
+
+## S058 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0058. El banco suma 456 validadas y 184 pendientes. [Informe](docs/soluciones/S058_2011_EXA0058.md). Siguiente tanda S059.
+
+## S059 · 2026-11-09
+
+Ocho soluciones nuevas de EXA-0059. El banco suma 464 validadas y 176 pendientes. [Informe](docs/soluciones/S059_2011_EXA0059.md). Siguiente tanda S060.
+
+## S060 · 2026-11-10
+
+Ocho soluciones nuevas de EXA-0060. El banco suma 472 validadas y 168 pendientes. [Informe](docs/soluciones/S060_2011_EXA0060.md). Siguiente tanda S061.
+
+## S061 · 2026-11-10
+
+Ocho soluciones nuevas de EXA-0061. El banco suma 480 validadas y 160 pendientes. [Informe](docs/soluciones/S061_2010_EXA0061.md). Siguiente tanda S062.
+
+## S062 · 2026-11-10
+
+Ocho soluciones nuevas de EXA-0062. El banco suma 488 validadas y 152 pendientes. [Informe](docs/soluciones/S062_2010_EXA0062.md). Siguiente tanda S063.
+
+## S063 · 2026-11-10
+
+Ocho soluciones nuevas de EXA-0063. El banco suma 496 validadas y 144 pendientes. [Informe](docs/soluciones/S063_2010_EXA0063.md). Siguiente tanda S064.
+
+## S064 · 2026-11-10
+
+Ocho soluciones nuevas de EXA-0064. El banco suma 504 validadas y 136 pendientes. [Informe](docs/soluciones/S064_2010_EXA0064.md). Siguiente tanda S065.
+
+## S065 · 2026-11-10
+
+Ocho soluciones nuevas de EXA-0065. El banco suma 512 validadas y 128 pendientes. [Informe](docs/soluciones/S065_2010_EXA0065.md). Siguiente tanda S066.
+
+## S066 · 2026-11-10
+
+Ocho soluciones nuevas de EXA-0066. El banco suma 520 validadas y 120 pendientes. [Informe](docs/soluciones/S066_2010_EXA0066.md). Siguiente tanda S067.
+
+## S067 · 2026-11-10
+
+Seis soluciones nuevas de EXA-0067. El banco suma 526 validadas y 114 pendientes. [Informe](docs/soluciones/S067_2009_EXA0067.md). Siguiente tanda S068.
+
+## S068 · 2026-11-10
+
+Seis soluciones nuevas de EXA-0068. El banco suma 532 validadas y 108 pendientes. [Informe](docs/soluciones/S068_2009_EXA0068.md). Siguiente tanda S069.
+
+## S069 · 2026-11-10
+
+Seis soluciones nuevas de EXA-0069. El banco suma 538 validadas y 102 pendientes. [Informe](docs/soluciones/S069_2009_EXA0069.md). Siguiente tanda S070.
+
+## S070 · 2026-11-10
+
+Seis soluciones nuevas de EXA-0070. El banco suma 544 validadas y 96 pendientes. [Informe](docs/soluciones/S070_2009_EXA0070.md). Siguiente tanda S071.
+
+## S071 · 2026-11-10
+
+Seis soluciones nuevas de EXA-0071. El banco suma 550 validadas y 90 pendientes. [Informe](docs/soluciones/S071_2009_EXA0071.md). Siguiente tanda S072.
+
+## S072 · 2026-11-10
+
+Seis soluciones nuevas de EXA-0072. El banco suma 556 validadas y 84 pendientes. [Informe](docs/soluciones/S072_2009_EXA0072.md). Siguiente tanda S073.
+
+## S073 · 2026-11-10
+
+Seis soluciones de EXA-0073. El banco suma 562 validadas y 78 pendientes. [Informe](docs/soluciones/S073_2008_EXA0073.md). Siguiente tanda S074.
+
+## S074 · 2026-11-10
+
+Seis soluciones de EXA-0074. El banco suma 568 validadas y 72 pendientes. [Informe](docs/soluciones/S074_2008_EXA0074.md). Siguiente tanda S075.
+
+## S075 · 2026-11-10
+
+Seis soluciones de EXA-0075. El banco suma 574 validadas y 66 pendientes. [Informe](docs/soluciones/S075_2008_EXA0075.md). Siguiente tanda S076.
+
+## S076 · 2026-11-12
+
+Seis soluciones de EXA-0076. El banco suma 580 validadas y 60 pendientes. [Informe](docs/soluciones/S076_2008_EXA0076.md). Siguiente tanda S077.
+
+## S077 · 2026-11-12
+
+Seis soluciones de EXA-0077. El banco suma 586 validadas y 54 pendientes. [Informe](docs/soluciones/S077_2008_EXA0077.md). Siguiente tanda S078.
+
+## S078 · 2026-11-12
+
+Seis soluciones de EXA-0078. El banco suma 592 validadas y 48 pendientes. [Informe](docs/soluciones/S078_2008_EXA0078.md). Siguiente tanda S079.
+
+## S079 · 2026-11-12
+
+Ocho soluciones de EXA-0079. El banco suma 600 validadas y 40 pendientes. [Informe](docs/soluciones/S079_2012_EXA0079.md). Siguiente tanda S080.
+
+## S080 · 2026-11-12
+
+Ocho soluciones de EXA-0080. El banco suma 608 validadas y 32 pendientes. [Informe](docs/soluciones/S080_2012_EXA0080.md). Siguiente tanda S081.
+
+## S081 · 2026-11-12
+
+Ocho soluciones de EXA-0081. El banco suma 616 validadas y 24 pendientes. [Informe](docs/soluciones/S081_2012_EXA0081.md). Siguiente tanda S082.
+
+## S082 · 2026-11-12
+
+Ocho soluciones de EXA-0082. El banco suma 624 validadas y 16 pendientes. [Informe](docs/soluciones/S082_2012_EXA0082.md). Siguiente tanda S083.
+
+## S083 · 2026-11-12
+
+Ocho soluciones de EXA-0083. El banco suma 632 validadas y 8 pendientes. [Informe](docs/soluciones/S083_2012_EXA0083.md). Siguiente tanda S084.
+
+## S084 · 2026-11-12
+
+Ocho soluciones de EXA-0084. El banco suma 640 validadas y 0 pendientes. [Informe](docs/soluciones/S084_2012_EXA0084.md). Siguiente fase de auditoría y selección por apartados.

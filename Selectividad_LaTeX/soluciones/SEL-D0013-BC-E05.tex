@@ -1,5 +1,29 @@
 % ID: SEL-D0013-BC-E05
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S014; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{Cambio de composición de la urna.}\par\nopagebreak[4]
+Sean $R_i,A_i$ los colores rojo y azul en la extracción $i$. La primera bola \emph{se retira} y se sustituye por seis del color contrario, de modo que antes de la segunda extracción hay $10-1+6=15$ bolas:
+\[
+\begin{array}{c|rr|r}
+\text{Primera extracción}&\text{Rojas después}&\text{Azules después}&\text{Total}\\\hline
+R_1\ (6/10)&5&10&15\\
+A_1\ (4/10)&12&3&15
+\end{array}
+\]
+No se devuelve la bola original además de añadir seis: eso daría un modelo distinto.
+
+\textbf{a) Segunda bola roja.}\par\nopagebreak[4]
+Por probabilidad total,
+\[
+\boxed{P(R_2)=\frac6{10}\frac5{15}+\frac4{10}\frac{12}{15}
+=\frac15+\frac8{25}=\frac{13}{25}=0.52.}
+\]
+\textbf{b) Primera azul, sabiendo que la segunda fue azul.}\par\nopagebreak[4]
+\[
+P(A_2)=1-\frac{13}{25}=\frac{12}{25},\qquad
+P(A_1\cap A_2)=\frac4{10}\frac3{15}=\frac2{25}.
+\]
+Aplicando Bayes o la definición de condicionada,
+\[
+\boxed{P(A_1\mid A_2)=\frac{2/25}{12/25}=\frac16.}
+\]
+Las cuatro ramas conjuntas $R_1R_2,R_1A_2,A_1R_2,A_1A_2$ tienen probabilidades $0.20,0.40,0.32,0.08$ y suman uno. Las extracciones no se han tratado como independientes.

@@ -1,5 +1,27 @@
 % ID: SEL-D0013-BB-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S014; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{a) Dominio, continuidad y derivabilidad.}\par\nopagebreak[4]
+El dominio es $\mathbb R$: el cociente sólo se utiliza para $x\geq4$. En $2$, el valor de la primera rama y el límite de la segunda son ambos $0$; es continua. Sus derivadas laterales son $-1$ y $2$, distintas, así que no es derivable en $2$.
+En $4$,
+\[
+\lim_{x\to4^-}(-x^2+6x-8)=0,\qquad
+f(4)=\lim_{x\to4^+}\frac{x-3}{x}=\frac14.
+\]
+Hay discontinuidad de salto y, por tanto, no es derivable allí. En el resto de puntos es continua y derivable, con
+\[
+f'(x)=\begin{cases}-1&x<2,\\6-2x&2<x<4,\\3/x^2&x>4.\end{cases}
+\]
+
+\textbf{b) Intervalos de variación.}\par\nopagebreak[4]
+Decrece en $(-\infty,2]$; crece en $[2,3]$; decrece en $[3,4)$; y crece en $[4,+\infty)$. El punto $4$ no se añade al intervalo decreciente anterior, porque allí la función salta hacia arriba. Los intervalos abiertos correspondientes son también una forma válida de expresar el estudio por signos.
+
+\textbf{c) Integral definida.}\par\nopagebreak[4]
+Entre $2$ y $3$ se usa la rama cuadrática; el valor de un extremo aislado no altera la integral:
+\[
+\begin{aligned}
+\int_2^3f(x)\,dx&=\int_2^3(-x^2+6x-8)\,dx\\
+&=\left[-\frac{x^3}{3}+3x^2-8x\right]_2^3\\
+&=-6-\left(-\frac{20}{3}\right)=\boxed{\frac23.}
+\end{aligned}
+\]
+La comprobación $-x^2+6x-8=1-(x-3)^2$ da la misma integral. No se integra la expresión racional, que corresponde a otro tramo.

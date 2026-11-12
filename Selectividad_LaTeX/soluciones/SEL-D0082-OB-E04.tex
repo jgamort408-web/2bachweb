@@ -1,5 +1,18 @@
 % ID: SEL-D0082-OB-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA.
-% Guion futuro: datos, teoría, estrategia, desarrollo paso a paso,
-% comprobación independiente e interpretación de resultados.
+% Tanda S082.
+\textbf{a)} Contrastamos $H_0:p\le0{,}05$ frente a $H_1:p>0{,}05$. La alternativa requiere una región crítica en la cola derecha. En la frontera $p_0=0{,}05$, usamos la aproximación normal del estadístico
+\[
+ Z=\frac{\hat p-0{,}05}{\sqrt{0{,}05\cdot0{,}95/300}}.
+\]
+Las frecuencias esperadas bajo esa frontera son 15 defectuosos y 285 no defectuosos. Para $\alpha=0{,}05$, el valor crítico es $z_{0{,}95}\approx1{,}64485$, por lo que la región crítica es
+\[
+ \boxed{Z>1{,}64485},
+ \qquad\text{equivalentemente}\qquad\hat p>0{,}070697.
+\]
+Para proporciones inferiores a $0{,}05$, el rechazo por proporciones observadas altas es menos probable. Se utiliza la frontera para fijar el contraste.
+
+\textbf{b)} La proporción observada es $\hat p=35/300\approx0{,}116667$. Por tanto,
+\[
+ Z_{\mathrm{obs}}\approx5{,}2981>1{,}64485.
+\]
+Rechazamos $H_0$ al $5\%$. Los datos aportan evidencia de que la proporción de artículos defectuosos ha aumentado por encima del $5\%$. El valor $p$ de la aproximación normal es aproximadamente $5{,}85\cdot10^{-8}$.

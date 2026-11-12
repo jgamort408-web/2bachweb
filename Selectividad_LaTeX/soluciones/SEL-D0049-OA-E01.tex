@@ -1,5 +1,26 @@
 % ID: SEL-D0049-OA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante transcripción.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S050.
+Sean $x,y$ las cantidades de anillos de los tipos primero y segundo. Maximizamos $I=150x+100y$ euros con $4x+3y\le48$, $2x+y\le20$ y $x,y$ enteros no negativos.
+
+En los ejes, las cotas más restrictivas dan $(10,0)$ y $(0,16)$. Igualando ambas restricciones, $y=20-2x$ y $4x+3(20-2x)=48$, de donde $(x,y)=(6,8)$. Los vértices y sus ingresos son
+\[
+\begin{array}{c|rrrr}
+(x,y)&(0,0)&(10,0)&(6,8)&(0,16)\\\hline
+I&0&1500&1700&1600
+\end{array}
+\]
+\begin{center}
+\setlength{\unitlength}{0.8mm}
+\begin{picture}(74,65)(-10,-6)
+\qbezier(0,0)(28,0)(56,0)
+\qbezier(0,0)(0,27)(0,54)
+\put(57,0){$x$}
+\put(2,54){$y$}
+\qbezier(40,0)(32,12)(24,24)
+\qbezier(24,24)(12,36)(0,48)
+\put(20,25){\scriptsize $(6,8)$}
+\put(37,-5){\scriptsize $(10,0)$}
+\put(2,47){\scriptsize $(0,16)$}
+\end{picture}
+\end{center}
+Una función lineal alcanza su máximo en algún vértice del polígono. Aquí el mejor vértice ya tiene coordenadas enteras, así que es también óptimo para cantidades enteras. Debe producir $\boxed{6\text{ del primer tipo y }8\text{ del segundo}}$, con ingresos de $\boxed{1700\text{ euros}}$.

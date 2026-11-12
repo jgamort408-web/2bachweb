@@ -1,5 +1,36 @@
 % ID: SEL-D0011-BA-E02
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S012; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{a) Falta de inversa.}\par\nopagebreak[4]
+\[
+\det A=8a-24=8(a-3).
+\]
+Una matriz cuadrada no tiene inversa cuando su determinante es cero: \boxed{a=3}.
+
+\textbf{b) Ecuación para a=3.}\par\nopagebreak[4]
+Aunque $A$ no sea invertible, puede serlo $A-B$. Factorizamos por la derecha, respetando el orden de los factores:
+\[
+XA-XB=X(A-B)=C,\qquad
+A-B=\begin{pmatrix}1&2\\3&5\end{pmatrix}.
+\]
+Su determinante es $5-6=-1$, luego
+\[
+(A-B)^{-1}=\begin{pmatrix}-5&2\\3&-1\end{pmatrix}.
+\]
+$X$ es una fila $1\times2$. Multiplicamos a la derecha:
+\[
+X=C(A-B)^{-1}=(1\ \ 2)\begin{pmatrix}-5&2\\3&-1\end{pmatrix}
+=\boxed{(1\ \ 0).}
+\]
+Comprobación: $XA-XB=(3\ \ 4)-(2\ \ 2)=(1\ \ 2)=C$. La solución es única porque $A-B$ es invertible.
+
+\textbf{c) Identidad y potencia.}\par\nopagebreak[4]
+\[
+A^2=\begin{pmatrix}3&4\\6&8\end{pmatrix}^2
+=\begin{pmatrix}33&44\\66&88\end{pmatrix}
+=11\begin{pmatrix}3&4\\6&8\end{pmatrix}=11A.
+\]
+Por inducción, si $A^n=11^{n-1}A$, entonces $A^{n+1}=11^{n-1}A^2=11^nA$. Con base $n=1$, resulta
+\[
+\boxed{A^8=11^7A.}
+\]
+El exponente del escalar es $7$, no $8$; cada nueva multiplicación aporta un factor $11$.

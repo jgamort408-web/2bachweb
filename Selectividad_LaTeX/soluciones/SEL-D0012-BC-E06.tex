@@ -1,5 +1,23 @@
 % ID: SEL-D0012-BC-E06
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S013; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{a) Dos contagios independientes.}\par\nopagebreak[4]
+Sean $C_1,C_2$ los contagios de las dos personas. Cada probabilidad es $0.8$ y el enunciado establece independencia:
+\[
+\boxed{P(C_1\cap C_2)=0.8^2=0.64.}
+\]
+Para alguna, es decir, al menos una, usamos el complemento de ninguna:
+\[
+\boxed{P(C_1\cup C_2)=1-(1-0.8)^2=1-0.04=0.96.}
+\]
+También se comprueba mediante inclusión-exclusión: $0.8+0.8-0.64=0.96$. ``Alguna'' incluye el caso de que se contagien ambas; no significa exactamente una.
+
+\textbf{b) Contagio dado un positivo posterior.}\par\nopagebreak[4]
+Sea $C$ el contagio en la reunión y $+$ el positivo. En el modelo planteado, la persona parte sana y la probabilidad previa tras el contacto es $P(C)=0.8$. Los datos de la prueba son $P(+\mid C)=0.90$ y $P(+\mid C^c)=0.05$.
+\[
+P(+)=0.8\cdot0.90+0.2\cdot0.05=0.72+0.01=0.73.
+\]
+Aplicamos Bayes:
+\[
+\boxed{P(C\mid+)=\frac{0.72}{0.73}=\frac{72}{73}\approx0.986301.}
+\]
+La probabilidad complementaria es $1/73$. Las cuatro hojas son $0.72$, $0.08$, $0.01$ y $0.19$, de suma uno. Se usan los estados y las tasas de la reunión y de la prueba descritos en el enunciado.

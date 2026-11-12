@@ -1,5 +1,29 @@
 % ID: SEL-D0062-OB-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante transcripción.
-% Guion futuro:datos y pregunta;teoría y condiciones;estrategia y pasos;
-% comprobación independiente;interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S062.
+\textbf{a)} La región queda por encima de $y=0$ y por debajo de $4x-4$, $15-2x$ y $(10+x)/3$. Sobre el eje horizontal queda $1\le x\le15/2$. La cota $(10+x)/3$ corta a $4x-4$ en $(2,4)$ y a $15-2x$ en $(5,5)$. El cruce de las otras dos rectas queda por encima de $(10+x)/3$.
+\begin{center}
+\setlength{\unitlength}{0.9mm}
+\begin{picture}(115,65)(-14,-8)
+\qbezier(0,0)(45,0)(90,0)
+\qbezier(0,0)(0,25)(0,50)
+\put(91,0){$x$}
+\put(1,51){$y$}
+\qbezier(10,0)(15,16)(20,32)
+\qbezier(20,32)(35,36)(50,40)
+\qbezier(50,40)(62.5,20)(75,0)
+\put(7,-6){\scriptsize $(1,0)$}
+\put(15,34){\scriptsize $(2,4)$}
+\put(49,42){\scriptsize $(5,5)$}
+\put(70,-6){\scriptsize $(15/2,0)$}
+\end{picture}
+\end{center}
+\textbf{b)} Evaluamos $F$ en los vértices:
+\[
+\begin{array}{c|rrrr}
+(x,y)&(1,0)&(2,4)&(5,5)&(15/2,0)\\\hline
+F&4&-20&-15&30
+\end{array}
+\]
+Por linealidad, el mínimo se alcanza sólo en $(2,4)$ y el máximo sólo en $(15/2,0)$.
+
+\textbf{c)} El recinto contiene el segmento entre los dos puntos extremos. Sobre ese segmento, $F$ recorre todos los valores entre ambos, de modo que su recorrido es $\boxed{[-20,30]}$.

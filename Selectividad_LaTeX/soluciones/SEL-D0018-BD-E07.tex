@@ -1,5 +1,21 @@
 % ID: SEL-D0018-BD-E07
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S019. Revisión matemática, didáctica y visual.
+\textbf{a) Intervalo al 98\,\%.}\par\nopagebreak[4]
+La proporción observada es $\hat p=2/3$. Hay $400$ éxitos y $200$ fracasos, de modo que la aproximación normal es adecuada bajo el modelo muestral. Con el cuantil bilateral $z_{0.99}\approx2.326347874$,
+\[
+\hat p\pm z_{0.99}\sqrt{\frac{\hat p(1-\hat p)}{600}}
+\approx\boxed{(0.621896,\ 0.711437)}.
+\]
+Como $13/20=0.65$ está dentro del intervalo, ese valor es compatible con los datos al nivel de confianza solicitado.
+
+\textbf{b) Margen.}\par\nopagebreak[4]
+La semiamplitud es $z_{0.99}\sqrt{(2/9)/600}\approx\boxed{0.044771}$, aproximadamente $4.48$ puntos porcentuales.
+
+\textbf{c) Tamaño mínimo.}\par\nopagebreak[4]
+Al fijar la confianza y la proporción de planificación,
+\[
+z_{0.99}\sqrt{\frac{2/9}{n}}<0.02
+\quad\Longleftrightarrow\quad
+n>\frac{z_{0.99}^2(2/9)}{0.02^2}\approx3006.608017252.
+\]
+Con el cuantil preciso, $3006$ incumple la cota y $\boxed{3007}$ la satisface. Si se adopta $2.33$ de una tabla de dos decimales, la cota aproximada sube a $3016.0556$ y resulta $3017$. Conviene conservar el cuantil sin redondear hasta calcular el mínimo.

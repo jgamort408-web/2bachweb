@@ -1,5 +1,26 @@
 % ID: SEL-D0013-BA-E01
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S014; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{a) Matrices con filas y columnas identificadas.}\par\nopagebreak[4]
+Elegimos filas de $A$ para habitaciones individuales, dobles y triples, y columnas para agencias primera y segunda. En $D$, las filas son institutos primero, segundo y tercero, y las columnas los mismos tres tipos de habitación:
+\[
+A=\begin{pmatrix}65&78\\85&83\\104&106\end{pmatrix}_{3\times2},\qquad
+D=\begin{pmatrix}3&15&2\\2&12&5\\1&16&7\end{pmatrix}_{3\times3}.
+\]
+Cada entrada de $A$ es un precio por habitación y noche; cada entrada de $D$ es una cantidad de habitaciones. Esta orientación permite el producto $DA$.
+
+\textbf{b) Costes totales y elección.}\par\nopagebreak[4]
+\[
+DA=\begin{pmatrix}1678&1691\\1670&1682\\2153&2148\end{pmatrix}.
+\]
+Las filas representan institutos y las columnas agencias; las entradas son euros por noche para el total solicitado. Por ejemplo, la entrada primera es $3\cdot65+15\cdot85+2\cdot104=1678$.
+Comparando cada fila, al primer instituto le interesa la \textbf{primera agencia}, con ahorro de $13$ euros/noche; al segundo, la \textbf{primera}, con ahorro de $12$; al tercero, la \textbf{segunda}, con ahorro de $5$.
+
+\textbf{c) Invertibilidad.}\par\nopagebreak[4]
+\[
+\begin{aligned}
+\det D&=3(12\cdot7-5\cdot16)-15(2\cdot7-5\cdot1)\\
+&\qquad+2(2\cdot16-12\cdot1)\\
+&=12-135+40=-83\ne0.
+\end{aligned}
+\]
+Por tanto, \textbf{$D$ tiene inversa}. La matriz $A$ es rectangular $3\times2$, por lo que \textbf{no tiene inversa matricial ordinaria}. Otras orientaciones son posibles si se declaran y se adapta correctamente el orden del producto.

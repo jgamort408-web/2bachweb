@@ -1,5 +1,13 @@
 % ID: SEL-D0080-OB-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA.
-% Guion futuro: datos, teoría, estrategia, desarrollo paso a paso,
-% comprobación independiente e interpretación de resultados.
+% Tanda S080.
+Planteamos $H_0:p\ge0{,}25$ frente a $H_1:p<0{,}25$, un contraste unilateral a la izquierda. Bajo la frontera $p_0=0{,}25$, usamos la aproximación normal del estadístico
+\[
+ Z=\frac{\hat p-0{,}25}{\sqrt{0{,}25\cdot0{,}75/950}}.
+\]
+Las frecuencias esperadas bajo esa frontera son 237,5 y 712,5, suficientemente grandes para la aproximación. Con $\alpha=0{,}05$, la región crítica es $Z<-1{,}64485$.
+
+La proporción observada es $\hat p=200/950\approx0{,}210526$. Sustituyendo,
+\[
+ Z_{\mathrm{obs}}\approx-2{,}8098<-1{,}64485.
+\]
+Rechazamos $H_0$ al $5\%$. La encuesta aporta evidencia de que la proporción es inferior al $25\%$, por lo que puede admitirse la disminución en el sentido del contraste planteado. El valor $p$ aproximado es $\Phi(-2{,}8098)\approx0{,}00248$.

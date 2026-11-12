@@ -1,5 +1,16 @@
 % ID: SEL-D0025-OA-E04
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S026, cotejada con examen y criterios.
+\textbf{a)} La proporción observada es $\hat p=36/100=0.36$.
+Hay 36 casos favorables y 64 restantes. Con la aproximación normal,
+la confianza del $96\%$ corresponde a $z_{0.98}\approx2.053749$:
+\[
+\hat p\pm z_{0.98}\sqrt{\frac{\hat p(1-\hat p)}{100}}
+\approx\boxed{[0.2614,\ 0.4586]}.
+\]
+\textbf{b)} Usando $0.36$ como estimación previa, el margen
+debe cumplir $z_{0.98}\sqrt{0.36\cdot0.64/n}<0.03$.
+Al cuadrar y despejar, $n>1079.7785$, por lo que el tamaño
+mínimo planificado es $\boxed{1080}$.
+Si se quiere garantizar el margen para cualquier proporción
+sin usar la estimación previa, se maximiza $p(1-p)$ en $p=0.5$.
+La cota pasa a $1171.6346$ y hacen falta $\boxed{1172}$.

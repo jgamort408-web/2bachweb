@@ -1,5 +1,20 @@
 % ID: SEL-D0078-OA-E02
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante transcripción.
-% Guion futuro:datos y pregunta;teoría y condiciones;estrategia y pasos;
-% comprobación independiente;interpretación y revisión matemática/didáctica.
+% Tanda S078.
+\textbf{a)} El dominio es $\mathbb R$. En el punto de unión,
+\[
+ \lim_{x\to0^-}f(x)=e^0=1,\qquad
+ \lim_{x\to0^+}f(x)=0^2+0+1=1=f(0).
+\]
+Por tanto, $f$ es continua en $0$. Cada expresión es continua en el interior de su tramo, así que la función es continua en todo su dominio.
+
+\textbf{b)} Calculamos las derivadas laterales mediante el cociente incremental:
+\[
+ f'_-(0)=\lim_{h\to0^-}\frac{e^h-1}{h}=1,
+ \qquad
+ f'_+(0)=\lim_{h\to0^+}\frac{h^2+h}{h}=1.
+\]
+Como coinciden, $f$ es derivable en $0$, con $f'(0)=1$. Además, las expresiones de ambos tramos son derivables en sus interiores. En consecuencia, es derivable en todo $\mathbb R$ y
+\[
+ f'(x)=\begin{cases}e^x&x<0,\\1&x=0,\\2x+1&x>0.\end{cases}
+\]
+\textbf{c)} La derivada es positiva en todos los puntos del dominio. Por el criterio de monotonía, $f$ es estrictamente creciente en $\mathbb R$.

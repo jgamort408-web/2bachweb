@@ -1,5 +1,28 @@
 % ID: SEL-D0015-BD-E08
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S016. Revisión matemática, didáctica y visual.
+\textbf{a) Tamaño para un error de una unidad con cobertura 99\,\%.}\par\nopagebreak[4]
+Las unidades son \emph{miles de euros}: una unidad equivale a $1000$ euros. Para una muestra independiente de la población normal, la media tiene desviación $5/\sqrt n$. La condición pide $P(|\overline X-\mu|\leq1)\geq0.99$, equivalente a imponer un margen bilateral como máximo $1$:
+\[
+z_{0.995}\frac5{\sqrt n}\leq1
+\quad\Longleftrightarrow\quad
+n\geq25z_{0.995}^2\approx165.872415026.
+\]
+\boxed{n_{\min}=166}. Se comprueba que $165$ no alcanza la cobertura y $166$ sí. Con $2.576$ tabulado se mantiene $166$. Es una condición inclusiva, por lo que se toma el techo de la cota.
+
+\textbf{b) Distribución de la media con n=100.}\par\nopagebreak[4]
+Es normal exacta bajo el modelo, con
+\[
+\boxed{E(\overline X)=\mu,\quad\operatorname{Var}(\overline X)=\frac{25}{100}=0.25,
+\quad\sigma_{\overline X}=0.5.}
+\]
+Se explicitan varianza y desviación para evitar ambigüedad en la notación de la normal. La media desconocida no se sustituye todavía por $24$.
+
+\textbf{c) Probabilidad con mu=24.}\par\nopagebreak[4]
+Ahora se da $\mu=24$ y se mantiene $n=100$, de modo que la desviación de la media es $0.5$. Estandarizando,
+\[
+\begin{aligned}
+P(\overline X>25)&=P\left(Z>\frac{25-24}{0.5}\right)\\
+&=1-\Phi(2)\approx\boxed{0.022750132}.
+\end{aligned}
+\]
+Se trata de la probabilidad de una \emph{media muestral}, no de la renta de un hogar individual. Con tabla de cuatro decimales se obtiene aproximadamente $0.0228$.

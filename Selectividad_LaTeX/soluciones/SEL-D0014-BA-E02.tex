@@ -1,5 +1,31 @@
 % ID: SEL-D0014-BA-E02
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S015; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{a) Valores del parámetro e inversa.}\par\nopagebreak[4]
+Desarrollamos por la primera fila:
+\[
+\det A=4a+(2a^2-3)-3=2a^2+4a-6=2(a+3)(a-1).
+\]
+\boxed{A\text{ es invertible si y sólo si }a\notin\{-3,1\}.}
+
+\textbf{b) Inversa para a=2.}\par\nopagebreak[4]
+Ahora $\det A=10$. La matriz de cofactores es
+\[
+C=\begin{pmatrix}4&5&3\\4&-5&3\\-2&0&-4\end{pmatrix}.
+\]
+Por $A^{-1}=C^t/\det A$,
+\[
+\boxed{A^{-1}=\frac1{10}\begin{pmatrix}4&4&-2\\5&-5&0\\3&3&-4\end{pmatrix}.}
+\]
+El producto de $A$ por la matriz entera del recuadro da $10I_3$, comprobando tanto la trasposición de cofactores como el signo del determinante.
+
+\textbf{c) Ecuación para a=0.}\par\nopagebreak[4]
+En este apartado se cambia el parámetro: $A_0=\begin{pmatrix}2&1&-1\\0&-1&-1\\3&0&0\end{pmatrix}$ tiene determinante $-6\ne0$. $B$ es $3\times2$, de modo que $BB^t$ y $X$ son de orden $3$.
+\[
+BB^t=\begin{pmatrix}2&2&3\\2&4&2\\3&2&5\end{pmatrix},\qquad
+I_3+BB^t=\begin{pmatrix}3&2&3\\2&5&2\\3&2&6\end{pmatrix}.
+\]
+De $XA_0^{-1}=I_3+BB^t$, multiplicamos \emph{a la derecha} por $A_0$:
+\[
+\boxed{X=(I_3+BB^t)A_0=\begin{pmatrix}15&1&-5\\10&-3&-7\\24&1&-5\end{pmatrix}.}
+\]
+Comprobación: como $X=MA_0$ con $M=I_3+BB^t$, se tiene $XA_0^{-1}-BB^t=M-BB^t=I_3$. No se utiliza la inversa del apartado b, correspondiente a otro parámetro.

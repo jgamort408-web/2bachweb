@@ -1,5 +1,23 @@
 % ID: SEL-D0011-BD-E08
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S012; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{a) Intervalo para la media de horas.}\par\nopagebreak[4]
+La varianza poblacional es $81$, así que la desviación es $\sigma=\sqrt{81}=9$ horas, no $81$. Los dieciséis tiempos suman $640$ horas:
+\[
+\overline x=\frac{640}{16}=40\text{ h},\qquad
+\sigma_{\overline X}=\frac9{\sqrt{16}}=2.25\text{ h}.
+\]
+Al ser normal la población y conocida $\sigma$, la distribución de la media es normal exacta en el modelo. Para confianza 95\,\%, $z_{0.975}\approx1.959963985$:
+\[
+IC=40\pm1.959963985\cdot2.25,
+\qquad\boxed{IC_{\text{95\%}}\approx(35.590081035,\ 44.409918965)\text{ h}.}
+\]
+Con el cuantil tabulado $1.96$ se obtiene $(35.59,44.41)$ h. La confianza describe la cobertura del método bajo sus hipótesis de muestreo, no una probabilidad posterior de la media fija.
+
+\textbf{b) Tamaño con confianza distinta.}\par\nopagebreak[4]
+Aquí la confianza sube al 98\,\%: se usa $z_{0.99}\approx2.326347874$, manteniendo $\sigma=9$. Para error estrictamente inferior a $2$ horas,
+\[
+z_{0.99}\frac9{\sqrt n}<2
+\quad\Longleftrightarrow\quad
+n>\left(\frac{9z_{0.99}}2\right)^2\approx109.590862229.
+\]
+\boxed{n_{\min}=110}. Se comprueba que $109$ no cumple y $110$ sí. Al ser estricta la desigualdad, en general se toma $\lfloor\text{cota}\rfloor+1$, incluso si la cota fuese entera. Con $2.33$ tabulado se mantiene el resultado $110$. No se reutiliza el cuantil de confianza 95\,\% del apartado anterior.

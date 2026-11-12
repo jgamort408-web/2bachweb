@@ -1,5 +1,30 @@
 % ID: SEL-D0078-OB-E03
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante transcripción.
-% Guion futuro:datos y pregunta;teoría y condiciones;estrategia y pasos;
-% comprobación independiente;interpretación y revisión matemática/didáctica.
+% Tanda S078.
+\textbf{Parte I.} Sean $B$ ser un par de botas, $S$ ser un par de sandalias y $N$ no ser defectuoso. Las probabilidades de no tener defecto son $P(N\mid B)=0{,}92$ y $P(N\mid S)=0{,}97$. La probabilidad total es
+\[
+ P(N)=\frac7{12}\,0{,}92+\frac5{12}\,0{,}97
+     =\frac{1129}{1200}.
+\]
+\textbf{a)} Por Bayes,
+\[
+ P(B\mid N)=\frac{(7/12)\,0{,}92}{1129/1200}
+ =\boxed{\frac{644}{1129}}\approx0{,}5704.
+\]
+\textbf{b)} Análogamente,
+\[
+ P(S\mid N)=\frac{(5/12)\,0{,}97}{1129/1200}
+ =\boxed{\frac{485}{1129}}\approx0{,}4296.
+\]
+Ambas probabilidades suman 1 porque botas y sandalias agotan los tipos de producto.
+
+\textbf{Parte II. a)} La desviación típica es $\sigma=\sqrt{225}=15$ g. Como la población es normal y la desviación es conocida, usamos el intervalo normal para la media. Al $90\%$, $z_{0{,}95}\approx1{,}6449$:
+\[
+ 175\pm1{,}6449\frac{15}{\sqrt{25}}
+ \approx\boxed{[170{,}065;\ 179{,}935]}\ \text{g}.
+\]
+\textbf{b)} La amplitud es la longitud total del intervalo, igual a dos veces el margen. Por tanto, una amplitud máxima de 5 exige $E\le2{,}5$. Al $95\%$, usamos $z_{0{,}975}\approx1{,}96$:
+\[
+ \frac{1{,}96\cdot15}{\sqrt n}\le2{,}5
+ \quad\Longrightarrow\quad n\ge(1{,}96\cdot6)^2=138{,}2976.
+\]
+Redondeamos hacia arriba para garantizar la amplitud máxima. El tamaño mínimo es $\boxed{139}$.

@@ -1,0 +1,67 @@
+{
+  "tanda": "S016",
+  "metodos": [
+    "productos y fracciones exactas",
+    "todas las intersecciones de fronteras",
+    "diferencias centradas para derivadas",
+    "primitivas y sustitución exacta",
+    "cuantiles por erfc y bisección",
+    "cobertura calculada directamente"
+  ],
+  "E1_X": [
+    [
+      6,
+      5
+    ],
+    [
+      -2,
+      -2
+    ]
+  ],
+  "E1_Y": [
+    [
+      "1",
+      "5/2"
+    ],
+    [
+      "-1",
+      "-3"
+    ]
+  ],
+  "E2a": "Sólo formulación; no se calcula su óptimo.",
+  "E2b_minimo": 5,
+  "E2b_punto": [
+    1,
+    3
+  ],
+  "E3_parametros": [
+    -2,
+    24
+  ],
+  "E3_primitiva_constante": -8,
+  "E4_error_derivada_maximo": 1.1944121658575384e-10,
+  "E4_area": "32/3",
+  "E5_condicionada": "15/43",
+  "E6_media_dada_E2": "1/4",
+  "E7_suma": "648/5",
+  "E7_media": "54/5",
+  "E7_cuantil": 1.8452581167555016,
+  "E7_intervalo": [
+    9.308495621393618,
+    12.291504378606383
+  ],
+  "E7_error_n50_99": 1.0199763659223313,
+  "E7_error_n50_tabla": 1.020043958268466,
+  "E8_cota_n": 165.87241502553027,
+  "E8_minimo": 166,
+  "E8_margenes_165_166": [
+    1.0026401965765648,
+    0.9996156340396279
+  ],
+  "E8_coberturas_165_166": [
+    0.9898021232237597,
+    0.9900286065568615
+  ],
+  "E8_probabilidad_media_superior_25": 0.022750131948179216,
+  "segundo_revisor_distinto": false
+}

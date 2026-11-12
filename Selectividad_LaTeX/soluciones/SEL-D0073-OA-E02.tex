@@ -1,5 +1,44 @@
 % ID: SEL-D0073-OA-E02
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante transcripción.
-% Guion futuro:datos y pregunta;teoría y condiciones;estrategia y pasos;
-% comprobación independiente;interpretación y revisión matemática/didáctica.
+% Tanda S073.
+El dominio es $\mathbb R\setminus\{1/2\}$.
+
+\textbf{a)} Al anular el numerador resulta $x=-1$. Al sustituir $x=0$ resulta $f(0)=-1$. Los cortes son $(-1,0)$ y $(0,-1)$.
+
+\textbf{b)} Aplicamos la regla del cociente y derivamos de nuevo:
+\[
+ f'(x)=-\frac{3}{(2x-1)^2},
+ \qquad f''(x)=\frac{12}{(2x-1)^3}.
+\]
+Para $x<1/2$ la segunda derivada es negativa y la gráfica se curva hacia abajo. Para $x>1/2$ es positiva y se curva hacia arriba. El cambio se produce fuera del dominio, así que no hay punto de inflexión.
+
+\textbf{c)} La identidad $f(x)=1/2+3/[4(x-1/2)]$ da los límites laterales $-\infty$ y $+\infty$, respectivamente, en $1/2$, y el límite $1/2$ en ambos infinitos. Las asíntotas son $x=1/2$ e $y=1/2$.
+
+\textbf{d)} Las dos ramas son decrecientes porque $f'<0$. La izquierda queda por debajo de la horizontal y la derecha por encima.
+\begin{center}
+\setlength{\unitlength}{1mm}
+\begin{picture}(116,68)(-58,-34)
+\qbezier(-54,0)(0,0)(54,0)
+\qbezier(0,-31)(0,0)(0,31)
+{\color{gray}\qbezier(6,-31)(6,0)(6,31)
+\qbezier(-54,5)(0,5)(54,5)}
+\put(54,1){$x$}\put(1,29){$y$}
+\put(7,-30){\scriptsize $x=1/2$}
+\put(-52,7){\scriptsize $y=1/2$}
+\put(-26,-5){\scriptsize $(-1,0)$}
+\put(1,-10){\scriptsize $(0,-1)$}
+\qbezier(-52.8000,3.4694)(-44.4000,3.2143)(-36.0000,2.8571)
+\qbezier(-36.0000,2.8571)(-30.0000,2.5000)(-24.0000,2.0000)
+\qbezier(-24.0000,2.0000)(-18.0000,1.2500)(-12.0000,0.0000)
+\qbezier(-12.0000,0.0000)(-8.4000,-1.2500)(-4.8000,-3.3333)
+\qbezier(-4.8000,-3.3333)(-2.4000,-5.7143)(0.0000,-10.0000)
+\qbezier(0.0000,-10.0000)(0.8400,-12.4419)(1.6800,-15.8333)
+\qbezier(1.6800,-15.8333)(2.2200,-18.8095)(2.7600,-22.7778)
+\qbezier(2.7600,-22.7778)(3.0900,-25.9278)(3.4200,-29.8837)
+\qbezier(9.4800,30.8621)(9.9600,27.7273)(10.4400,25.2703)
+\qbezier(10.4400,25.2703)(11.3400,21.8539)(12.2400,19.4231)
+\qbezier(12.2400,19.4231)(14.2200,15.9489)(16.2000,13.8235)
+\qbezier(16.2000,13.8235)(20.1000,11.3830)(24.0000,10.0000)
+\qbezier(24.0000,10.0000)(30.0000,8.7500)(36.0000,8.0000)
+\qbezier(36.0000,8.0000)(44.4000,7.3438)(52.8000,6.9231)
+\end{picture}
+\end{center}

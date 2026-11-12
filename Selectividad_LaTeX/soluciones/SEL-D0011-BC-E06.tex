@@ -1,5 +1,32 @@
 % ID: SEL-D0011-BC-E06
-% ESTADO: no_redactada. No contiene solución ni respuesta.
-% FASE FUTURA INACTIVA. No escribir durante la transcripción de enunciados.
-% Guion futuro: datos y pregunta; teoría y condiciones; estrategia y pasos;
-% comprobación independiente; interpretación y revisión matemática/didáctica.
+% ESTADO: validada. S012; tres pasadas del mismo autor, sin segundo revisor.
+\textbf{a) Complemento e intersección.}\par\nopagebreak[4]
+\[
+\boxed{P(A)=1-0.4=0.6.}
+\]
+Como $A$ es unión disjunta de $A\cap B$ y $A\cap B^c$,
+\[
+\boxed{P(A\cap B)=0.6-0.12=0.48.}
+\]
+\textbf{b) Condición de independencia.}\par\nopagebreak[4]
+La independencia equivale a $P(A\cap B)=P(A)P(B)$. Puesto que $P(A)>0$,
+\[
+0.48=0.6P(B)\quad\Longrightarrow\quad\boxed{P(B)=0.8.}
+\]
+Es un valor posible: las cuatro regiones disjuntas tendrían probabilidades $0.48,0.12,0.32,0.08$, todas no negativas y de suma uno.
+
+\textbf{c) Tres probabilidades con el dato adicional.}\par\nopagebreak[4]
+Ahora se da $P(B^c)=0.2$, luego $P(B)=0.8$. No es necesario trasladar una hipótesis de independencia desde b: los datos y las identidades bastan.
+Por inclusión-exclusión,
+\[
+\boxed{P(A\cup B)=0.6+0.8-0.48=0.92.}
+\]
+Por De Morgan,
+\[
+\boxed{P(A^c\cup B^c)=1-P(A\cap B)=0.52.}
+\]
+La notación $P(A/B^c)$ del original significa condicionada:
+\[
+\boxed{P(A\mid B^c)=\frac{P(A\cap B^c)}{P(B^c)}=\frac{0.12}{0.2}=0.6.}
+\]
+Se distingue la unión de los complementarios del complemento de la unión, que valdría $0.08$.
