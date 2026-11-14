@@ -885,6 +885,20 @@
     "kind": "section"
   },
   {
+    "id": "install",
+    "title": "Instalar la aplicación",
+    "path": "instalar.html",
+    "parentId": "home",
+    "kind": "section"
+  },
+  {
+    "id": "offline",
+    "title": "Sin conexión",
+    "path": "offline.html",
+    "parentId": null,
+    "kind": "section"
+  },
+  {
     "id": "admin",
     "title": "Administración",
     "path": "admin/index.html",

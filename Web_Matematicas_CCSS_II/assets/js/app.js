@@ -7,6 +7,7 @@ import { mountThemeToggle } from './core/theme.js';
 import { applyLessonSkin } from './core/skin.js';
 import { getContentContext, pageRecords } from './content/runtime.js';
 import { observeDocumentAvailability, showPageAvailability } from './content/document.js';
+import { mountInstallControls } from './core/install.js';
 
 async function loadJson(path) {
   const response = await fetch(projectUrl(path));
@@ -64,6 +65,7 @@ async function initializeLayout() {
   }
   mountPreferenceControls(document.querySelector('[data-reading-options]') || document.getElementById('site-header'));
   mountThemeToggle(document.querySelector('[data-theme-toggle]'));
+  mountInstallControls();
 }
 
 initializePreferences();

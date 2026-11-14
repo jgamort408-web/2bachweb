@@ -15,6 +15,7 @@ const types = {
   '.pdf': 'application/pdf',
   '.woff2': 'font/woff2',
   '.png': 'image/png',
+  '.webmanifest': 'application/manifest+json',
 };
 
 createServer(async (request, response) => {

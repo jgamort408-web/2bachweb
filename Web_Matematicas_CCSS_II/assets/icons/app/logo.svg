@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Mates CCSS II">
+  <!-- Icono de la aplicación instalable: logotipo de la cabecera a sangre (opción A, 14-11-2026).
+       El dibujo cabe en el círculo central del 80 %, así que sirve también como icono «maskable». -->
+  <rect width="512" height="512" fill="#172033"/>
+  <g transform="translate(256 256) scale(14) translate(-18 -17.5)" fill="none" stroke-linecap="round">
+    <path d="M8 27h20M9 27V8" stroke="#FFFFFF" stroke-width="2.2"/>
+    <path d="M10 24c4-1 6-12 9-12s4 8 8 8" stroke="#93C5FD" stroke-width="2.8"/>
+  </g>
+</svg>
