@@ -5,23 +5,32 @@
       <span>Mates CCSS II<span class="mc-visually-hidden"> · Matemáticas Aplicadas a las Ciencias Sociales II</span></span>
     </a>
     <nav aria-label="Navegación principal" class="mc-nav" data-primary-navigation></nav>
-    <button type="button" class="mc-btn mc-btn--icon mc-theme-toggle" data-theme-toggle hidden aria-label="Cambiar a modo oscuro">
-      <svg class="mc-icon mc-icon--when-dark" aria-hidden="true"><use data-project-href="assets/icons/sprite.svg#mc-sol"></use></svg>
-      <svg class="mc-icon mc-icon--when-light" aria-hidden="true"><use data-project-href="assets/icons/sprite.svg#mc-luna"></use></svg>
-    </button>
+    <div class="mc-header__tools">
+      <div class="mc-reading" data-reading-options></div>
+      <button type="button" class="mc-btn mc-btn--icon mc-theme-toggle" data-theme-toggle hidden aria-label="Cambiar a modo oscuro">
+        <svg class="mc-icon mc-icon--when-dark" aria-hidden="true"><use data-project-href="assets/icons/sprite.svg#mc-sol"></use></svg>
+        <svg class="mc-icon mc-icon--when-light" aria-hidden="true"><use data-project-href="assets/icons/sprite.svg#mc-luna"></use></svg>
+      </button>
+    </div>
   </div>
+  <!-- Franja de «Opciones de lectura»: se abre con el botón «Aa» y ocupa su sitio, sin tapar el contenido. -->
+  <div class="mc-header__tray" data-reading-tray hidden></div>
   <div class="mc-header__context">
     <nav aria-label="Ubicación actual" class="breadcrumbs mc-crumbs" data-breadcrumbs></nav>
     <div class="mc-header__menus">
-      <details class="course-menu mc-menu">
-        <summary>Temario</summary>
-        <nav aria-label="Temas y epígrafes" data-course-navigation></nav>
+      <details class="course-menu mc-menu" data-header-menu>
+        <summary><svg class="mc-icon" aria-hidden="true"><use data-project-href="assets/icons/sprite.svg#mc-menu"></use></svg>Temario</summary>
+        <div class="mc-popover mc-popover--course">
+          <nav aria-label="Temas y epígrafes" data-course-navigation></nav>
+          <p class="mc-popover__foot"><a data-project-path="libro/index.html">Ver el libro completo</a></p>
+        </div>
       </details>
-      <details class="mc-menu" data-context-group hidden>
-        <summary>Páginas relacionadas</summary>
-        <nav aria-label="Índice de sección y páginas anterior y siguiente" data-context-navigation></nav>
+      <details class="mc-menu" data-context-group data-header-menu hidden>
+        <summary><svg class="mc-icon" aria-hidden="true"><use data-project-href="assets/icons/sprite.svg#mc-flecha"></use></svg>Páginas relacionadas</summary>
+        <div class="mc-popover mc-popover--related">
+          <nav aria-label="Índice de sección y páginas anterior y siguiente" data-context-navigation></nav>
+        </div>
       </details>
-      <div class="mc-reading" data-reading-options></div>
     </div>
   </div>
 </header>
