@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es" data-skin="mc">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presentación: 3. Integrales · Matemáticas CCSS II</title>
+  <meta name="description" content="Presentación de clase del tema 3, Integrales: primitivas, tabla de inmediatas, casi inmediatas, métodos, integral definida, sumas de Riemann, teorema fundamental, regla de Barrow y áreas, con exploradores interactivos.">
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t03-presentacion" class="mc-skin" data-block="analisis">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main mc-deck">
+    <header class="mc-deck__intro">
+      <span class="mc-chip mc-chip--dot">Tema 3 · Análisis · Presentación de clase</span>
+      <h1>3. Integrales</h1>
+      <p class="mc-deck__help">Avanza con <kbd>→</kbd>, <kbd>Espacio</kbd> o un mando de presentaciones y retrocede con <kbd>←</kbd>. <kbd>F</kbd> pantalla completa, <kbd>N</kbd> notas para el docente, <kbd>I</kbd> índice. En el móvil, desliza el dedo. Los pasos de los ejemplos aparecen uno a uno.</p>
+    </header>
+
+    <div class="mc-slides" data-slides data-explorers="primitive riemann fundamental barrow area">
+
+      <section class="mc-slide mc-slide__title" id="portada">
+        <span class="mc-slide__kicker">Matemáticas Aplicadas a las Ciencias Sociales II · Tema 3</span>
+        <h2>Integrales</h2>
+        <p>Recuperar una función a partir de su derivada y medir lo que se acumula: cantidades, costes y áreas.</p>
+        <ul>
+          <li>Primitivas e integrales inmediatas y casi inmediatas.</li>
+          <li>Integral definida, teorema fundamental y regla de Barrow.</li>
+          <li>Áreas de recintos y cantidades a partir de una tasa.</li>
+        </ul>
+        <aside class="mc-slide__notes">Cada diapositiva enlaza con su lección del libro. Los exploradores son los mismos que usa el alumnado en casa.</aside>
+      </section>
+
+      <section class="mc-slide" id="acumulacion">
+        <span class="mc-slide__kicker">Punto de partida · 3.5</span>
+        <h2>De una tasa a una cantidad</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p>Un depósito recibe agua a un caudal constante de 4 L/min durante 5 minutos.</p>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Idea</strong> <span>Cantidad = caudal × tiempo = \(4\cdot5=20\) litros: el área del rectángulo bajo la gráfica del caudal.</span></p>
+            <p>Si el caudal cambia con el tiempo, lo que entra sigue siendo el <em>área bajo la gráfica</em>. Integrar es calcular esa acumulación.</p>
+          </div>
+          <div>
+            <div class="mc-slide__box mc-slide__box--ask"><strong>Pregunta a la clase</strong><p>Ahora el caudal crece de forma lineal desde 0 hasta 4 L/min en esos 5 minutos. ¿Cuánta agua entra?</p></div>
+            <p class="mc-slide__box mc-slide__box--example" data-step><strong>Respuesta</strong> <span>Un triángulo de base 5 y altura 4: \(\tfrac12\cdot5\cdot4=10\) litros. La mitad, porque el caudal medio es 2 L/min.</span></p>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="05-integral-definida.html">3.5. Integral definida</a></p>
+      </section>
+
+      <section class="mc-slide" id="primitiva">
+        <span class="mc-slide__kicker">3.1 · Integral indefinida</span>
+        <h2>Primitiva: derivar al revés</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Definición</strong> <span>\(F\) es una primitiva de \(f\) en un intervalo si \(F'(x)=f(x)\) en todo él. Todas las primitivas forman la familia \[\int f(x)\,dx=F(x)+C.\]</span></p>
+        <ol class="mc-slide__steps">
+          <li>\(f(x)=2x\). ¿Qué función tiene derivada \(2x\)? \(x^2\), y también \(x^2+5\) o \(x^2-3\).</li>
+          <li data-step>Familia: \(\displaystyle\int 2x\,dx=x^2+C\). La constante sube o baja la gráfica; no cambia la pendiente.</li>
+          <li data-step>Un dato fija una curva: si \(F(1)=3\), entonces \(1+C=3\), así que \(C=2\) y \(F(x)=x^2+2\).</li>
+          <li data-step>Comprueba siempre derivando: \((x^2+2)'=2x\). ✓</li>
+        </ol>
+        <p class="mc-slide__links"><a href="01-integral-indefinida.html">3.1. Integral indefinida</a></p>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="explora-primitivas">
+        <span class="mc-slide__kicker">Explorador · 3.1</span>
+        <h2>Una familia de curvas paralelas</h2>
+        <p>Cambia \(C\): todas las curvas tienen la misma pendiente en \(x=a\). Elige un dato \(F(a)=b\) y pulsa «Ajustar al dato».</p>
+        <div data-primitive-explorer>
+          <div class="actions"><label>Integrando <select data-primitive-family><option value="linear">f(x)=2x</option><option value="quadratic">f(x)=6x²</option><option value="constant">f(x)=3</option></select></label><label>Constante C <input data-primitive-c type="range" min="-6" max="6" step="1" value="0"><output data-primitive-c-value>0</output></label></div>
+          <div class="actions"><label>Abscisa a <select data-primitive-a><option value="-1">−1</option><option value="0">0</option><option value="1" selected>1</option></select></label><label>Valor b <select data-primitive-b><option value="-2">−2</option><option value="0">0</option><option value="2" selected>2</option></select></label><button type="button" data-primitive-fit>Ajustar al dato</button></div>
+          <label><input type="checkbox" data-primitive-others checked> Mostrar también C=−3, C=0 y C=3</label>
+          <div data-primitive-result></div><p data-primitive-status role="status"></p>
+        </div>
+        <aside class="mc-slide__notes">Pregunta antes de ajustar: ¿cuántas curvas pasan por el punto (a, b)? Solo una de la familia.</aside>
+      </section>
+
+      <section class="mc-slide" id="tabla">
+        <span class="mc-slide__kicker">3.2 · Integrales inmediatas</span>
+        <h2>La tabla de derivadas leída al revés</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p>\(\displaystyle\int x^n\,dx=\frac{x^{n+1}}{n+1}+C\quad(n\ne-1)\)</p>
+            <p>\(\displaystyle\int \frac1x\,dx=\ln|x|+C\)</p>
+            <p>\(\displaystyle\int e^x\,dx=e^x+C\)</p>
+            <p>\(\displaystyle\int a^x\,dx=\frac{a^x}{\ln a}+C\quad(a&gt;0,\ a\ne1)\)</p>
+            <p>\(\displaystyle\int \cos x\,dx=\sin x+C,\qquad \int \sin x\,dx=-\cos x+C\)</p>
+          </div>
+          <div>
+            <p class="mc-slide__box mc-slide__box--method"><strong>Linealidad</strong> <span>Las sumas se integran término a término y los factores constantes salen fuera: \[\int\bigl(\alpha f+\beta g\bigr)dx=\alpha\int f\,dx+\beta\int g\,dx.\]</span></p>
+            <p class="mc-slide__box mc-slide__box--error"><strong>Cuidado</strong> <span>Con un producto o un cociente no se integra factor a factor: \(\int f\cdot g\ne\int f\cdot\int g\).</span></p>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="02-integrales-inmediatas.html">3.2. Integrales inmediatas</a></p>
+      </section>
+
+      <section class="mc-slide" id="ejemplo-inmediatas" data-title="Ejemplo: integral de una suma">
+        <span class="mc-slide__kicker">Ejemplo paso a paso · 3.2</span>
+        <h2>\(\displaystyle\int\Bigl(6x^2-\frac4x+3e^x\Bigr)dx\)</h2>
+        <ol class="mc-slide__steps">
+          <li>Separa por linealidad: \(6\int x^2\,dx-4\int\frac1x\,dx+3\int e^x\,dx\).</li>
+          <li data-step>Potencia: \(6\cdot\frac{x^3}{3}=2x^3\).</li>
+          <li data-step>Excepción \(n=-1\): \(-4\ln|x|\).</li>
+          <li data-step>Exponencial: \(3e^x\). Una sola constante al final: \[\int\Bigl(6x^2-\frac4x+3e^x\Bigr)dx=2x^3-4\ln|x|+3e^x+C.\]</li>
+          <li data-step>Comprueba: \(\bigl(2x^3-4\ln|x|+3e^x\bigr)'=6x^2-\frac4x+3e^x\). ✓</li>
+        </ol>
+      </section>
+
+      <section class="mc-slide" id="pregunta-inmediatas">
+        <span class="mc-slide__kicker">Pregunta a la clase · 3.2</span>
+        <h2>Reescribe antes de integrar</h2>
+        <p>Calcula en el cuaderno. Las soluciones aparecen una a una.</p>
+        <div class="mc-slide__cols">
+          <div class="mc-slide__box mc-slide__box--ask"><strong>a)</strong><p>\(\displaystyle\int\frac{1}{x^3}\,dx\)</p><p data-step>\(\displaystyle\int x^{-3}dx=\frac{x^{-2}}{-2}+C=-\frac{1}{2x^2}+C\)</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>b)</strong><p>\(\displaystyle\int\sqrt{x}\,dx\)</p><p data-step>\(\displaystyle\int x^{1/2}dx=\frac{x^{3/2}}{3/2}+C=\frac23\sqrt{x^3}+C\)</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>c)</strong><p>\(\displaystyle\int 2^x\,dx\)</p><p data-step>\(\displaystyle\frac{2^x}{\ln2}+C\)</p></div>
+        </div>
+        <aside class="mc-slide__notes">Error típico en a): escribir \(\ln|x^3|\). Solo \(1/x\) da logaritmo; \(1/x^3\) es una potencia.</aside>
+      </section>
+
+      <section class="mc-slide" id="casi-inmediatas">
+        <span class="mc-slide__kicker">3.3 · Integrales casi inmediatas</span>
+        <h2>La regla de la cadena al revés</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Patrón</strong> <span>Si aparece una función interior \(u(x)\) acompañada de su derivada \(u'(x)\), la integral es inmediata en \(u\).</span></p>
+        <div class="mc-slide__cols">
+          <div>
+            <p>\(\displaystyle\int u'\,u^n\,dx=\frac{u^{n+1}}{n+1}+C\quad(n\ne-1)\)</p>
+            <p>\(\displaystyle\int \frac{u'}{u}\,dx=\ln|u|+C\)</p>
+            <p>\(\displaystyle\int u'\,e^u\,dx=e^u+C\)</p>
+          </div>
+          <div>
+            <p>\(\displaystyle\int u'\,a^u\,dx=\frac{a^u}{\ln a}+C\)</p>
+            <p>\(\displaystyle\int u'\cos u\,dx=\sin u+C\)</p>
+            <p>\(\displaystyle\int u'\sin u\,dx=-\cos u+C\)</p>
+          </div>
+        </div>
+        <p class="mc-slide__box mc-slide__box--method" data-step><strong>Si falta una constante</strong> <span>se ajusta multiplicando y dividiendo: solo constantes, nunca \(x\).</span></p>
+        <p class="mc-slide__links"><a href="03-integrales-casi-inmediatas.html">3.3. Integrales casi inmediatas</a></p>
+      </section>
+
+      <section class="mc-slide" id="ejemplo-casi-inmediatas" data-title="Ejemplo: un cociente que da logaritmo">
+        <span class="mc-slide__kicker">Ejemplo paso a paso · 3.3</span>
+        <h2>\(\displaystyle\int\frac{x}{x^2+1}\,dx\)</h2>
+        <ol class="mc-slide__steps">
+          <li>Función interior: \(u=x^2+1\), con \(u'=2x\). En el numerador hay \(x\): falta el factor 2.</li>
+          <li data-step>Ajuste: \(\displaystyle\int\frac{x}{x^2+1}\,dx=\frac12\int\frac{2x}{x^2+1}\,dx\).</li>
+          <li data-step>Patrón \(u'/u\): \(\displaystyle\frac12\ln\left(x^2+1\right)+C\). No hace falta el valor absoluto: \(x^2+1&gt;0\).</li>
+          <li data-step>Comprueba: \(\displaystyle\Bigl(\tfrac12\ln(x^2+1)\Bigr)'=\frac12\cdot\frac{2x}{x^2+1}=\frac{x}{x^2+1}\). ✓</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--example" data-step><strong>Otro con función interior lineal</strong> <span>\(\displaystyle\int(3x-1)^4\,dx=\frac{(3x-1)^5}{15}+C\), porque al derivar sale \(5\cdot3=15\) por delante.</span></p>
+      </section>
+
+      <section class="mc-slide" id="metodos">
+        <span class="mc-slide__kicker">3.4 · Métodos de integración</span>
+        <h2>Una ruta para decidir</h2>
+        <table>
+          <thead><tr><th scope="col">Si observas…</th><th scope="col">Prueba…</th></tr></thead>
+          <tbody>
+            <tr><td>Sumas, factores constantes, un producto de polinomios</td><td>Linealidad o desarrollar</td></tr>
+            <tr><td>Un cociente de polinomios</td><td>Simplificar o dividir</td></tr>
+            <tr><td>Una función interior y su derivada (salvo constante)</td><td>Casi inmediata o cambio de variable</td></tr>
+            <tr><td>Un producto como \(xe^x\)</td><td>Por partes (ampliación)</td></tr>
+          </tbody>
+        </table>
+        <p class="mc-slide__box mc-slide__box--example" data-step><strong>Ejemplo</strong> <span>\(\displaystyle\int\frac{x^2+1}{x}\,dx=\int\Bigl(x+\frac1x\Bigr)dx=\frac{x^2}{2}+\ln|x|+C\): dividir primero convierte el cociente en dos inmediatas.</span></p>
+        <p class="mc-slide__links"><a href="04-metodos-de-integracion.html">3.4. Métodos de integración</a></p>
+      </section>
+
+      <section class="mc-slide" id="pregunta-metodo">
+        <span class="mc-slide__kicker">Pregunta a la clase · 3.4</span>
+        <h2>¿Qué harías primero?</h2>
+        <div class="mc-slide__cols mc-slide__cols--2">
+          <div class="mc-slide__box mc-slide__box--ask"><strong>a)</strong><p>\(\displaystyle\int x(x+3)\,dx\)</p><p data-step>Desarrollar: \(\displaystyle\int(x^2+3x)\,dx=\frac{x^3}{3}+\frac{3x^2}{2}+C\)</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>b)</strong><p>\(\displaystyle\int e^{5x}\,dx\)</p><p data-step>Casi inmediata con \(u=5x\): \(\displaystyle\frac{e^{5x}}{5}+C\)</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>c)</strong><p>\(\displaystyle\int 2x\,e^{x^2}\,dx\)</p><p data-step>Patrón \(u'e^u\) con \(u=x^2\): \(e^{x^2}+C\)</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>d)</strong><p>\(\displaystyle\int x\,e^{x}\,dx\)</p><p data-step>No hay \(u'\) acompañando: por partes, \((x-1)e^x+C\)</p></div>
+        </div>
+        <aside class="mc-slide__notes">d) es ampliación del bloque. Si no se ha visto por partes, basta con que comprueben derivando que \((x-1)e^x\) es una primitiva.</aside>
+      </section>
+
+      <section class="mc-slide" id="integral-definida">
+        <span class="mc-slide__kicker">3.5 · Integral definida</span>
+        <h2>Área con signo</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Idea</strong> <span>\(\displaystyle\int_a^b f(x)\,dx\) es el límite de las sumas de rectángulos \(\sum f(x_i)\,\Delta x\) cuando su anchura tiende a 0.</span></p>
+            <ul>
+              <li>Donde \(f\ge0\), los rectángulos suman área.</li>
+              <li>Donde \(f&lt;0\), restan: la integral es un <em>área con signo</em>.</li>
+            </ul>
+          </div>
+          <div>
+            <p class="mc-slide__box mc-slide__box--ask"><strong>Pregunta a la clase</strong> <span>\(\displaystyle\int_{-1}^{1}x\,dx\) vale 0. ¿Significa que no hay área entre la recta y el eje?</span></p>
+            <p class="mc-slide__box mc-slide__box--example" data-step><strong>Respuesta</strong> <span>No: hay dos triángulos de área \(\tfrac12\). La integral los resta (\(\tfrac12-\tfrac12=0\)); el área los suma (1).</span></p>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="05-integral-definida.html">3.5. Integral definida</a></p>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="riemann">
+        <span class="mc-slide__kicker">Explorador · 3.5</span>
+        <h2>Sumas de Riemann con una curva</h2>
+        <div data-riemann-explorer><div class="actions"><label>Función <select data-riemann-family><option value="increasing" selected>f(x)=x²</option><option value="decreasing">f(x)=4−x²</option></select></label><label>Regla <select data-riemann-rule><option value="left">Extremo izquierdo</option><option value="mid">Punto medio</option><option value="right">Extremo derecho</option></select></label><label>Rectángulos: <output data-riemann-n-value>6</output> <input type="range" min="1" max="100" value="6" data-riemann-n></label></div><div data-riemann-result></div><p data-riemann-status role="status"></p></div>
+        <aside class="mc-slide__notes">Pide una predicción antes de mover el deslizador: con x² y el extremo derecho, ¿la suma se pasa o se queda corta? Después cambia a 4−x²: el sentido del error depende de si la función crece o decrece.</aside>
+      </section>
+
+      <section class="mc-slide" id="propiedades">
+        <span class="mc-slide__kicker">3.5 · Propiedades</span>
+        <h2>Propiedades para organizar el cálculo</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p>\(\displaystyle\int_a^a f\,dx=0,\qquad \int_b^a f\,dx=-\int_a^b f\,dx\)</p>
+            <p>\(\displaystyle\int_a^b f\,dx=\int_a^c f\,dx+\int_c^b f\,dx\)</p>
+            <p>\(\displaystyle\int_a^b(\alpha f+\beta g)\,dx=\alpha\int_a^b f\,dx+\beta\int_a^b g\,dx\)</p>
+          </div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>Pregunta a la clase</strong>
+            <p>\(f\) es continua, \(\int_0^2 f=3\) y \(\int_2^5 f=-1\). Halla \(\int_5^0 (2f-1)\,dx\).</p>
+            <p data-step>Aditividad: \(\int_0^5 f=3+(-1)=2\).</p>
+            <p data-step>Linealidad: \(\int_0^5(2f-1)\,dx=2\cdot2-5=-1\).</p>
+            <p data-step>Límites invertidos: \(\int_5^0(2f-1)\,dx=1\). No hace falta conocer \(f\).</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mc-slide" id="teorema-fundamental" data-title="La acumulación crece a ritmo f">
+        <span class="mc-slide__kicker">3.6 · Teorema fundamental del cálculo</span>
+        <h2>La acumulación crece a ritmo \(f\)</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Teorema</strong> <span>Si \(f\) es continua en un intervalo que contiene \(a\), la función \(A(x)=\displaystyle\int_a^x f(t)\,dt\) es derivable y \(A'(x)=f(x)\).</span></p>
+        <ol class="mc-slide__steps">
+          <li>\(A(x)=\displaystyle\int_0^x (t^2-1)\,dt\). Sin calcular la integral: \(A'(x)=x^2-1\).</li>
+          <li data-step>\(A\) crece donde \(f&gt;0\) (\(|x|&gt;1\)) y decrece donde \(f&lt;0\) (\(-1&lt;x&lt;1\)).</li>
+          <li data-step>Máximo relativo en \(x=-1\) y mínimo relativo en \(x=1\): allí \(f\) cambia de signo.</li>
+          <li data-step>Lo confirma la fórmula: \(A(x)=\frac{x^3}{3}-x\), así que \(A(-1)=\frac23\) y \(A(1)=-\frac23\).</li>
+        </ol>
+        <p class="mc-slide__links"><a href="06-teorema-fundamental-del-calculo.html">3.6. Teorema fundamental del cálculo</a></p>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="explora-fundamental" data-title="La altura de f es la pendiente de A">
+        <span class="mc-slide__kicker">Explorador · 3.6</span>
+        <h2>La altura de \(f\) es la pendiente de \(A\)</h2>
+        <div data-fundamental-explorer><div class="actions"><label>Integrando <select data-fundamental-family><option value="line">f(t)=t−1</option><option value="quadratic">f(t)=t²−1</option><option value="absolute">f(t)=|t|</option><option value="jump">Ejemplo con salto: −1 / 1</option></select></label><label>Origen a <select data-fundamental-a><option value="-1">−1</option><option value="0" selected>0</option><option value="1">1</option></select></label></div>
+          <div class="actions"><label>Punto x <input type="range" data-fundamental-x min="-2" max="2" step="0.5" value="2"><output data-fundamental-x-value>2</output></label><label>Distancia h <select data-fundamental-h><option value="0.5">0,5</option><option value="0.1">0,1</option><option value="0.01">0,01</option></select></label></div><label><input type="checkbox" data-fundamental-secants checked> Mostrar las dos secantes</label><div data-fundamental-result></div><p data-fundamental-status role="status"></p></div>
+        <aside class="mc-slide__notes">El ejemplo con salto muestra por qué el teorema exige continuidad: en el salto, A no es derivable.</aside>
+      </section>
+
+      <section class="mc-slide" id="barrow">
+        <span class="mc-slide__kicker">3.7 · Regla de Barrow</span>
+        <h2>Superior menos inferior</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Regla de Barrow</strong> <span>Si \(f\) es continua en \([a,b]\) y \(F'=f\): \(\displaystyle\int_a^b f(x)\,dx=\bigl[F(x)\bigr]_a^b=F(b)-F(a).\) La constante \(C\) se cancela.</span></p>
+        <h3>\(\displaystyle\int_{-1}^{2}(3x^2-2x+1)\,dx\)</h3>
+        <ol class="mc-slide__steps">
+          <li>El integrando es un polinomio: continuo en \([-1,2]\).</li>
+          <li data-step>Primitiva: \(F(x)=x^3-x^2+x\), porque \(F'(x)=3x^2-2x+1\).</li>
+          <li data-step>Evalúa por separado: \(F(2)=8-4+2=6\) y \(F(-1)=-1-1-1=-3\).</li>
+          <li data-step>Resta con paréntesis: \(6-(-3)=9\).</li>
+        </ol>
+        <p class="mc-slide__links"><a href="07-regla-de-barrow.html">3.7. Regla de Barrow</a></p>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="explora-barrow">
+        <span class="mc-slide__kicker">Explorador · 3.7</span>
+        <h2>Dos extremos y una constante</h2>
+        <p>Cambia \(C\): el resultado no cambia. Intercambia los límites: cambia el signo.</p>
+        <div data-barrow-explorer><div class="actions"><label>Integrando <select data-barrow-family><option value="linear">2x+1</option><option value="quadratic">x²−1</option><option value="reciprocal">1/x</option></select></label><label>Constante C <select data-barrow-c><option value="-3">−3</option><option value="0" selected>0</option><option value="3">3</option></select></label></div>
+          <div class="actions"><label>Límite inferior a <select data-barrow-a><option value="-2">−2</option><option value="-1" selected>−1</option><option value="0">0</option><option value="1">1</option><option value="2">2</option></select></label><label>Límite superior b <select data-barrow-b><option value="-2">−2</option><option value="-1">−1</option><option value="0">0</option><option value="1">1</option><option value="2" selected>2</option></select></label><button type="button" data-barrow-swap>Intercambiar límites</button></div>
+          <div data-barrow-result></div><p data-barrow-status role="status"></p></div>
+        <aside class="mc-slide__notes">Con 1/x y un intervalo que contiene el 0, el explorador avisa de que Barrow no se puede aplicar: buen momento para insistir en la continuidad.</aside>
+      </section>
+
+      <section class="mc-slide" id="barrow-cambio" data-title="Ejemplo: Barrow con una casi inmediata">
+        <span class="mc-slide__kicker">Ejemplo paso a paso · 3.7</span>
+        <h2>\(\displaystyle\int_0^1 x\,e^{x^2}\,dx\)</h2>
+        <ol class="mc-slide__steps">
+          <li>Casi inmediata con \(u=x^2\), \(u'=2x\): falta un 2. \(\displaystyle\int x\,e^{x^2}dx=\frac12e^{x^2}+C\).</li>
+          <li data-step>Barrow: \(\displaystyle\Bigl[\tfrac12e^{x^2}\Bigr]_0^1=\frac12e-\frac12=\frac{e-1}{2}\approx0{,}859\).</li>
+          <li data-step>Otra ruta: cambiar también los límites. \(x=0\to u=0\), \(x=1\to u=1\): \(\displaystyle\frac12\int_0^1 e^u\,du=\frac{e-1}{2}\).</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>No mezcles</strong> <span>Si integras en \(u\), usa los límites de \(u\); si vuelves a \(x\), usa los de \(x\).</span></p>
+      </section>
+
+      <section class="mc-slide" id="area-eje">
+        <span class="mc-slide__kicker">3.8 · Aplicaciones</span>
+        <h2>Área entre una curva y el eje</h2>
+        <p class="mc-slide__box mc-slide__box--method"><strong>Procedimiento</strong> <span>Cortes con el eje dentro de \([a,b]\) → signo en cada tramo → suma de los valores absolutos de las integrales de cada tramo.</span></p>
+        <h3>\(f(x)=x^2-1\) en \([-2,2]\)</h3>
+        <ol class="mc-slide__steps">
+          <li>Cortes: \(x^2-1=0\Rightarrow x=\pm1\). Tres tramos.</li>
+          <li data-step>Con \(F(x)=\frac{x^3}{3}-x\): \(\displaystyle\int_{-2}^{-1}f=\frac43,\quad\int_{-1}^{1}f=-\frac43,\quad\int_{1}^{2}f=\frac43\).</li>
+          <li data-step>Área: \(\frac43+\frac43+\frac43=4\) unidades cuadradas.</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>Error frecuente</strong> <span>\(\int_{-2}^2 f=\frac43\): integrar de una vez resta el tramo negativo, y su valor absoluto tampoco es el área.</span></p>
+        <p class="mc-slide__links"><a href="08-aplicaciones-de-la-integral.html">3.8. Aplicaciones de la integral</a></p>
+      </section>
+
+      <section class="mc-slide" id="area-curvas" data-title="Área entre dos curvas">
+        <span class="mc-slide__kicker">3.8 · Aplicaciones</span>
+        <h2>Área entre dos curvas: \(y=x\) e \(y=x^2\)</h2>
+        <ol class="mc-slide__steps">
+          <li>Cortes: \(x^2=x\Rightarrow x=0\) y \(x=1\).</li>
+          <li data-step>¿Quién queda arriba? En \(x=\frac12\): \(\frac12&gt;\frac14\). En \((0,1)\), \(x\ge x^2\).</li>
+          <li data-step>La altura de cada franja es la diferencia: \(\displaystyle A=\int_0^1(x-x^2)\,dx=\Bigl[\frac{x^2}{2}-\frac{x^3}{3}\Bigr]_0^1=\frac16.\)</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--ask" data-step><strong>Pregunta a la clase</strong> <span>Si sumamos \(x^3\) a las dos curvas, ¿cambia el área? No: la diferencia sigue siendo \(x-x^2\).</span></p>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="explora-areas">
+        <span class="mc-slide__kicker">Explorador · 3.8</span>
+        <h2>¿Qué curva queda arriba?</h2>
+        <div data-area-explorer><div class="actions"><label>Curvas <select data-area-family><option value="cap">1−x² y 0</option><option value="crossing" selected>x² y x</option><option value="below">x²−2 y −1</option><option value="parallel">x+1 y x−1</option></select></label><label>Factor vertical <select data-area-k><option>1</option><option>2</option><option>3</option></select></label></div>
+          <div class="actions"><label>Límite a <select data-area-a><option value="-2">−2</option><option value="-1" selected>−1</option><option value="0">0</option><option value="1">1</option><option value="2">2</option></select></label><label>Límite b <select data-area-b><option value="-2">−2</option><option value="-1">−1</option><option value="0">0</option><option value="1">1</option><option value="2" selected>2</option></select></label><button type="button" data-area-reverse>Invertir límites</button></div>
+          <div class="actions"><label><input type="checkbox" data-area-swap> Intercambiar f y g</label><label><input type="checkbox" data-area-shading checked> Mostrar regiones rayadas</label></div>
+          <div data-area-result></div><p data-area-status role="status"></p></div>
+        <aside class="mc-slide__notes">Con x² y x en [−1, 2] hay tres tramos y el área es 11/6, mientras que la integral de la diferencia vale 3/2.</aside>
+      </section>
+
+      <section class="mc-slide" id="tasas">
+        <span class="mc-slide__kicker">3.8 · Aplicaciones</span>
+        <h2>De un coste marginal a un coste total</h2>
+        <p>Una empresa tiene un coste marginal \(K'(q)=2q+5\) €/unidad y un coste fijo \(K(0)=40\) €.</p>
+        <ol class="mc-slide__steps">
+          <li>Primitiva con el dato: \(K(q)=q^2+5q+C\) y \(K(0)=40\Rightarrow K(q)=q^2+5q+40\).</li>
+          <li data-step>Coste de pasar de 10 a 20 unidades: \(\displaystyle\int_{10}^{20}(2q+5)\,dq=\bigl[q^2+5q\bigr]_{10}^{20}=500-150=350\) €.</li>
+          <li data-step>Coincide con \(K(20)-K(10)=540-190=350\) €: el coste fijo se cancela.</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--theory" data-step><strong>Unidades</strong> <span>(€/unidad) × unidades = €. La integral de una tasa da la variación de la cantidad.</span></p>
+      </section>
+
+      <section class="mc-slide" id="errores">
+        <span class="mc-slide__kicker">Repaso</span>
+        <h2>Errores frecuentes</h2>
+        <ul>
+          <li>Olvidar \(+C\) en una integral indefinida, o ponerlo en una definida.</li>
+          <li>Integrar un producto factor a factor: \(\int x\,e^x\,dx\ne\frac{x^2}{2}e^x\).</li>
+          <li>Usar la regla de la potencia con \(n=-1\): \(\int\frac1x\,dx=\ln|x|+C\).</li>
+          <li>Ajustar una \(x\) que falta como si fuera una constante.</li>
+          <li>Cambiar de variable y conservar los límites de \(x\).</li>
+          <li>Escribir \(F(b)-F(a)\) sin paréntesis cuando \(F(a)\) es negativo.</li>
+          <li>Confundir integral con signo y área: hay que separar los tramos.</li>
+        </ul>
+      </section>
+
+      <section class="mc-slide" id="cierre">
+        <span class="mc-slide__kicker">Para seguir</span>
+        <h2>Practica y prepara la PAU</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <h3>En el libro</h3>
+            <ul>
+              <li><a href="index.html#repaso">Repaso integrado del tema</a></li>
+              <li><a href="../../../test/index.html?tema=t03">Test de 60 preguntas</a> y <a href="../../../tarjetas/index.html?tema=t03">48 tarjetas</a></li>
+              <li>Juegos: <a href="../../../laboratorios/juegos/t03-a-parejas-de-primitivas.html">Parejas de primitivas</a>, <a href="../../../laboratorios/juegos/t03-b-metodo-correcto.html">Método correcto</a> y <a href="../../../laboratorios/juegos/t03-c-area-por-tramos.html">Área por tramos</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>En la PAU</h3>
+            <p>Suelen pedir una primitiva con una condición, una integral definida con Barrow o el área de un recinto.</p>
+            <p><a href="../../../selectividad/03-integrales.html">Ejercicios de Selectividad del tema 3</a></p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="../../../assets/js/learning/presentation.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

@@ -280,6 +280,13 @@
     "kind": "lesson"
   },
   {
+    "id": "t03-presentacion",
+    "title": "Presentación de clase del tema 3",
+    "path": "libro/temas/03-integrales/presentacion.html",
+    "parentId": "t03",
+    "kind": "section"
+  },
+  {
     "id": "t04",
     "title": "4. Matrices y determinantes",
     "path": "libro/temas/04-matrices-y-determinantes/index.html",

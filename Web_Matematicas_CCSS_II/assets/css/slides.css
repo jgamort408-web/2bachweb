@@ -1,0 +1,120 @@
+/*
+ * Presentaciones de clase por tema (assets/js/learning/slides.js). Solo se carga en las páginas presentacion.html.
+ * Sin JavaScript: las diapositivas se leen como apartados. Con JavaScript: lienzo 16:9 que se escala con su contenedor
+ * (unidades cqw), así que el texto crece con el proyector. En pantallas estrechas la diapositiva toma su altura natural.
+ */
+.page-main.mc-deck { width: min(100%, 92rem); display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--mc-space-5); }
+.mc-deck__frame, .mc-slides, .mc-slide__box, .mc-slide li { min-width: 0; }
+.mc-slide .table-scroll { max-width: 100%; overflow-x: auto; }
+.mc-deck__intro { display: grid; gap: var(--mc-space-2); }
+.mc-deck__intro > * { margin: 0; }
+.mc-deck__help { color: var(--mc-text-2); font-size: 0.95rem; }
+.mc-deck__help kbd { border: 1px solid var(--mc-border-strong); border-radius: 6px; padding: 0 0.35em; font: inherit; font-size: 0.85em; background: var(--mc-paper-2); }
+
+/* Documento sin JavaScript (y vista de impresión): una diapositiva tras otra. */
+.mc-slides { display: grid; gap: var(--mc-space-6); }
+.mc-slide { background: var(--mc-paper); color: var(--mc-text); border: 1px solid var(--mc-border); border-radius: var(--mc-radius-box); padding: var(--mc-space-6); display: flex; flex-direction: column; gap: 0.9em; min-width: 0; }
+.mc-slide > * { margin: 0; min-width: 0; }
+.mc-slide h2 { font-family: var(--mc-font-heading); font-size: 1.9em; line-height: 1.1; color: var(--mc-text); text-wrap: balance; }
+.mc-slide h3 { font-family: var(--mc-font-heading); font-size: 1.15em; margin: 0; }
+.mc-slide p, .mc-slide li { line-height: 1.45; }
+.mc-slide ul, .mc-slide ol { margin: 0; padding-left: 1.3em; display: grid; gap: 0.35em; }
+.mc-slide__kicker { font-size: 0.8em; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mc-accent-dark, var(--mc-link)); }
+.mc-slide__cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18em), 1fr)); gap: 1.2em; align-items: start; }
+.mc-slide__cols--2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 14em), 1fr)); }
+@media (min-width: 48rem) { .mc-slide__cols--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.mc-slide__cols > * { min-width: 0; display: grid; gap: 0.7em; align-content: start; }
+.mc-slide__cols > * > * { margin: 0; }
+.mc-slide__box { border-radius: 0.7em; padding: 0.8em 1em; border-left: 0.3em solid; display: grid; gap: 0.5em; }
+.mc-slide__box > * { margin: 0; }
+.mc-slide__box > strong:first-child, .mc-slide__box > .mc-slide__label { font-family: var(--mc-font-heading); font-size: 0.85em; letter-spacing: 0.04em; text-transform: uppercase; }
+.mc-slide__box--theory { background: var(--mc-theory-bg); border-color: var(--mc-theory-title); }
+.mc-slide__box--theory > strong:first-child { color: var(--mc-theory-title); }
+.mc-slide__box--method { background: var(--mc-method-bg); border-color: var(--mc-method-title); }
+.mc-slide__box--method > strong:first-child { color: var(--mc-method-title); }
+.mc-slide__box--example { background: var(--mc-example-bg); border-color: var(--mc-example-title); }
+.mc-slide__box--example > strong:first-child { color: var(--mc-example-title); }
+.mc-slide__box--error { background: var(--mc-error-bg); border-color: var(--mc-error-title); color: var(--mc-error-text); }
+.mc-slide__box--error > strong:first-child { color: var(--mc-error-title); }
+.mc-slide__box--ask { background: var(--mc-azar-tint); border-color: var(--mc-azar-dark); }
+.mc-slide__box--ask > strong:first-child { color: var(--mc-azar-dark); }
+.mc-slide__steps { list-style: none; padding: 0 !important; counter-reset: paso; }
+.mc-slide__steps > li { counter-increment: paso; position: relative; padding-left: 1.8em; }
+.mc-slide__steps > li::before { content: counter(paso); position: absolute; left: 0; top: 0; font-family: var(--mc-font-heading); font-weight: 700; color: var(--mc-accent-dark, var(--mc-link)); }
+.mc-slide__notes { border-top: 1px dashed var(--mc-border-strong); padding-top: 0.6em; color: var(--mc-text-2); font-size: 0.85em; }
+.mc-slide__notes::before { content: "Nota para el docente. "; font-weight: 700; }
+.mc-slide__links { display: flex; flex-wrap: wrap; gap: 0.5em 1.2em; }
+.mc-slide table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.mc-slide th, .mc-slide td { border: 1px solid var(--mc-border-strong); padding: 0.25em 0.6em; text-align: left; }
+.mc-slide__title { justify-content: center; }
+.mc-slide__title h1 { font-family: var(--mc-font-heading); font-size: 2.8em; line-height: 1.05; margin: 0; }
+.mc-slide__title .mc-topic__art { max-width: 22em; }
+.mc-slide .activity, .mc-slide [data-riemann-explorer], .mc-slide [data-primitive-explorer], .mc-slide [data-barrow-explorer], .mc-slide [data-area-explorer], .mc-slide [data-fundamental-explorer] { display: grid; gap: 0.5em; font-size: 0.8em; }
+.mc-slide .actions { display: flex; flex-wrap: wrap; gap: 0.5em 1em; align-items: center; margin: 0; }
+.mc-slide select, .mc-slide input, .mc-slide button:not(.mc-deck__btn) { font: inherit; }
+
+/* Modo presentación (con JavaScript). */
+.mc-deck__frame { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; gap: var(--mc-space-3); }
+.mc-slides.is-deck { container-type: size; height: min(calc(100dvh - 9rem), calc((min(100vw, 92rem) - 2rem) * 9 / 16)); min-height: 18rem; display: grid; place-items: center; gap: 0; }
+.mc-slides.is-deck > .mc-slide { width: min(100cqw, 100cqh * 16 / 9); aspect-ratio: 16 / 9; box-sizing: border-box; font-size: min(1.55cqw, 2.75cqh); padding: 2.2em 2.8em 1.8em; overflow: auto; box-shadow: 0 1px 2px rgb(15 23 42 / 0.06), 0 8px 24px rgb(15 23 42 / 0.08); }
+/* El foco pasa a la diapositiva al cambiar (lectores de pantalla); el marco no se dibuja en el proyector. */
+.mc-slides.is-deck > .mc-slide:focus { outline: none; }
+.mc-slides.is-deck .mc-slide__notes { display: none; }
+.mc-deck__frame.show-notes .mc-slides.is-deck .mc-slide__notes { display: block; }
+.mc-slides.is-deck [data-step].is-pending { visibility: hidden; }
+.mc-slides.is-deck [data-step] { transition: opacity var(--mc-duration-base, 200ms) ease; }
+.mc-slides.is-deck [data-step].is-pending { opacity: 0; }
+.mc-slides.is-deck .mc-slide figure svg { max-height: 46cqh; width: auto; max-width: 100%; }
+.mc-slides.is-deck .mc-slide figure { margin: 0; }
+/* Diapositivas con explorador: controles y explicación a la izquierda; gráficas y tablas a la derecha. */
+.mc-slides.is-deck .mc-slide--lab > :is([data-primitive-explorer], [data-riemann-explorer], [data-fundamental-explorer], [data-barrow-explorer], [data-area-explorer]) { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); grid-auto-flow: row dense; gap: 0.5em 1.4em; align-items: start; }
+.mc-slides.is-deck .mc-slide--lab > :is([data-primitive-explorer], [data-riemann-explorer], [data-fundamental-explorer], [data-barrow-explorer], [data-area-explorer]) > * { grid-column: 1; }
+.mc-slides.is-deck .mc-slide--lab :is([data-primitive-result], [data-riemann-result], [data-fundamental-result], [data-barrow-result], [data-area-result]) { display: contents; }
+.mc-slides.is-deck .mc-slide--lab :is([data-primitive-result], [data-riemann-result], [data-fundamental-result], [data-barrow-result], [data-area-result]) > * { grid-column: 1; }
+.mc-slides.is-deck .mc-slide.mc-slide--lab :is(figure, .table-scroll) { grid-column: 2; grid-row: span 6; min-width: 0; }
+/* El estado de cada explorador repite lo que ya se ve: solo para lectores de pantalla en la presentación. */
+.mc-slides.is-deck .mc-slide--lab [role="status"] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.mc-slides.is-deck .mc-slide--lab figure svg { max-height: 50cqh; }
+.mc-slides.is-deck .mc-slide--lab figcaption { font-size: 0.8em; color: var(--mc-text-2); }
+.mc-slides.is-deck .mc-slide--lab .table-scroll { font-size: 0.85em; overflow-x: auto; }
+.mc-slides.is-deck .mc-slide--lab .key-idea { margin: 0; }
+.mc-deck__bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--mc-space-2) var(--mc-space-3); position: relative; padding-bottom: 0.6rem; }
+.mc-deck__btn { min-width: 2.75rem; min-height: 2.75rem; border: 1px solid var(--mc-border-strong); border-radius: var(--mc-radius-control); background: var(--mc-paper); color: var(--mc-text); font: inherit; font-weight: 600; padding: 0.35rem 0.9rem; cursor: pointer; }
+.mc-deck__btn:hover:not(:disabled) { background: var(--mc-paper-2); }
+.mc-deck__btn:disabled { opacity: 0.45; cursor: default; }
+.mc-deck__btn[aria-pressed="true"] { background: var(--mc-accent-tint, var(--mc-paper-2)); border-color: var(--mc-accent, var(--mc-border-strong)); }
+.mc-deck__btn[data-deck-action="next"] { background: var(--mc-action); border-color: var(--mc-action); color: var(--mc-on-action); }
+.mc-deck__btn[data-deck-action="next"]:hover:not(:disabled) { background: var(--mc-action-hover); }
+.mc-deck__counter { font-variant-numeric: tabular-nums; font-weight: 700; min-width: 4.5em; text-align: center; }
+.mc-deck__index select { font: inherit; min-height: 2.75rem; max-width: min(22rem, 70vw); border: 1px solid var(--mc-border-strong); border-radius: var(--mc-radius-control); background: var(--mc-paper); color: var(--mc-text); padding-inline: 0.5rem; }
+.mc-deck__progress { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; border-radius: 4px; background: var(--mc-border); overflow: hidden; }
+.mc-deck__progress::after { content: ""; position: absolute; inset: 0; background: var(--mc-accent, var(--mc-action)); transform-origin: left; transform: scaleX(var(--mc-deck-progress, 0)); transition: transform var(--mc-duration-base, 200ms) ease; }
+
+/* Pantalla completa: solo la diapositiva y la barra. */
+.mc-deck__frame.is-fullscreen { background: var(--mc-bg); padding: 1.2rem 1.5rem 0.8rem; box-sizing: border-box; height: 100dvh; }
+.mc-deck__frame.is-fullscreen .mc-slides.is-deck { height: 100%; }
+
+/* Pantallas estrechas (móvil en vertical): sin lienzo 16:9, la diapositiva crece con su contenido. */
+@media (max-width: 47.99rem) {
+  .mc-slides.is-deck { container-type: normal; height: auto; min-height: 0; display: block; place-items: normal; }
+  .mc-slides.is-deck > .mc-slide { width: auto; aspect-ratio: auto; font-size: 1rem; padding: var(--mc-space-5) var(--mc-space-4); overflow: visible; overflow-x: auto; }
+  .mc-slides.is-deck .mc-slide figure svg { max-height: none; width: 100%; height: auto; }
+  .mc-slides.is-deck .mc-slide--lab > :is([data-primitive-explorer], [data-riemann-explorer], [data-fundamental-explorer], [data-barrow-explorer], [data-area-explorer]) { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .mc-slides.is-deck .mc-slide--lab > :is([data-primitive-explorer], [data-riemann-explorer], [data-fundamental-explorer], [data-barrow-explorer], [data-area-explorer]) > *, .mc-slides.is-deck .mc-slide--lab :is([data-primitive-result], [data-riemann-result], [data-fundamental-result], [data-barrow-result], [data-area-result]) > *, .mc-slides.is-deck .mc-slide.mc-slide--lab :is(figure, .table-scroll) { grid-column: 1; grid-row: auto; }
+  .mc-deck__bar { position: sticky; bottom: 0; background: var(--mc-bg); padding-top: var(--mc-space-2); z-index: 2; }
+  .mc-deck__index { order: 9; flex-basis: 100%; min-width: 0; display: flex; justify-content: center; }
+  .mc-deck__index select { width: 100%; max-width: 22rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mc-slides.is-deck [data-step], .mc-deck__progress::after { transition: none; }
+}
+
+/* Impresión: todas las diapositivas, una por página y con los pasos visibles. */
+@media print {
+  .mc-deck__bar, .mc-deck__intro .mc-deck__help { display: none !important; }
+  .mc-slides.is-deck { display: block; height: auto; container-type: normal; }
+  .mc-slides.is-deck > .mc-slide { display: flex !important; width: auto; aspect-ratio: auto; font-size: 12pt; box-shadow: none; overflow: visible; break-after: page; }
+  .mc-slides.is-deck [data-step].is-pending { visibility: visible; opacity: 1; }
+  .mc-slides.is-deck .mc-slide__notes { display: block; }
+}
