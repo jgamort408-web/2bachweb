@@ -10,8 +10,9 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',topic='libro/temas/03-
    assert.doesNotMatch(await page.locator('main').innerText(),/\\[\[(]/);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   };
   await page.goto(base+topic+'#repaso');await ready();
-  await page.waitForFunction(()=>document.querySelectorAll('[data-topic-index] li').length===8);
-  const index=await page.locator('[data-topic-index]').innerText();assert.equal(index.match(/Disponible/g).length,8);assert.equal((index.match(/En preparación/g)||[]).length,0);
+  // Ocho lecciones y la presentación de clase (P11).
+  await page.waitForFunction(()=>document.querySelectorAll('[data-topic-index] li').length===9);
+  const index=await page.locator('[data-topic-index]').innerText();assert.equal(index.match(/Disponible/g).length,9);assert.equal((index.match(/En preparación/g)||[]).length,0);
   for(let i=1;i<=4;i++){
    await page.getByText('Pista del bloque '+i,{exact:true}).click();
    await page.getByText('Solución del bloque '+i,{exact:true}).focus();await page.keyboard.press('Enter');await ready();
@@ -31,7 +32,7 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',topic='libro/temas/03-
   await page.locator('[data-reading-controls]>summary').click();await page.locator('[data-text-size]').selectOption('200');await page.locator('[data-contrast-control]').check();await page.locator('[data-highlight-control]').check();await page.setViewportSize({width:320,height:844});await ready();assert.ok(await quiz.locator('input[value="correct"]').isChecked());
   if(process.env.SCREENSHOT_DIR)await page.locator('#test-repaso').screenshot({path:process.env.SCREENSHOT_DIR+'/repaso-integrales-movil.png'});
   await page.locator('[data-reset-reading]').click();await page.reload();await ready();assert.equal(await quiz.locator('input:checked').count(),0);
-  const urls=await page.locator('[data-topic-index] a').evaluateAll(items=>items.map(a=>a.href));
+  const urls=await page.locator('[data-topic-index] li:not(.mc-route__item--extra) a').evaluateAll(items=>items.map(a=>a.href));
   assert.equal(urls.length,8);
   for(const url of urls){await page.goto(url);await ready();await page.locator('[data-quiz] input').first().waitFor();assert.match(await page.locator('[data-quiz] [data-content-role="activity-progress"]').innerText(),/1 de 6/);assert.ok(await page.locator('main mjx-container').count()>5);}
   await page.locator('a[href="index.html#repaso"]').click();await ready();assert.match(page.url(),/#repaso$/);assert.match(await quiz.innerText(),/1 de 12/);

@@ -10,9 +10,11 @@ const ids=['t03-a-parejas-de-primitivas','t03-b-metodo-correcto','t03-c-area-por
   const preferences=async()=>{await page.locator('[data-reading-controls]>summary').click();await page.locator('[data-text-size]').selectOption('200');await page.locator('[data-contrast-control]').check();await page.locator('[data-highlight-control]').check();await page.setViewportSize({width:320,height:844});};
   const reset=async()=>{await page.locator('[data-reset-reading]').click();await page.setViewportSize({width:390,height:844});};
   const shell=async()=>{await page.locator('#site-header a').first().waitFor();assert.ok(await page.locator('#site-footer').innerText());};
-  await page.goto(base+topic);await page.waitForFunction(()=>document.querySelectorAll('[data-topic-index] li').length===8);await math();
-  assert.equal((await page.locator('[data-topic-index]').innerText()).match(/Disponible/g).length,8);
-  const urls=await page.locator('[data-topic-index] a').evaluateAll(links=>links.map(a=>a.href));
+  // Ocho lecciones y, tras ellas, la presentación de clase (P11).
+  await page.goto(base+topic);await page.waitForFunction(()=>document.querySelectorAll('[data-topic-index] li').length===9);await math();
+  assert.equal((await page.locator('[data-topic-index]').innerText()).match(/Disponible/g).length,9);
+  assert.equal(await page.locator('[data-topic-index] li.mc-route__item--extra a').getAttribute('href'),base+'libro/temas/03-integrales/presentacion.html');
+  const urls=await page.locator('[data-topic-index] li:not(.mc-route__item--extra) a').evaluateAll(links=>links.map(a=>a.href));
   for(let i=0;i<urls.length;i++){
    await page.goto(urls[i]);const quiz=page.locator('[data-quiz]');await quiz.locator('input').first().waitFor();await math();await shell();
    const correct=await quiz.getAttribute('data-quiz').then(scope=>page.evaluate(async({base,scope})=>(await import(base+'content/activities/catalog.js')).questionsForScope(scope)[0].correct,{base,scope}));
