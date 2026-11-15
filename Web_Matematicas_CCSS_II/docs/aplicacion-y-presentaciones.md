@@ -1,6 +1,6 @@
 # Aplicación instalable y presentaciones de clase
 
-Actualizado: 14 de noviembre de 2026 · Tareas Q01 y P11 de [PLAN_WEB_OPERATIVA.md](../../PLAN_WEB_OPERATIVA.md).
+Actualizado: 15 de noviembre de 2026 · Tareas Q01 y P11 de [PLAN_WEB_OPERATIVA.md](../../PLAN_WEB_OPERATIVA.md).
 
 ## Aplicación instalable (Q01)
 
@@ -20,13 +20,14 @@ Al cambiar la lista `PRECACHE` de `sw.js`, sube `VERSION`: la caché anterior se
 
 ## Presentaciones de clase (P11)
 
-Decidido con el docente: cada tema tiene su propia presentación, redactada para explicar en clase. No se convierte cada lección en diapositivas. Primero se hace el tema 3, para que el docente lo revise antes de los otros ocho.
+Decidido con el docente: cada tema tiene su propia presentación, redactada para explicar en clase. No se convierte cada lección en diapositivas. El docente revisó el tema 3 y aprobó el diseño; después se hicieron los otros ocho (15–25 diapositivas cada uno).
 
 ### Cómo funciona
 
 - Página `libro/temas/<tema>/presentacion.html`, con entrada `kind: "section"` en `config/pages.json` y padre en el tema. Así aparece en el recorrido del tema y la visibilidad la controla Administración.
 - Hojas `assets/css/slides.css` y módulo `assets/js/learning/presentation.js`. Este módulo arranca `slides.js` y los exploradores que declara `data-explorers`.
 - Sin JavaScript, cada `<section class="mc-slide">` se lee como un apartado, con sus pasos y notas visibles. Con JavaScript se muestra una diapositiva 16:9 cada vez. El texto se escala con el tamaño de la pantalla. Por debajo de 768 px la diapositiva toma su altura natural.
+- Si el contenido de la diapositiva activa no cabe en el lienzo 16:9 (un laboratorio grande, otro proyector), `slides.js` reduce su escala con la variable `--mc-fit` en pasos del 5 % hasta el 70 %. Se recalcula al cambiar de diapositiva, al redimensionar, al mostrar las notas y cuando cambia el contenido.
 - Para avanzar: →, AvPág, espacio, Intro, un mando de presentaciones o deslizar. Para retroceder: ←, RePág o Retroceso. Inicio y Fin van al principio y al final.
 - Otras teclas: F, pantalla completa; N, notas para el docente; I, índice. La dirección guarda la diapositiva (`#id`).
 - Al imprimir salen todas las diapositivas, una por página.
@@ -42,14 +43,16 @@ Decidido con el docente: cada tema tiene su propia presentación, redactada para
 | `data-step` | El elemento aparece al avanzar, en orden. |
 | `mc-slide__cols`, `mc-slide__cols--2` | Columnas que pasan a una sola en el móvil. |
 | `mc-slide__notes` | Nota para el docente. Oculta al proyectar salvo con N. |
-| `mc-slide--lab` | Diapositiva con explorador: controles y explicación a la izquierda, gráfica a la derecha. Copia el marcado del explorador de la lección y añade su nombre a `data-explorers`, junto con su importación en `presentation.js`. |
+| `mc-slide--lab` | Diapositiva con explorador: controles y explicación a la izquierda, gráfica a la derecha. Copia el marcado del explorador de la lección, añade la clase `mc-lab` a su raíz y `mc-lab__result` al contenedor de resultados que rellena el módulo. |
+| `data-explorers` | Nombres del mapa de `presentation.js` (`[módulo, función que lo inicia]`; sin función, el módulo se inicia solo al importarse). Una presentación sin exploradores deja `data-explorers=""`. |
 
 Pauta de contenido: entre 15 y 25 diapositivas. Lleva una idea por diapositiva, como mucho unas 8 líneas, con ejemplos verificados y enlaces a la lección. La notación es la de las lecciones, con coma decimal.
 
 Al añadir una presentación:
 
-1. Enlázala desde el `index.html` del tema.
-2. Suma su página en `tests/content-visibility-catalog.test.mjs`.
-3. Comprueba que `slides.test.mjs` la recorre: título, ids únicos, catálogo, enlace y exploradores.
+1. Dala de alta en `config/pages.json` (padre: el tema) y en `config/editorial.json`, y enlázala desde el `index.html` del tema.
+2. Los recuentos del catálogo en las pruebas (`content-visibility-catalog` y 158) se calculan con el número de presentaciones: no hay que tocarlos.
+3. `slides.test.mjs` comprueba título, ids únicos, catálogo, enlace y que cada explorador está en el mapa, exporta su función y tiene su raíz en la página.
+4. Revisa a 1280 × 800 que ninguna diapositiva desborde ni tenga fórmulas con desplazamiento.
 
-La prueba 170 cubre el tema 3 en el navegador.
+Laboratorios que construyen todo su contenido (producto, inversa y grafos del tema 4; Rouché, Gauss y parámetros del tema 5) se reparten en dos columnas con `columns` de CSS: el bloque de resultado empieza la segunda. Los temas 6 y 7 no tienen explorador reutilizable y usan figuras SVG propias. La prueba 170 cubre el tema 3 en el navegador.
