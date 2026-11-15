@@ -63,6 +63,23 @@ const { chromium } = require('playwright');
     await page.mouse.click(30, 780);
     assert.equal(await isOpen('.course-menu'), false);
 
+    // Primera lección de un tema (sin «Anterior»): índice y siguiente ocupan todo el ancho del panel.
+    await page.goto('http://127.0.0.1:4173/libro/temas/06-programacion-lineal/01-inecuaciones-lineales-con-dos-incognitas.html');
+    await page.locator('[data-context-group] > summary').click();
+    const firstLesson = page.locator('[data-context-navigation] .mc-related__item');
+    assert.deepEqual(await firstLesson.evaluateAll(items => items.map(i => i.dataset.role)), ['parent', 'next']);
+    const panelWidth = await page.locator('[data-context-navigation] .mc-related').evaluate(el => el.clientWidth);
+    for (const width of await firstLesson.evaluateAll(items => items.map(i => i.getBoundingClientRect().width))) {
+      assert.ok(width >= panelWidth - 1, `tarjeta de ${width}px en un panel de ${panelWidth}px`);
+    }
+    await page.keyboard.press('Escape');
+    // Las fórmulas que caben (≤, <, una letra) no muestran barra: el MathML oculto no cuenta para el desplazamiento.
+    await page.locator('mjx-container svg').first().waitFor();
+    const falseScroll = await page.locator('main mjx-container').evaluateAll(all => all
+      .filter(c => c.scrollWidth > c.clientWidth + 1 && c.querySelector(':scope > svg').getBoundingClientRect().width <= c.clientWidth + 1)
+      .map(c => c.querySelector('mjx-assistive-mml')?.textContent));
+    assert.deepEqual(falseScroll, []);
+
     // Móvil con texto al 200 %: el panel cabe en la vista, sobre la barra inferior, y la página no se ensancha.
     await page.setViewportSize({ width: 320, height: 700 });
     await page.evaluate(() => document.documentElement.style.fontSize = '200%');

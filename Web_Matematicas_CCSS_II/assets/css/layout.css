@@ -131,10 +131,12 @@
 .mc-related__item[data-role="previous"] .mc-related__role::before { content: "← "; }
 .mc-related__item[data-role="next"] .mc-related__role::after { content: " →"; }
 .mc-related__item[data-role="parent"] .mc-related__role::before { content: "↑ "; }
+/* Dos columnas solo cuando hay «Anterior»: en la primera página de una sección «Siguiente» ocupa toda la fila
+   (si se forzaba a la columna 2, la tarjeta del índice quedaba aplastada en una columna implícita sin ancho). */
 @media (min-width: 30rem) {
-  .mc-related:has(> [data-role="previous"]) { grid-template-columns: 1fr 1fr; }
+  .mc-related:has(> [data-role="previous"]) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .mc-related > [data-role="parent"], .mc-related > [data-role="child"] { grid-column: 1 / -1; }
-  .mc-related > [data-role="next"] { grid-column: 2; }
+  .mc-related:has(> [data-role="previous"]) > [data-role="next"] { grid-column: 2; }
   .mc-related > [data-role="next"] .mc-related__link { text-align: right; }
   .mc-related > [data-role="parent"] { order: -1; }
 }

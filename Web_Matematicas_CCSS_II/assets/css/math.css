@@ -4,6 +4,10 @@ mjx-container[jax="SVG"][display="true"] { overflow-x: auto; overflow-y: hidden;
    Se desplaza dentro de su caja sin reducir glifos ni ensanchar la página. */
 mjx-container[jax="SVG"]:not([display="true"]) { display: inline-block; max-width: 100%; overflow-x: auto; overflow-y: hidden; vertical-align: middle; }
 mjx-container svg { max-width: none; }
+/* El MathML oculto para lectores de pantalla está recortado, pero su ancho natural cuenta para el desplazamiento:
+   en ≤, < o una sola letra es unos píxeles más ancho que el dibujo y hacía aparecer barras sin nada que desplazar.
+   Se limita al ancho de la fórmula; los lectores de pantalla lo siguen leyendo entero. */
+mjx-container[jax="SVG"] > mjx-assistive-mml { max-width: 100% !important; max-height: 100% !important; }
 .math-status { padding: 0.75rem; border: 1px solid currentColor; border-radius: 0.4rem; margin-block: 1rem; font: 1rem/1.5 system-ui, sans-serif; }
 .math-status[hidden], .math-status button[hidden] { display: none !important; }
 .math-status button { font: inherit; padding: 0.5rem; cursor: pointer; }
