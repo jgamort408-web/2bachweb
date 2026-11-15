@@ -135,6 +135,7 @@
     "test:aplicacion": "node tests/aplicacion-instalable-169-browser.cjs",
     "test:presentacion-t03": "node tests/presentacion-tema3-170-browser.cjs",
     "test:cabecera": "node tests/cabecera-menus-171-browser.cjs",
+    "test:enlaces": "node tests/enlaces-contenido-172-browser.cjs",
     "build:app-icons": "node scripts/build-app-icons.mjs"
   },
   "devDependencies": {

@@ -23,6 +23,7 @@ export async function mountSelectividadLink(pageId, main = document.querySelecto
   const text = document.createElement('p');
   text.textContent = `${total} ${total === 1 ? 'ejercicio' : 'ejercicios'} de exámenes de Selectividad de Andalucía trabajan esta lección.`;
   const list = document.createElement('ul');
+  list.className = 'mc-linklist';
   for (const entry of entries) {
     const item = document.createElement('li');
     const link = document.createElement('a');

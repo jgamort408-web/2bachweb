@@ -243,3 +243,56 @@ a.mc-card:focus-visible { outline: 3px solid var(--mc-focus); outline-offset: 3p
 }
 @keyframes mc-pop { 0% { opacity: 0; transform: scale(0.94); } 60% { opacity: 1; transform: scale(1.03); } 100% { transform: scale(1); } }
 @media (prefers-reduced-motion: reduce) { .mc-skin .activity :is(.feedback, [data-state="complete"]) { animation: none; } }
+
+/*
+ * Enlaces del contenido. En el texto corrido toman el tono del bloque (análisis, álgebra, azar),
+ * con un subrayado fino y un resalte suave al pasar. Los grupos que son solo enlaces
+ * (core/links.js) se muestran como fichas (.mc-linkset) o filas (.mc-linklist).
+ */
+.mc-skin :where(main a:not([class])) {
+  color: var(--mc-accent-dark); font-weight: 600;
+  text-decoration-line: underline; text-decoration-thickness: 0.08em; text-underline-offset: 0.24em;
+  text-decoration-color: color-mix(in srgb, currentColor 38%, transparent);
+  border-radius: 3px; transition: background-color 150ms, box-shadow 150ms, text-decoration-color 150ms;
+}
+.mc-skin :where(main a:not([class]):hover) {
+  color: var(--mc-accent-dark); text-decoration-color: currentColor;
+  background: var(--mc-accent-tint); box-shadow: 0 0 0 2px var(--mc-accent-tint);
+}
+
+.mc-skin .mc-linkset { display: flex; flex-wrap: wrap; align-items: center; gap: var(--mc-space-2); padding: 0; list-style: none; }
+.mc-skin .mc-linkset > li { margin: 0; }
+.mc-linkset__sep { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.mc-skin .mc-linkset a {
+  display: inline-flex; align-items: center; gap: 0.45em; min-height: 2.25rem; padding: 0.3rem 0.85rem;
+  border: 1px solid var(--mc-border-strong); border-radius: var(--mc-radius-pill); background: var(--mc-paper);
+  color: var(--mc-text); font-size: var(--mc-text-sm); font-weight: 600; line-height: 1.25; text-decoration: none;
+  transition: border-color 150ms, background-color 150ms, color 150ms;
+}
+.mc-skin .mc-linkset a:hover { border-color: var(--mc-accent); background: var(--mc-accent-tint); color: var(--mc-accent-dark); box-shadow: none; }
+.mc-skin .mc-linkset a[aria-current] { border-color: var(--mc-accent); color: var(--mc-accent-dark); }
+
+.mc-skin .mc-linklist { display: grid; grid-template-columns: minmax(0, 36rem); gap: var(--mc-space-2); padding: 0; list-style: none; }
+.mc-skin .mc-linklist > li { margin: 0; }
+.mc-skin .mc-linklist a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--mc-space-3); padding: 0.6rem 0.95rem;
+  border: 1px solid var(--mc-border); border-radius: var(--mc-radius-control); background: var(--mc-paper);
+  color: var(--mc-text); font-weight: 600; line-height: 1.3; text-decoration: none;
+  transition: border-color 150ms, background-color 150ms, color 150ms;
+}
+.mc-skin .mc-linklist a:hover { border-color: var(--mc-accent); background: var(--mc-accent-tint); color: var(--mc-accent-dark); box-shadow: none; }
+
+/* Dirección: «Continuar», «Ver…» llevan flecha detrás; «Anterior» y «Volver», delante. */
+.mc-skin :is(.mc-linkset a[data-link-direction="next"], .mc-linklist a)::after { content: "→" / ""; color: var(--mc-accent); font-weight: 700; transition: transform 150ms; }
+.mc-skin .mc-linkset a[data-link-direction="back"]::before { content: "←" / ""; color: var(--mc-accent); font-weight: 700; transition: transform 150ms; }
+.mc-skin :is(.mc-linkset a[data-link-direction="next"], .mc-linklist a):hover::after { transform: translateX(3px); }
+.mc-skin .mc-linkset a[data-link-direction="back"]:hover::before { transform: translateX(-3px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .mc-skin :is(main a:not([class]), .mc-linkset a, .mc-linklist a), .mc-skin :is(.mc-linkset, .mc-linklist) a::after, .mc-skin .mc-linkset a::before { transition: none; }
+}
+/* Contraste reforzado: subrayado completo y fichas con borde negro. */
+html[data-contrast="true"] .mc-skin main a:not([class]) { text-decoration-color: currentColor; text-decoration-thickness: 0.1em; }
+html[data-contrast="true"] .mc-skin :is(.mc-linkset, .mc-linklist) a { border: 2px solid #000; text-decoration: none; }
+/* «Así cae en Selectividad»: las filas toman el tono de examen del recuadro. */
+.mc-skin .mc-sel-link { --mc-accent: var(--mc-exam-title); --mc-accent-dark: var(--mc-exam-title); --mc-accent-tint: var(--mc-exam-pill); }

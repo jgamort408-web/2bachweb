@@ -5,6 +5,7 @@ import { observeMath } from './core/math.js';
 import { initializePreferences, mountPreferenceControls } from './core/preferences.js';
 import { mountThemeToggle } from './core/theme.js';
 import { applyLessonSkin } from './core/skin.js';
+import { enhanceContentLinks } from './core/links.js';
 import { getContentContext, pageRecords } from './content/runtime.js';
 import { observeDocumentAvailability, showPageAvailability } from './content/document.js';
 import { mountInstallControls } from './core/install.js';
@@ -73,6 +74,7 @@ async function initializeLayout() {
 
 initializePreferences();
 applyLessonSkin();
+enhanceContentLinks();
 // «Así cae en Selectividad» (P08): solo en las lecciones con epígrafe (t07-e10…), sin retrasar el resto.
 if (/^t\d{2}-e\d{2}$/.test(document.body.dataset.pageId ?? '')) {
   import('./learning/selectividad-link.js')
