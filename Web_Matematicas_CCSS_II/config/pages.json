@@ -623,6 +623,13 @@
     "kind": "section"
   },
   {
+    "id": "t07-presentacion",
+    "title": "Presentación de clase del tema 7",
+    "path": "libro/temas/07-probabilidad/presentacion.html",
+    "parentId": "t07",
+    "kind": "section"
+  },
+  {
     "id": "t08",
     "title": "8. Distribuciones de probabilidad",
     "path": "libro/temas/08-distribuciones-de-probabilidad/index.html",

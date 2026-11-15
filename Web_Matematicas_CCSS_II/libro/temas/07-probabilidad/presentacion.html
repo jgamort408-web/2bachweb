@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es" data-skin="mc">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presentación: 7. Probabilidad · Matemáticas CCSS II</title>
+  <meta name="description" content="Presentación de clase del tema 7, Probabilidad: sucesos y regla de Laplace, álgebra de sucesos, tablas de contingencia, propiedades, experimentos compuestos, probabilidad condicionada, probabilidad total y teorema de Bayes.">
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t07-presentacion" class="mc-skin" data-block="azar">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main mc-deck">
+    <header class="mc-deck__intro">
+      <span class="mc-chip mc-chip--dot">Tema 7 · Probabilidad y Estadística · Presentación de clase</span>
+      <h1>7. Probabilidad</h1>
+      <p class="mc-deck__help">Avanza con <kbd>→</kbd>, <kbd>Espacio</kbd> o un mando de presentaciones y retrocede con <kbd>←</kbd>. <kbd>F</kbd> pantalla completa, <kbd>N</kbd> notas para el docente, <kbd>I</kbd> índice. En el móvil, desliza el dedo. Los pasos de los ejemplos aparecen uno a uno.</p>
+    </header>
+
+    <div class="mc-slides" data-slides data-explorers="">
+
+      <section class="mc-slide mc-slide__title" id="portada">
+        <span class="mc-slide__kicker">Matemáticas Aplicadas a las Ciencias Sociales II · Tema 7</span>
+        <h2>Probabilidad</h2>
+        <p>Medir la incertidumbre, combinar información y revisar una probabilidad cuando llega un dato nuevo.</p>
+        <ul>
+          <li>Sucesos, regla de Laplace, tablas de contingencia y propiedades.</li>
+          <li>Experimentos compuestos y probabilidad condicionada.</li>
+          <li>Diagramas de árbol, probabilidad total y teorema de Bayes.</li>
+        </ul>
+        <aside class="mc-slide__notes">Cada diapositiva enlaza con su lección del libro. Los juegos «Árbol de probabilidad» y «Detective Bayes» sirven para practicar en clase.</aside>
+      </section>
+
+      <section class="mc-slide" id="laplace">
+        <span class="mc-slide__kicker">7.1 · Sucesos. Regla de Laplace</span>
+        <h2>Casos favorables entre casos posibles</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Regla de Laplace</strong> <span>Si todos los resultados de \(\Omega\) son <em>igual de probables</em>: \(P(A)=\dfrac{\text{casos favorables a }A}{\text{casos posibles}}\).</span></p>
+            <p>Espacio muestral \(\Omega\): todos los resultados posibles. Suceso: un subconjunto de \(\Omega\).</p>
+          </div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>Pregunta a la clase</strong>
+            <p>Se lanzan dos dados. ¿Qué es más probable, sumar 7 o sumar 11?</p>
+            <p data-step>36 resultados equiprobables (pares ordenados).</p>
+            <p data-step>Suma 7: \((1,6),(2,5),\dots,(6,1)\), 6 casos, \(P=\frac{6}{36}=\frac16\).</p>
+            <p data-step>Suma 11: \((5,6),(6,5)\), 2 casos, \(P=\frac{2}{36}=\frac1{18}\).</p>
+          </div>
+        </div>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>Cuidado</strong> <span>Las sumas 2, 3, …, 12 no son equiprobables: Laplace se aplica a los pares, no a las sumas.</span></p>
+        <p class="mc-slide__links"><a href="01-sucesos-regla-de-laplace.html">7.1. Sucesos. Regla de Laplace</a></p>
+      </section>
+
+      <section class="mc-slide" id="algebra">
+        <span class="mc-slide__kicker">7.2 · Álgebra de sucesos</span>
+        <h2>Unión, intersección y contrario</h2>
+        <table>
+          <thead><tr><th scope="col">Suceso</th><th scope="col">Se lee</th><th scope="col">Ocurre cuando…</th></tr></thead>
+          <tbody>
+            <tr><td>\(A\cup B\)</td><td>\(A\) o \(B\)</td><td>ocurre al menos uno de los dos</td></tr>
+            <tr><td>\(A\cap B\)</td><td>\(A\) y \(B\)</td><td>ocurren los dos a la vez</td></tr>
+            <tr><td>\(A^c\)</td><td>no \(A\)</td><td>no ocurre \(A\)</td></tr>
+            <tr><td>\(A\cap B^c\)</td><td>\(A\) pero no \(B\)</td><td>ocurre \(A\) y no \(B\)</td></tr>
+          </tbody>
+        </table>
+        <div class="mc-slide__cols">
+          <p class="mc-slide__box mc-slide__box--theory"><strong>Incompatibles</strong> <span>\(A\cap B=\varnothing\): no pueden ocurrir a la vez.</span></p>
+          <p class="mc-slide__box mc-slide__box--method"><strong>Leyes de De Morgan</strong> <span>\((A\cup B)^c=A^c\cap B^c\) y \((A\cap B)^c=A^c\cup B^c\).</span></p>
+        </div>
+        <p class="mc-slide__links"><a href="02-algebra-de-sucesos.html">7.2. Álgebra de sucesos</a></p>
+      </section>
+
+      <section class="mc-slide" id="contingencia">
+        <span class="mc-slide__kicker">7.3 · Tablas de contingencia</span>
+        <h2>Dos características a la vez</h2>
+        <p>Encuesta a 200 estudiantes sobre si hacen deporte (\(D\)) y si leen a diario (\(L\)).</p>
+        <table>
+          <thead><tr><th scope="col"></th><th scope="col">\(L\)</th><th scope="col">\(L^c\)</th><th scope="col">Total</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">\(D\)</th><td>48</td><td>72</td><td>120</td></tr>
+            <tr><th scope="row">\(D^c\)</th><td>32</td><td>48</td><td>80</td></tr>
+            <tr><th scope="row">Total</th><td>80</td><td>120</td><td>200</td></tr>
+          </tbody>
+        </table>
+        <ol class="mc-slide__steps">
+          <li>\(P(D\cap L)=\frac{48}{200}=0{,}24\); \(P(D)=\frac{120}{200}=0{,}6\); \(P(L)=\frac{80}{200}=0{,}4\).</li>
+          <li data-step>\(P(D\cup L)=\frac{120+80-48}{200}=0{,}76\).</li>
+          <li data-step>Entre los que leen, ¿qué proporción hace deporte? \(P(D\mid L)=\frac{48}{80}=0{,}6\): solo se mira la columna \(L\).</li>
+        </ol>
+        <p class="mc-slide__links"><a href="03-tablas-de-contingencia.html">7.3. Tablas de contingencia</a></p>
+      </section>
+
+      <section class="mc-slide" id="frecuencias">
+        <span class="mc-slide__kicker">7.4 · Frecuencias</span>
+        <h2>De la frecuencia relativa a la probabilidad</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Ley de los grandes números</strong> <span>Al repetir un experimento muchas veces, la frecuencia relativa de un suceso se estabiliza alrededor de su probabilidad.</span></p>
+            <p>Es la vía para asignar probabilidades cuando no hay simetría: un dado cargado, el porcentaje de clientes que repite, la tasa de defectos de una máquina.</p>
+          </div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>Pregunta a la clase</strong>
+            <p>Una moneda sale cara 7 veces en 10 lanzamientos. ¿Está trucada?</p>
+            <p data-step>Con 10 lanzamientos no se puede afirmar: la frecuencia todavía varía mucho. Con 1000 lanzamientos y 700 caras, sí habría motivos para sospechar.</p>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="04-frecuencias.html">7.4. Frecuencias</a></p>
+      </section>
+
+      <section class="mc-slide" id="propiedades">
+        <span class="mc-slide__kicker">7.5 y 7.6 · Axiomática y propiedades</span>
+        <h2>Las reglas que siempre se cumplen</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <h3>Axiomas de Kolmogorov</h3>
+            <ul>
+              <li>\(P(A)\ge0\) para todo suceso \(A\).</li>
+              <li>\(P(\Omega)=1\).</li>
+              <li>Si \(A\cap B=\varnothing\): \(P(A\cup B)=P(A)+P(B)\).</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Consecuencias</h3>
+            <p>\(P(A^c)=1-P(A),\qquad P(\varnothing)=0\)</p>
+            <p>\(P(A\cup B)=P(A)+P(B)-P(A\cap B)\)</p>
+            <p>\(P(A\cap B^c)=P(A)-P(A\cap B)\)</p>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="05-axiomatica-de-kolmogorov.html">7.5. Axiomática de Kolmogorov</a> · <a href="06-propiedades-de-la-probabilidad.html">7.6. Propiedades de la probabilidad</a></p>
+      </section>
+
+      <section class="mc-slide" id="pregunta-propiedades">
+        <span class="mc-slide__kicker">Pregunta a la clase · 7.6</span>
+        <h2>Tres datos, todo lo demás</h2>
+        <p>\(P(A)=0{,}5\), \(P(B)=0{,}4\) y \(P(A\cup B)=0{,}7\).</p>
+        <div class="mc-slide__cols">
+          <div class="mc-slide__box mc-slide__box--ask"><strong>a)</strong><p>\(P(A\cap B)\)</p><p data-step>\(0{,}5+0{,}4-0{,}7=0{,}2\)</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>b)</strong><p>\(P(A^c\cap B^c)\)</p><p data-step>De Morgan: \(1-P(A\cup B)=0{,}3\)</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>c)</strong><p>\(P(A\cap B^c)\)</p><p data-step>\(0{,}5-0{,}2=0{,}3\): solo \(A\)</p></div>
+        </div>
+        <aside class="mc-slide__notes">Un diagrama de Venn con las cuatro regiones (0,3 · 0,2 · 0,2 · 0,3) ayuda a comprobar que todo suma 1.</aside>
+      </section>
+
+      <section class="mc-slide" id="compuestos">
+        <span class="mc-slide__kicker">7.7 · Experimentos compuestos</span>
+        <h2>Con o sin reemplazamiento</h2>
+        <p>Una urna tiene 3 bolas rojas y 2 azules. Se extraen dos bolas.</p>
+        <div class="mc-slide__cols">
+          <div>
+            <h3>Con reemplazamiento</h3>
+            <ol class="mc-slide__steps">
+              <li>La urna no cambia: las extracciones son independientes.</li>
+              <li data-step>\(P(R_1\cap R_2)=\frac35\cdot\frac35=\frac{9}{25}=0{,}36\).</li>
+            </ol>
+          </div>
+          <div>
+            <h3>Sin reemplazamiento</h3>
+            <ol class="mc-slide__steps">
+              <li data-step>La segunda depende de la primera: quedan 2 rojas de 4.</li>
+              <li data-step>\(P(R_1\cap R_2)=\frac35\cdot\frac24=\frac{3}{10}=0{,}3\).</li>
+            </ol>
+          </div>
+        </div>
+        <p class="mc-slide__box mc-slide__box--ask" data-step><strong>Pregunta</strong> <span>Sin reemplazamiento, ¿probabilidad de una de cada color? \(\frac35\cdot\frac24+\frac25\cdot\frac34=\frac{6}{20}+\frac{6}{20}=0{,}6\): hay dos órdenes.</span></p>
+        <p class="mc-slide__links"><a href="07-experimentos-compuestos.html">7.7. Experimentos compuestos</a></p>
+      </section>
+
+      <section class="mc-slide" id="al-menos-uno">
+        <span class="mc-slide__kicker">Ejemplo paso a paso · 7.6 y 7.7</span>
+        <h2>«Al menos uno»: mejor por el contrario</h2>
+        <p>Se lanza un dado 4 veces. ¿Probabilidad de obtener al menos un 6?</p>
+        <ol class="mc-slide__steps">
+          <li>Contrario de «al menos un 6»: «ningún 6».</li>
+          <li data-step>Lanzamientos independientes: \(P(\text{ningún }6)=\left(\frac56\right)^4=\frac{625}{1296}\approx0{,}482\).</li>
+          <li data-step>\(P(\text{al menos un }6)=1-0{,}482=0{,}518\).</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>Error frecuente</strong> <span>Sumar \(\frac16+\frac16+\frac16+\frac16=\frac23\): los sucesos no son incompatibles (puede salir un 6 en varios lanzamientos).</span></p>
+      </section>
+
+      <section class="mc-slide" id="condicionada">
+        <span class="mc-slide__kicker">7.8 · Probabilidad condicionada</span>
+        <h2>Una información que cambia el total</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Definición</strong> <span>Si \(P(B)&gt;0\): \(P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}\). Equivale a \(P(A\cap B)=P(B)\,P(A\mid B)\).</span></p>
+        <div class="mc-slide__cols">
+          <div>
+            <p class="mc-slide__box mc-slide__box--method"><strong>Independencia</strong> <span>\(A\) y \(B\) son independientes si \(P(A\cap B)=P(A)\,P(B)\), es decir, si \(P(A\mid B)=P(A)\): saber que ocurrió \(B\) no cambia la probabilidad de \(A\).</span></p>
+          </div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>Pregunta a la clase</strong>
+            <p>En la encuesta, ¿son independientes hacer deporte y leer?</p>
+            <p data-step>\(P(D)\,P(L)=0{,}6\cdot0{,}4=0{,}24=P(D\cap L)\). Sí: \(P(D\mid L)=P(D)=0{,}6\).</p>
+          </div>
+        </div>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>No confundas</strong> <span>Independientes no es lo mismo que incompatibles: dos sucesos incompatibles con probabilidad positiva nunca son independientes.</span></p>
+        <p class="mc-slide__links"><a href="08-probabilidad-condicionada.html">7.8. Probabilidad condicionada</a></p>
+      </section>
+
+      <section class="mc-slide" id="total">
+        <span class="mc-slide__kicker">7.9 · Probabilidad total</span>
+        <h2>Sumar por todos los caminos</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p>Una fábrica produce el 60&nbsp;% de las piezas con la máquina \(M_1\) y el 40&nbsp;% con \(M_2\). Son defectuosas el 2&nbsp;% de las de \(M_1\) y el 5&nbsp;% de las de \(M_2\).</p>
+            <ol class="mc-slide__steps">
+              <li>\(M_1\) y \(M_2\) forman un sistema completo: no se solapan y cubren todo \(\Omega\).</li>
+              <li data-step>\(P(D)=P(M_1)P(D\mid M_1)+P(M_2)P(D\mid M_2)\)</li>
+              <li data-step>\(P(D)=0{,}6\cdot0{,}02+0{,}4\cdot0{,}05\)</li>
+              <li data-step>\(P(D)=0{,}012+0{,}020=0{,}032\).</li>
+            </ol>
+          </div>
+          <figure>
+            <svg viewBox="0 0 330 250" role="img" aria-labelledby="arbol-title"><title id="arbol-title">Árbol: M1 con probabilidad 0,6 y M2 con 0,4; desde M1, defectuosa 0,02 y no defectuosa 0,98; desde M2, defectuosa 0,05 y no defectuosa 0,95.</title>
+              <g stroke="currentColor" stroke-opacity="0.6" stroke-width="2" fill="none">
+                <path d="M20 125L130 65M20 125L130 185"></path>
+                <path d="M150 65L250 30M150 65L250 95M150 185L250 160M150 185L250 225"></path>
+              </g>
+              <g fill="currentColor" font-size="13">
+                <circle cx="20" cy="125" r="4"></circle>
+                <text x="128" y="70" font-weight="700">M₁</text><text x="128" y="190" font-weight="700">M₂</text>
+                <text x="56" y="84">0,6</text><text x="56" y="178">0,4</text>
+                <text x="185" y="38">0,02</text><text x="185" y="96">0,98</text><text x="185" y="164">0,05</text><text x="185" y="222">0,95</text>
+                <text x="256" y="34" style="fill: var(--mc-block, #1d4ed8)" font-weight="700">D · 0,012</text><text x="256" y="99">Dᶜ</text>
+                <text x="256" y="164" style="fill: var(--mc-block, #1d4ed8)" font-weight="700">D · 0,020</text><text x="256" y="229">Dᶜ</text>
+              </g>
+            </svg>
+            <figcaption>Se multiplica a lo largo de cada rama y se suman las ramas que acaban en D.</figcaption>
+          </figure>
+        </div>
+        <p class="mc-slide__links"><a href="09-probabilidad-total.html">7.9. Probabilidad total</a></p>
+      </section>
+
+      <section class="mc-slide" id="bayes">
+        <span class="mc-slide__kicker">7.10 · Teorema de Bayes</span>
+        <h2>Del efecto a la causa</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Teorema de Bayes</strong> <span>\(P(M_i\mid D)=\dfrac{P(M_i)\,P(D\mid M_i)}{P(D)}\): la rama que pasa por \(M_i\) entre todas las ramas que llevan a \(D\).</span></p>
+        <h3>Una pieza resulta defectuosa. ¿Qué probabilidad hay de que venga de \(M_2\)?</h3>
+        <ol class="mc-slide__steps">
+          <li>Rama \(M_2\to D\): \(0{,}4\cdot0{,}05=0{,}020\). Total de \(D\): \(0{,}032\).</li>
+          <li data-step>\(P(M_2\mid D)=\dfrac{0{,}020}{0{,}032}=0{,}625\).</li>
+          <li data-step>\(M_2\) fabrica el 40&nbsp;% de las piezas, pero el 62,5&nbsp;% de las defectuosas: es la que más falla.</li>
+        </ol>
+        <p class="mc-slide__links"><a href="10-teorema-de-bayes.html">7.10. Teorema de Bayes</a></p>
+      </section>
+
+      <section class="mc-slide" id="pregunta-bayes">
+        <span class="mc-slide__kicker">Pregunta a la clase · 7.10</span>
+        <h2>Un positivo no es una certeza</h2>
+        <p>Una enfermedad afecta al 1&nbsp;% de la población. Una prueba da positivo en el 95&nbsp;% de los enfermos y en el 10&nbsp;% de los sanos. Alguien da positivo: ¿qué probabilidad tiene de estar enfermo?</p>
+        <ol class="mc-slide__steps">
+          <li data-step>Antes de calcular: ¿más o menos del 50&nbsp;%? Pide una estimación.</li>
+          <li data-step>\(P(+)=0{,}01\cdot0{,}95+0{,}99\cdot0{,}10=0{,}0095+0{,}099=0{,}1085\).</li>
+          <li data-step>\(P(E\mid +)=\dfrac{0{,}0095}{0{,}1085}\approx0{,}088\): menos del 9&nbsp;%.</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--example" data-step><strong>Por qué</strong> <span>Hay tantos sanos que su 10&nbsp;% de falsos positivos supera con mucho a los positivos de los enfermos.</span></p>
+        <aside class="mc-slide__notes">Con 10 000 personas: 100 enfermas (95 positivos) y 9900 sanas (990 positivos). De 1085 positivos, solo 95 están enfermos.</aside>
+      </section>
+
+      <section class="mc-slide" id="errores">
+        <span class="mc-slide__kicker">Repaso</span>
+        <h2>Errores frecuentes</h2>
+        <ul>
+          <li>Aplicar Laplace a resultados que no son equiprobables.</li>
+          <li>Sumar probabilidades de sucesos que no son incompatibles.</li>
+          <li>Confundir \(P(A\mid B)\) con \(P(B\mid A)\), o con \(P(A\cap B)\).</li>
+          <li>Confundir sucesos independientes con incompatibles.</li>
+          <li>Olvidar que sin reemplazamiento cambian los casos de la segunda extracción.</li>
+          <li>En Bayes, dividir por la rama en lugar de por la probabilidad total.</li>
+        </ul>
+      </section>
+
+      <section class="mc-slide" id="cierre">
+        <span class="mc-slide__kicker">Para seguir</span>
+        <h2>Practica y prepara la PAU</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <h3>En el libro</h3>
+            <ul>
+              <li><a href="ejercicios-resueltos.html">Ejercicios resueltos</a> y <a href="index.html#practica-por-leccion">práctica por lección</a></li>
+              <li><a href="../../../test/index.html?tema=t07">Test del tema</a> y <a href="../../../tarjetas/index.html?tema=t07">tarjetas</a></li>
+              <li>Juegos: <a href="../../../laboratorios/juegos/t07-a-algebra-de-sucesos.html">Álgebra de sucesos</a>, <a href="../../../laboratorios/juegos/t07-b-arbol-de-probabilidad.html">Árbol de probabilidad</a> y <a href="../../../laboratorios/juegos/t07-c-detective-bayes.html">Detective Bayes</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>En la PAU</h3>
+            <p>Suelen pedir una tabla de contingencia o un diagrama de árbol, probabilidad condicionada, probabilidad total y Bayes, y estudiar la independencia de dos sucesos.</p>
+            <p><a href="../../../selectividad/07-probabilidad.html">Ejercicios de Selectividad del tema 7</a></p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="../../../assets/js/learning/presentation.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>
