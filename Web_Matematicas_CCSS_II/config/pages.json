@@ -224,6 +224,13 @@
     "kind": "lesson"
   },
   {
+    "id": "t02-presentacion",
+    "title": "Presentación de clase del tema 2",
+    "path": "libro/temas/02-representacion-de-funciones/presentacion.html",
+    "parentId": "t02",
+    "kind": "section"
+  },
+  {
     "id": "t03",
     "title": "3. Integrales",
     "path": "libro/temas/03-integrales/index.html",

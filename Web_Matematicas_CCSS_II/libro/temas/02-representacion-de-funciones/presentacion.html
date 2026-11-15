@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es" data-skin="mc">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presentación: 2. Representación de funciones · Matemáticas CCSS II</title>
+  <meta name="description" content="Presentación de clase del tema 2, Representación de funciones: esquema de estudio, polinómicas, racionales, exponenciales, logarítmicas, a trozos, transformaciones y optimización, con exploradores interactivos.">
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t02-presentacion" class="mc-skin" data-block="analisis">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main mc-deck">
+    <header class="mc-deck__intro">
+      <span class="mc-chip mc-chip--dot">Tema 2 · Análisis · Presentación de clase</span>
+      <h1>2. Representación de funciones</h1>
+      <p class="mc-deck__help">Avanza con <kbd>→</kbd>, <kbd>Espacio</kbd> o un mando de presentaciones y retrocede con <kbd>←</kbd>. <kbd>F</kbd> pantalla completa, <kbd>N</kbd> notas para el docente, <kbd>I</kbd> índice. En el móvil, desliza el dedo. Los pasos de los ejemplos aparecen uno a uno.</p>
+    </header>
+
+    <div class="mc-slides" data-slides data-explorers="rational translation optimization">
+
+      <section class="mc-slide mc-slide__title" id="portada">
+        <span class="mc-slide__kicker">Matemáticas Aplicadas a las Ciencias Sociales II · Tema 2</span>
+        <h2>Representación de funciones</h2>
+        <p>Reunir dominio, límites y derivadas para dibujar una gráfica y leer en ella lo que cuenta un modelo: crecimiento, saturación, costes y beneficios.</p>
+        <ul>
+          <li>Un esquema de estudio que sirve para cualquier función.</li>
+          <li>Familias: polinómicas, racionales, exponenciales, logarítmicas y a trozos.</li>
+          <li>Transformaciones de gráficas y problemas de optimización.</li>
+        </ul>
+        <aside class="mc-slide__notes">Cada diapositiva enlaza con su lección del libro. Los exploradores son los mismos que usa el alumnado en casa.</aside>
+      </section>
+
+      <section class="mc-slide" id="esquema">
+        <span class="mc-slide__kicker">2.1 · Esquema general</span>
+        <h2>Un orden de trabajo</h2>
+        <div class="mc-slide__cols">
+          <ol class="mc-slide__steps">
+            <li><strong>Dominio</strong> y, si ayuda, simetrías.</li>
+            <li><strong>Cortes</strong> con los ejes y <strong>signo</strong> de \(f\).</li>
+            <li><strong>Asíntotas</strong>: verticales en los bordes del dominio; horizontales u oblicuas en \(\pm\infty\).</li>
+            <li><strong>Monotonía y extremos</strong>: signo de \(f'\).</li>
+            <li><strong>Curvatura e inflexión</strong> (ampliación): signo de \(f''\).</li>
+            <li><strong>Tabla y boceto</strong>: primero lo seguro (puntos, asíntotas), después las curvas.</li>
+          </ol>
+          <div>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Por qué este orden</strong> <span>Cada paso limita el siguiente: no se buscan extremos fuera del dominio ni se dibuja una curva que cruce una asíntota vertical.</span></p>
+            <p class="mc-slide__box mc-slide__box--error" data-step><strong>Antes de terminar</strong> <span>¿La gráfica respeta el signo, los cortes y los límites que has calculado? Si no, hay un error en algún paso.</span></p>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="01-esquema-general-para-representar-una-funcion.html">2.1. Esquema general para representar una función</a></p>
+      </section>
+
+      <section class="mc-slide" id="ejemplo-cubica" data-title="Ejemplo completo: f(x) = x³ − 3x">
+        <span class="mc-slide__kicker">Ejemplo paso a paso · 2.1</span>
+        <h2>\(f(x)=x^3-3x\)</h2>
+        <ol class="mc-slide__steps">
+          <li>Dominio \(\mathbb R\). \(f(-x)=-f(x)\): simétrica respecto del origen. Cortes: \(x(x^2-3)=0\Rightarrow x=0,\ \pm\sqrt3\).</li>
+          <li data-step>Sin asíntotas: es un polinomio. \(\displaystyle\lim_{x\to+\infty}f=+\infty\), \(\displaystyle\lim_{x\to-\infty}f=-\infty\).</li>
+          <li data-step>\(f'(x)=3x^2-3=0\Rightarrow x=\pm1\). Crece en \((-\infty,-1)\cup(1,+\infty)\) y decrece en \((-1,1)\).</li>
+          <li data-step>Máximo relativo \((-1,2)\) y mínimo relativo \((1,-2)\).</li>
+          <li data-step>Ampliación: \(f''(x)=6x\) cambia de signo en 0: inflexión en \((0,0)\); arco a la izquierda, cuenco a la derecha.</li>
+        </ol>
+        <aside class="mc-slide__notes">Pide que dibujen el boceto en el cuaderno con solo los pasos 1 y 2, y que lo corrijan después con los extremos.</aside>
+      </section>
+
+      <section class="mc-slide" id="polinomicas">
+        <span class="mc-slide__kicker">2.2 · Funciones polinómicas</span>
+        <h2>Grado, raíces y multiplicidad</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <ul>
+              <li>El término de mayor grado decide los extremos \(x\to\pm\infty\).</li>
+              <li>Una raíz <strong>simple</strong> atraviesa el eje: \(f\) cambia de signo.</li>
+              <li>Una raíz <strong>doble</strong> toca el eje y rebota: no cambia el signo y es un extremo.</li>
+              <li>Un polinomio de grado \(n\) tiene como mucho \(n-1\) extremos relativos.</li>
+            </ul>
+          </div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>Pregunta a la clase</strong>
+            <p>Esboza \(f(x)=(x-1)^2(x+2)\) sin derivar.</p>
+            <p data-step>Raíces: \(x=-2\) (simple, atraviesa) y \(x=1\) (doble, rebota: mínimo \((1,0)\)).</p>
+            <p data-step>Grado 3 con coeficiente positivo: viene de \(-\infty\) y va a \(+\infty\). Corte con el eje \(y\): \(f(0)=2\).</p>
+            <p data-step>Entre \(-2\) y \(1\) tiene que haber un máximo relativo.</p>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="02-funciones-polinomicas.html">2.2. Funciones polinómicas</a></p>
+      </section>
+
+      <section class="mc-slide" id="racionales">
+        <span class="mc-slide__kicker">2.3 · Funciones racionales</span>
+        <h2>Huecos y asíntotas</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p class="mc-slide__box mc-slide__box--method"><strong>Método</strong> <span>1) Dominio: fuera las raíces del denominador. 2) Simplifica: un factor que se cancela deja un <em>hueco</em>; uno que queda abajo da una <em>asíntota vertical</em>. 3) Grados: horizontal si \(\operatorname{gr}P\le\operatorname{gr}Q\); oblicua si \(\operatorname{gr}P=\operatorname{gr}Q+1\).</span></p>
+          </div>
+          <div>
+            <h3>\(f(x)=\dfrac{2x+1}{x-1}\)</h3>
+            <ol class="mc-slide__steps">
+              <li>Dominio \(\mathbb R\setminus\{1\}\); en \(x=1\) el numerador vale 3: asíntota vertical \(x=1\).</li>
+              <li data-step>\(x\to1^-\): \(\frac{3}{0^-}=-\infty\). \(x\to1^+\): \(\frac{3}{0^+}=+\infty\).</li>
+              <li data-step>Grados iguales: asíntota horizontal \(y=\frac21=2\).</li>
+            </ol>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="03-funciones-racionales.html">2.3. Funciones racionales</a></p>
+      </section>
+
+      <section class="mc-slide" id="oblicua" data-title="Ejemplo: asíntota oblicua y extremos">
+        <span class="mc-slide__kicker">Ejemplo paso a paso · 2.3</span>
+        <h2>\(f(x)=\dfrac{x^2}{x-1}\)</h2>
+        <ol class="mc-slide__steps">
+          <li>Dominio \(\mathbb R\setminus\{1\}\). Asíntota vertical \(x=1\) (el numerador vale 1).</li>
+          <li data-step>Grado del numerador = grado del denominador + 1. Dividiendo: \(\dfrac{x^2}{x-1}=x+1+\dfrac{1}{x-1}\), así que la asíntota oblicua es \(y=x+1\).</li>
+          <li data-step>\(f'(x)=\dfrac{2x(x-1)-x^2}{(x-1)^2}=\dfrac{x(x-2)}{(x-1)^2}\). Se anula en \(x=0\) y \(x=2\).</li>
+          <li data-step>Signo de \(f'\): \(+\) en \((-\infty,0)\), \(-\) en \((0,1)\) y \((1,2)\), \(+\) en \((2,+\infty)\). Máximo \((0,0)\), mínimo \((2,4)\).</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>Cuidado</strong> <span>\(x=1\) no es candidato a extremo aunque \(f'\) cambie allí: no está en el dominio.</span></p>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="explora-racionales">
+        <span class="mc-slide__kicker">Explorador · 2.3</span>
+        <h2>¿Hueco o asíntota vertical?</h2>
+        <p>Compara qué queda después de cancelar el factor \((x-a)\).</p>
+        <div class="mc-lab" data-rational-explorer><div class="actions"><label>Factores <select data-case><option value="equal">Misma multiplicidad: k(x−a)/(x−a)</option><option value="zero">Más en numerador: k(x−a)²/(x−a)</option><option value="pole">Más en denominador: k(x−a)/(x−a)²</option></select></label><label>Punto a <select data-point><option value="-1">−1</option><option value="1" selected>1</option><option value="2">2</option></select></label><label>Coeficiente k <select data-coefficient><option value="2">2</option><option value="-2">−2</option></select></label></div><div class="mc-lab__result" data-rational-result></div><p data-rational-status role="status"></p></div>
+        <aside class="mc-slide__notes">Pide la predicción antes de cambiar «Factores»: con la misma multiplicidad, la gráfica es una recta horizontal con un hueco; con más factores abajo, la asíntota vertical sobrevive a la simplificación.</aside>
+      </section>
+
+      <section class="mc-slide" id="exponenciales">
+        <span class="mc-slide__kicker">2.4 · Funciones exponenciales</span>
+        <h2>La variable en el exponente</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>\(f(x)=a^x\), \(a&gt;0\), \(a\ne1\)</strong> <span>Dominio \(\mathbb R\), recorrido \((0,+\infty)\), pasa por \((0,1)\). Crece si \(a&gt;1\) y decrece si \(0&lt;a&lt;1\). Asíntota horizontal \(y=0\) en un lado.</span></p>
+            <p>\(f(x)=c\cdot a^{x}+k\) traslada la asíntota a \(y=k\).</p>
+          </div>
+          <div>
+            <h3>Porcentajes sobre el valor anterior</h3>
+            <ol class="mc-slide__steps">
+              <li>Un capital de 1000 € al 5 % anual: \(C(t)=1000\cdot1{,}05^{\,t}\).</li>
+              <li data-step>Un coche de 20 000 € que pierde un 20 % al año: \(V(t)=20\,000\cdot0{,}8^{\,t}\).</li>
+              <li data-step>\(V(3)=20\,000\cdot0{,}512=10\,240\) €. No es \(20\,000-3\cdot4000\): el 20 % se aplica cada año al valor que queda.</li>
+            </ol>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="04-funciones-exponenciales.html">2.4. Funciones exponenciales</a></p>
+      </section>
+
+      <section class="mc-slide" id="logaritmicas">
+        <span class="mc-slide__kicker">2.5 · Funciones logarítmicas</span>
+        <h2>El logaritmo devuelve un exponente</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Definición</strong> <span>\(\log_a y=x\iff a^x=y\). \(\ln x\) es el logaritmo en base \(e\).</span></p>
+            <ul>
+              <li>Solo existe para argumentos positivos.</li>
+              <li>\(\ln x\): dominio \((0,+\infty)\), corte \((1,0)\), asíntota vertical \(x=0\).</li>
+              <li>\(\ln(ab)=\ln a+\ln b\) y \(\ln a^n=n\ln a\), con \(a,b&gt;0\).</li>
+            </ul>
+          </div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>Pregunta a la clase</strong>
+            <p>Dominio, asíntota y corte con el eje \(x\) de \(f(x)=\ln(x-2)\).</p>
+            <p data-step>\(x-2&gt;0\Rightarrow\) dominio \((2,+\infty)\).</p>
+            <p data-step>Asíntota vertical \(x=2\): \(\displaystyle\lim_{x\to2^+}\ln(x-2)=-\infty\).</p>
+            <p data-step>Corte: \(x-2=1\Rightarrow(3,0)\). Es \(\ln x\) desplazada 2 a la derecha.</p>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="05-funciones-logaritmicas.html">2.5. Funciones logarítmicas</a></p>
+      </section>
+
+      <section class="mc-slide" id="trozos">
+        <span class="mc-slide__kicker">2.6 · A trozos y valor absoluto</span>
+        <h2>El intervalo decide la fórmula</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <h3>Valor absoluto como función a trozos</h3>
+            <p>\(|x-2|=\begin{cases}2-x &amp; x&lt;2\\ x-2 &amp; x\ge2\end{cases}\)</p>
+            <p>Es la distancia de \(x\) a 2: una «V» con vértice \((2,0)\), continua pero con esquina.</p>
+          </div>
+          <div>
+            <h3>Una tarifa progresiva</h3>
+            <p>Agua: 0,5 €/m³ hasta 10 m³ y 1 €/m³ por cada m³ que pase de 10.</p>
+            <ol class="mc-slide__steps">
+              <li>\(C(x)=0{,}5x\) si \(0\le x\le10\).</li>
+              <li data-step>\(C(x)=5+1\cdot(x-10)\) si \(x&gt;10\): se conserva lo ya pagado.</li>
+              <li data-step>En \(x=10\) los dos trozos dan 5 €: continua. La pendiente cambia de 0,5 a 1: esquina.</li>
+            </ol>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="06-funciones-a-trozos-valor-absoluto.html">2.6. Funciones a trozos. Valor absoluto</a></p>
+      </section>
+
+      <section class="mc-slide" id="traslaciones">
+        <span class="mc-slide__kicker">2.7 · Traslaciones</span>
+        <h2>\(y=f(x-a)+k\)</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Regla de los puntos</strong> <span>Cada punto \((x,y)\) de \(f\) pasa a \((x+a,\ y+k)\): \(a\) a la derecha y \(k\) hacia arriba. También se trasladan asíntotas, extremos y cortes.</span></p>
+        <div class="mc-slide__cols">
+          <div class="mc-slide__box mc-slide__box--ask"><strong>a)</strong><p>\(y=(x-2)^2+1\) a partir de \(x^2\)</p><p data-step>2 a la derecha y 1 arriba: vértice \((2,1)\).</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>b)</strong><p>\(y=\dfrac{1}{x+1}-2\) a partir de \(\dfrac1x\)</p><p data-step>1 a la izquierda y 2 abajo: asíntotas \(x=-1\) e \(y=-2\).</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>c)</strong><p>\(y=\ln(x+3)\) a partir de \(\ln x\)</p><p data-step>3 a la izquierda: asíntota \(x=-3\), corte \((-2,0)\).</p></div>
+        </div>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>Error frecuente</strong> <span>\(f(x-2)\) se desplaza a la <em>derecha</em>: el signo dentro del paréntesis engaña.</span></p>
+        <p class="mc-slide__links"><a href="07-traslaciones.html">2.7. Traslaciones</a></p>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="explora-traslaciones">
+        <span class="mc-slide__kicker">Explorador · 2.7</span>
+        <h2>Mueve la gráfica sin recalcularla</h2>
+        <div class="mc-lab" data-translation-explorer><div class="actions"><label>Función original <select data-shift-family><option value="square">x²</option><option value="absolute">|x|</option><option value="reciprocal">1/x</option><option value="logarithm">ln x</option></select></label><label>Desplazamiento a <select data-shift-horizontal><option value="-2">−2</option><option value="0" selected>0</option><option value="2">2</option></select></label><label>Desplazamiento k <select data-shift-vertical><option value="-2">−2</option><option value="0" selected>0</option><option value="2">2</option></select></label><label><input type="checkbox" data-show-original checked> Mostrar original</label></div><div class="mc-lab__result" data-translation-result></div><p data-translation-status role="status"></p></div>
+        <aside class="mc-slide__notes">Con 1/x y ln x, pide que digan dónde quedará la asíntota antes de mover los controles.</aside>
+      </section>
+
+      <section class="mc-slide" id="escalas">
+        <span class="mc-slide__kicker">2.8 · Expansión y contracción</span>
+        <h2>Multiplicar fuera o dentro</h2>
+        <table>
+          <thead><tr><th scope="col">Expresión</th><th scope="col">Efecto sobre la gráfica de \(f\)</th><th scope="col">Punto \((x,y)\) pasa a</th></tr></thead>
+          <tbody>
+            <tr><td>\(c\cdot f(x)\), \(c&gt;0\)</td><td>Estira (\(c&gt;1\)) o comprime (\(c&lt;1\)) en vertical</td><td>\((x,\ c\,y)\)</td></tr>
+            <tr><td>\(f(c\,x)\), \(c&gt;0\)</td><td>Comprime (\(c&gt;1\)) o estira (\(c&lt;1\)) en horizontal</td><td>\((x/c,\ y)\)</td></tr>
+            <tr><td>\(-f(x)\)</td><td>Simetría respecto del eje \(x\)</td><td>\((x,\ -y)\)</td></tr>
+            <tr><td>\(f(-x)\)</td><td>Simetría respecto del eje \(y\)</td><td>\((-x,\ y)\)</td></tr>
+          </tbody>
+        </table>
+        <p class="mc-slide__box mc-slide__box--ask" data-step><strong>Pregunta a la clase</strong> <span>¿Cómo se obtiene \(y=-2(x+1)^2+3\) desde \(x^2\)? Izquierda 1, estiramiento ×2, simetría y 3 arriba: vértice \((-1,3)\), que ahora es un máximo.</span></p>
+        <p class="mc-slide__links"><a href="08-expansion-y-contraccion.html">2.8. Expansión y contracción</a></p>
+      </section>
+
+      <section class="mc-slide" id="optimizacion">
+        <span class="mc-slide__kicker">2.9 · Optimización</span>
+        <h2>Del enunciado a una decisión</h2>
+        <ol class="mc-slide__steps">
+          <li><strong>Variable</strong> con unidades y valores admisibles (¿solo enteros?).</li>
+          <li data-step><strong>Función objetivo</strong>: ingreso \(R=q\cdot p\), beneficio \(B=R-C\), coste medio \(M=C/q\).</li>
+          <li data-step><strong>Restricciones</strong>: cantidades no negativas, capacidad, presupuesto.</li>
+          <li data-step><strong>Candidatos</strong>: \(f'=0\) en el interior, puntos sin derivada y extremos del intervalo.</li>
+          <li data-step><strong>Justifica</strong> con el signo de \(f'\) o comparando valores, y <strong>responde</strong> con unidades.</li>
+        </ol>
+        <p class="mc-slide__links"><a href="09-optimizacion-de-funciones.html">2.9. Optimización de funciones</a></p>
+      </section>
+
+      <section class="mc-slide" id="beneficio" data-title="Ejemplo: beneficio con capacidad limitada">
+        <span class="mc-slide__kicker">Ejemplo paso a paso · 2.9</span>
+        <h2>\(B(q)=-q^2+40q-100\) con \(0\le q\le24\) t</h2>
+        <ol class="mc-slide__steps">
+          <li>\(B'(q)=-2q+40=0\Rightarrow q=20\), dentro de \([0,24]\).</li>
+          <li data-step>Compara candidatos: \(B(0)=-100\), \(B(20)=300\), \(B(24)=284\).</li>
+          <li data-step>Máximo: 20 toneladas, con un beneficio de 300 €.</li>
+        </ol>
+        <div class="mc-slide__box mc-slide__box--ask" data-step><strong>Pregunta a la clase</strong>
+          <p>Si la capacidad baja a 16 t, ¿cuánto conviene producir?</p>
+          <p data-step>\(q=20\) ya no es admisible. \(B'&gt;0\) en \([0,16]\): \(B\) crece y el óptimo está en el borde, \(q=16\), con \(B(16)=284\) €.</p>
+        </div>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="explora-optimizacion">
+        <span class="mc-slide__kicker">Explorador · 2.9</span>
+        <h2>¿Qué cantidad conviene producir?</h2>
+        <div class="mc-lab" data-optimization-explorer><div class="actions"><label>Precio inicial p₀ (€/t) <select data-opt-price><option value="35">35</option><option value="50" selected>50</option></select></label><label>Coste fijo F (€) <select data-opt-fixed><option value="100">100</option><option value="500">500</option></select></label><label>Capacidad (t) <select data-opt-capacity><option value="8">8</option><option value="16">16</option><option value="24" selected>24</option></select></label><label>Cantidades permitidas <select data-opt-mode><option value="continuous">Divisibles</option><option value="integer">Toneladas enteras</option></select></label></div><label>Tu cantidad q: <output data-opt-current for="opt-quantity">10 t</output><input id="opt-quantity" data-opt-quantity type="range" min="0" max="24" step="0.5" value="10"></label><div class="mc-lab__result" data-optimization-result></div><p data-optimization-status role="status"></p></div>
+        <aside class="mc-slide__notes">Pide a la clase que proponga una cantidad antes de calcular. Después baja la capacidad a 8 t y sube el coste fijo a 500 €: el máximo puede ser negativo y aun así es la mejor decisión posible.</aside>
+      </section>
+
+      <section class="mc-slide" id="coste-medio" data-title="Ejemplo: minimizar el coste medio">
+        <span class="mc-slide__kicker">Ejemplo paso a paso · 2.9</span>
+        <h2>Coste medio mínimo</h2>
+        <p>Producir \(q\) unidades cuesta \(C(q)=q^2+4q+100\) €. ¿Con cuántas unidades es mínimo el coste por unidad?</p>
+        <ol class="mc-slide__steps">
+          <li>\(M(q)=\dfrac{C(q)}{q}=q+4+\dfrac{100}{q}\), con \(q&gt;0\).</li>
+          <li data-step>\(M'(q)=1-\dfrac{100}{q^2}=0\Rightarrow q^2=100\Rightarrow q=10\) (descartamos \(-10\)).</li>
+          <li data-step>\(M'&lt;0\) si \(0&lt;q&lt;10\) y \(M'&gt;0\) si \(q&gt;10\): mínimo absoluto en \(q=10\).</li>
+          <li data-step>\(M(10)=10+4+10=24\) €/unidad.</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>No confundas</strong> <span>El mínimo del coste medio no es el mínimo del coste total: \(C\) crece siempre para \(q&gt;0\).</span></p>
+      </section>
+
+      <section class="mc-slide" id="errores">
+        <span class="mc-slide__kicker">Repaso</span>
+        <h2>Errores frecuentes</h2>
+        <ul>
+          <li>Buscar extremos o asíntotas sin haber calculado antes el dominio.</li>
+          <li>Simplificar una racional y olvidar el hueco que deja el factor cancelado.</li>
+          <li>Dar como extremo un punto donde \(f'\) se anula sin comprobar el cambio de signo.</li>
+          <li>Calcular un porcentaje acumulado como si fuera lineal.</li>
+          <li>Desplazar \(f(x-a)\) hacia la izquierda.</li>
+          <li>En optimización, olvidar los extremos del intervalo o responder sin unidades.</li>
+        </ul>
+      </section>
+
+      <section class="mc-slide" id="cierre">
+        <span class="mc-slide__kicker">Para seguir</span>
+        <h2>Practica y prepara la PAU</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <h3>En el libro</h3>
+            <ul>
+              <li><a href="index.html#repaso">Repaso integrado del tema</a></li>
+              <li><a href="../../../test/index.html?tema=t02">Test del tema</a> y <a href="../../../tarjetas/index.html?tema=t02">tarjetas</a></li>
+              <li>Juegos: <a href="../../../laboratorios/juegos/t02-a-construye-la-grafica.html">Construye la gráfica</a>, <a href="../../../laboratorios/juegos/t02-b-transforma-la-funcion.html">Transforma la función</a> y <a href="../../../laboratorios/juegos/t02-c-optimiza.html">Optimiza</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>En la PAU</h3>
+            <p>Suelen pedir el estudio completo de una función (dominio, asíntotas, monotonía y extremos) o un problema de optimización con un modelo de costes o beneficios.</p>
+            <p><a href="../../../selectividad/02-representacion-de-funciones.html">Ejercicios de Selectividad del tema 2</a></p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="../../../assets/js/learning/presentation.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>
