@@ -77,6 +77,10 @@
 .mc-slides.is-deck .mc-slide--lab [role="status"] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .mc-slides.is-deck .mc-slide--lab figure svg { max-height: calc(var(--mc-fit, 1) * 46cqh); }
 /* Explorador con dos gráficas (teorema fundamental): una al lado de la otra. */
+/* Exploradores de la normal (tema 8): cada etiqueta junto a su deslizador para que quepan los cinco controles.
+   :not([hidden]) respeta que el módulo los oculte hasta estar listo. */
+.mc-slides.is-deck .mc-slide--lab :is([data-normal-controls], [data-approx-controls]):not([hidden]) { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); align-items: center; gap: 0.2em 1em; }
+.mc-slides.is-deck .mc-slide--lab :is([data-normal-controls], [data-approx-controls]) input { margin: 0; }
 /* Laboratorios que construyen su contenido (temas 4 y 5): datos y cuadrícula a la izquierda, resultado a la derecha;
    los dos editores de matrices del producto, uno al lado del otro. */
 @media (min-width: 48rem) {

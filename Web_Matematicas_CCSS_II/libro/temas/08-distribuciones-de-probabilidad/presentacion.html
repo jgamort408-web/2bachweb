@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es" data-skin="mc">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presentación: 8. Distribuciones de probabilidad · Matemáticas CCSS II</title>
+  <meta name="description" content="Presentación de clase del tema 8, Distribuciones de probabilidad: variable aleatoria, distribución binomial, distribución normal y tipificación, y aproximación de la binomial por la normal con corrección de continuidad, con exploradores interactivos.">
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t08-presentacion" class="mc-skin" data-block="azar">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main mc-deck">
+    <header class="mc-deck__intro">
+      <span class="mc-chip mc-chip--dot">Tema 8 · Probabilidad y Estadística · Presentación de clase</span>
+      <h1>8. Distribuciones de probabilidad</h1>
+      <p class="mc-deck__help">Avanza con <kbd>→</kbd>, <kbd>Espacio</kbd> o un mando de presentaciones y retrocede con <kbd>←</kbd>. <kbd>F</kbd> pantalla completa, <kbd>N</kbd> notas para el docente, <kbd>I</kbd> índice. En el móvil, desliza el dedo. Los pasos de los ejemplos aparecen uno a uno.</p>
+    </header>
+
+    <div class="mc-slides" data-slides data-explorers="normal binomial-normal">
+
+      <section class="mc-slide mc-slide__title" id="portada">
+        <span class="mc-slide__kicker">Matemáticas Aplicadas a las Ciencias Sociales II · Tema 8</span>
+        <h2>Distribuciones de probabilidad</h2>
+        <p>Modelos para el azar: contar éxitos en ensayos repetidos y describir medidas que se reparten en forma de campana.</p>
+        <ul>
+          <li>Variable aleatoria, media y desviación típica.</li>
+          <li>Distribución binomial y distribución normal; tipificación.</li>
+          <li>Aproximación de la binomial por la normal.</li>
+        </ul>
+        <aside class="mc-slide__notes">Cada diapositiva enlaza con su lección del libro. Conviene tener a mano la tabla de la normal \(N(0,1)\) que se usa en la PAU.</aside>
+      </section>
+
+      <section class="mc-slide" id="variable">
+        <span class="mc-slide__kicker">8.1 · Variable aleatoria</span>
+        <h2>Un número para cada resultado</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <ul>
+              <li><strong>Discreta</strong>: valores aislados (número de caras, de clientes, de piezas defectuosas).</li>
+              <li><strong>Continua</strong>: cualquier valor de un intervalo (altura, tiempo, peso).</li>
+            </ul>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Discreta</strong> <span>\(\mu=\sum x_i\,p_i\qquad \sigma^2=\sum x_i^2\,p_i-\mu^2\)</span></p>
+          </div>
+          <div>
+            <h3>\(X\) = número de caras al lanzar dos monedas</h3>
+            <table>
+              <thead><tr><th scope="col">\(x_i\)</th><th scope="col">0</th><th scope="col">1</th><th scope="col">2</th></tr></thead>
+              <tbody><tr><th scope="row">\(p_i\)</th><td>\(\frac14\)</td><td>\(\frac12\)</td><td>\(\frac14\)</td></tr></tbody>
+            </table>
+            <ol class="mc-slide__steps">
+              <li data-step>\(\mu=0\cdot\frac14+1\cdot\frac12+2\cdot\frac14=1\).</li>
+              <li data-step>\(\sigma^2=0+\frac12+4\cdot\frac14-1^2=0{,}5\); \(\sigma\approx0{,}71\).</li>
+            </ol>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="01-variable-aleatoria.html">8.1. Variable aleatoria</a></p>
+      </section>
+
+      <section class="mc-slide" id="binomial" data-title="Distribución binomial">
+        <span class="mc-slide__kicker">8.2 · Distribución binomial</span>
+        <h2>Contar éxitos en \(n\) ensayos</h2>
+        <p class="mc-slide__box mc-slide__box--method"><strong>Cuándo es binomial</strong> <span>Número fijo \(n\) de ensayos independientes, dos resultados (éxito o fracaso) y probabilidad de éxito \(p\) constante.</span></p>
+        <div class="mc-slide__cols">
+          <p class="mc-slide__box mc-slide__box--theory"><strong>\(X\sim\operatorname{Bin}(n,p)\)</strong> <span>\(P(X=k)=\dbinom nk\,p^k\,(1-p)^{n-k},\quad k=0,1,\dots,n\)</span></p>
+          <p class="mc-slide__box mc-slide__box--theory"><strong>Parámetros</strong> <span>\(\mu=np,\qquad \sigma=\sqrt{np(1-p)}\)</span></p>
+        </div>
+        <div class="mc-slide__box mc-slide__box--ask" data-step><strong>Pregunta a la clase</strong> <span>¿Son binomiales?</span>
+          <p data-step>a) Caras en 10 lanzamientos de una moneda: sí, \(\operatorname{Bin}(10;\,0{,}5)\).</p>
+          <p data-step>b) Bolas rojas al sacar 3 sin reemplazamiento de una urna pequeña: no, \(p\) cambia en cada extracción.</p>
+          <p data-step>c) Lanzamientos hasta obtener el primer 6: no, el número de ensayos no está fijado.</p>
+        </div>
+        <p class="mc-slide__links"><a href="02-distribucion-binomial.html">8.2. Distribución binomial</a></p>
+      </section>
+
+      <section class="mc-slide" id="ejemplo-binomial" data-title="Ejemplo: piezas defectuosas">
+        <span class="mc-slide__kicker">Ejemplo paso a paso · 8.2</span>
+        <h2>Piezas defectuosas</h2>
+        <p>El 10&nbsp;% de las piezas de una fábrica son defectuosas. Se eligen 5 al azar. \(X\) = número de defectuosas, \(X\sim\operatorname{Bin}(5;\,0{,}1)\).</p>
+        <ol class="mc-slide__steps">
+          <li>Ninguna defectuosa: \(P(X=0)=0{,}9^5\approx0{,}5905\).</li>
+          <li data-step>Al menos una: \(P(X\ge1)=1-P(X=0)\approx0{,}4095\).</li>
+          <li data-step>Exactamente dos: \(P(X=2)=\binom52\,0{,}1^2\,0{,}9^3=10\cdot0{,}01\cdot0{,}729=0{,}0729\).</li>
+          <li data-step>Media: \(\mu=5\cdot0{,}1=0{,}5\) piezas defectuosas por muestra; \(\sigma=\sqrt{5\cdot0{,}1\cdot0{,}9}\approx0{,}67\).</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>No olvides</strong> <span>el número combinatorio: \(0{,}1^2\cdot0{,}9^3\) es la probabilidad de <em>un</em> orden concreto; hay \(\binom52=10\).</span></p>
+      </section>
+
+      <section class="mc-slide" id="binomial-acumulada">
+        <span class="mc-slide__kicker">Ejemplo paso a paso · 8.2</span>
+        <h2>«Como máximo» y «al menos» en la binomial</h2>
+        <p>Mismas piezas: (Xsimoperatorname{Bin}(5;,0{,}1)).</p>
+        <ol class="mc-slide__steps">
+          <li>(P(X=1)=inom51,0{,}1cdot0{,}9^4=5cdot0{,}1cdot0{,}6561=0{,}32805).</li>
+          <li data-step>Como máximo una: (P(Xle1)=P(X=0)+P(X=1)=0{,}59049+0{,}32805=0{,}91854).</li>
+          <li data-step>Al menos dos: (P(Xge2)=1-P(Xle1)=0{,}08146). Más rápido que sumar (P(X=2)+dots+P(X=5)).</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--method" data-step><strong>Traduce primero</strong> <span>«Como máximo (k)»: (Xle k). «Al menos (k)»: (Xge k). «Más de (k)»: (Xge k+1) en una variable discreta.</span></p>
+      </section>
+
+      <section class="mc-slide" id="normal" data-title="Distribución normal y tipificación">
+        <span class="mc-slide__kicker">8.3 · Distribución normal</span>
+        <h2>La campana \(N(\mu,\sigma)\)</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <ul>
+              <li>Simétrica respecto de la media \(\mu\); \(\sigma\) mide su anchura.</li>
+              <li>La probabilidad es un <em>área</em> bajo la curva: \(P(X=a)=0\).</li>
+              <li>\(P(\mu-\sigma\le X\le\mu+\sigma)\approx68{,}27\,\%\); con \(2\sigma\), 95,45&nbsp;%; con \(3\sigma\), 99,73&nbsp;%.</li>
+            </ul>
+          </div>
+          <div>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Tipificación</strong> <span>Si \(X\sim N(\mu,\sigma)\), entonces \(Z=\dfrac{X-\mu}{\sigma}\sim N(0,1)\), cuya acumulada \(\Phi(z)=P(Z\le z)\) está en la tabla.</span></p>
+            <p class="mc-slide__box mc-slide__box--method" data-step><strong>Con la tabla</strong> <span>\(P(Z\ge a)=1-\Phi(a)\); \(\;\Phi(-a)=1-\Phi(a)\); \(\;P(a\le Z\le b)=\Phi(b)-\Phi(a)\).</span></p>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="03-distribucion-normal.html">8.3. Distribución normal</a></p>
+      </section>
+
+      <section class="mc-slide" id="ejemplo-normal" data-title="Ejemplo: estaturas normales">
+        <span class="mc-slide__kicker">Ejemplo paso a paso · 8.3</span>
+        <h2>Estaturas \(X\sim N(170,\,10)\) cm</h2>
+        <ol class="mc-slide__steps">
+          <li>\(P(X\le185)=P\Bigl(Z\le\frac{185-170}{10}\Bigr)=\Phi(1{,}5)=0{,}9332\).</li>
+          <li data-step>\(P(X\ge185)=1-0{,}9332=0{,}0668\): algo menos del 7&nbsp;%.</li>
+          <li data-step>\(P(160\le X\le180)=\Phi(1)-\Phi(-1)=2\,\Phi(1)-1=2\cdot0{,}8413-1=0{,}6826\).</li>
+        </ol>
+        <div class="mc-slide__box mc-slide__box--ask" data-step><strong>Al revés: ¿qué estatura deja por debajo al 95&nbsp;%?</strong>
+          <p data-step>Se busca \(z\) con \(\Phi(z)=0{,}95\): \(z\approx1{,}645\).</p>
+          <p data-step>\(k=\mu+z\sigma=170+1{,}645\cdot10\approx186{,}5\) cm.</p>
+        </div>
+        <aside class="mc-slide__notes">Pide que dibujen la campana y sombreen el área antes de usar la tabla: evita la mitad de los errores de signo.</aside>
+      </section>
+
+      <section class="mc-slide" id="comparar">
+        <span class="mc-slide__kicker">Pregunta a la clase · 8.3</span>
+        <h2>¿Quién ha destacado más?</h2>
+        <p>Ana saca un 7 en un examen cuyas notas siguen (N(6;,1)). Luis saca un 80 en otro con notas (N(70;,8)).</p>
+        <ol class="mc-slide__steps">
+          <li data-step>Tipifica cada nota: (z_{	ext{Ana}}=rac{7-6}{1}=1) y (z_{	ext{Luis}}=rac{80-70}{8}=1{,}25).</li>
+          <li data-step>Luis está más desviaciones típicas por encima de su media: destaca más en su grupo.</li>
+          <li data-step>En porcentaje: Ana supera al (Phi(1)=84{,}13,%) de su grupo; Luis, al (Phi(1{,}25)=89{,}44,%) del suyo.</li>
+        </ol>
+        <aside class="mc-slide__notes">La tipificación permite comparar datos que vienen en escalas distintas: es la misma idea que se usará en inferencia.</aside>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="explora-normal">
+        <span class="mc-slide__kicker">Explorador · 8.3</span>
+        <h2>Densidad y acumulada</h2>
+        <div class="mc-lab" data-normal-explorer>
+          <div data-normal-controls hidden>
+            <label for="normal-mu">Media μ: <output for="normal-mu" data-value="mu">0,0</output></label><input id="normal-mu" name="mu" type="range" min="-2" max="2" step="0.1" value="0">
+            <label for="normal-sigma">Desviación típica σ: <output for="normal-sigma" data-value="sigma">1,0</output></label><input id="normal-sigma" name="sigma" type="range" min="0.5" max="2.5" step="0.1" value="1">
+            <label for="normal-a">Extremo a: <output for="normal-a" data-value="a">−1,0</output></label><input id="normal-a" name="a" type="range" min="-4" max="4" step="0.1" value="-1">
+            <label for="normal-b">Extremo b: <output for="normal-b" data-value="b">1,0</output></label><input id="normal-b" name="b" type="range" min="-4" max="4" step="0.1" value="1">
+            <label for="normal-k">Punto k para F(k): <output for="normal-k" data-value="k">0,8</output></label><input id="normal-k" name="k" type="range" min="-4" max="4" step="0.1" value="0.8">
+          </div>
+          <p data-normal-loading>El explorador necesita JavaScript.</p>
+          <p data-normal-summary role="status" aria-live="polite">Configuración inicial: media 0, desviación 1, intervalo de −1 a 1 y punto k=0,8.</p>
+          <div data-normal-readouts></div>
+          <figure class="normal-figure"><div class="normal-plot-scroll"><div id="normal-pdf"></div></div><figcaption>Densidad: el área rayada entre a y b es la probabilidad.</figcaption></figure>
+          <div hidden><div id="normal-cdf"></div><div id="normal-pdf-small"></div><div id="normal-cdf-small"></div></div>
+        </div>
+        <aside class="mc-slide__notes">Mueve σ con el intervalo fijo de −1 a 1: con más dispersión, el área central disminuye. Después mueve μ: la campana se desplaza sin cambiar de forma.</aside>
+      </section>
+
+      <section class="mc-slide" id="aproximacion">
+        <span class="mc-slide__kicker">8.4 · Aproximación de la binomial por la normal</span>
+        <h2>Muchos ensayos: la binomial toma forma de campana</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Aproximación</strong> <span>Si \(X\sim\operatorname{Bin}(n,p)\) con \(np\ge5\) y \(n(1-p)\ge5\), se aproxima por \(Y\sim N\bigl(np,\ \sqrt{np(1-p)}\bigr)\).</span></p>
+        <h3>Corrección de continuidad</h3>
+        <table>
+          <thead><tr><th scope="col">Suceso binomial</th><th scope="col">Aproximación normal</th></tr></thead>
+          <tbody>
+            <tr><td>\(X=k\)</td><td>\(k-0{,}5\le Y\le k+0{,}5\)</td></tr>
+            <tr><td>\(X\le k\) (como máximo \(k\))</td><td>\(Y\le k+0{,}5\)</td></tr>
+            <tr><td>\(X&lt;k\) (menos de \(k\))</td><td>\(Y\le k-0{,}5\)</td></tr>
+            <tr><td>\(X\ge k\) (al menos \(k\))</td><td>\(Y\ge k-0{,}5\)</td></tr>
+            <tr><td>\(X&gt;k\) (más de \(k\))</td><td>\(Y\ge k+0{,}5\)</td></tr>
+          </tbody>
+        </table>
+        <p class="mc-slide__links"><a href="04-aproximacion-de-la-distribucion-binomial-a-la-distribucion-normal.html">8.4. Aproximación de la binomial a la normal</a></p>
+      </section>
+
+      <section class="mc-slide" id="ejemplo-aproximacion" data-title="Ejemplo: 100 lanzamientos de una moneda">
+        <span class="mc-slide__kicker">Ejemplo paso a paso · 8.4</span>
+        <h2>100 lanzamientos de una moneda</h2>
+        <ol class="mc-slide__steps">
+          <li>\(X\sim\operatorname{Bin}(100;\,0{,}5)\): \(np=50\ge5\) y \(n(1-p)=50\ge5\). \(\mu=50\), \(\sigma=\sqrt{25}=5\).</li>
+          <li data-step>Como máximo 55 caras: \(P(X\le55)\approx P(Y\le55{,}5)=\Phi\bigl(\tfrac{55{,}5-50}{5}\bigr)=\Phi(1{,}1)=0{,}8643\).</li>
+          <li data-step>Exactamente 50 caras: \(P(49{,}5\le Y\le50{,}5)=\Phi(0{,}1)-\Phi(-0{,}1)=2\cdot0{,}5398-1=0{,}0796\).</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>Sin corrección</strong> <span>\(P(Y=50)=0\): la normal no da probabilidad a un valor aislado. Por eso se usa el intervalo de amplitud 1.</span></p>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="explora-aproximacion">
+        <span class="mc-slide__kicker">Explorador · 8.4</span>
+        <h2>Barras binomiales y curva normal</h2>
+        <div class="mc-lab" data-approx-explorer>
+          <p data-approx-loading>Los gráficos y controles requieren JavaScript.</p>
+          <div data-approx-controls hidden><label for="approx-n">Número de ensayos n: <output data-value="n" for="approx-n">50</output></label><input id="approx-n" name="n" type="range" min="10" max="200" step="1" value="50">
+            <label for="approx-p">Probabilidad de éxito p: <output data-value="p" for="approx-p">0.5</output></label><input id="approx-p" name="p" type="range" min="0.05" max="0.95" step="0.01" value="0.5">
+            <label for="approx-K">Límite acumulado K: <output data-value="K" for="approx-K">30</output></label><input id="approx-K" name="K" type="range" min="0" max="200" step="1" value="30">
+            <label for="approx-mode">Modo: 0 acumulada, 1 intervalo: <output data-value="mode" for="approx-mode">0</output></label><input id="approx-mode" name="mode" type="range" min="0" max="1" step="1" value="0">
+            <label for="approx-A">Extremo A: <output data-value="A" for="approx-A">20</output></label><input id="approx-A" name="A" type="range" min="0" max="200" step="1" value="20">
+            <label for="approx-B">Extremo B: <output data-value="B" for="approx-B">40</output></label><input id="approx-B" name="B" type="range" min="0" max="200" step="1" value="40"></div>
+          <p data-approx-status role="status" aria-live="polite"></p>
+          <div data-approx-results></div>
+          <figure class="normal-figure"><div class="normal-plot-scroll"><div id="approx-mass"></div></div><figcaption>Barras: binomial. Curva discontinua: normal. Rayado: área normal corregida.</figcaption></figure>
+          <div hidden><div id="approx-cdf"></div><div id="approx-small-pdf"></div><div id="approx-small-cdf"></div></div>
+        </div>
+        <aside class="mc-slide__notes">Lleva p a 0,05 con n = 20: np = 1 y la curva ya no se parece a las barras. Después sube n hasta que np ≥ 5.</aside>
+      </section>
+
+      <section class="mc-slide" id="pregunta-aproximacion">
+        <span class="mc-slide__kicker">Pregunta a la clase · 8.4</span>
+        <h2>¿Qué límite corregido usarías?</h2>
+        <p>\(X\sim\operatorname{Bin}(200;\,0{,}3)\): \(\mu=60\), \(\sigma=\sqrt{42}\approx6{,}48\).</p>
+        <div class="mc-slide__cols">
+          <div class="mc-slide__box mc-slide__box--ask"><strong>a)</strong><p>Más de 70 éxitos</p><p data-step>\(P(X&gt;70)\approx P(Y\ge70{,}5)\)</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>b)</strong><p>Menos de 50 éxitos</p><p data-step>\(P(X&lt;50)\approx P(Y\le49{,}5)\)</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>c)</strong><p>Entre 55 y 65, ambos incluidos</p><p data-step>\(P(54{,}5\le Y\le65{,}5)\)</p></div>
+        </div>
+        <aside class="mc-slide__notes">Truco para la clase: dibuja los enteros como barras de ancho 1 y pregunta qué media barra entra o se queda fuera.</aside>
+      </section>
+
+      <section class="mc-slide" id="errores">
+        <span class="mc-slide__kicker">Repaso</span>
+        <h2>Errores frecuentes</h2>
+        <ul>
+          <li>Usar la binomial cuando \(p\) cambia o el número de ensayos no está fijado.</li>
+          <li>Olvidar el número combinatorio \(\binom nk\).</li>
+          <li>Escribir la varianza en \(N(\mu,\sigma)\): el segundo parámetro es la desviación típica.</li>
+          <li>Leer la tabla como \(P(Z\ge a)\) cuando da \(\Phi(a)=P(Z\le a)\).</li>
+          <li>Buscar valores negativos en la tabla en lugar de usar la simetría.</li>
+          <li>Aproximar sin comprobar \(np\ge5\) y \(n(1-p)\ge5\), u olvidar la corrección de continuidad.</li>
+        </ul>
+      </section>
+
+      <section class="mc-slide" id="cierre">
+        <span class="mc-slide__kicker">Para seguir</span>
+        <h2>Practica y prepara la PAU</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <h3>En el libro</h3>
+            <ul>
+              <li><a href="index.html#ejercicios">Ejercicios del tema</a></li>
+              <li><a href="../../../tarjetas/index.html?tema=t08">Tarjetas del tema</a></li>
+              <li>Juegos: <a href="../../../laboratorios/juegos/t08-a-binomial-factory.html">Binomial Factory</a>, <a href="../../../laboratorios/juegos/t08-b-normal-slider.html">Normal Slider</a> y <a href="../../../laboratorios/juegos/t08-c-correccion-de-continuidad.html">Corrección de continuidad</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>En la PAU</h3>
+            <p>La normal y la tipificación aparecen en casi todos los ejercicios de inferencia: dominarlas aquí es preparar el tema 9.</p>
+            <p><a href="../../../selectividad/09-inferencia-estadistica.html">Ejercicios de Selectividad de inferencia</a></p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="../../../assets/js/learning/presentation.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

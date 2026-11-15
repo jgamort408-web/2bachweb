@@ -665,6 +665,13 @@
     "kind": "lesson"
   },
   {
+    "id": "t08-presentacion",
+    "title": "Presentación de clase del tema 8",
+    "path": "libro/temas/08-distribuciones-de-probabilidad/presentacion.html",
+    "parentId": "t08",
+    "kind": "section"
+  },
+  {
     "id": "t09",
     "title": "9. Inferencia estadística",
     "path": "libro/temas/09-inferencia-estadistica/index.html",
