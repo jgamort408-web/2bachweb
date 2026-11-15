@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es" data-skin="mc">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presentación: 4. Matrices y determinantes · Matemáticas CCSS II</title>
+  <meta name="description" content="Presentación de clase del tema 4, Matrices y determinantes: tipos, operaciones, producto, potencias, determinantes y sus propiedades, inversa, rango, ecuaciones matriciales y grafos, con exploradores interactivos.">
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t04-presentacion" class="mc-skin" data-block="algebra">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main mc-deck">
+    <header class="mc-deck__intro">
+      <span class="mc-chip mc-chip--dot">Tema 4 · Álgebra · Presentación de clase</span>
+      <h1>4. Matrices y determinantes</h1>
+      <p class="mc-deck__help">Avanza con <kbd>→</kbd>, <kbd>Espacio</kbd> o un mando de presentaciones y retrocede con <kbd>←</kbd>. <kbd>F</kbd> pantalla completa, <kbd>N</kbd> notas para el docente, <kbd>I</kbd> índice. En el móvil, desliza el dedo. Los pasos de los ejemplos aparecen uno a uno.</p>
+    </header>
+
+    <div class="mc-slides" data-slides data-explorers="matrix-product matrix-inverse graph">
+
+      <section class="mc-slide mc-slide__title" id="portada">
+        <span class="mc-slide__kicker">Matemáticas Aplicadas a las Ciencias Sociales II · Tema 4</span>
+        <h2>Matrices y determinantes</h2>
+        <p>Organizar datos en tablas y operar con ellas: ventas por tienda, precios, redes de conexiones y, en el tema siguiente, sistemas de ecuaciones.</p>
+        <ul>
+          <li>Tipos de matrices, operaciones, producto y potencias.</li>
+          <li>Determinantes, sus propiedades y el desarrollo por adjuntos.</li>
+          <li>Matriz inversa, rango, ecuaciones matriciales y grafos.</li>
+        </ul>
+        <aside class="mc-slide__notes">Cada diapositiva enlaza con su lección del libro. Los exploradores son los mismos que usa el alumnado en casa.</aside>
+      </section>
+
+      <section class="mc-slide" id="matriz">
+        <span class="mc-slide__kicker">4.1 · Definición, características y tipos</span>
+        <h2>Una tabla con posiciones</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Matriz de orden \(m\times n\)</strong> <span>\(m\) filas y \(n\) columnas. El elemento \(a_{ij}\) está en la fila \(i\) y la columna \(j\).</span></p>
+            <p>Ventas de dos tiendas (filas) en tres productos (columnas): \(V=\begin{pmatrix}10&amp;5&amp;2\\4&amp;8&amp;6\end{pmatrix}\), de orden \(2\times3\); \(v_{23}=6\).</p>
+          </div>
+          <div>
+            <h3>Tipos</h3>
+            <ul>
+              <li>Fila (\(1\times n\)), columna (\(m\times1\)), cuadrada (\(n\times n\)), nula.</li>
+              <li>Cuadradas: diagonal, identidad \(I\), triangular superior o inferior.</li>
+              <li>Dos matrices son iguales si tienen el mismo orden y los mismos elementos en cada posición.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="01-matrices-definicion-caracteristicas-y-tipos.html">4.1. Matrices: definición, características y tipos</a></p>
+      </section>
+
+      <section class="mc-slide" id="operaciones">
+        <span class="mc-slide__kicker">4.2 · Operaciones con matrices</span>
+        <h2>Suma y producto por un número</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Reglas</strong> <span>Se suman matrices <em>del mismo orden</em>, posición a posición. Un número multiplica a todos los elementos.</span></p>
+            <p>Son conmutativas y asociativas como con números; la matriz nula es el neutro de la suma y \(-A\) es la opuesta.</p>
+          </div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>Pregunta a la clase</strong>
+            <p>\(A=\begin{pmatrix}1&amp;-2\\0&amp;3\end{pmatrix}\), \(B=\begin{pmatrix}4&amp;1\\-1&amp;2\end{pmatrix}\). Calcula \(2A-B\).</p>
+            <p data-step>\(2A=\begin{pmatrix}2&amp;-4\\0&amp;6\end{pmatrix}\)</p>
+            <p data-step>\(2A-B=\begin{pmatrix}-2&amp;-5\\1&amp;4\end{pmatrix}\)</p>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="02-operaciones-con-matrices.html">4.2. Operaciones con matrices</a></p>
+      </section>
+
+      <section class="mc-slide" id="producto">
+        <span class="mc-slide__kicker">4.3 · Producto de matrices</span>
+        <h2>Fila por columna</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Compatibilidad</strong> <span>\((m\times n)\cdot(n\times p)=m\times p\): las columnas de la primera deben coincidir con las filas de la segunda. El elemento \((i,j)\) es la fila \(i\) por la columna \(j\).</span></p>
+        <h3>\(A=\begin{pmatrix}1&amp;2\\0&amp;-1\end{pmatrix}\), \(B=\begin{pmatrix}3&amp;1\\2&amp;4\end{pmatrix}\)</h3>
+        <ol class="mc-slide__steps">
+          <li>\(AB=\begin{pmatrix}1\cdot3+2\cdot2&amp;1\cdot1+2\cdot4\\0\cdot3+(-1)\cdot2&amp;0\cdot1+(-1)\cdot4\end{pmatrix}=\begin{pmatrix}7&amp;9\\-2&amp;-4\end{pmatrix}\)</li>
+          <li data-step>\(BA=\begin{pmatrix}3&amp;5\\2&amp;0\end{pmatrix}\ne AB\): el producto <strong>no es conmutativo</strong>.</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>Consecuencia</strong> <span>\((A+B)^2=A^2+AB+BA+B^2\), que en general no es \(A^2+2AB+B^2\).</span></p>
+        <p class="mc-slide__links"><a href="03-producto-de-matrices.html">4.3. Producto de matrices</a></p>
+      </section>
+
+      <section class="mc-slide" id="producto-contexto">
+        <span class="mc-slide__kicker">Ejemplo paso a paso · 4.3</span>
+        <h2>Ventas por precios</h2>
+        <p>Unidades vendidas \(V=\begin{pmatrix}10&amp;5&amp;2\\4&amp;8&amp;6\end{pmatrix}\) (tiendas × productos) y precios \(P=\begin{pmatrix}2\\3\\5\end{pmatrix}\) €.</p>
+        <ol class="mc-slide__steps">
+          <li>Orden: \((2\times3)\cdot(3\times1)=2\times1\): un ingreso por tienda.</li>
+          <li data-step>Tienda 1: \(10\cdot2+5\cdot3+2\cdot5=45\) €.</li>
+          <li data-step>Tienda 2: \(4\cdot2+8\cdot3+6\cdot5=62\) €. \(\;VP=\begin{pmatrix}45\\62\end{pmatrix}\).</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--ask" data-step><strong>Pregunta a la clase</strong> <span>¿Tiene sentido \(PV\)? \((3\times1)\cdot(2\times3)\): no, las dimensiones no encajan.</span></p>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="explora-producto">
+        <span class="mc-slide__kicker">Explorador · 4.3</span>
+        <h2>Laboratorio fila por columna</h2>
+        <div class="activity mc-lab" data-matrix-product></div>
+        <aside class="mc-slide__notes">Pide que calculen un elemento en el cuaderno antes de que lo muestre el laboratorio, y que digan antes de pulsar si el producto en el otro orden es posible.</aside>
+      </section>
+
+      <section class="mc-slide" id="potencias">
+        <span class="mc-slide__kicker">4.4 · Potencia de una matriz</span>
+        <h2>Buscar la regularidad</h2>
+        <p>Solo existe para matrices cuadradas: \(A^n=A\cdot A\cdots A\).</p>
+        <h3>\(A=\begin{pmatrix}1&amp;1\\0&amp;1\end{pmatrix}\)</h3>
+        <ol class="mc-slide__steps">
+          <li>\(A^2=\begin{pmatrix}1&amp;2\\0&amp;1\end{pmatrix}\), \(A^3=\begin{pmatrix}1&amp;3\\0&amp;1\end{pmatrix}\).</li>
+          <li data-step>Conjetura: \(A^n=\begin{pmatrix}1&amp;n\\0&amp;1\end{pmatrix}\). Se comprueba multiplicando por \(A\) una vez más.</li>
+          <li data-step>Así, \(A^{50}=\begin{pmatrix}1&amp;50\\0&amp;1\end{pmatrix}\) sin hacer 49 productos.</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--example" data-step><strong>Potencias cíclicas</strong> <span>Si \(B^2=I\), entonces \(B^{n}=I\) para \(n\) par y \(B^n=B\) para \(n\) impar.</span></p>
+        <p class="mc-slide__links"><a href="04-potencia-de-una-matriz.html">4.4. Potencia de una matriz</a></p>
+      </section>
+
+      <section class="mc-slide" id="traspuesta">
+        <span class="mc-slide__kicker">4.5 · Traspuesta, simétrica y antisimétrica</span>
+        <h2>Filas que pasan a columnas</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Traspuesta</strong> <span>\(A^t\) cambia filas por columnas: si \(A\) es \(m\times n\), \(A^t\) es \(n\times m\). Propiedades: \((A^t)^t=A\), \((A+B)^t=A^t+B^t\), \((AB)^t=B^tA^t\).</span></p>
+          </div>
+          <div>
+            <ul>
+              <li><strong>Simétrica:</strong> \(A^t=A\). Espejo respecto de la diagonal.</li>
+              <li><strong>Antisimétrica:</strong> \(A^t=-A\). La diagonal es nula.</li>
+            </ul>
+            <p class="mc-slide__box mc-slide__box--ask" data-step><strong>Pregunta</strong> <span>¿Qué es \(\begin{pmatrix}0&amp;3\\-3&amp;0\end{pmatrix}\)? Antisimétrica: su traspuesta es su opuesta.</span></p>
+          </div>
+        </div>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>Orden</strong> <span>\((AB)^t=B^tA^t\): la traspuesta de un producto invierte el orden de los factores.</span></p>
+        <p class="mc-slide__links"><a href="05-comparacion-de-matrices-matriz-simetrica-y-matriz-antisimetrica.html">4.5. Matriz simétrica y antisimétrica</a></p>
+      </section>
+
+      <section class="mc-slide" id="determinante">
+        <span class="mc-slide__kicker">4.6 · Determinante de una matriz</span>
+        <h2>Un número para cada matriz cuadrada</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p>\(\begin{vmatrix}a&amp;b\\c&amp;d\end{vmatrix}=ad-bc\)</p>
+            <p>\(\begin{vmatrix}3&amp;-1\\2&amp;4\end{vmatrix}=12-(-2)=14\)</p>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Qué dice</strong> <span>\(|A|\ne0\iff A\) tiene inversa \(\iff\) sus filas son independientes.</span></p>
+          </div>
+          <div>
+            <h3>Regla de Sarrus</h3>
+            <p>\(\begin{vmatrix}1&amp;2&amp;0\\3&amp;1&amp;2\\0&amp;1&amp;1\end{vmatrix}\)</p>
+            <ol class="mc-slide__steps">
+              <li>Diagonales positivas: \(1\cdot1\cdot1+2\cdot2\cdot0+0\cdot3\cdot1=1\).</li>
+              <li data-step>Negativas: \(0\cdot1\cdot0+1\cdot2\cdot1+2\cdot3\cdot1=8\).</li>
+              <li data-step>\(|A|=1-8=-7\).</li>
+            </ol>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="06-determinante-de-una-matriz.html">4.6. Determinante de una matriz</a></p>
+      </section>
+
+      <section class="mc-slide" id="propiedades-determinantes">
+        <span class="mc-slide__kicker">4.7 · Propiedades de los determinantes</span>
+        <h2>Tres operaciones, tres efectos</h2>
+        <table>
+          <thead><tr><th scope="col">Si en \(A\)…</th><th scope="col">el determinante…</th></tr></thead>
+          <tbody>
+            <tr><td>intercambias dos filas (o columnas)</td><td>cambia de signo</td></tr>
+            <tr><td>multiplicas una fila por \(k\)</td><td>queda multiplicado por \(k\)</td></tr>
+            <tr><td>sumas a una fila un múltiplo de otra</td><td>no cambia</td></tr>
+            <tr><td>hay una fila nula o dos proporcionales</td><td>vale 0</td></tr>
+          </tbody>
+        </table>
+        <p>Además \(|A^t|=|A|\), \(|AB|=|A|\,|B|\) y, para \(A\) de orden \(n\), \(|kA|=k^n|A|\).</p>
+        <div class="mc-slide__box mc-slide__box--ask" data-step><strong>Pregunta a la clase</strong> <span>\(A\) es \(3\times3\) con \(|A|=3\). Halla \(|2A|\), \(|A^2|\) y \(|A^{-1}|\).</span>
+          <p data-step>\(|2A|=2^3\cdot3=24\), \(|A^2|=9\), \(|A^{-1}|=\frac13\).</p>
+        </div>
+        <p class="mc-slide__links"><a href="07-propiedades-de-los-determinantes.html">4.7. Propiedades de los determinantes</a></p>
+      </section>
+
+      <section class="mc-slide" id="adjuntos" data-title="Desarrollo por adjuntos">
+        <span class="mc-slide__kicker">4.8 · Desarrollo de un determinante</span>
+        <h2>Elige la línea con más ceros</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Adjunto</strong> <span>\(C_{ij}=(-1)^{i+j}\,M_{ij}\), donde \(M_{ij}\) es el menor que queda al quitar la fila \(i\) y la columna \(j\). \(|A|=\sum_j a_{ij}C_{ij}\) por cualquier fila (o columna).</span></p>
+        <h3>\(\begin{vmatrix}2&amp;0&amp;1\\3&amp;0&amp;-1\\1&amp;4&amp;2\end{vmatrix}\)</h3>
+        <ol class="mc-slide__steps">
+          <li>La columna 2 solo tiene un elemento no nulo: \(a_{32}=4\).</li>
+          <li data-step>Signo de la posición \((3,2)\): \((-1)^{5}=-1\). Menor: \(\begin{vmatrix}2&amp;1\\3&amp;-1\end{vmatrix}=-5\), así que \(C_{32}=5\).</li>
+          <li data-step>\(|A|=4\cdot5=20\).</li>
+        </ol>
+        <p class="mc-slide__links"><a href="08-desarrollo-de-un-determinante.html">4.8. Desarrollo de un determinante</a></p>
+      </section>
+
+      <section class="mc-slide" id="inversa" data-title="Matriz inversa con la adjunta">
+        <span class="mc-slide__kicker">4.9 · Matriz inversa y matriz adjunta</span>
+        <h2>\(A^{-1}=\dfrac{1}{|A|}\operatorname{Adj}(A)\)</h2>
+        <p>\(A^{-1}\) cumple \(AA^{-1}=A^{-1}A=I\) y existe si y solo si \(|A|\ne0\). En el libro, \(\operatorname{Adj}(A)=C^T\): la traspuesta de la matriz de cofactores.</p>
+        <h3>\(A=\begin{pmatrix}2&amp;1\\5&amp;3\end{pmatrix}\)</h3>
+        <ol class="mc-slide__steps">
+          <li>\(|A|=6-5=1\ne0\): tiene inversa.</li>
+          <li data-step>Cofactores: \(C_{11}=3,\ C_{12}=-5,\ C_{21}=-1,\ C_{22}=2\), así que \(C=\begin{pmatrix}3&amp;-5\\-1&amp;2\end{pmatrix}\).</li>
+          <li data-step>\(\operatorname{Adj}(A)=C^T=\begin{pmatrix}3&amp;-1\\-5&amp;2\end{pmatrix}\) y, dividiendo por \(|A|=1\), \(A^{-1}=\begin{pmatrix}3&amp;-1\\-5&amp;2\end{pmatrix}\).</li>
+          <li data-step>Comprueba: \(AA^{-1}=\begin{pmatrix}6-5&amp;-2+2\\15-15&amp;-5+6\end{pmatrix}=I\). ✓</li>
+        </ol>
+        <p class="mc-slide__links"><a href="09-matriz-inversa-y-matriz-adjunta.html">4.9. Matriz inversa y matriz adjunta</a></p>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="explora-inversa">
+        <span class="mc-slide__kicker">Explorador · 4.9</span>
+        <h2>Del adjunto a la inversa</h2>
+        <div class="activity mc-lab" data-matrix-inverse></div>
+        <aside class="mc-slide__notes">Prueba una matriz con determinante 0 para que la clase vea en qué paso se detiene el método.</aside>
+      </section>
+
+      <section class="mc-slide" id="rango">
+        <span class="mc-slide__kicker">4.10 · Rango de una matriz</span>
+        <h2>Cuántas filas son independientes</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Rango</strong> <span>Número máximo de filas (o columnas) linealmente independientes. Es el mayor orden de un menor no nulo, y también el número de filas no nulas tras escalonar por Gauss.</span></p>
+        <h3>\(A=\begin{pmatrix}1&amp;1&amp;1\\1&amp;2&amp;3\\2&amp;3&amp;a\end{pmatrix}\) según \(a\)</h3>
+        <ol class="mc-slide__steps">
+          <li>\(|A|=1(2a-9)-1(a-6)+1(3-4)=a-4\).</li>
+          <li data-step>Si \(a\ne4\): \(|A|\ne0\) y \(\operatorname{rg}A=3\).</li>
+          <li data-step>Si \(a=4\): \(|A|=0\), pero \(\begin{vmatrix}1&amp;1\\1&amp;2\end{vmatrix}=1\ne0\), así que \(\operatorname{rg}A=2\). (La fila 3 es la suma de las dos primeras.)</li>
+        </ol>
+        <p class="mc-slide__links"><a href="10-rango-de-una-matriz.html">4.10. Rango de una matriz</a></p>
+      </section>
+
+      <section class="mc-slide" id="ecuaciones-matriciales">
+        <span class="mc-slide__kicker">4.11 · Ecuaciones matriciales</span>
+        <h2>Despejar sin cambiar el lado</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p>\(AX=B\Rightarrow X=A^{-1}B\)</p>
+            <p>\(XA=B\Rightarrow X=BA^{-1}\)</p>
+            <p>\(AX+X=B\Rightarrow (A+I)X=B\Rightarrow X=(A+I)^{-1}B\)</p>
+            <p class="mc-slide__box mc-slide__box--error"><strong>Nunca</strong> <span>\(X=\frac BA\): no se divide entre matrices. Y \(AX\) no se agrupa como \(XA\).</span></p>
+          </div>
+          <div>
+            <h3>\(\begin{pmatrix}1&amp;1\\0&amp;1\end{pmatrix}X=\begin{pmatrix}3\\2\end{pmatrix}\)</h3>
+            <ol class="mc-slide__steps">
+              <li>Tamaño: \((2\times2)\cdot X=(2\times1)\Rightarrow X\) es \(2\times1\).</li>
+              <li data-step>\(|A|=1\); \(A^{-1}=\begin{pmatrix}1&amp;-1\\0&amp;1\end{pmatrix}\).</li>
+              <li data-step>\(X=A^{-1}B=\begin{pmatrix}3-2\\2\end{pmatrix}=\begin{pmatrix}1\\2\end{pmatrix}\). Comprueba: \(AX=B\). ✓</li>
+            </ol>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="11-ecuaciones-matriciales.html">4.11. Ecuaciones matriciales</a></p>
+      </section>
+
+      <section class="mc-slide" id="grafos">
+        <span class="mc-slide__kicker">4.12 · Grafos y matriz de adyacencia</span>
+        <h2>Una red en una matriz</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Matriz de adyacencia</strong> <span>\(m_{ij}=1\) si hay conexión de \(i\) a \(j\) y 0 si no. En un grafo no dirigido es simétrica.</span></p>
+            <p>Red 1 — 2 — 3: \(M=\begin{pmatrix}0&amp;1&amp;0\\1&amp;0&amp;1\\0&amp;1&amp;0\end{pmatrix}\)</p>
+          </div>
+          <div>
+            <ol class="mc-slide__steps">
+              <li>\(M^2=\begin{pmatrix}1&amp;0&amp;1\\0&amp;2&amp;0\\1&amp;0&amp;1\end{pmatrix}\)</li>
+              <li data-step>\((M^2)_{ij}\) cuenta los recorridos de longitud 2 de \(i\) a \(j\).</li>
+              <li data-step>\((M^2)_{22}=2\): \(2\to1\to2\) y \(2\to3\to2\). \((M^2)_{13}=1\): \(1\to2\to3\).</li>
+            </ol>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="12-grafos-y-matriz-de-adyacencia-asociada.html">4.12. Grafos y matriz de adyacencia asociada</a></p>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="explora-grafos">
+        <span class="mc-slide__kicker">Explorador · 4.12</span>
+        <h2>Construye la red y sigue sus recorridos</h2>
+        <div class="activity mc-lab" data-graph-explorer></div>
+        <aside class="mc-slide__notes">Pide a la clase que cuente a mano los recorridos de longitud 2 entre dos nodos antes de mostrar la potencia de la matriz.</aside>
+      </section>
+
+      <section class="mc-slide" id="errores">
+        <span class="mc-slide__kicker">Repaso</span>
+        <h2>Errores frecuentes</h2>
+        <ul>
+          <li>Multiplicar matrices posición a posición o sin comprobar las dimensiones.</li>
+          <li>Suponer que \(AB=BA\) o desarrollar \((A+B)^2\) como con números.</li>
+          <li>Olvidar el signo \((-1)^{i+j}\) del adjunto.</li>
+          <li>Calcular \(|kA|\) como \(k|A|\) en lugar de \(k^n|A|\).</li>
+          <li>Olvidar trasponer la matriz de cofactores al calcular la inversa.</li>
+          <li>Despejar \(X\) multiplicando por \(A^{-1}\) por el lado equivocado.</li>
+        </ul>
+      </section>
+
+      <section class="mc-slide" id="cierre">
+        <span class="mc-slide__kicker">Para seguir</span>
+        <h2>Practica y prepara la PAU</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <h3>En el libro</h3>
+            <ul>
+              <li><a href="index.html#repaso">Repaso integrado del tema</a></li>
+              <li><a href="../../../test/index.html?tema=t04">Test del tema</a> y <a href="../../../tarjetas/index.html?tema=t04">tarjetas</a></li>
+              <li>Juegos: <a href="../../../laboratorios/juegos/t04-a-matrix-ops.html">Matrix Ops</a>, <a href="../../../laboratorios/juegos/t04-b-la-camara-del-determinante.html">La cámara del determinante</a> y <a href="../../../laboratorios/juegos/t04-c-redes-y-adyacencia.html">Redes y adyacencia</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>En la PAU</h3>
+            <p>Suelen pedir operar con matrices, una inversa, el rango según un parámetro o una ecuación matricial.</p>
+            <p><a href="../../../selectividad/04-matrices-y-determinantes.html">Ejercicios de Selectividad del tema 4</a></p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="../../../assets/js/learning/presentation.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>
