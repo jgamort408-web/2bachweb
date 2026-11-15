@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es" data-skin="mc">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presentación: 5. Sistemas de ecuaciones · Matemáticas CCSS II</title>
+  <meta name="description" content="Presentación de clase del tema 5, Sistemas de ecuaciones: clasificación, notación matricial, teorema de Rouché-Frobenius, métodos de Gauss, matriz inversa y Cramer, sistemas homogéneos y discusión con parámetros, con exploradores interactivos.">
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t05-presentacion" class="mc-skin" data-block="algebra">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main mc-deck">
+    <header class="mc-deck__intro">
+      <span class="mc-chip mc-chip--dot">Tema 5 · Álgebra · Presentación de clase</span>
+      <h1>5. Sistemas de ecuaciones</h1>
+      <p class="mc-deck__help">Avanza con <kbd>→</kbd>, <kbd>Espacio</kbd> o un mando de presentaciones y retrocede con <kbd>←</kbd>. <kbd>F</kbd> pantalla completa, <kbd>N</kbd> notas para el docente, <kbd>I</kbd> índice. En el móvil, desliza el dedo. Los pasos de los ejemplos aparecen uno a uno.</p>
+    </header>
+
+    <div class="mc-slides" data-slides data-explorers="rouche gauss parameter-systems">
+
+      <section class="mc-slide mc-slide__title" id="portada">
+        <span class="mc-slide__kicker">Matemáticas Aplicadas a las Ciencias Sociales II · Tema 5</span>
+        <h2>Sistemas de ecuaciones</h2>
+        <p>Traducir varias condiciones a la vez, decidir si se pueden cumplir y encontrar todas las soluciones.</p>
+        <ul>
+          <li>Clasificación y teorema de Rouché-Frobenius.</li>
+          <li>Métodos: Gauss, matriz inversa y regla de Cramer.</li>
+          <li>Sistemas homogéneos, discusión con parámetros y problemas.</li>
+        </ul>
+        <aside class="mc-slide__notes">Cada diapositiva enlaza con su lección del libro. Los exploradores son los mismos que usa el alumnado en casa.</aside>
+      </section>
+
+      <section class="mc-slide" id="planteamiento">
+        <span class="mc-slide__kicker">5.1 · Sistemas de ecuaciones lineales</span>
+        <h2>Del enunciado al sistema</h2>
+        <p>Un cine vende entradas de niño a 5 €, de adulto a 8 € y de jubilado a 6 €. Un día vendió 200 entradas, recaudó 1380 € y hubo tantos niños como jubilados.</p>
+        <ol class="mc-slide__steps">
+          <li>Incógnitas con unidades: \(x\), \(y\), \(z\) = entradas de niño, adulto y jubilado.</li>
+          <li data-step>Una ecuación por condición: \(\begin{cases}x+y+z=200\\5x+8y+6z=1380\\x-z=0\end{cases}\)</li>
+          <li data-step>Solución (la calcularemos con cualquier método): \(x=44,\ y=112,\ z=44\).</li>
+          <li data-step>Comprueba en el enunciado: \(44+112+44=200\) y \(220+896+264=1380\) €. ✓</li>
+        </ol>
+        <p class="mc-slide__links"><a href="01-sistemas-de-ecuaciones-lineales.html">5.1. Sistemas de ecuaciones lineales</a></p>
+      </section>
+
+      <section class="mc-slide" id="clasificacion">
+        <span class="mc-slide__kicker">5.2 y 5.3 · Soluciones y clasificación</span>
+        <h2>Una, infinitas o ninguna</h2>
+        <table>
+          <thead><tr><th scope="col">Tipo</th><th scope="col">Soluciones</th><th scope="col">Dos rectas en el plano</th></tr></thead>
+          <tbody>
+            <tr><td><strong>SCD</strong>: compatible determinado</td><td>Una sola</td><td>Se cortan en un punto</td></tr>
+            <tr><td><strong>SCI</strong>: compatible indeterminado</td><td>Infinitas</td><td>Coinciden</td></tr>
+            <tr><td><strong>SI</strong>: incompatible</td><td>Ninguna</td><td>Son paralelas</td></tr>
+          </tbody>
+        </table>
+        <div class="mc-slide__cols">
+          <div class="mc-slide__box mc-slide__box--ask"><strong>a)</strong><p>\(\begin{cases}x+y=2\\2x+2y=4\end{cases}\)</p><p data-step>La segunda es el doble de la primera: SCI, \((\lambda,\ 2-\lambda)\).</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>b)</strong><p>\(\begin{cases}x+y=2\\x+y=3\end{cases}\)</p><p data-step>Mismo primer miembro y distinto resultado: SI.</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>c)</strong><p>\(\begin{cases}x+y=2\\x-y=0\end{cases}\)</p><p data-step>Rectas secantes: SCD, \((1,1)\).</p></div>
+        </div>
+        <p class="mc-slide__links"><a href="02-solucion-de-un-sistema-de-ecuaciones.html">5.2. Solución de un sistema</a> · <a href="03-clasificacion-de-sistemas-de-ecuaciones-segun-sus-soluciones.html">5.3. Clasificación</a></p>
+      </section>
+
+      <section class="mc-slide" id="matricial" data-title="Notación matricial y matriz ampliada">
+        <span class="mc-slide__kicker">5.4 y 5.5 · Notación matricial y sistemas equivalentes</span>
+        <h2>\(AX=B\) y la matriz ampliada</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p>\(\begin{cases}x+y+z=6\\2x-y+z=3\\x+2y-z=2\end{cases}\iff\begin{pmatrix}1&amp;1&amp;1\\2&amp;-1&amp;1\\1&amp;2&amp;-1\end{pmatrix}\begin{pmatrix}x\\y\\z\end{pmatrix}=\begin{pmatrix}6\\3\\2\end{pmatrix}\)</p>
+            <p>Matriz ampliada: \((A|B)=\left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;6\\2&amp;-1&amp;1&amp;3\\1&amp;2&amp;-1&amp;2\end{array}\right)\)</p>
+          </div>
+          <div>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Sistemas equivalentes</strong> <span>Tienen las mismas soluciones. Se obtienen intercambiando ecuaciones, multiplicando una por un número no nulo o sumándole un múltiplo de otra.</span></p>
+            <p class="mc-slide__box mc-slide__box--error" data-step><strong>No vale</strong> <span>Multiplicar una ecuación por 0 ni sustituir una ecuación por otra que no la contenga: se pierde información.</span></p>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="04-notacion-matricial-de-un-sistema-de-ecuaciones.html">5.4. Notación matricial</a> · <a href="05-sistemas-equivalentes.html">5.5. Sistemas equivalentes</a></p>
+      </section>
+
+      <section class="mc-slide" id="rouche">
+        <span class="mc-slide__kicker">5.6 · Teorema de Rouché-Frobenius</span>
+        <h2>Comparar dos rangos</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Teorema</strong> <span>Un sistema con \(n\) incógnitas es compatible si y solo si \(\operatorname{rg}(A)=\operatorname{rg}(A|B)\).</span></p>
+        <table>
+          <thead><tr><th scope="col">Rangos</th><th scope="col">Clasificación</th></tr></thead>
+          <tbody>
+            <tr><td>\(\operatorname{rg}(A)=\operatorname{rg}(A|B)=n\)</td><td>SCD</td></tr>
+            <tr><td>\(\operatorname{rg}(A)=\operatorname{rg}(A|B)=r&lt;n\)</td><td>SCI, con \(n-r\) parámetros</td></tr>
+            <tr><td>\(\operatorname{rg}(A)\ne\operatorname{rg}(A|B)\)</td><td>SI</td></tr>
+          </tbody>
+        </table>
+        <p class="mc-slide__box mc-slide__box--ask" data-step><strong>Pregunta a la clase</strong> <span>Tres ecuaciones, tres incógnitas, \(\operatorname{rg}(A)=2\) y \(\operatorname{rg}(A|B)=2\). ¿Cuántos parámetros? \(3-2=1\): las soluciones dependen de un parámetro.</span></p>
+        <p class="mc-slide__links"><a href="06-teorema-de-rouche-frobenius.html">5.6. Teorema de Rouché-Frobenius</a></p>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="explora-rouche">
+        <span class="mc-slide__kicker">Explorador · 5.6</span>
+        <h2>Rangos y clasificación</h2>
+        <div class="activity mc-lab" data-rouche-explorer></div>
+        <aside class="mc-slide__notes">Antes de mostrar la clasificación, pide que la clase diga solo los dos rangos y aplique el teorema.</aside>
+      </section>
+
+      <section class="mc-slide" id="gauss" data-title="Ejemplo: método de Gauss">
+        <span class="mc-slide__kicker">5.8 · Método de Gauss</span>
+        <h2>Escalonar y despejar de abajo arriba</h2>
+        <p>\(\left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;6\\2&amp;-1&amp;1&amp;3\\1&amp;2&amp;-1&amp;2\end{array}\right)\)</p>
+        <ol class="mc-slide__steps">
+          <li>\(F_2-2F_1\) y \(F_3-F_1\): \(\left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;6\\0&amp;-3&amp;-1&amp;-9\\0&amp;1&amp;-2&amp;-4\end{array}\right)\)</li>
+          <li data-step>\(3F_3+F_2\): \(\left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;6\\0&amp;-3&amp;-1&amp;-9\\0&amp;0&amp;-7&amp;-21\end{array}\right)\)</li>
+          <li data-step>De abajo arriba: \(z=3\); \(-3y-3=-9\Rightarrow y=2\); \(x+2+3=6\Rightarrow x=1\).</li>
+          <li data-step>Tres pivotes en tres incógnitas: SCD con solución \((1,2,3)\).</li>
+        </ol>
+        <p class="mc-slide__links"><a href="08-resolucion-de-sistemas-metodo-de-gauss.html">5.8. Método de Gauss</a></p>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="explora-gauss">
+        <span class="mc-slide__kicker">Explorador · 5.8</span>
+        <h2>Gauss paso a paso</h2>
+        <div class="activity mc-lab" data-gauss-explorer></div>
+        <aside class="mc-slide__notes">Pide a la clase la siguiente operación de filas antes de aplicarla. Una fila \(0\ 0\ 0\,|\,k\) con \(k\ne0\) indica un sistema incompatible.</aside>
+      </section>
+
+      <section class="mc-slide" id="inversa-cramer" data-title="Matriz inversa y regla de Cramer">
+        <span class="mc-slide__kicker">5.7 y 5.9 · Matriz inversa y regla de Cramer</span>
+        <h2>Dos métodos para sistemas cuadrados con \(|A|\ne0\)</h2>
+        <p>\(\begin{cases}2x+y=5\\5x+3y=13\end{cases}\qquad A=\begin{pmatrix}2&amp;1\\5&amp;3\end{pmatrix},\quad|A|=1\)</p>
+        <div class="mc-slide__cols">
+          <div>
+            <h3>Inversa: \(X=A^{-1}B\)</h3>
+            <ol class="mc-slide__steps">
+              <li>\(A^{-1}=\begin{pmatrix}3&amp;-1\\-5&amp;2\end{pmatrix}\) (calculada en el tema 4).</li>
+              <li data-step>\(X=\begin{pmatrix}3\cdot5-13\\-5\cdot5+2\cdot13\end{pmatrix}=\begin{pmatrix}2\\1\end{pmatrix}\)</li>
+            </ol>
+          </div>
+          <div>
+            <h3>Cramer: \(x=\dfrac{|A_x|}{|A|}\)</h3>
+            <ol class="mc-slide__steps">
+              <li data-step>\(|A_x|=\begin{vmatrix}5&amp;1\\13&amp;3\end{vmatrix}=2\Rightarrow x=2\).</li>
+              <li data-step>\(|A_y|=\begin{vmatrix}2&amp;5\\5&amp;13\end{vmatrix}=1\Rightarrow y=1\).</li>
+            </ol>
+          </div>
+        </div>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>Solo si</strong> <span>la matriz es cuadrada y \(|A|\ne0\). En otro caso, Rouché y Gauss.</span></p>
+        <p class="mc-slide__links"><a href="07-resolucion-de-sistemas-matriz-inversa.html">5.7. Matriz inversa</a> · <a href="09-resolucion-de-sistemas-regla-de-cramer.html">5.9. Regla de Cramer</a></p>
+      </section>
+
+      <section class="mc-slide" id="homogeneos">
+        <span class="mc-slide__kicker">5.10 · Sistemas homogéneos</span>
+        <h2>Todos los términos independientes son 0</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Siempre compatibles</strong> <span>\(x=y=z=0\) es solución (la trivial), porque \(\operatorname{rg}(A)=\operatorname{rg}(A|0)\). Con \(n\) incógnitas: si \(\operatorname{rg}(A)=n\), solo la trivial; si es menor, infinitas.</span></p>
+            <p>En un sistema cuadrado: soluciones no triviales \(\iff|A|=0\).</p>
+          </div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>Pregunta a la clase</strong>
+            <p>\(\begin{cases}x+y=0\\2x+2y=0\end{cases}\). ¿Solo la trivial?</p>
+            <p data-step>\(|A|=2-2=0\): no. \(\operatorname{rg}(A)=1&lt;2\), un parámetro.</p>
+            <p data-step>Soluciones \((\lambda,-\lambda)\), \(\lambda\in\mathbb R\).</p>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="10-sistemas-homogeneos.html">5.10. Sistemas homogéneos</a></p>
+      </section>
+
+      <section class="mc-slide" id="parametros" data-title="Discusión con parámetros">
+        <span class="mc-slide__kicker">5.11 · Discusión de sistemas con parámetros</span>
+        <h2>\(\begin{cases}x+y+z=1\\x+2y+3z=2\\2x+3y+az=b\end{cases}\)</h2>
+        <ol class="mc-slide__steps">
+          <li>\(|A|=\begin{vmatrix}1&amp;1&amp;1\\1&amp;2&amp;3\\2&amp;3&amp;a\end{vmatrix}=a-4\). Valor crítico: \(a=4\).</li>
+          <li data-step>Si \(a\ne4\): \(\operatorname{rg}(A)=\operatorname{rg}(A|B)=3\). <strong>SCD</strong> para cualquier \(b\).</li>
+          <li data-step>Si \(a=4\): \(\operatorname{rg}(A)=2\). La fila 3 de \(A\) es la suma de las dos primeras; en \((A|B)\) lo sigue siendo solo si \(b=1+2=3\).</li>
+          <li data-step>\(a=4,\ b=3\): \(\operatorname{rg}(A|B)=2\), <strong>SCI</strong>. \(\quad a=4,\ b\ne3\): \(\operatorname{rg}(A|B)=3\), <strong>SI</strong>.</li>
+        </ol>
+        <p class="mc-slide__links"><a href="11-discusion-de-sistemas-con-parametros.html">5.11. Discusión de sistemas con parámetros</a></p>
+      </section>
+
+      <section class="mc-slide" id="sci-parametrica" data-title="Ejemplo: soluciones de un SCI">
+        <span class="mc-slide__kicker">Ejemplo paso a paso · 5.11</span>
+        <h2>El caso \(a=4,\ b=3\): infinitas soluciones</h2>
+        <ol class="mc-slide__steps">
+          <li>Sobra la tercera ecuación. Quedan \(x+y+z=1\) y \(x+2y+3z=2\).</li>
+          <li data-step>Restando: \(y+2z=1\). Un parámetro: \(z=\lambda\), \(y=1-2\lambda\).</li>
+          <li data-step>\(x=1-y-z=1-(1-2\lambda)-\lambda=\lambda\).</li>
+          <li data-step>Soluciones \((\lambda,\ 1-2\lambda,\ \lambda)\). Con \(\lambda=1\): \((1,-1,1)\). Comprueba: \(1-2+3=2\). ✓</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--example" data-step><strong>En la PAU</strong> <span>Discute primero y resuelve después solo el caso que pida el enunciado, escribiendo la solución general con el parámetro.</span></p>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="explora-parametros">
+        <span class="mc-slide__kicker">Explorador · 5.11</span>
+        <h2>Discute el sistema según el parámetro</h2>
+        <div class="activity mc-lab" data-parameter-system-explorer></div>
+        <aside class="mc-slide__notes">Fija primero el valor crítico del parámetro con el determinante y comprueba después cada caso en el explorador.</aside>
+      </section>
+
+      <section class="mc-slide" id="metodo">
+        <span class="mc-slide__kicker">Repaso · 5.7 a 5.9</span>
+        <h2>¿Qué método elijo?</h2>
+        <table>
+          <thead><tr><th scope="col">Situación</th><th scope="col">Método recomendable</th></tr></thead>
+          <tbody>
+            <tr><td>Clasificar o discutir con parámetros</td><td>Rangos (Rouché) o Gauss</td></tr>
+            <tr><td>Sistema cuadrado con \(|A|\ne0\) y números sencillos</td><td>Cramer</td></tr>
+            <tr><td>Varios sistemas con la misma \(A\), o \(A^{-1}\) ya calculada</td><td>Matriz inversa</td></tr>
+            <tr><td>Muchas incógnitas, SCI o SI posibles</td><td>Gauss</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="mc-slide" id="errores">
+        <span class="mc-slide__kicker">Repaso</span>
+        <h2>Errores frecuentes</h2>
+        <ul>
+          <li>Aplicar Cramer o la inversa cuando \(|A|=0\).</li>
+          <li>Concluir SCD solo porque hay tantas ecuaciones como incógnitas.</li>
+          <li>Calcular \(\operatorname{rg}(A)\) y olvidar comparar con \(\operatorname{rg}(A|B)\).</li>
+          <li>En la discusión, no estudiar por separado el valor crítico del parámetro.</li>
+          <li>Dar una solución particular de un SCI en lugar de la solución general.</li>
+          <li>No comprobar la solución en las ecuaciones ni en el enunciado.</li>
+        </ul>
+      </section>
+
+      <section class="mc-slide" id="cierre">
+        <span class="mc-slide__kicker">Para seguir</span>
+        <h2>Practica y prepara la PAU</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <h3>En el libro</h3>
+            <ul>
+              <li><a href="index.html#repaso">Repaso integrado del tema</a></li>
+              <li><a href="../../../test/index.html?tema=t05">Test del tema</a> y <a href="../../../tarjetas/index.html?tema=t05">tarjetas</a></li>
+              <li>Juegos: <a href="../../../laboratorios/juegos/t05-a-clasificador-de-sistemas.html">Clasificador de sistemas</a>, <a href="../../../laboratorios/juegos/t05-b-gauss-paso-a-paso.html">Gauss paso a paso</a> y <a href="../../../laboratorios/juegos/t05-c-elige-el-metodo.html">Elige el método</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>En la PAU</h3>
+            <p>Suelen pedir plantear un sistema a partir de un enunciado, discutirlo según un parámetro y resolverlo en algún caso.</p>
+            <p><a href="../../../selectividad/05-sistemas-de-ecuaciones.html">Ejercicios de Selectividad del tema 5</a></p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="../../../assets/js/learning/presentation.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

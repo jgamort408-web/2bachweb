@@ -483,6 +483,13 @@
     "kind": "lesson"
   },
   {
+    "id": "t05-presentacion",
+    "title": "Presentación de clase del tema 5",
+    "path": "libro/temas/05-sistemas-de-ecuaciones/presentacion.html",
+    "parentId": "t05",
+    "kind": "section"
+  },
+  {
     "id": "t06",
     "title": "6. Programación lineal",
     "path": "libro/temas/06-programacion-lineal/index.html",
