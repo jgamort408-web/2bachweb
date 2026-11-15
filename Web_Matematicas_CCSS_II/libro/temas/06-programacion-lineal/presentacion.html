@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es" data-skin="mc">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presentación: 6. Programación lineal · Matemáticas CCSS II</title>
+  <meta name="description" content="Presentación de clase del tema 6, Programación lineal: inecuaciones y semiplanos, sistemas de inecuaciones y región factible, planteamiento de modelos, método de los vértices, óptimo múltiple y regiones no acotadas.">
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t06-presentacion" class="mc-skin" data-block="algebra">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main mc-deck">
+    <header class="mc-deck__intro">
+      <span class="mc-chip mc-chip--dot">Tema 6 · Álgebra · Presentación de clase</span>
+      <h1>6. Programación lineal</h1>
+      <p class="mc-deck__help">Avanza con <kbd>→</kbd>, <kbd>Espacio</kbd> o un mando de presentaciones y retrocede con <kbd>←</kbd>. <kbd>F</kbd> pantalla completa, <kbd>N</kbd> notas para el docente, <kbd>I</kbd> índice. En el móvil, desliza el dedo. Los pasos de los ejemplos aparecen uno a uno.</p>
+    </header>
+
+    <div class="mc-slides" data-slides data-explorers="">
+
+      <section class="mc-slide mc-slide__title" id="portada">
+        <span class="mc-slide__kicker">Matemáticas Aplicadas a las Ciencias Sociales II · Tema 6</span>
+        <h2>Programación lineal</h2>
+        <p>Decidir cuánto producir, comprar o invertir cuando los recursos son limitados: maximizar beneficios o minimizar costes.</p>
+        <ul>
+          <li>Inecuaciones con dos incógnitas y regiones del plano.</li>
+          <li>Del enunciado a un modelo: variables, función objetivo y restricciones.</li>
+          <li>Resolución por vértices, óptimo múltiple y regiones no acotadas.</li>
+        </ul>
+        <aside class="mc-slide__notes">Cada diapositiva enlaza con su lección del libro. Para practicar la parte gráfica en clase, los juegos «Pinta la región factible» y «Cazador de vértices» funcionan bien proyectados.</aside>
+      </section>
+
+      <section class="mc-slide" id="semiplano">
+        <span class="mc-slide__kicker">6.1 · Inecuaciones con dos incógnitas</span>
+        <h2>De la recta al semiplano</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <h3>\(x+2y\le10\)</h3>
+            <ol class="mc-slide__steps">
+              <li>Frontera: la recta \(x+2y=10\), por \((10,0)\) y \((0,5)\). Continua, porque la desigualdad admite la igualdad.</li>
+              <li data-step>Punto de prueba que no esté en la recta: \((0,0)\). \(0\le10\) es cierto.</li>
+              <li data-step>La solución es el semiplano que contiene al origen, con la frontera incluida.</li>
+            </ol>
+            <p class="mc-slide__box mc-slide__box--method" data-step><strong>Frontera</strong> <span>Con \(\le\) o \(\ge\), línea continua (incluida). Con \(&lt;\) o \(&gt;\), discontinua (excluida).</span></p>
+          </div>
+          <figure>
+            <svg viewBox="0 0 300 230" role="img" aria-labelledby="semiplano-title"><title id="semiplano-title">Semiplano x + 2y ≤ 10: la recta pasa por (10, 0) y (0, 5); la región sombreada contiene al origen.</title>
+              <polygon points="0,75 290,220 0,220" style="fill: var(--mc-block-tint, #dbeafe)"></polygon>
+              <path d="M0 190H300M30 0V230" stroke="currentColor" stroke-opacity="0.45" fill="none"></path>
+              <path d="M0 75L290 220" style="stroke: var(--mc-block, #1d4ed8)" stroke-width="3" fill="none"></path>
+              <circle cx="30" cy="190" r="4" fill="currentColor"></circle><text x="36" y="206" font-size="12" fill="currentColor">(0,0)</text>
+              <circle cx="230" cy="190" r="4" fill="currentColor"></circle><text x="214" y="182" font-size="12" fill="currentColor">(10,0)</text>
+              <circle cx="30" cy="90" r="4" fill="currentColor"></circle><text x="36" y="86" font-size="12" fill="currentColor">(0,5)</text>
+              <text x="288" y="184" font-size="12" fill="currentColor">x</text><text x="36" y="14" font-size="12" fill="currentColor">y</text>
+            </svg>
+          </figure>
+        </div>
+        <p class="mc-slide__links"><a href="01-inecuaciones-lineales-con-dos-incognitas.html">6.1. Inecuaciones lineales con dos incógnitas</a></p>
+      </section>
+
+      <section class="mc-slide" id="pregunta-semiplanos">
+        <span class="mc-slide__kicker">Pregunta a la clase · 6.1</span>
+        <h2>¿Qué lado y qué frontera?</h2>
+        <div class="mc-slide__cols">
+          <div class="mc-slide__box mc-slide__box--ask"><strong>a)</strong><p>\(x\le3\)</p><p data-step>Recta vertical \(x=3\), continua. A su izquierda.</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>b)</strong><p>\(y&gt;-2\)</p><p data-step>Recta horizontal \(y=-2\), discontinua. Por encima.</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>c)</strong><p>\(y\ge2x\)</p><p data-step>La recta pasa por el origen: prueba con \((1,0)\). \(0\ge2\) es falso, así que es el otro lado, el que contiene a \((0,1)\).</p></div>
+        </div>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>Cuidado al despejar</strong> <span>\(-2y\le4\iff y\ge-2\): al dividir por un número negativo cambia el sentido de la desigualdad.</span></p>
+      </section>
+
+      <section class="mc-slide" id="region-factible">
+        <span class="mc-slide__kicker">6.2 · Sistemas de inecuaciones</span>
+        <h2>La región factible es la intersección</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Región factible</strong> <span>Conjunto de puntos que cumplen <em>todas</em> las restricciones a la vez. Sus <strong>vértices</strong> son cortes de dos fronteras que cumplen el resto de restricciones.</span></p>
+            <p class="mc-slide__box mc-slide__box--method"><strong>Método</strong> <span>Dibuja cada frontera, elige el semiplano con un punto de prueba y quédate con la parte común.</span></p>
+          </div>
+          <div>
+            <h3>Tipos de región</h3>
+            <ul>
+              <li><strong>Acotada</strong>: un polígono convexo.</li>
+              <li><strong>No acotada</strong>: se extiende sin límite en alguna dirección.</li>
+              <li><strong>Vacía</strong>: las condiciones son incompatibles.</li>
+              <li>Casos límite: un segmento o un único punto.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="02-sistemas-de-inecuaciones-lineales-con-dos-incognitas.html">6.2. Sistemas de inecuaciones lineales</a></p>
+      </section>
+
+      <section class="mc-slide" id="anatomia">
+        <span class="mc-slide__kicker">6.3 · Programación lineal</span>
+        <h2>Anatomía de un problema</h2>
+        <table>
+          <thead><tr><th scope="col">Pieza</th><th scope="col">Qué es</th><th scope="col">Ejemplo</th></tr></thead>
+          <tbody>
+            <tr><td>Variables</td><td>Lo que se decide, con unidades</td><td>\(x\) sillas, \(y\) mesas</td></tr>
+            <tr><td>Función objetivo</td><td>Lo que se maximiza o minimiza, lineal</td><td>\(F(x,y)=30x+50y\) €</td></tr>
+            <tr><td>Restricciones</td><td>Recursos y condiciones del enunciado</td><td>\(x+y\le8\) h de corte</td></tr>
+            <tr><td>No negatividad</td><td>Cantidades que no pueden ser negativas</td><td>\(x\ge0,\ y\ge0\)</td></tr>
+          </tbody>
+        </table>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>No negatividad</strong> <span>Depende de lo que representen las variables: una temperatura o una variación sí pueden ser negativas.</span></p>
+        <p class="mc-slide__links"><a href="03-programacion-lineal.html">6.3. Programación lineal</a></p>
+      </section>
+
+      <section class="mc-slide" id="traducir">
+        <span class="mc-slide__kicker">6.3 · Programación lineal</span>
+        <h2>Traducir el enunciado</h2>
+        <table>
+          <thead><tr><th scope="col">El enunciado dice…</th><th scope="col">Restricción</th></tr></thead>
+          <tbody>
+            <tr><td>Como máximo 40 unidades en total; no más de 40</td><td>\(x+y\le40\)</td></tr>
+            <tr><td>Al menos 10 unidades de A; como mínimo 10</td><td>\(x\ge10\)</td></tr>
+            <tr><td>De B, el doble o más que de A</td><td>\(y\ge2x\)</td></tr>
+            <tr><td>De A no puede haber más que de B</td><td>\(x\le y\)</td></tr>
+            <tr><td>Se invierten como mucho 5000 € (A a 100 €, B a 250 €)</td><td>\(100x+250y\le5000\)</td></tr>
+          </tbody>
+        </table>
+        <p class="mc-slide__box mc-slide__box--ask" data-step><strong>Pregunta a la clase</strong> <span>«El número de mesas no supera la mitad del de sillas». \(y\le\frac x2\), es decir, \(x-2y\ge0\). Comprueba con un caso: 10 sillas y 5 mesas cumple; 10 sillas y 6 mesas, no.</span></p>
+        <p class="mc-slide__links"><a href="03-programacion-lineal.html">6.3. Programación lineal</a></p>
+      </section>
+
+      <section class="mc-slide" id="modelo">
+        <span class="mc-slide__kicker">Ejemplo paso a paso · 6.3</span>
+        <h2>Del enunciado al modelo</h2>
+        <p>Un taller fabrica sillas y mesas. Cada silla necesita 1 h de corte y 1 h de montaje; cada mesa, 1 h de corte y 3 h de montaje. Hay 8 h de corte y 18 h de montaje. Gana 30 € por silla y 50 € por mesa.</p>
+        <ol class="mc-slide__steps">
+          <li>Variables: \(x\) = sillas, \(y\) = mesas.</li>
+          <li data-step>Objetivo: maximizar \(F(x,y)=30x+50y\).</li>
+          <li data-step>Restricciones: \(\begin{cases}x+y\le8 &amp;\text{(corte)}\\ x+3y\le18 &amp;\text{(montaje)}\\ x\ge0,\ y\ge0\end{cases}\)</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--ask" data-step><strong>Comprueba el modelo</strong> <span>¿Se pueden hacer 2 sillas y 4 mesas? Corte \(6\le8\) y montaje \(14\le18\): sí, y se ganan 260 €.</span></p>
+      </section>
+
+      <section class="mc-slide" id="vertices">
+        <span class="mc-slide__kicker">6.4 · Solución de un problema</span>
+        <h2>Región factible y vértices</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <ol class="mc-slide__steps">
+              <li>\(x+y=8\) pasa por \((8,0)\) y \((0,8)\); \(x+3y=18\), por \((18,0)\) y \((0,6)\). El origen cumple las dos.</li>
+              <li data-step>Vértices en los ejes: \(O=(0,0)\), \(A=(8,0)\) y \(C=(0,6)\).</li>
+              <li data-step>Corte de las dos fronteras: restando, \(2y=10\Rightarrow y=5\), \(x=3\). \(B=(3,5)\).</li>
+              <li data-step>Comprueba que \(B\) cumple el resto: \(3\ge0\), \(5\ge0\). ✓</li>
+            </ol>
+          </div>
+          <figure>
+            <svg viewBox="0 0 320 250" role="img" aria-labelledby="vertices-title"><title id="vertices-title">Región factible: cuadrilátero de vértices O(0,0), A(8,0), B(3,5) y C(0,6), limitado por x + y = 8 y x + 3y = 18.</title>
+              <polygon points="40,220 280,220 130,70 40,40" style="fill: var(--mc-block-tint, #dbeafe)"></polygon>
+              <path d="M10 220H315M40 245V5" stroke="currentColor" stroke-opacity="0.45" fill="none"></path>
+              <path d="M70 10L280 220" style="stroke: var(--mc-block, #1d4ed8)" stroke-width="2.5" fill="none"></path>
+              <path d="M40 40L310 130" stroke="currentColor" stroke-width="2.5" stroke-dasharray="6 4" fill="none"></path>
+              <g fill="currentColor" font-size="13">
+                <circle cx="40" cy="220" r="4"></circle><text x="46" y="238">O(0,0)</text>
+                <circle cx="280" cy="220" r="4"></circle><text x="250" y="238">A(8,0)</text>
+                <circle cx="130" cy="70" r="5"></circle><text x="138" y="64">B(3,5)</text>
+                <circle cx="40" cy="40" r="4"></circle><text x="46" y="32">C(0,6)</text>
+                <text x="210" y="122">x+y=8</text><text x="232" y="96">x+3y=18</text>
+              </g>
+            </svg>
+            <figcaption>Corte en azul continuo; montaje en negro a trazos.</figcaption>
+          </figure>
+        </div>
+        <p class="mc-slide__links"><a href="04-solucion-de-un-problema-de-programacion-lineal.html">6.4. Solución de un problema de programación lineal</a></p>
+      </section>
+
+      <section class="mc-slide" id="evaluar" data-title="Evaluar la función objetivo en los vértices">
+        <span class="mc-slide__kicker">6.4 · Solución de un problema</span>
+        <h2>Evaluar \(F=30x+50y\) en los vértices</h2>
+        <table>
+          <thead><tr><th scope="col">Vértice</th><th scope="col">Cálculo</th><th scope="col">Beneficio</th></tr></thead>
+          <tbody>
+            <tr><td>\(O(0,0)\)</td><td>\(30\cdot0+50\cdot0\)</td><td>0 €</td></tr>
+            <tr><td>\(A(8,0)\)</td><td>\(30\cdot8+50\cdot0\)</td><td>240 €</td></tr>
+            <tr data-step><td>\(B(3,5)\)</td><td>\(30\cdot3+50\cdot5\)</td><td><strong>340 € · máximo</strong></td></tr>
+            <tr><td>\(C(0,6)\)</td><td>\(30\cdot0+50\cdot6\)</td><td>300 €</td></tr>
+          </tbody>
+        </table>
+        <p class="mc-slide__box mc-slide__box--example" data-step><strong>Respuesta</strong> <span>Conviene fabricar 3 sillas y 5 mesas, con un beneficio máximo de 340 €. Se usan las 8 h de corte y las 18 h de montaje.</span></p>
+      </section>
+
+      <section class="mc-slide" id="por-que-vertices">
+        <span class="mc-slide__kicker">6.4 · Por qué basta con los vértices</span>
+        <h2>Rectas de nivel que se desplazan</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Teorema</strong> <span>Si la región factible es un polígono convexo no vacío y acotado, la función objetivo alcanza su máximo y su mínimo en vértices. Si los alcanza en dos vértices consecutivos, también en todo el lado que los une.</span></p>
+          </div>
+          <div>
+            <p>Las rectas \(30x+50y=k\) son paralelas. Al aumentar \(k\), la recta se desplaza; el último punto de la región que toca es el óptimo.</p>
+            <p class="mc-slide__box mc-slide__box--method"><strong>Cinco pasos</strong> <span>1) Modelo. 2) Región factible. 3) Vértices. 4) Evaluar \(F\). 5) Decidir e interpretar con unidades.</span></p>
+          </div>
+        </div>
+        <aside class="mc-slide__notes">Con una regla sobre la pizarra o la pantalla, desplaza una recta paralela a 3x + 5y = 0 hasta que deje de tocar la región: sale por B.</aside>
+      </section>
+
+      <section class="mc-slide" id="optimo-multiple">
+        <span class="mc-slide__kicker">Pregunta a la clase · 6.4</span>
+        <h2>¿Y si cada mesa da 30 €?</h2>
+        <p>Misma región. Ahora \(F(x,y)=30x+30y\).</p>
+        <ol class="mc-slide__steps">
+          <li>\(F(O)=0\), \(F(A)=240\), \(F(B)=240\), \(F(C)=180\).</li>
+          <li data-step>El máximo, 240 €, se alcanza en dos vértices consecutivos, \(A\) y \(B\).</li>
+          <li data-step>Las rectas de nivel \(30x+30y=k\) son paralelas al lado \(x+y=8\): todos los puntos del segmento \(AB\) son óptimos.</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>En el contexto</strong> <span>Si solo se fabrican unidades enteras, las soluciones son los puntos enteros del segmento: \((8,0)\), \((7,1)\), …, \((3,5)\).</span></p>
+      </section>
+
+      <section class="mc-slide" id="minimizar">
+        <span class="mc-slide__kicker">6.5 · Problemas de programación lineal</span>
+        <h2>Minimizar con una región no acotada</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p>Una dieta mezcla \(x\) kg del pienso P (2 €/kg) y \(y\) kg del pienso Q (3 €/kg). Se necesitan al menos 4 unidades de proteína (1 por kg de cada pienso) y 6 de fibra (1 por kg de P, 3 por kg de Q).</p>
+            <p>\(\min C=2x+3y\quad\begin{cases}x+y\ge4\\x+3y\ge6\\x,\ y\ge0\end{cases}\)</p>
+          </div>
+          <div>
+            <ol class="mc-slide__steps">
+              <li>La región no está acotada, pero tiene tres vértices: \((0,4)\), \((3,1)\) y \((6,0)\).</li>
+              <li data-step>\(C(0,4)=12\), \(C(3,1)=9\), \(C(6,0)=12\).</li>
+              <li data-step>Mínimo: 3 kg de P y 1 kg de Q, por 9 €. Existe porque \(C\) crece al alejarse: sus coeficientes son positivos.</li>
+            </ol>
+            <p class="mc-slide__box mc-slide__box--error" data-step><strong>Sin máximo</strong> <span>En esta región, \(C\) no tiene máximo: siempre se puede gastar más.</span></p>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="05-problemas-de-programacion-lineal.html">6.5. Problemas de programación lineal</a></p>
+      </section>
+
+      <section class="mc-slide" id="restriccion-nueva">
+        <span class="mc-slide__kicker">Pregunta a la clase · 6.3 y 6.4</span>
+        <h2>¿Cambia la solución?</h2>
+        <p>Vuelve al taller: el máximo era \(B(3,5)\) con 340 €.</p>
+        <div class="mc-slide__cols">
+          <div class="mc-slide__box mc-slide__box--ask"><strong>a)</strong><p>Se exige fabricar al menos 2 mesas: \(y\ge2\).</p><p data-step>\(B\) ya cumple \(5\ge2\) y la región solo se recorta: la solución no cambia.</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>b)</strong><p>Se exigen al menos 4 sillas: \(x\ge4\).</p><p data-step>\(B\) deja de ser factible. Nuevos vértices \((4,0)\), \((8,0)\), \((4,4)\): \(F(4,4)=320\) € es el nuevo máximo.</p></div>
+        </div>
+        <aside class="mc-slide__notes">En b), el corte de x = 4 con x + 3y = 18 da (4, 14/3), pero no cumple x + y ≤ 8 (4 + 14/3 &gt; 8): no es vértice. Buen ejemplo de por qué hay que comprobar cada corte.</aside>
+      </section>
+
+      <section class="mc-slide" id="errores">
+        <span class="mc-slide__kicker">Repaso</span>
+        <h2>Errores frecuentes</h2>
+        <ul>
+          <li>Elegir el semiplano «a ojo» sin un punto de prueba.</li>
+          <li>Olvidar cambiar el sentido de la desigualdad al dividir por un negativo.</li>
+          <li>Dar como vértice un corte de dos rectas que no cumple las demás restricciones.</li>
+          <li>Olvidar la no negatividad o imponerla cuando no procede.</li>
+          <li>Dar solo el punto óptimo sin el valor de la función ni las unidades.</li>
+          <li>No reconocer un óptimo múltiple cuando dos vértices empatan.</li>
+          <li>Buscar un máximo en una región no acotada sin justificar que existe.</li>
+        </ul>
+      </section>
+
+      <section class="mc-slide" id="cierre">
+        <span class="mc-slide__kicker">Para seguir</span>
+        <h2>Practica y prepara la PAU</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <h3>En el libro</h3>
+            <ul>
+              <li><a href="05-problemas-de-programacion-lineal.html">Problemas resueltos de programación lineal</a></li>
+              <li><a href="../../../tarjetas/index.html?tema=t06">Tarjetas del tema</a></li>
+              <li>Juegos: <a href="../../../laboratorios/juegos/t06-a-pinta-la-region-factible.html">Pinta la región factible</a>, <a href="../../../laboratorios/juegos/t06-b-cazador-de-vertices.html">Cazador de vértices</a> y <a href="../../../laboratorios/juegos/t06-c-fabrica-de-modelos.html">Fábrica de modelos</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>En la PAU</h3>
+            <p>Suelen pedir plantear el modelo a partir de un enunciado, dibujar la región factible con sus vértices y encontrar el óptimo con su interpretación.</p>
+            <p><a href="../../../selectividad/06-programacion-lineal.html">Ejercicios de Selectividad del tema 6</a></p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="../../../assets/js/learning/presentation.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>
