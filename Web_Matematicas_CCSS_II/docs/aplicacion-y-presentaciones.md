@@ -24,7 +24,7 @@ Decidido con el docente: cada tema tiene su propia presentación, redactada para
 
 ### Cómo funciona
 
-- Página `libro/temas/<tema>/presentacion.html`, con entrada `kind: "section"` en `config/pages.json` y padre en el tema. Así aparece en el recorrido del tema y la visibilidad la controla Administración.
+- Página `libro/temas/<tema>/presentacion.html`, con entrada `kind: "section"` en `config/pages.json` y padre en el tema. Así aparece en el Temario y en Páginas relacionadas, y la visibilidad la controla Administración. No entra en el recorrido de lecciones del índice (`indexes.js` la excluye): el índice la enlaza aparte.
 - Hojas `assets/css/slides.css` y módulo `assets/js/learning/presentation.js`. Este módulo arranca `slides.js` y los exploradores que declara `data-explorers`.
 - Sin JavaScript, cada `<section class="mc-slide">` se lee como un apartado, con sus pasos y notas visibles. Con JavaScript se muestra una diapositiva 16:9 cada vez. El texto se escala con el tamaño de la pantalla. Por debajo de 768 px la diapositiva toma su altura natural.
 - Si el contenido de la diapositiva activa no cabe en el lienzo 16:9 (un laboratorio grande, otro proyector), `slides.js` reduce su escala con la variable `--mc-fit` en pasos del 5 % hasta el 70 %. Se recalcula al cambiar de diapositiva, al redimensionar, al mostrar las notas y cuando cambia el contenido.
