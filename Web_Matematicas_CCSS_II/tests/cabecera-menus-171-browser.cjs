@@ -66,6 +66,12 @@ const { chromium } = require('playwright');
     await page.mouse.click(30, 780);
     assert.equal(await isOpen('.course-menu'), false);
 
+    // Pie: autoría, licencia CC BY-NC y enlace al centro.
+    const credits = page.locator('footer [data-footer-credits]');
+    assert.match(await credits.innerText(), /Juan María Gámez Ortiz[\s\S]*Claude[\s\S]*Codex/);
+    assert.equal(await credits.locator('a[rel~="license"]').getAttribute('href'), 'https://creativecommons.org/licenses/by-nc/4.0/deed.es');
+    assert.equal(await page.locator('footer .mc-footer__centre a').getAttribute('href'), 'https://iesalandalus.org/joomla/');
+
     // Primera lección de un tema (sin «Anterior»): índice y siguiente ocupan todo el ancho del panel.
     await page.goto('http://127.0.0.1:4173/libro/temas/06-programacion-lineal/01-inecuaciones-lineales-con-dos-incognitas.html');
     await page.locator('[data-context-group] > summary').click();

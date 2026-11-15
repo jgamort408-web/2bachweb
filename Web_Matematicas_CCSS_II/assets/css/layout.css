@@ -204,6 +204,10 @@ html[data-contrast="true"] .reading-panel .reading-switch input:checked::after {
 .mc-footer__nav ul { margin: 0; }
 .mc-footer__nav a { color: var(--mc-text-2); }
 .mc-footer__nav a:hover { color: var(--mc-link); }
+.mc-footer__centre a, .mc-footer__credits a { color: inherit; text-decoration-color: var(--mc-border); }
+.mc-footer__centre a:hover, .mc-footer__credits a:hover { color: var(--mc-link); }
+.mc-footer__inner > .mc-footer__credits { flex-basis: 100%; padding-top: var(--mc-space-2); border-top: 1px solid var(--mc-border); font-size: 0.8125rem; }
+.mc-footer__author { font-weight: 600; color: var(--mc-text); }
 
 /* Móvil: en páginas migradas, la barra inferior sustituye a la navegación principal */
 @media (max-width: 40rem) {
