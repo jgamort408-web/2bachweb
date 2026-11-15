@@ -17,6 +17,23 @@ test('presentaciones: los pasos se muestran antes de cambiar de diapositiva y se
   assert.equal(deckState(slides, 2, 0).atEnd, false);
 });
 
+// Mapa de presentation.js (nombre → [módulo, función]); se lee como texto porque el módulo arranca la página.
+const explorerMap = new Map();
+const presentation = fs.readFileSync(new URL('../assets/js/learning/presentation.js', import.meta.url), 'utf8');
+for (const [, name, file, start] of presentation.matchAll(/^\s*'?([\w-]+)'?: \['\.\/([\w-]+\.js)'(?:, '(\w+)')?\]/gm)) {
+  const source = fs.readFileSync(new URL('../assets/js/learning/' + file, import.meta.url), 'utf8');
+  // Raíz: el atributo …-explorer o …-lab si lo hay; si no, el primero que busca el módulo.
+  const roots = [...source.matchAll(/querySelector(?:All)?\('\[(data-[\w-]+)\]'\)/g)].map(match => match[1]);
+  explorerMap.set(name, { file, start, source, root: roots.find(root => /-(explorer|lab)$/.test(root)) ?? roots[0] });
+}
+
+test('presentaciones: cada explorador del mapa existe y exporta la función que lo inicia', () => {
+  assert.ok(explorerMap.size >= 20);
+  for (const [name, { file, start, source }] of explorerMap) {
+    if (start) assert.match(source, new RegExp(`export (async )?function ${start}\\b`), `${name}: ${file}`);
+  }
+});
+
 test('presentaciones: cada tema publicado tiene diapositivas con título, id único, catálogo y enlace desde el tema', () => {
   const pages = JSON.parse(fs.readFileSync(new URL('../config/pages.json', import.meta.url)));
   const decks = pages.filter(page => page.path.endsWith('/presentacion.html'));
@@ -38,8 +55,12 @@ test('presentaciones: cada tema publicado tiene diapositivas con título, id ún
       const h2 = body.match(/<h2>([\s\S]*?)<\/h2>/)[1];
       if (h2.includes('\(')) assert.match(html, new RegExp(`id="${id}" data-title="[^"]+"`), id);
     }
-    // Los exploradores declarados están en la página.
+    // Los exploradores declarados están en el mapa de presentation.js y su raíz está en la página.
     const explorers = html.match(/data-explorers="([^"]*)"/)[1].split(/\s+/).filter(Boolean);
-    for (const name of explorers) assert.ok(html.includes(`data-${name}-explorer`), name);
+    for (const name of explorers) {
+      assert.ok(explorerMap.has(name), `${deck.path}: explorador desconocido ${name}`);
+      const { root } = explorerMap.get(name);
+      if (root) assert.ok(html.includes(root), `${deck.path}: falta ${root} para ${name}`);
+    }
   }
 });

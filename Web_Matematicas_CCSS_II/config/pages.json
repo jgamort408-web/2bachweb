@@ -147,6 +147,13 @@
     "kind": "lesson"
   },
   {
+    "id": "t01-presentacion",
+    "title": "Presentación de clase del tema 1",
+    "path": "libro/temas/01-limites-y-derivadas/presentacion.html",
+    "parentId": "t01",
+    "kind": "section"
+  },
+  {
     "id": "t02",
     "title": "2. Representación de funciones",
     "path": "libro/temas/02-representacion-de-funciones/index.html",

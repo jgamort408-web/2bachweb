@@ -139,6 +139,7 @@ export function initializeSlides(root = document.querySelector('[data-slides]'))
     const on = !frame.classList.contains('show-notes');
     frame.classList.toggle('show-notes', on);
     notes.setAttribute('aria-pressed', String(on));
+    fitActive();
   };
   const toggleFullscreen = () => {
     if (document.fullscreenElement) document.exitFullscreen?.().catch(() => {});
@@ -191,6 +192,24 @@ export function initializeSlides(root = document.querySelector('[data-slides]'))
     const found = fromHash();
     if (found !== null && found !== index) goTo(found);
   });
+
+  // Ajuste al lienzo: si la diapositiva activa no cabe (un explorador con dos gráficas, otro proyector), se reduce
+  // su escala (--mc-fit) en pasos del 5 % hasta el 70 %. En el móvil la diapositiva crece y no hace falta.
+  let fitFrame = 0;
+  const fitActive = () => {
+    cancelAnimationFrame(fitFrame);
+    fitFrame = requestAnimationFrame(() => {
+      const section = slides[index]?.section;
+      if (!section) return;
+      section.style.setProperty('--mc-fit', '1');
+      if (getComputedStyle(section).aspectRatio === 'auto') return;
+      for (let fit = 0.95; fit > 0.69 && section.scrollHeight > section.clientHeight + 1; fit -= 0.05) section.style.setProperty('--mc-fit', fit.toFixed(2));
+    });
+  };
+  root.addEventListener('mc:slide', fitActive);
+  if (typeof ResizeObserver === 'function') new ResizeObserver(fitActive).observe(root);
+  // Fórmulas de MathJax y exploradores que dibujan o cambian su resultado.
+  new MutationObserver(fitActive).observe(root, { childList: true, subtree: true, characterData: true });
 
   index = fromHash() ?? 0;
   render({ announce: false });

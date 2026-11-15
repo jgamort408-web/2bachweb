@@ -68,11 +68,11 @@
         <span class="mc-slide__kicker">Explorador · 3.1</span>
         <h2>Una familia de curvas paralelas</h2>
         <p>Cambia \(C\): todas las curvas tienen la misma pendiente en \(x=a\). Elige un dato \(F(a)=b\) y pulsa «Ajustar al dato».</p>
-        <div data-primitive-explorer>
+        <div class="mc-lab" data-primitive-explorer>
           <div class="actions"><label>Integrando <select data-primitive-family><option value="linear">f(x)=2x</option><option value="quadratic">f(x)=6x²</option><option value="constant">f(x)=3</option></select></label><label>Constante C <input data-primitive-c type="range" min="-6" max="6" step="1" value="0"><output data-primitive-c-value>0</output></label></div>
           <div class="actions"><label>Abscisa a <select data-primitive-a><option value="-1">−1</option><option value="0">0</option><option value="1" selected>1</option></select></label><label>Valor b <select data-primitive-b><option value="-2">−2</option><option value="0">0</option><option value="2" selected>2</option></select></label><button type="button" data-primitive-fit>Ajustar al dato</button></div>
           <label><input type="checkbox" data-primitive-others checked> Mostrar también C=−3, C=0 y C=3</label>
-          <div data-primitive-result></div><p data-primitive-status role="status"></p>
+          <div class="mc-lab__result" data-primitive-result></div><p data-primitive-status role="status"></p>
         </div>
         <aside class="mc-slide__notes">Pregunta antes de ajustar: ¿cuántas curvas pasan por el punto (a, b)? Solo una de la familia.</aside>
       </section>
@@ -202,7 +202,7 @@
       <section class="mc-slide mc-slide--lab" id="riemann">
         <span class="mc-slide__kicker">Explorador · 3.5</span>
         <h2>Sumas de Riemann con una curva</h2>
-        <div data-riemann-explorer><div class="actions"><label>Función <select data-riemann-family><option value="increasing" selected>f(x)=x²</option><option value="decreasing">f(x)=4−x²</option></select></label><label>Regla <select data-riemann-rule><option value="left">Extremo izquierdo</option><option value="mid">Punto medio</option><option value="right">Extremo derecho</option></select></label><label>Rectángulos: <output data-riemann-n-value>6</output> <input type="range" min="1" max="100" value="6" data-riemann-n></label></div><div data-riemann-result></div><p data-riemann-status role="status"></p></div>
+        <div class="mc-lab" data-riemann-explorer><div class="actions"><label>Función <select data-riemann-family><option value="increasing" selected>f(x)=x²</option><option value="decreasing">f(x)=4−x²</option></select></label><label>Regla <select data-riemann-rule><option value="left">Extremo izquierdo</option><option value="mid">Punto medio</option><option value="right">Extremo derecho</option></select></label><label>Rectángulos: <output data-riemann-n-value>6</output> <input type="range" min="1" max="100" value="6" data-riemann-n></label></div><div class="mc-lab__result" data-riemann-result></div><p data-riemann-status role="status"></p></div>
         <aside class="mc-slide__notes">Pide una predicción antes de mover el deslizador: con x² y el extremo derecho, ¿la suma se pasa o se queda corta? Después cambia a 4−x²: el sentido del error depende de si la función crece o decrece.</aside>
       </section>
 
@@ -240,8 +240,8 @@
       <section class="mc-slide mc-slide--lab" id="explora-fundamental" data-title="La altura de f es la pendiente de A">
         <span class="mc-slide__kicker">Explorador · 3.6</span>
         <h2>La altura de \(f\) es la pendiente de \(A\)</h2>
-        <div data-fundamental-explorer><div class="actions"><label>Integrando <select data-fundamental-family><option value="line">f(t)=t−1</option><option value="quadratic">f(t)=t²−1</option><option value="absolute">f(t)=|t|</option><option value="jump">Ejemplo con salto: −1 / 1</option></select></label><label>Origen a <select data-fundamental-a><option value="-1">−1</option><option value="0" selected>0</option><option value="1">1</option></select></label></div>
-          <div class="actions"><label>Punto x <input type="range" data-fundamental-x min="-2" max="2" step="0.5" value="2"><output data-fundamental-x-value>2</output></label><label>Distancia h <select data-fundamental-h><option value="0.5">0,5</option><option value="0.1">0,1</option><option value="0.01">0,01</option></select></label></div><label><input type="checkbox" data-fundamental-secants checked> Mostrar las dos secantes</label><div data-fundamental-result></div><p data-fundamental-status role="status"></p></div>
+        <div class="mc-lab" data-fundamental-explorer><div class="actions"><label>Integrando <select data-fundamental-family><option value="line">f(t)=t−1</option><option value="quadratic">f(t)=t²−1</option><option value="absolute">f(t)=|t|</option><option value="jump">Ejemplo con salto: −1 / 1</option></select></label><label>Origen a <select data-fundamental-a><option value="-1">−1</option><option value="0" selected>0</option><option value="1">1</option></select></label></div>
+          <div class="actions"><label>Punto x <input type="range" data-fundamental-x min="-2" max="2" step="0.5" value="2"><output data-fundamental-x-value>2</output></label><label>Distancia h <select data-fundamental-h><option value="0.5">0,5</option><option value="0.1">0,1</option><option value="0.01">0,01</option></select></label></div><label><input type="checkbox" data-fundamental-secants checked> Mostrar las dos secantes</label><div class="mc-lab__result" data-fundamental-result></div><p data-fundamental-status role="status"></p></div>
         <aside class="mc-slide__notes">El ejemplo con salto muestra por qué el teorema exige continuidad: en el salto, A no es derivable.</aside>
       </section>
 
@@ -263,9 +263,9 @@
         <span class="mc-slide__kicker">Explorador · 3.7</span>
         <h2>Dos extremos y una constante</h2>
         <p>Cambia \(C\): el resultado no cambia. Intercambia los límites: cambia el signo.</p>
-        <div data-barrow-explorer><div class="actions"><label>Integrando <select data-barrow-family><option value="linear">2x+1</option><option value="quadratic">x²−1</option><option value="reciprocal">1/x</option></select></label><label>Constante C <select data-barrow-c><option value="-3">−3</option><option value="0" selected>0</option><option value="3">3</option></select></label></div>
+        <div class="mc-lab" data-barrow-explorer><div class="actions"><label>Integrando <select data-barrow-family><option value="linear">2x+1</option><option value="quadratic">x²−1</option><option value="reciprocal">1/x</option></select></label><label>Constante C <select data-barrow-c><option value="-3">−3</option><option value="0" selected>0</option><option value="3">3</option></select></label></div>
           <div class="actions"><label>Límite inferior a <select data-barrow-a><option value="-2">−2</option><option value="-1" selected>−1</option><option value="0">0</option><option value="1">1</option><option value="2">2</option></select></label><label>Límite superior b <select data-barrow-b><option value="-2">−2</option><option value="-1">−1</option><option value="0">0</option><option value="1">1</option><option value="2" selected>2</option></select></label><button type="button" data-barrow-swap>Intercambiar límites</button></div>
-          <div data-barrow-result></div><p data-barrow-status role="status"></p></div>
+          <div class="mc-lab__result" data-barrow-result></div><p data-barrow-status role="status"></p></div>
         <aside class="mc-slide__notes">Con 1/x y un intervalo que contiene el 0, el explorador avisa de que Barrow no se puede aplicar: buen momento para insistir en la continuidad.</aside>
       </section>
 
@@ -308,10 +308,10 @@
       <section class="mc-slide mc-slide--lab" id="explora-areas">
         <span class="mc-slide__kicker">Explorador · 3.8</span>
         <h2>¿Qué curva queda arriba?</h2>
-        <div data-area-explorer><div class="actions"><label>Curvas <select data-area-family><option value="cap">1−x² y 0</option><option value="crossing" selected>x² y x</option><option value="below">x²−2 y −1</option><option value="parallel">x+1 y x−1</option></select></label><label>Factor vertical <select data-area-k><option>1</option><option>2</option><option>3</option></select></label></div>
+        <div class="mc-lab" data-area-explorer><div class="actions"><label>Curvas <select data-area-family><option value="cap">1−x² y 0</option><option value="crossing" selected>x² y x</option><option value="below">x²−2 y −1</option><option value="parallel">x+1 y x−1</option></select></label><label>Factor vertical <select data-area-k><option>1</option><option>2</option><option>3</option></select></label></div>
           <div class="actions"><label>Límite a <select data-area-a><option value="-2">−2</option><option value="-1" selected>−1</option><option value="0">0</option><option value="1">1</option><option value="2">2</option></select></label><label>Límite b <select data-area-b><option value="-2">−2</option><option value="-1">−1</option><option value="0">0</option><option value="1">1</option><option value="2" selected>2</option></select></label><button type="button" data-area-reverse>Invertir límites</button></div>
           <div class="actions"><label><input type="checkbox" data-area-swap> Intercambiar f y g</label><label><input type="checkbox" data-area-shading checked> Mostrar regiones rayadas</label></div>
-          <div data-area-result></div><p data-area-status role="status"></p></div>
+          <div class="mc-lab__result" data-area-result></div><p data-area-status role="status"></p></div>
         <aside class="mc-slide__notes">Con x² y x en [−1, 2] hay tres tramos y el área es 11/6, mientras que la integral de la diferencia vale 3/2.</aside>
       </section>
 

@@ -49,14 +49,14 @@
 .mc-slide__title { justify-content: center; }
 .mc-slide__title h1 { font-family: var(--mc-font-heading); font-size: 2.8em; line-height: 1.05; margin: 0; }
 .mc-slide__title .mc-topic__art { max-width: 22em; }
-.mc-slide .activity, .mc-slide [data-riemann-explorer], .mc-slide [data-primitive-explorer], .mc-slide [data-barrow-explorer], .mc-slide [data-area-explorer], .mc-slide [data-fundamental-explorer] { display: grid; gap: 0.5em; font-size: 0.8em; }
+.mc-slide .activity, .mc-slide .mc-lab { display: grid; gap: 0.5em; font-size: 0.8em; }
 .mc-slide .actions { display: flex; flex-wrap: wrap; gap: 0.5em 1em; align-items: center; margin: 0; }
 .mc-slide select, .mc-slide input, .mc-slide button:not(.mc-deck__btn) { font: inherit; }
 
 /* Modo presentación (con JavaScript). */
 .mc-deck__frame { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; gap: var(--mc-space-3); }
 .mc-slides.is-deck { container-type: size; height: min(calc(100dvh - 9rem), calc((min(100vw, 92rem) - 2rem) * 9 / 16)); min-height: 18rem; display: grid; place-items: center; gap: 0; }
-.mc-slides.is-deck > .mc-slide { width: min(100cqw, 100cqh * 16 / 9); aspect-ratio: 16 / 9; box-sizing: border-box; font-size: min(1.55cqw, 2.75cqh); padding: 2.2em 2.8em 1.8em; overflow: auto; box-shadow: 0 1px 2px rgb(15 23 42 / 0.06), 0 8px 24px rgb(15 23 42 / 0.08); }
+.mc-slides.is-deck > .mc-slide { width: min(100cqw, 100cqh * 16 / 9); aspect-ratio: 16 / 9; box-sizing: border-box; font-size: calc(var(--mc-fit, 1) * min(1.55cqw, 2.75cqh)); padding: 2.2em 2.8em 1.8em; overflow: auto; box-shadow: 0 1px 2px rgb(15 23 42 / 0.06), 0 8px 24px rgb(15 23 42 / 0.08); }
 /* El foco pasa a la diapositiva al cambiar (lectores de pantalla); el marco no se dibuja en el proyector. */
 .mc-slides.is-deck > .mc-slide:focus { outline: none; }
 .mc-slides.is-deck .mc-slide__notes { display: none; }
@@ -64,17 +64,28 @@
 .mc-slides.is-deck [data-step].is-pending { visibility: hidden; }
 .mc-slides.is-deck [data-step] { transition: opacity var(--mc-duration-base, 200ms) ease; }
 .mc-slides.is-deck [data-step].is-pending { opacity: 0; }
-.mc-slides.is-deck .mc-slide figure svg { max-height: 46cqh; width: auto; max-width: 100%; }
+.mc-slides.is-deck .mc-slide figure svg { max-height: calc(var(--mc-fit, 1) * 46cqh); width: auto; max-width: 100%; }
 .mc-slides.is-deck .mc-slide figure { margin: 0; }
-/* Diapositivas con explorador: controles y explicación a la izquierda; gráficas y tablas a la derecha. */
-.mc-slides.is-deck .mc-slide--lab > :is([data-primitive-explorer], [data-riemann-explorer], [data-fundamental-explorer], [data-barrow-explorer], [data-area-explorer]) { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); grid-auto-flow: row dense; gap: 0.5em 1.4em; align-items: start; }
-.mc-slides.is-deck .mc-slide--lab > :is([data-primitive-explorer], [data-riemann-explorer], [data-fundamental-explorer], [data-barrow-explorer], [data-area-explorer]) > * { grid-column: 1; }
-.mc-slides.is-deck .mc-slide--lab :is([data-primitive-result], [data-riemann-result], [data-fundamental-result], [data-barrow-result], [data-area-result]) { display: contents; }
-.mc-slides.is-deck .mc-slide--lab :is([data-primitive-result], [data-riemann-result], [data-fundamental-result], [data-barrow-result], [data-area-result]) > * { grid-column: 1; }
+/* Diapositivas con explorador (.mc-lab, el mismo marcado que en la lección; su resultado lleva .mc-lab__result):
+   controles y explicación a la izquierda; gráficas y tablas a la derecha. */
+.mc-slides.is-deck .mc-slide--lab > .mc-lab { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); grid-auto-flow: row dense; gap: 0.5em 1.4em; align-items: start; }
+.mc-slides.is-deck .mc-slide--lab > .mc-lab > * { grid-column: 1; }
+.mc-slides.is-deck .mc-slide--lab .mc-lab__result { display: contents; }
+.mc-slides.is-deck .mc-slide--lab .mc-lab__result > * { grid-column: 1; }
 .mc-slides.is-deck .mc-slide.mc-slide--lab :is(figure, .table-scroll) { grid-column: 2; grid-row: span 6; min-width: 0; }
 /* El estado de cada explorador repite lo que ya se ve: solo para lectores de pantalla en la presentación. */
 .mc-slides.is-deck .mc-slide--lab [role="status"] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-.mc-slides.is-deck .mc-slide--lab figure svg { max-height: 50cqh; }
+.mc-slides.is-deck .mc-slide--lab figure svg { max-height: calc(var(--mc-fit, 1) * 46cqh); }
+/* Explorador con dos gráficas (teorema fundamental): una al lado de la otra. */
+@media (min-width: 48rem) {
+  .mc-slides.is-deck .mc-slide--lab > .mc-lab:has(figure ~ figure) { grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr) minmax(0, 0.8fr); }
+  .mc-slides.is-deck .mc-slide.mc-slide--lab .mc-lab figure ~ figure { grid-column: 3; }
+  .mc-slides.is-deck .mc-slide.mc-slide--lab .mc-lab:has(figure ~ figure) .table-scroll { grid-column: 2 / 4; }
+}
+/* Exploradores de las lecciones con controles en párrafos: sin los márgenes del texto corrido y sin la tarjeta exterior. */
+.mc-slides.is-deck .mc-slide--lab .mc-lab { padding: 0; border: 0; background: none; box-shadow: none; margin: 0; }
+.mc-slides.is-deck .mc-slide--lab .mc-lab :is(p, figure, .table-scroll, table) { margin: 0; }
+.mc-slides.is-deck .mc-slide--lab .mc-lab caption { padding-block: 0 0.2em; }
 .mc-slides.is-deck .mc-slide--lab figcaption { font-size: 0.8em; color: var(--mc-text-2); }
 .mc-slides.is-deck .mc-slide--lab .table-scroll { font-size: 0.85em; overflow-x: auto; }
 .mc-slides.is-deck .mc-slide--lab .key-idea { margin: 0; }
@@ -99,8 +110,8 @@
   .mc-slides.is-deck { container-type: normal; height: auto; min-height: 0; display: block; place-items: normal; }
   .mc-slides.is-deck > .mc-slide { width: auto; aspect-ratio: auto; font-size: 1rem; padding: var(--mc-space-5) var(--mc-space-4); overflow: visible; overflow-x: auto; }
   .mc-slides.is-deck .mc-slide figure svg { max-height: none; width: 100%; height: auto; }
-  .mc-slides.is-deck .mc-slide--lab > :is([data-primitive-explorer], [data-riemann-explorer], [data-fundamental-explorer], [data-barrow-explorer], [data-area-explorer]) { display: grid; grid-template-columns: minmax(0, 1fr); }
-  .mc-slides.is-deck .mc-slide--lab > :is([data-primitive-explorer], [data-riemann-explorer], [data-fundamental-explorer], [data-barrow-explorer], [data-area-explorer]) > *, .mc-slides.is-deck .mc-slide--lab :is([data-primitive-result], [data-riemann-result], [data-fundamental-result], [data-barrow-result], [data-area-result]) > *, .mc-slides.is-deck .mc-slide.mc-slide--lab :is(figure, .table-scroll) { grid-column: 1; grid-row: auto; }
+  .mc-slides.is-deck .mc-slide--lab > .mc-lab { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .mc-slides.is-deck .mc-slide--lab > .mc-lab > *, .mc-slides.is-deck .mc-slide--lab .mc-lab__result > *, .mc-slides.is-deck .mc-slide.mc-slide--lab :is(figure, .table-scroll) { grid-column: 1; grid-row: auto; }
   .mc-deck__bar { position: sticky; bottom: 0; background: var(--mc-bg); padding-top: var(--mc-space-2); z-index: 2; }
   .mc-deck__index { order: 9; flex-basis: 100%; min-width: 0; display: flex; justify-content: center; }
   .mc-deck__index select { width: 100%; max-width: 22rem; }

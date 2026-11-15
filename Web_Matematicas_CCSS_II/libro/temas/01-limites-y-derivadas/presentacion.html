@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es" data-skin="mc">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presentación: 1. Límites y derivadas · Matemáticas CCSS II</title>
+  <meta name="description" content="Presentación de clase del tema 1, Límites y derivadas: límites laterales e infinitos, indeterminaciones, continuidad, derivada, rectas tangente y normal, reglas de derivación y regla de L'Hôpital, con exploradores interactivos.">
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t01-presentacion" class="mc-skin" data-block="analisis">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main mc-deck">
+    <header class="mc-deck__intro">
+      <span class="mc-chip mc-chip--dot">Tema 1 · Análisis · Presentación de clase</span>
+      <h1>1. Límites y derivadas</h1>
+      <p class="mc-deck__help">Avanza con <kbd>→</kbd>, <kbd>Espacio</kbd> o un mando de presentaciones y retrocede con <kbd>←</kbd>. <kbd>F</kbd> pantalla completa, <kbd>N</kbd> notas para el docente, <kbd>I</kbd> índice. En el móvil, desliza el dedo. Los pasos de los ejemplos aparecen uno a uno.</p>
+    </header>
+
+    <div class="mc-slides" data-slides data-explorers="derivative continuity tangent">
+
+      <section class="mc-slide mc-slide__title" id="portada">
+        <span class="mc-slide__kicker">Matemáticas Aplicadas a las Ciencias Sociales II · Tema 1</span>
+        <h2>Límites y derivadas</h2>
+        <p>Describir hacia dónde va una función y a qué ritmo cambia: tendencias, asíntotas, costes marginales y rectas tangentes.</p>
+        <ul>
+          <li>Límites laterales, infinitos y en el infinito; indeterminaciones.</li>
+          <li>Continuidad y tipos de discontinuidad.</li>
+          <li>Derivada, recta tangente, reglas de derivación y regla de L'Hôpital.</li>
+        </ul>
+        <aside class="mc-slide__notes">Cada diapositiva enlaza con su lección del libro. Los exploradores son los mismos que usa el alumnado en casa.</aside>
+      </section>
+
+      <section class="mc-slide" id="limite">
+        <span class="mc-slide__kicker">1.1 · Límite de una función</span>
+        <h2>Acercarse no es llegar</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Idea</strong> <span>\(\displaystyle\lim_{x\to a}f(x)=L\) significa que \(f(x)\) se acerca tanto como queramos a \(L\) cuando \(x\) se acerca a \(a\), <em>sin llegar a valer</em> \(a\).</span></p>
+            <p>Por eso el valor \(f(a)\), si existe, no decide el límite.</p>
+          </div>
+          <div>
+            <div class="mc-slide__box mc-slide__box--ask"><strong>Pregunta a la clase</strong><p>\(f(x)=\dfrac{x^2-1}{x-1}\) no existe en \(x=1\). ¿Tiene límite en ese punto?</p></div>
+            <p class="mc-slide__box mc-slide__box--example" data-step><strong>Respuesta</strong> <span>Para \(x\ne1\), \(\dfrac{(x-1)(x+1)}{x-1}=x+1\). La gráfica es una recta con un hueco y \(\displaystyle\lim_{x\to1}f(x)=2\).</span></p>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="01-limite-de-una-funcion.html">1.1. Límite de una función</a></p>
+      </section>
+
+      <section class="mc-slide" id="laterales">
+        <span class="mc-slide__kicker">1.2 · Límites laterales</span>
+        <h2>Por la izquierda y por la derecha</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Criterio</strong> <span>El límite existe si y solo si los dos laterales existen y coinciden: \(\displaystyle\lim_{x\to a^-}f(x)=\lim_{x\to a^+}f(x)=L\).</span></p>
+        <h3>\(f(x)=\begin{cases}x+1 &amp; x&lt;2\\ 5-x &amp; x\ge2\end{cases}\) en \(x=2\)</h3>
+        <ol class="mc-slide__steps">
+          <li>A la izquierda de 2 manda \(x+1\): \(\displaystyle\lim_{x\to2^-}(x+1)=3\).</li>
+          <li data-step>A la derecha manda \(5-x\): \(\displaystyle\lim_{x\to2^+}(5-x)=3\).</li>
+          <li data-step>Coinciden: \(\displaystyle\lim_{x\to2}f(x)=3\). Además \(f(2)=3\).</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>Cuidado</strong> <span>«Por la izquierda» se refiere a la variable (\(x&lt;2\)), no a la posición del trozo en la llave.</span></p>
+        <p class="mc-slide__links"><a href="02-limites-laterales.html">1.2. Límites laterales</a></p>
+      </section>
+
+      <section class="mc-slide" id="infinito">
+        <span class="mc-slide__kicker">1.3 · Operaciones con el infinito</span>
+        <h2>Lo que queda determinado y lo que no</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <h3>Determinadas</h3>
+            <p>\(\infty+\infty=\infty,\qquad \infty\cdot\infty=\infty\)</p>
+            <p>\(k\cdot\infty=\pm\infty\ (k\ne0),\qquad \dfrac{k}{\pm\infty}=0\)</p>
+            <p>\(\dfrac{k}{0}=\pm\infty\ (k\ne0)\): el signo lo dan los laterales.</p>
+            <p>\(a^{+\infty}=+\infty\) si \(a&gt;1\); \(a^{+\infty}=0\) si \(0\le a&lt;1\).</p>
+          </div>
+          <div>
+            <h3>Indeterminaciones</h3>
+            <p class="mc-slide__box mc-slide__box--method"><span>\(\infty-\infty,\quad \dfrac{\infty}{\infty},\quad \dfrac00,\quad 0\cdot\infty,\quad 1^{\infty},\quad \infty^0,\quad 0^0\)</span></p>
+            <p data-step>Una indeterminación <em>no es un resultado</em>: avisa de que hay que transformar la expresión antes de decidir.</p>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="03-operaciones-con-el-infinito.html">1.3. Operaciones con el infinito</a></p>
+      </section>
+
+      <section class="mc-slide" id="asintota-vertical" data-title="Límite infinito en un punto: asíntota vertical">
+        <span class="mc-slide__kicker">1.4 · Límites infinitos en un punto finito</span>
+        <h2>\(f(x)=\dfrac{3}{x-2}\) cerca de \(x=2\)</h2>
+        <ol class="mc-slide__steps">
+          <li>Sustituir da \(\dfrac30\): el límite es infinito, falta el signo.</li>
+          <li data-step>Si \(x\to2^-\), \(x-2\) es pequeño y negativo: \(\displaystyle\lim_{x\to2^-}\frac{3}{x-2}=-\infty\).</li>
+          <li data-step>Si \(x\to2^+\), \(x-2\) es pequeño y positivo: \(\displaystyle\lim_{x\to2^+}\frac{3}{x-2}=+\infty\).</li>
+          <li data-step>Los laterales son distintos: no existe el límite, pero \(x=2\) es una <strong>asíntota vertical</strong>.</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--ask" data-step><strong>Pregunta a la clase</strong> <span>¿Y \(\dfrac{3}{(x-2)^2}\)? El denominador es positivo a ambos lados: los dos laterales valen \(+\infty\).</span></p>
+        <p class="mc-slide__links"><a href="04-limites-infinitos-en-un-punto-finito.html">1.4. Límites infinitos en un punto finito</a></p>
+      </section>
+
+      <section class="mc-slide" id="en-el-infinito">
+        <span class="mc-slide__kicker">1.5 y 1.6 · Límites en el infinito</span>
+        <h2>Manda la potencia dominante</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Polinomios</strong> <span>Cuando \(x\to\pm\infty\), un polinomio se comporta como su término de mayor grado: \(-2x^3+5x^2\to-\infty\) si \(x\to+\infty\).</span></p>
+            <p class="mc-slide__box mc-slide__box--method"><strong>Cocientes \(P/Q\)</strong> <span>Grado de \(P\) menor: límite 0. Iguales: cociente de coeficientes principales. Mayor: \(\pm\infty\).</span></p>
+          </div>
+          <div>
+            <h3>\(\displaystyle\lim_{x\to+\infty}\frac{3x^2+1}{x^2-4}\)</h3>
+            <ol class="mc-slide__steps">
+              <li>Forma \(\frac{\infty}{\infty}\). Divide entre \(x^2\): \(\dfrac{3+1/x^2}{1-4/x^2}\).</li>
+              <li data-step>Los términos con \(x\) en el denominador tienden a 0: el límite es \(3\).</li>
+              <li data-step>\(y=3\) es una asíntota horizontal. La gráfica puede cruzarla en valores finitos de \(x\).</li>
+            </ol>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="05-limites-finitos-en-el-infinito.html">1.5. Límites finitos en el infinito</a> · <a href="06-limites-infinitos-en-el-infinito.html">1.6. Límites infinitos en el infinito</a></p>
+      </section>
+
+      <section class="mc-slide" id="calculo">
+        <span class="mc-slide__kicker">1.7 y 1.8 · Cálculo de límites sencillos</span>
+        <h2>Primero sustituye; después diagnostica</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <h3>\(\dfrac00\) con polinomios: factoriza</h3>
+            <p>\(\displaystyle\lim_{x\to3}\frac{x^2-9}{x^2-3x}=\lim_{x\to3}\frac{(x-3)(x+3)}{x(x-3)}=\frac{6}{3}=2\)</p>
+          </div>
+          <div>
+            <h3>\(\dfrac00\) con raíces: conjugado</h3>
+            <ol class="mc-slide__steps">
+              <li>\(\displaystyle\lim_{x\to4}\frac{\sqrt x-2}{x-4}\): sustituir da \(\frac00\).</li>
+              <li data-step>Multiplica por \(\sqrt x+2\): el numerador pasa a ser \(x-4\).</li>
+              <li data-step>\(\displaystyle\lim_{x\to4}\frac{x-4}{(x-4)(\sqrt x+2)}=\frac{1}{4}\).</li>
+            </ol>
+          </div>
+        </div>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>Error frecuente</strong> <span>Cancelar \(x-3\) y olvidar que solo se puede hacer porque \(x\ne3\) mientras nos acercamos: el límite existe, \(f(3)\) no.</span></p>
+        <p class="mc-slide__links"><a href="07-operaciones-con-limites-de-funciones.html">1.7. Operaciones con límites</a> · <a href="08-calculo-de-limites-sencillos.html">1.8. Cálculo de límites sencillos</a></p>
+      </section>
+
+      <section class="mc-slide" id="indeterminaciones">
+        <span class="mc-slide__kicker">1.9 · Indeterminaciones</span>
+        <h2>Una transformación para cada forma</h2>
+        <table>
+          <thead><tr><th scope="col">Forma</th><th scope="col">Transformación habitual</th></tr></thead>
+          <tbody>
+            <tr><td>\(\frac00\) con polinomios o raíces</td><td>Factorizar y simplificar; multiplicar por el conjugado</td></tr>
+            <tr><td>\(\frac{\infty}{\infty}\)</td><td>Dividir entre la mayor potencia del denominador</td></tr>
+            <tr><td>\(\infty-\infty\)</td><td>Común denominador; con raíces, conjugado</td></tr>
+            <tr><td>\(0\cdot\infty\)</td><td>Escribirlo como cociente</td></tr>
+            <tr><td>\(1^{\infty}\)</td><td>\(\displaystyle\lim f^{\,g}=e^{\lim g\,(f-1)}\)</td></tr>
+          </tbody>
+        </table>
+        <p class="mc-slide__box mc-slide__box--example" data-step><strong>Ejemplo \(1^\infty\)</strong> <span>\(\displaystyle\lim_{x\to\infty}\Bigl(1+\frac2x\Bigr)^{x}=e^{\lim x\cdot\frac2x}=e^{2}\).</span></p>
+        <p class="mc-slide__links"><a href="09-indeterminaciones.html">1.9. Indeterminaciones</a></p>
+      </section>
+
+      <section class="mc-slide" id="pregunta-indeterminaciones">
+        <span class="mc-slide__kicker">Pregunta a la clase · 1.9</span>
+        <h2>¿Qué forma aparece y qué haces?</h2>
+        <div class="mc-slide__cols">
+          <div class="mc-slide__box mc-slide__box--ask"><strong>a)</strong><p>\(\displaystyle\lim_{x\to+\infty}\bigl(\sqrt{x^2+x}-x\bigr)\)</p><p data-step>\(\infty-\infty\). Conjugado: \(\dfrac{x}{\sqrt{x^2+x}+x}\to\dfrac{1}{1+1}=\dfrac12\)</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>b)</strong><p>\(\displaystyle\lim_{x\to1}\Bigl(\frac{1}{x-1}-\frac{2}{x^2-1}\Bigr)\)</p><p data-step>\(\infty-\infty\). Común denominador: \(\dfrac{x-1}{x^2-1}=\dfrac{1}{x+1}\to\dfrac12\)</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>c)</strong><p>\(\displaystyle\lim_{x\to\infty}\Bigl(\frac{x+3}{x}\Bigr)^{2x}\)</p><p data-step>\(1^\infty\): \(e^{\lim 2x\cdot\frac3x}=e^{6}\)</p></div>
+        </div>
+        <aside class="mc-slide__notes">En a), insistir en que \(\sqrt{x^2+x}\approx x\) no permite concluir 0: la diferencia entre dos cantidades enormes puede ser finita.</aside>
+      </section>
+
+      <section class="mc-slide" id="continuidad">
+        <span class="mc-slide__kicker">1.10 · Continuidad</span>
+        <h2>Tres comprobaciones</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Definición</strong> <span>\(f\) es continua en \(a\) si existe \(f(a)\), existe \(\displaystyle\lim_{x\to a}f(x)\) y ambos coinciden.</span></p>
+            <ul>
+              <li><strong>Evitable:</strong> el límite existe pero no coincide con \(f(a)\) o \(f(a)\) no existe.</li>
+              <li><strong>De salto finito:</strong> laterales finitos y distintos.</li>
+              <li><strong>De salto infinito:</strong> algún lateral es infinito (asíntota vertical).</li>
+            </ul>
+          </div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>Pregunta a la clase</strong>
+            <p>\(f(x)=\begin{cases}x^2+a &amp; x&lt;1\\ 2x+1 &amp; x\ge1\end{cases}\). ¿Qué valor de \(a\) la hace continua?</p>
+            <p data-step>Izquierda: \(1+a\). Derecha y \(f(1)\): \(3\).</p>
+            <p data-step>\(1+a=3\Rightarrow a=2\). Fuera de \(x=1\) los dos trozos son polinomios, continuos.</p>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="10-continuidad.html">1.10. Continuidad</a></p>
+      </section>
+
+      <section class="mc-slide" id="derivada">
+        <span class="mc-slide__kicker">1.11 · Función derivada</span>
+        <h2>De la tasa media a la instantánea</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Definición</strong> <span>\(\mathrm{TVM}[a,a+h]=\dfrac{f(a+h)-f(a)}{h}\) es la pendiente de una secante. La derivada es su límite: \(\displaystyle f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}\).</span></p>
+        <h3>Por definición, \(f(x)=x^2\)</h3>
+        <ol class="mc-slide__steps">
+          <li>\(\dfrac{(a+h)^2-a^2}{h}=\dfrac{2ah+h^2}{h}=2a+h\) (con \(h\ne0\)).</li>
+          <li data-step>Cuando \(h\to0\): \(f'(a)=2a\). En \(a=3\), la pendiente de la tangente es 6.</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--example" data-step><strong>En economía</strong> <span>Si \(C(q)\) es el coste de producir \(q\) unidades, \(C'(q)\) es el <em>coste marginal</em>: aproximadamente lo que cuesta una unidad más.</span></p>
+        <p class="mc-slide__links"><a href="11-funcion-derivada.html">1.11. Función derivada</a></p>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="explora-derivada">
+        <span class="mc-slide__kicker">Explorador · 1.11</span>
+        <h2>Las secantes se acercan a la tangente</h2>
+        <div class="activity mc-lab" data-derivative-explorer>
+          <p><label for="derivative-function">Función</label> <select id="derivative-function"><option value="square">Cuadrado: f(x) = x²</option><option value="absolute">Valor absoluto: f(x) = |x|</option></select></p>
+          <p><label for="derivative-point">Punto a</label> <select id="derivative-point"><option value="-2">−2</option><option value="-1">−1</option><option value="0">0</option><option value="1">1</option><option value="2" selected>2</option></select></p>
+          <p><label for="derivative-distance">Aproximación: 1 = distancia 0,1; 4 = distancia 0,0001</label> <input id="derivative-distance" type="range" min="1" max="4" step="1" value="1"></p>
+          <div data-derivative-formula>\[\begin{aligned}\frac{(a+h)^2-a^2}{h}&amp;=2a+h\\ f'(a)&amp;=2a.\end{aligned}\]</div>
+          <figure><svg width="100%" viewBox="0 0 480 300" role="img" aria-labelledby="derivative-graph-title derivative-graph-description">
+            <title id="derivative-graph-title">Curva y rectas secantes</title><desc id="derivative-graph-description">El gráfico se completa al activar el explorador. La tabla ofrece los mismos valores de pendiente.</desc>
+            <defs><clipPath id="derivative-clip"><rect x="35" y="15" width="430" height="250"></rect></clipPath></defs>
+            <path d="M35 260H465 M250 15V265" fill="none" stroke="#8792a2"></path><text x="452" y="280">x</text><text x="260" y="28">y</text><text x="254" y="279">0</text>
+            <g clip-path="url(#derivative-clip)">
+              <path data-derivative-curve fill="none" stroke="#1746a2" stroke-width="3"></path>
+              <path data-derivative-tangent fill="none" stroke="#172033" stroke-width="2"></path>
+              <path data-derivative-left-line fill="none" stroke="#9a3412" stroke-width="2" stroke-dasharray="7 4"></path>
+              <path data-derivative-right-line fill="none" stroke="#166534" stroke-width="2" stroke-dasharray="2 4"></path>
+              <circle data-derivative-point r="5" fill="#172033"></circle>
+            </g>
+          </svg><figcaption>Curva azul; secante izquierda a trazos largos, derecha a puntos; tangente negra cuando existe.</figcaption></figure>
+          <div class="table-scroll"><table><caption>Cocientes incrementales a ambos lados</caption><thead><tr><th scope="col">Lado</th><th scope="col">h</th><th scope="col">Pendiente</th></tr></thead><tbody>
+            <tr><th scope="row">Izquierda</th><td data-derivative-left-h>−0,1</td><td data-derivative-left-slope>3,9</td></tr>
+            <tr><th scope="row">Derecha</th><td data-derivative-right-h>0,1</td><td data-derivative-right-slope>4,1</td></tr>
+          </tbody></table></div>
+          <p data-derivative-summary role="status">En a=2, las pendientes se acercan a 4 por ambos lados.</p>
+        </div>
+        <aside class="mc-slide__notes">Pide una predicción antes de mover el deslizador: con x² en a=2, ¿a qué número se acercan las dos pendientes? Después cambia a |x| en a=0: las pendientes no se acercan entre sí y no hay tangente.</aside>
+      </section>
+
+      <section class="mc-slide" id="laterales-derivada">
+        <span class="mc-slide__kicker">1.12 · Derivadas laterales</span>
+        <h2>Esquinas: dos pendientes distintas</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Criterio</strong> <span>\(f\) es derivable en \(a\) si \(f'(a^-)\) y \(f'(a^+)\) existen y coinciden.</span></p>
+            <p>\(f(x)=|x|\): a la izquierda de 0 vale \(-x\) (pendiente \(-1\)); a la derecha, \(x\) (pendiente 1). Es continua pero <strong>no derivable</strong> en 0.</p>
+          </div>
+          <div>
+            <p class="mc-slide__box mc-slide__box--method"><strong>En una unión de trozos</strong> <span>1) Comprueba la continuidad. 2) Si es continua, deriva cada trozo y compara las derivadas laterales.</span></p>
+            <p class="mc-slide__box mc-slide__box--example" data-step><strong>Ejemplo</strong> <span>\(f(x)=x^2\) si \(x&lt;1\), \(2x-1\) si \(x\ge1\): continua (1 y 1); \(f'(1^-)=2\), \(f'(1^+)=2\). Derivable, con \(f'(1)=2\).</span></p>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="12-derivadas-laterales.html">1.12. Derivadas laterales</a></p>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="explora-continuidad" data-title="Derivable implica continua">
+        <span class="mc-slide__kicker">Explorador · 1.17</span>
+        <h2>Derivable implica continua; al revés, no</h2>
+        <div class="activity mc-lab" data-continuity-explorer>
+          <p><label for="continuity-case">Función</label> <select id="continuity-case"><option value="smooth">Cuadrado</option><option value="corner">Valor absoluto</option><option value="jump">Rectas con salto</option><option value="isolated">Cuadrado con valor aislado</option></select></p>
+          <p><label for="continuity-distance">Aproximación: 1 = distancia 0,1; 4 = distancia 0,0001</label> <input id="continuity-distance" type="range" min="1" max="4" value="1" step="1"></p>
+          <div data-continuity-formula>\[f(x)=x^2,\qquad f(0)=0.\]</div>
+          <figure><svg width="100%" viewBox="0 0 440 320" role="img" aria-labelledby="continuity-title continuity-description">
+            <title id="continuity-title">Continuidad y derivabilidad en el origen</title><desc id="continuity-description">La parábola es continua y derivable en 0, con pendiente 0.</desc>
+            <defs><clipPath id="continuity-clip"><rect x="30" y="15" width="380" height="285"></rect></clipPath></defs>
+            <path d="M30 240H410 M220 15V300" fill="none" stroke="#8792a2"></path><text x="400" y="260">x</text><text x="230" y="28">y</text><text x="225" y="260">0</text>
+            <g clip-path="url(#continuity-clip)"><path data-continuity-left fill="none" stroke="#1746a2" stroke-width="3"></path><path data-continuity-right fill="none" stroke="#1746a2" stroke-width="3"></path>
+              <circle data-continuity-hole cx="220" cy="240" r="5" fill="white" stroke="#1746a2" stroke-width="2" visibility="hidden"></circle><circle data-continuity-value cx="220" cy="240" r="5" fill="#172033"></circle></g>
+          </svg><figcaption>El punto relleno es f(0); el círculo vacío, un extremo no incluido o un hueco.</figcaption></figure>
+          <div class="table-scroll"><table><caption>Valores y cocientes incrementales en 0</caption><thead><tr><th scope="col">h</th><th scope="col">\(f(h)\)</th><th scope="col">Pendiente</th></tr></thead><tbody><tr><td data-continuity-left-h>−0,1</td><td data-continuity-left-value>0,01</td><td data-continuity-left-slope>−0,1</td></tr><tr><td data-continuity-right-h>0,1</td><td data-continuity-right-value>0,01</td><td data-continuity-right-slope>0,1</td></tr></tbody></table></div>
+          <p data-continuity-point>f(0)=0.</p><p data-continuity-summary role="status">Es continua y derivable en 0. Las pendientes se aproximan a 0.</p>
+        </div>
+        <aside class="mc-slide__notes">Recorre los cuatro casos y pide que clasifiquen cada uno antes de mirar la tabla: continua y derivable; continua y no derivable; ni continua ni derivable (salto); valor aislado (discontinuidad evitable, tampoco derivable).</aside>
+      </section>
+
+      <section class="mc-slide" id="tangente">
+        <span class="mc-slide__kicker">1.13 · Rectas tangente y normal</span>
+        <h2>Un punto y una pendiente</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Ecuaciones</strong> <span>Tangente en \(x=a\): \(y-f(a)=f'(a)(x-a)\). Normal (si \(f'(a)\ne0\)): \(y-f(a)=-\dfrac{1}{f'(a)}(x-a)\).</span></p>
+        <h3>\(f(x)=x^2-3x\) en \(x=2\)</h3>
+        <ol class="mc-slide__steps">
+          <li>Punto: \(f(2)=4-6=-2\), así que \(P=(2,-2)\).</li>
+          <li data-step>Pendiente: \(f'(x)=2x-3\), \(f'(2)=1\).</li>
+          <li data-step>Tangente: \(y+2=1\cdot(x-2)\Rightarrow y=x-4\).</li>
+          <li data-step>Normal: pendiente \(-1\); \(y+2=-(x-2)\Rightarrow y=-x\).</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--ask" data-step><strong>Al revés</strong> <span>¿Dónde es la tangente paralela a \(y=3x\)? Se pide \(f'(a)=3\): \(2a-3=3\Rightarrow a=3\), punto \((3,0)\).</span></p>
+        <p class="mc-slide__links"><a href="13-ecuaciones-de-las-rectas-tangente-y-normal.html">1.13. Rectas tangente y normal</a></p>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="explora-tangente">
+        <span class="mc-slide__kicker">Explorador · 1.13</span>
+        <h2>Mueve el punto sobre la parábola</h2>
+        <p>\(f(x)=x^2\). Tangente y normal son perpendiculares: el producto de sus pendientes es \(-1\).</p>
+        <div class="activity mc-lab" data-tangent-explorer>
+          <p><label for="tangent-point">Punto a</label> <select id="tangent-point"><option value="-2">−2</option><option value="-1">−1</option><option value="0">0</option><option value="1" selected>1</option><option value="2">2</option></select></p>
+          <div data-tangent-formula>\[\begin{aligned}P&amp;=(1,1)\\t:\ y-1&amp;=2(x-1)\\n:\ y-1&amp;=-\frac12(x-1)\end{aligned}\]</div>
+          <figure><svg width="100%" viewBox="0 0 480 400" role="img" aria-labelledby="tangent-graph-title tangent-graph-description">
+            <title id="tangent-graph-title">Parábola, tangente y normal</title><desc id="tangent-graph-description">En el punto (1,1), las pendientes de tangente y normal son 2 y −1/2. Ambas rectas pasan por ese punto.</desc>
+            <defs><clipPath id="tangent-clip"><rect x="30" y="20" width="420" height="350"></rect></clipPath></defs>
+            <path d="M30 290H450 M240 20V370" fill="none" stroke="#8792a2"></path><text x="435" y="310">x</text><text x="250" y="30">y</text>
+            <g data-tangent-ticks></g>
+            <g clip-path="url(#tangent-clip)">
+              <path data-tangent-curve fill="none" stroke="#1746a2" stroke-width="3"></path>
+              <path data-tangent-line fill="none" stroke="#172033" stroke-width="2"></path>
+              <path data-normal-line fill="none" stroke="#9a3412" stroke-width="2" stroke-dasharray="7 4"></path>
+              <circle data-tangent-dot r="5" fill="#172033"></circle>
+            </g>
+          </svg><figcaption>Parábola azul; tangente negra continua; normal marrón a trazos.</figcaption></figure>
+          <div class="table-scroll"><table><caption>Pendientes en el punto elegido</caption><thead><tr><th scope="col">Recta</th><th scope="col">Pendiente</th></tr></thead><tbody><tr><th scope="row">Tangente</th><td data-tangent-slope>2</td></tr><tr><th scope="row">Normal</th><td data-normal-slope>−1/2</td></tr></tbody></table></div>
+          <p data-tangent-summary role="status">Ambas rectas pasan por (1,1). El producto de sus pendientes es −1.</p>
+        </div>
+        <aside class="mc-slide__notes">Lleva el punto a a=0: la tangente es horizontal y la normal, vertical (x=0). Es el caso en que la fórmula de la normal no se puede usar.</aside>
+      </section>
+
+      <section class="mc-slide" id="tabla-derivadas">
+        <span class="mc-slide__kicker">1.14 · Tabla de derivadas</span>
+        <h2>La tabla, ya con la función interior</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p>\((k)'=0,\qquad (x^n)'=n\,x^{n-1}\)</p>
+            <p>\((u^n)'=n\,u^{n-1}\,u'\)</p>
+            <p>\(\bigl(\sqrt u\bigr)'=\dfrac{u'}{2\sqrt u}\)</p>
+            <p>\(\bigl(e^u\bigr)'=u'\,e^u,\qquad \bigl(a^u\bigr)'=u'\,a^u\ln a\)</p>
+          </div>
+          <div>
+            <p>\(\bigl(\ln u\bigr)'=\dfrac{u'}{u},\qquad \bigl(\log_a u\bigr)'=\dfrac{u'}{u\ln a}\)</p>
+            <p>\(\bigl(\sin u\bigr)'=u'\cos u,\qquad \bigl(\cos u\bigr)'=-u'\sin u\)</p>
+            <p class="mc-slide__box mc-slide__box--method" data-step><strong>Rutina</strong> <span>Antes de usar la tabla, señala la función interior \(u\) y calcula \(u'\) aparte.</span></p>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="14-tabla-de-derivadas.html">1.14. Tabla de derivadas</a></p>
+      </section>
+
+      <section class="mc-slide" id="reglas" data-title="Ejemplo: derivada de un cociente">
+        <span class="mc-slide__kicker">1.15 · Reglas de derivación</span>
+        <h2>\(f(x)=\dfrac{x^2+1}{x-1}\)</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Reglas</strong> <span>\((u\pm v)'=u'\pm v',\quad (k\,u)'=k\,u',\quad (u\,v)'=u'v+u\,v',\quad \Bigl(\dfrac uv\Bigr)'=\dfrac{u'v-u\,v'}{v^2}\)</span></p>
+        <ol class="mc-slide__steps">
+          <li>Las cuatro piezas: \(u=x^2+1,\ u'=2x,\ v=x-1,\ v'=1\).</li>
+          <li data-step>\(f'(x)=\dfrac{2x(x-1)-(x^2+1)\cdot1}{(x-1)^2}\).</li>
+          <li data-step>Numerador: \(2x^2-2x-x^2-1=x^2-2x-1\), así que \(f'(x)=\dfrac{x^2-2x-1}{(x-1)^2}\).</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>Cuidado</strong> <span>El signo menos afecta a todo \(u\,v'\): escribe el paréntesis \(-(x^2+1)\).</span></p>
+        <p class="mc-slide__links"><a href="15-reglas-de-derivacion.html">1.15. Reglas de derivación</a></p>
+      </section>
+
+      <section class="mc-slide" id="cadena">
+        <span class="mc-slide__kicker">1.16 · Regla de la cadena</span>
+        <h2>Exterior por interior</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Regla de la cadena</strong> <span>\(\bigl(g(u(x))\bigr)'=g'\bigl(u(x)\bigr)\cdot u'(x)\): se deriva la capa exterior sin tocar el interior y se multiplica por la derivada del interior.</span></p>
+        <div class="mc-slide__cols">
+          <div class="mc-slide__box mc-slide__box--ask"><strong>a)</strong><p>\(f(x)=\ln(x^2+1)\)</p><p data-step>\(f'(x)=\dfrac{2x}{x^2+1}\)</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>b)</strong><p>\(f(x)=e^{3x^2}\)</p><p data-step>\(f'(x)=6x\,e^{3x^2}\)</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>c)</strong><p>\(f(x)=\sqrt{1-2x}\)</p><p data-step>\(f'(x)=\dfrac{-2}{2\sqrt{1-2x}}=-\dfrac{1}{\sqrt{1-2x}}\)</p></div>
+        </div>
+        <p class="mc-slide__box mc-slide__box--example" data-step><strong>Varias capas</strong> <span>\(\bigl((2x+1)^5\bigr)'=5(2x+1)^4\cdot2=10(2x+1)^4\).</span></p>
+        <aside class="mc-slide__notes">Pide que nombren en voz alta la capa exterior y la interior antes de derivar.</aside>
+        <p class="mc-slide__links"><a href="16-regla-de-la-cadena.html">1.16. Regla de la cadena</a></p>
+      </section>
+
+      <section class="mc-slide" id="lhopital">
+        <span class="mc-slide__kicker">1.18 · Regla de L'Hôpital</span>
+        <h2>Derivar arriba y abajo por separado</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Regla</strong> <span>Si \(\displaystyle\lim\frac fg\) da \(\frac00\) o \(\frac{\infty}{\infty}\) y existe \(\displaystyle\lim\frac{f'}{g'}\), entonces \(\displaystyle\lim\frac fg=\lim\frac{f'}{g'}\).</span></p>
+        <h3>\(\displaystyle\lim_{x\to0}\frac{e^x-1-x}{x^2}\)</h3>
+        <ol class="mc-slide__steps">
+          <li>Sustituir da \(\frac00\). L'Hôpital: \(\displaystyle\lim_{x\to0}\frac{e^x-1}{2x}\).</li>
+          <li data-step>Sigue siendo \(\frac00\). Otra vez: \(\displaystyle\lim_{x\to0}\frac{e^x}{2}=\frac12\).</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>No es la regla del cociente</strong> <span>Se deriva numerador y denominador por separado, y solo si hay \(\frac00\) o \(\frac{\infty}{\infty}\). Comprueba la forma antes de cada aplicación.</span></p>
+        <p class="mc-slide__links"><a href="18-regla-de-l-hopital-aplicacion-al-calculo-de-limites.html">1.18. Regla de L'Hôpital</a></p>
+      </section>
+
+      <section class="mc-slide" id="errores">
+        <span class="mc-slide__kicker">Repaso</span>
+        <h2>Errores frecuentes</h2>
+        <ul>
+          <li>Dar «\(\frac00\)» o «\(\infty-\infty\)» como resultado de un límite.</li>
+          <li>Decidir el límite en \(a\) con el valor \(f(a)\).</li>
+          <li>Olvidar estudiar los laterales en una función a trozos o con \(\frac k0\).</li>
+          <li>Concluir que \(\sqrt{x^2+x}-x\to0\) porque «los dos son infinito».</li>
+          <li>Estudiar la derivabilidad en una unión sin comprobar antes la continuidad.</li>
+          <li>Olvidar la derivada interior en la regla de la cadena.</li>
+          <li>Aplicar L'Hôpital sin una forma \(\frac00\) o \(\frac{\infty}{\infty}\), o con la regla del cociente.</li>
+        </ul>
+      </section>
+
+      <section class="mc-slide" id="cierre">
+        <span class="mc-slide__kicker">Para seguir</span>
+        <h2>Practica y prepara la PAU</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <h3>En el libro</h3>
+            <ul>
+              <li><a href="index.html#recorrido">Recorrido del tema</a></li>
+              <li><a href="../../../test/index.html?tema=t01">Test del tema</a> y <a href="../../../tarjetas/index.html?tema=t01">tarjetas</a></li>
+              <li>Juegos: <a href="../../../laboratorios/juegos/t01-a-limite-express.html">Límite Express</a>, <a href="../../../laboratorios/juegos/t01-b-continuidad-repara-la-funcion.html">Continuidad: repara la función</a>, <a href="../../../laboratorios/juegos/t01-c-derivada-detective.html">Derivada Detective</a> y <a href="../../../laboratorios/juegos/t01-d-tangente-sprint.html">Tangente Sprint</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>En la PAU</h3>
+            <p>Suelen pedir la continuidad y la derivabilidad de una función a trozos con parámetros, una recta tangente o un límite con indeterminación.</p>
+            <p><a href="../../../selectividad/01-limites-y-derivadas.html">Ejercicios de Selectividad del tema 1</a></p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="../../../assets/js/learning/presentation.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

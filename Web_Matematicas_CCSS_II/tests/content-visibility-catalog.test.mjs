@@ -48,8 +48,9 @@ test('visibilidad: las lecturas estáticas comparten los IDs y el tema del banco
 
 test('visibilidad: registra todas las páginas y actividades con IDs estables y rutas reales', () => {
   // 193 entidades de partida + 11 páginas de Selectividad (P08 y los generadores de P09 y P10), un grupo de soluciones por tema y una entidad por solución.
-  // Aplicación instalable (Q01): instalar.html y offline.html. Presentaciones de clase: una por tema terminado (3).
-  const appPages = 2 + 1;
+  // Aplicación instalable (Q01): instalar.html y offline.html. Presentaciones de clase: una por tema (P11).
+  const decks = readConfig('pages').filter(page => page.path.endsWith('/presentacion.html')).length;
+  const appPages = 2 + decks;
   const selectividad = readConfig('selectividad');
   assert.equal(catalog.entities.length, 193 + 11 + appPages + selectividad.topics.length + selectividad.solutions.length
     + expectedCatalog.questions + expectedCatalog.cards);

@@ -51,7 +51,9 @@ const { chromium } = require('playwright');
       // 996 + las 10 preguntas de Combinatoria (P02) + Selectividad (P08-P10): 11 páginas, un grupo por tema y sus soluciones.
       const selectividad = JSON.parse(require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'config', 'selectividad.json'), 'utf8'));
       // Q01 y P11: instalar.html, offline.html y la presentación del tema 3.
-      assert.equal(result.count, 1006 + 11 + 3 + selectividad.topics.length + selectividad.solutions.length);
+      // 2 páginas de la aplicación instalable y una presentación de clase por tema (P11).
+      const decks = JSON.parse(require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'config', 'pages.json'), 'utf8')).filter(page => page.path.endsWith('/presentacion.html')).length;
+      assert.equal(result.count, 1006 + 11 + 2 + decks + selectividad.topics.length + selectividad.solutions.length);
       assert.equal(result.url, prefix + 'config/visibility.json');
       assert.equal(result.origin, 'static');
       assert.equal(result.gameId, 'page:game-t01-a-limite-express');
