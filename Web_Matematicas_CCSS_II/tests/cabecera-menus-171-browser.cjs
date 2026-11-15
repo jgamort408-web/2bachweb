@@ -12,6 +12,9 @@ const { chromium } = require('playwright');
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(url);
     await page.locator('[data-reading-controls] > summary').waitFor();
+    // Medir con la página asentada: fórmulas dibujadas y sin avisos de carga encima del título.
+    await page.locator('main mjx-container').first().waitFor();
+    await page.waitForLoadState('networkidle');
     const top = () => page.locator('main h1').evaluate(el => el.getBoundingClientRect().top + scrollY);
     const isOpen = selector => page.locator(selector).evaluate(details => details.open);
 

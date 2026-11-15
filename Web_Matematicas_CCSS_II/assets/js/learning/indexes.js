@@ -53,7 +53,8 @@ async function initialize() {
   if (topic) {
     const list = document.createElement('ol');
     // Lecciones en orden y, al final, las secciones del tema (por ahora, los ejercicios resueltos).
-    const children = pages.filter((page) => page.parentId === topic.dataset.topicIndex);
+    // La presentación de clase no forma parte del recorrido: el índice del tema la enlaza aparte.
+    const children = pages.filter((page) => page.parentId === topic.dataset.topicIndex && !page.path.endsWith('/presentacion.html'));
     const route = [...children.filter((page) => page.kind === 'lesson'), ...children.filter((page) => page.kind === 'section')];
     for (const lesson of route) {
       const label = status(lesson) === 'reviewed' ? 'Disponible' : status(lesson) === 'partial' ? 'Contenido parcial' : 'En preparación';

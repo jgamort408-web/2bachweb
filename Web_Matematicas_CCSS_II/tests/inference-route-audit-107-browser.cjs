@@ -3,7 +3,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const {chromium}=require('playwright');
 (async()=>{
- const pages=JSON.parse(fs.readFileSync('config/pages.json','utf8')).filter(p=>p.id==='t09'||p.parentId==='t09');
+ const pages=JSON.parse(fs.readFileSync('config/pages.json','utf8')).filter(p=>(p.id==='t09'||p.parentId==='t09')&&!p.path.endsWith('/presentacion.html'));
  const editorial=JSON.parse(fs.readFileSync('config/editorial.json','utf8'));
  assert.equal(pages.length,11);
  assert.equal(pages.filter(p=>p.kind==='lesson').length,9);

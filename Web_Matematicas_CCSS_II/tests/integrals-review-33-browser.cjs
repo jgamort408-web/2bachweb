@@ -11,8 +11,8 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',topic='libro/temas/03-
   };
   await page.goto(base+topic+'#repaso');await ready();
   // Ocho lecciones y la presentación de clase (P11).
-  await page.waitForFunction(()=>document.querySelectorAll('[data-topic-index] li').length===9);
-  const index=await page.locator('[data-topic-index]').innerText();assert.equal(index.match(/Disponible/g).length,9);assert.equal((index.match(/En preparación/g)||[]).length,0);
+  await page.waitForFunction(()=>document.querySelectorAll('[data-topic-index] li').length===8);
+  const index=await page.locator('[data-topic-index]').innerText();assert.equal(index.match(/Disponible/g).length,8);assert.equal((index.match(/En preparación/g)||[]).length,0);
   for(let i=1;i<=4;i++){
    await page.getByText('Pista del bloque '+i,{exact:true}).click();
    await page.getByText('Solución del bloque '+i,{exact:true}).focus();await page.keyboard.press('Enter');await ready();

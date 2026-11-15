@@ -5,7 +5,7 @@ const { chromium } = require('playwright');
 const base = process.env.TEST_URL || 'http://127.0.0.1:4173/';
 const pages = JSON.parse(fs.readFileSync('config/pages.json', 'utf8'));
 const widgets = JSON.parse(fs.readFileSync('config/widgets.json', 'utf8')).filter(w => w.topicId === 't01');
-const lessons = pages.filter(p => p.parentId === 't01');
+const lessons = pages.filter(p => p.parentId === 't01' && p.kind === 'lesson');
 const root = path.resolve('.');
 const htmlFiles = [];
 function collect(dir) {
