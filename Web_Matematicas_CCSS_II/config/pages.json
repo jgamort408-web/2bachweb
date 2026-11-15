@@ -749,6 +749,13 @@
     "kind": "section"
   },
   {
+    "id": "t09-presentacion",
+    "title": "Presentación de clase del tema 9",
+    "path": "libro/temas/09-inferencia-estadistica/presentacion.html",
+    "parentId": "t09",
+    "kind": "section"
+  },
+  {
     "id": "supports",
     "title": "Contenidos de apoyo",
     "path": "libro/apoyos/index.html",

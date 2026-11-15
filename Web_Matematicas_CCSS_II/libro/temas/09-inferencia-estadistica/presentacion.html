@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es" data-skin="mc">
+<head>
+  <script src="../../../assets/js/core/content-gate.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presentación: 9. Inferencia estadística · Matemáticas CCSS II</title>
+  <meta name="description" content="Presentación de clase del tema 9, Inferencia estadística: población y muestra, técnicas de muestreo, distribución de la media muestral y teorema central del límite, intervalos característicos, intervalos de confianza para la media y la proporción, tamaño de muestra y ficha técnica, con laboratorios interactivos.">
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script type="module" src="../../../assets/js/app.js"></script>
+</head>
+<body data-page-id="t09-presentacion" class="mc-skin" data-block="azar">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="page-main mc-deck">
+    <header class="mc-deck__intro">
+      <span class="mc-chip mc-chip--dot">Tema 9 · Probabilidad y Estadística · Presentación de clase</span>
+      <h1>9. Inferencia estadística</h1>
+      <p class="mc-deck__help">Avanza con <kbd>→</kbd>, <kbd>Espacio</kbd> o un mando de presentaciones y retrocede con <kbd>←</kbd>. <kbd>F</kbd> pantalla completa, <kbd>N</kbd> notas para el docente, <kbd>I</kbd> índice. En el móvil, desliza el dedo. Los pasos de los ejemplos aparecen uno a uno.</p>
+    </header>
+
+    <div class="mc-slides" data-slides data-explorers="confidence-interval sample-size">
+
+      <section class="mc-slide mc-slide__title" id="portada">
+        <span class="mc-slide__kicker">Matemáticas Aplicadas a las Ciencias Sociales II · Tema 9</span>
+        <h2>Inferencia estadística</h2>
+        <p>Estudiar una muestra para decir algo de toda la población, y expresar con un margen cuánto podemos fiarnos.</p>
+        <ul>
+          <li>Población, muestra y técnicas de muestreo.</li>
+          <li>Distribución de la media muestral y teorema central del límite.</li>
+          <li>Intervalos de confianza, tamaño de la muestra y fichas técnicas.</li>
+        </ul>
+        <aside class="mc-slide__notes">Cada diapositiva enlaza con su lección del libro. En la PAU, el ejercicio 4 es de inferencia: muestreo aleatorio simple y muestras grandes si n ≥ 30.</aside>
+      </section>
+
+      <section class="mc-slide" id="poblacion-muestra">
+        <span class="mc-slide__kicker">9.1 · Estadística inferencial</span>
+        <h2>De una parte al conjunto</h2>
+        <table>
+          <thead><tr><th scope="col">Concepto</th><th scope="col">Qué es</th><th scope="col">Ejemplo</th></tr></thead>
+          <tbody>
+            <tr><td>Población</td><td>Todos los individuos que interesan</td><td>Estudiantes de 2.º de Bachillerato de Andalucía</td></tr>
+            <tr><td>Muestra</td><td>La parte que se observa</td><td>400 estudiantes elegidos al azar</td></tr>
+            <tr><td>Parámetro</td><td>Valor de la población, desconocido</td><td>\(\mu\): media real de horas de estudio</td></tr>
+            <tr><td>Estadístico</td><td>Valor calculado en la muestra</td><td>\(\bar x\): media de las 400 respuestas</td></tr>
+          </tbody>
+        </table>
+        <p class="mc-slide__box mc-slide__box--theory" data-step><strong>La idea</strong> <span>El estadístico cambia de una muestra a otra. La inferencia usa cómo se reparte ese cambio para acotar el parámetro.</span></p>
+        <p class="mc-slide__links"><a href="01-estadistica-inferencial.html">9.1. Estadística inferencial</a></p>
+      </section>
+
+      <section class="mc-slide" id="muestreo">
+        <span class="mc-slide__kicker">9.2 y 9.3 · Muestreo y técnicas</span>
+        <h2>Cómo elegir la muestra</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <h3>Probabilísticas</h3>
+            <ul>
+              <li><strong>Aleatorio simple</strong>: todos los individuos con la misma probabilidad.</li>
+              <li><strong>Sistemático</strong>: uno de cada \(k\) a partir de un arranque al azar.</li>
+              <li><strong>Estratificado</strong>: por grupos (estratos), con un reparto fijado.</li>
+              <li><strong>Por conglomerados</strong>: se eligen grupos completos.</li>
+            </ul>
+            <p>No probabilísticas (por cuotas, de conveniencia): no permiten calcular márgenes de error.</p>
+          </div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>Afijación proporcional</strong>
+            <p>Un instituto tiene 300 alumnos en 1.º y 200 en 2.º. Se quiere una muestra de 50 estratificada proporcionalmente.</p>
+            <p data-step>Fracción de muestreo: \(\frac{50}{500}=\frac1{10}\).</p>
+            <p data-step>De 1.º: \(300\cdot\frac1{10}=30\); de 2.º: \(200\cdot\frac1{10}=20\).</p>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="02-muestreo.html">9.2. Muestreo</a> · <a href="03-tecnicas-de-muestreo.html">9.3. Técnicas de muestreo</a></p>
+      </section>
+
+      <section class="mc-slide" id="tcl">
+        <span class="mc-slide__kicker">9.4 · Distribución muestral. Teorema central del límite</span>
+        <h2>Las medias se reparten con menos dispersión</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Distribución de la media muestral</strong> <span>Si la población tiene media \(\mu\) y desviación \(\sigma\), la media \(\bar X\) de muestras aleatorias de tamaño \(n\) sigue \(N\!\left(\mu,\ \dfrac{\sigma}{\sqrt n}\right)\): exactamente si la población es normal y, por el teorema central del límite, aproximadamente si \(n\ge30\).</span></p>
+        <div class="mc-slide__cols">
+          <div>
+            <h3>Ejemplo</h3>
+            <p>Estaturas \(N(170;\,10)\) cm, muestras de \(n=25\): \(\bar X\sim N(170;\,2)\).</p>
+            <ol class="mc-slide__steps">
+              <li data-step>Tipifica con \(\frac{\sigma}{\sqrt n}=2\): \(z=\frac{173-170}{2}=1{,}5\).</li>
+              <li data-step>\(P(\bar X\ge173)=1-\Phi(1{,}5)=0{,}0668\).</li>
+              <li data-step>Para un individuo, \(P(X\ge173)=1-\Phi(0{,}3)=0{,}3821\): una media alta es mucho menos probable.</li>
+            </ol>
+          </div>
+          <p class="mc-slide__box mc-slide__box--theory"><strong>Proporción muestral</strong> <span>Con \(n\) grande, \(\hat p\) se distribuye aproximadamente como \(N\!\left(p,\ \sqrt{\dfrac{p(1-p)}{n}}\right)\).</span></p>
+        </div>
+        <p class="mc-slide__links"><a href="04-distribucion-muestral-teorema-central-del-limite.html">9.4. Distribución muestral. Teorema central del límite</a></p>
+      </section>
+
+      <section class="mc-slide" id="valores-criticos">
+        <span class="mc-slide__kicker">9.5 · Estimación puntual y por intervalos</span>
+        <h2>Nivel de confianza y valor crítico</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <p class="mc-slide__box mc-slide__box--theory"><strong>Definiciones</strong> <span>Nivel de confianza \(1-\alpha\); significación \(\alpha\). El valor crítico \(z_{\alpha/2}\) deja un área \(\alpha/2\) en cada cola de \(N(0,1)\): \(\Phi(z_{\alpha/2})=1-\frac\alpha2\).</span></p>
+            <p class="mc-slide__box mc-slide__box--ask" data-step><strong>Pregunta a la clase</strong> <span>¿Cuál es \(z_{\alpha/2}\) para el 92&nbsp;%? \(\alpha=0{,}08\), \(\Phi(z)=0{,}96\Rightarrow z_{\alpha/2}\approx1{,}75\).</span></p>
+          </div>
+          <table>
+            <thead><tr><th scope="col">\(1-\alpha\)</th><th scope="col">\(\alpha/2\)</th><th scope="col">\(\Phi(z_{\alpha/2})\)</th><th scope="col">\(z_{\alpha/2}\)</th></tr></thead>
+            <tbody>
+              <tr><td>90&nbsp;%</td><td>0,05</td><td>0,95</td><td>1,645</td></tr>
+              <tr><td>95&nbsp;%</td><td>0,025</td><td>0,975</td><td>1,96</td></tr>
+              <tr><td>99&nbsp;%</td><td>0,005</td><td>0,995</td><td>2,576</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mc-slide__links"><a href="05-estimacion-puntual-y-estimacion-por-intervalos.html">9.5. Estimación puntual y por intervalos</a></p>
+      </section>
+
+      <section class="mc-slide" id="caracteristicos">
+        <span class="mc-slide__kicker">9.6 · Intervalos característicos</span>
+        <h2>Dónde caerá la media de la muestra</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Intervalo característico</strong> <span>Con \(\mu\) y \(\sigma\) conocidas, la media muestral cae con probabilidad \(1-\alpha\) en \(\left[\mu-z_{\alpha/2}\dfrac{\sigma}{\sqrt n},\ \mu+z_{\alpha/2}\dfrac{\sigma}{\sqrt n}\right]\).</span></p>
+        <h3>Estaturas \(N(170;\,10)\), muestras de 25, al 95&nbsp;%</h3>
+        <ol class="mc-slide__steps">
+          <li>\(\frac{\sigma}{\sqrt n}=\frac{10}{5}=2\); margen \(1{,}96\cdot2=3{,}92\).</li>
+          <li data-step>Intervalo: \([166{,}08;\ 173{,}92]\) cm.</li>
+          <li data-step>Para un solo individuo, al 95&nbsp;%: \([170-19{,}6;\ 170+19{,}6]=[150{,}4;\ 189{,}6]\): cinco veces más ancho.</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--error" data-step><strong>No confundas</strong> <span>El intervalo característico parte de \(\mu\) conocida y habla de la muestra; el de confianza parte de la muestra y habla de \(\mu\).</span></p>
+        <p class="mc-slide__links"><a href="06-intervalos-de-probabilidad-o-intervalos-caracteristicos.html">9.6. Intervalos característicos</a></p>
+      </section>
+
+      <section class="mc-slide" id="confianza-media" data-title="Intervalo de confianza para la media">
+        <span class="mc-slide__kicker">9.7 · Intervalos de confianza</span>
+        <h2>Intervalo de confianza para la media</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Fórmula</strong> <span>\(IC_{1-\alpha}(\mu)=\left[\bar x-z_{\alpha/2}\dfrac{\sigma}{\sqrt n},\ \bar x+z_{\alpha/2}\dfrac{\sigma}{\sqrt n}\right]\), con error o margen \(E=z_{\alpha/2}\dfrac{\sigma}{\sqrt n}\).</span></p>
+        <p>Una muestra de 36 bombillas da una duración media de 1200 h. La desviación típica poblacional es 90 h. Intervalo al 95&nbsp;%:</p>
+        <ol class="mc-slide__steps">
+          <li>\(\bar x=1200\), \(\sigma=90\), \(n=36\), \(z_{\alpha/2}=1{,}96\).</li>
+          <li data-step>\(E=1{,}96\cdot\frac{90}{6}=1{,}96\cdot15=29{,}4\) h.</li>
+          <li data-step>\(IC_{95\%}(\mu)=[1170{,}6;\ 1229{,}4]\) h.</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--example" data-step><strong>Interpretación</strong> <span>Con un 95&nbsp;% de confianza, la duración media de <em>todas</em> las bombillas está entre 1170,6 y 1229,4 h. El 95&nbsp;% se refiere al método: de cada 100 muestras, unas 95 darían intervalos que contienen \(\mu\).</span></p>
+        <p class="mc-slide__links"><a href="07-intervalos-de-confianza.html">9.7. Intervalos de confianza</a></p>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="explora-confianza">
+        <span class="mc-slide__kicker">Laboratorio · 9.7</span>
+        <h2>Centro, margen y anchura</h2>
+        <div class="activity mc-lab" data-ci-lab hidden>
+          <p><label for="ci-mean">Media muestral \(\bar x\): <output data-ci-value="mean">100</output></label><br><input id="ci-mean" name="mean" type="range" min="50" max="150" step="1" value="100"></p>
+          <p><label for="ci-sigma">Desviación típica poblacional \(\sigma\): <output data-ci-value="sigma">15</output></label><br><input id="ci-sigma" name="sigma" type="range" min="1" max="40" step="1" value="15"></p>
+          <p><label for="ci-n">Tamaño de muestra \(n\): <output data-ci-value="n">30</output></label><br><input id="ci-n" name="n" type="range" min="5" max="300" step="1" value="30"></p>
+          <p><label for="ci-confidence">Confianza: <output data-ci-value="confidence">95&nbsp;%</output></label><br><select id="ci-confidence" name="confidence"><option value="90">90 %</option><option value="95" selected>95 %</option><option value="99">99 %</option></select></p>
+          <p class="mc-lab__readout">Margen \(E\): <strong data-ci-margin>5,37</strong>. Intervalo: <strong data-ci-interval>[94,63; 105,37]</strong>. Anchura: <strong data-ci-width>10,74</strong>.</p>
+          <figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 110" role="img" aria-labelledby="ci-fig-title ci-fig-desc"><title id="ci-fig-title">Centro y anchura del intervalo de confianza</title><desc id="ci-fig-desc" data-ci-desc>Intervalo de 94,63 a 105,37, centrado en 100. Margen 5,37. Anchura 10,74.</desc><line x1="5" y1="70" x2="195" y2="70" stroke="currentColor"></line><line x1="50" y1="63" x2="50" y2="77" stroke="currentColor"></line><line x1="100" y1="63" x2="100" y2="77" stroke="currentColor"></line><line x1="150" y1="63" x2="150" y2="77" stroke="currentColor"></line><text x="50" y="90" text-anchor="middle" fill="currentColor" font-size="7">50</text><text x="100" y="90" text-anchor="middle" fill="currentColor" font-size="7">100</text><text x="150" y="90" text-anchor="middle" fill="currentColor" font-size="7">150</text><rect data-ci-band x="94.63" y="59" width="10.74" height="22" rx="2" fill="currentColor" opacity=".18"></rect><line data-ci-left x1="94.63" y1="56" x2="94.63" y2="83" stroke="currentColor" stroke-width="1.5"></line><line data-ci-right x1="105.37" y1="56" x2="105.37" y2="83" stroke="currentColor" stroke-width="1.5"></line><line data-ci-center x1="100" y1="48" x2="100" y2="82" stroke="currentColor" stroke-width="2"></line><circle data-ci-point cx="100" cy="70" r="2.5" fill="currentColor"></circle><text x="100" y="38" text-anchor="middle" fill="currentColor" font-size="7">Centro ± margen</text></svg><figcaption>La barra marca los extremos; la línea central es \(\bar x\).</figcaption></figure>
+        </div>
+        <aside class="mc-slide__notes">Pregunta antes de mover: si cuadruplicamos n, ¿qué le pasa al margen? Se divide por 2. Si subimos la confianza al 99 %, ¿el intervalo se estrecha o se ensancha? Se ensancha.</aside>
+      </section>
+
+      <section class="mc-slide" id="confianza-proporcion" data-title="Intervalo de confianza para una proporción">
+        <span class="mc-slide__kicker">9.7 · Intervalos de confianza</span>
+        <h2>Intervalo de confianza para una proporción</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Fórmula</strong> <span>\(IC_{1-\alpha}(p)=\left[\hat p-z_{\alpha/2}\sqrt{\dfrac{\hat p(1-\hat p)}{n}},\ \hat p+z_{\alpha/2}\sqrt{\dfrac{\hat p(1-\hat p)}{n}}\right]\)</span></p>
+        <p>En una encuesta a 400 personas, 240 apoyan una propuesta. Intervalo al 95&nbsp;% para la proporción de apoyo.</p>
+        <ol class="mc-slide__steps">
+          <li>\(\hat p=\frac{240}{400}=0{,}6\); \(\sqrt{\frac{0{,}6\cdot0{,}4}{400}}=\sqrt{0{,}0006}\approx0{,}0245\).</li>
+          <li data-step>\(E=1{,}96\cdot0{,}0245\approx0{,}048\).</li>
+          <li data-step>\(IC_{95\%}(p)\approx[0{,}552;\ 0{,}648]\): entre el 55,2&nbsp;% y el 64,8&nbsp;%.</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--ask" data-step><strong>Pregunta a la clase</strong> <span>¿Se puede afirmar con ese nivel de confianza que la mayoría apoya la propuesta? Sí: todo el intervalo está por encima de 0,5.</span></p>
+      </section>
+
+      <section class="mc-slide" id="tamano">
+        <span class="mc-slide__kicker">9.8 · Tamaño de la muestra. Error cometido</span>
+        <h2>¿Cuántos datos hacen falta?</h2>
+        <p class="mc-slide__box mc-slide__box--theory"><strong>Despejando \(n\) del margen</strong> <span>Para que el error no supere \(E_0\): \(n\ge\left(\dfrac{z_{\alpha/2}\,\sigma}{E_0}\right)^2\), y se redondea siempre <em>hacia arriba</em>.</span></p>
+        <p>Bombillas con \(\sigma=90\) h. ¿Qué muestra hace falta para estimar la media al 95&nbsp;% con un error máximo de 20 h?</p>
+        <ol class="mc-slide__steps">
+          <li>\(n\ge\left(\frac{1{,}96\cdot90}{20}\right)^2=8{,}82^2=77{,}79\).</li>
+          <li data-step>Tamaño mínimo: \(n=78\) bombillas (con 77 el error pasaría de 20 h).</li>
+        </ol>
+        <p class="mc-slide__box mc-slide__box--method" data-step><strong>Relaciones</strong> <span>El margen es proporcional a \(\frac{1}{\sqrt n}\): para reducirlo a la mitad hay que cuadruplicar la muestra. Más confianza, a igual \(n\), da más margen.</span></p>
+        <p class="mc-slide__links"><a href="08-tamano-de-la-muestra-error-cometido.html">9.8. Tamaño de la muestra. Error cometido</a></p>
+      </section>
+
+      <section class="mc-slide mc-slide--lab" id="explora-tamano">
+        <span class="mc-slide__kicker">Laboratorio · 9.8</span>
+        <h2>Planifica el tamaño mínimo</h2>
+        <p>Prueba con los datos de las bombillas: \(\sigma=90\), \(E_0=20\), 95&nbsp;%. Después cambia la confianza.</p>
+        <form class="mc-lab" data-sample-size-form hidden><p><label for="size-confidence">Confianza</label> <select id="size-confidence" name="confidence"><option value="90">90 %</option><option value="95" selected>95 %</option><option value="99">99 %</option></select></p><p><label for="size-sigma">Desviación poblacional conocida \(\sigma\)</label> <input id="size-sigma" name="sigma" type="number" min="0" step="any" required inputmode="decimal" value="90"></p><p><label for="size-target">Margen objetivo \(E_0\)</label> <input id="size-target" name="targetMargin" type="number" min="0" step="any" required inputmode="decimal" value="20"></p><button type="submit">Calcular tamaño mínimo</button><p data-sample-size-output role="status" aria-live="polite"></p></form>
+        <aside class="mc-slide__notes">Al 99 % con los mismos datos salen 135 bombillas: la confianza extra se paga con muestra.</aside>
+      </section>
+
+      <section class="mc-slide" id="error-desde-intervalo">
+        <span class="mc-slide__kicker">Pregunta a la clase · 9.7 y 9.8</span>
+        <h2>Leer un intervalo ya calculado</h2>
+        <p>Un estudio publica el intervalo \([46{,}2;\ 53{,}8]\) para la media, al 95&nbsp;%, con \(\sigma=19\).</p>
+        <div class="mc-slide__cols">
+          <div class="mc-slide__box mc-slide__box--ask"><strong>a)</strong><p>¿Media muestral y error?</p><p data-step>Centro: \(\bar x=\frac{46{,}2+53{,}8}{2}=50\). Error: \(E=\frac{53{,}8-46{,}2}{2}=3{,}8\).</p></div>
+          <div class="mc-slide__box mc-slide__box--ask"><strong>b)</strong><p>¿Tamaño de la muestra?</p><p data-step>\(3{,}8=1{,}96\cdot\frac{19}{\sqrt n}\Rightarrow\sqrt n=9{,}8\Rightarrow n\approx96\).</p></div>
+        </div>
+        <aside class="mc-slide__notes">Es un formato habitual en la PAU: dar el intervalo y pedir la media, el error, el tamaño o el nivel de confianza.</aside>
+      </section>
+
+      <section class="mc-slide" id="ficha">
+        <span class="mc-slide__kicker">9.9 · Ficha técnica de encuestas</span>
+        <h2>Lo que debe decir una encuesta</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <ul>
+              <li>Universo (población) y ámbito.</li>
+              <li>Tamaño de la muestra y técnica de muestreo.</li>
+              <li>Nivel de confianza y margen de error.</li>
+              <li>Fechas y método de recogida (teléfono, en línea, presencial).</li>
+            </ul>
+          </div>
+          <div>
+            <p class="mc-slide__box mc-slide__box--example"><strong>Ejemplo</strong> <span>«1000 entrevistas telefónicas a mayores de 18 años; muestreo aleatorio estratificado; nivel de confianza del 95&nbsp;%; error ±3,1 puntos para \(p=q=0{,}5\)».</span></p>
+            <p data-step>Comprueba: \(1{,}96\sqrt{\frac{0{,}5\cdot0{,}5}{1000}}\approx0{,}031\). ✓ Con \(p=0{,}5\) se obtiene el mayor margen posible.</p>
+          </div>
+        </div>
+        <p class="mc-slide__links"><a href="09-ficha-tecnica-de-encuestas.html">9.9. Ficha técnica de encuestas</a></p>
+      </section>
+
+      <section class="mc-slide" id="errores">
+        <span class="mc-slide__kicker">Repaso</span>
+        <h2>Errores frecuentes</h2>
+        <ul>
+          <li>Usar \(\sigma\) en lugar de \(\frac{\sigma}{\sqrt n}\) para la media muestral.</li>
+          <li>Tomar \(z=1{,}645\) para el 95&nbsp;%: ese es el valor del 90&nbsp;% bilateral.</li>
+          <li>Decir que \(\mu\) está en el intervalo «con probabilidad 0,95» una vez calculado.</li>
+          <li>Redondear \(n\) hacia abajo.</li>
+          <li>Confundir intervalo característico (de la muestra) con intervalo de confianza (del parámetro).</li>
+          <li>Olvidar las unidades o la interpretación en el contexto.</li>
+        </ul>
+      </section>
+
+      <section class="mc-slide" id="cierre">
+        <span class="mc-slide__kicker">Para seguir</span>
+        <h2>Practica y prepara la PAU</h2>
+        <div class="mc-slide__cols">
+          <div>
+            <h3>En el libro</h3>
+            <ul>
+              <li><a href="ejercicios-resueltos.html">Ejercicios resueltos</a> y <a href="index.html#problemas">problemas del tema</a></li>
+              <li><a href="../../../test/index.html?tema=t09">Test del tema</a> y <a href="../../../tarjetas/index.html?tema=t09">tarjetas</a></li>
+              <li>Juegos: <a href="../../../laboratorios/juegos/t09-a-disena-la-muestra.html">Diseña la muestra</a>, <a href="../../../laboratorios/juegos/t09-b-constructor-de-intervalos.html">Constructor de intervalos</a> y <a href="../../../laboratorios/juegos/t09-c-auditor-de-encuestas.html">Auditor de encuestas</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>En la PAU</h3>
+            <p>El ejercicio 4 suele pedir un intervalo de confianza, el error o el tamaño mínimo de la muestra, y su interpretación.</p>
+            <p><a href="../../../selectividad/09-inferencia-estadistica.html">Ejercicios de Selectividad del tema 9</a></p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="../../../assets/js/learning/presentation.js"></script>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>
