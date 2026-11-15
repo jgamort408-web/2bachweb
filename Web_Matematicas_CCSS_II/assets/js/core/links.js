@@ -9,6 +9,8 @@ const SKIP = '.mc-toc, .mc-slide, [data-slides], [data-course-index], [data-topi
 const NEXT = /^(Continuar|Siguiente)/i;
 const BACK = /^(Anterior|Volver)/i;
 
+// Un grupo con clase propia (índice de letras del glosario, menús…) ya tiene su diseño: se respeta.
+const ownStyle = element => [...element.classList].some(name => name !== 'inline-links');
 const plainLink = node => node.nodeType === Node.ELEMENT_NODE && node.localName === 'a' && !node.className;
 const onlyText = node => node.nodeType === Node.TEXT_NODE || node.nodeType === Node.COMMENT_NODE;
 
@@ -41,7 +43,7 @@ function linkList(list) {
 export function enhanceContentLinks(root = document.querySelector('main')) {
   if (!root || document.documentElement.dataset.skin !== 'mc') return;
   for (const element of root.querySelectorAll('p, nav')) {
-    if (element.closest(SKIP) || element.classList.contains('mc-linkset')) continue;
+    if (element.closest(SKIP) || ownStyle(element)) continue;
     const nodes = linkGroup(element);
     if (!nodes) continue;
     for (const node of nodes) {
@@ -55,7 +57,7 @@ export function enhanceContentLinks(root = document.querySelector('main')) {
     element.classList.add('mc-linkset');
   }
   for (const list of root.querySelectorAll('ul, ol')) {
-    if (list.closest(SKIP) || list.closest('.mc-linkset, .mc-linklist') || !linkList(list)) continue;
+    if (list.closest(SKIP) || ownStyle(list) || list.closest('.mc-linkset, .mc-linklist') || ![...list.parentElement.classList].every(name => name === 'inline-links') || !linkList(list)) continue;
     list.querySelectorAll(':scope > li > a').forEach(markDirection);
     list.classList.add(list.closest('nav') ? 'mc-linkset' : 'mc-linklist');
   }

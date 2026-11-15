@@ -296,3 +296,5 @@ html[data-contrast="true"] .mc-skin main a:not([class]) { text-decoration-color:
 html[data-contrast="true"] .mc-skin :is(.mc-linkset, .mc-linklist) a { border: 2px solid #000; text-decoration: none; }
 /* «Así cae en Selectividad»: las filas toman el tono de examen del recuadro. */
 .mc-skin .mc-sel-link { --mc-accent: var(--mc-exam-title); --mc-accent-dark: var(--mc-exam-title); --mc-accent-tint: var(--mc-exam-pill); }
+/* Lo que un filtro oculta sigue oculto dentro de fichas y filas. */
+.mc-skin :is(.mc-linkset, .mc-linklist) :is([hidden], .is-filtered) { display: none; }

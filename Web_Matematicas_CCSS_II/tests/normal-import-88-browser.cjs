@@ -66,7 +66,7 @@ const root=path.resolve(__dirname,'..'),base=process.env.TEST_URL||'http://127.0
   if(!sub&&process.env.SCREENSHOT_DIR)await page.locator('[data-normal-controls]').screenshot({path:process.env.SCREENSHOT_DIR+'/normal-controles-movil.png'});
   await set({mu:2});await page.reload();await ready();assert.equal(Number(await page.locator('#normal-mu').inputValue()),0);assert.equal(await page.locator('[data-text-size]').inputValue(),'200');
   await page.locator('[data-reading-controls]>summary').click();await page.locator('[data-reset-reading]').click();await page.setViewportSize({width:1280,height:960});
-  await page.getByRole('link',{name:'Volver al tema 8',exact:true}).click();assert.match(await page.locator('[data-source-section="4.3"]').innerText(),/Contenido parcial disponible/);
+  await page.getByRole('link',{name:'Volver al tema 8',exact:true}).click();await page.locator('[data-source-section="4.3"]',{hasText:/Contenido parcial disponible/}).waitFor();
  }
  const context=await browser.newContext({javaScriptEnabled:false}),fallback=await context.newPage();
  await fallback.goto(base+lesson);assert.equal(await fallback.locator('[data-normal-controls]').isVisible(),false);

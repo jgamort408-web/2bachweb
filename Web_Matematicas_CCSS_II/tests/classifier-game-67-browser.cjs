@@ -57,7 +57,7 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',widget='widgets/games/
   assert.ok(await page.locator('#site-header a').count()>0);assert.ok(await page.locator('#site-footer').innerText());await math(frame);
  }
  await page.goto(base+'libro/temas/05-sistemas-de-ecuaciones/index.html');await page.getByRole('link',{name:'Clasificador de sistemas',exact:true}).click();assert.equal(page.url(),base+host);
- await page.getByRole('link',{name:'Volver al repaso del tema 5',exact:true}).click();assert.match(page.url(),/#repaso$/);
+ await page.getByRole('link',{name:'Volver al repaso del tema 5',exact:true}).click();await page.waitForURL(/#repaso$/);
  await page.goto(base+'laboratorios/index.html');await page.getByRole('link',{name:'Clasificador de sistemas',exact:true}).click();assert.equal(page.url(),base+host);assert.deepEqual(errors,[]);
  console.log('Aprobado: sesiones de 1050 y 1200 puntos, cuatro representaciones, doce explicaciones, errores/pistas, bloqueo, teclado, LaTeX, cuatro modos en móvil 320/200 %, recarga, iframe, preferencias, subcarpeta y navegación.');
  }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'ignoreErrors'});await browser.close();}
