@@ -115,11 +115,14 @@ export async function mountFlashcards(root, source, { categories = false, study 
     const all = document.createElement('option'); all.value = ''; all.textContent = study ? 'Todos los apartados' : 'Todas las categorías';
     categorySelect.append(all);
     const groups = new Set([...sections.values()].map(section => section.group));
-    let parent = categorySelect, current;
+    // Con varios temas a la vez, los apartados se agrupan por tema: un solo grupo por tema aunque sus tarjetas
+    // no estén seguidas en el catálogo (las de alineación con la teoría se añaden al final).
+    const optgroups = new Map();
     for (const section of sections.values()) {
-      // Con varios temas a la vez, los apartados se agrupan por tema.
-      if (groups.size > 1 && section.group !== current) {
-        current = section.group; parent = document.createElement('optgroup'); parent.label = groupTitle(current); categorySelect.append(parent);
+      let parent = categorySelect;
+      if (groups.size > 1) {
+        parent = optgroups.get(section.group);
+        if (!parent) { parent = document.createElement('optgroup'); parent.label = groupTitle(section.group); categorySelect.append(parent); optgroups.set(section.group, parent); }
       }
       const option = document.createElement('option'); option.value = section.value; option.textContent = section.label; parent.append(option);
     }

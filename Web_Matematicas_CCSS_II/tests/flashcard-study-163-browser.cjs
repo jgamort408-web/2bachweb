@@ -65,7 +65,9 @@ const { chromium } = require('playwright');
     // Todo el curso: los apartados se agrupan por tema.
     await page.goto(base + 'tarjetas/index.html');
     await deck.getByText(/^Tarjeta 1 de \d+$/).waitFor();
-    assert.equal(await section.locator('optgroup').count(), 10);
+    // Un grupo por tema (nueve) más los dos apoyos, sin repetir tema aunque sus tarjetas no estén seguidas.
+    assert.equal(await section.locator('optgroup').count(), 11);
+    assert.equal(new Set(await section.locator('optgroup').evaluateAll(g => g.map(x => x.label))).size, 11);
     // Las lecciones mantienen el mazo sencillo, sin filtros ni autoevaluación.
     await page.goto(base + 'libro/temas/02-representacion-de-funciones/03-funciones-racionales.html');
     await deck.getByText(/^Tarjeta 1 de \d+$/).waitFor();
