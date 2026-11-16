@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+\input{estilo.tex}
+\hypersetup{pdftitle={Relación guiada de integrales - Soluciones}}
+\begin{document}
+\begin{minipage}{0.17\linewidth}\includegraphics[width=0.8\linewidth]{logo-al-andalus.png}\end{minipage}\hfill
+\begin{minipage}{0.79\linewidth}{\Large\bfseries Relación guiada de integrales: soluciones}\\[0.3em]
+Para el profesorado. Cada indefinida se ha comprobado derivando; las definidas, con la regla de Barrow.\end{minipage}
+
+\section*{Criterios de corrección orientativos}
+\begin{itemize}
+  \item \textbf{Parte A (2 puntos)}: 0,4 por ejercicio. Se descuenta 0,1 si falta \(+C\) y 0,2 si se usa la fila de la potencia con \(n=-1\).
+  \item \textbf{Parte B (3 puntos)}: 0,375 por ejercicio. La mitad por identificar \(u\), \(u'\) y la fila; la otra mitad por el ajuste y el resultado.
+  \item \textbf{Parte C (2 puntos)}: 0,4 por ejercicio. En C4 y C5 se exige escribir la integral entera en \(u\) y volver a \(x\).
+  \item \textbf{Parte D (3 puntos)}: 0,5 por ejercicio. En D4 y D5 se valora el estudio del signo o de qué curva queda por encima; en D6, la interpretación con unidades.
+\end{itemize}
+
+\section*{Parte A. Integrales inmediatas}
+\textbf{A1.} \(\displaystyle\int(4x^3-6x^2+2x-7)\dd=4\frac{x^4}{4}-6\frac{x^3}{3}+2\frac{x^2}{2}-7x+C=x^4-2x^3+x^2-7x+C.\)
+Derivada: \(4x^3-6x^2+2x-7\).
+
+\textbf{A2.} \(\dfrac5{x^3}=5x^{-3}\). El término \(\dfrac4x=4x^{-1}\) no admite la fila de la potencia, porque con \(n=-1\) se dividiría entre \(n+1=0\): da un logaritmo.
+\[\int\Bigl(5x^{-3}-\frac4x+1\Bigr)\dd=5\frac{x^{-2}}{-2}-4\ln|x|+x+C=-\frac{5}{2x^2}-4\ln|x|+x+C.\]
+
+\textbf{A3.} \(4x^{1/2}-3x^{-1/2}\):
+\(\displaystyle\int\Bigl(4x^{1/2}-3x^{-1/2}\Bigr)\dd=4\cdot\frac23x^{3/2}-3\cdot2x^{1/2}+C=\frac83x^{3/2}-6\sqrt x+C.\)
+
+\textbf{A4.} Filas: exponencial de base \(e\), exponencial de base \(a=2\) y coseno.
+\(\displaystyle\int(3e^x-5\cdot2^x+2\cos x)\dd=3e^x-\frac{5\cdot2^x}{\ln2}+2\sin x+C.\)
+
+\textbf{A5.} \(F(x)=3x^2-4x+C\); \(F(1)=-1+C=3\Rightarrow C=4\). \textbf{\(F(x)=3x^2-4x+4\).}
+
+\section*{Parte B. Integrales compuestas}
+\textbf{B1.} \(u=2x+1\), \(u'=2\), fila de la potencia: \(\displaystyle\int(2x+1)^5\dd=\frac12\int2(2x+1)^5\dd=\frac12\cdot\frac{(2x+1)^6}{6}+C=\frac{(2x+1)^6}{12}+C.\)
+Derivada: \(\frac{6(2x+1)^5\cdot2}{12}=(2x+1)^5\).
+
+\textbf{B2.} \(u=x^2+3\), \(u'=2x\), \(6x=3u'\): \(\displaystyle\int6x(x^2+3)^4\dd=3\frac{(x^2+3)^5}{5}+C=\frac35(x^2+3)^5+C.\)
+
+\textbf{B3.} \(u=x^3+2\), \(u'=3x^2\), \(x^2=\frac13u'\), fila logarítmica: \(\displaystyle\int\frac{x^2}{x^3+2}\dd=\frac13\ln|x^3+2|+C.\)
+
+\textbf{B4.} \(u=x^2\), \(u'=2x\), ajuste \(\frac12\): \(\displaystyle\int x\,e^{x^2}\dd=\frac12e^{x^2}+C\). \quad Caso lineal con \(m=4\): \(\displaystyle\int e^{4x-1}\dd=\frac{e^{4x-1}}{4}+C.\)
+
+\textbf{B5.} \(a=3\), \(m=2\); dividen \(2\) y \(\ln3\): \(\displaystyle\int3^{2x}\dd=\frac{3^{2x}}{2\ln3}+C.\)
+
+\textbf{B6.} \(u=x^2+5\), \(u'=2x\): \(\dfrac{x}{\sqrt{x^2+5}}=\dfrac{2x}{2\sqrt{x^2+5}}\), fila de la raíz en el denominador: \(\displaystyle\int\frac{x}{\sqrt{x^2+5}}\dd=\sqrt{x^2+5}+C.\)
+
+\textbf{B7.} \(u=x^2\), \(u'=2x\), \(4x=2u'\): \(\displaystyle\int4x\cos(x^2)\dd=2\sin(x^2)+C.\)
+
+\textbf{B8.} \(\int x\,e^{x^2}\dd\) sí: aparece la derivada de \(x^2\), \(2x\), salvo el factor numérico \(\frac12\). \(\int e^{x^2}\dd\) no: faltaría el factor \(x\), que no es constante y no se puede ajustar. Su primitiva no se expresa con funciones elementales.
+
+\section*{Parte C. Métodos}
+\textbf{C1.} \(x(x+2)^2=x^3+4x^2+4x\): \(\displaystyle\int x(x+2)^2\dd=\frac{x^4}{4}+\frac43x^3+2x^2+C.\)
+
+\textbf{C2.} \(\dfrac{x^2+3x+1}{x}=x+3+\dfrac1x\): \(\displaystyle\int\dd\ldots=\frac{x^2}{2}+3x+\ln|x|+C\) en cada intervalo sin el 0.
+
+\textbf{C3.} \(x^2-4=(x-2)(x+2)\); para \(x\ne2\) el integrando es \(x+2\): \(\displaystyle\int\frac{x^2-4}{x-2}\dd=\frac{x^2}{2}+2x+C.\)
+Se mantiene \(x\ne2\) porque el integrando original no está definido en 2: la simplificación no cambia su dominio. La primitiva vale en cada intervalo, \(x<2\) o \(x>2\).
+
+\textbf{C4.} \(u=x^2+1\Rightarrow du=2x\,dx\Rightarrow x\,dx=\frac12du\).
+\[\int x\sqrt{x^2+1}\dd=\int\frac12u^{1/2}\,du=\frac12\cdot\frac{u^{3/2}}{3/2}+C=\frac13(x^2+1)^{3/2}+C.\]
+Derivada: \(\frac13\cdot\frac32(x^2+1)^{1/2}\cdot2x=x\sqrt{x^2+1}\).
+
+\textbf{C5.} \(u=5-x\Rightarrow du=-dx\): \(\displaystyle\int\frac{2}{5-x}\dd=-2\int\frac{du}{u}=-2\ln|5-x|+C.\)
+Derivada: \(-2\cdot\frac{-1}{5-x}=\frac{2}{5-x}\).
+
+\section*{Parte D. Integral definida, regla de Barrow y áreas}
+\textbf{D1.} \(F(x)=x^3-x^2\); \(F(3)=18\), \(F(1)=0\): \(\displaystyle\int_1^3(3x^2-2x)\dd=18.\)
+
+\textbf{D2.} \(\displaystyle\int_0^1e^{2x}\dd=\Bigl[\frac{e^{2x}}{2}\Bigr]_0^1=\frac{e^2-1}{2}\approx3{,}1945.\)
+
+\textbf{D3.} \(\displaystyle\int_1^e\frac2x\dd=\bigl[2\ln x\bigr]_1^e=2(\ln e-\ln1)=2(1-0)=2.\)
+
+\textbf{D4.} \(x^2-4x+3=(x-1)(x-3)\): cortes en \(x=1\) y \(x=3\). En \([0,1]\), \(f\ge0\); en \([1,3]\), \(f\le0\).
+\(F(x)=\frac{x^3}{3}-2x^2+3x\): \(F(0)=0\), \(F(1)=\frac43\), \(F(3)=0\).
+\[\text{Área}=\Bigl|\int_0^1f\Bigr|+\Bigl|\int_1^3f\Bigr|=\Bigl|\tfrac43\Bigr|+\Bigl|-\tfrac43\Bigr|=\frac83\ \text{u}^2.\]
+No basta con \(\int_0^3f(x)\dd=0\): la parte negativa compensa la positiva, y el área no puede ser cero.
+
+\textbf{D5.} \(x^2=2x\Rightarrow x=0\) y \(x=2\). En \(x=1\): \(2x=2>1=x^2\), así que \(y=2x\) queda por encima.
+\[\text{Área}=\int_0^2(2x-x^2)\dd=\Bigl[x^2-\frac{x^3}{3}\Bigr]_0^2=4-\frac83=\frac43\ \text{u}^2.\]
+
+\textbf{D6.} 500 y 1000 unidades son \(q=5\) y \(q=10\) centenas.
+\[\int_5^{10}(40-2q)\,dq=\bigl[40q-q^2\bigr]_5^{10}=(400-100)-(200-25)=125.\]
+Al pasar de 500 a 1000 unidades, el beneficio \textbf{aumenta en 125 miles de euros} (125\,000 euros).
+\end{document}

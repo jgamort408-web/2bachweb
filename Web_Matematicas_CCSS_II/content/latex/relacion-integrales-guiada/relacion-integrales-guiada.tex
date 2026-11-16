@@ -1,0 +1,202 @@
+\documentclass[11pt]{article}
+\input{estilo.tex}
+\hypersetup{pdftitle={Relación guiada de integrales}}
+\begin{document}
+\begin{minipage}{0.17\linewidth}\includegraphics[width=0.8\linewidth]{logo-al-andalus.png}\end{minipage}\hfill
+\begin{minipage}{0.79\linewidth}{\Large\bfseries Relación guiada de integrales}\\[0.3em]
+Tema 3 --- Integrales. \textbf{Dos sesiones.} Se entrega al terminar la segunda sesión.\end{minipage}
+
+\medskip
+Apellidos y nombre: \hrulefill\quad Grupo: \hueco[2cm]
+
+\begin{itemize}
+  \item \textbf{Sesión 1:} tabla de integrales, parte A (inmediatas) y parte B (compuestas).
+  \item \textbf{Sesión 2:} parte C (métodos: simplificar y cambio de variable) y parte D (integral definida, regla de Barrow y áreas).
+  \item Completa los huecos de cada paso y escribe el resultado. En las integrales indefinidas no olvides \(+C\) y \textbf{comprueba derivando}: si la derivada no coincide con el integrando, revisa el paso anterior.
+  \item Puntuación sobre 10: parte A, 2 puntos; parte B, 3; parte C, 2; parte D, 3. Se valora el proceso, no solo el resultado.
+\end{itemize}
+
+\section*{Tabla de integrales}
+Cada fila es la tabla de derivadas leída al revés. La columna central es la forma \textbf{compuesta}: \(u=u(x)\) es la función interior y \(u'\) su derivada, que debe aparecer en el integrando (salvo un factor constante, que se ajusta). La última columna es el caso frecuente \(u=mx+b\), con \(m\ne0\), en el que \(u'=m\).
+
+\begin{center}
+\footnotesize
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{1.85cm}|>{\centering\arraybackslash}p{3.85cm}|>{\centering\arraybackslash}p{4.25cm}|>{\centering\arraybackslash}p{6.1cm}|}
+\hline
+\textbf{Tipo} & \textbf{Inmediata} & \textbf{Compuesta} (\(u=u(x)\)) & \textbf{Caso lineal} \(u=mx+b\)\\ \hline
+Constante & \(\displaystyle\int k\dd=kx+C\) & \multicolumn{2}{c|}{\(k\) es un número real} \\ \hline
+Potencia \newline (\(n\ne-1\)) & \(\displaystyle\int x^n\dd=\frac{x^{n+1}}{n+1}+C\) & \(\displaystyle\int u'\,u^n\dd=\frac{u^{n+1}}{n+1}+C\) & \(\displaystyle\int (mx+b)^n\dd=\frac{(mx+b)^{n+1}}{m(n+1)}+C\) \\ \hline
+Raíz \newline (\(n=\tfrac12\)) & \(\displaystyle\int\sqrt x\dd=\frac{2}{3}x^{3/2}+C\) & \(\displaystyle\int u'\sqrt u\dd=\frac23u^{3/2}+C\) & \(\displaystyle\int\sqrt{mx+b}\dd=\frac{2(mx+b)^{3/2}}{3m}+C\) \\ \hline
+Raíz en el denominador & \(\displaystyle\int\frac{1}{2\sqrt x}\dd=\sqrt x+C\) & \(\displaystyle\int\frac{u'}{2\sqrt u}\dd=\sqrt u+C\) & \(\displaystyle\int\frac{dx}{\sqrt{mx+b}}=\frac{2\sqrt{mx+b}}{m}+C\) \\ \hline
+Logarítmica \newline (\(n=-1\)) & \(\displaystyle\int\frac1x\dd=\ln|x|+C\) & \(\displaystyle\int\frac{u'}{u}\dd=\ln|u|+C\) & \(\displaystyle\int\frac{dx}{mx+b}=\frac1m\ln|mx+b|+C\) \\ \hline
+Exponencial de base \(e\) & \(\displaystyle\int e^x\dd=e^x+C\) & \(\displaystyle\int u'\,e^u\dd=e^u+C\) & \(\displaystyle\int e^{mx+b}\dd=\frac{e^{mx+b}}{m}+C\) \\ \hline
+Exponencial de base \(a\) \newline (\(a>0,\ a\ne1\)) & \(\displaystyle\int a^x\dd=\frac{a^x}{\ln a}+C\) & \(\displaystyle\int u'\,a^u\dd=\frac{a^u}{\ln a}+C\) & \(\displaystyle\int a^{mx+b}\dd=\frac{a^{mx+b}}{m\ln a}+C\) \\ \hline
+Coseno & \(\displaystyle\int\cos x\dd=\sin x+C\) & \(\displaystyle\int u'\cos u\dd=\sin u+C\) & \(\displaystyle\int\cos(mx+b)\dd=\frac{\sin(mx+b)}{m}+C\) \\ \hline
+Seno & \(\displaystyle\int\sin x\dd=-\cos x+C\) & \(\displaystyle\int u'\sin u\dd=-\cos u+C\) & \(\displaystyle\int\sin(mx+b)\dd=-\frac{\cos(mx+b)}{m}+C\) \\ \hline
+\end{tabular}
+\end{center}
+
+\textbf{Ampliación} (aparecen en otras tablas; en esta materia no son las habituales):
+\[
+\int\frac{u'}{\cos^2u}\dd=\tan u+C,\qquad \int\frac{u'}{1+u^2}\dd=\operatorname{arctg}u+C,\qquad \int\frac{u'}{\sqrt{1-u^2}}\dd=\operatorname{arcsen}u+C.
+\]
+
+\textbf{Propiedades.} \(\displaystyle\int\bigl(\alpha f(x)+\beta g(x)\bigr)\dd=\alpha\!\int f(x)\dd+\beta\!\int g(x)\dd\): las sumas se integran término a término y los factores constantes salen fuera. \textbf{No} existe una regla así para productos ni cocientes: \(\int f\cdot g\dd\ne\int f\dd\cdot\int g\dd\).
+
+\textbf{Ajustar una constante.} Si falta un factor numérico de \(u'\), se multiplica y se divide por él. Por ejemplo, con \(u=x^2+1\) y \(u'=2x\):
+\[\int x\,(x^2+1)^3\dd=\frac12\int 2x\,(x^2+1)^3\dd=\frac12\cdot\frac{(x^2+1)^4}{4}+C=\frac{(x^2+1)^4}{8}+C.\]
+Solo se pueden ajustar \textbf{números}; si falta una \(x\), la fórmula compuesta no sirve tal cual.
+
+\section*{Sesión 1}
+\subsection*{Parte A. Integrales inmediatas \hfill 2 puntos}
+\setcounter{ejercicio}{0}
+
+\ejercicio{A}{\(\displaystyle\int\bigl(4x^3-6x^2+2x-7\bigr)\dd\)}
+\begin{enumerate}[label=\alph*)]
+  \item Separa en cuatro integrales y saca las constantes: \hrulefill
+  \item Aplica la fila de la potencia a cada término (sube el exponente y divide por el nuevo):\par\hrulefill
+\end{enumerate}
+\resultado\comprueba
+
+\ejercicio{A}{\(\displaystyle\int\Bigl(\frac{5}{x^3}-\frac{4}{x}+1\Bigr)\dd\)}
+\begin{enumerate}[label=\alph*)]
+  \item Escribe \(\dfrac{5}{x^3}\) como potencia: \(5x^{\,\hueco[1cm]}\). \textquestiondown{}Qué término \textbf{no} puede usar la fila de la potencia? \hueco[3cm] \textquestiondown{}Por qué? \hueco[4cm]
+  \item Integra cada término: \hueco[9cm]
+\end{enumerate}
+\resultado\comprueba
+
+\ejercicio{A}{\(\displaystyle\int\Bigl(4\sqrt{x}-\frac{3}{\sqrt{x}}\Bigr)\dd\) \quad (para \(x>0\))}
+\begin{enumerate}[label=\alph*)]
+  \item Escribe las raíces como potencias: \(4x^{\,\hueco[1cm]}-3x^{\,\hueco[1cm]}\).
+  \item Integra: \hueco[8cm]
+\end{enumerate}
+\resultado\comprueba
+
+\ejercicio{A}{\(\displaystyle\int\bigl(3e^x-5\cdot2^x+2\cos x\bigr)\dd\)}
+\begin{enumerate}[label=\alph*)]
+  \item \textquestiondown{}Qué fila de la tabla usa cada término? \(3e^x\): \hueco[2.5cm] \quad \(5\cdot2^x\): \hueco[2.5cm] \quad \(2\cos x\): \hueco[2.5cm]
+  \item Integra (cuidado con el divisor \(\ln2\)): \hueco[8cm]
+\end{enumerate}
+\resultado
+
+\ejercicio{A}{Halla la primitiva \(F\) de \(f(x)=6x-4\) que cumple \(F(1)=3\).}
+\begin{enumerate}[label=\alph*)]
+  \item Todas las primitivas: \(F(x)=\hueco[4cm]+C\).
+  \item Impón la condición: \(F(1)=\hueco[3cm]=3\ \Rightarrow\ C=\hueco[1.5cm]\).
+\end{enumerate}
+\resultado
+
+\subsection*{Parte B. Integrales compuestas \hfill 3 puntos}
+\setcounter{ejercicio}{0}
+En cada una: identifica la función interior \(u\), calcula \(u'\), ajusta la constante si hace falta y aplica la fila de la tabla.
+
+\ejercicio{B}{\(\displaystyle\int(2x+1)^5\dd\)}
+\(u=\hueco[2cm]\), \(u'=\hueco[1.5cm]\). Fila: \hueco[3cm]. Ajuste:
+\[\int(2x+1)^5\dd=\frac{1}{\hueco[0.8cm]}\int\hueco[1cm]\,(2x+1)^5\dd.\]
+\resultado\comprueba
+
+\ejercicio{B}{\(\displaystyle\int 6x\,(x^2+3)^4\dd\)}
+\(u=\hueco[2cm]\), \(u'=\hueco[1.5cm]\). Escribe \(6x=\hueco[0.8cm]\cdot u'\) y aplica la potencia.
+\resultado\comprueba
+
+\ejercicio{B}{\(\displaystyle\int\frac{x^2}{x^3+2}\dd\)}
+\(u=\hueco[2cm]\), \(u'=\hueco[1.5cm]\). El numerador es \(\hueco[0.8cm]\cdot u'\). Fila: \hueco[3cm].
+\resultado
+
+\ejercicio{B}{\(\displaystyle\int x\,e^{x^2}\dd\) \qquad y \qquad \(\displaystyle\int e^{4x-1}\dd\)}
+Primera: \(u=\hueco[1.5cm]\), \(u'=\hueco[1.5cm]\), ajuste \hueco[1.5cm]. Segunda: caso lineal con \(m=\hueco[1cm]\).
+\resultado
+
+\ejercicio{B}{\(\displaystyle\int 3^{2x}\dd\)}
+Caso lineal de la exponencial de base \(a\): \(a=\hueco[1cm]\), \(m=\hueco[1cm]\). \textquestiondown{}Qué dos números dividen al resultado? \hueco[4cm]
+\resultado\comprueba
+
+\ejercicio{B}{\(\displaystyle\int\frac{x}{\sqrt{x^2+5}}\dd\)}
+\(u=\hueco[2cm]\), \(u'=\hueco[1.5cm]\). Escribe el integrando como \(\dfrac{u'}{2\sqrt u}\): \(\dfrac{x}{\sqrt{x^2+5}}=\dfrac{\hueco[1.5cm]}{2\sqrt{x^2+5}}\). Fila: \hueco[3cm].
+\resultado\comprueba
+
+\ejercicio{B}{\(\displaystyle\int 4x\cos(x^2)\dd\)}
+\(u=\hueco[1.5cm]\), \(u'=\hueco[1.5cm]\). El factor \(4x\) es \(\hueco[0.8cm]\cdot u'\).
+\resultado\comprueba
+
+\ejercicio{B}{\textquestiondown{}Cuál de estas dos integrales se resuelve con la tabla de compuestas? Justifícalo.
+\[\int x\,e^{x^2}\dd\qquad\qquad\int e^{x^2}\dd\]}
+\lineas{3}
+
+\bigskip
+\noindent\textbf{Espacio para operaciones de la sesión 1}
+\vfill
+
+\clearpage
+\section*{Sesión 2}
+\subsection*{Parte C. Métodos: simplificar y cambio de variable \hfill 2 puntos}
+\setcounter{ejercicio}{0}
+
+\ejercicio{C}{\(\displaystyle\int x\,(x+2)^2\dd\)}
+No es la forma \(u'u^n\) (falta la derivada de \(x+2\) como \emph{factor numérico}). Desarrolla: \(x(x+2)^2=\hueco[5cm]\) e integra término a término.
+\resultado\comprueba
+
+\ejercicio{C}{\(\displaystyle\int\frac{x^2+3x+1}{x}\dd\) \quad (para \(x\ne0\))}
+Divide cada término del numerador entre \(x\): \(\hueco[5cm]\). Integra.
+\resultado
+
+\ejercicio{C}{\(\displaystyle\int\frac{x^2-4}{x-2}\dd\) \quad (para \(x\ne2\))}
+Factoriza el numerador: \(x^2-4=\hueco[3cm]\). Simplifica: \hueco[2cm]. \textquestiondown{}Por qué se mantiene \(x\ne2\)? \hueco[5cm]
+\resultado
+
+\ejercicio{C}{Cambio de variable: \(\displaystyle\int x\sqrt{x^2+1}\dd\)}
+\begin{enumerate}[label=\alph*)]
+  \item \(u=x^2+1\Rightarrow du=\hueco[2cm]\,dx\Rightarrow x\,dx=\hueco[1.5cm]\,du\).
+  \item Escribe la integral \textbf{entera} en \(u\), incluido el diferencial: \(\displaystyle\int\hueco[3cm]\,du\).
+  \item Integra en \(u\) y vuelve a \(x\): \hueco[6cm]
+\end{enumerate}
+\resultado\comprueba
+
+\ejercicio{C}{Cambio de variable: \(\displaystyle\int\frac{2}{5-x}\dd\) \quad (para \(x\ne5\))}
+\(u=5-x\Rightarrow du=\hueco[1.5cm]\,dx\). Cuidado con el signo: \(\displaystyle\int\frac{2}{5-x}\dd=\hueco[2cm]\int\frac{du}{u}\).
+\resultado\comprueba
+
+\clearpage
+\subsection*{Parte D. Integral definida, regla de Barrow y áreas \hfill 3 puntos}
+\setcounter{ejercicio}{0}
+Regla de Barrow: si \(F\) es una primitiva de \(f\) en \([a,b]\), \(\displaystyle\int_a^b f(x)\dd=\bigl[F(x)\bigr]_a^b=F(b)-F(a)\). No hace falta \(+C\).
+
+\ejercicio{D}{\(\displaystyle\int_1^3\bigl(3x^2-2x\bigr)\dd\)}
+Primitiva: \(F(x)=\hueco[3cm]\). \(F(3)=\hueco[1.5cm]\), \(F(1)=\hueco[1.5cm]\).
+\resultado
+
+\ejercicio{D}{\(\displaystyle\int_0^1 e^{2x}\dd\) \quad (resultado exacto y aproximado con cuatro decimales)}
+Primitiva: \hueco[3cm]. Barrow: \hueco[6cm]
+\resultado
+
+\ejercicio{D}{\(\displaystyle\int_1^e\frac{2}{x}\dd\)}
+Primitiva en \(x>0\): \hueco[3cm]. Recuerda: \(\ln e=\hueco[1cm]\), \(\ln1=\hueco[1cm]\).
+\resultado
+
+\ejercicio{D}{Área del recinto limitado por \(f(x)=x^2-4x+3\), el eje \(X\) y las rectas \(x=0\) y \(x=3\).}
+\begin{enumerate}[label=\alph*)]
+  \item Cortes con el eje \(X\) en \([0,3]\): \(x=\hueco[1cm]\) y \(x=\hueco[1cm]\).
+  \item Signo de \(f\): en \([0,\hueco[0.6cm]]\) es \hueco[2cm]; en \([\hueco[0.6cm],3]\) es \hueco[2cm].
+  \item Primitiva \(F(x)=\hueco[4cm]\). Calcula \(F(0)\), \(F(1)\) y \(F(3)\): \hueco[4cm]
+  \item Área \(=\Bigl|\displaystyle\int_0^1 f\Bigr|+\Bigl|\displaystyle\int_1^3 f\Bigr|=\hueco[3.5cm]\)
+\end{enumerate}
+\textquestiondown{}Por qué no basta con calcular \(\int_0^3 f(x)\dd\)? \hueco[7cm]
+
+\ejercicio{D}{Área del recinto limitado por \(y=x^2\) e \(y=2x\).}
+\begin{enumerate}[label=\alph*)]
+  \item Puntos de corte: \(x^2=2x\Rightarrow x=\hueco[1cm]\) y \(x=\hueco[1cm]\).
+  \item \textquestiondown{}Qué curva queda por encima entre ellos? Prueba con \(x=1\): \hueco[4cm]
+  \item Área \(=\displaystyle\int_{\hueco[0.6cm]}^{\hueco[0.6cm]}\bigl(\hueco[2.5cm]\bigr)\dd=\hueco[4cm]\)
+\end{enumerate}
+
+\ejercicio{D}{Una empresa estima su beneficio marginal en \(B'(q)=40-2q\) miles de euros por cada centenar de unidades, donde \(q\) son las centenas de unidades producidas. \textquestiondown{}Cuánto varía el beneficio si la producción pasa de 500 a 1000 unidades?}
+Límites de integración en centenas: de \(q=\hueco[1cm]\) a \(q=\hueco[1cm]\).
+\[\text{Variación}=\int_{\hueco[0.6cm]}^{\hueco[0.6cm]}\bigl(40-2q\bigr)\,dq=\Bigl[\hueco[3cm]\Bigr]_{\hueco[0.6cm]}^{\hueco[0.6cm]}=\hueco[3cm]\]
+
+Interpretación con unidades: \hrulefill
+
+\vfill
+\noindent\textbf{Antes de entregar:} he puesto \(+C\) en todas las indefinidas \(\square\) \quad he comprobado derivando \(\square\) \quad he escrito las unidades en D6 \(\square\)
+\end{document}
