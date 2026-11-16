@@ -16,7 +16,7 @@
     <h1>8.4. Aproximación de la distribución binomial a la distribución normal</h1>
 
     <p data-content-role="source">Adaptación revisada del comparador original «4. Aproximación de la Binomial por la Normal». <a href="index.html">Volver al tema 8</a>.</p>
-    <nav aria-label="Contenido de esta lección"><a href="#normal">Recordatorio</a> · <a href="#condiciones">Condiciones</a> · <a href="#continuidad">Corrección de continuidad</a> · <a href="#explorador">Comparador</a> · <a href="#pendiente">Pendiente</a></nav>
+    <nav aria-label="Contenido de esta lección"><a href="#normal">Recordatorio</a> · <a href="#condiciones">Condiciones</a> · <a href="#continuidad">Corrección de continuidad</a> · <a href="#traduccion">Límites corregidos</a> · <a href="#ejemplos">Ejemplos resueltos</a> · <a href="#limites-metodo">Límites del método</a> · <a href="#explorador">Comparador</a> · <a href="#pendiente">Pendiente</a></nav>
     <section id="normal" data-content-role="theory"><h2>Recordatorio de la distribución normal</h2>
       <p>La densidad describe una curva; las probabilidades son áreas bajo ella. La acumulada da directamente la probabilidad hasta un valor. En esta lección, el segundo parámetro de la normal es la desviación típica.</p>
       <p>\[Y\sim N(\mu,\sigma),\quad f(y)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac12((y-\mu)/\sigma)^2},\quad F(y)=\int_{-\infty}^y f(t)\,dt=\Phi\left(\frac{y-\mu}{\sigma}\right).\]</p>
@@ -32,6 +32,50 @@
       <p>\[P(X=k)\approx P(k-0{,}5\le Y\le k+0{,}5).\]</p>
       <ol><li>Calcula \(\mu=np\) y \(\sigma=\sqrt{np(1-p)}\).</li><li>Corrige los límites enteros: \(P(X\le K)\approx P(Y\le K+0{,}5)\); \(P(A\le X\le B)\approx P(A-0{,}5\le Y\le B+0{,}5)\), con \(A\le B\).</li><li>Tipifica los límites con \(z=(y-\mu)/\sigma\) y utiliza la acumulada \(\Phi\); para un intervalo, resta las dos acumuladas.</li></ol>
     </section>
+
+    <section id="traduccion" data-content-role="method"><h2>Elegir el límite corregido</h2>
+      <p>Escribe primero el suceso binomial. En la tabla siguiente k, A y B son enteros y A≤B. La normal Y tiene la misma media y desviación típica que X.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Límites de la corrección de continuidad"><table>
+        <caption>Del recuento entero al área continua</caption><thead><tr><th scope="col">Pregunta</th><th scope="col">Suceso binomial</th><th scope="col">Aproximación normal</th></tr></thead><tbody>
+          <tr><th scope="row">Como máximo k</th><td>\(X\le k\)</td><td>\(Y\le k+0{,}5\)</td></tr>
+          <tr><th scope="row">Menos de k</th><td>\(X&lt;k\)</td><td>\(Y\le k-0{,}5\)</td></tr>
+          <tr><th scope="row">Al menos k</th><td>\(X\ge k\)</td><td>\(Y\ge k-0{,}5\)</td></tr>
+          <tr><th scope="row">Más de k</th><td>\(X&gt;k\)</td><td>\(Y\ge k+0{,}5\)</td></tr>
+          <tr><th scope="row">Entre A y B, incluidos</th><td>\(A\le X\le B\)</td><td>\(A-0{,}5\le Y\le B+0{,}5\)</td></tr>
+          <tr><th scope="row">Exactamente k</th><td>\(X=k\)</td><td>\(k-0{,}5\le Y\le k+0{,}5\)</td></tr>
+        </tbody></table></div>
+      <p data-content-role="warning">No añadas siempre 0,5: el signo depende de los enteros incluidos. Si el umbral no es entero, tradúcelo primero a recuentos enteros. En Y, incluir o excluir el extremo no cambia el área.</p>
+    </section>
+    <section id="ejemplos" data-content-role="worked-example"><h2>Cuatro cálculos completos sobre el mismo modelo</h2>
+      <p>Ampliación didáctica: se observan 100 decisiones independientes y cada una tiene probabilidad 0,5 de resultar afirmativa. X cuenta las respuestas afirmativas. No son datos de una encuesta real ni una garantía de que todo estudio de opiniones cumpla independencia.</p>
+      <h3>1. Comprobar condiciones y parámetros</h3>
+      <p>El número de ensayos es fijo, contamos dos resultados, suponemos independencia y p constante. Por tanto, \(X\sim\operatorname{Bin}(100,0{,}5)\). Además, np=50 y n(1−p)=50 superan la orientación de 5:</p>
+      <p class="math-scroll" tabindex="0">\[\mu=100\cdot0{,}5=50,\qquad \sigma=\sqrt{100\cdot0{,}5\cdot0{,}5}=5,\qquad Y\sim N(50,5).\]</p>
+      <p>La varianza es 25; el segundo parámetro de la normal escrita aquí es 5, la desviación típica. Mantendremos los valores de z sin redondeos intermedios innecesarios.</p>
+      <h3>2. Como máximo 55 respuestas afirmativas</h3>
+      <p>Incluimos X=55, de modo que su última celda termina en 55,5. Tipificamos ese límite y leemos la acumulada:</p>
+      <p class="math-scroll" tabindex="0">\[P(X\le55)\approx P(Y\le55{,}5)=\Phi\left(\frac{55{,}5-50}{5}\right)=\Phi(1{,}1)\approx0{,}864334.\]</p>
+      <p>El cálculo binomial es \(\sum_{j=0}^{55}\binom{100}{j}2^{-100}\approx0{,}864373\). La diferencia absoluta es aproximadamente 0,000040.</p>
+      <h3>3. Al menos 60 respuestas afirmativas</h3>
+      <p>Incluimos X=60, cuya celda empieza en 59,5. Se pide una cola derecha, por lo que usamos el complementario:</p>
+      <p class="math-scroll" tabindex="0">\[P(X\ge60)\approx P(Y\ge59{,}5)=1-\Phi\left(\frac{59{,}5-50}{5}\right)=1-\Phi(1{,}9)\approx0{,}028717.\]</p>
+      <p>La suma binomial desde j=60 hasta 100 da aproximadamente 0,028444. El error absoluto es aproximadamente 0,000273. Usar 60,5 correspondería a «más de 60» y cambiaría la pregunta.</p>
+      <h3>4. Entre 45 y 55, ambos incluidos</h3>
+      <p>Incluimos completas las celdas de ambos extremos: el intervalo continuo va de 44,5 a 55,5. Tipificamos los dos límites:</p>
+      <p class="math-scroll" tabindex="0">\[P(45\le X\le55)\approx P(44{,}5\le Y\le55{,}5)=\Phi(1{,}1)-\Phi(-1{,}1)\approx0{,}728668.\]</p>
+      <p>Por simetría también podemos calcular \(2\Phi(1{,}1)-1\). La suma binomial de j=45 a 55 es aproximadamente 0,728747; la diferencia absoluta es aproximadamente 0,000079.</p>
+      <h3>5. Exactamente 50 respuestas afirmativas</h3>
+      <p>Una normal asigna probabilidad cero a un punto. Para representar la masa de X=50 usamos toda su celda, de 49,5 a 50,5:</p>
+      <p class="math-scroll" tabindex="0">\[P(X=50)\approx P(49{,}5\le Y\le50{,}5)=\Phi(0{,}1)-\Phi(-0{,}1)\approx0{,}079656.\]</p>
+      <p>La masa binomial \(\binom{100}{50}2^{-100}\approx0{,}079589\). El error absoluto es aproximadamente 0,000066. No hay que sustituirla por P(Y=50), que vale cero.</p>
+      <p data-content-role="key-idea">Los cálculos binomiales se han evaluado mediante sumas de masas y el coeficiente binomial; los normales mediante la acumulada. Los resultados mostrados están redondeados y la aproximación se escribe con ≈. Un error absoluto pequeño no garantiza un error relativo pequeño en una cola muy poco probable.</p>
+    </section>
+    <section id="limites-metodo" data-content-role="warning"><h2>Cuándo detenerse y revisar el método</h2>
+      <p>Con n=100 y p=0,01, np=1 y n(1−p)=99: falla la orientación de np≥5. Aunque haya cien ensayos, no damos por adecuada esta aproximación normal; conviene recurrir al cálculo binomial si está disponible. Con p=0 o p=1, la varianza es cero y el resultado es determinista: no se tipifica dividiendo entre cero.</p>
+      <p>Si se pide todo el soporte, \(P(0\le X\le n)=1\) exactamente. La normal puede asignar probabilidad fuera de ese soporte; una aproximación menor que 1 no cambia la certeza del suceso binomial. Comprueba primero si la pregunta se resuelve directamente.</p>
+      <p>Para practicar sin el comparador, reconstruye los límites de los cuatro cálculos anteriores y comprueba cada resultado con <a href="02-distribucion-binomial.html#acumuladas">las acumuladas binomiales</a> y <a href="03-distribucion-normal.html#lectura-tabla">la lectura de la tabla normal</a>.</p>
+    </section>
+
     <section id="explorador" data-content-role="explorer" data-approx-explorer><h2>Comparador binomial-normal</h2>
       <p data-approx-loading>Los gráficos y controles requieren JavaScript. La teoría y el método de cálculo permanecen disponibles para lectura.</p>
       <div data-approx-controls hidden><label for="approx-n">Número de ensayos n: <output data-value="n" for="approx-n">50</output></label><input id="approx-n" name="n" type="range" min="10" max="200" step="1" value="50">
@@ -50,7 +94,7 @@
       <p>La comparación de acumuladas siempre utiliza K, también en modo intervalo: punto lleno para la binomial en K y círculo para la normal en K + 0,5. No se interpreta como probabilidad el área bajo una acumulada.</p>
       <p>La ventana gráfica es finita; el cálculo acumulado incluye toda la cola desde menos infinito. La normal asigna algo de probabilidad fuera del soporte binomial: incluso para el intervalo completo 0…n, la aproximación puede ser menor que uno. El error mostrado es absoluto, no relativo.</p>
     </section>
-    <section id="pendiente" data-content-role="warning"><h2>Qué queda por incorporar</h2><p>Este original contiene teoría y un comparador, pero no un banco de ejercicios, test ni tarjetas. Los archivos originales de ejercicios resueltos y flashcards se revisarán por separado. La lección mantiene el estado editorial parcial.</p></section>
+    <section id="pendiente" data-content-role="warning"><h2>Qué queda por incorporar</h2><p>El original aporta la teoría inicial y el comparador. La tanda TEORIA-01 (TEO-06) añade la tabla de límites y cuatro cálculos escritos completos, identificados como elaboración didáctica. Quedan pendientes un banco propio de actividades autocorregibles y generación procedural, así como la revisión visual y manual con tecnologías de apoyo. Las colecciones generales de ejercicios y tarjetas del tema se consultan desde su índice. La lección mantiene el estado editorial parcial.</p></section>
 
   </main>
   <div id="site-footer"></div>

@@ -211,6 +211,141 @@
       "term": "Nivel de significación",
       "card": "fc-t09-original-17",
       "page": "t09-e05"
+    },
+    {
+      "term": "Variable aleatoria discreta",
+      "card": "fc-t08-original-01",
+      "page": "t08-e01"
+    },
+    {
+      "term": "Corrección de continuidad",
+      "card": "fc-t08-original-19",
+      "page": "t08-e04"
+    },
+    {
+      "term": "Afijación proporcional",
+      "card": "fc-t09-original-06",
+      "page": "t09-e03"
+    },
+    {
+      "term": "Parámetro y estadístico",
+      "card": "fc-t09-original-03",
+      "page": "t09-e01"
+    },
+    {
+      "term": "Proporción muestral observada",
+      "card": "fc-t09-original-04",
+      "page": "t09-e05"
+    },
+    {
+      "term": "Margen de error para la media",
+      "card": "fc-t09-original-19",
+      "page": "t09-e08"
+    },
+    {
+      "term": "Tamaño muestral para una proporción",
+      "card": "fc-t09-original-22",
+      "page": "t09-e08"
+    },
+    {
+      "term": "Planificación conservadora de proporciones",
+      "card": "fc-t09-original-26",
+      "page": "t09-e08"
+    },
+    {
+      "term": "Óptimos múltiples",
+      "card": "fc-pl-original-17",
+      "page": "t06-e04"
+    },
+    {
+      "term": "Región no acotada",
+      "card": "fc-pl-original-16",
+      "page": "t06-e04"
+    },
+    {
+      "term": "Recta frontera",
+      "card": "fc-pl-original-10",
+      "page": "t06-e01"
+    },
+    {
+      "term": "Coeficientes de regresión",
+      "card": "fc-bivariate-original-20",
+      "page": "bivariate"
+    },
+    {
+      "term": "Densidad de probabilidad",
+      "card": "fc-teoria-densidad",
+      "page": "t08-e01"
+    },
+    {
+      "term": "Función de distribución acumulada",
+      "card": "fc-teoria-acumulada",
+      "page": "t08-e01"
+    },
+    {
+      "term": "Cuantil normal",
+      "card": "fc-teoria-cuantil",
+      "page": "t08-e03"
+    },
+    {
+      "term": "Estimador",
+      "card": "fc-teoria-estimador",
+      "page": "t09-e05"
+    },
+    {
+      "term": "Estimación",
+      "card": "fc-teoria-estimacion",
+      "page": "t09-e05"
+    },
+    {
+      "term": "Estimador insesgado",
+      "card": "fc-teoria-insesgado",
+      "page": "t09-e05"
+    },
+    {
+      "term": "Intervalo de Wald para una proporción",
+      "card": "fc-teoria-wald",
+      "page": "t09-e07"
+    },
+    {
+      "term": "Error estándar estimado de una proporción",
+      "card": "fc-teoria-se-proporcion",
+      "page": "t09-e07"
+    },
+    {
+      "term": "Intervalo característico",
+      "card": "fc-teoria-caracteristico",
+      "page": "t09-e06"
+    },
+    {
+      "term": "Ficha técnica de una encuesta",
+      "card": "fc-teoria-ficha-encuesta",
+      "page": "t09-e09"
+    },
+    {
+      "term": "Media marginal",
+      "card": "fc-teoria-media-marginal",
+      "page": "bivariate"
+    },
+    {
+      "term": "Varianza marginal descriptiva",
+      "card": "fc-teoria-varianza-marginal",
+      "page": "bivariate"
+    },
+    {
+      "term": "Regresión de X sobre Y",
+      "card": "fc-teoria-regresion-x",
+      "page": "bivariate"
+    },
+    {
+      "term": "Principio multiplicativo",
+      "card": "fc-teoria-multiplicativo",
+      "page": "combinatorics"
+    },
+    {
+      "term": "Combinaciones con repetición",
+      "card": "fc-teoria-combinacion-repeticion",
+      "page": "combinatorics"
     }
   ]
 }

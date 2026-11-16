@@ -19,13 +19,53 @@
     <p data-content-role="lead">Para calcular muchas probabilidades primero hay que contar bien: cuántos casos hay y cuántos cumplen lo que buscamos.</p>
     <p data-content-role="source">Adaptación revisada de «Combinatoria.txt» (la página original «Combinatoria y Probabilidad»). Se apoya en <a href="../temas/07-probabilidad/01-sucesos-regla-de-laplace.html">7.1. Sucesos. Regla de Laplace</a>. <a href="index.html">Volver a los contenidos de apoyo</a>.</p>
     <div class="learning-goals"><p data-content-role="objectives"><strong>Al terminar podrás:</strong> decidir si un recuento es una variación, una permutación o una combinación según importe el orden y se pueda repetir, calcularlo y usarlo para obtener probabilidades con la regla de Laplace.</p><p data-content-role="prerequisites"><strong>Antes de empezar:</strong> conviene saber qué es el factorial, \(n!=n\cdot(n-1)\cdots2\cdot1\), con \(0!=1\).</p></div>
-    <nav aria-label="Apartados del apoyo" data-content-role="related-links"><a href="#por-que">Por qué contar</a> · <a href="#tecnicas">Las cuatro técnicas</a> · <a href="#decidir">Qué técnica usar</a> · <a href="#variaciones">Variaciones</a> · <a href="#variaciones-repeticion">Variaciones con repetición</a> · <a href="#permutaciones">Permutaciones</a> · <a href="#combinaciones">Combinaciones</a> · <a href="#probabilidad">Probabilidad</a> · <a href="#calculadora">Calculadora</a> · <a href="#ejercicios">Ejercicios resueltos</a> · <a href="#test">Test</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+    <nav aria-label="Apartados del apoyo" data-content-role="related-links"><a href="#por-que">Por qué contar</a> · <a href="#principio-multiplicativo">Principio multiplicativo</a> · <a href="#sumar-o-multiplicar">Sumar o multiplicar</a> · <a href="#conteo-formulas">De las etapas a las fórmulas</a> · <a href="#practica-etapas">Tu turno</a> · <a href="#tecnicas">Las cuatro técnicas</a> · <a href="#decidir">Qué técnica usar</a> · <a href="#variaciones">Variaciones</a> · <a href="#variaciones-repeticion">Variaciones con repetición</a> · <a href="#permutaciones">Permutaciones</a> · <a href="#combinaciones">Combinaciones</a> · <a href="#combinaciones-repeticion">Ampliación: combinaciones con repetición</a> · <a href="#comparar-repeticion">Comparar recuentos</a> · <a href="#probabilidad">Probabilidad</a> · <a href="#calculadora">Calculadora</a> · <a href="#ejercicios">Ejercicios resueltos</a> · <a href="#test">Test</a> · <a href="#pendiente">Contenido pendiente</a></nav>
 
     <section id="por-que" data-content-role="introduction"><h2>¿Por qué necesitamos técnicas de conteo?</h2>
       <p>La probabilidad de un suceso se calcula a menudo con la <strong>regla de Laplace</strong>:</p>
       <p class="math-scroll" tabindex="0">\[P(A)=\frac{\text{n.º de casos favorables a }A}{\text{n.º de casos posibles}}.\]</p>
       <p data-content-role="warning">Solo es válida si hay un número finito de casos y <strong>todos son igual de probables</strong>.</p>
       <p>Cuando los casos son muchos no se pueden enumerar uno a uno: hay que <strong>contarlos</strong>. Para elegir la técnica de conteo, las preguntas clave son dos: <em>¿importa el orden?</em> y <em>¿se pueden repetir los elementos?</em></p>
+    </section>
+
+
+    <section id="principio-multiplicativo" data-content-role="method"><h2>Principio multiplicativo: contar elecciones por etapas</h2>
+      <p><strong>Ampliación didáctica.</strong> Si una elección completa se construye en varias etapas y, para cada elección anterior, hay el mismo número de opciones en la etapa siguiente, multiplicamos esos números. Cada resultado completo debe quedar descrito una sola vez por la secuencia de decisiones.</p>
+      <p class="math-scroll" tabindex="0">\[\text{Total}=a_1\cdot a_2\cdots a_k.\]</p>
+      <p>a₁ es el número de opciones de la primera etapa, a₂ el número de opciones de la segunda después de cualquier elección permitida de la primera, y así sucesivamente. Pueden ser números distintos en cada etapa.</p>
+      <h3>Ejemplo 1. Un menú con dos decisiones</h3>
+      <p>Hay tres platos principales A, B y C y dos postres 1 y 2, disponibles con cualquiera de los platos. Un menú elige un plato y un postre: 3·2=6 menús.</p>
+      <p>La lista completa es (A,1), (A,2), (B,1), (B,2), (C,1) y (C,2). Cada plato encabeza una rama y cada rama tiene dos continuaciones; multiplicar evita escribir todos los pares cuando el recuento es grande.</p>
+      <p data-content-role="warning">No estamos multiplicando probabilidades ni suponiendo que las opciones sean equiprobables. Este principio cuenta resultados. Para usar después la regla de Laplace hay que justificar además la equiprobabilidad del espacio que se haya contado.</p>
+      <h3>Ejemplo 2. Una letra y dos cifras, con repetición</h3>
+      <p>Un código empieza por una letra de A, B o C, seguida de dos cifras elegidas entre 0, 1, 2 y 3. Se permite repetir cifras. Las etapas tienen 3, 4 y 4 opciones:</p>
+      <p class="math-scroll" tabindex="0">\[3\cdot4\cdot4=48\text{ códigos}.\]</p>
+      <p>A00 y B33 son válidos. Son códigos, no números de dos cifras: el cero está permitido en la primera posición numérica porque el enunciado no lo prohíbe.</p>
+      <h3>Ejemplo 3. Las dos cifras deben ser distintas</h3>
+      <p>Conservamos la letra inicial y el conjunto de cifras, pero prohibimos repetir la cifra. Tras elegir la primera, quedan tres para la segunda, cualquiera que haya sido la primera elección:</p>
+      <p class="math-scroll" tabindex="0">\[3\cdot4\cdot3=36\text{ códigos}.\]</p>
+      <p>A01 y A10 son códigos distintos: las posiciones importan. A00 deja de estar permitido. Las etapas no tienen que ser elecciones sin restricciones; basta contabilizar correctamente las continuaciones permitidas.</p>
+    </section>
+    <section id="sumar-o-multiplicar" data-content-role="explanation"><h2>Cuándo sumar y cuándo multiplicar</h2>
+      <p><strong>Multiplicamos para completar etapas</strong> de un mismo resultado. <strong>Sumamos para reunir casos alternativos que no se solapan</strong>. Si los casos se solapan, hay que corregir el doble recuento.</p>
+      <p>Por ejemplo, si un identificador consta de un único símbolo que puede ser una de tres letras o una de cuatro cifras, hay 3+4=7 identificadores. Elegir una letra seguida de una cifra es otro problema y tiene 3·4=12 resultados.</p>
+      <h3>Si el número de continuaciones depende del caso</h3>
+      <p>Volvemos al menú. Si el plato A solo permite el postre 1, mientras B y C permiten ambos postres, no podemos usar 3·2. Separamos los casos por plato: A aporta 1 menú, B aporta 2 y C aporta 2. En total hay 1+2+2=5 menús.</p>
+      <p>En general, si después de una opción hay dos continuaciones y después de otra hay tres, se cuentan por separado y se suman. No se inventa un número común de continuaciones para poder multiplicar.</p>
+      <p data-content-role="key-idea">Antes de calcular, describe qué es un resultado completo, identifica sus etapas y comprueba que no lo estás contando varias veces. Un recuento de caminos ordenados no equivale automáticamente a un recuento de grupos sin orden.</p>
+    </section>
+    <section id="conteo-formulas" data-content-role="explanation"><h2>Cómo aparecen las fórmulas de combinatoria</h2>
+      <ul>
+        <li><strong>r posiciones con repetición.</strong> Cada posición tiene n opciones: \(n\cdot n\cdots n=n^r\). Es el origen de las variaciones con repetición.</li>
+        <li><strong>r posiciones sin repetición.</strong> Quedan n, n−1, …, n−r+1 opciones: \(n(n-1)\cdots(n-r+1)\), con r≤n. Son las variaciones ordinarias.</li>
+        <li><strong>Ordenar todos los elementos distintos.</strong> Si r=n, el producto es n!, que cuenta permutaciones.</li>
+        <li><strong>Elegir un grupo sin orden.</strong> El producto ordenado cuenta cada grupo de r elementos distintos r! veces. Dividir entre r! da las combinaciones. Esa división necesita que cada grupo tenga exactamente ese número de ordenaciones.</li>
+      </ul>
+      <p>El principio multiplicativo permite razonar las fórmulas, pero no elimina la necesidad de decidir si importa el orden o se permite repetición. Los detalles se desarrollan en las secciones siguientes.</p>
+    </section>
+    <section id="practica-etapas" data-content-role="practice"><h2>Tu turno: dos cargos diferentes</h2>
+      <p>Entre cinco personas se eligen presidencia y secretaría. Nadie puede ocupar ambos cargos. ¿Cuántas asignaciones existen? ¿Cambiaría el resultado si solo se eligieran dos integrantes de una comisión sin cargos?</p>
+      <details><summary>Ver solución razonada</summary><p>Hay 5 posibilidades para presidencia y, elegida esa persona, 4 para secretaría: 5·4=20 asignaciones. Intercambiar los cargos produce otra asignación. Si solo se eligen dos integrantes sin cargos, cada pareja se ha contado en dos órdenes: 20/2=10 comisiones. El resultado completo del primer problema es una asignación de cargos, no una pareja sin orden.</p></details>
     </section>
 
     <section id="tecnicas" data-content-role="summary"><h2>Las cuatro técnicas</h2>
@@ -168,6 +208,46 @@
       </details>
     </section>
 
+
+    <section id="combinaciones-repeticion" data-content-role="theory"><h2>Ampliación opcional: combinaciones con repetición</h2>
+      <p>Este apartado amplía el apoyo, sin convertirlo en requisito de los nueve temas del guion. Es una elaboración didáctica añadida en TEO-22; no procede del original.</p>
+      <p>Elegimos r unidades entre n tipos distintos. Podemos repetir un tipo y <strong>el orden no importa</strong>: solo cuenta cuántas unidades de cada tipo se eligen. Se supone que hay disponibilidad suficiente de cada tipo, sin máximos particulares.</p>
+      <p>Si aᵢ indica cuántas unidades tomamos del tipo i, cada elección queda descrita una sola vez por una solución entera no negativa de:</p>
+      <p class="math-scroll" tabindex="0">\[a_1+a_2+\cdots+a_n=r,\qquad a_i\ge0.\]</p>
+      <p>Para n≥1 y r≥0 enteros, el número de elecciones es:</p>
+      <p class="math-scroll" tabindex="0">\[CR(n,r)=\binom{n+r-1}{r}=\binom{n+r-1}{n-1}.\]</p>
+      <p>CR es la notación usada aquí; otros textos emplean una notación distinta. Si r=0 hay una única elección vacía. Si n=1 hay una única elección: tomar todas las unidades del único tipo.</p>
+      <h3>Por qué funciona: unidades y separadores</h3>
+      <p>Representamos las r unidades por estrellas y separamos los n tipos con n−1 barras. Hay r+n−1 posiciones; elegir las n−1 posiciones de las barras determina todos los recuentos. Se admiten barras consecutivas o en los extremos: representan tipos con cero unidades.</p>
+      <p>Con tres tipos A, B y C, el patrón <code>**|*|*</code> representa (2,1,1): dos unidades de A, una de B y una de C. El patrón <code>|****|</code> representa (0,4,0). Cada patrón corresponde a una única elección sin orden.</p>
+      <h3>Ejemplo resuelto: cuatro unidades de tres sabores</h3>
+      <p>Se eligen cuatro unidades de un producto disponible en tres sabores A, B y C, con existencias suficientes. No se distingue el orden de entrega. Las elecciones AABC y CABA son la misma: (2,1,1).</p>
+      <ol>
+        <li>Hay n=3 tipos, r=4 unidades, se permite repetición y no importa el orden.</li>
+        <li>Buscamos soluciones de a+b+c=4 con a,b,c enteros no negativos.</li>
+        <li>Representamos cuatro estrellas y dos barras: seis posiciones en total.</li>
+      </ol>
+      <p class="math-scroll" tabindex="0">\[CR(3,4)=\binom64=\binom62=\frac{6\cdot5}{2\cdot1}=15.\]</p>
+      <p>Comprobación alternativa: si a=0 hay cinco pares posibles (b,c); si a=1 hay cuatro; después hay tres, dos y uno. En total: 5+4+3+2+1=15.</p>
+      <h3>Si se exige al menos una unidad de cada tipo</h3>
+      <p>Reservamos una unidad de cada uno de los tres sabores. Queda una unidad por repartir libremente entre los tres: hay tres elecciones, (2,1,1), (1,2,1) y (1,1,2). No se usa directamente el recuento de 15, porque incluye tipos ausentes.</p>
+      <p>En general, al exigir aᵢ≥1 se sustituyen bᵢ=aᵢ−1≥0 y se reparten r−n unidades. Si r&lt;n no hay solución; si r≥n se obtiene \(\binom{r-1}{n-1}\). Si hay máximos de disponibilidad, la fórmula sin límites no se aplica directamente.</p>
+    </section>
+    <section id="comparar-repeticion" data-content-role="comparison"><h2>Repetir no decide por sí solo la técnica</h2>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Comparación de recuentos con repetición"><table>
+        <caption>Mismos tres símbolos y cuatro posiciones o unidades, con preguntas distintas</caption><thead><tr><th scope="col">Qué se cuenta</th><th scope="col">¿Importa el orden?</th><th scope="col">Resultado</th></tr></thead><tbody>
+          <tr><th scope="row">Secuencias de cuatro símbolos elegidos entre A, B y C</th><td>Sí</td><td>3⁴=81 variaciones con repetición</td></tr>
+          <tr><th scope="row">Elecciones de cuatro unidades de tres tipos</th><td>No</td><td>CR(3,4)=15 combinaciones con repetición</td></tr>
+          <tr><th scope="row">Ordenaciones de las unidades fijas A, A, B y C</th><td>Sí, con recuentos ya fijados</td><td>4!/2!=12 permutaciones con elementos repetidos</td></tr>
+        </tbody></table></div>
+      <p>No podemos obtener 15 dividiendo 81 entre 4!: las elecciones no tienen todas el mismo número de ordenaciones. AAAA tiene una; AABC tiene doce. Si generamos cada símbolo de una secuencia al azar con probabilidad 1/3 e independientemente, esas secuencias sí son equiprobables, pero sus quince elecciones sin orden no lo son.</p>
+      <p data-content-role="warning">Contar quince elecciones posibles no autoriza a dar probabilidad 1/15 a cada una. Hay que conocer el mecanismo de elección. Para Laplace, tanto los casos posibles como los favorables deben contarse en un espacio equiprobable.</p>
+      <h3>Tu turno</h3>
+      <p>Se quieren elegir cinco unidades entre cuatro tipos, con repetición permitida, sin importar el orden y sin límites de disponibilidad. ¿Cuántas elecciones hay? ¿Cuántas quedan si debe aparecer cada tipo al menos una vez?</p>
+      <details><summary>Ver solución razonada</summary><p>Sin mínimos por tipo hay \(CR(4,5)=\binom85=\binom83=56\) elecciones. Si deben aparecer los cuatro tipos, reservamos cuatro unidades, una por tipo. La quinta puede ser de cualquiera de los cuatro, de modo que quedan 4 elecciones. El recuento ordenado 4⁵ responde a otra pregunta.</p></details>
+      <p>Esta ampliación no cambia la calculadora de las técnicas originales ni añade preguntas al test. Puedes volver a <a href="#decidir">la elección de técnica</a> y al <a href="#principio-multiplicativo">principio multiplicativo</a> para comparar supuestos.</p>
+    </section>
+
     <section id="probabilidad" data-content-role="method"><h2>Probabilidad con técnicas de conteo</h2>
       <p>Con casos igual de probables, la regla de Laplace se aplica contando:</p>
       <p class="math-scroll" tabindex="0">\[P(A)=\frac{\text{n.º de casos favorables}}{\text{n.º de casos posibles}}.\]</p>
@@ -276,10 +356,11 @@
     </section>
 
     <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2>
-      <p>El original no incluye combinaciones con repetición, el principio de multiplicación explicado por separado (solo aparece en el ejercicio 6) ni tarjetas de repaso. No se han añadido aquí.</p>
+      <p>El original no incluye combinaciones con repetición ni tarjetas de repaso; las primeras se desarrollan ahora en la ampliación opcional y las tarjetas propias siguen pendientes. La tanda TEORIA-04 (TEO-21) añade el principio multiplicativo como desarrollo didáctico propio, con ejemplos por etapas, distinción frente a la suma y una actividad resuelta. TEO-22 añade combinaciones con repetición como ampliación opcional identificada, con justificación por estrellas y barras, límites y actividad resuelta. La revisión visual y con tecnologías de apoyo de los nuevos apartados está pendiente.</p>
       <p>Tampoco trae práctica con datos nuevos: el test repite siempre las mismas diez preguntas. El apoyo queda en estado parcial hasta su revisión editorial.</p>
     </section>
     <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="index.html">Volver a los contenidos de apoyo</a> · <a href="../temas/07-probabilidad/01-sucesos-regla-de-laplace.html">7.1. Sucesos. Regla de Laplace</a> · <a href="../temas/07-probabilidad/07-experimentos-compuestos.html">7.7. Experimentos compuestos</a></nav>
+  <p data-content-role="related-links"><a href="../../tarjetas/index.html?tema=combinatorics">Repasar dos tarjetas de combinatoria (una de ampliación opcional)</a></p>
   </main>
   <div id="site-footer"></div>
 </body>

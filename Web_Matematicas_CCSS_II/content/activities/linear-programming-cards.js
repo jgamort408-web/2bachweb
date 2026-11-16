@@ -95,7 +95,7 @@ export const linearProgrammingCards = [
     "category": "Región Factible",
     "sourceIndex": 12,
     "front": "¿Cómo hallo los vértices?",
-    "back": "Resuelve los sistemas \\(2\\times2\\) de pares de rectas frontera no paralelas y comprueba cada intersección en todas las restricciones. Solo los cruces factibles que son esquinas de la región son vértices."
+    "back": "En el modelo continuo, resuelve los sistemas \\(2\\times2\\) de pares de rectas frontera no paralelas y comprueba cada cruce en todas las restricciones. Sólo los puntos factibles extremos son vértices. Si la región es un segmento, sus extremos son vértices; si es un único punto, ese punto también lo es."
   },
   {
     "id": "fc-pl-original-13",
@@ -103,7 +103,7 @@ export const linearProgrammingCards = [
     "category": "Teoremas y Métodos",
     "sourceIndex": 13,
     "front": "Teorema fundamental de la programación lineal",
-    "back": "Si un problema de programación lineal tiene un óptimo único, este está en un vértice de su región factible. En una región poligonal cerrada, acotada y no vacía, una función lineal alcanza máximo y mínimo en al menos un vértice; puede haber más puntos óptimos."
+    "back": "En programación lineal continua, un óptimo único es un vértice de la región factible. En una región poligonal no vacía, cerrada y acotada, una función lineal alcanza máximo y mínimo en algún vértice; puede haber otros puntos óptimos. La garantía incluye segmentos y regiones reducidas a un punto."
   },
   {
     "id": "fc-pl-original-14",
@@ -111,7 +111,7 @@ export const linearProgrammingCards = [
     "category": "Teoremas y Métodos",
     "sourceIndex": 14,
     "front": "Método analítico: evaluación de vértices",
-    "back": "En una región poligonal cerrada, acotada y no vacía, calcula todos los vértices factibles, evalúa \\(Z=ax+by\\) y compara los valores según se busque máximo o mínimo. En una región no acotada, comprueba además si el objetivo puede crecer o decrecer sin límite."
+    "back": "En una región poligonal continua, no vacía, cerrada y acotada, calcula sus vértices factibles y compara \\(Z=ax+by\\). Incluye los extremos si es un segmento o el punto único. Fuera de esas condiciones revisa existencia y acotación del objetivo. Si no hay vértices, su enumeración no permite decidir si hay óptimo."
   },
   {
     "id": "fc-pl-original-15",
@@ -119,7 +119,7 @@ export const linearProgrammingCards = [
     "category": "Teoremas y Métodos",
     "sourceIndex": 15,
     "front": "Método gráfico: líneas de nivel",
-    "back": "Si \\((a,b)\\ne(0,0)\\), las rectas \\(ax+by=k\\) son paralelas. Desplázalas aumentando \\(k\\) para maximizar o disminuyéndolo para minimizar. Si el extremo se alcanza, la posición límite que aún toca la región da los óptimos. Puede no existir un extremo finito."
+    "back": "Si \\((a,b)\\ne(0,0)\\), las rectas \\(ax+by=k\\) son paralelas. En el modelo continuo se desplazan aumentando k para maximizar o disminuyéndolo para minimizar. El óptimo exige alcanzar una posición que toque la región. Una cota finita puede no alcanzarse si hay fronteras excluidas."
   },
   {
     "id": "fc-pl-original-16",
@@ -135,7 +135,7 @@ export const linearProgrammingCards = [
     "category": "Casos Especiales",
     "sourceIndex": 17,
     "front": "¿Cuándo hay infinitas soluciones óptimas?",
-    "back": "Si dos puntos factibles distintos alcanzan el mismo óptimo, todo el segmento que los une también es óptimo. Un lado paralelo a las líneas de nivel solo da óptimos cuando alcanza el valor extremo, no por el mero paralelismo. Si el objetivo es constante, todos los puntos factibles son óptimos."
+    "back": "En el modelo continuo con región convexa, dos puntos factibles distintos que alcanzan el mismo óptimo hacen óptimo todo su segmento. Un lado paralelo a las líneas de nivel debe alcanzar el valor extremo; el paralelismo por sí solo no basta. Si el objetivo es constante, todo punto factible es óptimo, pero una región de un solo punto no da infinitas soluciones."
   },
   {
     "id": "fc-pl-original-18",
@@ -151,6 +151,6 @@ export const linearProgrammingCards = [
     "category": "Casos Especiales",
     "sourceIndex": 19,
     "front": "¿Qué cambia si la solución debe ser entera?",
-    "back": "Si las variables cuentan objetos indivisibles, deben ser enteras. Si el óptimo continuo ya es entero, también resuelve el problema entero. En otro caso, redondear o mirar solo puntos cercanos no garantiza el óptimo: hay que comparar los candidatos enteros factibles con una búsqueda completa o un método de programación entera."
+    "back": "Las cantidades de objetos indivisibles deben ser enteras. Si un óptimo continuo satisface la integridad, también resuelve el problema entero. Puede haber soluciones reales y ninguna entera admisible. Redondear o mirar sólo puntos cercanos no garantiza el óptimo: hay que justificar los candidatos enteros mediante una búsqueda completa o un método de programación entera."
   }
 ];

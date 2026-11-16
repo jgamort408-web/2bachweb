@@ -280,3 +280,7 @@ Cinco categorías originales, mismo orden y tamaños: **Definiciones 3; Planteam
 La fuente no incluye autocorrección, puntuación, repetición espaciada ni generación procedural. No se crean para completar cuotas. Siguen pendientes revisión con lectores de pantalla y pronunciación matemática, y las carencias identificadas en cada lección. Tema 6 y 6.1–6.5 mantienen estado parcial.
 
 Los siete archivos fuente de programación lineal han quedado integrados. Siguiente: [presentación original de estadística bidimensional](<../../Página web existente/2. Estadística Bidimensional/0. Presentación.txt>), aplicando el mismo criterio de conservar y documentar, sin rellenar huecos. [Verificación de la entrega 76](verificacion-entrega-76.md).
+
+## P03D · Precisión editorial posterior (15-11-2026)
+
+Revisadas las 19 tarjetas; seis precisadas y trece conservadas. Se explicitan el alcance continuo del argumento de segmentos y vértices, los casos degenerados, la cota finita no alcanzada y la posible falta de puntos enteros. La lección 6.4 incluye apoyo didáctico con una banda sin vértices. Fuentes originales intactas; 17 pruebas específicas, navegador de las tarjetas y captura móvil comprobados. [Matriz y verificación](REVISION_EDITORIAL_EVALUACIONES_P03.md).

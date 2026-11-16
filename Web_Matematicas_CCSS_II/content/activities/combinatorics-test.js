@@ -1,6 +1,7 @@
 // Fuente: Página web existente/Combinatoria.txt, juego «El Reto del Probabilista» (diez preguntas).
-// Se conservan enunciados, alternativas y respuestas; se precisan la equiprobabilidad (preguntas 5 y 9) y la
-// lectura de «combinaciones» de una cerradura (pregunta 2). Las cifras usan espacio fino para los millares.
+// Se conservan IDs, índices y valores correctos. Se precisan las hipótesis, los cargos distintos,
+// la equiprobabilidad y la independencia de los lanzamientos; P03E revisa también las retroalimentaciones.
+// Las cifras usan espacio fino para los millares.
 // Correspondencia y correcciones: docs/auditoria-reutilizacion-combinatoria.md.
 const wrong = 'Esa cifra corresponde a otro recuento.';
 const q = (index, item) => ({ id: 'q-combinatorics-original-' + String(index).padStart(2, '0'), topicId: 'combinatorics', lessonId: 'combinatorics', sourceIndex: index, ...item });
@@ -8,7 +9,7 @@ const q = (index, item) => ({ id: 'q-combinatorics-original-' + String(index).pa
 export const combinatoricsQuestions = [
   q(1, {
     category: 'Variaciones sin repetición',
-    prompt: '¿De cuántas formas pueden elegirse presidente, vicepresidente y secretario de un grupo de 10 personas?',
+    prompt: '¿De cuántas formas pueden asignarse los cargos de presidente, vicepresidente y secretario a tres personas distintas de un grupo de 10?',
     options: [
       { id: 'a', text: '720', feedback: 'Correcto: tres cargos distintos para tres personas distintas.' },
       { id: 'b', text: '5040', feedback: wrong + ' Es V(10,4): habría cuatro cargos.' },
@@ -25,7 +26,7 @@ export const combinatoricsQuestions = [
     options: [
       { id: 'a', text: '1000', feedback: 'Correcto: cada dial admite los diez dígitos.' },
       { id: 'b', text: '720', feedback: wrong + ' Es V(10,3): exigiría que los tres dígitos fueran distintos.' },
-      { id: 'c', text: '30', feedback: 'Las opciones de cada dial se multiplican, no se suman ni se multiplican por el número de diales.' },
+      { id: 'c', text: '30', feedback: 'Cada uno de los tres diales tiene diez opciones: se calcula 10·10·10, no 10+10+10.' },
       { id: 'd', text: '100', feedback: wrong + ' Es 10²: correspondería a dos diales.' }
     ],
     correct: 'a',
@@ -60,12 +61,12 @@ export const combinatoricsQuestions = [
   }),
   q(5, {
     category: 'Probabilidad',
-    prompt: 'Se lanza una moneda equilibrada 3 veces. ¿Cuál es la probabilidad de obtener exactamente 2 caras?',
+    prompt: 'Se lanza una moneda equilibrada 3 veces, con lanzamientos independientes. ¿Cuál es la probabilidad de obtener exactamente 2 caras?',
     options: [
       { id: 'a', text: '\\(\\frac{3}{8}\\)', feedback: 'Correcto: 3 secuencias favorables de 8 igual de probables.' },
-      { id: 'b', text: '\\(\\frac{1}{2}\\)', feedback: 'La mitad de las secuencias no tiene exactamente dos caras: cuenta las favorables.' },
+      { id: 'b', text: '\\(\\frac{1}{2}\\)', feedback: 'No es la mitad: sólo CCX, CXC y XCC tienen exactamente dos caras, de las ocho secuencias equiprobables.' },
       { id: 'c', text: '\\(\\frac{1}{4}\\)', feedback: 'Hay tres secuencias favorables (C es cara y X, cruz): CCX, CXC y XCC.' },
-      { id: 'd', text: '\\(\\frac{3}{4}\\)', feedback: 'Ese valor incluiría secuencias con una o con tres caras.' }
+      { id: 'd', text: '\\(\\frac{3}{4}\\)', feedback: 'El valor de tres cuartos corresponde a obtener una o dos caras: seis de las ocho secuencias, no exactamente dos caras.' }
     ],
     correct: 'a',
     hint: 'Cuenta las secuencias de tres lanzamientos y elige en qué dos lanzamientos sale cara.',
@@ -90,7 +91,7 @@ export const combinatoricsQuestions = [
     options: [
       { id: 'a', text: '10', feedback: 'Correcto: un subconjunto no tiene orden.' },
       { id: 'b', text: '60', feedback: wrong + ' Es V(5,3): contaría {a, e, i} y {i, e, a} como distintos.' },
-      { id: 'c', text: '20', feedback: 'Es el doble del resultado: revisa la división entre 3!.' },
+      { id: 'c', text: '20', feedback: '20 sería elegir tres elementos de un conjunto de seis, pero aquí sólo hay cinco vocales.' },
       { id: 'd', text: '120', feedback: wrong + ' Es 5!: ordenaría las cinco vocales.' }
     ],
     correct: 'a',
@@ -107,8 +108,8 @@ export const combinatoricsQuestions = [
       { id: 'd', text: '8', feedback: 'Las opciones de cada bandera se multiplican: 4·4, no 4·2.' }
     ],
     correct: 'a',
-    hint: 'Cada bandera tiene 4 colores posibles, independientemente de la otra.',
-    explanation: '\\(VR(4,2)=4^2=16\\). Cada posición tiene 4 opciones independientes.'
+    hint: 'Elegir el color de la primera posición no restringe los cuatro colores disponibles en la segunda.',
+    explanation: '\\(VR(4,2)=4^2=16\\). Cada posición admite los cuatro colores y todas las parejas ordenadas están permitidas.'
   }),
   q(9, {
     category: 'Probabilidad',

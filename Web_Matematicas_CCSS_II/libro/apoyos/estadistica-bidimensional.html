@@ -15,11 +15,11 @@
   <main id="main-content" class="page-main mc-lesson">
     <h1 data-content-role="lesson-title">Estadística bidimensional</h1>
     <p data-content-role="lead">Del análisis de una característica a la búsqueda de relaciones y patrones entre dos variables.</p>
-    <nav aria-label="Apartados del apoyo" data-content-role="related-links"><a href="#repaso">Repaso de una variable</a> · <a href="#dimensiones">De una a dos variables</a> · <a href="#pares">Datos emparejados</a> · <a href="#organizacion">Cómo organizar los datos</a> · <a href="#tabla">Tabla de doble entrada</a> · <a href="#lectura">Cómo leerla</a> · <a href="#familias">Ejemplo de 50 familias</a> · <a href="#marginales">Marginales y medias</a> · <a href="#nube">Nube de puntos</a> · <a href="#centro-gravedad">Centro de gravedad</a> · <a href="#covarianza">Covarianza</a> · <a href="#signos-covarianza">Signos</a> · <a href="#interpretacion-covarianza">Interpretación</a> · <a href="#unidades-covarianza">Unidades</a> · <a href="#pearson">Pearson</a> · <a href="#interpretacion-pearson">Escala de r</a> · <a href="#correlacion-causalidad">Correlación y causalidad</a> · <a href="#regresion">Regresión lineal</a> · <a href="#prediccion-regresion">Predicción</a> · <a href="#determinacion">R²</a> · <a href="#ejercicios">Ejercicios resueltos</a> · <a href="#tarjetas">Flashcards</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+    <nav aria-label="Apartados del apoyo" data-content-role="related-links"><a href="#repaso">Repaso de una variable</a> · <a href="#dimensiones">De una a dos variables</a> · <a href="#pares">Datos emparejados</a> · <a href="#organizacion">Cómo organizar los datos</a> · <a href="#tabla">Tabla de doble entrada</a> · <a href="#lectura">Cómo leerla</a> · <a href="#familias">Ejemplo de 50 familias</a> · <a href="#marginales">Marginales y medias</a> · <a href="#parametros-marginales">Parámetros marginales</a> · <a href="#dispersion-familias">Varianzas de las familias</a> · <a href="#practica-marginales">Comprueba</a> · <a href="#nube">Nube de puntos</a> · <a href="#centro-gravedad">Centro de gravedad</a> · <a href="#covarianza">Covarianza</a> · <a href="#signos-covarianza">Signos</a> · <a href="#interpretacion-covarianza">Interpretación</a> · <a href="#unidades-covarianza">Unidades</a> · <a href="#pearson">Pearson</a> · <a href="#interpretacion-pearson">Escala de r</a> · <a href="#correlacion-causalidad">Correlación y causalidad</a> · <a href="#regresion">Regresión lineal</a> · <a href="#dos-rectas-regresion">Dos rectas</a> · <a href="#regresion-familias">Ajustes de las familias</a> · <a href="#practica-dos-rectas">Comprueba los coeficientes</a> · <a href="#prediccion-regresion">Predicción</a> · <a href="#determinacion">R²</a> · <a href="#ejercicios">Ejercicios resueltos</a> · <a href="#tarjetas">Flashcards</a> · <a href="#pendiente">Contenido pendiente</a></nav>
     <section id="repaso" data-content-role="recap"><h2>Repaso: estadística unidimensional</h2>
       <p>En estadística unidimensional estudiamos una sola característica \(X\), como notas o altura. Antes de comparar dos variables, recordamos tres herramientas para describir una:</p>
       <dl><dt>Media: centro</dt><dd>\(\bar{x}\)</dd><dt>Varianza: dispersión</dt><dd>\(\sigma^2\)</dd><dt>Desviación típica</dt><dd>\(\sigma\)</dd></dl>
-      <p>El repaso inicial identifica las medidas y su notación. Más abajo se calcula la media de cada variable en el <a href="#marginales">ejemplo de las familias</a>; el <a href="#ejercicio-2">ejercicio 2</a> incorpora su cálculo, aunque el desarrollo teórico sistemático sigue pendiente.</p>
+      <p>El repaso inicial identifica las medidas y su notación. Más abajo se calcula la media de cada variable en el <a href="#marginales">ejemplo de las familias</a>; el <a href="#ejercicio-2">ejercicio 2</a> incorpora su cálculo, y la sección de <a href="#parametros-marginales">parámetros marginales</a> desarrolla ahora las fórmulas y las dispersiones del ejemplo de familias.</p>
     </section>
     <section id="dimensiones" data-content-role="visualization"><h2>De una a dos variables</h2>
       <figure>
@@ -131,6 +131,48 @@
         <p>Ambos marginales cuentan las mismas familias: \(15+20+15=50\) y \(8+23+19=50\). Los numeradores de las medias son \(100\) hijos y \(61\) días-familia por semana.</p>
       </details>
     </section>
+
+    <section id="parametros-marginales" data-content-role="explanation"><h2>Media, varianza y desviación de cada marginal</h2>
+      <p>Desarrollo didáctico añadido a partir de la tabla original de las 50 familias. Para describir X por separado usamos sus frecuencias marginales; para Y, las suyas. No cambiamos los pares originales ni contamos dos veces a cada familia.</p>
+      <h3>1. Frecuencias y total</h3>
+      <p>Si nᵢⱼ es el número de observaciones del par (xᵢ,yⱼ), los totales de fila y columna son:</p>
+      <p class="math-scroll" tabindex="0">\[n_{i\cdot}=\sum_j n_{ij},\qquad n_{\cdot j}=\sum_i n_{ij},\qquad N=\sum_i n_{i\cdot}=\sum_j n_{\cdot j}.\]</p>
+      <p>Las frecuencias relativas marginales son \(f_{i\cdot}=n_{i\cdot}/N\) y \(f_{\cdot j}=n_{\cdot j}/N\). Cada lista suma 1. El total N es el número de individuos observados, no el número de filas o columnas ni la suma de sus dos totales.</p>
+      <h3>2. Medias: ponderar cada valor por su frecuencia</h3>
+      <p class="math-scroll" tabindex="0">\[\bar x=\frac{\sum_i x_i n_{i\cdot}}N=\sum_i x_i f_{i\cdot},\qquad \bar y=\frac{\sum_j y_j n_{\cdot j}}N=\sum_j y_j f_{\cdot j}.\]</p>
+      <p>Cada individuo contribuye una vez. No se promedian solo los valores distintos dando a todos el mismo peso, salvo que sus frecuencias sean iguales. Para categorías sin valor numérico, como rótulos de notas, no se calcula una media de las etiquetas; si se usan valores representativos debe indicarse esa aproximación.</p>
+      <h3>3. Varianzas descriptivas: dispersión alrededor de cada media</h3>
+      <p class="math-scroll" tabindex="0">\[S_x^2=\frac{\sum_i (x_i-\bar x)^2n_{i\cdot}}N=\frac{\sum_i x_i^2n_{i\cdot}}N-\bar x^2,\qquad S_y^2=\frac{\sum_j (y_j-\bar y)^2n_{\cdot j}}N=\frac{\sum_j y_j^2n_{\cdot j}}N-\bar y^2.\]</p>
+      <p>Se elevan al cuadrado las desviaciones para evitar que las diferencias positivas y negativas se cancelen. Las dos expresiones de cada varianza son equivalentes. Con frecuencias relativas, se sustituyen los cocientes n/N por f.</p>
+      <p>Usamos el divisor <strong>N para describir los datos</strong>, coherente con la covarianza de este apoyo. No estamos calculando la varianza muestral corregida con N−1 empleada en otros procedimientos de inferencia. Que los datos provengan de una muestra no obliga a cambiar el divisor cuando el objetivo es esta descripción.</p>
+      <h3>4. Desviaciones típicas y unidades</h3>
+      <p class="math-scroll" tabindex="0">\[S_x=\sqrt{S_x^2},\qquad S_y=\sqrt{S_y^2}.\]</p>
+      <p>La media y la desviación típica se expresan en las unidades de la variable; la varianza, en esas unidades al cuadrado. Varianzas y desviaciones son no negativas. Si todos los individuos tienen el mismo valor de una variable, su varianza es cero. Una varianza negativa calculada indica un error o un problema de precisión numérica.</p>
+    </section>
+    <section id="dispersion-familias" data-content-role="worked-example"><h2>Calcular las dispersiones de las 50 familias</h2>
+      <h3>Número de hijos: X</h3>
+      <p>Usamos los valores 1, 2 y 3 con frecuencias 15, 20 y 15, y la media ya calculada \(\bar x=2\). La media de los cuadrados es:</p>
+      <p class="math-scroll" tabindex="0">\[\frac{1^2\cdot15+2^2\cdot20+3^2\cdot15}{50}=\frac{230}{50}=4{,}6.\]</p>
+      <p class="math-scroll" tabindex="0">\[S_x^2=4{,}6-2^2=0{,}6,\qquad S_x=\sqrt{0{,}6}\approx0{,}77460.\]</p>
+      <p>Comprobación por desviaciones: \(((1-2)^2\cdot15+(2-2)^2\cdot20+(3-2)^2\cdot15)/50=30/50=0{,}6\). La desviación típica es aproximadamente 0,775 hijos; la varianza se expresa en hijos al cuadrado. No son probabilidades ni un número entero que deba tener una familia.</p>
+      <h3>Días semanales de deporte: Y</h3>
+      <p>Los valores son 0, 1 y 2 con frecuencias 8, 23 y 19. La media es \(\bar y=61/50=1{,}22\). Calculamos sin redondear esa media:</p>
+      <p class="math-scroll" tabindex="0">\[\frac{0^2\cdot8+1^2\cdot23+2^2\cdot19}{50}=\frac{99}{50}=1{,}98.\]</p>
+      <p class="math-scroll" tabindex="0">\[S_y^2=1{,}98-1{,}22^2=0{,}4916,\qquad S_y=\sqrt{0{,}4916}\approx0{,}70114.\]</p>
+      <p>La desviación típica es aproximadamente 0,701 días por semana; la varianza se expresa en días al cuadrado con la misma referencia semanal. Se describe cómo varían los valores registrados entre familias, no cuánto cambia una familia concreta de una semana a otra.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Resumen de parámetros marginales de las familias"><table>
+        <caption>Parámetros descriptivos, con divisor N=50</caption><thead><tr><th scope="col">Variable</th><th scope="col">Media</th><th scope="col">Varianza</th><th scope="col">Desviación típica</th></tr></thead><tbody>
+          <tr><th scope="row">Hijos X</th><td>2</td><td>0,6</td><td>≈0,77460</td></tr>
+          <tr><th scope="row">Días de deporte Y</th><td>1,22</td><td>0,4916</td><td>≈0,70114</td></tr>
+        </tbody></table></div>
+      <p data-content-role="warning">No compares directamente 0,6 y 0,4916 como si midieran la misma magnitud: X e Y tienen unidades diferentes. Para estudiar su relación hay que conservar la información conjunta; las medias y varianzas marginales por sí solas no determinan covarianza, correlación ni independencia.</p>
+    </section>
+    <section id="practica-marginales" data-content-role="practice"><h2>Comprueba los pesos y la precisión</h2>
+      <p>Una persona calcula la media de días como (0+1+2)/3=1. ¿Qué ha olvidado? ¿Podría obtener la varianza restando esa media al cuadrado de cada valor, sin ponderar?</p>
+      <details><summary>Ver solución razonada</summary><p>Ha dado igual peso a los tres valores, aunque los tienen 8, 23 y 19 familias. La media correcta es (0·8+1·23+2·19)/50=1,22. Para la varianza también se necesitan las frecuencias: se promedian las desviaciones cuadradas ponderadas, o se calcula la media ponderada de los cuadrados y se resta el cuadrado de la media correcta. Con la tabla original se obtiene 0,4916. Redondear 1,22 a 1 antes de calcular alteraría la dispersión.</p></details>
+      <p data-content-role="key-idea">Comprueba siempre que las frecuencias suman N, usa un único convenio de divisor y conserva precisión hasta el resultado final.</p>
+    </section>
+
     <section id="nube" data-content-role="visualization"><h2>La nube de puntos o diagrama de dispersión</h2>
       <p>Cada par \((x_i,y_i)\) se representa como un punto del plano cartesiano: \(X\) en el eje horizontal e \(Y\) en el vertical. La forma de la nube ayuda a explorar posibles relaciones entre las variables.</p>
       <p data-content-role="context">Los cuatro dibujos siguientes son esquemas independientes del original, sin escala numérica. No proceden de la tabla de alumnos ni de la tabla de familias. Sus ejemplos describen posibles tendencias, no conclusiones obtenidas de esos datos.</p>
@@ -321,6 +363,46 @@
       <p>La pendiente es la <strong>covarianza dividida por la varianza de X</strong>. La recta pasa por el centro \((\bar{x},\bar{y})\). Escribimos \(\widehat{y}\) para distinguir la estimación de una observación real.</p>
       <p data-content-role="warning">Se requiere \(S_x^2&gt;0\). Si X es constante, no se obtiene una pendiente única con esta fórmula. Si Y es constante y X varía, sí se obtiene una recta horizontal, aunque Pearson no esté definido.</p>
     </section>
+
+    <section id="dos-rectas-regresion" data-content-role="explanation"><h2>Las dos rectas de regresión: elegir qué variable se estima</h2>
+      <p>Cuando X e Y tienen varianzas positivas, podemos ajustar dos rectas sobre los mismos pares. El sentido de la pregunta determina cuál usar:</p>
+      <p class="math-scroll" tabindex="0">\[\text{Y sobre X:}\quad\widehat y-\bar y=b_{yx}(x-\bar x),\qquad b_{yx}=\frac{S_{xy}}{S_x^2}.\]</p>
+      <p class="math-scroll" tabindex="0">\[\text{X sobre Y:}\quad\widehat x-\bar x=b_{xy}(y-\bar y),\qquad b_{xy}=\frac{S_{xy}}{S_y^2}.\]</p>
+      <p>En Y sobre X, conocemos x y estimamos y; mínimos cuadrados minimiza las diferencias cuadradas en la dirección de Y. En X sobre Y, conocemos y y estimamos x; se minimizan las diferencias cuadradas en la dirección de X. Con X horizontal e Y vertical en el dibujo, los residuos del segundo ajuste son horizontales.</p>
+      <p>Ambas rectas pasan por el centro \((\bar x,\bar y)\). Los coeficientes bᵧₓ y bₓᵧ tienen unidades recíprocas: unidades de Y por unidad de X, y unidades de X por unidad de Y. Su signo es el de la covarianza.</p>
+      <h3>Por qué sus coeficientes se relacionan con r²</h3>
+      <p>Con el mismo conjunto de pares, las mismas frecuencias y el mismo convenio de divisor para varianzas y covarianza, Pearson es \(r=S_{xy}/(S_xS_y)\). Por tanto:</p>
+      <p class="math-scroll" tabindex="0">\[b_{yx}=r\frac{S_y}{S_x},\qquad b_{xy}=r\frac{S_x}{S_y},\qquad b_{yx}b_{xy}=\frac{S_{xy}^2}{S_x^2S_y^2}=r^2.\]</p>
+      <p>El producto está entre 0 y 1. Para recuperar r desde ese producto, tomamos su raíz y el signo de la covarianza o de cualquiera de los dos coeficientes no nulos. Una correlación negativa tiene dos coeficientes negativos y un producto positivo.</p>
+      <h3>Despejar una recta no vuelve a ajustar los datos</h3>
+      <p>Si bᵧₓ≠0, despejar x en la recta de Y sobre X produce un coeficiente 1/bᵧₓ. Generalmente ese número no es bₓᵧ: cambiar la variable que estimamos cambia el criterio de mínimos cuadrados.</p>
+      <p>Las dos rectas coinciden geométricamente cuando |r|=1, con ambas varianzas positivas: todos los pares están en una recta. Si r=0, el ajuste de Y sobre X es la horizontal y=ȳ y el de X sobre Y es la vertical x=x̄. No se obtiene uno dividiendo por un coeficiente cero.</p>
+      <p data-content-role="warning">En bᵧₓbₓᵧ=r², cada coeficiente debe leerse con su variable dependiente correcta. Si ambas ecuaciones están despejadas como y=mx+a, sus dos pendientes visibles no son directamente bᵧₓ y bₓᵧ. La segunda debe interpretarse como ajuste de X sobre Y y despejarse en ese sentido antes de aplicar el producto, cuando sea posible.</p>
+    </section>
+    <section id="regresion-familias" data-content-role="worked-example"><h2>Ejemplo completo con las 50 familias</h2>
+      <p>Ampliación didáctica que usa la tabla original de <a href="#familias">hijos y deporte</a>. No procede del dibujo de los cuatro puntos ni del ejemplo aparte r=0,85. En <a href="#dispersion-familias">los marginales</a> obtuvimos x̄=2, ȳ=1,22, Sₓ²=0,6 y Sᵧ²=0,4916.</p>
+      <h3>1. Obtener la covarianza de la tabla conjunta</h3>
+      <p>Multiplicamos cada x por cada y y por su frecuencia conjunta. Las celdas con y=0 no aportan a la suma:</p>
+      <p class="math-scroll" tabindex="0">\[\sum_{i,j}x_i y_j n_{ij}=1(1\cdot7+2\cdot3)+2(1\cdot12+2\cdot6)+3(1\cdot4+2\cdot10)=133.\]</p>
+      <p class="math-scroll" tabindex="0">\[S_{xy}=\frac{133}{50}-2\cdot1{,}22=2{,}66-2{,}44=0{,}22.\]</p>
+      <h3>2. Ajustar Y sobre X</h3>
+      <p>Para estimar días de deporte a partir del número de hijos:</p>
+      <p class="math-scroll" tabindex="0">\[b_{yx}=\frac{0{,}22}{0{,}6}=\frac{11}{30},\qquad\widehat y-1{,}22=\frac{11}{30}(x-2).\]</p>
+      <p>Para x=3, el ajuste da \(\widehat y=1{,}22+11/30\approx1{,}58667\) días semanales. Es una estimación lineal y no exige que una familia registre una fracción de día. El valor x=3 está en el rango observado; la precisión predictiva no queda garantizada por ello.</p>
+      <h3>3. Ajustar X sobre Y</h3>
+      <p>Para estimar número de hijos a partir de los días semanales, usamos la otra varianza:</p>
+      <p class="math-scroll" tabindex="0">\[b_{xy}=\frac{0{,}22}{0{,}4916}=\frac{550}{1229}\approx0{,}447518,\qquad\widehat x-2=\frac{550}{1229}(y-1{,}22).\]</p>
+      <p>Para y=1, se estima \(\widehat x\approx1{,}90155\). Si, en cambio, despejáramos la primera recta, obtendríamos \(x=2+(30/11)(y-1{,}22)\), que para y=1 da 1,4. No son el mismo ajuste: sus coeficientes 30/11 y 550/1229 son diferentes.</p>
+      <h3>4. Comprobar el producto y el signo</h3>
+      <p class="math-scroll" tabindex="0">\[r^2=\frac{11}{30}\frac{550}{1229}=\frac{605}{3687}\approx0{,}16409,\qquad r\approx+0{,}40508.\]</p>
+      <p>El signo es positivo porque la covarianza es positiva. En la regresión lineal simple con término independiente, R²≈0,16409 significa que el ajuste recoge aproximadamente el 16,41 % de la variación observada de Y en estos datos. No significa que una predicción tenga un 16,41 % de probabilidad de ser correcta ni demuestra causalidad.</p>
+    </section>
+    <section id="practica-dos-rectas" data-content-role="practice"><h2>Comprueba el signo y el sentido del ajuste</h2>
+      <p>En un caso didáctico independiente, dos coeficientes de regresión son bᵧₓ=−0,8 y bₓᵧ=−0,45, calculados sobre los mismos pares con varianzas positivas. Halla r y decide si son coeficientes recíprocos.</p>
+      <details><summary>Ver solución razonada</summary><p>El producto es (−0,8)(−0,45)=0,36=r². Ambas pendientes son negativas, por lo que r=−√0,36=−0,6. No son recíprocas: 1/(−0,8)=−1,25, distinto de −0,45. Su producto no es 1 y las rectas no coinciden. Para estimar Y a partir de X se usa bᵧₓ, no el inverso de bₓᵧ.</p></details>
+      <p data-content-role="key-idea">Comprueba antes qué variable se estima, que ambas varianzas son positivas y que los coeficientes proceden de los mismos datos. Después aplica la relación con r².</p>
+    </section>
+
     <section id="prediccion-regresion" data-content-role="worked-example"><h2>Laboratorio de predicción: ejemplo resuelto</h2>
       <p>Partimos de la recta que proporciona el original. Este modelo es independiente del esquema de los cuatro puntos anterior.</p>
       <ol data-prediction-steps>
@@ -358,14 +440,14 @@
 <article id="ejercicio-9" data-exercise="9" data-original-id="estadistica_2d_ejercicio_9_precio_demanda_negativa" data-content-role="worked-example"><h3>Ejercicio 9: Precio vs Ventas (Covarianza Negativa)</h3><div data-content-role="statement"><p>Una tienda de electrónica ha probado 3 precios distintos para unos auriculares (\(X\)) durante 50 días y ha anotado cuántas unidades se vendieron (\(Y\)).</p><div class="table-scroll" tabindex="0" role="region" aria-label="Tabla del ejercicio 9"><table data-bivariate-table="9"><caption>Datos originales del ejercicio 9</caption><thead><tr><th id="bv9-c0" scope="col">Precio (\(X\)) \ Ventas (\(Y\))</th><th id="bv9-c1" scope="col">Bajas (10u)</th><th id="bv9-c2" scope="col">Medias (30u)</th><th id="bv9-c3" scope="col">Altas (50u)</th></tr></thead><tbody><tr><th id="bv9-r1" scope="row">Barato (20€)</th><td data-frequency headers="bv9-r1 bv9-c1">0</td><td data-frequency headers="bv9-r1 bv9-c2">5</td><td data-frequency headers="bv9-r1 bv9-c3">15</td></tr><tr><th id="bv9-r2" scope="row">Normal (40€)</th><td data-frequency headers="bv9-r2 bv9-c1">5</td><td data-frequency headers="bv9-r2 bv9-c2">10</td><td data-frequency headers="bv9-r2 bv9-c3">5</td></tr><tr><th id="bv9-r3" scope="row">Caro (60€)</th><td data-frequency headers="bv9-r3 bv9-c1">8</td><td data-frequency headers="bv9-r3 bv9-c2">2</td><td data-frequency headers="bv9-r3 bv9-c3">0</td></tr></tbody></table></div><p>a) Calcula la media de ventas (\(\bar{y}\)) y de precio (\(\bar{x}\)).<br>b) Calcula la covarianza \(S_{xy}\).<br>c) Interpreta el resultado para tomar una decisión comercial.</p></div><details data-solution><summary>Ver resolución paso a paso del ejercicio 9</summary><section data-content-role="worked-step"><h4>Paso 1: Medias Marginales</h4><p><strong>Marginal X (Precio):</strong></p><ul><li>\(n_{20} = 20\) días, \(n_{40} = 20\) días, \(n_{60} = 10\) días. (\(N=50\))</li><li>\(\bar{x} = \frac{20(20)+40(20)+60(10)}{50} = \frac{1800}{50} = 36\) €</li></ul><p><strong>Marginal Y (Ventas):</strong></p><ul><li>\(n_{10} = 13\), \(n_{30} = 17\), \(n_{50} = 20\).</li><li>\(\bar{y} = \frac{10(13)+30(17)+50(20)}{50} = \frac{130+510+1000}{50} = \frac{1640}{50} = 32.8\) u.</li></ul></section><section data-content-role="worked-step"><h4>Paso 2: Cálculo de la Covarianza</h4><p>Sumamos los productos celda a celda (\(x \cdot y \cdot n_{ij}\)):</p><ul><li>Fila 20€: \(20\cdot30\cdot5 + 20\cdot50\cdot15 = 3000 + 15000 = 18000\)</li><li>Fila 40€: \(40\cdot10\cdot5 + 40\cdot30\cdot10 + 40\cdot50\cdot5 = 2000 + 12000 + 10000 = 24000\)</li><li>Fila 60€: \(60\cdot10\cdot8 + 60\cdot30\cdot2 = 4800 + 3600 = 8400\)</li></ul><p>Suma Total \(= 50400\).</p>\[S_{xy} = \frac{50400}{50} - (36 \cdot 32.8) = 1008 - 1180.8 = -172.8\]</section><section data-content-role="worked-step"><h4>Paso 3: Interpretación (La decisión)</h4><p>La covarianza es negativa: \(S_{xy}=-172.8\). En estos días, precios mayores se asocian con menores ventas.</p><p>Su magnitud depende de las unidades: no permite afirmar por sí sola que la relación sea fuerte ni que las ventas se desplomen. Tampoco demuestra un efecto causal.</p><p>Para decidir el precio que maximiza el beneficio harían falta costes, ingresos y condiciones comparables. Esta tabla permite describir la asociación observada, pero no basta para recomendar una estrategia comercial óptima.</p></section><div data-content-role="key-idea">\[\bar{x}=36,\qquad\bar{y}=32.8,\qquad S_{xy}=-172.8.\]<p>Asociación lineal de sentido negativo. Intensidad y precio óptimo no determinados por la covarianza.</p></div></details></article>
 </section>
     <section id="tarjetas" data-content-role="practice"><h2>Flashcards de estadística bidimensional</h2>
-      <p>Las 20 tarjetas originales revisadas: cuatro de Conceptos, cinco de Covarianza, cinco de Correlación y seis de Regresión. Intenta responder antes de mostrar la explicación; puedes avanzar por el mazo o filtrar por categoría.</p>
-      <p><a href="../../tarjetas/index.html?tema=bivariate">Abrir las 20 tarjetas y filtrar por categoría</a></p>
+      <p>El mazo incluye tres tarjetas nuevas sobre parámetros marginales y regresión de X sobre Y, además de las 20 originales revisadas: cuatro de Conceptos, cinco de Covarianza, cinco de Correlación y seis de Regresión. Intenta responder antes de mostrar la explicación; puedes avanzar por el mazo o filtrar por categoría.</p>
+      <p><a href="../../tarjetas/index.html?tema=bivariate">Abrir las 23 tarjetas y filtrar por categoría</a></p>
       <p data-content-role="context">Las respuestas precisan los requisitos de las fórmulas y el significado de covarianza, Pearson y R². El repaso no califica ni guarda respuestas o avances.</p>
     </section>
     <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2>
-      <p>Los ocho archivos integrados no incluyen práctica autocorregible, preguntas procedurales ni explorador editable. Ya hay un ejemplo de cálculo de medias marginales; el ejercicio 2 incorpora el cálculo de varianzas y desviaciones típicas. Su desarrollo teórico sistemático sigue pendiente.</p>
+      <p>Los ocho archivos integrados no incluyen práctica autocorregible, preguntas procedurales ni explorador editable. Ya hay un ejemplo de cálculo de medias marginales; el ejercicio 2 incorpora el cálculo de varianzas y desviaciones típicas. La tanda TEORIA-04 (TEO-19) desarrolla sistemáticamente medias, varianzas y desviaciones marginales y completa los cálculos de la tabla de familias. La revisión visual de las fórmulas y la validación con tecnologías de apoyo siguen pendientes.</p>
       <p>La tabla no especifica cómo agrupar notas decimales: los rótulos 0–4, 5–6, 7–8 y 9–10 deben precisarse antes de aplicarlos a datos con decimales. Tampoco aporta una fila Sobresaliente de Matemáticas ni los pares individuales.</p>
-      <p>Los ocho archivos originales de este bloque están integrados. Las carencias indicadas siguen pendientes; las tarjetas ofrecen repaso, sin corrección automática de respuestas.</p>
+      <p>La tanda TEORIA-04 (TEO-20) desarrolla las dos rectas, su relación con r² y un ejemplo calculado a partir de la tabla conjunta original. La revisión visual y asistida de las ampliaciones sigue pendiente. Los ocho archivos originales de este bloque están integrados. Las carencias indicadas siguen pendientes; las tarjetas ofrecen repaso, sin corrección automática de respuestas.</p>
     </section>
     <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="../index.html">Volver al libro</a> · <a href="../temas/06-programacion-lineal/index.html#itinerario-original">Conexiones con programación lineal</a></nav>
   </main>

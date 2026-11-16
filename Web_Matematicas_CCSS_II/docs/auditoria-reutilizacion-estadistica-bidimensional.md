@@ -352,3 +352,7 @@ El mazo se enlaza desde el apoyo, el índice de tarjetas, el libro y la conexió
 Los ocho originales están integrados, pero el apoyo sigue `partial`: faltan desarrollo teórico sistemático del repaso unidimensional, intervalos decimales claros de la tabla inicial, datos individuales, explorador editable y actividades autocorregibles/procedurales. Las tarjetas no califican. No se generan actividades para llenar esos huecos.
 
 [Verificación de la entrega 84](verificacion-entrega-84.md).
+
+## P03E · Revisión editorial posterior (15-11-2026)
+
+Revisadas 23 tarjetas bidimensionales, seis precisadas. IDs y valores correctos conservados; fuentes originales intactas. Cálculos independientes, pruebas de catálogo/glosario y navegadores superados. [Matriz y resultados de P03E](REVISION_EDITORIAL_EVALUACIONES_P03.md). La lectura con lector de pantalla sigue pendiente.

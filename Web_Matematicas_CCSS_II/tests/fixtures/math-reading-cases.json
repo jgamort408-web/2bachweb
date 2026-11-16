@@ -1,0 +1,66 @@
+[
+  {
+    "id": "fraccion",
+    "title": "Fracción",
+    "tex": "\\frac{1}{2}",
+    "roles": [
+      "MathMLFraction"
+    ],
+    "source": "libro/temas/08-distribuciones-de-probabilidad/01-variable-aleatoria.html#densidad",
+    "meaning": "Una mitad: numerador uno, denominador dos."
+  },
+  {
+    "id": "sumatorio",
+    "title": "Sumatorio binomial",
+    "tex": "\\sum_{j=0}^{k}\\binom nj p^j(1-p)^{n-j}",
+    "roles": [
+      "MathMLUnderOver",
+      "MathMLFraction"
+    ],
+    "source": "libro/temas/08-distribuciones-de-probabilidad/02-distribucion-binomial.html#acumuladas",
+    "meaning": "Suma desde j igual a cero hasta k; número combinatorio n sobre j, por p elevado a j y por uno menos p elevado a n menos j."
+  },
+  {
+    "id": "integral",
+    "title": "Integral definida",
+    "tex": "\\int_a^b f(x)\\,dx",
+    "roles": [
+      "MathMLSubSup"
+    ],
+    "source": "libro/temas/08-distribuciones-de-probabilidad/01-variable-aleatoria.html#densidad",
+    "meaning": "Integral desde a hasta b de f de x, diferencial de x. Distinguir límites e integrando."
+  },
+  {
+    "id": "intervalo",
+    "title": "Intervalo largo y proporciones",
+    "tex": "IC_{1-\\alpha}(p)\\approx\\left[\\widehat p-z_{\\alpha/2}\\sqrt{\\frac{\\widehat p(1-\\widehat p)}{n}};\\quad\\widehat p+z_{\\alpha/2}\\sqrt{\\frac{\\widehat p(1-\\widehat p)}{n}}\\right].",
+    "roles": [
+      "MathMLFraction",
+      "MathMLSquareRoot"
+    ],
+    "source": "libro/temas/09-inferencia-estadistica/07-intervalos-de-confianza.html#proporciones",
+    "meaning": "Intervalo aproximado para p: extremo inferior p estimada menos el margen y extremo superior p estimada más el margen. Reconocer alfa, subíndices, raíz, fracción y ambos extremos."
+  },
+  {
+    "id": "matriz",
+    "title": "Matriz de dos filas y tres columnas",
+    "tex": "\\begin{pmatrix}100&150&80\\\\200&250&140\\end{pmatrix}",
+    "roles": [
+      "MathMLTable",
+      "MathMLTableRow",
+      "MathMLTableCell"
+    ],
+    "source": "selectividad/04-matrices-y-determinantes.html#SEL-D0084-OA-E01",
+    "meaning": "Matriz de dos filas y tres columnas. Primera fila: 100, 150, 80. Segunda fila: 200, 250, 140. No pronunciar dólares literales."
+  },
+  {
+    "id": "raiz",
+    "title": "Raíz y parámetros binomiales",
+    "tex": "\\sigma=\\sqrt{np(1-p)}",
+    "roles": [
+      "MathMLSquareRoot"
+    ],
+    "source": "libro/temas/08-distribuciones-de-probabilidad/02-distribucion-binomial.html#parametros",
+    "meaning": "Sigma es la raíz cuadrada de n por p por uno menos p; el producto completo está bajo la raíz."
+  }
+]

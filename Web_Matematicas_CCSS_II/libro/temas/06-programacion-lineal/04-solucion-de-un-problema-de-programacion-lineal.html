@@ -14,7 +14,7 @@
   <main id="main-content" class="page-main mc-lesson">
     <h1 data-content-role="lesson-title">6.4. Solución de un problema de programación lineal</h1>
     <p data-content-role="lead">El método gráfico permite comparar decisiones factibles a partir de los vértices de la región. Aplicamos los cinco pasos al ejemplo original de sillas y mesas, con sus cálculos revisados.</p>
-    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#principio">Por qué usar vértices</a> · <a href="#metodo">Cinco pasos</a> · <a href="#modelo">Sillas y mesas</a> · <a href="#region">Región factible</a> · <a href="#evaluacion">Evaluación</a> · <a href="#variante">Variante de beneficio</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#principio">Por qué usar vértices</a> · <a href="#metodo">Cinco pasos</a> · <a href="#modelo">Sillas y mesas</a> · <a href="#region">Región factible</a> · <a href="#evaluacion">Evaluación</a> · <a href="#variante">Variante de beneficio</a> · <a href="#optimo-multiple">Óptimo múltiple</a> · <a href="#region-vacia">Región vacía</a> · <a href="#objetivo-no-acotado">Objetivo no acotado</a> · <a href="#region-sin-vertices">Región sin vértices</a> · <a href="#extremo-no-alcanzado">Extremo no alcanzado</a> · <a href="#diagnostico-optimo">Resumen</a> · <a href="#pendiente">Contenido pendiente</a></nav>
     <section id="principio" data-content-role="theorem"><h2>Por qué basta comparar vértices</h2>
       <p>Si la región factible es un <strong>polígono cerrado, acotado y no vacío</strong>, una función objetivo lineal alcanza su máximo y su mínimo en al menos un vértice.</p>
       <p>Si el óptimo es único, está en un vértice. Si varios vértices alcanzan el mismo óptimo, todos los puntos del segmento que los une también lo alcanzan: el óptimo puede no ser único.</p>
@@ -101,7 +101,60 @@
       </tbody></table></div>
       <p>El máximo sigue siendo único y se obtiene con <strong>0 sillas y 9 mesas: 450 €</strong>. Ahora \(Z_2=50(x+y)-10x\le450\), con igualdad solo en ese punto. Cambiar el beneficio no vuelve factible una combinación que incumple los recursos.</p>
     </section>
-    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2><p>Esta fuente aporta un ejemplo resuelto y su variante, pero no contiene práctica autocorregible, preguntas procedurales ni explorador editable. Esas actividades permanecen pendientes. También faltan ejemplos desarrollados de óptimo múltiple y de ausencia de óptimo.</p></section>
+
+    <section id="optimo-multiple" data-content-role="worked-example"><h2>Óptimo múltiple: todo un segmento es solución</h2>
+      <p><strong>Ampliaciones didácticas.</strong> Los casos siguientes son ejemplos nuevos, independientes del problema original de sillas y mesas. Salvo indicación contraria, x e y son variables reales.</p>
+      <p>Maximizamos \(Z=2x+2y\) con restricciones:</p>
+      <p class="math-scroll" tabindex="0">\[x\ge0,\qquad y\ge0,\qquad x+y\le6.\]</p>
+      <ol><li>La región es un triángulo no vacío, cerrado y acotado, con vértices (0,0), (6,0) y (0,6).</li><li>Los valores de Z son 0, 12 y 12, respectivamente. Dos vértices distintos empatan en el máximo.</li><li>Como \(Z=2(x+y)\le12\), el valor máximo es 12. La igualdad se da cuando x+y=6.</li></ol>
+      <p>Las soluciones óptimas son todos los puntos \((t,6-t)\), con \(0\le t\le6\): por ejemplo, (6,0), (3,3) y (0,6). La recta objetivo es paralela al lado óptimo, y al alcanzar el máximo coincide con él.</p>
+      <p data-content-role="key-idea">En una región convexa y con objetivo lineal, si dos puntos distintos son óptimos, cualquier punto del segmento que los une también lo es. Evaluar vértices permite localizar el valor, pero no siempre describe todas las soluciones.</p>
+      <p>Si x e y deben ser enteros, aquí quedan siete soluciones: (0,6), (1,5), …, (6,0). No se afirma que haya infinitas soluciones enteras por existir un segmento óptimo real.</p>
+    </section>
+    <section id="region-vacia" data-content-role="worked-example"><h2>Región vacía: no hay decisiones factibles</h2>
+      <p>Consideramos cualquier función objetivo, por ejemplo Z=x+y, con:</p>
+      <p class="math-scroll" tabindex="0">\[x\ge0,\qquad y\ge0,\qquad x+y\le1,\qquad x+y\ge3.\]</p>
+      <p>Las dos últimas restricciones exigen que la misma suma sea como máximo 1 y como mínimo 3. Son incompatibles. La intersección de los semiplanos es vacía.</p>
+      <p>No hay máximo ni mínimo porque no existe ningún punto factible. No se elige «el mejor de los cruces» de las rectas: todo candidato debe satisfacer todas las restricciones. Cambiar los coeficientes del objetivo no resuelve la incompatibilidad.</p>
+    </section>
+    <section id="objetivo-no-acotado" data-content-role="worked-example"><h2>Objetivo no acotado: se puede mejorar sin límite</h2>
+      <p>Maximizamos Z=x+y en la región:</p>
+      <p class="math-scroll" tabindex="0">\[x\ge0,\qquad y\ge0,\qquad x+y\ge2.\]</p>
+      <p>La región no es vacía: (2,0) pertenece a ella. Para cualquier t≥0, el punto (2+t,0) también es factible y produce Z=2+t. Al aumentar t, el objetivo crece sin cota superior.</p>
+      <p>No existe máximo finito. Decir «el máximo es infinito» no identifica una solución: ningún punto factible tiene valor infinito.</p>
+      <h3>La misma región sí tiene mínimo</h3>
+      <p>Si cambiamos la pregunta a minimizar Z=x+y, las restricciones dan Z≥2. Se alcanza 2 en todos los puntos del segmento de (2,0) a (0,2). Por tanto, existe mínimo aunque la región sea no acotada.</p>
+      <p data-content-role="warning">Una región no acotada no implica automáticamente ausencia de óptimo. Hay que estudiar la función objetivo y la dirección en la que se optimiza.</p>
+    </section>
+    <section id="region-sin-vertices" data-content-role="worked-example"><h2>Una región sin vértices también puede tener óptimos</h2>
+      <p>Ejemplo didáctico del modelo continuo: imponemos \(0\le x\le1\) e \(y\in\mathbb R\), sin restricciones de no negatividad para y, y optimizamos \(Z=x\). La región es una banda vertical cerrada y no acotada.</p>
+      <p>Ninguno de sus puntos es un vértice: cualquier \((x,y)\) es el punto medio de los dos puntos factibles distintos \((x,y-1)\) y \((x,y+1)\).</p>
+      <p class="math-scroll" tabindex="0">\[0\le Z=x\le1.\]</p>
+      <p>El mínimo 0 se alcanza en todos los puntos con x=0 y el máximo 1 en todos los puntos con x=1. Por tanto, que no haya vértices no implica que no existan óptimos; aquí los encontramos directamente con las restricciones y la función objetivo.</p>
+    </section>
+    <section id="extremo-no-alcanzado" data-content-role="worked-example"><h2>Valor límite finito que no se alcanza</h2>
+      <p>Maximizamos Z=x+y con las restricciones:</p>
+      <p class="math-scroll" tabindex="0">\[0\le x&lt;1,\qquad0\le y\le1.\]</p>
+      <p>La región es no vacía y acotada, pero el lado x=1 está excluido. Para todo punto factible, Z&lt;2. Podemos aproximarnos a 2 tomando y=1 y x cada vez más cercano a 1 por la izquierda:</p>
+      <p class="math-scroll" tabindex="0">\[x_m=1-\frac1m,\qquad y_m=1,\qquad Z_m=2-\frac1m\longrightarrow2\quad(m=1,2,\ldots).\]</p>
+      <p>No hay máximo: dado cualquier punto factible, sustituir x por (x+1)/2 conserva x&lt;1 y aumenta Z. El número 2 es el <strong>supremo</strong>, la menor cota superior, pero no un valor alcanzado. Evaluar Z en (1,1) sería usar un punto no factible.</p>
+      <p>Si se cambiara x&lt;1 por x≤1, la región sería cerrada y el máximo 2 sí se alcanzaría en (1,1). El mínimo 0 de la región original sí se alcanza en (0,0).</p>
+    </section>
+    <section id="diagnostico-optimo" data-content-role="recap"><h2>Cómo distinguir los casos</h2>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Diagnóstico de problemas de programación lineal"><table>
+        <caption>Existencia de soluciones factibles y de óptimos</caption><thead><tr><th scope="col">Caso</th><th scope="col">Comprobación decisiva</th><th scope="col">Conclusión del ejemplo</th></tr></thead><tbody>
+          <tr><th scope="row">Óptimo múltiple</th><td>Varios puntos factibles alcanzan el mismo valor extremo.</td><td>Máximo 12 en x+y=6 dentro del primer cuadrante.</td></tr>
+          <tr><th scope="row">Región vacía</th><td>Las restricciones son incompatibles.</td><td>No hay puntos factibles ni óptimos.</td></tr>
+          <tr><th scope="row">Objetivo no acotado</th><td>Una familia factible mejora el objetivo sin límite.</td><td>No hay máximo finito; la misma región sí tiene mínimo.</td></tr>
+          <tr><th scope="row">Extremo no alcanzado</th><td>Hay una cota finita y valores que se aproximan, pero ningún punto la alcanza.</td><td>Supremo 2, sin máximo.</td></tr>
+        </tbody></table></div>
+      <p>La garantía de máximo y mínimo sobre un polígono no vacío, cerrado y acotado se aplica al problema continuo. Antes de evaluar vértices, revisa factibilidad, fronteras incluidas y qué función se optimiza. Si hay restricciones de integridad, comprueba además los puntos enteros admisibles.</p><p>Como ejemplo didáctico, las condiciones \(x=\tfrac12\), \(y=0\) tienen un punto factible real, pero ninguno si x e y deben ser enteros. En cambio, si la región factible consta de un solo punto admisible, un objetivo constante sigue teniendo una única solución: ese punto.</p>
+      <h3>Comprueba tu razonamiento</h3>
+      <p>Con x≥0, y≥0 y x+y≤4, maximiza Z=3x+3y. Después cambia solo x+y≤4 por x+y&lt;4. ¿Qué cambia?</p>
+      <details><summary>Ver solución razonada</summary><p>Con el lado incluido, Z≤12 y el máximo 12 se alcanza en todos los puntos del segmento x+y=4 del primer cuadrante. Con desigualdad estricta, Z&lt;12. La familia (4−1/m,0) es factible y sus valores 12−3/m se aproximan a 12. No hay máximo, aunque el supremo es 12. El mínimo 0 se alcanza en (0,0) en ambos casos.</p></details>
+    </section>
+
+    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2><p>Esta fuente aporta un ejemplo resuelto y su variante, pero no contiene práctica autocorregible, preguntas procedurales ni explorador editable. Esas actividades permanecen pendientes. La tanda TEORIA-03 (TEO-15) añade ejemplos didácticos independientes de óptimo múltiple, región vacía, objetivo no acotado y extremo no alcanzado, con una comprobación resuelta. P03D añade una banda sin vértices con extremos alcanzados y aclara la factibilidad entera. La validación manual con tecnologías de apoyo sigue pendiente.</p></section>
     <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="03-programacion-lineal.html">Anterior: programación lineal</a> · <a href="index.html">Volver al tema 6</a> · <a href="05-problemas-de-programacion-lineal.html">Siguiente: problemas de programación lineal (contenido parcial)</a></nav>
   </main>
   <div id="site-footer"></div>

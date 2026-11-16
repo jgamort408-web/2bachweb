@@ -14,7 +14,7 @@
   <main id="main-content" class="page-main mc-lesson">
     <h1 data-content-role="lesson-title">6.1. Inecuaciones lineales con dos incógnitas</h1>
     <p data-content-role="lead">Una ecuación lineal representa una recta; una inecuación selecciona uno de los semiplanos que delimita.</p>
-    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#definicion">Definición</a> · <a href="#ejemplo-grafico">Ejemplo gráfico</a> · <a href="#metodo">Método de representación</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#definicion">Definición</a> · <a href="#ejemplo-grafico">Ejemplo gráfico</a> · <a href="#metodo">Método de representación</a> · <a href="#frontera-vertical">Vertical</a> · <a href="#frontera-horizontal">Horizontal</a> · <a href="#frontera-origen">Por el origen</a> · <a href="#signo-desigualdad">Signos</a> · <a href="#practica-semiplanos">Tu turno</a> · <a href="#pendiente">Contenido pendiente</a></nav>
     <section id="definicion" data-content-role="definition"><h2>De la recta al semiplano</h2>
     <p>Una ecuación \(ax+by=c\), con \(a\) y \(b\) no ambos nulos, define una recta. Una inecuación con \(\le,\ge,&lt;,&gt;\) define un territorio completo: uno de los dos semiplanos.</p>
     <p>\[ax+by\le c,\qquad (a,b)\ne(0,0).\]</p>
@@ -50,7 +50,54 @@
       <li><h3>Sombrear el semiplano</h3><ul><li>Si el punto cumple la inecuación, sombrea el lado donde está.</li><li>Si no la cumple, sombrea el lado contrario.</li></ul><p>Incluye o excluye la frontera según el signo de la desigualdad.</p></li>
     </ol>
     </section>
-    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2><p>Práctica autocorregible y explorador interactivo pendientes. Esta página ofrece la explicación, el gráfico y el método de representación.</p></section>
+
+    <section id="frontera-vertical" data-content-role="worked-example"><h2>Frontera vertical: x≤3</h2>
+      <p><strong>Ampliaciones didácticas.</strong> Los ejemplos siguientes completan el método con casos nuevos. Las variables son reales y no se supone que deban ser no negativas, salvo que una condición lo exija.</p>
+      <ol>
+        <li><strong>Frontera.</strong> Sustituimos la desigualdad por igualdad: x=3. Es una recta vertical, paralela al eje Y, que pasa por (3,0) y (3,2). No se necesita despejar y.</li>
+        <li><strong>Borde.</strong> Se dibuja continuo porque x=3 está permitido.</li>
+        <li><strong>Prueba.</strong> El origen no está en la frontera y cumple 0≤3. Se elige el semiplano que lo contiene, situado a la izquierda de la recta.</li>
+      </ol>
+      <p>La solución incluye (2,−5), (3,7) y todos los puntos con x≤3, sea cual sea y. (4,0) no pertenece. No es una franja limitada al primer cuadrante: el semiplano se extiende indefinidamente hacia arriba, abajo e izquierda.</p>
+      <p>En general, si b=0 y a≠0 en ax+by≤c, la frontera ax=c es vertical. Al dividir entre a hay que tener en cuenta su signo: si a es negativo se invierte la desigualdad.</p>
+    </section>
+    <section id="frontera-horizontal" data-content-role="worked-example"><h2>Frontera horizontal: y&gt;−2</h2>
+      <ol>
+        <li><strong>Frontera.</strong> y=−2 es horizontal, paralela al eje X. Podemos trazarla con (0,−2) y (2,−2).</li>
+        <li><strong>Borde.</strong> La desigualdad es estricta, así que la recta se dibuja discontinua y no pertenece a la solución.</li>
+        <li><strong>Prueba.</strong> (0,0) cumple 0&gt;−2. Sombreamos por encima de la frontera, donde está el origen.</li>
+      </ol>
+      <p>(−4,0) y (2,−1) son soluciones; (2,−2) no lo es porque está en el borde excluido. (0,−3) queda en el otro semiplano y tampoco cumple.</p>
+      <p>Si a=0 y b≠0, la frontera by=c es horizontal. Un coeficiente nulo significa que la condición no depende de esa variable; no permite dividir entre cero para buscar un corte con el otro eje.</p>
+    </section>
+    <section id="frontera-origen" data-content-role="worked-example"><h2>Cuando la recta pasa por el origen: y≥2x</h2>
+      <ol>
+        <li><strong>Frontera.</strong> y=2x pasa por (0,0) y (1,2); es una recta continua porque se admite igualdad.</li>
+        <li><strong>Elegir otro punto.</strong> El origen está en la recta. La sustitución 0≥0 confirma que pertenece al borde, pero no decide qué lado sombrear. Elegimos (0,1), que está fuera de la frontera.</li>
+        <li><strong>Prueba y región.</strong> En (0,1), 1≥2·0 es verdadero. Sombreamos el semiplano de ese punto, por encima de y=2x, e incluimos la recta.</li>
+      </ol>
+      <p>El punto (1,0) no cumple, pues 0 no es mayor o igual que 2. En cambio, (−1,0) cumple 0≥−2 y también debe quedar sombreado. La solución no se limita al primer cuadrante.</p>
+      <p data-content-role="warning">Si la frontera pasa por el origen, calcular ambos cortes con los ejes solo produce el mismo punto (0,0). Necesitas otro punto distinto de la recta para dibujarla, como (1,2), y un punto fuera de ella para decidir el semiplano, como (0,1). Esas dos funciones del punto no deben confundirse.</p>
+    </section>
+    <section id="signo-desigualdad" data-content-role="method"><h2>Despejar una variable: cuidado con el signo</h2>
+      <p>Para representar −2y≤4, dividimos los dos miembros por −2 e invertimos la desigualdad:</p>
+      <p class="math-scroll" tabindex="0">\[-2y\le4\quad\Longleftrightarrow\quad y\ge-2.\]</p>
+      <p>La frontera es horizontal y continua; la región queda por encima, incluido el borde. Podemos comprobarlo sin despejar: en el origen, −2·0≤4 es verdadero. Dibujar por debajo habría excluido un punto que sí satisface la condición.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Resumen de los casos de semiplanos"><table>
+        <caption>Ejemplos de frontera y punto de prueba</caption><thead><tr><th scope="col">Inecuación</th><th scope="col">Frontera</th><th scope="col">Prueba válida</th><th scope="col">Zona solución</th></tr></thead><tbody>
+          <tr><th scope="row">x≤3</th><td>Vertical continua, x=3</td><td>(0,0)</td><td>Izquierda y borde</td></tr>
+          <tr><th scope="row">y&gt;−2</th><td>Horizontal discontinua, y=−2</td><td>(0,0)</td><td>Por encima, sin borde</td></tr>
+          <tr><th scope="row">y≥2x</th><td>Oblicua continua, y=2x</td><td>(0,1)</td><td>Lado de (0,1) y borde</td></tr>
+          <tr><th scope="row">−2y≤4</th><td>Horizontal continua, y=−2</td><td>(0,0)</td><td>Por encima y borde</td></tr>
+        </tbody></table></div>
+    </section>
+    <section id="practica-semiplanos" data-content-role="practice"><h2>Tu turno: cambia de punto de prueba</h2>
+      <p>Representa −x+2y&lt;0. Indica dos puntos para dibujar su frontera, un punto de prueba válido y si el borde está incluido.</p>
+      <details><summary>Ver solución razonada</summary><p>La frontera −x+2y=0 equivale a y=x/2. Se dibuja con (0,0) y (2,1), y es discontinua porque la desigualdad es estricta. El origen pertenece a la frontera y no sirve para elegir el lado. (1,0) sí sirve: −1+2·0=−1&lt;0. Se sombrea el lado que contiene (1,0), por debajo de y=x/2, excluyendo la recta. Para comprobar el otro lado, (0,1) da 2&lt;0, que es falso.</p></details>
+      <p data-content-role="key-idea">Separa tres decisiones: qué recta dibujar, qué lado elegir y si el borde está incluido. Para combinar varias condiciones, continúa con <a href="02-sistemas-de-inecuaciones-lineales-con-dos-incognitas.html">6.2. Sistemas de inecuaciones</a>.</p>
+    </section>
+
+    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2><p>Práctica autocorregible y explorador interactivo pendientes. Esta página ofrece la explicación, el gráfico y el método de representación. La tanda TEORIA-03 (TEO-17) añade ejemplos didácticos resueltos de fronteras verticales, horizontales y por el origen, inversión de desigualdades y una actividad de comprobación. Su revisión visual y con tecnologías de apoyo sigue pendiente.</p></section>
     <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="index.html">Volver al tema 6</a> · <a href="02-sistemas-de-inecuaciones-lineales-con-dos-incognitas.html">Siguiente: sistemas de inecuaciones (contenido parcial)</a></nav>
   </main>
   <div id="site-footer"></div>

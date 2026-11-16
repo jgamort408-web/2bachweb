@@ -16,7 +16,7 @@
     <h1 data-content-role="lesson-title">9.8. Tamaño de la muestra. Error cometido</h1>
     <p data-content-role="lead">El margen de un intervalo depende de la confianza, de la dispersión y del tamaño de la muestra.</p>
     <p data-content-role="source">Adaptación revisada de «3. Error y tamaño muestral.txt». <a href="index.html">Volver al tema 9</a>.</p>
-    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#margen">Margen</a> · <a href="#tamano">Tamaño mínimo</a> · <a href="#planificador">Calculadora</a> · <a href="#decisiones">Decisiones</a> · <a href="#pendiente">Pendiente</a></nav>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#margen">Margen</a> · <a href="#tamano">Tamaño mínimo</a> · <a href="#ejemplo-tamano-media">Ejemplo de media</a> · <a href="#error-estricto-media">Error estricto</a> · <a href="#practica-tamano-media">Comprueba</a> · <a href="#tamano-proporcion">Proporciones</a> · <a href="#ejemplos-tamano-proporcion">Ejemplos</a> · <a href="#desigualdad-tamano">Desigualdades</a> · <a href="#planificador">Calculadora de medias</a> · <a href="#decisiones">Decisiones</a> · <a href="#pendiente">Pendiente</a></nav>
 
     <section id="margen" data-content-role="theory"><h2>Margen de error de la media</h2>
       <p>En el <a href="05-estimacion-puntual-y-estimacion-por-intervalos.html#media">intervalo bilateral de confianza para una media</a> con desviación típica poblacional \(\sigma\) conocida, el margen calculado es la distancia entre la media observada \(\bar x\) y cada extremo del intervalo:</p>
@@ -33,8 +33,81 @@
       <p>Si el cálculo da exactamente un entero, ese entero cumple el objetivo; si es menor que 1, el mínimo matemático sería 1, aunque un estudio real puede requerir un tamaño mayor por otros motivos. Una muestra grande no corrige por sí sola el sesgo de selección ni la falta de respuesta.</p>
     </section>
 
+
+
+    <section id="ejemplo-tamano-media" data-content-role="worked-example"><h2>Problema completo: elegir el tamaño para estimar una media</h2>
+      <p><strong>Elaboración didáctica.</strong> Una magnitud se modeliza mediante una población normal con media μ desconocida y desviación típica poblacional conocida σ=12 unidades. Queremos estimar μ con confianza del 95 % y un margen no superior a 3 unidades. Se recogerán observaciones independientes. ¿Qué tamaño mínimo necesitamos?</p>
+      <h3>1. Identificar los datos y el objetivo</h3>
+      <p>Conocemos σ=12 y fijamos E₀=3. Para el 95 % usamos z≈1,96. La media μ no hace falta para planificar este tamaño, y todavía no tenemos una media muestral observada. No estamos calculando los extremos de un intervalo.</p>
+      <h3>2. Despejar la desigualdad</h3>
+      <p class="math-scroll" tabindex="0">\[E=1{,}96\frac{12}{\sqrt n}\le3\quad\Longleftrightarrow\quad\sqrt n\ge\frac{1{,}96\cdot12}{3}=7{,}84\quad\Longleftrightarrow\quad n\ge61{,}4656.\]</p>
+      <p>Como n debe ser un entero, el mínimo es <strong>62 observaciones</strong>. Redondear al entero más próximo daría 61 y no cumpliría el objetivo.</p>
+      <h3>3. Verificar que realmente es el mínimo</h3>
+      <p class="math-scroll" tabindex="0">\[E(61)=\frac{23{,}52}{\sqrt{61}}\approx3{,}01143&gt;3,\qquad E(62)=\frac{23{,}52}{\sqrt{62}}\approx2{,}98704\le3.\]</p>
+      <p>El margen disminuye al aumentar n. Como 61 falla y 62 cumple, ningún entero menor que 62 puede satisfacer la condición. El cuantil más preciso del 95 %, aproximadamente 1,959964, también da mínimo 62.</p>
+      <h3>4. Interpretar el resultado</h3>
+      <p>Se necesitan 62 observaciones válidas bajo los supuestos del modelo. Una vez recogidas, el intervalo se centrará en la media que se observe. El margen es aproximadamente 2,98704 unidades y la anchura completa aproximadamente 5,97409 unidades.</p>
+      <p>El objetivo es un margen del procedimiento, no una garantía de que el error real respecto de μ sea menor que 3 en toda muestra. La confianza se interpreta mediante muestreos repetidos. Si el enunciado exigiera una anchura total no superior a 3, el margen objetivo sería 1,5 y el tamaño calculado sería diferente.</p>
+    </section>
+    <section id="error-estricto-media" data-content-role="method"><h2>En la media también importa si el error es estricto</h2>
+      <p>Con σ&gt;0, cuantil z&gt;0 y E₀&gt;0, llamamos \(T=(z\sigma/E_0)^2\). Para \(E\le E_0\) tomamos \(n\ge T\); para \(E&lt;E_0\) necesitamos \(n&gt;T\). Si T es entero, el segundo objetivo exige una observación más.</p>
+      <p><strong>Ejemplo de frontera.</strong> Con σ=10, E₀=2 y z=2 (confianza bilateral aproximada de 95,45 %), resulta:</p>
+      <p class="math-scroll" tabindex="0">\[T=\left(\frac{2\cdot10}{2}\right)^2=100.\]</p>
+      <ul><li>Para error no superior a 2, n=100 cumple exactamente: E(100)=2.</li><li>Para error inferior a 2, n=100 no cumple; n=101 es el mínimo, con E(101)≈1,99007.</li></ul>
+      <p>En el problema anterior T=61,4656 no era entero, por lo que 62 servía tanto para E≤3 como para E&lt;3. No sumes siempre una unidad adicional al resultado ya redondeado: primero identifica la desigualdad y el umbral.</p>
+      <p data-content-role="warning">El cuantil y su precisión deben estar declarados. Aquí z=2 corresponde a otro nivel de confianza, no se presenta como el cuantil exacto del 95 %. Si un cálculo numérico queda cerca de un entero, conserva precisión y comprueba el margen con el criterio elegido.</p>
+    </section>
+    <section id="practica-tamano-media" data-content-role="practice"><h2>Comprueba tu cálculo</h2>
+      <p>Con una población normal de σ=8 conocida y observaciones independientes, se quiere un margen no superior a 2 unidades con confianza del 99 %. Usa el valor de tabla z=2,576. Calcula el tamaño total mínimo. Si ya hay 40 observaciones válidas que pueden incorporarse al mismo diseño, ¿cuántas faltan?</p>
+      <details><summary>Ver solución razonada</summary><p>El umbral es \((2{,}576\cdot8/2)^2=106{,}172416\), así que el mínimo es 107. Comprobación: E(106)≈2,00163&gt;2 y E(107)≈1,99225≤2. El número adicional es 107−40=67, siempre que las 40 observaciones sean compatibles con la población y el diseño. Si no lo fueran, no se descuentan automáticamente. El valor más preciso del cuantil del 99 % también mantiene el mínimo 107.</p></details>
+      <p>En todos los casos, comprueba las unidades de σ y E₀, distingue margen de anchura y comunica si el resultado es tamaño total o número adicional.</p>
+    </section>
+
+    <section id="tamano-proporcion" data-content-role="method"><h2>Planificar el tamaño para estimar una proporción</h2>
+      <p>Para estimar una proporción poblacional p con un intervalo normal aproximado, el margen teórico del modelo de ensayos independientes es \(E=z_{\alpha/2}\sqrt{p(1-p)/n}\). Antes de tomar la muestra no conocemos p ni la proporción que observaremos. Por eso necesitamos una <strong>proporción previa de planificación</strong> \(p_0\), o una elección conservadora.</p>
+      <p>Si disponemos de una estimación previa pertinente, con \(0&lt;p_0&lt;1\), el tamaño para un margen planificado no superior a \(E_0&gt;0\) se obtiene de:</p>
+      <p class="math-scroll" tabindex="0">\[z_{\alpha/2}\sqrt{\frac{p_0(1-p_0)}{n}}\le E_0\quad\Longleftrightarrow\quad n\ge\frac{z_{\alpha/2}^{\,2}p_0(1-p_0)}{E_0^2}.\]</p>
+      <p class="math-scroll" tabindex="0">\[n_{\min}=\left\lceil\frac{z_{\alpha/2}^{\,2}p_0(1-p_0)}{E_0^2}\right\rceil.\]</p>
+      <p>El símbolo de techo significa tomar el menor entero mayor o igual que el umbral. \(p_0\) procede, por ejemplo, de un piloto o estudio anterior comparable; no es el parámetro verdadero demostrado. Si la proporción real difiere, el margen resultante puede diferir del planificado. No confundas este cálculo previo con el intervalo observado de <a href="07-intervalos-de-confianza.html#proporciones">9.7</a>, que utiliza \(\widehat p\).</p>
+      <h3>Cuando no hay información previa: p₀=0,5</h3>
+      <p>La incertidumbre p(1−p) alcanza su máximo en p=0,5:</p>
+      <p class="math-scroll" tabindex="0">\[p(1-p)=\frac14-\left(p-\frac12\right)^2\le\frac14.\]</p>
+      <p>Por tanto, si no tenemos una proporción previa fiable, usamos la cota conservadora:</p>
+      <p class="math-scroll" tabindex="0">\[n\ge\frac{z_{\alpha/2}^{\,2}}{4E_0^2},\qquad n_{\min}=\left\lceil\frac{z_{\alpha/2}^{\,2}}{4E_0^2}\right\rceil.\]</p>
+      <p>No estamos afirmando que la mitad de la población responda afirmativamente: elegimos el caso de mayor varianza para planificar. Esta cota controla el margen de la fórmula normal bajo el modelo, no garantiza que cualquier encuesta tenga cobertura exacta o esté libre de sesgo.</p>
+      <h3>Condiciones y escala</h3>
+      <ul>
+        <li>Suponer ensayos independientes con probabilidad común y justificar el mecanismo de selección. En una población finita sin reemplazo con fracción muestral importante, revisar el modelo y las correcciones; lo mismo en diseños estratificados o por conglomerados.</li>
+        <li>Comprobar que la aproximación normal es razonable. Los recuentos esperados \(np_0\) y \(n(1-p_0)\) orientan la planificación, pero el piloto no garantiza los recuentos de la muestra futura. Al construir el intervalo observado se revisan éxitos y fracasos, como se explica en 9.7.</li>
+        <li>Expresar p₀ y E₀ como proporciones: 20 % es 0,20 y un margen de 3 puntos porcentuales es 0,03. No introducir 20 o 3 en esas posiciones.</li>
+        <li>Planificar respuestas válidas, no solo personas contactadas. El tratamiento de la no respuesta requiere decisiones adicionales; no se resuelve automáticamente con esta fórmula.</li>
+      </ul>
+      <p data-content-role="warning">Una proporción previa igual a 0 o 1 no justifica planificar una muestra de tamaño cero. Puede reflejar un piloto pequeño y hace inadecuado ese cálculo normal. Revisar la información y el procedimiento; el caso conservador evita suponer varianza nula por ese motivo.</p>
+    </section>
+    <section id="ejemplos-tamano-proporcion" data-content-role="worked-example"><h2>Dos tamaños para el mismo margen objetivo</h2>
+      <p><strong>Ejemplo didáctico.</strong> Queremos estimar una proporción con confianza aproximada del 95 % y margen no superior a 3 puntos porcentuales. Usamos z=1,96 y E₀=0,03 en el modelo descrito.</p>
+      <h3>1. Con una proporción previa de 0,20</h3>
+      <p>Suponemos que un estudio previo comparable permite planificar con p₀=0,20. Entonces:</p>
+      <p class="math-scroll" tabindex="0">\[n\ge\frac{1{,}96^2\cdot0{,}20\cdot0{,}80}{0{,}03^2}=682{,}9511\ldots\quad\Longrightarrow\quad n_{\min}=683.\]</p>
+      <p>Comprobamos los dos enteros vecinos con el margen de planificación:</p>
+      <p class="math-scroll" tabindex="0">\[E(682)\approx0{,}030021&gt;0{,}03,\qquad E(683)\approx0{,}029999\le0{,}03.\]</p>
+      <p>Se necesitan 683 respuestas válidas para el objetivo calculado con p₀=0,20. Los recuentos esperados de planificación son 136,6 y 546,4; no son recuentos observados ni deben redondearse para recalcular la fórmula.</p>
+      <h3>2. Sin proporción previa fiable</h3>
+      <p>Elegimos p₀=0,5 para cubrir el máximo de p(1−p) en la fórmula:</p>
+      <p class="math-scroll" tabindex="0">\[n\ge\frac{1{,}96^2}{4\cdot0{,}03^2}=1067{,}1111\ldots\quad\Longrightarrow\quad n_{\min}=1068.\]</p>
+      <p class="math-scroll" tabindex="0">\[E(1067)\approx0{,}030002&gt;0{,}03,\qquad E(1068)\approx0{,}029988\le0{,}03.\]</p>
+      <p>El tamaño conservador es mayor. Si el primer plan se hubiera hecho con p₀=0,20 pero la proporción real fuese 0,50, para n=683 el margen teórico sería aproximadamente 0,03750, mayor que 0,03. Una estimación previa reduce el tamaño a cambio de depender de esa información.</p>
+    </section>
+    <section id="desigualdad-tamano" data-content-role="method"><h2>«No superior» e «inferior» no exigen lo mismo</h2>
+      <p>Sea \(T=z^2p_0(1-p_0)/E_0^2\) el umbral de planificación. Si pedimos \(E\le E_0\), necesitamos \(n\ge T\) y tomamos el techo de T. Si pedimos \(E&lt;E_0\), necesitamos \(n&gt;T\) y el menor entero es \(\lfloor T\rfloor+1\). Si T no es entero, coinciden; si es entero, el objetivo estricto exige una observación más.</p>
+      <p><strong>Ejemplo de frontera.</strong> Usamos p₀=0,5, margen E₀=0,05 y cuantil z=2, que corresponde a una confianza bilateral aproximada del 95,45 %:</p>
+      <p class="math-scroll" tabindex="0">\[T=\frac{2^2\cdot0{,}25}{0{,}05^2}=400.\]</p>
+      <p>Para E≤0,05 bastan 400 respuestas en este cálculo: E(400)=0,05. Para E&lt;0,05 se necesitan 401: E(401)≈0,049938. No hemos reemplazado el cuantil del 95 % por 2 sin avisar; se trata de otro nivel de confianza, elegido para mostrar la frontera entera.</p>
+      <p>Usa el cuantil y la precisión indicados en el enunciado. Si el umbral queda muy cerca de un entero, conserva precisión y verifica el margen antes de decidir. El tamaño es un total de respuestas; si ya hay una muestra utilizable, el número de respuestas adicionales requiere restar su tamaño y comprobar que ambas fases son compatibles con el diseño.</p>
+    </section>
+
     <section id="planificador" data-content-role="practice"><h2>Comprueba tu diseño</h2>
-      <p>Introduce una desviación típica poblacional conocida y el margen objetivo en las mismas unidades. Elige una confianza bilateral; la calculadora aplica los valores críticos normales de <a href="05-estimacion-puntual-y-estimacion-por-intervalos.html#criticos">9.5</a>. No sustituye la revisión del método de muestreo.</p>
+      <p>Esta calculadora sigue dedicada a la media, no a proporciones. Introduce una desviación típica poblacional conocida y el margen objetivo en las mismas unidades. Elige una confianza bilateral; la calculadora aplica los valores críticos normales de <a href="05-estimacion-puntual-y-estimacion-por-intervalos.html#criticos">9.5</a>. No sustituye la revisión del método de muestreo.</p>
       <form data-sample-size-form hidden><p><label for="size-confidence">Confianza</label> <select id="size-confidence" name="confidence"><option value="90">90 %</option><option value="95" selected>95 %</option><option value="99">99 %</option></select></p><p><label for="size-sigma">Desviación poblacional conocida \(\sigma\)</label> <input id="size-sigma" name="sigma" type="number" min="0" step="any" required inputmode="decimal"></p><p><label for="size-target">Margen objetivo \(E_0\)</label> <input id="size-target" name="targetMargin" type="number" min="0" step="any" required inputmode="decimal"></p><button type="submit">Calcular tamaño mínimo</button><p data-sample-size-output role="status" aria-live="polite"></p></form>
       <p>Sin JavaScript, usa la fórmula anterior y redondea el resultado al entero superior. Los valores críticos son 1,645 para 90 %, 1,960 para 95 % y 2,576 para 99 %; para mayor precisión numérica, utiliza sus valores sin redondear.</p>
     </section>
@@ -44,7 +117,7 @@
       <p>Estas relaciones describen el margen <em>muestral</em> del modelo. No incluyen costes reales, errores de medición, no respuesta ni efecto de un diseño complejo.</p>
     </section>
 
-    <section id="pendiente" data-content-role="warning"><h2>Qué falta</h2><p>La fuente 3 aporta fórmulas, figura, redondeo simbólico y relaciones de diseño; no contiene un problema numérico completo, banco de test ni tarjetas. Esta página se limita al caso de la media con \(\sigma\) conocida. El tamaño para proporciones y otros diseños no se desarrolla aquí y requiere fuentes y supuestos específicos. Los demás originales de Inferencia ya están integrados. El estado editorial sigue parcial.</p></section>
+    <section id="pendiente" data-content-role="warning"><h2>Qué falta</h2><p>La fuente 3 aporta las fórmulas iniciales para la media, la figura, el redondeo simbólico y las relaciones de diseño. La tanda TEORIA-02 (TEO-11) añade el tamaño para proporciones con información previa y caso conservador, ejemplos y tratamiento de desigualdades, como ampliación didáctica. TEO-12 añade un problema completo de tamaño para la media, la verificación de enteros vecinos, un caso de desigualdad estricta y una actividad resuelta, como elaboraciones didácticas. Siguen pendientes el banco propio de test y tarjetas, y la revisión visual y con tecnologías de apoyo. La calculadora existente mantiene su alcance de medias. El estado editorial sigue parcial.</p></section>
   </main>
   <div id="site-footer"></div>
 </body>

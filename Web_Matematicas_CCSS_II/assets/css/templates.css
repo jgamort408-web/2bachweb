@@ -477,3 +477,13 @@
   .mc-exam-table table { font-size: 9pt; }
   .mc-exam-instructions { break-inside: avoid; }
 }
+
+/* Mantener las anclas y el foco fuera del índice fijo de lectura. */
+.mc-lesson :is([id], a, button, input, select, textarea, summary, [tabindex]) {
+  scroll-margin-top: var(--mc-lesson-scroll-offset, 1rem);
+  scroll-margin-bottom: 5rem;
+}
+.mc-toc { max-height: calc(100dvh - 2rem); overflow-y: auto; }
+@media (max-width: 63.999rem) {
+  .mc-toc:has(details[open]) { max-height: min(60dvh, 30rem); }
+}

@@ -14,7 +14,7 @@
   <main id="main-content" class="page-main mc-lesson">
     <h1 data-content-role="lesson-title">8.2. Distribución binomial</h1>
     <p data-content-role="lead">Contar éxitos en ensayos de Bernoulli independientes.</p>
-    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#condiciones">Condiciones</a> · <a href="#probabilidad">Probabilidad exacta</a> · <a href="#parametros">Parámetros</a> · <a href="#ejemplos">Ejemplos resueltos</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#condiciones">Condiciones</a> · <a href="#probabilidad">Probabilidad exacta</a> · <a href="#parametros">Parámetros</a> · <a href="#ejemplos">Ejemplos resueltos</a> · <a href="#acumuladas">Acumuladas y complementarios</a> · <a href="#ejemplos-acumuladas">Ejemplos de acumuladas</a> · <a href="#pendiente">Contenido pendiente</a></nav>
     <section id="condiciones" data-content-role="definition"><h2>De Bernoulli a la binomial</h2>
       <p>Un ensayo de Bernoulli distingue dos resultados: éxito y fracaso. Cara o cruz, encestar o fallar, pieza defectuosa o correcta son las situaciones propuestas en el material de partida.</p>
       <ol data-binomial-conditions>
@@ -73,9 +73,56 @@
         </details>
       </article>
     </section>
+
+    <section id="acumuladas" data-content-role="explanation"><h2>De las palabras a las probabilidades acumuladas</h2>
+      <p>Una binomial cuenta éxitos enteros entre 0 y n. Para sumar varias posibilidades usamos la acumulada \(F(k)=P(X\le k)\). Si k es un entero entre 0 y n:</p>
+      <p class="math-scroll" tabindex="0">\[F(k)=\sum_{j=0}^{k}\binom nj p^j(1-p)^{n-j}.\]</p>
+      <p>Las posibilidades X=0, X=1, … son incompatibles, por eso sumamos sus probabilidades. Para enteros k&lt;0, F(k)=0; para k≥n, F(k)=1. En p=0 o p=1 usamos directamente los casos ciertos ya descritos, evitando evaluar potencias ambiguas.</p>
+      <div class="table-scroll table-readable" tabindex="0" role="region" aria-label="Traducción de expresiones binomiales"><table>
+        <caption>Reglas para umbrales enteros k y extremos enteros a≤b</caption>
+        <thead><tr><th scope="col">Expresión</th><th scope="col">Suceso</th><th scope="col">Con la acumulada</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Exactamente k</th><td>\(X=k\)</td><td>\(F(k)-F(k-1)\)</td></tr>
+          <tr><th scope="row">Como máximo k</th><td>\(X\le k\)</td><td>\(F(k)\)</td></tr>
+          <tr><th scope="row">Menos de k</th><td>\(X&lt;k\)</td><td>\(F(k-1)\)</td></tr>
+          <tr><th scope="row">Al menos k</th><td>\(X\ge k\)</td><td>\(1-F(k-1)\)</td></tr>
+          <tr><th scope="row">Más de k</th><td>\(X&gt;k\)</td><td>\(1-F(k)\)</td></tr>
+          <tr><th scope="row">Entre a y b, ambos incluidos</th><td>\(a\le X\le b\)</td><td>\(F(b)-F(a-1)\)</td></tr>
+        </tbody>
+      </table></div>
+      <p data-content-role="warning">El contrario de «al menos k» es «como máximo k−1». No es «como máximo k». Para un umbral no entero, escribe primero los valores enteros que cumplen la condición: X&lt;2,5 equivale a X≤2, mientras X≥2,5 equivale a X≥3.</p>
+      <h3>Un procedimiento que puedes repetir</h3>
+      <ol><li>Define X, identifica n y p y comprueba independencia y probabilidad constante.</li><li>Escribe el suceso con desigualdades y revisa qué extremos están incluidos.</li><li>Elige suma directa o complementario. Usa la alternativa que necesite menos términos y sea más clara.</li><li>Calcula con la precisión disponible y redondea al final. Comprueba que el resultado está entre 0 y 1.</li></ol>
+      <p>En una calculadora, comprueba si la función binomial devuelve una probabilidad puntual o una acumulada desde 0. Introduce n, p y el umbral en el orden indicado por el dispositivo. Si no tienes función acumulada, suma las probabilidades puntuales. No se necesita aproximación normal para aplicar estas identidades.</p>
+    </section>
+    <section id="ejemplos-acumuladas" data-content-role="worked-example"><h2>Ejemplos resueltos: las cinco tiradas del jugador</h2>
+      <p>Ampliación didáctica con los datos del ejemplo original: \(X\sim B(5,0{,}8)\). Las masas de los seis resultados posibles son:</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Distribución de los cinco tiros"><table>
+        <caption>Probabilidad de cada número de aciertos</caption><thead><tr><th scope="col">k</th><th scope="col">P(X=k)</th></tr></thead>
+        <tbody><tr><th scope="row">0</th><td>0,00032</td></tr><tr><th scope="row">1</th><td>0,00640</td></tr><tr><th scope="row">2</th><td>0,05120</td></tr><tr><th scope="row">3</th><td>0,20480</td></tr><tr><th scope="row">4</th><td>0,40960</td></tr><tr><th scope="row">5</th><td>0,32768</td></tr></tbody>
+      </table></div>
+      <p>Por ejemplo, \(P(X=4)=\binom54(0{,}8)^4(0{,}2)=0{,}4096\). La suma de las seis masas es 1.</p>
+      <h3>Como máximo dos aciertos</h3>
+      <p>Se incluyen cero, uno y dos aciertos. Sumamos los tres términos:</p>
+      <p class="math-scroll" tabindex="0">\[P(X\le2)=0{,}00032+0{,}00640+0{,}05120=0{,}05792.\]</p>
+      <p>La probabilidad es 5,792 %. «Menos de dos» excluiría X=2 y daría 0,00672.</p>
+      <h3>Al menos tres aciertos</h3>
+      <p>Se incluyen tres, cuatro y cinco. Su contrario es tener cero, uno o dos:</p>
+      <p class="math-scroll" tabindex="0">\[P(X\ge3)=1-P(X\le2)=1-0{,}05792=0{,}94208.\]</p>
+      <p>Comprobación directa: 0,20480+0,40960+0,32768=0,94208. «Más de tres» excluiría tres y daría 0,73728.</p>
+      <h3>Entre dos y cuatro, ambos incluidos</h3>
+      <p>Restamos de la acumulada hasta cuatro los casos cero y uno, que no pertenecen al intervalo:</p>
+      <p class="math-scroll" tabindex="0">\[P(2\le X\le4)=F(4)-F(1)=0{,}67232-0{,}00672=0{,}66560.\]</p>
+      <p>También resulta 0,05120+0,20480+0,40960=0,66560. Restar F(2) eliminaría indebidamente el caso X=2.</p>
+      <h3>Al menos un acierto</h3>
+      <p>El contrario es fallar los cinco tiros; basta un término:</p>
+      <p class="math-scroll" tabindex="0">\[P(X\ge1)=1-P(X=0)=1-(0{,}2)^5=0{,}99968.\]</p>
+      <p data-content-role="key-idea">Distingue probabilidad y esperanza: E(X)=4 aciertos es un promedio del modelo; P(X=4)=0,4096 es la probabilidad de un resultado concreto.</p>
+    </section>
+
     <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2>
       <p>El archivo original aporta teoría y dos ejemplos desplegables. No contiene simulador, controles para variar n y p, gráfico de probabilidades, preguntas autocorregibles ni generación procedural. Su «laboratorio» se conserva aquí como ejemplos resueltos.</p>
-      <p>La práctica de probabilidades acumuladas y la relación de ejercicios del bloque quedan pendientes de revisión en los otros archivos. Esta lección mantiene el estado de contenido parcial.</p>
+      <p>La tanda TEORIA-01 añade las acumuladas, los complementarios y los intervalos (TEO-03), con ampliaciones resueltas de los datos originales. La lección mantiene el estado parcial por las actividades pendientes y la revisión manual de accesibilidad; la teoría nueva se puede leer sin JavaScript.</p>
     </section>
     <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="01-variable-aleatoria.html">8.1. Variable aleatoria</a> · <a href="index.html">Volver al tema 8</a> · <a href="03-distribucion-normal.html">8.3. Distribución normal</a></nav>
   </main>

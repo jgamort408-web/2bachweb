@@ -1,5 +1,6 @@
+const {fixture}=require('./helpers/local-site.cjs');
 const assert=require('node:assert/strict'),{chromium}=require('playwright'),fs=require('node:fs'),path=require('node:path'),{createHash}=require('node:crypto'),vm=require('node:vm');
-const base=process.env.TEST_URL||'http://127.0.0.1:4173/';
+const base='http://libro.test/';
 (async()=>{
  const originals=path.resolve(__dirname,'../../Página web existente');
  const hashes={
@@ -28,10 +29,10 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/';
  const source=vm.runInNewContext(literal,{}, {timeout:1000});
  const {flashcards,questions,cardsForScope}=await import('../content/activities/catalog.js');
  const cards=cardsForScope('bivariate');
- assert.equal(source.length,20);assert.equal(cards.length,20);assert.equal(flashcards.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards);assert.equal(questions.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.questions);
+ assert.equal(source.length,20);assert.equal(cards.length,23);assert.equal(flashcards.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards);assert.equal(questions.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.questions);
  assert.equal(new Set(flashcards.map(c=>c.id)).size,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards);
- cards.forEach((c,i)=>{assert.equal(c.sourceIndex,i+1);assert.equal(c.category,source[i].category);assert.ok(c.front&&c.back);});
- const categories=[['Conceptos',4],['Covarianza',5],['Correlación',5],['Regresión',6]];
+ cards.slice(0,20).forEach((c,i)=>{assert.equal(c.sourceIndex,i+1);assert.equal(c.category,source[i].category);assert.ok(c.front&&c.back);});
+ const categories=[['Conceptos',4],['Covarianza',5],['Correlación',5],['Regresión',6],['Conceptos de la teoría',3]];
  for(const [topic,size] of [['t01',61],['t02',54],['t03',48],['t04',72],['t05',66],['t06',19]])assert.equal(cardsForScope(topic).length,size);
 
  const mean=xs=>xs.reduce((a,b)=>a+b,0)/xs.length;
@@ -52,12 +53,13 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/';
  near(moments([[-1,1],[0,0],[1,1]]).r,0); // Nonlinear dependence with zero covariance.
  assert.ok(Number.isNaN(moments([[1,2],[1,3]]).r));
  near(.9**2,.81);
- const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH});
+ const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH||'C:/Program Files/Google/Chrome/Application/chrome.exe'});
  try{
- const page=await browser.newPage({viewport:{width:1280,height:960}}),errors=[],external=[];
+ const page=await browser.newPage({serviceWorkers:'block',viewport:{width:1280,height:960}}),errors=[],external=[];
  page.on('pageerror',e=>errors.push(e.message));
  page.on('response',r=>{if(r.status()>=400&&!r.url().endsWith('favicon.ico'))errors.push(r.status()+' '+r.url());});
  page.on('request',r=>{if(/^https?:/.test(r.url())&&!r.url().startsWith(base))external.push(r.url());});
+ await fixture(page.context());
  const deck=page.locator('[data-flashcards]');
  const ready=async()=>{
  await page.locator('[data-content-role="flashcard-front"]').waitFor();
@@ -67,12 +69,11 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/';
  };
  for(const sub of [false,true]){
  const prefix=sub?new URL('prueba-subcarpeta/',base).href:base;
- if(sub)await page.route(prefix+'**',async route=>{const response=await route.fetch({url:route.request().url().replace(prefix,base)});await route.fulfill({response});});
- await page.goto(prefix+'tarjetas/index.html?tema=bivariate');await page.getByText('Tarjeta 1 de 20',{exact:true}).waitFor();await ready();
+ await page.goto(prefix+'tarjetas/index.html?tema=bivariate');await page.getByText('Tarjeta 1 de 23',{exact:true}).waitFor();await ready();
  assert.equal(await deck.getByRole('button',{name:'Anterior',exact:true}).isDisabled(),true);
- assert.equal(await page.locator('[data-card-category] option').count(),5);
- for(let i=0;i<20;i++){
-  await page.getByText('Tarjeta '+(i+1)+' de 20',{exact:true}).waitFor();
+ assert.equal(await page.locator('[data-card-category] option').count(),6);
+ for(let i=0;i<cards.length;i++){
+  await page.getByText('Tarjeta '+(i+1)+' de 23',{exact:true}).waitFor();
   await deck.getByRole('button',{name:'Mostrar respuesta',exact:true}).press('Enter');
   await page.locator('[data-content-role="flashcard-back"]').waitFor();await ready();
   for(const [role,expected] of [['flashcard-front',cards[i].front],['flashcard-back',cards[i].back]]){
@@ -87,7 +88,7 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/';
   assert.equal(await page.locator('[data-content-role="flashcard-category"]').innerText(),cards[i].category);
   assert.equal(await deck.getByRole('button',{name:'Ocultar respuesta',exact:true}).getAttribute('aria-expanded'),'true');
   if(cards[i].back.includes('\\('))assert.ok(await deck.locator('mjx-container').count()>0);
-  if(i<19)await deck.getByRole('button',{name:'Siguiente',exact:true}).click();
+  if(i<cards.length-1)await deck.getByRole('button',{name:'Siguiente',exact:true}).click();
  }
  assert.ok(await deck.getByRole('button',{name:'Siguiente',exact:true}).isDisabled());
  for(const [category,size] of categories){
@@ -112,12 +113,12 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/';
  if(!sub&&process.env.SCREENSHOT_DIR)await deck.screenshot({path:process.env.SCREENSHOT_DIR+'/bidimensional-tarjetas-formula-movil.png'});
 
  await deck.getByRole('button',{name:'Ocultar respuesta',exact:true}).press('Enter');await ready();
- await page.reload();await page.getByText('Tarjeta 1 de 20',{exact:true}).waitFor();await ready();
+ await page.reload();await page.getByText('Tarjeta 1 de 23',{exact:true}).waitFor();await ready();
  assert.equal(await page.locator('[data-card-category]').inputValue(),'');assert.equal(await page.locator('[data-content-role="flashcard-back"]').count(),0);
  assert.equal(await page.locator('[data-text-size]').inputValue(),'200');
  await page.locator('[data-reading-controls]>summary').click();await page.locator('[data-reset-reading]').click();await page.setViewportSize({width:1280,height:960});
  await page.goto(prefix+'libro/apoyos/estadistica-bidimensional.html#tarjetas');
- await page.getByRole('link',{name:'Abrir las 20 tarjetas y filtrar por categoría',exact:true}).click();await page.getByText('Tarjeta 1 de 20',{exact:true}).waitFor();
+ await page.getByRole('link',{name:'Abrir las 23 tarjetas y filtrar por categoría',exact:true}).click();await page.getByText('Tarjeta 1 de 23',{exact:true}).waitFor();
  }
  // Shared renderer regression: every older theme plus the global and lesson scopes.
  for(const [topic,size] of [['t01',61],['t02',54],['t03',48],['t04',72],['t05',66],['',(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards]]){
@@ -138,7 +139,7 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/';
  await deck.waitFor();await deck.getByText('Tarjeta 1 de 6',{exact:true}).waitFor();await deck.getByRole('button',{name:'Mostrar respuesta',exact:true}).click();await ready();
  assert.ok(await page.locator('[data-quiz] input').count()>0);
  assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
- console.log('PASS: 16 original hashes; 20 cards and four categories; 340 cards / 318 questions; all formulas and answers in root/subfolder; keyboard, mobile 200%, filters, reload, six older themes and lesson regression.');
+ console.log('PASS: 16 original hashes; 20 original cards plus three additions; five categories; current catalog; all formulas and answers in root/subfolder; keyboard, mobile 200%, filters, reload, six older themes and lesson regression.');
  }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'ignoreErrors'});await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
 

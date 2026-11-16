@@ -14,13 +14,33 @@
   <main id="main-content" class="page-main mc-lesson">
     <h1 data-content-role="lesson-title">8.1. Variable aleatoria</h1>
     <p data-content-role="lead">Del resultado de un experimento aleatorio a un valor numérico.</p>
-    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#definicion">Definición</a> · <a href="#probabilidad">Función de probabilidad</a> · <a href="#parametros">Parámetros</a> · <a href="#ejemplo-dado">Ejemplo del dado</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#definicion">Definición</a> · <a href="#tipos">Discreta y continua</a> · <a href="#probabilidad">Función de probabilidad</a> · <a href="#densidad">Densidad</a> · <a href="#acumulada">Acumulada</a> · <a href="#parametros">Parámetros</a> · <a href="#ejemplo-dado">Ejemplo del dado</a> · <a href="#pendiente">Contenido pendiente</a></nav>
 
     <section id="definicion" data-content-role="definition"><h2>¿Qué es una variable aleatoria?</h2>
       <p>En un experimento aleatorio hablamos de resultados como «salir cara» o de sucesos como «sacar oros». Una variable aleatoria permite asociar números a los resultados para estudiarlos matemáticamente.</p>
       <p>Una <strong>variable aleatoria \(X\)</strong> es una función que asigna un número real a cada resultado del espacio muestral \(E\):</p>
       <p data-variable-formula="definition">\[X:E\longrightarrow\mathbb{R}.\]</p>
       <p data-content-role="key-idea">No hay que confundir el resultado del experimento con el número que le asigna X. Resultados distintos pueden recibir el mismo valor.</p>
+    </section>
+
+
+    <section id="tipos" data-content-role="explanation"><h2>Variables discretas y continuas</h2>
+      <p>Clasificamos el <strong>modelo de la variable</strong> por sus valores posibles, no por el número de datos que hemos recogido.</p>
+      <ul>
+        <li><strong>Discreta.</strong> Sus valores posibles forman un conjunto finito o numerable: se pueden enumerar. El número de compras de 20 clientes toma los valores 0, 1, …, 20. El número de llamadas hasta recibir la primera compra puede tomar 1, 2, 3, …, sin una cota prefijada. Discreta no significa necesariamente finita.</li>
+        <li><strong>Continua con densidad.</strong> La describimos mediante una densidad y probabilidades de intervalos. El tiempo de espera o el peso se suelen modelizar así. Una medición con decimales redondeados no convierte automáticamente el fenómeno subyacente en un recuento.</li>
+      </ul>
+      <p data-content-role="warning">Que un dato tenga decimales no decide el tipo: un precio limitado a céntimos es discreto. Tampoco toda variable continua sigue una normal. En este curso estudiamos modelos discretos y modelos continuos con densidad; existen otros modelos fuera de este alcance.</p>
+      <div id="discreta-no-entera">
+        <h3>Ejemplo didáctico: un premio con dos importes</h3>
+        <p>Lanzamos una moneda equilibrada: si sale cara, el premio es 0,50 €; si sale cruz, es 1,50 €. La variable X es el importe del premio en euros. Tiene sólo dos valores posibles, de modo que es <strong>discreta aunque sus valores no sean enteros</strong>.</p>
+        <p class="math-scroll" tabindex="0">\[P(X=0{,}5)=P(X=1{,}5)=\tfrac12.\]</p>
+        <p>Las dos probabilidades suman uno. Es el número y la naturaleza de los valores posibles lo que caracteriza el modelo, no que se escriban con decimales. El número de hijos también es discreto, pero en ese caso sus valores sí son enteros.</p>
+      </div>
+      <h3>Ejemplo: dos monedas y un mismo valor</h3>
+      <p>Al lanzar dos monedas equilibradas e independientes, los cuatro resultados ordenados CC, CX, XC y XX son equiprobables. Si X cuenta caras, sus valores son 0, 1 y 2:</p>
+      <p class="math-scroll" tabindex="0">\[P(X=0)=\tfrac14,\qquad P(X=1)=\tfrac24,\qquad P(X=2)=\tfrac14.\]</p>
+      <p>Los resultados CX y XC producen el mismo valor 1. Por eso los tres valores de X no son equiprobables: hay que sumar las probabilidades de los resultados que dan cada valor.</p>
     </section>
 
     <section id="probabilidad" data-content-role="explanation"><h2>Función de probabilidad: caso discreto finito</h2>
@@ -34,6 +54,36 @@
         <li>Al incluir todos los valores posibles, las probabilidades suman 1.<p data-variable-formula="total">\[\sum_{i=1}^{n}p_i=1.\]</p></li>
       </ul>
       <p data-content-role="warning">Estas sumas se refieren al caso discreto finito. No se aplican de esta forma a una variable continua descrita mediante una densidad.</p>
+    </section>
+
+
+    <section id="densidad" data-content-role="explanation"><h2>Una densidad asigna probabilidades mediante áreas</h2>
+      <p>En un modelo continuo con densidad f, se exige que f sea no negativa y que el área total bajo su gráfica sea 1. La altura f(x) no es la probabilidad de observar exactamente x:</p>
+      <p class="math-scroll" tabindex="0">\[f(x)\ge0,\qquad \int_{-\infty}^{+\infty}f(x)\,dx=1,\qquad P(a\le X\le b)=\int_a^b f(x)\,dx\quad(a\le b).\]</p>
+      <p>Un punto tiene anchura cero y, por tanto, área cero: \(P(X=a)=0\). Incluir o excluir los extremos de un intervalo no cambia su probabilidad. Esto no convierte cada valor en imposible: la variable toma algún valor, pero un punto aislado no tiene masa de probabilidad.</p>
+      <h3>Ejemplo resuelto: espera uniforme entre 0 y 2 minutos</h3>
+      <p>Este es un modelo didáctico nuevo: suponemos una densidad constante en ese intervalo, sin afirmar que cualquier espera real la tenga.</p>
+      <p class="math-scroll" tabindex="0">\[f(x)=\begin{cases}\tfrac12,&amp;0\le x\le2,\\0,&amp;\text{en otro caso}.\end{cases}\]</p>
+      <ol>
+        <li><strong>Comprobar el modelo.</strong> Es no negativa y su área total es \(2\cdot\tfrac12=1\).</li>
+        <li><strong>Calcular una probabilidad.</strong> Entre 0,5 y 1,5 minutos hay una anchura de 1 minuto: \(P(0{,}5\le X\le1{,}5)=1\cdot\tfrac12=0{,}5\).</li>
+        <li><strong>Distinguir altura y área.</strong> La altura f(1)=0,5 no es P(X=1), que vale cero. Para un intervalo importa también su anchura.</li>
+      </ol>
+      <p data-content-role="warning">Una densidad puede superar 1. Por ejemplo, una densidad constante 2 en [0;0,5], y cero fuera, tiene área total 1. Son las probabilidades de sucesos las que deben estar entre 0 y 1. La densidad tiene unidades inversas a las de X.</p>
+    </section>
+    <section id="acumulada" data-content-role="explanation"><h2>La acumulada sirve para ambos tipos de variable</h2>
+      <p>La <strong>función de distribución o acumulada</strong> recoge la probabilidad hasta un valor x, incluido ese valor:</p>
+      <p class="math-scroll" tabindex="0">\[F(x)=P(X\le x).\]</p>
+      <p>Es no decreciente, toma valores entre 0 y 1 y tiende a 0 y a 1 en los extremos del eje real. En un modelo discreto se suman las masas de los valores menores o iguales que x; en un modelo con densidad se integra desde menos infinito hasta x.</p>
+      <p class="math-scroll" tabindex="0">\[F(x)=\sum_{x_i\le x}p_i\quad\text{(discreta finita)},\qquad F(x)=\int_{-\infty}^{x}f(t)\,dt\quad\text{(con densidad)}.\]</p>
+      <h3>Ejemplo continuo: la espera anterior</h3>
+      <p class="math-scroll" tabindex="0">\[F(x)=\begin{cases}0,&amp;x&lt;0,\\x/2,&amp;0\le x\le2,\\1,&amp;x&gt;2.\end{cases}\]</p>
+      <p>Así, F(1,5)=0,75 significa que la espera es como máximo 1,5 minutos con probabilidad 0,75. Para el intervalo del ejemplo: \(F(1{,}5)-F(0{,}5)=0{,}75-0{,}25=0{,}5\).</p>
+      <h3>Atención a los extremos en el caso discreto</h3>
+      <p>Para cualquier distribución, \(P(a&lt;X\le b)=F(b)-F(a)\). En una variable continua con densidad también podemos incluir a. En una discreta, incluirlo obliga a recuperar su masa. Si X es entera y a y b son enteros, con a≤b:</p>
+      <p class="math-scroll" tabindex="0">\[P(a\le X\le b)=F(b)-F(a-1).\]</p>
+      <p>En las dos monedas, \(F(0)=1/4\) y \(F(1)=3/4\). Entonces \(P(0&lt;X\le1)=1/2\), mientras \(P(0\le X\le1)=3/4\). Quitar un extremo sí cambia aquí el resultado.</p>
+      <p data-content-role="key-idea">Masa: probabilidad de un valor discreto. Densidad: altura cuya área da probabilidades. Acumulada: probabilidad hasta un valor. No se calcula una probabilidad como área bajo la acumulada.</p>
     </section>
 
     <section id="parametros" data-content-role="explanation"><h2>Parámetros de la distribución</h2>
@@ -83,8 +133,8 @@
       </section>
     </section>
     <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2>
-      <p>Esta lección incorpora la definición, la distribución discreta finita, los tres parámetros y el ejemplo del dado del material original. El archivo no desarrolla la clasificación discreta/continua ni el cálculo con densidades; tampoco incluye un explorador editable, preguntas autocorregibles o generación procedural.</p>
-      <p>El resto de archivos del bloque se revisará por separado. Las carencias se mantienen señaladas y esta lección tiene contenido parcial.</p>
+      <p>La definición, los parámetros discretos y el dado conservan el material original. La clasificación, las dos monedas, la espera uniforme y la comparación entre masa, densidad y acumulada son ampliaciones didácticas de la tanda TEORIA-01 (TEO-01 y TEO-02).</p>
+      <p>Quedan pendientes el explorador editable, la práctica autocorregible y la generación procedural propios de esta lección, además de la validación manual con tecnologías de apoyo. Los parámetros anteriores se han desarrollado para el caso discreto finito; no se presentan como fórmulas para integrar densidades.</p>
     </section>
     <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="index.html">Volver al tema 8</a> · <a href="02-distribucion-binomial.html">8.2. Distribución binomial</a> · <a href="../../index.html">Volver al libro</a></nav>
   </main>

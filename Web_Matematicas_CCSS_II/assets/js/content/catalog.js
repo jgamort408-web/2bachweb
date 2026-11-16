@@ -124,7 +124,7 @@ export function buildContentCatalog({ pages, widgets, questions, flashcards, edi
   for (const [kind, items] of [['question', questions], ['card', flashcards]]) {
     for (const item of items) {
       const scope = item.lessonId && Object.hasOwn(studyScopes, item.lessonId) ? studyScopes[item.lessonId] : null;
-      const parent = scope?.pageId ?? item.lessonId ?? item.topicId;
+      const parent = scope?.pageId ?? item.lessonId ?? item.sourceLessonId ?? item.topicId;
       entities.push({
         id: kind + ':' + item.id, sourceId: item.id, kind,
         title: kind === 'question' ? item.prompt : item.front,

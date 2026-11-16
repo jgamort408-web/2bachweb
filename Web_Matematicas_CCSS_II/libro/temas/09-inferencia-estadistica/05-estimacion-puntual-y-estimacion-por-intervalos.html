@@ -15,11 +15,26 @@
     <h1 data-content-role="lesson-title">9.5. Estimación puntual y estimación por intervalos</h1>
     <p data-content-role="lead">La media de una muestra puede estimar un parámetro desconocido; un intervalo expresa la incertidumbre del procedimiento.</p>
     <p data-content-role="source">Adaptación revisada de «2. Estimación.txt». <a href="index.html">Volver al tema 9</a>.</p>
-    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#direccion">Dos preguntas</a> · <a href="#confianza">Confianza</a> · <a href="#criticos">Valores críticos</a> · <a href="#media">Intervalo para la media</a> · <a href="#pendiente">Pendiente</a></nav>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#direccion">Dos preguntas</a> · <a href="#estimador-estimacion">Estimador y estimación</a> · <a href="#confianza">Confianza</a> · <a href="#criticos">Valores críticos</a> · <a href="#media">Intervalo para la media</a> · <a href="#ejemplo-completo">Ejemplo completo</a> · <a href="#comprobacion">Comprueba</a> · <a href="#pendiente">Pendiente</a></nav>
 
     <section id="direccion" data-content-role="method"><h2>Primero, identifica qué conoces</h2>
       <dl><dt><strong>Población conocida → media de una muestra futura</strong></dt><dd>Si conocemos la media poblacional \(\mu\), buscamos una región probable para la media muestral \(\bar X\). Es un intervalo de probabilidad para el <strong>estadístico aleatorio</strong>, que se calcula en <a href="06-intervalos-de-probabilidad-o-intervalos-caracteristicos.html">9.6. Intervalos característicos</a>.</dd><dt><strong>Muestra observada → parámetro poblacional desconocido</strong></dt><dd>Si conocemos una media muestral \(\bar x\), usamos ese valor para estimar la media poblacional \(\mu\). \(\bar x\) es una <strong>estimación puntual</strong>; un intervalo de confianza añade un margen calculado bajo supuestos explícitos.</dd></dl>
       <p>El original ilustra la primera pregunta con una media nacional de 170 y la segunda con una media observada de 172. Ninguna permite hallar límites numéricos sin conocer también, entre otros datos, el tamaño de la muestra y su variación relevante. No se puede invertir un intervalo para \(\bar X\) sin revisar qué cantidad se considera fija y cuál es aleatoria.</p>
+    </section>
+
+
+    <section id="estimador-estimacion" data-content-role="definition"><h2>Parámetro, estimador y estimación</h2>
+      <p>El <strong>parámetro</strong> es una característica de la población que queremos conocer, como su media μ o una proporción p. En el enfoque de este curso es fijo, aunque pueda ser desconocido.</p>
+      <p>Un <strong>estadístico</strong> es una función de los datos muestrales que no depende de parámetros desconocidos. Cuando lo utilizamos para estimar un parámetro lo llamamos <strong>estimador</strong>. Antes de observar la muestra, sus datos y el estimador son aleatorios. Una <strong>estimación</strong> es el número que obtenemos al aplicar esa regla a la muestra observada.</p>
+      <div class="table-scroll table-readable" tabindex="0" role="region" aria-label="Parámetro, estimador y valor observado"><table>
+        <caption>La regla y el resultado cumplen papeles distintos</caption><thead><tr><th scope="col">Qué queremos conocer</th><th scope="col">Estimador antes de observar</th><th scope="col">Estimación con los datos</th></tr></thead><tbody>
+          <tr><th scope="row">Media poblacional μ</th><td>\(\overline X=\frac1n\sum_{i=1}^{n}X_i\)</td><td>\(\overline x=\frac1n\sum_{i=1}^{n}x_i\)</td></tr>
+          <tr><th scope="row">Proporción poblacional p</th><td>\(\widehat P=K/n\), con K el recuento aleatorio de éxitos</td><td>\(\widehat p=k/n\), con k los éxitos observados</td></tr>
+        </tbody></table></div>
+      <p>Usamos mayúsculas para las cantidades aleatorias y minúsculas para los valores observados. Otros textos pueden emplear la misma letra para ambos casos: hay que distinguir su significado por el contexto.</p>
+      <p data-content-role="key-idea">Dos muestras pueden dar estimaciones diferentes usando el mismo estimador. La diferencia entre una estimación y el parámetro real es el error de estimación; si el parámetro es desconocido, ese error concreto también lo es.</p>
+      <h3>Qué significa que la media sea insesgada</h3>
+      <p>Si las observaciones tienen media μ y esperanza finita, la media muestral cumple \(E(\overline X)=\mu\). Se dice que es un estimador insesgado: al repetir el procedimiento su promedio coincide con μ. No significa que cada muestra produzca exactamente μ. Si además las observaciones son independientes con varianza común finita \(\sigma^2\), su error típico es \(\sigma/\sqrt n\), como se explica en <a href="04-distribucion-muestral-teorema-central-del-limite.html">9.4. Distribución muestral</a>.</p>
     </section>
 
     <section id="confianza" data-content-role="theory"><h2>Nivel de confianza y significación</h2>
@@ -43,7 +58,33 @@
       <p>Para construir el intervalo hacen falta \(\bar x\), \(n\), una medida de dispersión y un nivel de confianza, además de comprobar el diseño y los supuestos. La fuente solo da ejemplos de dirección con 170 y 172, así que no se inventan límites numéricos.</p>
     </section>
 
-    <section id="pendiente" data-content-role="warning"><h2>Qué falta</h2><p>Este original aporta explicación, figura, tabla y fórmula, pero no un ejercicio numérico resuelto, calculadora, test ni tarjetas. Los archivos posteriores de intervalos y ejercicios se revisarán por separado. La lección mantiene estado editorial parcial.</p></section>
+
+    <section id="ejemplo-completo" data-content-role="worked-example"><h2>Ejemplo completo: de cuatro datos a un intervalo</h2>
+      <p><strong>Modelo didáctico nuevo.</strong> Se estudia una magnitud medida en unidades. Su población se supone normal, con media μ desconocida y desviación típica poblacional conocida σ=4 unidades. Se toman cuatro observaciones independientes: 98, 100, 102 y 104. Queremos estimar μ con confianza del 95 %.</p>
+      <h3>1. Identificar lo conocido y lo desconocido</h3>
+      <p>Conocemos n=4, σ=4 y los cuatro datos; desconocemos μ. La normalidad supuesta permite usar el procedimiento normal exactamente aunque n sea pequeño. La desviación 4 es un dato poblacional del modelo: no se ha calculado a partir de esos cuatro valores.</p>
+      <h3>2. Obtener la estimación puntual</h3>
+      <p>El estimador es la regla \(\overline X\). Su valor en esta muestra es:</p>
+      <p class="math-scroll" tabindex="0">\[\overline x=\frac{98+100+102+104}{4}=\frac{404}{4}=101\text{ unidades}.\]</p>
+      <p>101 es una estimación de μ, no el valor demostrado de μ.</p>
+      <h3>3. Calcular el error típico y el margen</h3>
+      <p>Con confianza 95 %, α=0,05 y cada cola tiene 0,025. Usamos el cuantil positivo z≈1,96, que deja 0,975 a la izquierda:</p>
+      <p class="math-scroll" tabindex="0">\[\operatorname{DE}(\overline X)=\frac4{\sqrt4}=2,\qquad E\approx1{,}96\cdot2=3{,}92\text{ unidades}.\]</p>
+      <p>El error típico 2 describe la variabilidad de las medias entre muestras bajo el modelo. El margen 3,92 depende también de la confianza; no son la misma cantidad.</p>
+      <h3>4. Construir e interpretar el intervalo</h3>
+      <p class="math-scroll" tabindex="0">\[IC_{95\%}(\mu)\approx[101-3{,}92;\,101+3{,}92]=[97{,}08;\,104{,}92]\text{ unidades}.\]</p>
+      <p>La anchura es 7,84 unidades, el doble del margen. En el muestreo repetido bajo los supuestos, el procedimiento con el cuantil preciso cubre μ en el 95 % de las muestras; 1,96 es una aproximación de ese cuantil. El intervalo concreto calculado contiene o no contiene μ, que sigue siendo fija.</p>
+      <p data-content-role="warning">No hemos calculado un intervalo para el 95 % de los valores individuales ni una garantía de que el error real sea como máximo 3,92. Tampoco podemos sustituir σ por una desviación muestral y afirmar que el mismo procedimiento conserva su cobertura exacta.</p>
+      <h3>5. Otra muestra, la misma regla</h3>
+      <p>Si, bajo el mismo modelo y con igual tamaño, observamos 94, 98, 102 y 106, la media observada es 100. El margen sigue siendo 3,92, pero el intervalo pasa a [96,08;103,92]. Ha cambiado la estimación y el intervalo observado; el estimador y el parámetro poblacional siguen siendo los mismos.</p>
+    </section>
+    <section id="comprobacion" data-content-role="practice"><h2>Comprueba la distinción</h2>
+      <p>De una población normal con σ=8 conocida se obtienen 16 observaciones independientes cuya media es 50. Identifica el parámetro, el estimador y la estimación. Construye el intervalo del 95 % usando z≈1,96.</p>
+      <details><summary>Ver solución razonada</summary><p>El parámetro es μ, el estimador es la media muestral aleatoria \(\overline X\) y la estimación es \(\overline x=50\). El error típico es \(8/\sqrt{16}=2\), el margen es 1,96·2=3,92 y el intervalo es aproximadamente [46,08;53,92]. Su anchura es 7,84. Cambiar de muestra puede cambiar 50; no cambia por ello la media de la población.</p></details>
+      <p>Para ampliar la construcción y la interpretación, continúa con <a href="07-intervalos-de-confianza.html">9.7. Intervalos de confianza</a>. Para estudiar cómo elegir n antes de recoger datos, consulta <a href="08-tamano-de-la-muestra-error-cometido.html">9.8. Tamaño muestral y error</a>.</p>
+    </section>
+
+    <section id="pendiente" data-content-role="warning"><h2>Qué falta</h2><p>El original aporta la explicación inicial, figura, tabla y fórmula. La tanda TEORIA-02 (TEO-08) añade la distinción entre estimador y estimación, un ejemplo numérico completo y una comprobación resuelta, identificados como elaboraciones didácticas. Sus datos no completan ni alteran los ejemplos incompletos de 170 y 172 del original. Quedan pendientes calculadora propia, práctica autocorregible y revisión visual y con tecnologías de apoyo. La lección mantiene estado editorial parcial.</p></section>
   </main>
   <div id="site-footer"></div>
 </body>

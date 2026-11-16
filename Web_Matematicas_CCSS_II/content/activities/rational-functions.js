@@ -18,7 +18,7 @@ export const rationalQuestions = [
     [tex`Un punto relleno en \((-1,2/3)\).`, 'El límite no redefine automáticamente el valor de la función.']],
     tex`Para x admisible, \(f(x)=(x-1)/(x-2)\). Al acercarse a −1, el límite es \((-2)/(-3)=2/3\), pero f(−1) no existe.`,
     'Conserva la exclusión del dominio y calcula el límite.'),
-  q('03', tex`Para la misma f, ¿cuáles son los límites en \(2^-\) y \(2^+\), en ese orden?`, [
+  q('03', tex`Para f(x)=(x²−1)/(x²−x−2), ¿cuáles son los límites en \(2^-\) y \(2^+\), en ese orden?`, [
     [tex`\(-\infty,\ +\infty\)`, 'El numerador reducido es positivo y el denominador cambia de signo.'],
     [tex`\(+\infty,\ -\infty\)`, 'Se han intercambiado los signos del denominador.'],
     ['1 y 1.', '1 es el límite en los infinitos, no en 2.'], ['0 y 0.', 'El numerador reducido tiende a 1, no a cero.']],
@@ -46,8 +46,8 @@ export const rationalQuestions = [
 export const rationalCards = [
   { id: 'fc-rational-01', front: '¿Qué dominio se conserva al simplificar una función racional?', back: 'El original: todos los reales salvo los ceros del denominador original. Cancelar un factor no incorpora al dominio sus raíces excluidas.' },
   { id: 'fc-rational-02', front: '¿Cómo distingues un hueco de una asíntota vertical?', back: 'En un punto excluido, un límite finito da un hueco. Si algún límite lateral es infinito, hay asíntota vertical. Simplifica y estudia los factores que quedan; no basta con que inicialmente aparezca 0/0.' },
-  { id: 'fc-rational-03', front: '¿Qué asíntota horizontal tiene P/Q según sus grados?', back: 'Para polinomios no nulos: si grado P < grado Q, y=0; si son iguales, y=cociente de coeficientes principales. Si grado P > grado Q, no hay asíntota horizontal.' },
-  { id: 'fc-rational-04', front: '¿Cuándo aparece una asíntota oblicua en una racional?', back: tex`Si el grado del numerador supera en uno al del denominador. La división da \(P/Q=mx+b+R/Q\), con grado R menor que grado Q; \(R/Q\to0\). La recta es y=mx+b, con m distinto de 0.` },
+  { id: 'fc-rational-03', front: '¿Qué asíntota horizontal tiene P/Q según sus grados?', back: 'Para polinomios no nulos: si grado P < grado Q, y=0; si son iguales, y=cociente de coeficientes principales. Si grado P > grado Q, no hay asíntota horizontal. Si P es el polinomio nulo y Q no lo es, la función vale cero en su dominio y tiene asíntota horizontal y=0.' },
+  { id: 'fc-rational-04', front: '¿Cuándo aparece una asíntota oblicua en una racional?', back: tex`Si el grado del numerador supera en uno al del denominador. La división da \(P/Q=mx+b+R/Q\), con R nulo o de grado menor que Q; \(R/Q\to0\). La recta es y=mx+b, con m distinto de 0.` },
   { id: 'fc-rational-05', front: '¿Qué puntos separan la tabla de monotonía de una racional?', back: 'Los ceros de su derivada y los puntos excluidos del dominio, incluso los huecos. Un punto que no pertenece a la función no puede ser un extremo de ella.' },
   { id: 'fc-rational-06', front: '¿Cancelar un factor basta para descartar una asíntota vertical?', back: tex`No. En \((x-a)/(x-a)^2\) queda \(1/(x-a)\), que diverge. Compara las multiplicidades y calcula los límites; si el denominador conserva un factor sin cancelar, puede seguir habiendo un polo.` },
 ].map(card => ({ ...card, topicId: 't02', lessonId: 't02-e03' }));

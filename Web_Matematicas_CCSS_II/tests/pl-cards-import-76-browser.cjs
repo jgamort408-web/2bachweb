@@ -1,5 +1,6 @@
+const {fixture}=require('./helpers/local-site.cjs');
 const assert=require('node:assert/strict'),{chromium}=require('playwright'),fs=require('node:fs'),path=require('node:path'),{createHash}=require('node:crypto'),vm=require('node:vm');
-const base=process.env.TEST_URL||'http://127.0.0.1:4173/';
+const base='http://libro.test/';
 (async()=>{
  const originals=path.resolve(__dirname,'../../Página web existente');
  const hashes={
@@ -25,12 +26,13 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/';
  cards.forEach((c,i)=>{assert.equal(c.sourceIndex,i+1);assert.equal(c.category,source[i].category);assert.ok(c.front&&c.back);});
  const categories=[['Definiciones',3],['Planteamiento',5],['Región Factible',4],['Teoremas y Métodos',3],['Casos Especiales',4]];
  for(const [topic,size] of [['t01',61],['t02',54],['t03',48],['t04',72],['t05',66]])assert.equal(cardsForScope(topic).length,size);
- const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH});
+ const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH||'C:/Program Files/Google/Chrome/Application/chrome.exe'});
  try{
- const page=await browser.newPage({viewport:{width:1280,height:960}}),errors=[],external=[];
+ const page=await browser.newPage({serviceWorkers:'block',viewport:{width:1280,height:960}}),errors=[],external=[];
  page.on('pageerror',e=>errors.push(e.message));
  page.on('response',r=>{if(r.status()>=400&&!r.url().endsWith('favicon.ico'))errors.push(r.status()+' '+r.url());});
  page.on('request',r=>{if(/^https?:/.test(r.url())&&!r.url().startsWith(base))external.push(r.url());});
+ await fixture(page.context());
  const deck=page.locator('[data-flashcards]');
  const ready=async()=>{
  await page.locator('[data-content-role="flashcard-front"]').waitFor();
@@ -40,7 +42,6 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/';
  };
  for(const sub of [false,true]){
  const prefix=sub?new URL('prueba-subcarpeta/',base).href:base;
- if(sub)await page.route(prefix+'**',async route=>{const response=await route.fetch({url:route.request().url().replace(prefix,base)});await route.fulfill({response});});
  await page.goto(prefix+'tarjetas/index.html?tema=t06');await page.getByText('Tarjeta 1 de 19',{exact:true}).waitFor();await ready();
  assert.equal(await deck.getByRole('button',{name:'Anterior',exact:true}).isDisabled(),true);
  assert.equal(await page.locator('[data-card-category] option').count(),6);
@@ -95,7 +96,7 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/';
  await deck.waitFor();await deck.getByText('Tarjeta 1 de 6',{exact:true}).waitFor();await deck.getByRole('button',{name:'Mostrar respuesta',exact:true}).click();await ready();
  assert.ok(await page.locator('[data-quiz] input').count()>0);
  assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
- console.log('PASS: eight hashes, 19 original cards/5 categories, 320 total, 318 questions unchanged; every PL answer in root/subfolder, LaTeX, keyboard, mobile/preferences, memory reset and shared deck regression in five themes/global/lesson.');
+ console.log('PASS: eight hashes, 19 original cards/5 categories, 420 total, 408 questions (398 course + 10 support); every PL answer in root/subfolder, LaTeX, keyboard, mobile/preferences, memory reset and shared deck regression in five themes/global/lesson.');
  }finally{for(const context of browser.contexts())for(const page of context.pages())await page.unrouteAll({behavior:'ignoreErrors'});await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
 

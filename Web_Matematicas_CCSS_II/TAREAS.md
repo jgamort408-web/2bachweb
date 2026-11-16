@@ -566,5 +566,14 @@ Las tareas del libro siguientes conservan su estado. T07 sigue pendiente: esta a
 - [ ] SEL-AUD · Auditoría global de las soluciones, incidencias y selección por apartados. [Tareas detalladas](../Selectividad_LaTeX/docs/FASE_SOLUCIONES.md).
 
 - [x] AUD001 · Revisar doce incidencias de hipótesis de muestreo. [Informe](../Selectividad_LaTeX/docs/soluciones/AUD001_HIPOTESIS_MUESTREO.md).
-- [ ] AUD002 · Revisar once incidencias editoriales del banco.
-- [ ] AUD003 · Revisar cinco incidencias generales de fuentes.
+- [x] AUD002 · Revisar once incidencias editoriales del banco.
+- [x] AUD003 · Revisar cinco incidencias generales de fuentes.
+
+- **2026-11-12** · AUD002 cerrada. Once incidencias editoriales revisadas. [Informe](../Selectividad_LaTeX/docs/soluciones/AUD002_INCIDENCIAS_EDITORIALES.md). Siguiente AUD003.
+
+- **2026-11-12** · AUD003 cerrada. Cinco incidencias generales resueltas. [Informe](../Selectividad_LaTeX/docs/soluciones/AUD003_FUENTES_Y_METADATOS.md). Siguiente implementación, SEL-PARTES.
+
+- [x] SEL-PARTES01 · Selección parcial de dos ejercicios piloto. [Informe](../Selectividad_LaTeX/docs/soluciones/SEL_PARTES01_SELECCION_PARCIAL.md).
+- [x] SEL-PARTES02 · Preparar ocho ejercicios adicionales con Partes I/II.
+
+SEL-PARTES02 cerrada el 2026-11-12. Ocho ejercicios D0067–D0070 admiten partes completas, con diez IDs de cobertura acumulada. Próxima tanda SEL-PARTES03, D0071–D0074 OA/OB E03. Los apartados individuales y sus categorías siguen pendientes.

@@ -44,9 +44,9 @@ export const scalingQuestions=[
 ];
 export const scalingCards=[
   {id:'fc-scale-01',front:tex`¿Qué punto corresponde a (u,v) en \(g(x)=a f(bx)\)?`,back:'Para a y b no nulos, (u/b,av). La abscisa se divide por b y la ordenada se multiplica por a.'},
-  {id:'fc-scale-02',front:'¿Qué efecto tiene el factor exterior a?',back:'Multiplica las distancias al eje X por |a|: si |a|>1 hay expansión vertical; si 0<|a|<1, contracción. Si a<0, además refleja respecto a X.'},
-  {id:'fc-scale-03',front:'¿Qué efecto tiene el factor interior b?',back:'Multiplica las distancias al eje Y por 1/|b|: si |b|>1 hay contracción horizontal; si 0<|b|<1, expansión. Si b<0, además refleja respecto a Y.'},
-  {id:'fc-scale-04',front:'¿Cómo cambian dominio y recorrido bajo a f(bx)?',back:'El dominio reúne u/b para u del dominio original; el recorrido reúne av para v del recorrido original. Un factor negativo invierte el orden de los extremos, conservando la inclusión de cada punto.'},
-  {id:'fc-scale-05',front:'¿Cómo cambian extremos y asíntotas?',back:'Los extremos se trasladan a (u/b,av); si a<0 se intercambian máximos y mínimos. La vertical x=c pasa a x=c/b; la horizontal y=L pasa a y=aL. Con b<0 se intercambian los extremos del eje x hacia los que se aproximan.'},
-  {id:'fc-scale-06',front:tex`¿Cómo cambia la derivada en \(g(x)=a f(bx)\)?`,back:tex`\(g′(x)=ab f′(bx)\), donde exista la derivada. La pendiente correspondiente se multiplica por ab. Para a,b no nulos, los ceros pasan de u a u/b.`},
+  {id:'fc-scale-02',front:'¿Qué efecto tiene el factor exterior a?',back:'En g(x)=a f(x), con a≠0, multiplica las distancias al eje X por |a|: si |a|>1 hay expansión vertical; si 0<|a|<1, contracción. Si a<0, además refleja respecto a X.'},
+  {id:'fc-scale-03',front:'¿Qué efecto tiene el factor interior b?',back:'En g(x)=f(bx), con b≠0, multiplica las distancias al eje Y por 1/|b|: si |b|>1 hay contracción horizontal; si 0<|b|<1, expansión. Si b<0, además refleja respecto a Y.'},
+  {id:'fc-scale-04',front:'¿Cómo cambian dominio y recorrido bajo a f(bx)?',back:'Para a≠0 y b≠0, el dominio reúne u/b para u del dominio original; el recorrido reúne av para v del recorrido original. Un factor negativo invierte el orden de los extremos, conservando la inclusión de cada punto.'},
+  {id:'fc-scale-05',front:'¿Cómo cambian extremos y asíntotas?',back:'En g(x)=a f(bx), con a,b no nulos, los extremos pasan a (u/b,av); si a<0 se intercambian máximos y mínimos. La vertical x=c pasa a x=c/b; la horizontal y=L pasa a y=aL. Con b<0 se intercambian los extremos del eje x hacia los que se aproximan.'},
+  {id:'fc-scale-06',front:tex`¿Cómo cambia la derivada en \(g(x)=a f(bx)\)?`,back:tex`\(g′(x)=ab f′(bx)\), si f es derivable en bx. La pendiente correspondiente se multiplica por ab. Para a,b no nulos, los ceros de f pasan de u a u/b como ceros de g; si f′(u)=0, también g′(u/b)=0.`},
 ].map(card=>({...card,topicId:'t02',lessonId:'t02-e08'}));

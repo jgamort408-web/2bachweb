@@ -118,7 +118,7 @@ Este es el **documento de entrada para cada sesión de trabajo** sobre la web. R
 
 - [x] P01 · T07 Biblioteca de recursos: los 48 PDF agrupados por pareja examen/soluciones, búsqueda, filtros por tema/tipo/etiqueta, visibilidad heredada y acciones separadas. **Hecho (07-11-2026):** `examenes/index.html` se genera con `npm run build:exams` (`scripts/build-exams.mjs`) desde `config/resources.json`: 24 tarjetas por bloque con tema, tipo, etiquetas de contenido legibles (las editoriales no se muestran) y dos botones, Examen y Soluciones, con el tamaño del PDF. Funciona sin JS; con JS, búsqueda sin tildes y filtros por tema y tipo, `?tema=t07` y recuento anunciado. Visibilidad: la tarjeta lleva `data-content-id` del examen y el enlace a soluciones se oculta por su ruta. «Recursos» es ahora la portada de materiales. Pruebas: `exam-library.test.mjs` (página al día) y 160. Al añadir un recurso: actualizar `config/resources.json`, ejecutar `npm run build:exams` y, si trae etiquetas nuevas, darles nombre en el script (si no, falla a propósito).
 - [x] P02 · T08 Combinatoria migrada desde `Página web existente/Combinatoria.txt` y matriz de cobertura de fuentes cerrada. **Hecho (07-11-2026):** `libro/apoyos/combinatoria.html` integra todo el original: Laplace y las dos preguntas clave, tabla de técnicas, árbol de decisión como lista accesible, V, VR, P, P con repetidos y C con sus ejemplos, demostración de V(5,3), triángulo de Pascal, probabilidad con conteo (tres ejemplos), calculadora exacta con BigInt (`content/models/combinatorics.js`; el original daba cifras falsas con potencias grandes), seis ejercicios con selector y las diez preguntas del juego en el visor común (`combinatorics-test.js`, sin puntos ni rachas). Corregidos el recuento de MATEMÁTICA (la Á contada como A), el separador de millares, la equiprobabilidad no dicha y las etiquetas «EBAU» sin origen; detalle en `docs/auditoria-reutilizacion-combinatoria.md`. Estado parcial; el formulario incluye sus cinco fórmulas (87). Matriz de cobertura de los 44 originales cerrada en `docs/criterio-reutilizacion-html-estadistica-pl-inferencia.md`: 43 integrados y «Competencias y criterios.txt» sin destino (🗣️ decidir si se publica). De paso, el índice fijo de las lecciones ya no queda debajo de las fórmulas en móvil (`z-index`). Pruebas: `combinatorics.test.mjs` y 164.
-- [ ] P03 · T09 Revisión editorial de evaluaciones: distractores, hipótesis, unidades y redondeos. Detectado (07-11-2026): la tarjeta `fc-t08-original-01` («¿Qué es una variable aleatoria discreta?») dice «Pueden ser números no enteros» y pone como ejemplo un recuento entero; el ejemplo no ilustra la afirmación. Por eso no está en el glosario.
+- [ ] P03 · T09 Revisión editorial de evaluaciones: distractores, hipótesis, unidades y redondeos. P03A completada (14-11-2026): aclarado el ejemplo de valores discretos no enteros en 8.1, tarjeta `fc-t08-original-01` y glosario. Se conservan los originales. [Inventario por tandas](Web_Matematicas_CCSS_II/docs/REVISION_EDITORIAL_EVALUACIONES_P03.md); P03B completada: 22 tarjetas revisadas, siete precisiones; P03C completada (37 tarjetas y 20 preguntas); P03D completada (19 tarjetas); P03E completada (25 tarjetas y diez preguntas); siguen pendientes P03F y la ampliación EV-INF-01.
 - [ ] P04 · T10 Dificultad y destreza normalizadas en el banco; buscador común del sitio (índice estático generado) que respeta la visibilidad.
 - [ ] P05 · T11 Práctica: repetición de errores de la sesión, retos y simulacros cronometrados opcionales tipo PEvAU.
 - [x] P06 · T12 Tarjetas con filtros, formulario por tema y glosario enlazado desde las lecciones. **Glosario hecho (07-11-2026):** `herramientas/glosario.html` se genera con `npm run build:glossary` desde `config/glossary.json` (42 términos curados: tarjeta de origen y lección donde se explica). La definición es el reverso de la tarjeta revisada, sin redactar aparte; búsqueda sin tildes, índice de letras y visibilidad heredada. Cada lección con términos muestra «En el glosario» entre el contenido y anterior/siguiente (`skin.js`). Pruebas: `glossary.test.mjs` y 161. **Formulario hecho (07-11-2026):** `herramientas/formulario.html` se genera con `npm run build:formulas` desde `config/formulas.json` (82 fórmulas de los nueve temas y de Estadística bidimensional). El generador exige que cada fórmula aparezca literalmente en la lección que cita (o cada fragmento de `from`, si reúne celdas de una tabla), así que no quedan copias desfasadas; búsqueda sin tildes, filtro por tema, `?tema=` e impresión en dos columnas. Herramientas y Recursos enlazan formulario y glosario. Pruebas: `formulas.test.mjs` y 162. **Tarjetas hechas (07-11-2026):** la página Tarjetas monta el mazo en modo estudio (`flashcards.js`, `study`): búsqueda sin tildes; «Apartado» uniforme (categoría de la fuente en los temas 6–9 y el apoyo, lección en los temas 1–5 y «Repaso del tema»; con todo el curso, agrupado por tema); autoevaluación tras ver la respuesta («La sabía» / «Repasar más tarde»); reaprendizaje de la sesión (la marcada vuelve una vez, tres tarjetas después) y resumen con «Repasar las N marcadas». Sin persistencia. Las tarjetas del tema 1 tienen ya `lessonId` (familia → lección 1.1–1.18; `fc-review` queda como repaso). Las lecciones conservan el mazo sencillo. Pruebas: `flashcard-sections.test.mjs`, 163 y las 46 que usan la página (76, 84, 91, 99 y 120 actualizadas: ahora hay selector en todos los temas y los botones se localizan por `data-action`). Queda para más adelante el repaso espaciado con persistencia (desactivado por decisión previa). **P06 terminada.**
@@ -501,3 +501,191 @@ SEL-PARTES02 cerrada el 2026-11-12. Ocho ejercicios D0067–D0070 admiten partes
 - **2026-11-15** · Publicado a petición del docente: `main` avanzado hasta `b20bb29` (presentaciones de los nueve temas, Páginas relacionadas y fórmulas sin barras falsas). 390 pruebas unitarias y 20 de navegador en copia limpia; Comprobaciones y Publicar web correctos; las nueve presentaciones responden 200 en GitHub Pages.
 - **2026-11-15** · Pie de página con autoría y licencia, a petición del docente: «© 2026 Juan María Gámez Ortiz, con la ayuda de Claude y de Codex», licencia Creative Commons BY-NC 4.0 (reproducción con atribución y sin fines comerciales) y «IES Al-Ándalus» enlazado a la web del centro (https://iesalandalus.org/joomla/). Prueba 171 ampliada.
 - **2026-11-15** · Enlaces del contenido modernizados, a petición del docente: en el texto toman el tono del bloque (azul, magenta o naranja) con subrayado fino y resalte suave; los grupos de enlaces separados por « · » pasan a fichas («Anterior/Volver» con ←, «Continuar/Siguiente» con →) y las listas de un enlace por elemento, como «Así cae en Selectividad», a filas con flecha (`assets/js/core/links.js`, `components.css`). Los grupos con diseño propio (letras del glosario y del formulario, índices, ruta) no se tocan. Prueba 172; pruebas 67–69 y 88 esperan a la navegación.
+
+## Auditoría de teoría · 13-11-2026
+
+- [x] Inventariar las carencias teóricas y distinguirlas de estados editoriales parciales. [Listado TEO-01–26](Web_Matematicas_CCSS_II/docs/AUDITORIA_TEORIA_PENDIENTE_2026-11-13.md).
+- [x] TEORIA-01 · Redacción de fundamentos de distribuciones, TEO-01–06. Revisión visual y con tecnologías de apoyo pendiente en TEO-25.
+- [x] TEORIA-02 · Redacción de inferencia y muestreo, TEO-07–14. Revisión visual y con tecnologías de apoyo pendiente en TEO-25.
+- [x] TEORIA-03 · Redacción de programación lineal, TEO-15–18. Revisión visual y con tecnologías de apoyo pendiente en TEO-25.
+- [x] TEORIA-04 · Redacción de apoyos, TEO-19–22 (TEO-22 como ampliación opcional). Revisión visual y con tecnologías de apoyo pendiente en TEO-25.
+- [ ] Revisión transversal TEO-23–26.
+
+Diario · 2026-11-13 · `docs(teoria)`: revisión de cobertura de 86 lecciones y dos apoyos. Informe con rutas y tareas comprobables. Se distinguen lagunas, ejemplos insuficientes y revisión editorial/accesible. Sin cambios en HTML ni en diseño.
+
+- **2026-11-13** · `feat(teoria-01a)`: completadas TEO-01 y TEO-02 en la lección 8.1. Añadidos clasificación, densidad, acumulada y ejemplos razonados. Se conserva el diseño y el motor de fórmulas. La tanda TEORIA-01 continúa abierta con TEO-03–06.
+
+Comprobación TEORIA-01a: `npm test`, 385 pruebas, 384 superadas y un fallo de sincronización de `selectividad/04-matrices-y-determinantes.html` con su generador, fuera del cambio de teoría. Comprobación de navegador intentada, bloqueada por `ERR_NETWORK_ACCESS_DENIED` al servidor local; renderizado MathJax y revisión visual pendientes. No se declara validación visual completada.
+
+- **2026-11-13** · `feat(teoria-01b)`: TEO-03 completada en 8.2, con acumuladas, complementarios, extremos enteros y ejemplos razonados. Resultados contrastados con aritmética racional; dos pruebas binomiales superadas y enlaces sin pendientes. TEORIA-01 sigue abierta, TEO-04–06 pendientes.
+
+- **2026-11-13** · `feat(teoria-01c)`: TEO-04–05 completadas en 8.3, con tabla, probabilidades directas y normal inversa. Resultados contrastados con biblioteca estadística independiente del modelo web; seis pruebas superadas. TEO-06 pendiente, ejemplos escritos de aproximación binomial-normal. Se mantienen pendientes las comprobaciones visuales y con tecnologías de apoyo.
+
+- **2026-11-13** · `feat(teoria-01d)`: TEO-06 completada, cuatro cálculos escritos de aproximación binomial-normal y contraste exacto. Ocho pruebas superadas, 187 páginas con enlaces sin pendientes. Cerrada la redacción TEO-01–06; comprobación visual y accesible pendiente. Siguiente TEORIA-02, TEO-07 (afijación proporcional).
+
+- **2026-11-13** · `feat(teoria-02a)`: TEO-07 redactada en 9.3, afijación proporcional y redondeo conservando el total. Tres ejemplos verificados con fracciones exactas y 1452 casos de reparto entero; tres pruebas de catálogo superadas. TEORIA-02 continúa con TEO-08. Revisión visual y asistida pendiente.
+
+- **2026-11-13** · `feat(teoria-02b)`: TEO-08 redactada en 9.5. Estimador frente a estimación y caso numérico completo hasta el intervalo, con supuestos e interpretación. Resultados contrastados independientemente y nueve pruebas superadas. Revisión visual y asistida pendiente. Siguiente TEO-09, proporciones.
+
+- **2026-11-13** · `feat(teoria-02c)`: TEO-09 redactada en 9.7, intervalo aproximado para proporciones, condiciones, límites y dos ejemplos verificados. Seis pruebas superadas. Revisión visual y asistida pendiente. Siguiente TEO-10, problemas directos e inversos.
+
+- **2026-11-13** · `feat(teoria-02d)`: TEO-10 redactada en 9.7, problemas directos e inversos de intervalos. Resultados verificados independientemente y nueve pruebas superadas. Revisión visual y asistida pendiente. Siguiente TEO-11, tamaño muestral para proporciones.
+
+- **2026-11-13** · `feat(teoria-02e)`: TEO-11 redactada en 9.8. Tamaño para proporciones con información previa y caso conservador, redondeo e inequación estricta. Mínimos contrastados independientemente; nueve pruebas superadas. Revisión visual y asistida pendiente. Siguiente TEO-12, problema completo de tamaño para la media.
+
+- **2026-11-13** · `feat(teoria-02f)`: TEO-12 redactada en 9.8. Problema completo de tamaño para la media, verificación del mínimo y desigualdades estrictas. Nueve pruebas superadas, cálculos independientes y enlaces sin pendientes. Revisión visual y asistida pendiente. Siguiente TEO-13, intervalos característicos.
+
+- **2026-11-13** · `feat(teoria-02g)`: TEO-13 redactada en 9.6, individual frente a media, distintos niveles centrales y probabilidad de intervalo dado. Cálculos verificados, nueve pruebas superadas y enlaces sin pendientes. Revisión visual y asistida pendiente. Siguiente TEO-14, ficha técnica completa.
+
+- **2026-11-13** · `feat(teoria-02h)`: TEO-14 redactada en 9.9. Ficha completa ficticia con método y cálculo contrastado, guía y actividad. Nueve pruebas superadas. Redacción de TEORIA-02 completada; revisión visual y asistida pendiente. Siguiente TEORIA-03, TEO-15.
+
+- **2026-11-13** · `feat(teoria-03a)`: TEO-15 redactada en 6.4, casos especiales de optimización con justificación y actividad. Tres pruebas de catálogo superadas, comprobación matemática independiente y enlaces sin pendientes. Revisión visual y asistida pendiente. Siguiente TEO-16, formulación de programación lineal.
+
+- **2026-11-14** · `feat(teoria-03b)`: TEO-16 redactada en 6.3, formulación numérica razonada enlazada con 6.4. Comprobación matemática por enumeración, tres pruebas de catálogo superadas. Revisión visual y asistida pendiente. Siguiente TEO-17, casos de representación de semiplanos.
+
+- **2026-11-14** · `feat(teoria-03c)`: TEO-17 redactada en 6.1, casos especiales de semiplanos, signos y puntos de prueba. Comprobación matemática independiente y tres pruebas de catálogo superadas. Revisión visual y asistida pendiente. Siguiente TEO-18, regiones factibles especiales.
+
+- **2026-11-14** · `feat(teoria-03d)`: TEO-18 redactada en 6.2, regiones vacías, segmentos y puntos con actividad resuelta. Comprobación matemática independiente y tres pruebas de catálogo superadas. Redacción TEORIA-03 completada; revisión visual y asistida pendiente. Siguiente TEO-19, parámetros marginales de estadística bidimensional.
+
+- **2026-11-14** · `feat(teoria-04a)`: TEO-19 redactada, parámetros marginales y ejemplo completo de las 50 familias en el apoyo bidimensional. Cálculos verificados con aritmética racional y datos expandidos. Revisión visual y asistida pendiente. Siguiente TEO-20, rectas de regresión.
+
+- **2026-11-14** · `feat(teoria-04b)`: TEO-20 redactada, dos rectas de regresión y relación con r², con ejemplo de familias contrastado por cálculo exacto. Tres pruebas de catálogo superadas. Revisión visual y asistida pendiente. Siguiente TEO-21, principio multiplicativo.
+
+- **2026-11-14** · `feat(teoria-04c)`: TEO-21 redactada, principio multiplicativo y ejemplos por etapas en combinatoria. Enumeración independiente, siete pruebas superadas y enlaces sin pendientes. Revisión visual y asistida pendiente. TEO-22 sigue como ampliación opcional, pendiente de valorar su alcance.
+
+- **2026-11-14** · `feat(teoria-04d)`: TEO-22 redactada como ampliación opcional, combinaciones con repetición con justificación y ejemplos verificados. Siete pruebas superadas y enlaces sin pendientes. Redacción TEORIA-04 completada; revisión visual y asistida pendiente. Siguiente TEO-23, conciliación de estados y documentación.
+
+- **2026-11-14** · `docs(teoria-23)`: TEO-23 completada, conciliación de índices y estado vigente con la teoría redactada. Recuentos verificados: 86 lecciones, 87 entradas de formulario y 42 términos; no se eleva el estado editorial ni se cierra la revisión visual/asistida. Siete pruebas superadas y enlaces sin pendientes. Siguiente TEO-24.
+
+- **2026-11-14** · `docs(teoria-24a)`: tema 1 cotejado requisito por requisito, 83 criterios en 18 lecciones con evidencia textual. [Informe](Web_Matematicas_CCSS_II/docs/REVISION_TEORIA_TEMAS_1_5.md). Sin nuevas lagunas confirmadas ni cambios de HTML. Enlaces locales del informe verificados. TEO-24 sigue abierta; siguiente tema 2.
+
+- **2026-11-14** · `docs(teoria-24b)`: tema 2 cotejado, 42 criterios en nueve lecciones con evidencia textual. Sin nuevas lagunas confirmadas ni cambios de HTML. Matriz acumulada 125 requisitos y 27 lecciones, enlaces del informe comprobados. TEO-24 continúa con tema 3.
+
+- **2026-11-14** · `docs(teoria-24c)`: tema 3 cotejado, 33 criterios en ocho lecciones. Sin nuevas lagunas de cobertura confirmadas. Matriz acumulada: 158 requisitos en 35 lecciones; enlaces del informe verificados. Sin cambios de HTML. Siguiente tema 4.
+
+- **2026-11-14** · `docs(teoria-24d)`: tema 4 cotejado, 53 criterios en doce lecciones. Sin nuevas lagunas de cobertura confirmadas. Matriz acumulada: 211 requisitos en 47 lecciones; enlaces verificados. Sin cambios de HTML. Siguiente tema 5.
+
+- **2026-11-14** · `docs(teoria-24e)`: tema 5 cotejado, 46 criterios en once lecciones. TEO-24 completada: matriz de 257 requisitos y 58 lecciones, sin nuevas lagunas de cobertura confirmadas. Enlaces del informe verificados; sin cambios de HTML. Siguiente TEO-25, revisión visual y lectura matemática.
+
+- **2026-11-14** · `test(teoria-25a)`: primera pasada sobre 16 páginas, 994 fórmulas sin errores de renderizado y 994 MathML auxiliares. Texto de apartados accesible sin JavaScript; sin desbordamiento global en tres configuraciones. Capturas revisadas: detectada compresión excesiva de tablas móviles. Pendientes correcciones, acceso a fórmulas largas, teclado y lectura asistida real. TEO-25 permanece abierta.
+
+Informe de la tanda: [TEO-25A](Web_Matematicas_CCSS_II/docs/REVISION_VISUAL_TEORIA_TEO25.md). Siguiente: TEO-25B, tablas en móvil.
+
+- **2026-11-14** · `fix(teoria-25b)`: corregidas cinco tablas móviles con ancho legible, desplazamiento interno y foco visible. Cinco comprobaciones de desplazamiento por teclado superadas; repetida revisión de 16 páginas y 994 fórmulas sin errores, con capturas de las tablas inspeccionadas. Enlaces de 190 páginas sin pendientes. Pendientes TEO-25C–E; siguiente acceso a fórmulas largas.
+
+- **2026-11-14** · `fix(teoria-25c)`: fórmulas largas alcanzables con Tab sólo cuando desbordan, foco visible y actualización al redimensionar. 16 páginas, 994 fórmulas y 357 comprobaciones de desplazamiento/extremos superadas; cinco tablas y tres pruebas de formulario también pasan. Tab y retirada de focos innecesarios contrastados en 9.7; capturas de ambos extremos inspeccionadas. Enlaces de 190 páginas sin pendientes. Siguiente TEO-25D; lectura asistida real pendiente.
+
+- **2026-11-14** · `fix(teoria-25d)`: navegación a apartados con foco y margen bajo el índice; cierre móvil con Escape o salida por Tab. 16 páginas superan pruebas de ancla directa, Enter/Escape, foco, escritorio y texto ampliado. Tres capturas inspeccionadas, tres pruebas de catálogo superadas y enlaces de 190 páginas sin pendientes. Fixture compartida corregida para no desplegar artificialmente el índice. Pendiente TEO-25E: lectura asistida real; TEO-25 permanece abierta.
+
+- **2026-11-14** · `feat(teoria-26a)`: plan TEO-26 indexado en cuatro tandas; primera completada con cinco fórmulas nuevas de inferencia y sus condiciones, total 92. Tres pruebas de sincronización y prueba móvil de renderizado/búsqueda/enlace superadas. Enlaces de 190 páginas sin pendientes. TEO-25E conserva la validación de lectura real pendiente; no se ha encontrado lector activo ni NVDA en ubicaciones habituales. Siguiente 26B, resto del formulario.
+
+Plan de herramientas: [TEO-26](Web_Matematicas_CCSS_II/docs/ALINEACION_HERRAMIENTAS_TEO26.md).
+
+- **2026-11-14** · `feat(teoria-26b)`: añadidas 15 fórmulas de distribuciones y apoyos, con condiciones y combinaciones con repetición opcionales. Total 107 entradas. Tres pruebas de sincronización superadas; prueba móvil verifica 107 fórmulas/MathML, búsquedas, filtros y enlace. Tres capturas inspeccionadas; enlaces de 190 páginas sin pendientes. Tanda 26B completada; siguiente 26C, glosario y tarjetas. Lectura asistida real TEO-25E pendiente.
+
+- **2026-11-14** · `feat(teoria-26c)`: glosario ampliado de 42 a 69 términos mediante 12 tarjetas reutilizadas y 15 nuevas. Banco de 420 tarjetas, filtro de combinatoria incorporado y recuentos de mazos actualizados. 20 pruebas específicas superadas y enlaces de 190 páginas sin pendientes. Prueba de navegador de nuevas tarjetas/glosario en raíz y subcarpeta; lectura estática comprobada. Siguiente 26D, conciliación de guiones históricos y cierre de herramientas. TEO-25E sigue pendiente.
+
+- **2026-11-14** · `test(teoria-26d)`: cerrada la alineación de herramientas, 107 fórmulas, 69 términos y 420 tarjetas. Cuatro guiones históricos de navegador actualizados y superados, generadores sincronizados y enlaces de 190 páginas sin pendientes. Corregida la separación categoría/lección de referencia de las nuevas tarjetas, con visibilidad heredada y consulta por lección. Batería general final: 389 pruebas, 388 superadas y un fallo previo de sincronización de Selectividad de matrices (MNT-SEL-01). Pendiente TEO-25E, lectura asistida real; sin cierre global de la web.
+
+- **2026-11-14** · `fix(selectividad-sync)`: MNT-SEL-01 cerrada. Comparadas y sincronizadas cinco salidas del banco, con 640 ejercicios/soluciones e IDs y categorías conservados. MNT-SEL-02 corrige dólares literales dentro de cajas matemáticas en una matriz y añade prueba de regresión. Banco al día (49 archivos), siete pruebas específicas y doce de relaciones/exámenes superadas, prueba de navegador y captura final revisadas. Batería completa final con concurrencia 4: **390 pruebas, 390 superadas y cero fallos**. Sigue pendiente TEO-25E, lectura asistida real.
+
+Informe: [mantenimiento de Selectividad](Web_Matematicas_CCSS_II/docs/MANTENIMIENTO_SELECTIVIDAD_SYNC_2026-11-14.md).
+
+- **2026-11-14** · `test(teoria-25e1)`: seis casos de lectura matemática superan la comprobación del árbol accesible de Chrome: fracciones, sumatorio, integral, intervalo, matriz y raíz. Una raíz MathML expuesta por fórmula y SVG oculto al árbol; matriz 2×3 con filas/celdas. Preparado protocolo de escucha con significados esperados y ficha de resultados. No se valida pronunciación ni se cierra TEO-25E; siguientes E3–E4 requieren escucha real y revisión de incidencias.
+
+Protocolo: [lectura matemática](Web_Matematicas_CCSS_II/docs/PROTOCOLO_LECTURA_MATEMATICA_TEO25E.md).
+
+- **2026-11-14** · `fix(p03a)`: indexada la revisión editorial P03 en seis tandas y completada la primera. Variable discreta no entera ilustrada con premios de 0,50/1,50 € en lección, tarjeta y glosario; distribución contrastada por enumeración racional. Seis pruebas específicas, navegador del mazo de distribuciones y ejemplo móvil superados; captura inspeccionada y enlaces de 190 páginas sin pendientes. Siguiente P03B; TEO-25E3–E4 siguen pendientes de escucha real.
+
+- **2026-11-14** · `fix(p03b)`: revisadas las 22 tarjetas de distribuciones; siete reversos precisados sobre densidad, valores discretos, dominios, extremos binomiales, tablas y continuidad. Quince sin cambios. Glosario regenerado, IDs y recuentos conservados. 11 pruebas específicas y navegador de las 22 tarjetas superados; cálculo independiente por enumeración y capturas móviles de dos reversos revisados. Enlaces de 190 páginas sin pendientes. Siguiente P03C, inferencia; escucha real pendiente.
+
+- **2026-11-14** · `fix(p03c)`: revisadas 37 tarjetas de inferencia (12 precisadas, 25 sin cambios) y 20 preguntas originales con sus 80 alternativas. Retroalimentación específica por opción, enunciados desambiguados y cálculo sistemático en LaTeX; IDs y claves conservados. 29 pruebas específicas y navegadores de tarjetas/test superados, incluidas 80 retroalimentaciones, lectura estática y captura móvil. Glosario sincronizado; enlaces de 190 páginas sin pendientes. Registrada EV-INF-01 para cubrir 9.4–9.9 con nuevas preguntas. Siguiente P03D; escucha real pendiente.
+
+- **2026-11-15** · `fix(p03d)`: revisadas las 19 tarjetas de programación lineal; seis precisadas y trece sin cambios. Modelo continuo, vértices degenerados, cota no alcanzada, coste constante e integridad aclarados. Lección 6.4 amplía el caso de una banda sin vértices y la factibilidad entera, con enlace en su índice. 17 pruebas específicas y navegador de las tarjetas superados, pruebas matemáticas y captura móvil verificadas. Glosario sincronizado y enlaces de 198 páginas sin pendientes. Siguiente P03E; escucha real pendiente.
+
+- **2026-11-15** · `fix(p03e)`: revisadas 23 tarjetas bidimensionales, dos de combinatoria y diez preguntas. Precisadas ocho tarjetas y cinco preguntas: unidades, dirección y signo de regresiones, recuento frente a independencia y explicaciones de monedas. Diez pruebas unitarias, navegadores de apoyos y 40 retroalimentaciones superados; cálculos exactos y capturas inspeccionados. Glosario al día; 198 páginas sin enlaces pendientes. Cifras aclaradas: 408 preguntas totales (398 de temas y diez de apoyo), 420 tarjetas. Siguiente P03F; EV-INF-01 y escucha real pendientes.
+
+
+### 15-11-2026 · P03F-F1A · Límites y laterales
+
+Revisadas seis preguntas y ocho tarjetas de `content/activities/limits.js`; precisadas dos tarjetas y dos explicaciones, con IDs y respuestas conservados. Plan P03F secuenciado por temas en `REVISION_EDITORIAL_EVALUACIONES_P03.md` (carpeta docs de la web). Contrato del catálogo: 3/3; enlaces: 198 páginas sin pendientes; contenido renderizado en raíz/subcarpeta a 360 px y 200 %, sin errores matemáticos ni desbordamiento global. Sigue F1B (comportamiento infinito). Revisión editorial restante, EV-INF-01 y escucha real pendientes.
+
+
+### 15-11-2026 · P03F-F1B · Comportamiento infinito
+
+Revisadas doce preguntas (48 alternativas) y doce tarjetas de `content/activities/infinity.js`; cuatro preguntas y dos tarjetas precisadas, conservando IDs y respuestas. Detalle en `Web_Matematicas_CCSS_II/docs/REVISION_EDITORIAL_EVALUACIONES_P03.md` desde la raíz. Contrato: 3/3; enlaces: 198 páginas sin pendientes; contenido aislado en raíz/subcarpeta a 360 px y 200 %, con 36 fórmulas sin errores por caso ni desbordamiento global. Sigue F1C, técnicas de límites. No cierra la revisión editorial completa ni la escucha real.
+
+
+### 15-11-2026 · P03F-F1C · Técnicas de límites
+
+Revisadas nueve preguntas (36 alternativas) y nueve tarjetas; precisadas dos preguntas y dos tarjetas, conservando IDs y respuestas. Registro detallado en `Web_Matematicas_CCSS_II/docs/REVISION_EDITORIAL_EVALUACIONES_P03.md` desde la raíz. Contrato 3/3; enlaces de 198 páginas sin pendientes; contenido aislado en raíz/subcarpeta a 360 px y 200 %, 58 fórmulas por caso sin errores ni desbordamiento global. Sigue F1D: continuidad y derivadas, por módulos. Continúan pendientes la revisión editorial restante, EV-INF-01 y la escucha real.
+
+
+### 15-11-2026 · P03F-F1D1 · Continuidad y derivada
+
+F1D dividida en tres módulos. Completado el primero: nueve preguntas (36 alternativas) y nueve tarjetas revisadas. Una pregunta incorpora su función para poder responderse de forma independiente; dos tarjetas precisan continuidad en extremos y derivada interior. IDs y respuestas conservados. Registro en `Web_Matematicas_CCSS_II/docs/REVISION_EDITORIAL_EVALUACIONES_P03.md` desde la raíz. Contrato 3/3; enlaces de 198 páginas sin pendientes; contenido aislado raíz/subcarpeta, 360 px y 200 %, con 42 fórmulas por caso sin errores ni desbordamiento global. Sigue F1D2: reglas de derivación. Revisión restante y escucha real pendientes.
+
+
+### 15-11-2026 · P03F-F1D2 · Tangentes y reglas
+
+Revisadas nueve preguntas (36 alternativas) y nueve tarjetas. Dos preguntas pueden resolverse y usar sus pistas sin consultar otros enunciados o ejemplos; dos tarjetas explicitan condiciones de derivabilidad. IDs y respuestas conservados. Detalle en `Web_Matematicas_CCSS_II/docs/REVISION_EDITORIAL_EVALUACIONES_P03.md` desde la raíz. Contrato 3/3; enlaces de 198 páginas sin pendientes; contenido aislado en raíz/subcarpeta a 360 px y 200 %, 55 fórmulas por caso sin errores ni desbordamiento global. Sigue F1D3, composición y L’Hôpital. Revisión restante y escucha real pendientes.
+
+
+### 15-11-2026 · P03F-F1D3 · Cadena y L’Hôpital
+
+Revisadas nueve preguntas (36 alternativas) y nueve tarjetas; dos preguntas y dos tarjetas precisadas. Añadido contraejemplo de derivada discontinua y desarrolladas hipótesis de L’Hôpital, con IDs y respuestas conservados. Contrato 3/3; enlaces de 198 páginas sin pendientes; contenido aislado en raíz/subcarpeta a 360 px y 200 %, 27 fórmulas por caso sin errores ni desbordamiento global. F1D completada: 27 preguntas y 27 tarjetas en tres subtandas. Detalle en `Web_Matematicas_CCSS_II/docs/REVISION_EDITORIAL_EVALUACIONES_P03.md` desde la raíz. Sigue F1E: repaso y conciliación del tema 1. Revisión restante y escucha real pendientes.
+
+
+### 15-11-2026 · P03F-F1E · Repaso y cierre editorial del banco del tema 1
+
+Revisadas seis preguntas (24 alternativas) y cinco tarjetas de repaso; precisadas dos preguntas y una tarjeta. Conciliación por IDs: los siete módulos revisados cubren exactamente las 60 preguntas y 61 tarjetas del tema 1, sin omisiones ni duplicados. No equivale a certificar toda la teoría, ejercicios resueltos o juegos. Contrato 3/3; enlaces de 198 páginas sin pendientes; contenido aislado raíz/subcarpeta, 360 px y 200 %, 68 fórmulas por caso sin errores ni desbordamiento global. Detalle en `Web_Matematicas_CCSS_II/docs/REVISION_EDITORIAL_EVALUACIONES_P03.md` desde la raíz. Sigue F2: representación de funciones por módulos. P03F global, EV-INF-01 y escucha real pendientes.
+
+
+### 15-11-2026 · P03F-F2A · Estudio general de funciones
+
+Tema 2 organizado en diez tandas. Primera completada: seis preguntas (24 alternativas) y seis tarjetas revisadas; una pregunta y dos tarjetas precisadas, con IDs y respuestas conservados. Aclaradas monotonía por intervalos, tangente horizontal y cotas no alcanzadas. Contrato 3/3; enlaces de 198 páginas sin pendientes; contenido aislado raíz/subcarpeta a 360 px y 200 %, 44 fórmulas por caso sin errores ni desbordamiento global. Registro en `Web_Matematicas_CCSS_II/docs/REVISION_EDITORIAL_EVALUACIONES_P03.md` desde la raíz. Sigue F2B: polinómicas. Revisión editorial restante y escucha real pendientes.
+
+
+### 15-11-2026 · P03F-F2B · Polinómicas
+
+Seis preguntas (24 alternativas) y seis tarjetas revisadas. Ampliada una explicación del máximo de beneficio y precisadas dos tarjetas de multiplicidad y modelos discretos; IDs y respuestas conservados. Contrato 3/3; enlaces de 198 páginas sin pendientes; contenido aislado raíz/subcarpeta a 360 px y 200 %, 31 fórmulas por caso sin errores ni desbordamiento global. Registro en `Web_Matematicas_CCSS_II/docs/REVISION_EDITORIAL_EVALUACIONES_P03.md` desde la raíz. Sigue F2C: funciones racionales. Revisión editorial restante y escucha real pendientes.
+
+
+### 15-11-2026 · P03F-F2C · Racionales
+
+Seis preguntas (24 alternativas) y seis tarjetas revisadas. Una pregunta incorpora la función necesaria para mostrarse sola; dos tarjetas contemplan numerador nulo y resto cero, con IDs y respuestas conservados. Contrato 3/3; enlaces de 198 páginas sin pendientes; contenido aislado raíz/subcarpeta a 360 px y 200 %, 36 fórmulas por caso sin errores ni desbordamiento global. Detalle en `Web_Matematicas_CCSS_II/docs/REVISION_EDITORIAL_EVALUACIONES_P03.md` desde la raíz. Sigue F2D: exponenciales. Revisión restante y escucha real pendientes.
+
+
+### 15-11-2026 · P03F-F2D · Exponenciales
+
+Seis preguntas (24 alternativas) y seis tarjetas revisadas. Preguntas sin cambios; tres tarjetas precisan condiciones de base, dominio y tasa por periodo, con IDs y respuestas conservados. Contrato 3/3; enlaces de 198 páginas sin pendientes; contenido aislado raíz/subcarpeta a 360 px y 200 %, 35 fórmulas por caso sin errores ni desbordamiento global. Cálculos monetarios contrastados con fracciones exactas y redondeo decimal. Detalle en `Web_Matematicas_CCSS_II/docs/REVISION_EDITORIAL_EVALUACIONES_P03.md` desde la raíz. Sigue F2E: logarítmicas. Revisión restante y escucha real pendientes.
+
+
+### 15-11-2026 · P03F-F2E · Logarítmicas
+
+Seis preguntas (24 alternativas) y seis tarjetas revisadas; una pregunta precisa crecimiento compuesto y cantidad inicial positiva, y dos tarjetas explicitan condiciones. IDs y respuestas conservados. Duplicación en el año 15 confirmada con fracciones exactas. Contrato 3/3; enlaces de 198 páginas sin pendientes; contenido aislado raíz/subcarpeta a 360 px y 200 %, 34 fórmulas por caso sin errores ni desbordamiento global. Registro en `Web_Matematicas_CCSS_II/docs/REVISION_EDITORIAL_EVALUACIONES_P03.md` desde la raíz. Sigue F2F: funciones a trozos. Revisión editorial restante y escucha real pendientes.
+
+
+### 15-11-2026 · P03F-F2F · Funciones a trozos
+
+Seis preguntas (24 alternativas) y seis tarjetas revisadas. Una pregunta incorpora sus ramas y sus cocientes incrementales; dos tarjetas precisan solapamiento de condiciones y valor puntual en la derivada. IDs y respuestas conservados. Contrato 3/3; enlaces de 198 páginas sin pendientes; contenido aislado raíz/subcarpeta a 360 px y 200 %, 15 fórmulas por caso sin errores ni desbordamiento global. Detalle en `Web_Matematicas_CCSS_II/docs/REVISION_EDITORIAL_EVALUACIONES_P03.md` desde la raíz. Sigue F2G: traslaciones. Revisión restante y escucha real pendientes.
+
+
+### 15-11-2026 · P03F-F2G · Traslaciones
+
+Seis preguntas (24 alternativas) y seis tarjetas revisadas. Cuatro tarjetas explicitan su transformación y parámetros para consultarse individualmente; preguntas y respuestas conservadas. Contrato 3/3; enlaces de 198 páginas sin pendientes; contenido aislado raíz/subcarpeta a 360 px y 200 %, 14 fórmulas por caso sin errores ni desbordamiento global. Registro en `Web_Matematicas_CCSS_II/docs/REVISION_EDITORIAL_EVALUACIONES_P03.md` desde la raíz. Sigue F2H: expansión y contracción. Revisión restante y escucha real pendientes.
+
+
+### 15-11-2026 · P03F-F2H · Expansión y contracción
+
+Seis preguntas (24 alternativas) y seis tarjetas revisadas; cinco tarjetas precisan factores, correspondencias y diferencia entre ceros de función y derivada. Preguntas y respuestas conservadas. Contrato 3/3; enlaces de 198 páginas sin pendientes; contenido aislado raíz/subcarpeta a 360 px y 200 %, 15 fórmulas por caso sin errores ni desbordamiento global. Registro en `Web_Matematicas_CCSS_II/docs/REVISION_EDITORIAL_EVALUACIONES_P03.md` desde la raíz. Sigue F2I: optimización. Revisión restante y escucha real pendientes.
+
+
+### 15-11-2026 · P03F-F2I · Optimización
+
+Seis preguntas (24 alternativas) y seis tarjetas revisadas; tres preguntas y una tarjeta precisadas, con IDs y respuestas conservados. Cálculos exactos y comparación de los 17 enteros admisibles confirmados. Contrato 3/3; enlaces de 198 páginas sin pendientes; texto comprobado en raíz/subcarpeta a 360 px y 200 %, sin desbordamiento global. Detectado que las fórmulas del módulo están como texto Unicode, sin delimitadores LaTeX: pendiente F2I-LTX para convertirlas y verificar su renderizado antes de F2J. Registro en `Web_Matematicas_CCSS_II/docs/REVISION_EDITORIAL_EVALUACIONES_P03.md` desde la raíz. Revisión restante y escucha real pendientes.
+
+
+### 15-11-2026 · P03F-F2I-LTX · LaTeX en optimización
+
+Cerrado el pendiente F2I-LTX: convertidas 48 expresiones a LaTeX en preguntas, opciones, explicaciones y tarjetas, con IDs y claves conservados. Contrato 3/3; enlaces de 198 páginas sin pendientes. Comprobación aislada en raíz/subcarpeta a 360 px y texto al 200 %: 48 fórmulas y 48 estructuras MathML por caso, sin errores ni desbordamiento; repetir el renderizado no duplica fórmulas. No equivale a certificar pronunciación con lector de pantalla. Registro en `Web_Matematicas_CCSS_II/docs/REVISION_EDITORIAL_EVALUACIONES_P03.md` desde la raíz. Sigue F2J: repaso y conciliación del tema 2.

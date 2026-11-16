@@ -15,7 +15,7 @@
   <main id="main-content" class="page-main mc-lesson">
     <h1 data-content-role="lesson-title">8.3. Distribución normal</h1>
     <p data-content-role="lead">La campana de Gauss: densidad, probabilidad como área y distribución acumulada.</p>
-    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#definicion">Modelo normal</a> · <a href="#funciones">Densidad y acumulada</a> · <a href="#areas">Áreas</a> · <a href="#tipificacion">Tipificación</a> · <a href="#explorador">Explorador</a> · <a href="#regla-empirica">Regla empírica</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#definicion">Modelo normal</a> · <a href="#funciones">Densidad y acumulada</a> · <a href="#areas">Áreas</a> · <a href="#tipificacion">Tipificación</a> · <a href="#lectura-tabla">Tabla</a> · <a href="#ejemplos-probabilidad">Ejemplos</a> · <a href="#inversa">Percentiles e inversa</a> · <a href="#explorador">Explorador</a> · <a href="#regla-empirica">Regla empírica</a> · <a href="#pendiente">Contenido pendiente</a></nav>
 
     <section id="definicion" data-content-role="definition"><h2>¿Qué significa «normal»?</h2>
       <p>La normal es un modelo para variables continuas. Estaturas, pesos, errores de medida y tiempos son los ejemplos que propone el original; que una variable sea continua no garantiza que siga una normal. Hay que valorar el ajuste y las limitaciones del modelo en cada caso.</p>
@@ -54,6 +54,50 @@
       <p data-normal-formula="symmetry">Por simetría: \(\Phi(-z)=1-\Phi(z)\).</p>
     </section>
 
+
+    <section id="lectura-tabla" data-content-role="method"><h2>Leer una tabla de la normal estándar</h2>
+      <p>Usaremos la convención acumulada a la izquierda: \(\Phi(z)=P(Z\le z)\). Comprueba el encabezamiento de la tabla que tengas: algunas muestran el área entre 0 y z o una cola derecha y requieren convertirla.</p>
+      <p>En una tabla habitual, la fila indica las unidades y la primera cifra decimal de z; la columna, la centésima. Para z=1,28 se cruza la fila 1,2 con la columna 0,08. Se obtiene aproximadamente 0,8997. Estos son algunos valores para practicar sin herramientas:</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Extracto de tabla acumulada normal"><table>
+        <caption>Extracto calculado de la normal estándar; probabilidades redondeadas a cuatro decimales</caption>
+        <thead><tr><th scope="col">z</th><th scope="col">Φ(z)</th></tr></thead><tbody>
+          <tr><th scope="row">0,00</th><td>0,5000</td></tr><tr><th scope="row">1,00</th><td>0,8413</td></tr>
+          <tr><th scope="row">1,28</th><td>0,8997</td></tr><tr><th scope="row">1,29</th><td>0,9015</td></tr>
+          <tr><th scope="row">1,64</th><td>0,9495</td></tr><tr><th scope="row">1,65</th><td>0,9505</td></tr>
+          <tr><th scope="row">1,96</th><td>0,9750</td></tr><tr><th scope="row">2,00</th><td>0,9772</td></tr>
+        </tbody></table></div>
+      <p>Para z negativo utiliza la simetría. Por ejemplo, \(\Phi(-1)=1-\Phi(1)\approx1-0{,}8413=0{,}1587\). Una tabla con área entre 0 y z daría 0,3413 para z=1; al sumar 0,5 recuperas 0,8413.</p>
+      <p>En una calculadora acumulada, identifica los límites inferior y superior, la media y la desviación típica. Para un cálculo inverso, identifica si pide área a la izquierda o a la derecha. El orden y los nombres de las opciones dependen del dispositivo.</p>
+    </section>
+    <section id="ejemplos-probabilidad" data-content-role="worked-example"><h2>Tres probabilidades resueltas</h2>
+      <p>Ejemplo didáctico nuevo: una puntuación se modeliza por \(X\sim N(100,15)\), donde 15 es la desviación típica. La normal es el modelo supuesto; no se está describiendo un conjunto de datos reales.</p>
+      <h3>Cola izquierda: puntuación inferior a 85</h3>
+      <ol><li>Escribimos \(P(X&lt;85)\).</li><li>Tipificamos: \(z=(85-100)/15=-1\).</li><li>Leemos la acumulada usando simetría: \(P(X&lt;85)=\Phi(-1)\approx0{,}1587\), aproximadamente 15,87 %.</li></ol>
+      <h3>Cola derecha: puntuación superior a 130</h3>
+      <ol><li>Escribimos \(P(X&gt;130)\).</li><li>Tipificamos: \(z=(130-100)/15=2\).</li><li>La tabla acumula por la izquierda, así que restamos de uno: \(P(X&gt;130)=1-\Phi(2)\approx1-0{,}9772=0{,}0228\), aproximadamente 2,28 %.</li></ol>
+      <h3>Intervalo: puntuación entre 85 y 130</h3>
+      <ol><li>Escribimos \(P(85\le X\le130)\).</li><li>Tipificamos ambos extremos: −1 y 2.</li><li>Restamos las acumuladas: \(\Phi(2)-\Phi(-1)\approx0{,}9772-0{,}1587=0{,}8185\).</li></ol>
+      <p>Con evaluación de mayor precisión resulta aproximadamente 0,8186. La diferencia procede del redondeo de las entradas de tabla. No mezcles valores precisos con aproximaciones intermedias sin indicarlo. En una normal, incluir o excluir extremos no modifica estas probabilidades.</p>
+    </section>
+    <section id="inversa" data-content-role="method"><h2>Problemas inversos y percentiles</h2>
+      <p>Ahora conocemos una probabilidad y buscamos un valor. El <strong>percentil de orden 100r</strong> deja una proporción r a su izquierda, con \(0&lt;r&lt;1\). Buscamos primero el cuantil estándar \(z_r\) y después deshacemos la tipificación:</p>
+      <p class="math-scroll" tabindex="0">\[P(X\le x)=r,\qquad \Phi(z_r)=r,\qquad x=\mu+\sigma z_r.\]</p>
+      <ol><li>Decide qué área queda a la izquierda. Si te dan una cola derecha de probabilidad q, usa r=1−q.</li><li>Busca r en el interior de la tabla y lee el z correspondiente, o utiliza la función inversa de la calculadora.</li><li>Calcula x con las unidades originales y comprueba el sentido: un percentil superior al 50 está por encima de la media.</li></ol>
+      <h3>Percentil 90 de las puntuaciones</h3>
+      <p>Pedimos \(P(X\le x)=0{,}90\). La tabla sitúa 0,90 entre 0,8997 y 0,9015, por lo que z está entre 1,28 y 1,29. Con el valor de tabla más próximo, z≈1,28:</p>
+      <p class="math-scroll" tabindex="0">\[x\approx100+15\cdot1{,}28=119{,}20.\]</p>
+      <p>Con función inversa, z≈1,28155 y x≈119,22 puntos. Cerca del 90 % del modelo queda por debajo del umbral; esto no garantiza ese porcentaje exacto en cada muestra.</p>
+      <h3>Umbral para el 5 % de puntuaciones más altas</h3>
+      <p>La pregunta da la cola derecha: \(P(X&gt;c)=0{,}05\). El área a la izquierda es 0,95, por lo que z≈1,64485 y:</p>
+      <p class="math-scroll" tabindex="0">\[c\approx100+15\cdot1{,}64485\approx124{,}67\text{ puntos}.\]</p>
+      <p>Con una tabla de centésimas, 1,64 y 1,65 aproximan ese cuantil. La interpolación da aproximadamente 1,645; hay que indicar la precisión usada. Buscar 0,05 directamente daría el percentil 5, situado por debajo de la media.</p>
+      <h3>Intervalo central que contiene el 95 %</h3>
+      <p>Queda 5 % fuera, repartido en dos colas de 2,5 %. El extremo superior estándar deja 0,975 a la izquierda, de modo que z≈1,96. Por simetría:</p>
+      <p class="math-scroll" tabindex="0">\[100\pm1{,}96\cdot15=100\pm29{,}4,\qquad [70{,}6;129{,}4].\]</p>
+      <p>Este intervalo describe probabilidades de una puntuación con parámetros conocidos. No es un intervalo de confianza de una media desconocida; esa diferencia se estudia en <a href="../09-inferencia-estadistica/06-intervalos-de-probabilidad-o-intervalos-caracteristicos.html">9.6. Intervalos característicos</a>.</p>
+      <p data-content-role="warning">Errores que evitar: usar 0,95 en lugar de 0,975 para un intervalo central del 95 %; confundir cola derecha e izquierda; multiplicar por la varianza en lugar de la desviación; devolver z sin recuperar las unidades de X.</p>
+    </section>
+
     <section id="explorador" data-normal-explorer data-content-role="explorer"><h2>Explorador de densidad y acumulada</h2>
       <p>Modifica los cinco controles originales. a, b y k son valores absolutos de X; no cambian ni se recortan al mover la media o la desviación.</p>
       <div data-normal-controls hidden>
@@ -77,10 +121,10 @@
       <p>Son probabilidades aproximadas del modelo, no porcentajes garantizados en cada muestra. Estar fuera de estos intervalos no convierte un dato en imposible ni justifica por sí solo eliminarlo.</p>
     </section>
     <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2>
-      <p>El original incluye esta teoría y el explorador, pero no una tabla normal consultable, ejercicios resueltos independientes, preguntas autocorregibles ni generación procedural. Esos contenidos no se inventan aquí; el resto de archivos se revisará por separado.</p>
+      <p>El original aporta la teoría inicial y el explorador. La tanda TEORIA-01 añade un extracto de tabla, ejemplos de probabilidades y problemas inversos (TEO-04 y TEO-05), identificados como elaboración didáctica. Siguen pendientes la práctica autocorregible propia y la generación procedural. El extracto es suficiente para los ejemplos de esta lección; no sustituye una tabla completa para otros valores.</p>
       <p>El explorador no califica ni guarda parámetros o progreso. La lección permanece con contenido parcial.</p>
     </section>
-    <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="02-distribucion-binomial.html">8.2. Distribución binomial</a> · <a href="index.html">Volver al tema 8</a> · <a href="04-aproximacion-de-la-distribucion-binomial-a-la-distribucion-normal.html">8.4. Aproximación normal (en preparación)</a></nav>
+    <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="02-distribucion-binomial.html">8.2. Distribución binomial</a> · <a href="index.html">Volver al tema 8</a> · <a href="04-aproximacion-de-la-distribucion-binomial-a-la-distribucion-normal.html">8.4. Aproximación normal</a></nav>
   </main>
   <div id="site-footer"></div>
 </body>

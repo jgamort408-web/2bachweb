@@ -14,7 +14,7 @@
   <main id="main-content" class="page-main mc-lesson">
     <h1 data-content-role="lesson-title">6.2. Sistemas de inecuaciones lineales con dos incógnitas</h1>
     <p data-content-role="lead">Un sistema impone varias condiciones simultáneas. Su solución es la zona común donde se superponen los semiplanos de todas las restricciones.</p>
-    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#sistema">Sistema y región factible</a> · <a href="#interseccion">Gráfico</a> · <a href="#vertices">Vértices</a> · <a href="#tipos">Tipos de región</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#sistema">Sistema y región factible</a> · <a href="#interseccion">Gráfico</a> · <a href="#vertices">Vértices</a> · <a href="#tipos">Tipos de región</a> · <a href="#interseccion-vacia">Región vacía</a> · <a href="#region-segmento">Segmento</a> · <a href="#region-punto">Punto</a> · <a href="#comprobar-regiones">Comprobación</a> · <a href="#practica-regiones">Tu turno</a> · <a href="#pendiente">Contenido pendiente</a></nav>
     <section id="sistema" data-content-role="definition"><h2>Sistema y región factible</h2>
     <p>Ya no buscamos solo un lado de una recta, sino la intersección de las zonas que cumplen todas las inecuaciones. Esa intersección se llama <strong>región factible</strong>.</p>
     <p>El ejemplo es:</p>
@@ -72,7 +72,45 @@
     <h3>No acotada</h3><p>Se extiende indefinidamente en alguna dirección. Puede tener o no máximo o mínimo: depende de la función objetivo y de las restricciones. No se puede decidir solo por el tamaño de la región.</p>
     <p data-content-role="warning">Si los semiplanos no tienen ningún punto común, la región factible está vacía: el sistema no tiene solución y no hay ningún punto factible que optimizar.</p>
     </section>
-    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2><p>Práctica autocorregible y explorador interactivo pendientes. Se conserva el ejemplo gráfico; los ejercicios resueltos adicionales se incorporarán en su apartado.</p></section>
+
+    <section id="interseccion-vacia" data-content-role="worked-example"><h2>Ejemplo: dos condiciones sin puntos comunes</h2>
+      <p><strong>Ampliaciones didácticas.</strong> Los ejemplos siguientes son nuevos e independientes del sistema original. Consideramos variables reales.</p>
+      <p class="math-scroll" tabindex="0">\[x\ge0,\qquad y\ge0,\qquad x+y\le2,\qquad x+y\ge5.\]</p>
+      <ol><li>La condición x+y≤2 selecciona el lado de la recta x+y=2 que contiene el origen.</li><li>La condición x+y≥5 selecciona el lado de la recta paralela x+y=5 que queda alejado del origen.</li><li>No hay zona común: la misma suma no puede ser a la vez menor o igual que 2 y mayor o igual que 5.</li></ol>
+      <p>Algebraicamente, las restricciones obligarían a 5≤x+y≤2, una contradicción. La región es <strong>vacía</strong>, no un punto ni una recta. Las intersecciones de cada frontera con los ejes no solucionan esa incompatibilidad.</p>
+    </section>
+    <section id="region-segmento" data-content-role="worked-example"><h2>Ejemplo: la región se reduce a un segmento</h2>
+      <p>Consideramos:</p>
+      <p class="math-scroll" tabindex="0">\[x\ge0,\qquad y\ge0,\qquad x+y\le4,\qquad x+y\ge4.\]</p>
+      <ol><li>Las dos últimas condiciones equivalen juntas a x+y=4: solo quedan puntos de esa recta.</li><li>Despejamos y=4−x. La condición y≥0 exige x≤4; además x≥0.</li><li>Por tanto, todas las soluciones son \((t,4-t)\), con \(0\le t\le4\).</li></ol>
+      <p>La región factible es el segmento cerrado de extremos (0,4) y (4,0), incluidos ambos. Por ejemplo, (1,3) y (2,2) cumplen las cuatro condiciones. (3,2) no cumple x+y≤4; (1,1) no cumple x+y≥4.</p>
+      <p data-content-role="key-idea">La región tiene área cero y contiene infinitos puntos reales. Área cero no significa ausencia de soluciones. Si se añadiera que x e y deben ser enteros, quedarían cinco puntos: (0,4), (1,3), (2,2), (3,1) y (4,0).</p>
+    </section>
+    <section id="region-punto" data-content-role="worked-example"><h2>Ejemplo: una única solución factible</h2>
+      <p>Consideramos:</p>
+      <p class="math-scroll" tabindex="0">\[x\ge1,\qquad y\ge2,\qquad x+y\le3.\]</p>
+      <p>Las dos primeras restricciones dan x+y≥3. Para cumplir también x+y≤3, la suma debe ser exactamente 3. Si x fuera mayor que 1, al tener y≥2 la suma superaría 3; si y fuera mayor que 2 ocurriría lo mismo. Solo queda (1,2).</p>
+      <p><strong>Comprobación.</strong> En ese punto, 1≥1, 2≥2 y 1+2≤3 son verdaderas. La región es el conjunto de un único punto, no es vacía. Las tres fronteras pasan por él y están incluidas.</p>
+      <h3>Una frontera excluida cambia el resultado</h3>
+      <p>Si sustituimos únicamente x+y≤3 por x+y&lt;3, el sistema queda sin solución, porque las otras dos condiciones siguen exigiendo x+y≥3. El punto (1,2) queda excluido y no existe otro que lo sustituya.</p>
+    </section>
+    <section id="comprobar-regiones" data-content-role="method"><h2>Cómo comprobar una región especial</h2>
+      <ol><li>Representa cada semiplano y decide si su frontera está incluida.</li><li>Busca consecuencias conjuntas: una cota inferior mayor que una superior demuestra incompatibilidad; dos cotas iguales pueden imponer una igualdad.</li><li>Si queda una recta, parametriza sus puntos y aplica las restricciones restantes para obtener un segmento, una semirrecta o la recta completa.</li><li>Si parece quedar un punto, comprueba todas las restricciones por sustitución. No basta con que sea un cruce de fronteras.</li></ol>
+      <p>Sin restricciones adicionales, x+y≤4 y x+y≥4 dejan la recta completa x+y=4. Son x≥0 e y≥0 las que la recortan al segmento del ejemplo. No añadas el primer cuadrante si el problema no lo exige.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Comparación de regiones factibles especiales"><table>
+        <caption>Clasificar por soluciones, no solo por el área del dibujo</caption><thead><tr><th scope="col">Caso</th><th scope="col">Región</th><th scope="col">Soluciones reales</th></tr></thead><tbody>
+          <tr><th scope="row">Cotas incompatibles para x+y</th><td>Vacía</td><td>Ninguna</td></tr>
+          <tr><th scope="row">x+y=4 con x,y≥0</th><td>Segmento cerrado</td><td>Infinitas</td></tr>
+          <tr><th scope="row">x≥1, y≥2, x+y≤3</th><td>Punto (1,2)</td><td>Una</td></tr>
+        </tbody></table></div>
+      <p>Si más adelante se define una función objetivo, la región vacía no ofrece decisiones que optimizar. En una región formada por un punto, ese punto alcanza máximo y mínimo de cualquier objetivo definido en él. En un segmento cerrado, una función lineal alcanza sus extremos en los extremos del segmento o es constante en todo él. Consulta los <a href="04-solucion-de-un-problema-de-programacion-lineal.html#optimo-multiple">casos de optimización de 6.4</a>.</p>
+    </section>
+    <section id="practica-regiones" data-content-role="practice"><h2>Tu turno: añade restricciones de una en una</h2>
+      <p>Partimos de x+y≤4, x+y≥4 y x,y≥0. ¿Qué región queda al añadir x≥1 e y≥3? ¿Y si se cambia solo y≥3 por y&gt;3?</p>
+      <details><summary>Ver solución razonada</summary><p>El sistema inicial deja el segmento x+y=4. Al añadir x≥1 e y≥3, la suma mínima ya es 4 y solo es posible (1,3), que cumple todas las condiciones. Si y&gt;3, junto con x≥1 se obtiene x+y&gt;4, incompatible con x+y=4; la región pasa a ser vacía.</p></details>
+    </section>
+
+    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2><p>Práctica autocorregible y explorador interactivo pendientes. Se conserva el ejemplo gráfico original. La tanda TEORIA-03 (TEO-18) añade ejemplos didácticos resueltos de región vacía, segmento y punto, con una actividad de comprobación. Quedan pendientes su revisión visual y la validación manual con tecnologías de apoyo.</p></section>
     <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="01-inecuaciones-lineales-con-dos-incognitas.html">Anterior: inecuaciones</a> · <a href="index.html">Volver al tema 6</a> · <a href="03-programacion-lineal.html">Siguiente: programación lineal (contenido parcial)</a></nav>
   </main>
   <div id="site-footer"></div>

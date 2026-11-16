@@ -1,14 +1,17 @@
+const {fixture}=require('./helpers/local-site.cjs');
+const fs=require('node:fs'),path=require('node:path');
 const assert = require('node:assert/strict');
 const { chromium } = require('playwright');
 
 // P02 · Apoyo de Combinatoria migrado: MathJax sin errores, demostración de V(5,3), calculadora exacta,
-// seis ejercicios con selector, test de diez preguntas en el visor común, índice de apoyos, móvil 200 % y sin JS.
+// seis ejercicios con selector, test de diez preguntas en el visor común, índice de apoyos, móvil 200 %, sin JS y 40 retroalimentaciones.
 (async () => {
-  const base = 'http://127.0.0.1:4173/';
+  const base = 'http://libro.test/';
   const route = 'libro/apoyos/combinatoria.html';
-  const browser = await chromium.launch({ headless: true, executablePath: process.env.CHROME_PATH });
+  const browser = await chromium.launch({ headless: true, executablePath: process.env.CHROME_PATH||'C:/Program Files/Google/Chrome/Application/chrome.exe' });
   try {
-    const page = await browser.newPage({ viewport: { width: 1200, height: 900 } });
+    const page = await browser.newPage({ serviceWorkers: 'block', viewport: { width: 1200, height: 900 } });
+    await fixture(page.context());
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
     page.on('response', r => { if (r.status() >= 400 && !r.url().endsWith('favicon.ico')) errors.push(r.status() + ' ' + r.url()); });
@@ -72,6 +75,29 @@ const { chromium } = require('playwright');
     await quiz.getByText('Pregunta 1 de 10 · Sin límite de tiempo').waitFor();
     assert.equal(await quiz.locator('input[type="radio"]').count(), 4);
 
+    // Cada alternativa debe mostrar la explicación que le corresponde.
+    const {combinatoricsQuestions}=await import('../content/activities/combinatorics-test.js');
+    let feedbackChecked=0;
+    for(const choice of ['a','b','c','d']){
+      await page.goto(base+route);
+      for(const q of combinatoricsQuestions){
+        await quiz.locator('input[name="answer-'+q.id+'"][value="'+choice+'"]').check();
+        await quiz.locator('[data-action="check"]').click();
+        const expected=q.options.find(o=>o.id===choice).feedback;
+        await page.waitForFunction(text=>document.querySelector('[data-quiz="combinatorics"] [data-content-role="feedback"]')?.textContent.includes(text),expected);feedbackChecked++;
+        if(q.sourceIndex===5&&choice==='d'){
+          const out=path.resolve(__dirname,'../../tmp/p03');fs.mkdirSync(out,{recursive:true});
+          await quiz.locator('[data-content-role="feedback"]').screenshot({path:path.join(out,'combinatoria-monedas-feedback.png')});
+        }
+        if(choice!==q.correct){
+          await quiz.locator('input[value="'+q.correct+'"]').check();await quiz.locator('[data-action="check"]').click();
+          await page.waitForFunction(()=>document.querySelector('[data-quiz="combinatorics"] [data-content-role="feedback"]')?.dataset.state==='correct');
+        }
+        await quiz.locator('[data-action="next"]').click();
+      }
+    }
+    assert.equal(feedbackChecked,40);
+
     // Índice de apoyos: estado parcial.
     await page.goto(base + 'libro/apoyos/index.html');
     await page.locator('[data-topic-index="supports"]').getByText(/Combinatoria/).first().waitFor();
@@ -85,7 +111,8 @@ const { chromium } = require('playwright');
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
 
     // Sin JavaScript: fórmulas, listas y ejercicios siguen ahí; los controles interactivos no aparecen.
-    const nojs = await browser.newContext({ javaScriptEnabled: false });
+    const nojs = await browser.newContext({ javaScriptEnabled: false, serviceWorkers: 'block' });
+    await fixture(nojs);
     const offline = await nojs.newPage();
     await offline.goto(base + route);
     assert.equal(await offline.locator('[data-exercise]').count(), 6);
@@ -94,6 +121,6 @@ const { chromium } = require('playwright');
     assert.equal(await offline.locator('[data-combinatorics-calculator]').isVisible(), false);
     await nojs.close();
     assert.deepEqual(errors, []);
-    console.log('PASS: combinatoria con MathJax, demostración V(5,3), calculadora exacta, seis ejercicios, test de diez preguntas, índice parcial, móvil 200 % y sin JS.');
+    console.log('PASS: combinatoria con MathJax, demostración V(5,3), calculadora exacta, seis ejercicios, test de diez preguntas, índice parcial, móvil 200 %, sin JS y 40 retroalimentaciones.');
   } finally { await browser.close(); }
 })().catch(e => { console.error(e); process.exitCode = 1; });

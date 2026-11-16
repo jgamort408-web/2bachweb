@@ -28,8 +28,8 @@ export const studyQuestions = [
     ['Un punto relleno en (1,2).', 'Simplificar no añade el punto excluido.'], ['Un máximo relativo en (1,2).', 'El punto no pertenece a la función.']],
     tex`Para \(x\ne1\), \(r(x)=x+1\). Así, \(\lim_{x\to1}r(x)=2\), pero \(r(1)\) no existe: es una discontinuidad evitable.`,
     'Conserva el dominio original después de cancelar factores.'),
-  question('05', tex`Una función derivable cumple \(u\prime(a)=0\). ¿Basta para afirmar que tiene un extremo en a?`, [
-    ['No; hay que estudiar el comportamiento a ambos lados.', 'Una tangente horizontal no garantiza un extremo.'],
+  question('05', tex`Una función derivable cumple \(u\prime(a)=0\). ¿Basta para afirmar que tiene un extremo en ese punto interior a de su dominio?`, [
+    ['No; hay que estudiar el comportamiento a ambos lados.', 'Una tangente horizontal no garantiza un extremo: x³ en 0 es un contraejemplo.'],
     ['Sí, siempre es un máximo.', 'También podría ser un mínimo o no haber extremo.'], ['Sí, siempre es un mínimo.', 'El signo puede cambiar en el sentido contrario o no cambiar.'],
     ['Sí, siempre es un extremo absoluto.', 'Ni siquiera se garantiza un extremo relativo.']],
     tex`Por ejemplo, \(u(x)=x^3\) tiene \(u\prime(0)=0\), pero crece a ambos lados y no tiene extremo allí. Un cambio de + a − en la derivada indica máximo; de − a +, mínimo.`,
@@ -44,8 +44,8 @@ export const studyQuestions = [
 export const studyCards = [
   { id: 'fc-study-01', front: '¿Cómo organizas el estudio de una función?', back: 'Dominio y restricciones → cortes, simetrías y signo → continuidad y límites → asíntotas → derivada, monotonía y extremos → curvatura si procede → tabla y gráfica coherente.' },
   { id: 'fc-study-02', front: '¿Cómo distingues cortes con los dos ejes?', back: tex`Eje X: resolver \(f(x)=0\) dentro del dominio. Eje Y: calcular \((0,f(0))\), solo si 0 pertenece al dominio.` },
-  { id: 'fc-study-03', front: '¿Qué diferencia hay entre el signo de f y el de su derivada?', back: tex`\(f(x)>0\) sitúa la gráfica sobre el eje X. \(f\prime(x)>0\) en todo un intervalo garantiza crecimiento allí. Una función positiva también puede decrecer.` },
+  { id: 'fc-study-03', front: '¿Qué diferencia hay entre el signo de f y el de su derivada?', back: tex`\(f(x)>0\) sitúa la gráfica sobre el eje X. \(f\prime(x)>0\) en todo un intervalo garantiza crecimiento allí. Una función positiva también puede decrecer. Estudia por separado los intervalos separados por puntos excluidos del dominio.` },
   { id: 'fc-study-04', front: '¿Toda raíz del denominador produce una asíntota vertical?', back: 'No. Hay que conservar las restricciones del dominio y calcular los límites laterales. Un límite finito puede corresponder a un hueco; una divergencia infinita por algún lado indica asíntota vertical.' },
-  { id: 'fc-study-05', front: '¿Qué candidatos debes revisar al buscar extremos?', back: 'Puntos interiores del dominio donde la derivada es cero o no existe, además de los extremos incluidos del dominio o intervalo. Se clasifican por el comportamiento local; los absolutos requieren comparar valores en todo el conjunto considerado.' },
+  { id: 'fc-study-05', front: '¿Qué candidatos debes revisar al buscar extremos?', back: 'Puntos interiores del dominio donde la derivada es cero o no existe, además de los extremos incluidos del dominio o intervalo. Se clasifican por el comportamiento local; los absolutos requieren comparar valores en todo el conjunto considerado. En intervalos abiertos o no acotados, revisa también los límites en los extremos: una cota puede no alcanzarse y un extremo absoluto puede no existir.' },
   { id: 'fc-study-06', front: '¿Qué simetrías básicas pueden ahorrar trabajo?', back: tex`Con dominio simétrico respecto a 0: \(f(-x)=f(x)\) indica simetría respecto al eje Y (par); \(f(-x)=-f(x)\), respecto al origen (impar). Si no se cumple ninguna, no impongas esas simetrías.` },
 ].map(card => ({ ...card, topicId: 't02', lessonId: 't02-e01' }));

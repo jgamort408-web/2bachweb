@@ -7,7 +7,7 @@ export const bivariateCards = [
     "category": "Conceptos",
     "sourceIndex": 1,
     "front": "¿Qué es una variable bidimensional?",
-    "back": "El estudio de dos características \\(X,Y\\) en cada individuo. Cada observación es un par \\((x_i,y_i)\\), cuyas dos medidas corresponden al mismo individuo."
+    "back": "Es el estudio de dos características \\(X,Y\\) en cada unidad estadística, como una persona o una empresa. Cada observación es un par \\((x_i,y_i)\\): ambos valores corresponden a la misma unidad."
   },
   {
     "id": "fc-bivariate-original-02",
@@ -39,7 +39,7 @@ export const bivariateCards = [
     "category": "Covarianza",
     "sourceIndex": 5,
     "front": "¿Qué mide la covarianza \\(S_{xy}\\)?",
-    "back": "Resume la variación conjunta respecto a las medias. Su signo indica el sentido de la asociación lineal. Depende de las unidades y su magnitud no mide por sí sola la intensidad de la relación."
+    "back": "Resume la variación conjunta respecto a las medias. Su signo indica el sentido de la asociación lineal. Sus unidades son el producto de las unidades de X e Y; su magnitud por sí sola no mide la intensidad de la relación."
   },
   {
     "id": "fc-bivariate-original-06",
@@ -119,7 +119,7 @@ export const bivariateCards = [
     "category": "Regresión",
     "sourceIndex": 15,
     "front": "¿Qué es la recta de regresión?",
-    "back": "La recta de Y sobre X por mínimos cuadrados con término independiente minimiza la suma de los cuadrados de los residuos verticales. Requiere \\(S_x^2>0\\). Permite estimar Y a partir de X; una estimación no es un resultado garantizado."
+    "back": "La recta de Y sobre X por mínimos cuadrados con término independiente minimiza la suma de los cuadrados de los residuos verticales. Requiere \\(S_x^2>0\\). Estima Y a partir de X; extrapolar fuera del rango observado de X exige una justificación adicional del modelo."
   },
   {
     "id": "fc-bivariate-original-16",
@@ -159,6 +159,6 @@ export const bivariateCards = [
     "category": "Regresión",
     "sourceIndex": 20,
     "front": "¿Qué da el producto de los coeficientes de regresión?",
-    "back": "Con varianzas positivas, los coeficientes de las rectas de mínimos cuadrados con término independiente cumplen \\(b_{yx}b_{xy}=r^2\\), donde \\(b_{yx}=S_{xy}/S_x^2\\) y \\(b_{xy}=S_{xy}/S_y^2\\). Se lee Y en función de X y X en función de Y, respectivamente; no se multiplican dos pendientes despejadas ambas como Y en función de X."
+    "back": "Con varianzas positivas, las rectas de mínimos cuadrados con término independiente cumplen \\(b_{yx}b_{xy}=r^2\\), donde \\(b_{yx}=S_{xy}/S_x^2\\) y \\(b_{xy}=S_{xy}/S_y^2\\). El signo de r se obtiene de las pendientes, no del producto. Se lee Y en función de X y X en función de Y, no dos pendientes despejadas ambas como Y en función de X."
   }
 ];

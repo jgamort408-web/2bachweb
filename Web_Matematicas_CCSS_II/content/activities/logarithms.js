@@ -28,7 +28,7 @@ export const logarithmicQuestions = [
     ['x=4.', 'En 4 la suma es log₂3, no 3.']],
     tex`El dominio exige x>3. \((x-1)(x-3)=8\) da \(x^2-4x-5=0\), con candidatos 5 y −1; solo 5 es admisible.`,
     'Fija primero el dominio de cada logaritmo; después suma usando el producto.'),
-  q('05', 'Una cantidad crece un 5 % al final de cada año. ¿En qué año completo alcanza o supera por primera vez el doble?', [
+  q('05', 'Una cantidad inicial positiva crece al final de cada año un 5 % respecto al valor del año anterior. ¿En qué año completo alcanza o supera por primera vez el doble?', [
     ['En el año 15.', 'El umbral continuo está entre 14 y 15 años.'],
     ['En el año 14.', 'Con 14 periodos, el factor aún es menor que 2.'],
     ['En el año 20.', 'Eso corresponde a sumar un 5 % del valor inicial cada año.'],
@@ -45,9 +45,9 @@ export const logarithmicQuestions = [
 ];
 export const logarithmicCards = [
   { id: 'fc-log-01', front: tex`¿Qué significa \(\log_a x=y\)?`, back: tex`Significa \(a^y=x\), con a>0, a≠1 y x>0. El logaritmo devuelve un exponente; es la inversa de la exponencial de la misma base.` },
-  { id: 'fc-log-02', front: tex`¿Qué dominio, recorrido y cortes tiene \(\log_a x\)?`, back: tex`Dominio \((0,+\infty)\), recorrido \(\mathbb R\), corte con X en (1,0). No corta Y porque x=0 está excluido. Tiene asíntota vertical x=0.` },
+  { id: 'fc-log-02', front: tex`¿Qué dominio, recorrido y cortes tiene \(\log_a x\)?`, back: tex`Para a>0 y a≠1: dominio \((0,+\infty)\), recorrido \(\mathbb R\), corte con X en (1,0). No corta Y porque x=0 está excluido. Tiene asíntota vertical x=0.` },
   { id: 'fc-log-03', front: '¿Cómo depende la monotonía del logaritmo de su base?', back: 'Crece si a>1 y decrece si 0<a<1. En x=1 vale 0. Para a>1, es negativo entre 0 y 1 y positivo por encima de 1; con base menor que 1 se invierten esos signos.' },
-  { id: 'fc-log-04', front: '¿Qué condiciones acompañan a las propiedades de los logaritmos?', back: tex`Para u,v>0 y una misma base válida: \(\log_a(uv)=\log_a u+\log_a v\), \(\log_a(u/v)=\log_a u-\log_a v\) y \(\log_a(u^r)=r\log_a u\). No hay una regla análoga que separe una suma u+v.` },
+  { id: 'fc-log-04', front: '¿Qué condiciones acompañan a las propiedades de los logaritmos?', back: tex`Para u,v>0, r real y una misma base a>0, a≠1: \(\log_a(uv)=\log_a u+\log_a v\), \(\log_a(u/v)=\log_a u-\log_a v\) y \(\log_a(u^r)=r\log_a u\). No hay una regla análoga que separe una suma u+v.` },
   { id: 'fc-log-05', front: tex`¿Cómo se calcula un logaritmo de base a con ln?`, back: tex`\(\log_a x=\ln x/\ln a\), para x>0 y a>0, a≠1. ln usa base e; en esta lección log sin subíndice usa base 10.` },
   { id: 'fc-log-06', front: '¿Cómo resuelves una ecuación logarítmica sin aceptar soluciones falsas?', back: 'Exige que cada argumento original sea positivo; aplica propiedades y resuelve; comprueba los candidatos en el dominio y en la ecuación inicial. Un producto positivo no garantiza que sus dos factores sean positivos.' },
 ].map(card => ({ ...card, topicId: 't02', lessonId: 't02-e05' }));

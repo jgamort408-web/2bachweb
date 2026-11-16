@@ -43,6 +43,7 @@ test('catálogo: referencias existentes y tarjetas legibles', () => {
   for (const item of [...questions, ...flashcards]) {
     assert.ok(ids.has(item.topicId), item.id + ': tema o apoyo');
     if (item.lessonId) assert.ok(ids.has(item.lessonId) || Object.hasOwn(scopes, item.lessonId), item.id + ': epígrafe o repaso');
+    if (item.sourceLessonId) assert.ok(ids.has(item.sourceLessonId), item.id + ': lección de referencia');
   }
   for (const card of flashcards) assert.ok(card.front?.trim() && card.back?.trim(), card.id);
 });

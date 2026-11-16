@@ -5,7 +5,7 @@ export const expectedQuestionsByTopic = Object.freeze({
 });
 export const expectedCardsByTopic = Object.freeze({
   t01: 61, t02: 54, t03: 48, t04: 72, t05: 66,
-  t06: 19, t07: 16, bivariate: 20, t08: 19, t09: 30,
+  t06: 19, t07: 16, bivariate: 23, t08: 22, t09: 37, combinatorics: 2,
 });
 export const expectedCatalog = Object.freeze({
   questions: Object.values(expectedQuestionsByTopic).reduce((sum, n) => sum + n, 0),

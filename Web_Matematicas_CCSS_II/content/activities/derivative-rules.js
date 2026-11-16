@@ -9,9 +9,9 @@ export const ruleQuestions = [
   q('tan-002', 't01-e13', 'Si f(0)=3 y su derivada en 0 es cero, ¿cuál es la recta normal?', 'vertical',
     [['vertical', '\\(x=0\\)', 'La tangente es horizontal y la normal vertical.'], ['horizontal', '\\(y=3\\)', 'Esa es la tangente.'], ['minus', '\\(y=-x+3\\)', 'La pendiente normal no se obtiene cambiando cero por −1.'], ['none', 'No existe normal porque no se puede dividir por cero.', 'No tiene pendiente finita, pero la recta vertical sí existe.']],
     'La tangente es y=3. Su perpendicular por (0,3) es x=0. No hay que calcular −1/0.', 'Piensa en la perpendicular a una recta horizontal.'),
-  q('tan-003', 't01-e13', 'En el examen, usando a=1 y b=−2, ¿cuáles son tangente y normal en x=2?', 'pair',
+  q('tan-003', 't01-e13', 'Sea f(x)=(x−2)/(x−1), para x>0 y x≠1. ¿Cuáles son la tangente y la normal en x=2?', 'pair',
     [['pair', 'Tangente y=x−2; normal y=−x+2.', 'Ambas pasan por (2,0) y sus pendientes multiplican −1.'], ['reverse', 'Tangente y=−x+2; normal y=x−2.', 'Has intercambiado las pendientes.'], ['shift', 'Tangente y=x+2; normal y=−x−2.', 'Ninguna pasa por el punto (2,0).'], ['parallel', 'Tangente y=x−2; normal y=x+2.', 'Dos rectas con pendiente 1 son paralelas, no perpendiculares.']],
-    'La rama es \\((x-2)/(x-1)\\). Da f(2)=0 y pendiente tangente 1; la normal tiene pendiente −1.', 'Usa la rama válida cerca de 2 y los parámetros del apartado 1(a).', 'Examen Límites y Derivadas.zip :: main.tex, 1(b–c), con parámetros de 1(a)'),
+    'La rama es \\((x-2)/(x-1)\\). Da f(2)=0 y pendiente tangente 1; la normal tiene pendiente −1.', 'Calcula f(2) y la derivada de (x−2)/(x−1) en 2; después escribe las dos rectas por (2,f(2)).', 'Examen Límites y Derivadas.zip :: main.tex, 1(b–c), con parámetros de 1(a)'),
   q('table-001', 't01-e14', '¿Cuál es la derivada de \\(3^x\\)?', 'exponential',
     [['exponential', '\\(3^x\\ln3\\)', 'La variable aparece en el exponente.'], ['power', '\\(x3^{x-1}\\)', 'La regla de la potencia no corresponde a una base constante y exponente variable.'], ['cube', '\\(3x^2\\)', 'Esta es la derivada de x³.'], ['same', '\\(3^x\\)', 'Solo la base e tiene ln(base)=1.']],
     'Para una base constante A positiva, la derivada de A elevado a x es \\(A^x\\ln A\\). Con A=3 queda \\(3^x\\ln3\\).', 'Distingue 3 elevado a x de x elevado a 3.'),
@@ -29,7 +29,7 @@ export const ruleQuestions = [
     'Aplicamos \\((u\\prime v-uv\\prime)/v^2\\). El numerador se simplifica a \\(1-\\ln x\\), y el denominador es x².', 'Escribe por separado u, v y sus derivadas.'),
   q('rules-003', 't01-e15', 'En el ejercicio del examen \\(f(x)=(x^3-4)/(x^2+4)^2\\), ¿cuánto vale su derivada en 1?', 'value',
     [['value', '\\(27/125\\)', 'El numerador simplificado vale 27 y el denominador 5³.'], ['missing', '\\(3/25\\)', 'Este resultado omite la derivada del denominador.'], ['sign', '\\(-27/125\\)', 'Revisa el orden de la resta del cociente.'], ['square', '\\(27/25\\)', 'Después de simplificar el denominador queda elevado a 3.']],
-    'La derivada tiene numerador \\(-x^4+12x^2+16x\\) y denominador \\((x^2+4)^3\\). En 1, valen 27 y 125, respectivamente.', 'Usa el resultado del ejemplo resuelto y sustituye al final.', 'Examen Límites y Derivadas.zip :: main.tex, 2(c); ampliación con evaluación en 1'),
+    'La derivada tiene numerador \\(-x^4+12x^2+16x\\) y denominador \\((x^2+4)^3\\). En 1, valen 27 y 125, respectivamente.', 'Deriva mediante la regla del cociente y la cadena; simplifica los factores comunes y sustituye x=1 al final.', 'Examen Límites y Derivadas.zip :: main.tex, 2(c); ampliación con evaluación en 1'),
 ];
 export const ruleCards = [
   { id: 'fc-tan-01', front: '¿Qué dos datos necesitas para escribir la tangente?', back: 'El punto (a,f(a)) y la pendiente f′(a). La ecuación es \\(y-f(a)=f\\prime(a)(x-a)\\), si la derivada existe y es finita.' },
@@ -37,8 +37,8 @@ export const ruleCards = [
   { id: 'fc-tan-03', front: '¿Cuál es la normal cuando la tangente es horizontal?', back: 'La recta vertical x=a. No tiene pendiente real finita y no se debe dividir por cero.' },
   { id: 'fc-table-01', front: '¿En qué se diferencian las derivadas de x³ y 3ˣ?', back: 'La primera es \\(3x^2\\); la segunda, \\(3^x\\ln3\\). Hay que identificar si varía la base o el exponente.' },
   { id: 'fc-table-02', front: '¿Ser continua la raíz cuadrada en 0 garantiza una derivada finita?', back: 'No. La derivada \\(1/(2\\sqrt{x})\\) vale para x>0. En 0, el cociente incremental derecho diverge.' },
-  { id: 'fc-table-03', front: '¿Qué factor aparece al derivar una función con argumento u(x)?', back: 'La derivada interior u′(x). Por ejemplo, la derivada de e elevado a 3x es \\(3e^{3x}\\).' },
-  { id: 'fc-rules-01', front: '¿Cómo se deriva un producto uv?', back: '\\((uv)\\prime=u\\prime v+uv\\prime\\). Se deriva un factor cada vez y se suman los dos términos.' },
+  { id: 'fc-table-03', front: '¿Qué factor aparece al derivar una función con argumento u(x)?', back: 'Si la función interior es derivable en x y la exterior lo es en u(x), la regla de la cadena incluye el factor u′(x). Por ejemplo, la derivada de e elevado a 3x es \\(3e^{3x}\\).' },
+  { id: 'fc-rules-01', front: '¿Cómo se deriva un producto uv?', back: '\\((uv)\\prime=u\\prime v+uv\\prime\\). Si u y v son derivables en el punto, se deriva un factor cada vez y se suman los dos términos.' },
   { id: 'fc-rules-02', front: '¿Cómo se deriva un cociente u/v?', back: '\\((u/v)\\prime=(u\\prime v-uv\\prime)/v^2\\), con v distinto de cero y ambas funciones derivables.' },
   { id: 'fc-rules-03', front: '¿Cancelar un factor permite derivar en un punto excluido del dominio original?', back: 'No. La derivada de la expresión simplificada solo corresponde a la función original donde esta existe.' },
 ];

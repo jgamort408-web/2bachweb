@@ -10,27 +10,27 @@ export const inferenceQuestions = [
       {
         "id": "a",
         "text": "Diseñar herramientas informáticas para realizar encuestas.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Las herramientas informáticas pueden ayudar, pero no son el objetivo de la inferencia."
       },
       {
         "id": "b",
         "text": "Extraer conclusiones acerca de una población a partir de los resultados obtenidos en una muestra.",
-        "feedback": "Esa es la opción prevista en el diseño revisado."
+        "feedback": "La inferencia pasa de la información muestral a conclusiones sobre la población, bajo supuestos."
       },
       {
         "id": "c",
         "text": "Garantizar que una muestra seleccionada no tenga ningún tipo de riesgo o error.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "El muestreo y la medición tienen incertidumbre; la inferencia no los elimina."
       },
       {
         "id": "d",
         "text": "Reducir el tamaño de la población estudiada al mínimo posible.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "El estudio no reduce la población: selecciona observaciones para conocerla."
       }
     ],
     "correct": "b",
     "hint": "Piensa en la dirección de la inferencia: de muestra a población.",
-    "explanation": "La definición exacta del bloque 1 indica: «La inferencia estadística se ocupa de extraer conclusiones acerca de una población a partir de los resultados obtenidos en una muestra»."
+    "explanation": "La inferencia utiliza información de una muestra para estudiar la población, con un diseño, un modelo y una incertidumbre que deben explicarse."
   },
   {
     "id": "q-t09-original-02",
@@ -41,22 +41,22 @@ export const inferenceQuestions = [
       {
         "id": "a",
         "text": "Una cantidad muy elevada de datos siempre garantiza una mayor certeza absoluta.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Un gran tamaño no corrige automáticamente la selección sesgada."
       },
       {
         "id": "b",
         "text": "Debe coincidir exactamente con el 10% de la población total.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "No existe una regla universal que exija observar el 10 % de la población."
       },
       {
         "id": "c",
         "text": "Debe ser lo más grande posible independientemente del coste o tiempo.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "El tamaño se planifica según precisión, diseño y recursos; más no siempre es la única prioridad."
       },
       {
         "id": "d",
         "text": "Una muestra muy grande puede seguir dando resultados sesgados si está mal seleccionada.",
-        "feedback": "Esa es la opción prevista en el diseño revisado."
+        "feedback": "Una muestra grande puede conservar sesgos de cobertura, selección o respuesta."
       }
     ],
     "correct": "d",
@@ -72,27 +72,27 @@ export const inferenceQuestions = [
       {
         "id": "a",
         "text": "Formularlas de una manera objetiva e imparcial.",
-        "feedback": "Esa es la opción prevista en el diseño revisado."
+        "feedback": "Una formulación neutral evita sugerir la respuesta que se desea obtener."
       },
       {
         "id": "b",
         "text": "Incluir la opinión de la mayoría para facilitar la respuesta.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Introducir la supuesta opinión mayoritaria puede influir en la respuesta."
       },
       {
         "id": "c",
         "text": "Hacerlas sutilmente persuasivas para probar una hipótesis concreta.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Persuadir modifica la medición: no es una redacción neutral."
       },
       {
         "id": "d",
         "text": "Evitar preguntas sobre temas económicos o de impuestos.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "El tema económico no impide preguntar; importan la claridad y la neutralidad."
       }
     ],
     "correct": "a",
     "hint": "Una pregunta no debe sugerir la respuesta deseada.",
-    "explanation": "El apartado de 'Encuesta' subraya que «hay que escoger adecuadamente las preguntas de las que constará, y formularlas de una manera objetiva e imparcial», dando ejemplos de preguntas sesgadas vs correctas."
+    "explanation": "Una redacción neutral evita inducir una respuesta. No elimina por sí sola los sesgos de selección ni garantiza que todas las personas respondan."
   },
   {
     "id": "q-t09-original-04",
@@ -102,23 +102,23 @@ export const inferenceQuestions = [
     "options": [
       {
         "id": "a",
-        "text": "Ofrecen la ventaja de que su coste es inferior a otros métodos.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "text": "Reducir siempre el coste frente a cualquier diseño no probabilístico.",
+        "feedback": "Un diseño probabilístico no garantiza menor coste en todos los estudios."
       },
       {
         "id": "b",
-        "text": "La elección de los elementos de la muestra se realiza según el juicio del investigador.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "text": "Elegir cada unidad sólo según el juicio personal del investigador.",
+        "feedback": "La elección sólo por criterio personal corresponde al juicio, no al sorteo probabilístico."
       },
       {
         "id": "c",
         "text": "Calcular probabilidades de inclusión y, bajo los supuestos adecuados, estimar incertidumbre por selección.",
-        "feedback": "Esa es la opción prevista en el diseño revisado."
+        "feedback": "Con probabilidades de inclusión conocidas se puede estudiar la incertidumbre de selección bajo el diseño."
       },
       {
         "id": "d",
-        "text": "Reducen el tiempo necesario de investigación en comparación con métodos no probabilísticos.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "text": "Reducir siempre el tiempo frente a cualquier diseño no probabilístico.",
+        "feedback": "El tiempo depende del trabajo de campo; no hay una reducción universal."
       }
     ],
     "correct": "c",
@@ -134,22 +134,22 @@ export const inferenceQuestions = [
       {
         "id": "a",
         "text": "Conocida y no nula.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Probabilidades conocidas y positivas caracterizan el diseño probabilístico, no el caso preguntado."
       },
       {
         "id": "b",
         "text": "Estrictamente igual para todos los estratos.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "La igualdad entre estratos no define un muestreo no probabilístico."
       },
       {
         "id": "c",
         "text": "No queda determinada por el mecanismo de selección; no se conocen probabilidades de inclusión para todas las unidades.",
-        "feedback": "Esa es la opción prevista en el diseño revisado."
+        "feedback": "Sin mecanismo probabilístico documentado no se conocen las probabilidades de inclusión de todas las unidades."
       },
       {
         "id": "d",
-        "text": "Cálculada mediante un salto sistemático.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "text": "Calculada mediante un salto sistemático.",
+        "feedback": "El salto no describe todos estos métodos; un sistemático con inicio aleatorio puede ser probabilístico."
       }
     ],
     "correct": "c",
@@ -160,27 +160,27 @@ export const inferenceQuestions = [
     "id": "q-t09-original-06",
     "topicId": "t09",
     "sourceIndex": 6,
-    "prompt": "En el muestreo aleatorio simple, ¿cuál es el paso inmediatamente posterior a la enumeración de todos los elementos del marco muestral?",
+    "prompt": "En el procedimiento de sorteo con urna descrito en la lección, ¿qué se prepara después de enumerar las unidades y antes de extraer la muestra?",
     "options": [
       {
         "id": "a",
         "text": "Seleccionar, uno a uno, n papeles de la urna.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Extraer las papeletas viene después de preparar la urna numerada."
       },
       {
         "id": "b",
         "text": "Introducir en una urna papeles numerados del 1 al N (total de la población).",
-        "feedback": "Esa es la opción prevista en el diseño revisado."
+        "feedback": "Primero se prepara una papeleta identificable por unidad; después se hace la extracción prevista."
       },
       {
         "id": "c",
         "text": "Dividir a la población en estratos excluyentes.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Dividir en estratos es otro procedimiento, no el siguiente paso de esta urna."
       },
       {
         "id": "d",
         "text": "Elegir un número al azar para determinar el intervalo o salto.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Aquí no se selecciona con salto; además, el intervalo sistemático se calcula a partir del diseño."
       }
     ],
     "correct": "b",
@@ -191,32 +191,32 @@ export const inferenceQuestions = [
     "id": "q-t09-original-07",
     "topicId": "t09",
     "sourceIndex": 7,
-    "prompt": "En una población de N=1000 personas se desea extraer una muestra sistemática de n=20. Si el primer número al azar escogido es el 8, ¿cuál será el TERCER elemento seleccionado?",
+    "prompt": "En una población de \\(N=1000\\) personas se desea extraer una muestra sistemática de \\(n=20\\). Si el inicio aleatorio es \\(8\\), ¿cuál será el tercer elemento seleccionado?",
     "options": [
       {
         "id": "a",
         "text": "58",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "58 es el segundo elemento: 8 más un salto de 50."
       },
       {
         "id": "b",
         "text": "158",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "158 es el cuarto elemento: 8 más tres saltos de 50."
       },
       {
         "id": "c",
         "text": "108",
-        "feedback": "Esa es la opción prevista en el diseño revisado."
+        "feedback": "El inicio ya es el primero: el tercero es 8 más dos saltos de 50, es decir, 108."
       },
       {
         "id": "d",
         "text": "28",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "28 suma el tamaño de muestra al inicio; el salto es 1000/20, no 20."
       }
     ],
     "correct": "c",
     "hint": "Calcula el salto y cuenta el inicio como primer elemento.",
-    "explanation": "El intervalo es 1000/20 = 50. El primero es 8. El segundo es 8+50 = 58. El tercero es 58+50 = 108."
+    "explanation": "El salto es \\(N/n=1000/20=50\\). El inicio \\(8\\) es el primer elemento: el segundo es \\(8+50=58\\) y el tercero es \\(8+2\\cdot50=108\\). Sumar tres saltos daría el cuarto, \\(158\\)."
   },
   {
     "id": "q-t09-original-08",
@@ -227,22 +227,22 @@ export const inferenceQuestions = [
       {
         "id": "a",
         "text": "Sus integrantes son heterogéneos entre sí, pero los estratos son homogéneos entre ellos.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Para esta finalidad se busca reducir variación dentro de cada estrato, no invertir ese criterio."
       },
       {
         "id": "b",
         "text": "Que las unidades de cada estrato sean relativamente homogéneas respecto de esa variable, con diferencias entre estratos.",
-        "feedback": "Esa es la opción prevista en el diseño revisado."
+        "feedback": "La homogeneidad interna respecto de la variable y las diferencias entre estratos pueden mejorar la precisión."
       },
       {
         "id": "c",
         "text": "Son completamente al azar y no guardan relación de homogeneidad ni heterogeneidad.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Sortear unidades no hace que cualquier agrupación tenga esa propiedad."
       },
       {
         "id": "d",
         "text": "Los integrantes son heterogéneos y los estratos también son heterogéneos entre sí.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Una gran heterogeneidad interna no es la propiedad que se busca aquí para ganar precisión."
       }
     ],
     "correct": "b",
@@ -257,23 +257,23 @@ export const inferenceQuestions = [
     "options": [
       {
         "id": "a",
-        "text": "Homogéneos internamente y heterogéneos entre sí.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "text": "Personas individuales sorteadas directamente de un único listado general.",
+        "feedback": "Sortear directamente personas del listado general se parece al muestreo aleatorio simple de individuos."
       },
       {
         "id": "b",
         "text": "Grupos naturales de unidades, como centros o zonas, mediante el mecanismo aleatorio del diseño.",
-        "feedback": "Esa es la opción prevista en el diseño revisado."
+        "feedback": "En conglomerados se seleccionan primero grupos naturales; después se estudian todas o algunas de sus unidades."
       },
       {
         "id": "c",
-        "text": "Incompatibles con la realización de encuestas poblacionales.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "text": "Personas accesibles que aceptan ser entrevistadas.",
+        "feedback": "Elegir personas accesibles es conveniencia, no selección aleatoria de grupos."
       },
       {
         "id": "d",
-        "text": "Subgrupos donde un elemento puede pertenecer a varios conglomerados a la vez.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "text": "Personas elegidas por el encuestador hasta completar cuotas individuales.",
+        "feedback": "Completar cuotas individuales no equivale a sortear conglomerados."
       }
     ],
     "correct": "b",
@@ -289,22 +289,22 @@ export const inferenceQuestions = [
       {
         "id": "a",
         "text": "Elimina por completo la necesidad de azar.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Un diseño probabilístico por conglomerados sigue necesitando un mecanismo de selección aleatoria."
       },
       {
         "id": "b",
         "text": "Permite que un elemento pertenezca a varios subgrupos.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "En la partición básica, cada unidad pertenece a un grupo; el solapamiento no es la ventaja preguntada."
       },
       {
         "id": "c",
         "text": "Disminuye el error muestral a cero.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Agrupar no elimina la incertidumbre ni garantiza error nulo."
       },
       {
         "id": "d",
         "text": "Puede reducir desplazamientos al concentrar el trabajo de campo en grupos seleccionados.",
-        "feedback": "Esa es la opción prevista en el diseño revisado."
+        "feedback": "Concentrar visitas en los grupos seleccionados puede reducir desplazamientos."
       }
     ],
     "correct": "d",
@@ -315,27 +315,27 @@ export const inferenceQuestions = [
     "id": "q-t09-original-11",
     "topicId": "t09",
     "sourceIndex": 11,
-    "prompt": "Una empresa entrevista exclusivamente a las personas que salen de un centro comercial específico para evaluar la experiencia en ese mismo centro. ¿Qué tipo de muestreo está usando?",
+    "prompt": "Una empresa elige a personas por su facilidad de acceso a la salida de un centro comercial, sin sorteo ni cuotas, para entrevistarlas. ¿Qué tipo de muestreo está usando?",
     "options": [
       {
         "id": "a",
         "text": "Muestreo estratificado.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "No se han definido estratos ni un sorteo dentro de ellos."
       },
       {
         "id": "b",
         "text": "Muestreo de bola de nieve.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "No hay una cadena en la que las personas remitan a nuevos contactos."
       },
       {
         "id": "c",
         "text": "Muestreo por conveniencia.",
-        "feedback": "Esa es la opción prevista en el diseño revisado."
+        "feedback": "Se eligen personas accesibles por comodidad de acceso, sin sorteo ni cuotas."
       },
       {
         "id": "d",
         "text": "Muestreo aleatorio simple.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "La facilidad de acceso no hace equiprobables todas las muestras de la población objetivo."
       }
     ],
     "correct": "c",
@@ -351,27 +351,27 @@ export const inferenceQuestions = [
       {
         "id": "a",
         "text": "En establecer cuotas proporcionales estrictas por género y edad.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Fijar cantidades por grupos describe cuotas, no necesariamente la selección por juicio."
       },
       {
         "id": "b",
         "text": "En confiar en la experiencia y criterio del encuestador para seleccionar los elementos de la muestra.",
-        "feedback": "Esa es la opción prevista en el diseño revisado."
+        "feedback": "El investigador elige casos según su experiencia y criterio."
       },
       {
         "id": "c",
-        "text": "En someter a juicio legal la validez de la encuesta antes de lanzarla.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "text": "En sortear las unidades a partir de un listado completo de la población.",
+        "feedback": "Un sorteo sobre un marco completo es una selección probabilística distinta."
       },
       {
         "id": "d",
         "text": "En contactar primero a una persona que cumpla el perfil y pedirle referencias de otras iguales.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Pedir referencias para localizar nuevos contactos caracteriza la bola de nieve."
       }
     ],
     "correct": "b",
     "hint": "¿Quién decide qué casos cumplen el perfil?",
-    "explanation": "Se define como: «En este caso, se confía en la experiencia del encuestador para seleccionar los elementos de la muestra» determinando él qué casos cumplen los requisitos."
+    "explanation": "En el muestreo por juicio se eligen casos según el criterio del investigador. Esa elección no constituye por sí sola un sorteo ni permite conocer todas las probabilidades de inclusión."
   },
   {
     "id": "q-t09-original-13",
@@ -382,22 +382,22 @@ export const inferenceQuestions = [
       {
         "id": "a",
         "text": "Muestreo sistemático.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "El sistemático se organiza mediante inicio e intervalo de selección, no por esta semejanza entre grupos."
       },
       {
         "id": "b",
         "text": "Muestreo aleatorio simple.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "El muestreo simple no exige fijar cuotas por grupos."
       },
       {
         "id": "c",
         "text": "Muestreo estratificado.",
-        "feedback": "Esa es la opción prevista en el diseño revisado."
+        "feedback": "Ambos organizan unidades por grupos, pero las cuotas no garantizan selección aleatoria dentro de ellos."
       },
       {
         "id": "d",
         "text": "Muestreo por conglomerados.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Los conglomerados se seleccionan como grupos; aquí se fijan cantidades de personas por grupo."
       }
     ],
     "correct": "c",
@@ -413,22 +413,22 @@ export const inferenceQuestions = [
       {
         "id": "a",
         "text": "Pide al ordenador que genere números aleatorios estrictos.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Sortear dentro de grupos definidos podría formar parte de un diseño estratificado, pero no define las cuotas no probabilísticas."
       },
       {
         "id": "b",
         "text": "Entrevista a toda la población hasta separar las cuotas a posteriori.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "No es necesario observar a toda la población para completar cantidades por grupos."
       },
       {
         "id": "c",
         "text": "Selecciona —haciendo a veces un muestreo por juicio— cada uno de los elementos hasta completar las cuotas.",
-        "feedback": "Esa es la opción prevista en el diseño revisado."
+        "feedback": "El encuestador elige unidades hasta alcanzar las cantidades fijadas, sin que haya necesariamente sorteo."
       },
       {
         "id": "d",
         "text": "Solo selecciona individuos mediante el método de bola de nieve.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Las cuotas no obligan a utilizar cadenas de contactos."
       }
     ],
     "correct": "c",
@@ -439,32 +439,32 @@ export const inferenceQuestions = [
     "id": "q-t09-original-15",
     "topicId": "t09",
     "sourceIndex": 15,
-    "prompt": "¿Cuándo se recomienda especialmente el 'Muestreo de bola de nieve' (o por referidos)?",
+    "prompt": "¿En qué situación puede ser útil el muestreo de bola de nieve o por referidos?",
     "options": [
       {
         "id": "a",
         "text": "Cuando se dispone del listado completo del marco muestral de la ciudad.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Con un marco completo pueden ser viables sorteos directos; no es la razón específica para usar referidos."
       },
       {
         "id": "b",
-        "text": "Cuando la población de interés es muy pequeña y/o resulta difícil contactar con ella.",
-        "feedback": "Esa es la opción prevista en el diseño revisado."
+        "text": "Cuando es difícil localizar a la población de interés y los primeros contactos pueden remitir a otras personas.",
+        "feedback": "Los contactos iniciales pueden ayudar a localizar a otras personas del colectivo difícil de acceder."
       },
       {
         "id": "c",
         "text": "Cuando se busca la máxima representatividad matemática y el menor margen de error.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Las cadenas de contactos no garantizan representatividad ni el menor error muestral."
       },
       {
         "id": "d",
         "text": "Cuando se necesita reducir los tiempos de desplazamiento encuestando manzanas de edificios completas.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Concentrar encuestas en manzanas de edificios se aproxima al trabajo por conglomerados."
       }
     ],
     "correct": "b",
     "hint": "Una persona contactada recomienda a otra.",
-    "explanation": "El texto especifica que el muestreo de bola de nieve «se utiliza cuando la población de interés es muy pequeña y/o resulta difícil contactar con ella»."
+    "explanation": "Las personas contactadas remiten a otras del colectivo. Puede facilitar el acceso a poblaciones difíciles de localizar, pero las redes de contactos pueden introducir sesgo; no garantiza representatividad ni un margen muestral probabilístico."
   },
   {
     "id": "q-t09-original-16",
@@ -475,22 +475,22 @@ export const inferenceQuestions = [
       {
         "id": "a",
         "text": "Porque los probabilísticos no permiten extrapolar a la población.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Los diseños probabilísticos sí permiten inferencia bajo sus supuestos y condiciones."
       },
       {
         "id": "b",
         "text": "Porque en las ciencias sociales las matemáticas puras no aplican.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Las ciencias sociales también emplean modelos y métodos matemáticos; no es una razón válida."
       },
       {
         "id": "c",
         "text": "Porque a veces no hay un marco de muestreo adecuado o el acceso al grupo hace inviable un sorteo práctico.",
-        "feedback": "Esa es la opción prevista en el diseño revisado."
+        "feedback": "La falta de un marco o las dificultades de acceso pueden hacer necesario otro procedimiento, con sus límites."
       },
       {
         "id": "d",
         "text": "Porque los métodos no probabilísticos estiman mejor el error muestral en poblaciones pequeñas.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Sin probabilidades de inclusión conocidas no se obtiene automáticamente una mejor estimación del error de muestreo."
       }
     ],
     "correct": "c",
@@ -501,27 +501,27 @@ export const inferenceQuestions = [
     "id": "q-t09-original-17",
     "topicId": "t09",
     "sourceIndex": 17,
-    "prompt": "¿Cómo definen los apuntes el concepto de 'Población'?",
+    "prompt": "¿Qué es la población objetivo de un estudio estadístico?",
     "options": [
       {
         "id": "a",
         "text": "El número total de elementos que han sido extraídos para realizar una encuesta.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "El número de observaciones corresponde al tamaño de la muestra, no al conjunto objetivo."
       },
       {
         "id": "b",
         "text": "El proceso riguroso que se sigue para la extracción de individuos.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "El procedimiento de selección es el diseño de muestreo, no la población."
       },
       {
         "id": "c",
         "text": "La parte de los ciudadanos totales sobre los que se ha logrado medir una característica real.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Las personas finalmente medidas pertenecen a la muestra observada; no definen por sí solas la población objetivo."
       },
       {
         "id": "d",
-        "text": "El conjunto total de individuos susceptibles de poseer la información buscada.",
-        "feedback": "Esa es la opción prevista en el diseño revisado."
+        "text": "El conjunto de unidades de interés sobre el que se quiere obtener información o extraer conclusiones.",
+        "feedback": "La población es el conjunto de unidades sobre el que se formula la pregunta de investigación."
       }
     ],
     "correct": "d",
@@ -532,27 +532,27 @@ export const inferenceQuestions = [
     "id": "q-t09-original-18",
     "topicId": "t09",
     "sourceIndex": 18,
-    "prompt": "Tanto en los estratos como en los conglomerados, el texto especifica que al formar los subgrupos en la población, estos deben ser...",
+    "prompt": "Cuando los estratos o conglomerados forman una partición de la población objetivo, ¿qué deben cumplir los grupos?",
     "options": [
       {
         "id": "a",
         "text": "Excluyentes y exhaustivos.",
-        "feedback": "Esa es la opción prevista en el diseño revisado."
+        "feedback": "Excluyentes evita duplicar unidades entre grupos y exhaustivos evita dejar unidades fuera."
       },
       {
         "id": "b",
         "text": "Numéricamente idénticos en tamaño (N constante).",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Una partición puede contener grupos de tamaños diferentes."
       },
       {
         "id": "c",
         "text": "Seleccionados exclusivamente por métodos no probabilísticos.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "La condición de partición no impone que la selección sea no probabilística."
       },
       {
         "id": "d",
         "text": "Completamente homogéneos tanto interna como externamente.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "La homogeneidad no sustituye las condiciones de pertenencia única y cobertura de toda la población."
       }
     ],
     "correct": "a",
@@ -563,27 +563,27 @@ export const inferenceQuestions = [
     "id": "q-t09-original-19",
     "topicId": "t09",
     "sourceIndex": 19,
-    "prompt": "Una vez que se han definido correctamente los estratos en una población, ¿cuál es el método estándar indicado para extraer los individuos concretos dentro de cada estrato?",
+    "prompt": "En el procedimiento estratificado descrito en la lección, ¿cómo se seleccionan las unidades dentro de cada estrato?",
     "options": [
       {
         "id": "a",
         "text": "Seleccionar a los individuos por juicio del investigador.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "La elección por juicio no es el sorteo dentro de cada estrato que describe esta lección."
       },
       {
         "id": "b",
         "text": "Extraer una muestra aleatoria simple de cada uno de ellos.",
-        "feedback": "Esa es la opción prevista en el diseño revisado."
+        "feedback": "La lección aplica un muestreo aleatorio simple dentro de cada estrato definido."
       },
       {
         "id": "c",
         "text": "Aplicar el método de bola de nieve en cada estrato.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "La bola de nieve no es el método descrito para seleccionar dentro de los estratos."
       },
       {
         "id": "d",
         "text": "Encuestar absolutamente a todos los miembros de ese estrato.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Observar todos los miembros sería un censo de ese estrato, no la extracción muestral descrita."
       }
     ],
     "correct": "b",
@@ -594,27 +594,27 @@ export const inferenceQuestions = [
     "id": "q-t09-original-20",
     "topicId": "t09",
     "sourceIndex": 20,
-    "prompt": "Según el texto introductorio, si extraemos una mala elección de muestra (Apunte 2), ¿qué consecuencia directa tiene sobre el estudio?",
+    "prompt": "Si la selección de una muestra es inadecuada, ¿qué puede ocurrir con las conclusiones del estudio?",
     "options": [
       {
         "id": "a",
         "text": "El tiempo de desplazamiento del encuestador aumentará drásticamente.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "El tiempo de desplazamiento no se deduce necesariamente de una selección inadecuada."
       },
       {
         "id": "b",
         "text": "Nos obligará a utilizar obligatoriamente métodos por conglomerados.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Una mala selección no obliga a cambiar automáticamente al método de conglomerados."
       },
       {
         "id": "c",
         "text": "Puede conducir a resultados erróneos o inexactos.",
-        "feedback": "Esa es la opción prevista en el diseño revisado."
+        "feedback": "La selección inadecuada puede introducir sesgo y comprometer las conclusiones, aunque haya muchos datos."
       },
       {
         "id": "d",
         "text": "La población total N cambiará automáticamente sus parámetros estadísticos.",
-        "feedback": "Esa opción no describe correctamente la situación."
+        "feedback": "Seleccionar la muestra no cambia por sí mismo los parámetros de la población."
       }
     ],
     "correct": "c",

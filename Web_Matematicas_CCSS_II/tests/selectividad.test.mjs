@@ -47,6 +47,13 @@ test('LaTeX del banco: macros de selección parcial muestran el ejercicio comple
   assert.equal(html, '<p>Texto \\(x\\).</p>\n<ol class="mc-sel__list mc-sel__list--lower-alpha-paren" type="a"><li data-label="a)">Uno</li><li>Dos</li></ol>');
 });
 
+test('LaTeX del banco: las cajas de una matriz no dibujan delimitadores de modo matemático', () => {
+  const html = latexToHtml(String.raw`\[\begin{pmatrix}\makebox[1.7em]{$100$}&\makebox[1.7em]{A}\\\makebox[1.7em]{$-25$}&\text{precio \$5}\end{pmatrix}\]`);
+  assert.ok(html.includes(String.raw`\begin{pmatrix}{100}&amp;A\\{-25}&amp;\text{precio \$5}\end{pmatrix}`));
+  assert.ok(!html.includes('$100$') && !html.includes('$-25$'));
+  assert.ok(html.includes(String.raw`\$5`), 'El símbolo monetario escapado se conserva');
+});
+
 test('CSV: comillas, comas y saltos de línea dentro de un campo', () => {
   assert.deepEqual(parseCsv('\ufeffa,b\r\n"x, y","dijo ""no""\notra"\r\n'.replace(/^\ufeff/, '')), [{ a: 'x, y', b: 'dijo "no"\notra' }]);
 });

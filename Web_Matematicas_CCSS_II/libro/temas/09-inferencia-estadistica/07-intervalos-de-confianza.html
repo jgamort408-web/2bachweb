@@ -6,11 +6,92 @@
   <h1 data-content-role="lesson-title">9.7. Intervalos de confianza</h1>
   <p data-content-role="lead">Un intervalo rodea una estimación puntual con un margen calculado bajo un modelo estadístico.</p>
   <p data-content-role="source">Adaptación revisada de «8. Intervalos de confianza.txt». Su rótulo original «5.9» pertenece al material previo; en este libro corresponde a 9.7. <a href="index.html">Volver al tema 9</a>.</p>
-  <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#idea">Idea</a> · <a href="#formula">Fórmula</a> · <a href="#laboratorio">Laboratorio</a> · <a href="#interpretacion">Interpretación</a> · <a href="#pendiente">Pendiente</a></nav>
+  <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#idea">Idea</a> · <a href="#formula">Fórmula</a> · <a href="#proporciones">Proporciones</a> · <a href="#ejemplo-proporcion">Ejemplo</a> · <a href="#practica-proporcion">Comprueba</a> · <a href="#problemas-intervalos">Problema directo</a> · <a href="#inversos-intervalos">Problemas inversos</a> · <a href="#practica-inversa">Tu turno</a> · <a href="#laboratorio">Laboratorio de medias</a> · <a href="#interpretacion">Interpretación</a> · <a href="#pendiente">Pendiente</a></nav>
 
   <section id="idea" data-content-role="theory"><h2>¿Qué es un intervalo de confianza?</h2><p>La media poblacional \(\mu\) suele ser desconocida. Observamos una muestra de tamaño \(n\), calculamos su media \(\bar x\) y construimos un intervalo alrededor de ella. El intervalo varía si repetimos la toma de muestras; \(\mu\) permanece fijo.</p><p>El original lo compara con una red de pesca: una red más ancha tiene más oportunidades de incluir el objetivo, pero sitúa su posición con menos precisión. En estadística, esa imagen se refiere a la <strong>cobertura del procedimiento repetido</strong>, no a una probabilidad posterior de que un intervalo ya calculado contenga \(\mu\).</p></section>
 
   <section id="formula" data-content-role="method"><h2>Centro, valor crítico y margen</h2><p>Para observaciones independientes de una población normal y <strong>desviación típica poblacional \(\sigma\) conocida</strong>, el intervalo bilateral habitual para la media es:</p><p class="math-scroll" tabindex="0">\[IC_{1-\alpha}(\mu)=\left[\bar x-z_{\alpha/2}\frac{\sigma}{\sqrt n},\;\bar x+z_{\alpha/2}\frac{\sigma}{\sqrt n}\right].\]</p><p>En palabras: se toma la media observada y se le resta y suma el margen, calculado como valor crítico por desviación típica poblacional dividido entre raíz del tamaño muestral.</p><dl><dt><strong>Centro \(\bar x\)</strong></dt><dd>Media de la muestra observada: la estimación puntual de \(\mu\).</dd><dt><strong>Valor crítico \(z_{\alpha/2}\)</strong></dt><dd>Depende del nivel de confianza bilateral: aproximadamente 1,645 para 90 %, 1,960 para 95 % y 2,576 para 99 %.</dd><dt><strong>Error estándar \(\sigma/\sqrt n\)</strong></dt><dd>Desviación típica de la distribución de la media muestral bajo el modelo.</dd><dt><strong>Margen \(E\)</strong></dt><dd>\(E=z_{\alpha/2}\sigma/\sqrt n\). Cada extremo dista \(E\) del centro; la anchura completa es \(2E\).</dd></dl><p>Si la población no es normal, la fórmula puede ser aproximada mediante el teorema central del límite cuando sus condiciones y la precisión requerida lo permitan. Si \(\sigma\) es desconocida, si hay selección dependiente o un diseño complejo, hay que revisar el procedimiento; sustituir \(\sigma\) por \(s\) sin más no da automáticamente este mismo intervalo.</p></section>
+
+
+  <section id="proporciones" data-content-role="method"><h2>Intervalo de confianza para una proporción</h2>
+    <p>Si cada observación registra una respuesta binaria, como «sí/no», el parámetro p es la <strong>proporción poblacional desconocida</strong>. En un modelo de n ensayos independientes con la misma probabilidad p, el número de respuestas afirmativas K sigue una binomial. Antes de observar, el estimador es \(\widehat P=K/n\); si contamos k respuestas afirmativas, la estimación observada es \(\widehat p=k/n\).</p>
+    <p>La desviación típica exacta del estimador bajo ese modelo es \(\sqrt{p(1-p)/n}\). Como p es desconocida, para este procedimiento la sustituimos por la estimación muestral. Se obtiene el <strong>error estándar estimado</strong>:</p>
+    <p class="math-scroll" tabindex="0">\[\widehat{\operatorname{SE}}(\widehat P)=\sqrt{\frac{\widehat p(1-\widehat p)}{n}}.\]</p>
+    <p>El intervalo normal aproximado para p, también llamado intervalo de Wald, tiene la estructura estimación ± valor crítico × error estándar estimado:</p>
+    <p class="math-scroll" tabindex="0">\[IC_{1-\alpha}(p)\approx\left[\widehat p-z_{\alpha/2}\sqrt{\frac{\widehat p(1-\widehat p)}{n}};\quad\widehat p+z_{\alpha/2}\sqrt{\frac{\widehat p(1-\widehat p)}{n}}\right].\]</p>
+    <p>En esta lección \(z_{\alpha/2}\) es el cuantil positivo que deja α/2 a su derecha: \(\Phi(z_{\alpha/2})=1-\alpha/2\). Para confianza 95 % usamos aproximadamente 1,96. El margen es la cantidad que se resta y se suma; la anchura total es el doble.</p>
+    <h3>Condiciones antes de aplicar la fórmula</h3>
+    <ul>
+      <li>Definir el resultado que se cuenta como éxito y la población a la que se refiere p. El tamaño n es el número de observaciones válidas del modelo.</li>
+      <li>Justificar selección y modelo: observaciones independientes y probabilidad p común. Una muestra de conveniencia no adquiere un margen de error válido por usar esta fórmula.</li>
+      <li>Comprobar que hay suficientes éxitos y fracasos observados. Como orientación prudente de aula usamos \(n\widehat p\ge10\) y \(n(1-\widehat p)\ge10\). Es una regla orientativa, no una garantía de cobertura.</li>
+      <li>Si se muestrea sin reemplazo una parte importante de una población finita, o se usa un diseño estratificado o por conglomerados, revisar la varianza y las correcciones correspondientes. No aplicar automáticamente el modelo de ensayos independientes.</li>
+    </ul>
+    <p data-content-role="warning">Este intervalo es aproximado incluso cuando el recuento es exactamente binomial. Puede funcionar mal con muestras pequeñas o proporciones cercanas a 0 o 1. Si k=0 o k=n produce un margen cero que no demuestra certeza sobre p. Existen métodos alternativos, como Wilson o intervalos binomiales exactos, que no se desarrollan aquí. Recortar extremos a [0;1] no corrige por sí solo la cobertura de un procedimiento inadecuado.</p>
+  </section>
+  <section id="ejemplo-proporcion" data-content-role="worked-example"><h2>Ejemplo resuelto: estimar una proporción de respuestas afirmativas</h2>
+    <p><strong>Elaboración didáctica.</strong> En un modelo de 400 respuestas independientes con probabilidad de «sí» común y desconocida, se observan 240 respuestas afirmativas. Se pide un intervalo aproximado del 95 % para p. Se supone una selección que permite utilizar ese modelo; no son resultados de una encuesta real.</p>
+    <h3>1. Estimar y comprobar los recuentos</h3>
+    <p class="math-scroll" tabindex="0">\[\widehat p=\frac{240}{400}=0{,}60,\qquad1-\widehat p=0{,}40.\]</p>
+    <p>Hay 240 éxitos y 160 fracasos, ambos por encima de 10. El centro del intervalo será 0,60; el parámetro que estimamos es p, no el recuento 240.</p>
+    <h3>2. Calcular error estándar y margen</h3>
+    <p class="math-scroll" tabindex="0">\[\widehat{\operatorname{SE}}=\sqrt{\frac{0{,}60\cdot0{,}40}{400}}=\sqrt{0{,}0006}\approx0{,}024495,\qquad E\approx1{,}96\cdot0{,}024495\approx0{,}04801.\]</p>
+    <p>Se conserva precisión interna hasta calcular los extremos. Un margen 0,04801 en escala de proporciones equivale aproximadamente a <strong>4,801 puntos porcentuales</strong>, no a un incremento relativo del 4,801 % sobre 60 %.</p>
+    <h3>3. Construir el intervalo</h3>
+    <p class="math-scroll" tabindex="0">\[IC_{95\%}(p)\approx[0{,}60-0{,}04801;\,0{,}60+0{,}04801]=[0{,}55199;\,0{,}64801].\]</p>
+    <p>En porcentaje: aproximadamente <strong>[55,20 %;64,80 %]</strong>. La anchura es cerca de 9,602 puntos porcentuales. Bajo los supuestos, el método pretende una cobertura próxima al 95 % en muestreos repetidos; no atribuimos una probabilidad del 95 % al parámetro fijo una vez observado este intervalo.</p>
+    <h3>4. Distinguir dos preguntas</h3>
+    <p>En <a href="04-distribucion-muestral-teorema-central-del-limite.html">9.4. Distribución muestral</a> se parte de una p conocida para calcular probabilidades de una proporción muestral futura. Aquí la proporción observada es conocida y p es desconocida: construimos un intervalo para p. La fórmula del error estándar estimado no convierte p en un dato conocido.</p>
+  </section>
+  <section id="practica-proporcion" data-content-role="practice"><h2>Comprueba el procedimiento</h2>
+    <p>En otro ejemplo didáctico con el mismo modelo de independencia y probabilidad común, se observan 75 éxitos entre 300 respuestas. Calcula la estimación, comprueba los recuentos y construye un intervalo del 95 % usando z≈1,96.</p>
+    <details><summary>Ver solución razonada</summary><p>La estimación es \(\widehat p=75/300=0{,}25\); hay 75 éxitos y 225 fracasos. El error estándar estimado es \(\sqrt{0{,}25\cdot0{,}75/300}=0{,}025\). El margen es 1,96·0,025=0,049 y el intervalo aproximado es [0,201;0,299], equivalente a [20,1 %;29,9 %]. El margen es 4,9 puntos porcentuales y la anchura, 9,8 puntos porcentuales.</p></details>
+    <p>Antes de terminar, identifica siempre el parámetro, la escala usada, los supuestos y si el cálculo es exacto o aproximado. El laboratorio siguiente sigue dedicado a la <strong>media con σ conocida</strong>; sus controles no calculan este intervalo para proporciones.</p>
+  </section>
+
+
+  <section id="problemas-intervalos" data-content-role="worked-example"><h2>Problemas directos: construir y comparar intervalos</h2>
+    <p>Los siguientes casos son elaboraciones didácticas. Para la media suponemos observaciones independientes de una población normal con σ conocida. Si el enunciado cambia esos supuestos, hay que revisar el procedimiento antes de calcular.</p>
+    <h3>Ejemplo 1. Calcular los extremos y la anchura</h3>
+    <p>Una muestra de n=36 tiene media observada 100; la desviación poblacional conocida es σ=12. Se pide el intervalo bilateral del 95 %. Usamos el valor de tabla z≈1,96:</p>
+    <p class="math-scroll" tabindex="0">\[\operatorname{SE}=\frac{12}{\sqrt{36}}=2,\qquad E\approx1{,}96\cdot2=3{,}92.\]</p>
+    <p class="math-scroll" tabindex="0">\[IC_{95\%}(\mu)\approx[96{,}08;\,103{,}92],\qquad\text{anchura}=2E\approx7{,}84.\]</p>
+    <p>Si el tamaño pasa a 144 y la media observada sigue siendo 100, el error típico baja a 1, el margen a 1,96 y el intervalo a [98,04;101,96]. Cuadruplicar n reduce a la mitad el margen con σ y confianza fijas. Otra muestra no tiene por qué conservar la misma media observada; aquí se fija para comparar únicamente el efecto del tamaño.</p>
+  </section>
+  <section id="inversos-intervalos" data-content-role="method"><h2>Problemas inversos: recuperar información del intervalo</h2>
+    <p>Antes de invertir fórmulas, identifica el método con el que se construyó el intervalo. Si es de la forma simétrica estimación ± margen y sus extremos son L y U:</p>
+    <p class="math-scroll" tabindex="0">\[\text{centro}=\frac{L+U}{2},\qquad E=\frac{U-L}{2},\qquad\text{anchura}=U-L.\]</p>
+    <p>El centro es \(\bar x\) en el intervalo normal para la media y \(\widehat p\) en el intervalo de Wald para una proporción. No es automáticamente el parámetro poblacional verdadero. En otros métodos, un intervalo puede ser asimétrico y su punto medio no coincidir con la estimación usada.</p>
+    <h3>Ejemplo 2. Recuperar media, margen y tamaño de una muestra</h3>
+    <p>Un intervalo para la media es [48,04;51,96], calculado al 95 % con σ=8 conocida y z=1,96. Para este ejercicio los extremos se consideran los valores obtenidos con ese cuantil redondeado.</p>
+    <p class="math-scroll" tabindex="0">\[\bar x=\frac{48{,}04+51{,}96}{2}=50,\qquad E=\frac{51{,}96-48{,}04}{2}=1{,}96.\]</p>
+    <p>Despejamos n de la fórmula del margen:</p>
+    <p class="math-scroll" tabindex="0">\[E=z\frac{\sigma}{\sqrt n}\quad\Longrightarrow\quad n=\left(\frac{z\sigma}{E}\right)^2=\left(\frac{1{,}96\cdot8}{1{,}96}\right)^2=64.\]</p>
+    <p>Comprobación: 8/√64=1; multiplicar por 1,96 devuelve el margen y sumar y restar a 50 recupera los extremos. Aquí reconstruimos un tamaño ya utilizado. Elegir un tamaño mínimo para un error objetivo es otra pregunta, tratada en <a href="08-tamano-de-la-muestra-error-cometido.html">9.8</a>.</p>
+    <h3>Ejemplo 3. Recuperar el nivel de confianza</h3>
+    <p>Una muestra de n=64, con σ=12 conocida, produce el intervalo [97;103]. Su centro es 100 y su margen 3. El error típico es 12/8=1,5, por lo que el cuantil empleado es:</p>
+    <p class="math-scroll" tabindex="0">\[z=\frac{E\sqrt n}{\sigma}=\frac{3\cdot8}{12}=2.\]</p>
+    <p>La confianza bilateral se obtiene del área central, no de una sola acumulada:</p>
+    <p class="math-scroll" tabindex="0">\[1-\alpha=P(-2\le Z\le2)=2\Phi(2)-1\approx2\cdot0{,}97725-1=0{,}95450.\]</p>
+    <p>La confianza es aproximadamente 95,45 %, no 97,725 %. Con una tabla de cuatro decimales que da Φ(2)=0,9772 se obtiene 95,44 %; la diferencia es de redondeo.</p>
+    <h3>Ejemplo 4. Reconstruir un intervalo para una proporción</h3>
+    <p>Un intervalo de Wald es [0,201;0,299], calculado con z=1,96. Considerando esos extremos como los resultados del cálculo con ese valor de z:</p>
+    <p class="math-scroll" tabindex="0">\[\widehat p=\frac{0{,}201+0{,}299}{2}=0{,}25,\qquad E=\frac{0{,}299-0{,}201}{2}=0{,}049.\]</p>
+    <p class="math-scroll" tabindex="0">\[n=\frac{z^2\widehat p(1-\widehat p)}{E^2}=\frac{1{,}96^2\cdot0{,}25\cdot0{,}75}{0{,}049^2}=300,\qquad k=n\widehat p=75.\]</p>
+    <p>Los 75 éxitos y 225 fracasos cumplen la orientación de recuentos usada antes. Se recupera el ejemplo de proporciones de esta lección. No se usa la fórmula de la media con una σ inventada.</p>
+    <h3>Qué información puede faltar</h3>
+    <ul>
+      <li>Los dos extremos de un intervalo simétrico permiten recuperar centro y margen, pero no bastan por sí solos para conocer n, σ y confianza.</li>
+      <li>Para recuperar n en el intervalo de la media hacen falta σ y el valor crítico. Para recuperar confianza hacen falta n y σ.</li>
+      <li>Si los extremos publicados están redondeados, los valores recuperados también son aproximados. Un resultado cercano a un entero no identifica necesariamente un único tamaño: hay que comprobarlo con la precisión original.</li>
+      <li>En proporciones, los datos reconstruidos deben ser compatibles con tamaños y recuentos enteros y con el procedimiento declarado. Unos límites arbitrarios no garantizan que exista una muestra compatible.</li>
+    </ul>
+    <p data-content-role="warning">No confundas reconstruir un intervalo ya calculado con planificar una muestra para un error máximo. Tampoco conviertas un intervalo de confianza para un parámetro en un intervalo que contenga ese porcentaje de los datos individuales.</p>
+  </section>
+  <section id="practica-inversa" data-content-role="practice"><h2>Tu turno: comprueba qué puedes deducir</h2>
+    <p>Un intervalo normal simétrico para una media es [18;22]. ¿Cuál es el centro y el margen? Si además σ=10 y n=100, ¿qué confianza corresponde?</p>
+    <details><summary>Ver solución razonada</summary><p>El centro es (18+22)/2=20 y el margen (22−18)/2=2. Con σ=10 y n=100, el error típico es 1 y z=2/1=2. La confianza es 2Φ(2)−1≈0,9545, es decir, aproximadamente 95,45 %. Sin σ y n solo podríamos obtener centro y margen, no esa confianza.</p></details>
+  </section>
 
   <section id="laboratorio" data-content-role="practice"><h2>Laboratorio guiado</h2><p>Conserva los cuatro controles y los rangos del original. Modifica uno cada vez para ver cómo cambian el centro, el margen y los extremos. Los valores son ilustrativos y usan las mismas unidades para media y desviación.</p>
     <div class="activity" data-ci-lab hidden>
@@ -26,6 +107,6 @@
   </section>
 
   <section id="interpretacion" data-content-role="reference"><h2>Qué permite interpretar</h2><p>Si repitiéramos muchas veces el muestreo y construyéramos cada intervalo con este procedimiento y sus supuestos, aproximadamente el porcentaje indicado cubriría la media verdadera. La barra del laboratorio representa <strong>un intervalo calculado</strong>; no simula numerosas muestras ni demuestra cobertura empírica.</p><p>Para diseños de encuesta reales hay que revisar selección, independencia, falta de respuesta y posibles correcciones por población finita. La relación de este laboratorio con el <a href="08-tamano-de-la-muestra-error-cometido.html">tamaño mínimo y el margen objetivo</a> se desarrolla en 9.8.</p></section>
-  <section id="pendiente" data-content-role="warning"><h2>Qué falta</h2><p>El original aporta una explicación, fórmula y laboratorio determinista, pero no una simulación de muestreo repetido, intervalos para proporciones ni un banco de preguntas propio. Esos apartados no se presentan como completos. La lección conserva estado editorial parcial.</p></section>
+  <section id="pendiente" data-content-role="warning"><h2>Qué falta</h2><p>El original aporta la explicación inicial, la fórmula y el laboratorio de medias. La tanda TEORIA-02 (TEO-09) añade la teoría de intervalos aproximados para proporciones, un ejemplo y una comprobación resuelta, identificados como elaboraciones didácticas. Quedan pendientes la simulación de muestreo repetido, un banco propio de preguntas y la revisión visual y con tecnologías de apoyo. TEO-10 añade los problemas directos e inversos, con distinción entre reconstrucción y planificación, y límites por redondeo o falta de datos. La lección conserva estado editorial parcial.</p></section>
 </main><div id="site-footer"></div></body></html>
 

@@ -233,3 +233,7 @@ Se recorrieron las once páginas del tema 9 (índice, nueve epígrafes y colecci
 
 El motor MathJax local ya cargaba 11y/assistive-mml. Una prueba en Chrome recorrió los nueve epígrafes y comprobó que todas las fórmulas renderizadas tenían MathML de apoyo, sin nodos de error, y que las tablas y figuras propias examinadas tenían rótulos y relaciones semánticas. Se añadieron cuatro explicaciones visibles en palabras junto a fórmulas centrales de 9.6, 9.7 y 9.9. Esas frases complementan la notación sin sustituir el MathML ni cambiar los cálculos. La prueba confirma la presencia técnica del contenido accesible; no comprueba cómo lo pronuncia un lector de pantalla concreto. Ese ensayo manual continúa pendiente.
 
+
+## P03C · Revisión editorial posterior (14-11-2026)
+
+Revisadas las 37 tarjetas actuales (12 precisadas) y las 20 preguntas originales, con 80 explicaciones específicas y claves conservadas. Generador y lectura estática actualizados; 29 pruebas específicas y recorridos de navegador superados. El test base sigue centrado en conceptos y muestreo; EV-INF-01 registra la cobertura pendiente de 9.4–9.9. [Matriz, cálculos y resultados](REVISION_EDITORIAL_EVALUACIONES_P03.md). La fuente original permanece intacta; lectura asistida real pendiente.

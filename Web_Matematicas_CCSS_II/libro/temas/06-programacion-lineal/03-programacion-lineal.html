@@ -14,7 +14,7 @@
   <main id="main-content" class="page-main mc-lesson">
     <h1 data-content-role="lesson-title">6.3. Programación lineal</h1>
     <p data-content-role="lead">Un problema de programación lineal reúne tres piezas: las decisiones que puedes tomar, la función que quieres optimizar y las condiciones que debes cumplir.</p>
-    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#anatomia">Las tres piezas</a> · <a href="#flujo">Diagrama</a> · <a href="#no-negatividad">No negatividad</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#anatomia">Las tres piezas</a> · <a href="#flujo">Diagrama</a> · <a href="#no-negatividad">No negatividad</a> · <a href="#formulacion-numerica">Formulación numérica</a> · <a href="#comprobar-modelo">Comprobaciones</a> · <a href="#practica-formulacion">Tu turno</a> · <a href="#pendiente">Contenido pendiente</a></nav>
     <section id="anatomia" data-content-role="explanation"><h2>Anatomía de un problema</h2>
     <p>Identifica cada pieza en el enunciado antes de intentar resolverlo.</p>
     <section id="variables" data-content-role="definition"><h3>1. Variables</h3><p>Son las incógnitas: lo que tú decides. Define qué representa cada una.</p><p>Ejemplo de la fuente:</p><p>\[x=\text{número de sillas},\qquad y=\text{número de mesas}.\]</p></section>
@@ -40,7 +40,49 @@
     <p>Con estas condiciones trabajamos en el <strong>primer cuadrante, incluidos los ejes</strong>.</p>
     <p><strong>No es una regla universal para cualquier variable.</strong> El signo permitido se decide a partir de su definición y del enunciado. No añadas restricciones de no negatividad si no están justificadas por el modelo.</p>
     </section>
-    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2><p>El material contiene la estructura del modelo y ejemplos de significado de variables. No proporciona un problema numérico completo para formular y resolver. La práctica autocorregible y el explorador interactivo están pendientes.</p></section>
+
+    <section id="formulacion-numerica" data-content-role="worked-example"><h2>Del enunciado a un modelo completo</h2>
+      <p>Retomamos el problema de sillas y mesas del material original, cuya resolución gráfica se desarrolla en <a href="04-solucion-de-un-problema-de-programacion-lineal.html#modelo">6.4</a>. Aquí explicamos cada traducción para que el modelo no dependa de un esquema con puntos suspensivos.</p>
+      <p><strong>Enunciado.</strong> Un carpintero dispone de 18 horas de corte y 42 horas de montaje. Cada silla necesita 2 horas de corte y 1 de montaje, y aporta 30 € de beneficio; cada mesa necesita 2 horas de corte y 3 de montaje, y aporta 50 €. Queremos maximizar el beneficio.</p>
+      <h3>1. Definir decisiones y unidades</h3>
+      <p>x es el número de sillas e y el número de mesas que se fabricarán con esos recursos. No representan dinero ni horas. Las disponibilidades son límites para el conjunto de esa producción; no se supone una demanda mínima que el enunciado no da.</p>
+      <h3>2. Organizar los coeficientes</h3>
+      <div class="table-scroll table-readable" tabindex="0" role="region" aria-label="Traducción del enunciado de producción"><table>
+        <caption>Consumo y beneficio por unidad producida</caption><thead><tr><th scope="col">Concepto</th><th scope="col">Por silla</th><th scope="col">Por mesa</th><th scope="col">Total o límite</th></tr></thead><tbody>
+          <tr><th scope="row">Corte</th><td>2 h</td><td>2 h</td><td>Como máximo 18 h</td></tr>
+          <tr><th scope="row">Montaje</th><td>1 h</td><td>3 h</td><td>Como máximo 42 h</td></tr>
+          <tr><th scope="row">Beneficio</th><td>30 €</td><td>50 €</td><td>Maximizar</td></tr>
+        </tbody></table></div>
+      <h3>3. Traducir cada condición</h3>
+      <ul>
+        <li><strong>Corte.</strong> x sillas consumen 2x horas e y mesas consumen 2y horas. El total no puede superar 18: \(2x+2y\le18\).</li>
+        <li><strong>Montaje.</strong> El consumo total es x+3y horas. La disponibilidad da \(x+3y\le42\).</li>
+        <li><strong>Cantidades.</strong> No se fabrican cantidades negativas: x≥0 e y≥0. Como son objetos indivisibles, el modelo aplicado exige además valores enteros.</li>
+      </ul>
+      <p>«Dispone de» expresa capacidad máxima, no obligación de gastarla toda. Escribir igualdades impondría un requisito adicional que el enunciado no contiene.</p>
+      <h3>4. Formular la meta</h3>
+      <p>El beneficio total suma las aportaciones de las unidades producidas:</p>
+      <p class="math-scroll" tabindex="0">\[\text{Maximizar } Z=30x+50y\quad\text{sujeto a}\quad\begin{cases}2x+2y\le18,\\x+3y\le42,\\x\ge0,\quad y\ge0.\end{cases}\]</p>
+      <p>Para fabricar objetos completos se añade \(x,y\in\mathbb Z\). Al estudiar la región con el método gráfico se admite inicialmente x,y reales: es la relajación continua. Si su solución óptima es entera, también resuelve el problema entero. Si no lo es, redondear sus coordenadas sin comprobar restricciones y beneficio no garantiza el óptimo entero.</p>
+      <p>En este problema se dan beneficios unitarios. Si solo se conocieran precios de venta, la suma representaría ingresos; para llamarla beneficio neto harían falta costes o márgenes especificados.</p>
+    </section>
+    <section id="comprobar-modelo" data-content-role="method"><h2>Comprobar el modelo antes de optimizar</h2>
+      <p>Verifica las unidades: horas por silla multiplicadas por sillas dan horas; euros por mesa multiplicados por mesas dan euros. Ambos lados de cada restricción deben expresar la misma magnitud.</p>
+      <h3>Una decisión factible</h3>
+      <p>Para (x,y)=(3,4), el corte consume 2·3+2·4=14 horas y el montaje 3+3·4=15 horas. Son cantidades no negativas y enteras, y respetan ambas disponibilidades. El beneficio es 30·3+50·4=290 €.</p>
+      <h3>Una decisión no factible</h3>
+      <p>Para (6,4), el corte consume 20 horas, más de las 18 disponibles. Aunque el montaje solo consuma 18 de las 42 horas, el punto no es factible: incumplir una sola restricción basta para descartarlo. Su beneficio teórico no lo convierte en una decisión admisible.</p>
+      <h3>Una restricción puede ser redundante</h3>
+      <p>Del corte se obtiene x+y≤9. Con x,y≥0, \(x+3y\le3(x+y)\le27&lt;42\), de modo que la condición de montaje se cumple automáticamente. Se conserva en la formulación porque documenta un recurso del enunciado. No debe transformarse en igualdad para «usar las horas sobrantes».</p>
+      <p>La solución de este caso es (0,9), con beneficio 450 €. Una comprobación algebraica es \(Z=50(x+y)-20x\le450\), con igualdad solo si x=0 e y=9. Es entera y satisface las restricciones. La representación, los vértices y la comparación se explican paso a paso en <a href="04-solucion-de-un-problema-de-programacion-lineal.html#region">6.4. Método gráfico</a>.</p>
+    </section>
+    <section id="practica-formulacion" data-content-role="practice"><h2>Tu turno: una condición nueva</h2>
+      <p>Ampliación didáctica independiente: conserva todos los datos anteriores, pero añade que deben fabricarse al menos dos sillas. ¿Qué restricción se incorpora? ¿Sigue siendo admisible la solución (0,9)?</p>
+      <details><summary>Ver solución razonada</summary><p>Se incorpora x≥2. No se sustituye la restricción de corte ni se impone x=2: la expresión «al menos» permite cantidades mayores. El punto (0,9) deja de ser admisible. El punto (2,7) sí cumple: consume 18 horas de corte y 23 de montaje. Su beneficio es 410 €; además \(Z=50(x+y)-20x\le450-40=410\), de modo que alcanza el máximo de esta variante. La nueva condición pertenece únicamente a la ampliación, no al enunciado original.</p></details>
+      <p data-content-role="key-idea">Formula primero, comprueba después y optimiza al final. Cada símbolo del modelo debe poder relacionarse con una decisión, un dato o una condición del enunciado.</p>
+    </section>
+
+    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2><p>La fuente inicial aporta la estructura del modelo. La tanda TEORIA-03 (TEO-16) desarrolla la formulación numérica usando el problema original de sillas y mesas ya presente en 6.4, con comprobaciones razonadas y una variante didáctica resuelta. Siguen pendientes la práctica autocorregible propia, el explorador interactivo y la revisión visual y con tecnologías de apoyo.</p></section>
     <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="02-sistemas-de-inecuaciones-lineales-con-dos-incognitas.html">Anterior: sistemas de inecuaciones</a> · <a href="index.html">Volver al tema 6</a> · <a href="04-solucion-de-un-problema-de-programacion-lineal.html">Siguiente: método gráfico (contenido parcial)</a></nav>
   </main>
   <div id="site-footer"></div>

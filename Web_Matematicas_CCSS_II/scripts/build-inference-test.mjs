@@ -49,14 +49,208 @@ const hints = [
  'Recuerda cómo se selecciona dentro de cada estrato probabilístico.',
  'Una mala selección puede sesgar el resultado.'
 ];
+
+// Precisiones editoriales P03C2: se conservan los IDs y las respuestas correctas de origen.
+const editorialFixes = {
+  "1": {
+    "explanation": "La inferencia utiliza información de una muestra para estudiar la población, con un diseño, un modelo y una incertidumbre que deben explicarse."
+  },
+  "3": {
+    "explanation": "Una redacción neutral evita inducir una respuesta. No elimina por sí sola los sesgos de selección ni garantiza que todas las personas respondan."
+  },
+  "4": {
+    "options": {
+      "0": "Reducir siempre el coste frente a cualquier diseño no probabilístico.",
+      "1": "Elegir cada unidad sólo según el juicio personal del investigador.",
+      "3": "Reducir siempre el tiempo frente a cualquier diseño no probabilístico."
+    }
+  },
+  "5": {
+    "options": {
+      "3": "Calculada mediante un salto sistemático."
+    }
+  },
+  "6": {
+    "question": "En el procedimiento de sorteo con urna descrito en la lección, ¿qué se prepara después de enumerar las unidades y antes de extraer la muestra?"
+  },
+  "7": {
+    "explanation": "El salto es \\(N/n=1000/20=50\\). El inicio \\(8\\) es el primer elemento: el segundo es \\(8+50=58\\) y el tercero es \\(8+2\\cdot50=108\\). Sumar tres saltos daría el cuarto, \\(158\\).",
+    "question": "En una población de \\(N=1000\\) personas se desea extraer una muestra sistemática de \\(n=20\\). Si el inicio aleatorio es \\(8\\), ¿cuál será el tercer elemento seleccionado?"
+  },
+  "9": {
+    "options": {
+      "0": "Personas individuales sorteadas directamente de un único listado general.",
+      "2": "Personas accesibles que aceptan ser entrevistadas.",
+      "3": "Personas elegidas por el encuestador hasta completar cuotas individuales."
+    }
+  },
+  "11": {
+    "question": "Una empresa elige a personas por su facilidad de acceso a la salida de un centro comercial, sin sorteo ni cuotas, para entrevistarlas. ¿Qué tipo de muestreo está usando?"
+  },
+  "12": {
+    "options": {
+      "2": "En sortear las unidades a partir de un listado completo de la población."
+    },
+    "explanation": "En el muestreo por juicio se eligen casos según el criterio del investigador. Esa elección no constituye por sí sola un sorteo ni permite conocer todas las probabilidades de inclusión."
+  },
+  "15": {
+    "question": "¿En qué situación puede ser útil el muestreo de bola de nieve o por referidos?",
+    "options": {
+      "1": "Cuando es difícil localizar a la población de interés y los primeros contactos pueden remitir a otras personas."
+    },
+    "explanation": "Las personas contactadas remiten a otras del colectivo. Puede facilitar el acceso a poblaciones difíciles de localizar, pero las redes de contactos pueden introducir sesgo; no garantiza representatividad ni un margen muestral probabilístico."
+  },
+  "17": {
+    "question": "¿Qué es la población objetivo de un estudio estadístico?",
+    "options": {
+      "3": "El conjunto de unidades de interés sobre el que se quiere obtener información o extraer conclusiones."
+    }
+  },
+  "18": {
+    "question": "Cuando los estratos o conglomerados forman una partición de la población objetivo, ¿qué deben cumplir los grupos?"
+  },
+  "19": {
+    "question": "En el procedimiento estratificado descrito en la lección, ¿cómo se seleccionan las unidades dentro de cada estrato?"
+  },
+  "20": {
+    "question": "Si la selección de una muestra es inadecuada, ¿qué puede ocurrir con las conclusiones del estudio?"
+  }
+};
+for (const [n, fix] of Object.entries(editorialFixes)) {
+  fixes[n] = { ...fixes[n], ...fix, options: { ...fixes[n]?.options, ...fix.options } };
+}
+const feedback = [
+  [
+    "Las herramientas informáticas pueden ayudar, pero no son el objetivo de la inferencia.",
+    "La inferencia pasa de la información muestral a conclusiones sobre la población, bajo supuestos.",
+    "El muestreo y la medición tienen incertidumbre; la inferencia no los elimina.",
+    "El estudio no reduce la población: selecciona observaciones para conocerla."
+  ],
+  [
+    "Un gran tamaño no corrige automáticamente la selección sesgada.",
+    "No existe una regla universal que exija observar el 10 % de la población.",
+    "El tamaño se planifica según precisión, diseño y recursos; más no siempre es la única prioridad.",
+    "Una muestra grande puede conservar sesgos de cobertura, selección o respuesta."
+  ],
+  [
+    "Una formulación neutral evita sugerir la respuesta que se desea obtener.",
+    "Introducir la supuesta opinión mayoritaria puede influir en la respuesta.",
+    "Persuadir modifica la medición: no es una redacción neutral.",
+    "El tema económico no impide preguntar; importan la claridad y la neutralidad."
+  ],
+  [
+    "Un diseño probabilístico no garantiza menor coste en todos los estudios.",
+    "La elección sólo por criterio personal corresponde al juicio, no al sorteo probabilístico.",
+    "Con probabilidades de inclusión conocidas se puede estudiar la incertidumbre de selección bajo el diseño.",
+    "El tiempo depende del trabajo de campo; no hay una reducción universal."
+  ],
+  [
+    "Probabilidades conocidas y positivas caracterizan el diseño probabilístico, no el caso preguntado.",
+    "La igualdad entre estratos no define un muestreo no probabilístico.",
+    "Sin mecanismo probabilístico documentado no se conocen las probabilidades de inclusión de todas las unidades.",
+    "El salto no describe todos estos métodos; un sistemático con inicio aleatorio puede ser probabilístico."
+  ],
+  [
+    "Extraer las papeletas viene después de preparar la urna numerada.",
+    "Primero se prepara una papeleta identificable por unidad; después se hace la extracción prevista.",
+    "Dividir en estratos es otro procedimiento, no el siguiente paso de esta urna.",
+    "Aquí no se selecciona con salto; además, el intervalo sistemático se calcula a partir del diseño."
+  ],
+  [
+    "58 es el segundo elemento: 8 más un salto de 50.",
+    "158 es el cuarto elemento: 8 más tres saltos de 50.",
+    "El inicio ya es el primero: el tercero es 8 más dos saltos de 50, es decir, 108.",
+    "28 suma el tamaño de muestra al inicio; el salto es 1000/20, no 20."
+  ],
+  [
+    "Para esta finalidad se busca reducir variación dentro de cada estrato, no invertir ese criterio.",
+    "La homogeneidad interna respecto de la variable y las diferencias entre estratos pueden mejorar la precisión.",
+    "Sortear unidades no hace que cualquier agrupación tenga esa propiedad.",
+    "Una gran heterogeneidad interna no es la propiedad que se busca aquí para ganar precisión."
+  ],
+  [
+    "Sortear directamente personas del listado general se parece al muestreo aleatorio simple de individuos.",
+    "En conglomerados se seleccionan primero grupos naturales; después se estudian todas o algunas de sus unidades.",
+    "Elegir personas accesibles es conveniencia, no selección aleatoria de grupos.",
+    "Completar cuotas individuales no equivale a sortear conglomerados."
+  ],
+  [
+    "Un diseño probabilístico por conglomerados sigue necesitando un mecanismo de selección aleatoria.",
+    "En la partición básica, cada unidad pertenece a un grupo; el solapamiento no es la ventaja preguntada.",
+    "Agrupar no elimina la incertidumbre ni garantiza error nulo.",
+    "Concentrar visitas en los grupos seleccionados puede reducir desplazamientos."
+  ],
+  [
+    "No se han definido estratos ni un sorteo dentro de ellos.",
+    "No hay una cadena en la que las personas remitan a nuevos contactos.",
+    "Se eligen personas accesibles por comodidad de acceso, sin sorteo ni cuotas.",
+    "La facilidad de acceso no hace equiprobables todas las muestras de la población objetivo."
+  ],
+  [
+    "Fijar cantidades por grupos describe cuotas, no necesariamente la selección por juicio.",
+    "El investigador elige casos según su experiencia y criterio.",
+    "Un sorteo sobre un marco completo es una selección probabilística distinta.",
+    "Pedir referencias para localizar nuevos contactos caracteriza la bola de nieve."
+  ],
+  [
+    "El sistemático se organiza mediante inicio e intervalo de selección, no por esta semejanza entre grupos.",
+    "El muestreo simple no exige fijar cuotas por grupos.",
+    "Ambos organizan unidades por grupos, pero las cuotas no garantizan selección aleatoria dentro de ellos.",
+    "Los conglomerados se seleccionan como grupos; aquí se fijan cantidades de personas por grupo."
+  ],
+  [
+    "Sortear dentro de grupos definidos podría formar parte de un diseño estratificado, pero no define las cuotas no probabilísticas.",
+    "No es necesario observar a toda la población para completar cantidades por grupos.",
+    "El encuestador elige unidades hasta alcanzar las cantidades fijadas, sin que haya necesariamente sorteo.",
+    "Las cuotas no obligan a utilizar cadenas de contactos."
+  ],
+  [
+    "Con un marco completo pueden ser viables sorteos directos; no es la razón específica para usar referidos.",
+    "Los contactos iniciales pueden ayudar a localizar a otras personas del colectivo difícil de acceder.",
+    "Las cadenas de contactos no garantizan representatividad ni el menor error muestral.",
+    "Concentrar encuestas en manzanas de edificios se aproxima al trabajo por conglomerados."
+  ],
+  [
+    "Los diseños probabilísticos sí permiten inferencia bajo sus supuestos y condiciones.",
+    "Las ciencias sociales también emplean modelos y métodos matemáticos; no es una razón válida.",
+    "La falta de un marco o las dificultades de acceso pueden hacer necesario otro procedimiento, con sus límites.",
+    "Sin probabilidades de inclusión conocidas no se obtiene automáticamente una mejor estimación del error de muestreo."
+  ],
+  [
+    "El número de observaciones corresponde al tamaño de la muestra, no al conjunto objetivo.",
+    "El procedimiento de selección es el diseño de muestreo, no la población.",
+    "Las personas finalmente medidas pertenecen a la muestra observada; no definen por sí solas la población objetivo.",
+    "La población es el conjunto de unidades sobre el que se formula la pregunta de investigación."
+  ],
+  [
+    "Excluyentes evita duplicar unidades entre grupos y exhaustivos evita dejar unidades fuera.",
+    "Una partición puede contener grupos de tamaños diferentes.",
+    "La condición de partición no impone que la selección sea no probabilística.",
+    "La homogeneidad no sustituye las condiciones de pertenencia única y cobertura de toda la población."
+  ],
+  [
+    "La elección por juicio no es el sorteo dentro de cada estrato que describe esta lección.",
+    "La lección aplica un muestreo aleatorio simple dentro de cada estrato definido.",
+    "La bola de nieve no es el método descrito para seleccionar dentro de los estratos.",
+    "Observar todos los miembros sería un censo de ese estrato, no la extracción muestral descrita."
+  ],
+  [
+    "El tiempo de desplazamiento no se deduce necesariamente de una selección inadecuada.",
+    "Una mala selección no obliga a cambiar automáticamente al método de conglomerados.",
+    "La selección inadecuada puede introducir sesgo y comprometer las conclusiones, aunque haya muchos datos.",
+    "Seleccionar la muestra no cambia por sí mismo los parámetros de la población."
+  ]
+];
+if (feedback.length !== original.length || feedback.some(row => row.length !== 4 || row.some(text => !text.trim()) || new Set(row).size !== 4)) throw new Error("Retroalimentación incompleta o repetida en el test de Inferencia.");
+
 const questions = original.map((q,i) => {
-  const n=i+1, fix=fixes[n] || {}, options=q.options.map((text,j)=>({id:String.fromCharCode(97+j),text:fix.options?.[j] || text,feedback:j===q.correct?'Esa es la opción prevista en el diseño revisado.':'Esa opción no describe correctamente la situación.'}));
+  const n=i+1, fix=fixes[n] || {}, options=q.options.map((text,j)=>({id:String.fromCharCode(97+j),text:fix.options?.[j] || text,feedback:feedback[i][j]}));
   return {id:'q-t09-original-'+String(n).padStart(2,'0'),topicId:'t09',sourceIndex:n,prompt:fix.question || q.question,options,correct:options[q.correct].id,hint:hints[i],explanation:fix.explanation || q.explanation};
 });
 fs.writeFileSync(destination, '// Banco revisado de Página web existente/5. Inferencia Estadística/7. Tipo test.txt.\n// Regenerar con scripts/build-inference-test.mjs; cambios en el generador.\nexport const inferenceQuestions = '+JSON.stringify(questions,null,2)+';\n');
 const escape = text => String(text).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const entries = questions.map((q,i)=>`<details id="pregunta-${i+1}"><summary>${i+1}. ${escape(q.prompt)}</summary><ol type="A">${q.options.map(o=>`<li>${escape(o.text)}</li>`).join('')}</ol><p><strong>Respuesta: ${q.correct.toUpperCase()}.</strong> ${escape(q.explanation)}</p></details>`).join('\n');
-fs.writeFileSync(readingDestination,`<!DOCTYPE html>\n<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Preguntas de Inferencia · Matemáticas CCSS II</title><link rel="stylesheet" href="../assets/css/main.css"><script type="module" src="../assets/js/app.js"></script></head><body data-page-id="tests"><a class="skip-link" href="#main-content">Saltar al contenido</a><div id="site-header"></div><main id="main-content" class="page-main"><h1>Preguntas de Inferencia: lectura</h1><p class="lead">Las 20 preguntas originales revisadas, en orden y con solución desplegable. Puedes leerlas sin activar la corrección automática.</p><p><a href="index.html?tema=t09">Abrir el test autocorregible</a> · <a href="../libro/temas/09-inferencia-estadistica/index.html">Volver al tema 9</a></p>${entries}</main><div id="site-footer"></div></body></html>\n`);
+fs.writeFileSync(readingDestination,`<!DOCTYPE html>\n<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Preguntas de Inferencia · Matemáticas CCSS II</title><link rel="stylesheet" href="../assets/css/main.css"><script type="module" src="../assets/js/app.js"></script></head><body data-page-id="tests"><a class="skip-link" href="#main-content">Saltar al contenido</a><div id="site-header"></div><main id="main-content" class="page-main"><h1>Preguntas de Inferencia: lectura</h1><p class="lead">Las 20 preguntas originales revisadas sobre conceptos y muestreo, en orden y con solución desplegable. Puedes leerlas sin activar la corrección automática.</p><p><a href="index.html?tema=t09">Abrir el test autocorregible</a> · <a href="../libro/temas/09-inferencia-estadistica/index.html">Volver al tema 9</a></p>${entries}</main><div id="site-footer"></div></body></html>\n`);
 // Reading copies use the same visibility IDs as the interactive bank.
 const readingHTML = fs.readFileSync(readingDestination, 'utf8')
   .replace('<head>', '<head><script src="../assets/js/core/content-gate.js"></script>')

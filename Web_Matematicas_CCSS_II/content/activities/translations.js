@@ -45,8 +45,8 @@ export const translationQuestions = [
 export const translationCards = [
   { id: 'fc-shift-01', front: tex`¿Cómo se mueve la gráfica en \(g(x)=f(x-a)+k\)?`, back: 'Cada punto (u,v) pasa a (u+a,v+k). a>0 desplaza a la derecha; a<0, a la izquierda. k>0 sube; k<0 baja. La forma se conserva.' },
   { id: 'fc-shift-02', front: '¿Por qué f(x−a) con a>0 se mueve a la derecha?', back: 'Porque x−a=u se resuelve como x=u+a: el mismo valor original se obtiene en una entrada mayor en a unidades.' },
-  { id: 'fc-shift-03', front: '¿Cómo cambian dominio y recorrido al trasladar?', back: 'Se suma a a cada elemento del dominio y k a cada elemento del recorrido. Se conservan extremos abiertos o cerrados y se trasladan los puntos excluidos.' },
-  { id: 'fc-shift-04', front: '¿Qué sucede con mínimos, máximos y esquinas?', back: 'Sus coordenadas se trasladan como las de cualquier punto. Se conserva el tipo de extremo y la existencia de una esquina. Los intervalos de monotonía se desplazan horizontalmente en a unidades.' },
-  { id: 'fc-shift-05', front: '¿Cómo se trasladan las asíntotas?', back: tex`Una vertical x=c pasa a x=c+a; una horizontal y=L, a y=L+k. Una oblicua y=mx+b pasa a y=mx+(b+k−ma).` },
-  { id: 'fc-shift-06', front: '¿Los antiguos cortes con los ejes siguen siendo cortes después de trasladar?', back: tex`No necesariamente. Los nuevos ceros cumplen f(x−a)=−k. El corte con Y es (0,f(−a)+k), solo si −a pertenece al dominio original.` },
+  { id: 'fc-shift-03', front: '¿Cómo cambian dominio y recorrido al trasladar?', back: 'Para g(x)=f(x−a)+k, cada entrada u del dominio pasa a u+a y cada valor v del recorrido pasa a v+k. Se conservan extremos abiertos o cerrados y se trasladan los puntos excluidos.' },
+  { id: 'fc-shift-04', front: '¿Qué sucede con mínimos, máximos y esquinas?', back: 'Para g(x)=f(x−a)+k, sus coordenadas pasan de (u,v) a (u+a,v+k). Se conserva el tipo de extremo y la existencia de una esquina. Los intervalos de monotonía se desplazan horizontalmente en a unidades.' },
+  { id: 'fc-shift-05', front: '¿Cómo se trasladan las asíntotas?', back: tex`Para g(x)=f(x−a)+k, una vertical x=c pasa a x=c+a; una horizontal y=L, a y=L+k. Una oblicua y=mx+b pasa a y=mx+(b+k−ma).` },
+  { id: 'fc-shift-06', front: '¿Los antiguos cortes con los ejes siguen siendo cortes después de trasladar?', back: tex`Para g(x)=f(x−a)+k, no necesariamente. Los nuevos ceros cumplen f(x−a)=−k. El corte con Y es (0,f(−a)+k), solo si −a pertenece al dominio original.` },
 ].map(card => ({ ...card, topicId: 't02', lessonId: 't02-e07' }));

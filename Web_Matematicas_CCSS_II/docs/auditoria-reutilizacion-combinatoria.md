@@ -56,3 +56,7 @@ Actualizado: 7 de noviembre de 2026 · Tarea P02 (T08) del [plan operativo](../.
 - El original no trata combinaciones con repetición. El principio de multiplicación solo aparece aplicado en el ejercicio 6, sin explicarse aparte. No hay tarjetas de repaso. No se han añadido.
 - El test repite siempre las mismas diez preguntas; no hay práctica con datos nuevos.
 - Revisión editorial del docente y prueba con lector de pantalla.
+
+## P03E · Revisión editorial posterior (15-11-2026)
+
+Revisadas dos tarjetas y diez preguntas, con distinción de independencia y corrección de explicaciones de monedas. IDs y valores correctos conservados; fuentes originales intactas. Cálculos independientes, pruebas de catálogo/glosario y navegadores superados. [Matriz y resultados de P03E](REVISION_EDITORIAL_EVALUACIONES_P03.md). La lectura con lector de pantalla sigue pendiente.

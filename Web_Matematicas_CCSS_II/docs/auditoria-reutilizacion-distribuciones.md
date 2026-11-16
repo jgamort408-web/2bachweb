@@ -196,3 +196,11 @@ Cuatro originales del bloque integrados, tres pendientes. Bancos conservados: 31
 - Revisión conceptual: variable discreta finita/numerable, densidad como función y área como probabilidad, independencia y p constante en la binomial, combinaciones sin orden, sigma como desviación típica, lectura de la tabla para z negativo, np y nq ≥ 5 como orientación, y normal Y explícita en la corrección de continuidad.
 - Mazo común con MathJax local, categorías, teclado y preferencias de lectura; sin guardar respuestas ni progreso. No se inventan tarjetas adicionales.
 - Los siete archivos originales de Distribuciones están integrados. Permanecen las carencias pedagógicas documentadas y el estado parcial de las cuatro lecciones. Total actual: 318 preguntas, 359 tarjetas y dieciséis juegos.
+
+## Precisión didáctica posterior · P03A (14-11-2026)
+
+La tarjeta `fc-t08-original-01` conserva su ID y pregunta. Se aclara su ejemplo: un premio limitado a 0,50 € o 1,50 € ilustra valores discretos no enteros; el recuento de hijos sigue como ejemplo entero. La lección 8.1 incluye el caso didáctico de moneda equilibrada y el glosario toma el reverso actualizado. No se atribuye este ejemplo nuevo a la fuente original. Detalle y pruebas en [P03](REVISION_EDITORIAL_EVALUACIONES_P03.md).
+
+## P03B · Tarjetas revisadas (14-11-2026)
+
+Cotejadas las 22 tarjetas actuales, con siete precisiones y quince sin cambios. Las 19 originales conservan sus IDs y se añaden las tres de TEO-26C. Dominios, casos extremos, convenciones de tablas y continuidad explicitados; originales intactos. Matriz por ID, cálculos y pruebas en [P03B](REVISION_EDITORIAL_EVALUACIONES_P03.md).

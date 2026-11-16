@@ -110,8 +110,69 @@ function buildToc(main) {
     }, { rootMargin: '-20% 0px -60% 0px' });
     for (const target of targets) observer.observe(target);
   }
-  // En móvil, elegir un apartado cierra el desplegable.
-  list.addEventListener('click', event => { if (event.target.closest('a') && !wide.matches) details.open = false; });
+  // Reservar el alto del índice plegado para anclas y controles enfocados.
+  const updateOffset = () => {
+    const style = getComputedStyle(nav);
+    const detailStyle = getComputedStyle(details);
+    const height = summary.getBoundingClientRect().height + parseFloat(style.paddingTop) + parseFloat(style.paddingBottom)
+      + parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth)
+      + parseFloat(detailStyle.marginTop) + parseFloat(detailStyle.marginBottom);
+    main.style.setProperty('--mc-lesson-scroll-offset', `${wide.matches ? 16 : height + (parseFloat(style.top) || 0) + 16}px`);
+  };
+  updateOffset();
+  window.addEventListener('resize', updateOffset);
+  if ('ResizeObserver' in window) new ResizeObserver(updateOffset).observe(summary);
+
+  const destination = hash => {
+    try { return document.getElementById(decodeURIComponent(hash.slice(1))); }
+    catch { return null; }
+  };
+  const reveal = (target, focus = false) => {
+    if (!target) return;
+    if (!wide.matches) details.open = false;
+    updateOffset();
+    if (focus) {
+      if (!target.hasAttribute('tabindex')) {
+        target.tabIndex = -1;
+        target.addEventListener('blur', () => target.removeAttribute('tabindex'), { once: true });
+      }
+      target.focus({ preventScroll: true });
+    }
+    target.scrollIntoView({ block: 'start', behavior: 'instant' });
+  };
+  list.addEventListener('click', event => {
+    const link = event.target.closest('a[href^="#"]');
+    if (!link || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    const target = destination(link.hash);
+    if (!target) return;
+    event.preventDefault();
+    if (location.hash !== link.hash) history.pushState(null, '', link.hash);
+    reveal(target, true);
+    mark(target.id);
+  });
+  nav.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && !wide.matches && details.open) {
+      details.open = false;
+      summary.focus();
+    }
+  });
+  nav.addEventListener('focusout', () => requestAnimationFrame(() => {
+    if (!wide.matches && !nav.contains(document.activeElement)) details.open = false;
+  }));
+  window.addEventListener('hashchange', () => reveal(destination(location.hash)));
+
+  // Recolocar un enlace directo tras el primer render matemático, sin robar foco
+  // ni desplazar al lector si ya empezó a interactuar con la página.
+  const initial = new AbortController();
+  const cancelInitial = () => initial.abort();
+  for (const type of ['pointerdown', 'keydown', 'wheel', 'touchstart']) {
+    window.addEventListener(type, cancelInitial, { once: true, passive: true, signal: initial.signal });
+  }
+  document.addEventListener('math:rendered', () => {
+    reveal(destination(location.hash));
+    initial.abort();
+  }, { once: true, signal: initial.signal });
+  requestAnimationFrame(() => { if (!initial.signal.aborted) reveal(destination(location.hash)); });
 }
 
 /** Barra de progreso de lectura bajo la cabecera común, con el color del bloque. */

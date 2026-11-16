@@ -297,3 +297,16 @@ html[data-contrast="true"] [data-solution-line] { stroke: currentColor; }
 
 [data-approx-controls] label { display: block; margin-top: 1rem; }
 [data-approx-controls] input { width: 100%; max-width: 32rem; }
+
+/* Tablas de teoría: conservar palabras y columnas legibles en pantallas pequeñas.
+   El contenedor mantiene su región y foco HTML, también sin JavaScript. */
+.table-readable { max-width: 100%; }
+.table-readable > table { min-width: 36rem; }
+.table-readable :is(th, td) { overflow-wrap: normal; word-break: normal; }
+.table-readable th { min-width: 8rem; }
+.table-readable:focus-visible { outline: 3px solid var(--color-primary, #1746a2); outline-offset: 3px; }
+@media print {
+  .table-readable { overflow: visible; }
+  .table-readable > table { min-width: 0; }
+  .table-readable th { min-width: 0; }
+}

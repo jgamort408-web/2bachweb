@@ -16,6 +16,23 @@ let onlineRetryAt = 0;
 const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const containsTex = (node) => /\\\(|\\\[|\$\$|\$[^$\n]+\$|\\begin\{/.test(node.textContent || '');
 
+// Añadir una parada de Tab sólo cuando la fórmula necesita desplazamiento.
+// No se sustituye su semántica matemática ni el MathML auxiliar del motor.
+function syncMathScrollFocus(root) {
+  const formulas = [...root.querySelectorAll('mjx-container')];
+  if (root.matches?.('mjx-container')) formulas.unshift(root);
+  for (const formula of formulas) {
+    const wide = formula.clientWidth > 0 && formula.scrollWidth > formula.clientWidth + 2;
+    if (wide && !formula.hasAttribute('tabindex')) {
+      formula.tabIndex = 0;
+      formula.dataset.mathScrollFocus = 'true';
+    } else if (!wide && formula.dataset.mathScrollFocus === 'true') {
+      formula.removeAttribute('tabindex');
+      delete formula.dataset.mathScrollFocus;
+    }
+  }
+}
+
 function showStatus(text, retry = false) {
   if (!status) {
     status = document.createElement('aside');
@@ -132,6 +149,7 @@ async function processRoots(roots) {
   try {
     const engine = await loadEngine();
     await engine.typesetPromise(connected);
+    connected.forEach(syncMathScrollFocus);
     for (const root of failedRoots) {
       if (!root.isConnected || connected.some((scope) => scope === root || scope.contains(root))) failedRoots.delete(root);
     }
@@ -197,6 +215,15 @@ export function retryMath() {
 export function observeMath(root = document.querySelector('main')) {
   if (!root) return () => {};
   renderMath(root);
+  let scrollFrame;
+  const refreshScrollFocus = () => {
+    cancelAnimationFrame(scrollFrame);
+    scrollFrame = requestAnimationFrame(() => syncMathScrollFocus(root));
+  };
+  const resizeObserver = typeof ResizeObserver === 'function' ? new ResizeObserver(refreshScrollFocus) : null;
+  resizeObserver?.observe(root);
+  window.addEventListener('resize', refreshScrollFocus);
+  document.addEventListener('math:rendered', refreshScrollFocus);
   const ignored = 'mjx-container, .math-status, script, style, pre, code, textarea';
   const observer = new MutationObserver((mutations) => {
     for (const mutation of mutations) {
@@ -217,5 +244,12 @@ export function observeMath(root = document.querySelector('main')) {
     }
   };
   window.addEventListener('online', online);
-  return () => { observer.disconnect(); window.removeEventListener('online', online); };
+  return () => {
+    observer.disconnect();
+    resizeObserver?.disconnect();
+    cancelAnimationFrame(scrollFrame);
+    window.removeEventListener('resize', refreshScrollFocus);
+    document.removeEventListener('math:rendered', refreshScrollFocus);
+    window.removeEventListener('online', online);
+  };
 }

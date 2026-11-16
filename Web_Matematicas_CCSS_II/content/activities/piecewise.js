@@ -18,12 +18,12 @@ export const piecewiseQuestions = [
     ['No está definida en 1.', 'El signo ≥ sí incluye 1.']],
     tex`Se elige primero la condición: 1≥1. Después se calcula \(2\cdot1-1=1\). La coincidencia con el otro polinomio no cambia qué rama define el punto.`,
     'Busca el intervalo que contiene la igualdad.'),
-  q('03', tex`Para la misma f, los límites laterales en 1 valen 1 y las derivadas laterales valen 2. ¿Qué ocurre en 1?`, [
+  q('03', tex`Sea f(x)=x² si x<1 y f(x)=2x−1 si x≥1. Los límites laterales en 1 valen 1 y las derivadas laterales valen 2. ¿Qué ocurre en 1?`, [
     ['Es continua y derivable.', 'El valor coincide con el límite y las dos derivadas coinciden.'],
     ['Es continua, pero no derivable porque cambia la fórmula.', 'Cambiar de expresión no impide una unión suave.'],
     ['Tiene un salto.', 'Los límites laterales coinciden.'],
     ['Tiene un mínimo relativo.', 'La derivada es positiva a ambos lados cerca de 1.']],
-    tex`f(1)=1, ambos límites son 1 y \(f\prime_-(1)=f\prime_+(1)=2\). No hay esquina.`, 'Comprueba continuidad y después derivabilidad.'),
+    tex`f(1)=1, ambos límites son 1 y \(f\prime_-(1)=f\prime_+(1)=2\). Los cocientes incrementales son 2+h por la izquierda y 2 por la derecha, ambos con límite 2. No hay esquina.`, 'Comprueba continuidad y después derivabilidad.'),
   q('04', tex`¿Dónde tiene su mínimo \(g(x)=|x-1|-2\)?`, [
     ['En (1,−2); es continua, pero no derivable allí.', 'Las pendientes cambian de −1 a 1 en el vértice.'],
     ['En (−1,−2).', 'x−1 desplaza el vértice hacia la derecha.'],
@@ -45,10 +45,10 @@ export const piecewiseQuestions = [
     'Compara los dos límites laterales con el valor puntual.'),
 ];
 export const piecewiseCards = [
-  { id: 'fc-piece-01', front: '¿Cómo se evalúa una función a trozos?', back: 'Localiza primero el intervalo que contiene x, comprobando < o ≤, y después sustituye en su expresión. El dominio reúne los intervalos permitidos, respetando además las restricciones de cada fórmula.' },
+  { id: 'fc-piece-01', front: '¿Cómo se evalúa una función a trozos?', back: 'Localiza primero el intervalo que contiene x, comprobando < o ≤, y después sustituye en su expresión. El dominio reúne los intervalos permitidos, respetando además las restricciones de cada fórmula. Si dos condiciones se solapan, sus fórmulas deben dar el mismo valor en el solapamiento para definir una función sin ambigüedad.' },
   { id: 'fc-piece-02', front: '¿Qué indican un círculo vacío y uno relleno en una gráfica?', back: 'Vacío: ese extremo no se incluye en esa rama. Relleno: la función toma ese valor. Dos ramas pueden terminar en el mismo punto; si está incluido, se dibuja relleno.' },
   { id: 'fc-piece-03', front: '¿Qué tres valores comparas para la continuidad en una unión?', back: tex`\(\lim_{x\to a^-}f(x)\), \(\lim_{x\to a^+}f(x)\) y f(a). Para continuidad en un punto interior del dominio, los tres deben existir como números reales y coincidir.` },
-  { id: 'fc-piece-04', front: '¿Cómo compruebas derivabilidad en una unión?', back: 'Primero comprueba continuidad. Después compara las derivadas laterales: deben existir, ser finitas e iguales. Si la función es discontinua, las pendientes de las fórmulas por separado no bastan para afirmar derivabilidad.' },
+  { id: 'fc-piece-04', front: '¿Cómo compruebas derivabilidad en una unión?', back: 'Primero comprueba continuidad. Después compara las derivadas laterales: deben existir, ser finitas e iguales. Ambos cocientes incrementales deben usar el mismo valor real f(a). Si la función es discontinua, las pendientes de las fórmulas por separado no bastan para afirmar derivabilidad.' },
   { id: 'fc-piece-05', front: tex`¿Cómo escribes \(|x-a|\) por tramos?`, back: tex`Es a−x si x<a y x−a si x≥a. Mide la distancia a a. Tiene vértice (a,0), es continua y presenta pendientes −1 y 1 a ambos lados.` },
   { id: 'fc-piece-06', front: '¿Qué conserva la segunda rama de una tarifa progresiva?', back: 'El coste acumulado hasta el umbral, más el nuevo precio multiplicado solo por el exceso. Aplicar el nuevo precio a toda la cantidad describe una tarifa distinta y puede introducir un salto.' },
 ].map(card => ({ ...card, topicId: 't02', lessonId: 't02-e06' }));

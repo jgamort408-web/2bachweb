@@ -60,8 +60,8 @@ async function initializeLesson() {
 const context = await getContentContext();
 if (!canUseCurrentPage(context)) return;
 const requestedTopic = new URLSearchParams(location.search).get('tema');
-const selectedScope = ['t01', 't02', 't03', 't04', 't05', ...(document.querySelector('[data-quiz]') ? ['t07', 't09'] : []), ...(document.querySelector('[data-flashcards]') ? ['t06', 't07', 't08', 't09', 'bivariate'] : [])].includes(requestedTopic) ? requestedTopic : 'all-course';
-const scopeLabels = { bivariate: 'Apoyo: estadística bidimensional · 20 tarjetas originales revisadas', t09: 'Tema 9: inferencia · 30 tarjetas originales revisadas', t08: 'Tema 8: distribuciones · 19 tarjetas originales revisadas', t07: 'Tema 7: probabilidad · 16 tarjetas originales revisadas', t06: 'Tema 6: programación lineal · 19 tarjetas originales revisadas', t05: 'Tema 5: sistemas (lecciones 5.1–5.11)', t04: 'Tema 4: matrices (lecciones 4.1–4.12)', 'all-course': 'Todos los contenidos disponibles', t03: 'Tema 3: integrales (contenido disponible)', t01: 'Tema 1: límites y derivadas', t02: 'Tema 2: representación de funciones (lecciones 2.1–2.9)' };
+const selectedScope = ['t01', 't02', 't03', 't04', 't05', ...(document.querySelector('[data-quiz]') ? ['t07', 't09'] : []), ...(document.querySelector('[data-flashcards]') ? ['t06', 't07', 't08', 't09', 'bivariate', 'combinatorics'] : [])].includes(requestedTopic) ? requestedTopic : 'all-course';
+const scopeLabels = { combinatorics: 'Apoyo: combinatoria · dos tarjetas, una de ampliación opcional', bivariate: 'Apoyo: estadística bidimensional · 23 tarjetas (20 originales y tres de ampliación)', t09: 'Tema 9: inferencia · 37 tarjetas (30 originales y siete de ampliación)', t08: 'Tema 8: distribuciones · 22 tarjetas (19 originales y tres de ampliación)', t07: 'Tema 7: probabilidad · 16 tarjetas originales revisadas', t06: 'Tema 6: programación lineal · 19 tarjetas originales revisadas', t05: 'Tema 5: sistemas (lecciones 5.1–5.11)', t04: 'Tema 4: matrices (lecciones 4.1–4.12)', 'all-course': 'Todos los contenidos disponibles', t03: 'Tema 3: integrales (contenido disponible)', t01: 'Tema 1: límites y derivadas', t02: 'Tema 2: representación de funciones (lecciones 2.1–2.9)' };
 if (document.querySelector('[data-quiz]')) scopeLabels.t09 = 'Tema 9: inferencia · 20 preguntas originales revisadas';
 if (document.querySelector('[data-quiz]')) scopeLabels.t07 = 'Tema 7: probabilidad · 60 preguntas base (9 originales adaptadas y 51 ampliaciones)';
 for (const label of document.querySelectorAll('[data-scope-label]')) label.textContent = scopeLabels[selectedScope];
@@ -151,7 +151,7 @@ if (explorer) {
 }
 for (const deck of document.querySelectorAll('[data-flashcards]')) {
   const scope = deck.dataset.flashcards || selectedScope;
-  mountFlashcards(deck, cardsForScope(scope), { categories: ['t06', 't07', 't08', 't09', 'bivariate'].includes(scope), study: document.body.dataset.pageId === 'cards' });
+  mountFlashcards(deck, cardsForScope(scope), { categories: ['t06', 't07', 't08', 't09', 'bivariate', 'combinatorics'].includes(scope), study: document.body.dataset.pageId === 'cards' });
 }
 }
 initializeLesson().catch(() => {});

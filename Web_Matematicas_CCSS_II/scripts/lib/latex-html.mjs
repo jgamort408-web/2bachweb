@@ -34,7 +34,12 @@ export function stripComments(source) {
 export function adaptMath(tex) {
   return tex
     .replace(/\\textquestiondown(\{\})?/g, '¿').replace(/\\texteuro(\{\})?/g, '€')
-    .replace(/\\makebox\[[^\]]*\]\{([^{}]*)\}/g, '$1')
+    .replace(/\\makebox\[[^\]]*\]\{([^{}]*)\}/g, (_, body) => {
+      // makebox crea texto en LaTeX; si contiene $...$, devolver el grupo
+      // matemático al contexto exterior sin dibujar los delimitadores.
+      const nested = body.trim().match(/^\$([^$]*)\$$/);
+      return nested ? '{' + nested[1] + '}' : body;
+    })
     .replace(/\\nopagebreak/g, '');
 }
 

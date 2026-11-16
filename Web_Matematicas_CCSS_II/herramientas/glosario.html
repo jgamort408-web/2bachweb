@@ -23,6 +23,10 @@
     <section class="mc-glossary__letter" id="letra-a" data-glossary-group aria-labelledby="titulo-letra-a">
       <h2 id="titulo-letra-a">A</h2>
       <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-afijacion-proporcional" data-content-id="card:fc-t09-original-06" data-glossary-entry data-search="afijación proporcional">
+          <dt>Afijación proporcional</dt>
+          <dd><p>Si se usa asignación proporcional, un estrato que representa el \(k\,\%\) de la población recibe aproximadamente el \(k\,\%\) de la muestra. Los ajustes de redondeo deben conservar el tamaño total y respetar la capacidad de los estratos. También existen otras asignaciones.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/03-tecnicas-de-muestreo.html">9.3. Técnicas de muestreo</a>.</p></dd>
+        </div>
         <div class="mc-glossary__entry" id="termino-aproximacion-por-la-izquierda" data-content-id="card:fc-lat-01" data-glossary-entry data-search="aproximación por la izquierda">
           <dt>Aproximación por la izquierda</dt>
           <dd><p>Acercarse a a con valores \(x&lt;a\). El signo no dice si los valores de la función son negativos.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/01-limites-y-derivadas/02-limites-laterales.html">1.2. Límites laterales</a>.</p></dd>
@@ -44,15 +48,35 @@
           <dt>Coeficiente de determinación</dt>
           <dd><p>En regresión lineal simple por mínimos cuadrados con término independiente y ambas variables no constantes, \(R^2=r^2\). Es la proporción de variación observada de Y recogida por el ajuste; \(100R^2\) es su porcentaje. No mide la probabilidad de acertar una predicción ni demuestra causalidad.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a>.</p></dd>
         </div>
+        <div class="mc-glossary__entry" id="termino-coeficientes-de-regresion" data-content-id="card:fc-bivariate-original-20" data-glossary-entry data-search="coeficientes de regresión">
+          <dt>Coeficientes de regresión</dt>
+          <dd><p>Con varianzas positivas, las rectas de mínimos cuadrados con término independiente cumplen \(b_{yx}b_{xy}=r^2\), donde \(b_{yx}=S_{xy}/S_x^2\) y \(b_{xy}=S_{xy}/S_y^2\). El signo de r se obtiene de las pendientes, no del producto. Se lee Y en función de X y X en función de Y, no dos pendientes despejadas ambas como Y en función de X.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-combinaciones-con-repeticion" data-content-id="card:fc-teoria-combinacion-repeticion" data-glossary-entry data-search="combinaciones con repetición">
+          <dt>Combinaciones con repetición</dt>
+          <dd><p>Ampliación opcional: elecciones de r unidades entre n tipos, sin orden, con repetición y disponibilidad suficiente. Para enteros \(n\ge1\), \(r\ge0\), \(CR(n,r)=\binom{n+r-1}{r}\). Los límites por tipo requieren otro recuento. Contar estas elecciones no garantiza que sean equiprobables.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/combinatoria.html">Combinatoria</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-correccion-de-continuidad" data-content-id="card:fc-t08-original-19" data-glossary-entry data-search="corrección de continuidad">
+          <dt>Corrección de continuidad</dt>
+          <dd><p>Si \(Y\) es la normal aproximante y \(k\) es entero: \(P(X=k)\approx P(k-0{,}5&lt;Y&lt;k+0{,}5)\) y \(P(X\le k)\approx P(Y\le k+0{,}5)\). Primero traduce los umbrales no enteros a los recuentos enteros que cumplen la condición. Los extremos abiertos o cerrados dan lo mismo para \(Y\), pero no necesariamente para \(X\).</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/08-distribuciones-de-probabilidad/04-aproximacion-de-la-distribucion-binomial-a-la-distribucion-normal.html">8.4. Aproximación de la distribución binomial a la distribución normal</a>.</p></dd>
+        </div>
         <div class="mc-glossary__entry" id="termino-covarianza" data-content-id="card:fc-bivariate-original-05" data-glossary-entry data-search="covarianza">
           <dt>Covarianza</dt>
-          <dd><p>Resume la variación conjunta respecto a las medias. Su signo indica el sentido de la asociación lineal. Depende de las unidades y su magnitud no mide por sí sola la intensidad de la relación.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a>.</p></dd>
+          <dd><p>Resume la variación conjunta respecto a las medias. Su signo indica el sentido de la asociación lineal. Sus unidades son el producto de las unidades de X e Y; su magnitud por sí sola no mide la intensidad de la relación.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-cuantil-normal" data-content-id="card:fc-teoria-cuantil" data-glossary-entry data-search="cuantil normal">
+          <dt>Cuantil normal</dt>
+          <dd><p>Para \(0&lt;r&lt;1\), es el valor x que deja probabilidad r a su izquierda. Si \(X\sim N(\mu,\sigma)\), con \(\sigma&gt;0\), entonces \(x=\mu+\sigma z_r\), donde \(\Phi(z_r)=r\). Una cola superior requiere usar el complemento.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/08-distribuciones-de-probabilidad/03-distribucion-normal.html">8.3. Distribución normal</a>.</p></dd>
         </div>
       </dl>
     </section>
     <section class="mc-glossary__letter" id="letra-d" data-glossary-group aria-labelledby="titulo-letra-d">
       <h2 id="titulo-letra-d">D</h2>
       <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-densidad-de-probabilidad" data-content-id="card:fc-teoria-densidad" data-glossary-entry data-search="densidad de probabilidad">
+          <dt>Densidad de probabilidad</dt>
+          <dd><p>Es una función no negativa con área total uno. Para \(a\le b\), en una variable con densidad, \(P(a\le X\le b)=\int_a^b f(x)\,dx\). La altura f(x) no es la probabilidad de un punto: \(P(X=x)=0\).</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/08-distribuciones-de-probabilidad/01-variable-aleatoria.html">8.1. Variable aleatoria</a>.</p></dd>
+        </div>
         <div class="mc-glossary__entry" id="termino-derivada-en-un-punto" data-content-id="card:fc-der-01" data-glossary-entry data-search="derivada en un punto">
           <dt>Derivada en un punto</dt>
           <dd><p>\(f\prime(a)=\lim_{h\to0}(f(a+h)-f(a))/h\), cuando el límite existe y es finito. h no vale cero en el cociente.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/01-limites-y-derivadas/11-funcion-derivada.html">1.11. Función derivada</a>.</p></dd>
@@ -78,14 +102,38 @@
           <dt>Error estándar de la media</dt>
           <dd><p>La desviación típica de la distribución de \(\bar X\): \(\sigma/\sqrt n\), bajo observaciones independientes e idénticamente distribuidas con varianza finita.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/04-distribucion-muestral-teorema-central-del-limite.html">9.4. Distribución muestral. Teorema central del límite</a>.</p></dd>
         </div>
+        <div class="mc-glossary__entry" id="termino-error-estandar-estimado-de-una-proporcion" data-content-id="card:fc-teoria-se-proporcion" data-glossary-entry data-search="error estándar estimado de una proporción">
+          <dt>Error estándar estimado de una proporción</dt>
+          <dd><p>\(\sqrt{\widehat p(1-\widehat p)/n}\) estima la desviación de la proporción muestral bajo observaciones independientes con probabilidad común. Sustituye la proporción poblacional desconocida por la observada; no es el margen de confianza, que incorpora un valor crítico.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/07-intervalos-de-confianza.html">9.7. Intervalos de confianza</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-estimacion" data-content-id="card:fc-teoria-estimacion" data-glossary-entry data-search="estimación">
+          <dt>Estimación</dt>
+          <dd><p>Es el valor concreto que toma un estimador al aplicar su regla a los datos observados. Dos muestras pueden producir estimaciones diferentes del mismo parámetro.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/05-estimacion-puntual-y-estimacion-por-intervalos.html">9.5. Estimación puntual y estimación por intervalos</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-estimador" data-content-id="card:fc-teoria-estimador" data-glossary-entry data-search="estimador">
+          <dt>Estimador</dt>
+          <dd><p>Es un estadístico utilizado para estimar un parámetro poblacional. Es una función de los datos muestrales que no depende de parámetros desconocidos; antes de observar la muestra es aleatorio. No es el valor concreto ya calculado.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/05-estimacion-puntual-y-estimacion-por-intervalos.html">9.5. Estimación puntual y estimación por intervalos</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-estimador-insesgado" data-content-id="card:fc-teoria-insesgado" data-glossary-entry data-search="estimador insesgado">
+          <dt>Estimador insesgado</dt>
+          <dd><p>Cuando su esperanza coincide con el parámetro que estima, bajo el modelo de muestreo. No significa que cada estimación sea exacta; se refiere al promedio teórico entre muestras.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/05-estimacion-puntual-y-estimacion-por-intervalos.html">9.5. Estimación puntual y estimación por intervalos</a>.</p></dd>
+        </div>
       </dl>
     </section>
     <section class="mc-glossary__letter" id="letra-f" data-glossary-group aria-labelledby="titulo-letra-f">
       <h2 id="titulo-letra-f">F</h2>
       <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-ficha-tecnica-de-una-encuesta" data-content-id="card:fc-teoria-ficha-encuesta" data-glossary-entry data-search="ficha técnica de una encuesta">
+          <dt>Ficha técnica de una encuesta</dt>
+          <dd><p>Describe la población, el marco, el método de selección, las fechas, la pregunta y las respuestas válidas, y explica los cálculos y sus supuestos. Un margen muestral no resume errores de cobertura, falta de respuesta ni sesgos de medición.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/09-ficha-tecnica-de-encuestas.html">9.9. Ficha técnica de encuestas</a>.</p></dd>
+        </div>
         <div class="mc-glossary__entry" id="termino-forma-indeterminada" data-content-id="card:fc-inf-02" data-glossary-entry data-search="forma indeterminada">
           <dt>Forma indeterminada</dt>
           <dd><p>Los límites de las partes no bastan para concluir. Debes estudiar o transformar la expresión.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/01-limites-y-derivadas/09-indeterminaciones.html">1.9. Indeterminaciones</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-funcion-de-distribucion-acumulada" data-content-id="card:fc-teoria-acumulada" data-glossary-entry data-search="función de distribución acumulada">
+          <dt>Función de distribución acumulada</dt>
+          <dd><p>\(F(x)=P(X\le x)\): la probabilidad acumulada hasta x incluido. En una discreta se suman las masas hasta x; si existe densidad, se integra desde menos infinito hasta x.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/08-distribuciones-de-probabilidad/01-variable-aleatoria.html">8.1. Variable aleatoria</a>.</p></dd>
         </div>
         <div class="mc-glossary__entry" id="termino-funcion-objetivo" data-content-id="card:fc-pl-original-01" data-glossary-entry data-search="función objetivo">
           <dt>Función objetivo</dt>
@@ -104,6 +152,14 @@
           <dt>Integral indefinida</dt>
           <dd><p>La familia de primitivas: \(\int f(x)\,dx=F(x)+C\). No es un único número.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/03-integrales/01-integral-indefinida.html">3.1. Integral indefinida</a>.</p></dd>
         </div>
+        <div class="mc-glossary__entry" id="termino-intervalo-caracteristico" data-content-id="card:fc-teoria-caracteristico" data-glossary-entry data-search="intervalo característico">
+          <dt>Intervalo característico</dt>
+          <dd><p>Es un intervalo de valores de una variable aleatoria con una probabilidad fijada bajo una distribución conocida. No es un intervalo de confianza para un parámetro desconocido. El intervalo de una observación y el de una media muestral tienen distinta dispersión.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/06-intervalos-de-probabilidad-o-intervalos-caracteristicos.html">9.6. Intervalos de probabilidad o intervalos característicos</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-intervalo-de-wald-para-una-proporcion" data-content-id="card:fc-teoria-wald" data-glossary-entry data-search="intervalo de wald para una proporción">
+          <dt>Intervalo de Wald para una proporción</dt>
+          <dd><p>Es el intervalo normal aproximado \(\widehat p\pm z_{\alpha/2}\sqrt{\widehat p(1-\widehat p)/n}\). Requiere un diseño y un modelo adecuados y suficientes éxitos y fracasos; los recuentos de al menos diez son una orientación, no garantía de cobertura. Puede funcionar mal cerca de 0 o 1.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/07-intervalos-de-confianza.html">9.7. Intervalos de confianza</a>.</p></dd>
+        </div>
       </dl>
     </section>
     <section class="mc-glossary__letter" id="letra-l" data-glossary-group aria-labelledby="titulo-letra-l">
@@ -118,13 +174,21 @@
     <section class="mc-glossary__letter" id="letra-m" data-glossary-group aria-labelledby="titulo-letra-m">
       <h2 id="titulo-letra-m">M</h2>
       <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-margen-de-error-para-la-media" data-content-id="card:fc-t09-original-19" data-glossary-entry data-search="margen de error para la media">
+          <dt>Margen de error para la media</dt>
+          <dd><p>Con observaciones independientes de una población normal y \(\sigma\) conocida: \(E=z_{\alpha/2}\sigma/\sqrt n\). Es un margen del procedimiento, no una cota segura del error observado.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/08-tamano-de-la-muestra-error-cometido.html">9.8. Tamaño de la muestra. Error cometido</a>.</p></dd>
+        </div>
         <div class="mc-glossary__entry" id="termino-matriz-inversa" data-content-id="card:fc-inverse-01" data-glossary-entry data-search="matriz inversa">
           <dt>Matriz inversa</dt>
           <dd><p>\(AA^{-1}=A^{-1}A=I\). Para A cuadrada, existe y es única si y solo si \(\det(A)\ne0\).</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/04-matrices-y-determinantes/09-matriz-inversa-y-matriz-adjunta.html">4.9. Matriz inversa y matriz adjunta</a>.</p></dd>
         </div>
+        <div class="mc-glossary__entry" id="termino-media-marginal" data-content-id="card:fc-teoria-media-marginal" data-glossary-entry data-search="media marginal">
+          <dt>Media marginal</dt>
+          <dd><p>Es la media de una de las variables por separado, ponderada por sus frecuencias marginales. Para X, \(\bar x=\sum_i x_i n_{i\cdot}/N\), con N positivo. No se promedian etiquetas cualitativas sin un significado numérico.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a>.</p></dd>
+        </div>
         <div class="mc-glossary__entry" id="termino-muestra" data-content-id="card:fc-t09-original-02" data-glossary-entry data-search="muestra">
           <dt>Muestra</dt>
-          <dd><p>Es el subconjunto de unidades observado; \(n\) es su tamaño. Que represente bien a la población depende de cómo se seleccione, no solo de su tamaño.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/01-estadistica-inferencial.html">9.1. Estadística inferencial</a>.</p></dd>
+          <dd><p>Es la colección de observaciones obtenida de la población; \(n\) es su tamaño. Si el diseño permite reposición, una unidad puede aparecer más de una vez. La representatividad depende de la selección, no sólo del tamaño.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/01-estadistica-inferencial.html">9.1. Estadística inferencial</a>.</p></dd>
         </div>
         <div class="mc-glossary__entry" id="termino-muestreo-aleatorio-simple" data-content-id="card:fc-t09-original-05" data-glossary-entry data-search="muestreo aleatorio simple">
           <dt>Muestreo aleatorio simple</dt>
@@ -137,11 +201,11 @@
       <dl class="mc-glossary__list">
         <div class="mc-glossary__entry" id="termino-nivel-de-confianza" data-content-id="card:fc-t09-original-16" data-glossary-entry data-search="nivel de confianza">
           <dt>Nivel de confianza</dt>
-          <dd><p>En el modelo y bajo sus supuestos, es la proporción de intervalos que cubrirían el parámetro si repitiésemos el procedimiento de muestreo muchas veces. No es la probabilidad posterior de un intervalo concreto.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/07-intervalos-de-confianza.html">9.7. Intervalos de confianza</a>.</p></dd>
+          <dd><p>Es la cobertura nominal \(1-\alpha\) para la que se construye el procedimiento bajo sus supuestos. En el modelo normal exacto, con sus cuantiles, coincide con la proporción teórica de intervalos que cubrirían el parámetro al repetir el muestreo. En aproximaciones, la cobertura real puede diferir. No es una probabilidad posterior del intervalo observado.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/07-intervalos-de-confianza.html">9.7. Intervalos de confianza</a>.</p></dd>
         </div>
         <div class="mc-glossary__entry" id="termino-nivel-de-significacion" data-content-id="card:fc-t09-original-17" data-glossary-entry data-search="nivel de significación">
           <dt>Nivel de significación</dt>
-          <dd><p>En un intervalo bilateral de confianza \(1-\alpha\), es la tasa de no cobertura del procedimiento bajo el modelo: \(\alpha\). No asegura que el intervalo observado falle con esa probabilidad posterior.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/05-estimacion-puntual-y-estimacion-por-intervalos.html">9.5. Estimación puntual y estimación por intervalos</a>.</p></dd>
+          <dd><p>En el contexto de estos intervalos bilaterales, \(\alpha\) es el complemento del nivel de confianza nominal. En el modelo exacto expresa la tasa de no cobertura del procedimiento; en aproximaciones, esa tasa real puede diferir. No es una probabilidad posterior de que falle el intervalo observado.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/05-estimacion-puntual-y-estimacion-por-intervalos.html">9.5. Estimación puntual y estimación por intervalos</a>.</p></dd>
         </div>
         <div class="mc-glossary__entry" id="termino-normal-estandar" data-content-id="card:fc-t08-original-09" data-glossary-entry data-search="normal estándar">
           <dt>Normal estándar</dt>
@@ -156,6 +220,10 @@
     <section class="mc-glossary__letter" id="letra-o" data-glossary-group aria-labelledby="titulo-letra-o">
       <h2 id="titulo-letra-o">O</h2>
       <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-optimos-multiples" data-content-id="card:fc-pl-original-17" data-glossary-entry data-search="óptimos múltiples">
+          <dt>Óptimos múltiples</dt>
+          <dd><p>En el modelo continuo con región convexa, dos puntos factibles distintos que alcanzan el mismo óptimo hacen óptimo todo su segmento. Un lado paralelo a las líneas de nivel debe alcanzar el valor extremo; el paralelismo por sí solo no basta. Si el objetivo es constante, todo punto factible es óptimo, pero una región de un solo punto no da infinitas soluciones.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/06-programacion-lineal/04-solucion-de-un-problema-de-programacion-lineal.html">6.4. Solución de un problema de programación lineal</a>.</p></dd>
+        </div>
         <div class="mc-glossary__entry" id="termino-orden-de-una-matriz" data-content-id="card:fc-matrix-basics-01" data-glossary-entry data-search="orden de una matriz">
           <dt>Orden de una matriz</dt>
           <dd><p>\(m\times n\): m filas y n columnas; contiene mn elementos. Tres filas y dos columnas dan orden \(3\times2\), no \(2\times3\).</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/04-matrices-y-determinantes/01-matrices-definicion-caracteristicas-y-tipos.html">4.1. Matrices: definición, características y tipos</a>.</p></dd>
@@ -165,6 +233,14 @@
     <section class="mc-glossary__letter" id="letra-p" data-glossary-group aria-labelledby="titulo-letra-p">
       <h2 id="titulo-letra-p">P</h2>
       <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-parametro-y-estadistico" data-content-id="card:fc-t09-original-03" data-glossary-entry data-search="parámetro y estadístico">
+          <dt>Parámetro y estadístico</dt>
+          <dd><p>Un parámetro describe la población, por ejemplo \(\mu\) o \(\sigma\). Un estadístico es una regla calculada sólo a partir de los datos muestrales; su valor puede variar entre muestras. No depende de parámetros desconocidos.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/01-estadistica-inferencial.html">9.1. Estadística inferencial</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-planificacion-conservadora-de-proporciones" data-content-id="card:fc-t09-original-26" data-glossary-entry data-search="planificación conservadora de proporciones">
+          <dt>Planificación conservadora de proporciones</dt>
+          <dd><p>Para planificar de forma conservadora en la fórmula usual, \(p_0=0{,}5\) maximiza \(p_0(1-p_0)=0{,}25\). No elimina sesgo ni efecto de diseño.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/08-tamano-de-la-muestra-error-cometido.html">9.8. Tamaño de la muestra. Error cometido</a>.</p></dd>
+        </div>
         <div class="mc-glossary__entry" id="termino-poblacion" data-content-id="card:fc-t09-original-01" data-glossary-entry data-search="población">
           <dt>Población</dt>
           <dd><p>Es el conjunto de unidades sobre el que se quiere estudiar una característica. \(N\) es su tamaño; sus parámetros pueden ser desconocidos.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/01-estadistica-inferencial.html">9.1. Estadística inferencial</a>.</p></dd>
@@ -173,9 +249,17 @@
           <dt>Primitiva</dt>
           <dd><p>Una función F cuya derivada es f en el intervalo estudiado: \(F'=f\).</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/03-integrales/01-integral-indefinida.html">3.1. Integral indefinida</a>.</p></dd>
         </div>
+        <div class="mc-glossary__entry" id="termino-principio-multiplicativo" data-content-id="card:fc-teoria-multiplicativo" data-glossary-entry data-search="principio multiplicativo">
+          <dt>Principio multiplicativo</dt>
+          <dd><p>Si cada elección de una etapa tiene el número de continuaciones indicado en la siguiente, el total es el producto de esos números. Si las ramas tienen distintas continuaciones, se cuentan por separado y se suman casos disjuntos. Esta regla de recuento no exige independencia probabilística.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/combinatoria.html">Combinatoria</a>.</p></dd>
+        </div>
         <div class="mc-glossary__entry" id="termino-problema-infactible" data-content-id="card:fc-pl-original-18" data-glossary-entry data-search="problema infactible">
           <dt>Problema infactible</dt>
           <dd><p>Las restricciones no tienen ningún punto común. Por ejemplo, \(x\le5\) y \(x\ge10\) son incompatibles. La región factible es vacía y no existe solución óptima.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/06-programacion-lineal/04-solucion-de-un-problema-de-programacion-lineal.html">6.4. Solución de un problema de programación lineal</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-proporcion-muestral-observada" data-content-id="card:fc-t09-original-04" data-glossary-entry data-search="proporción muestral observada">
+          <dt>Proporción muestral observada</dt>
+          <dd><p>\(p\) es la proporción poblacional; \(\hat p\) es la proporción observada en una muestra.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/05-estimacion-puntual-y-estimacion-por-intervalos.html">9.5. Estimación puntual y estimación por intervalos</a>.</p></dd>
         </div>
       </dl>
     </section>
@@ -188,7 +272,11 @@
         </div>
         <div class="mc-glossary__entry" id="termino-recta-de-regresion" data-content-id="card:fc-bivariate-original-15" data-glossary-entry data-search="recta de regresión">
           <dt>Recta de regresión</dt>
-          <dd><p>La recta de Y sobre X por mínimos cuadrados con término independiente minimiza la suma de los cuadrados de los residuos verticales. Requiere \(S_x^2&gt;0\). Permite estimar Y a partir de X; una estimación no es un resultado garantizado.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a>.</p></dd>
+          <dd><p>La recta de Y sobre X por mínimos cuadrados con término independiente minimiza la suma de los cuadrados de los residuos verticales. Requiere \(S_x^2&gt;0\). Estima Y a partir de X; extrapolar fuera del rango observado de X exige una justificación adicional del modelo.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-recta-frontera" data-content-id="card:fc-pl-original-10" data-glossary-entry data-search="recta frontera">
+          <dt>Recta frontera</dt>
+          <dd><p>Para \(ax+by=c\), con \((a,b)\ne(0,0)\), calcula dos puntos distintos que la satisfagan. Puedes usar los cortes con los ejes si existen y son distintos. Si \(b\ne0\), puedes despejar \(y\); si \(b=0\), la recta es vertical, \(x=c/a\).</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/06-programacion-lineal/01-inecuaciones-lineales-con-dos-incognitas.html">6.1. Inecuaciones lineales con dos incógnitas</a>.</p></dd>
         </div>
         <div class="mc-glossary__entry" id="termino-rectas-secantes" data-content-id="card:fc-system-solution-02" data-glossary-entry data-search="rectas secantes">
           <dt>Rectas secantes</dt>
@@ -198,9 +286,17 @@
           <dt>Región factible</dt>
           <dd><p>Es la intersección de todas las restricciones: el conjunto de decisiones que las cumplen simultáneamente. Puede ser vacía, acotada o no acotada; también puede reducirse a un segmento o a un punto. No siempre es un polígono acotado.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/06-programacion-lineal/02-sistemas-de-inecuaciones-lineales-con-dos-incognitas.html">6.2. Sistemas de inecuaciones lineales con dos incógnitas</a>.</p></dd>
         </div>
+        <div class="mc-glossary__entry" id="termino-region-no-acotada" data-content-id="card:fc-pl-original-16" data-glossary-entry data-search="región no acotada">
+          <dt>Región no acotada</dt>
+          <dd><p>Se extiende indefinidamente en alguna dirección; «no acotada» no significa «abierta». Que exista máximo o mínimo depende de la función objetivo y de la región. No basta observar que la región es no acotada para decidirlo.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/06-programacion-lineal/04-solucion-de-un-problema-de-programacion-lineal.html">6.4. Solución de un problema de programación lineal</a>.</p></dd>
+        </div>
         <div class="mc-glossary__entry" id="termino-regla-de-barrow" data-content-id="card:fc-barrow-1" data-glossary-entry data-search="regla de barrow">
           <dt>Regla de Barrow</dt>
           <dd><p>\([F(x)]_a^b=F(b)-F(a)\), con F′=f. Si f es continua en el intervalo, es el valor de \(\int_a^b f(x)dx\).</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/03-integrales/07-regla-de-barrow.html">3.7. Regla de Barrow</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-regresion-de-x-sobre-y" data-content-id="card:fc-teoria-regresion-x" data-glossary-entry data-search="regresión de x sobre y">
+          <dt>Regresión de X sobre Y</dt>
+          <dd><p>Estima X a partir de Y mediante mínimos cuadrados con término independiente: \(\widehat x-\bar x=(S_{xy}/S_y^2)(y-\bar y)\), con \(S_y^2&gt;0\). Minimiza los residuos cuadrados en X. En general no se obtiene despejando la recta de Y sobre X.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a>.</p></dd>
         </div>
         <div class="mc-glossary__entry" id="termino-residuo" data-content-id="card:fc-bivariate-original-17" data-glossary-entry data-search="residuo">
           <dt>Residuo</dt>
@@ -244,6 +340,10 @@
     <section class="mc-glossary__letter" id="letra-t" data-glossary-group aria-labelledby="titulo-letra-t">
       <h2 id="titulo-letra-t">T</h2>
       <dl class="mc-glossary__list">
+        <div class="mc-glossary__entry" id="termino-tamano-muestral-para-una-proporcion" data-content-id="card:fc-t09-original-22" data-glossary-entry data-search="tamaño muestral para una proporción">
+          <dt>Tamaño muestral para una proporción</dt>
+          <dd><p>Con proporción previa \(p_0\), observaciones independientes y planificación normal aproximada, el objetivo \(E\le E_0\) conduce a \(n\ge z_{\alpha/2}^2p_0(1-p_0)/E_0^2\). Usar \(E_0&gt;0\) en escala de proporciones y redondear hacia arriba. La precisión depende del valor supuesto; otros diseños requieren ajustes.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/09-inferencia-estadistica/08-tamano-de-la-muestra-error-cometido.html">9.8. Tamaño de la muestra. Error cometido</a>.</p></dd>
+        </div>
         <div class="mc-glossary__entry" id="termino-tasa-de-variacion-media" data-content-id="card:fc-review-04" data-glossary-entry data-search="tasa de variación media">
           <dt>Tasa de variación media</dt>
           <dd><p>\(\dfrac{f(b)-f(a)}{b-a}\), con \(a\ne b\). Es la pendiente de la secante y el cambio medio de la salida por unidad de entrada; no es necesariamente la derivada en a o en b.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/01-limites-y-derivadas/11-funcion-derivada.html">1.11. Función derivada</a>.</p></dd>
@@ -255,11 +355,19 @@
       <dl class="mc-glossary__list">
         <div class="mc-glossary__entry" id="termino-variable-aleatoria-continua" data-content-id="card:fc-t08-original-02" data-glossary-entry data-search="variable aleatoria continua">
           <dt>Variable aleatoria continua</dt>
-          <dd><p>En el modelo estudiado, puede tomar valores en un intervalo de números reales. La altura, el tiempo y el peso se suelen modelizar como variables continuas.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/08-distribuciones-de-probabilidad/01-variable-aleatoria.html">8.1. Variable aleatoria</a>.</p></dd>
+          <dd><p>En este curso trabajamos con variables continuas con densidad: las probabilidades de intervalos son áreas y la de un punto aislado es cero. La altura, el tiempo y el peso se suelen modelizar así; que una medición se redondee a decimales no determina por sí solo el tipo de modelo.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/08-distribuciones-de-probabilidad/01-variable-aleatoria.html">8.1. Variable aleatoria</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-variable-aleatoria-discreta" data-content-id="card:fc-t08-original-01" data-glossary-entry data-search="variable aleatoria discreta">
+          <dt>Variable aleatoria discreta</dt>
+          <dd><p>Toma valores en un conjunto finito o numerable, aunque no sean enteros. Por ejemplo, el importe de un premio que sólo puede valer 0,50 € o 1,50 € es discreto: tiene dos valores posibles. Un recuento entero, como el número de hijos, también es discreto.</p><p class="mc-glossary__source">Se explica en <a href="../libro/temas/08-distribuciones-de-probabilidad/01-variable-aleatoria.html">8.1. Variable aleatoria</a>.</p></dd>
         </div>
         <div class="mc-glossary__entry" id="termino-variable-bidimensional" data-content-id="card:fc-bivariate-original-01" data-glossary-entry data-search="variable bidimensional">
           <dt>Variable bidimensional</dt>
-          <dd><p>El estudio de dos características \(X,Y\) en cada individuo. Cada observación es un par \((x_i,y_i)\), cuyas dos medidas corresponden al mismo individuo.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a>.</p></dd>
+          <dd><p>Es el estudio de dos características \(X,Y\) en cada unidad estadística, como una persona o una empresa. Cada observación es un par \((x_i,y_i)\): ambos valores corresponden a la misma unidad.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a>.</p></dd>
+        </div>
+        <div class="mc-glossary__entry" id="termino-varianza-marginal-descriptiva" data-content-id="card:fc-teoria-varianza-marginal" data-glossary-entry data-search="varianza marginal descriptiva">
+          <dt>Varianza marginal descriptiva</dt>
+          <dd><p>Para \(N&gt;0\), es la media ponderada de las desviaciones cuadráticas de una variable respecto de su media marginal. Se divide por \(N\), no por \(N-1\). Sus unidades están al cuadrado; su raíz no negativa es la desviación típica marginal.</p><p class="mc-glossary__source">Se explica en <a href="../libro/apoyos/estadistica-bidimensional.html">Estadística bidimensional</a>.</p></dd>
         </div>
       </dl>
     </section>

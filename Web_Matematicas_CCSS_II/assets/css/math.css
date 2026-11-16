@@ -11,3 +11,6 @@ mjx-container[jax="SVG"] > mjx-assistive-mml { max-width: 100% !important; max-h
 .math-status { padding: 0.75rem; border: 1px solid currentColor; border-radius: 0.4rem; margin-block: 1rem; font: 1rem/1.5 system-ui, sans-serif; }
 .math-status[hidden], .math-status button[hidden] { display: none !important; }
 .math-status button { font: inherit; padding: 0.5rem; cursor: pointer; }
+
+/* Identificar la fórmula que recibe el teclado para desplazarla. */
+mjx-container[data-math-scroll-focus]:focus-visible { outline: 3px solid var(--color-primary, #1746a2); outline-offset: 2px; }

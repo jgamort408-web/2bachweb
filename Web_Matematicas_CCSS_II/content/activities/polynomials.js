@@ -23,7 +23,7 @@ export const polynomialQuestions = [
   make('05', tex`El beneficio \(B(q)=-2q^2+24q-40\), en cientos de euros, se modela para \(0\leq q\leq10\) toneladas. ¿Cuál es el máximo?`, [
     ['3200 euros al producir 6 toneladas.', 'B(6)=32 cientos de euros.'], ['32 euros al producir 6 toneladas.', 'Falta convertir los cientos de euros.'],
     ['Cero euros al producir 10 toneladas.', 'En 10 hay equilibrio, pero en 6 el beneficio es mayor.'], ['600 euros al producir 32 toneladas.', 'Intercambia variables y además sale del dominio.']],
-    tex`\(B\prime(q)=-4q+24=0\) en q=6. Comparamos \(B(0)=-40\), \(B(6)=32\) y \(B(10)=0\). El mayor es 32, equivalente a 3200 euros.`,
+    tex`\(B\prime(q)=-4q+24=0\) en q=6. Comparamos \(B(0)=-40\), \(B(6)=32\) y \(B(10)=0\). El mayor es 32, equivalente a 3200 euros. También B(q)=32−2(q−6)² demuestra que no se supera ese valor y que sólo se alcanza en q=6.`,
     'Revisa el punto crítico, los dos extremos del intervalo y las unidades.', 'Elaboración propia; criterio de comparación de T2.6 y contexto de T2.9'),
   make('06', '¿Qué afirmación sobre las raíces reales de un polinomio no nulo de grado 4 es correcta?', [
     ['Puede no tener ninguna y no puede tener más de cuatro raíces reales distintas.', 'El grado es una cota, no una promesa de cuatro cortes.'], ['Siempre tiene cuatro raíces reales distintas.', 'x⁴+1 no tiene raíces reales.'],
@@ -34,7 +34,7 @@ export const polynomialCards = [
   { id: 'fc-poly-01', front: '¿Qué determina el grado de un polinomio?', back: 'El mayor exponente con coeficiente no nulo, después de simplificar. Una constante no nula tiene grado 0; en este curso no se asigna grado al polinomio nulo.' },
   { id: 'fc-poly-02', front: '¿Cómo se comporta en los infinitos un polinomio de grado par positivo?', back: 'Sus dos extremos van en el mismo sentido: ambos a +∞ si el coeficiente principal es positivo y ambos a −∞ si es negativo.' },
   { id: 'fc-poly-03', front: '¿Y un polinomio de grado impar?', back: 'Los extremos van en sentidos opuestos. Con coeficiente principal positivo: −∞ a la izquierda y +∞ a la derecha. Con coeficiente negativo: al revés.' },
-  { id: 'fc-poly-04', front: '¿Cómo influye la multiplicidad de una raíz real en el signo?', back: tex`Si \(P(x)=(x-a)^mQ(x)\) y \(Q(a)\ne0\), el signo cambia al atravesar a cuando m es impar; no cambia cuando m es par. En ambos casos \(P(a)=0\).` },
+  { id: 'fc-poly-04', front: '¿Cómo influye la multiplicidad de una raíz real en el signo?', back: tex`Si \(P(x)=(x-a)^mQ(x)\) y \(Q(a)\ne0\), con Q polinomio, el signo cambia al atravesar a cuando m es impar; no cambia cuando m es par. En ambos casos \(P(a)=0\).` },
   { id: 'fc-poly-05', front: '¿Cuántos extremos relativos puede tener un polinomio de grado n≥1?', back: 'Como máximo n−1: su derivada tiene grado n−1. Puede tener menos; una raíz de la derivada no garantiza un extremo.' },
-  { id: 'fc-poly-06', front: '¿Qué debes añadir al interpretar un polinomio en un problema económico?', back: 'El dominio permitido, las unidades de las variables y la comparación de candidatos y extremos del intervalo. Un máximo de la expresión fuera del dominio no es una solución válida del modelo.' },
+  { id: 'fc-poly-06', front: '¿Qué debes añadir al interpretar un polinomio en un problema económico?', back: 'El dominio permitido, las unidades de las variables y la comparación de candidatos y extremos del intervalo. Un máximo de la expresión fuera del dominio no es una solución válida del modelo. Si la variable sólo admite valores enteros, compara los candidatos enteros permitidos; no basta redondear sin comprobar.' },
 ].map(card => ({ ...card, topicId: 't02', lessonId: 't02-e02' }));
