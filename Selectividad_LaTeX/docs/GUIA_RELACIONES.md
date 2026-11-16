@@ -22,6 +22,59 @@ El [CSV maestro](../datos/ejercicios.csv) contiene título descriptivo, examen/a
 
 ## Preparación local con el generador
 
+### Seleccionar partes y apartados preparados
+
+La cobertura revisada comprende diez ejercicios y está en
+`datos/seleccion_parcial.json`. El generador valida todos los ejercicios
+seleccionados antes de escribir los archivos. Una petición de parte o apartado
+que todavía no esté preparada produce un error y conserva la selección anterior.
+
+| Ejercicio | Selecciones preparadas |
+|---|---|
+| SEL-D0075-OB-E03 | Partes I y II, con apartados a y b en cada parte |
+| SEL-D0084-OA-E01 | Apartados a, b y c |
+| SEL-D0067-OA-E03 y SEL-D0067-OB-E03 | Partes I y II completas |
+| SEL-D0068-OA-E03 y SEL-D0068-OB-E03 | Partes I y II completas |
+| SEL-D0069-OA-E03 y SEL-D0069-OB-E03 | Partes I y II completas |
+| SEL-D0070-OA-E03 y SEL-D0070-OB-E03 | Partes I y II completas |
+
+En los ocho ejercicios incorporados en SEL-PARTES02 se usa `--parte I` o
+`--parte II`. La selección individual de sus apartados está pendiente de
+preparación. Se conserva el conjunto de preguntas internas de cada parte.
+
+Por ejemplo, para reunir las dos Partes II de EXA-0067 se utiliza
+
+```text
+python Selectividad_LaTeX/scripts/generar_seleccion.py --id SEL-D0067-OA-E03 --id SEL-D0067-OB-E03 --parte II --salida selecciones/inferencia-2009.tex
+```
+
+Para pedir únicamente el apartado a de la Parte II de inferencia, desde la raíz
+del repositorio se utiliza
+
+```text
+python Selectividad_LaTeX/scripts/generar_seleccion.py --id SEL-D0075-OB-E03 --parte II --apartado a --salida selecciones/mi-parte.tex
+```
+
+Omitiendo `--apartado` se incluye la Parte II completa. En ejercicios divididos
+en partes, un apartado requiere indicar también su parte. Para un apartado de
+matrices se utiliza
+
+```text
+python Selectividad_LaTeX/scripts/generar_seleccion.py --id SEL-D0084-OA-E01 --apartado b --salida selecciones/mi-apartado.tex
+```
+
+La entrada de compilación carga la selección generada antes de `main`, como en
+los ejemplos de esta guía. Se elige `enunciados` o `enunciados-y-soluciones`
+mediante `ModoSalida`. La cabecera conserva el ID del ejercicio original e indica
+la parte y la letra elegidas. Los datos comunes y las preguntas seleccionadas
+proceden de los mismos archivos que la versión completa.
+
+Para cambiar el alcance de una selección parcial se regenera con el generador.
+Sin los dos filtros nuevos se mantiene la selección del ejercicio completo.
+Los filtros de temas y etiquetas siguen describiendo ejercicios completos.
+La preparación del resto del banco se registra en
+[el seguimiento de SEL-PARTES01](soluciones/SEL_PARTES01_SELECCION_PARCIAL.md).
+
 Desde la raíz de `Selectividad_LaTeX/`, con Python disponible:
 
 ```text

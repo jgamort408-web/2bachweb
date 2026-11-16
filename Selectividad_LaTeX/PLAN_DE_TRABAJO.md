@@ -33,7 +33,7 @@ L007-L018 usan cuatro bloques A-D y números globales 1-8, sin opciones. Sus IDs
 
 **Verificación L084:** 21 pruebas superadas en 507.023s;640 ejercicios y215 fuentes válidas. Cuatro páginas fuente y7 páginas finales revisadas;PDF de3/4páginas. Los1428 archivos anteriores intactos:632 enunciados,632 soluciones y164 PDF. ZIP aislado de1908 archivos:ambos modos y lote anterior idénticos byte a byte;main por texto y renderizados. Compilación local Tectonic;servicio Overleaf no probado.
 
-**Siguiente fase:** AUD002, incidencias editoriales, seguida de AUD003, fuentes y metadatos. Hay 640 soluciones validadas y 0 pendientes de redacción.
+**Siguiente fase:** SEL-PARTES03, preparar ocho ejercicios adicionales. SEL-PARTES01–02 cubren diez IDs. Continúa pendiente la auditoría independiente SEL-AUD-01.
 
 ### Estado inicial histórico, anterior a L001
 
@@ -1760,3 +1760,19 @@ S001-S084 completadas. Las tareas siguientes quedan indexadas como SEL-AUD-01 a 
 ## AUD001 · 2026-11-12
 
 Revisadas doce incidencias de hipótesis. Se amplían dos soluciones y se aclara una asignación entera. [Informe](docs/soluciones/AUD001_HIPOTESIS_MUESTREO.md). Se conserva el recuento de 640 ejercicios y soluciones.
+
+## AUD002 · 2026-11-12
+
+Once incidencias editoriales cotejadas con las fuentes. Se documentan las correspondencias de letras, la discrepancia de puntuación y las decisiones docentes. [Informe](docs/soluciones/AUD002_INCIDENCIAS_EDITORIALES.md). Siguiente AUD003.
+
+## AUD003 · 2026-11-12
+
+Cinco incidencias generales resueltas en el CSV con evidencia de conversión, separación de documentos y cabeceras. [Informe](docs/soluciones/AUD003_FUENTES_Y_METADATOS.md). Las 28 incidencias tienen revisión documentada. Próxima implementación, SEL-PARTES.
+
+## SEL-PARTES01 · 2026-11-12
+
+Selección de parte y apartado preparada en dos ejercicios. 29 pruebas superadas y cuatro PDF parciales revisados. [Cobertura y siguiente tanda](docs/soluciones/SEL_PARTES01_SELECCION_PARCIAL.md). SEL-PARTES completo sigue pendiente.
+
+## SEL-PARTES02 · 2026-11-12
+
+`feat(selectividad)`: Partes I/II completas de ocho ejercicios D0067–D0070. Cobertura acumulada de diez IDs. Doce pruebas superadas, cuatro PDF parciales revisados y cuatro versiones completas recompiladas. [Informe](docs/soluciones/SEL_PARTES02_PARTES_I_II.md). Siguiente SEL-PARTES03. Apartados individuales de los ocho nuevos IDs y clasificación parcial pendientes.

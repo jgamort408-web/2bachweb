@@ -38,3 +38,11 @@ S001 selecciona A1/A2 de EXA-0001: sin incidencias directas. Se mantienen convoc
 ## AUD001 · 2026-11-12
 
 Revisadas las doce incidencias de hipótesis no explícita. Se amplían dos soluciones con el caso con reemplazo y se aclara una asignación entera. [Informe y resultados](soluciones/AUD001_HIPOTESIS_MUESTREO.md). Las incidencias de fuente conservan su estado original. Restan once incidencias editoriales y cinco generales en esta secuencia de revisión.
+
+## AUD002 · 2026-11-12
+
+Cotejadas visualmente las once incidencias editoriales con sus fuentes y revisado el tratamiento en las soluciones. [Correspondencia y decisiones docentes](soluciones/AUD002_INCIDENCIAS_EDITORIALES.md). Siguiente tanda AUD003, cinco incidencias generales.
+
+## AUD003 · 2026-11-12
+
+Cinco incidencias generales cotejadas y resueltas en el CSV. Verificadas doce conversiones DOC, doce PDF combinados y las 35 cabeceras de la carpeta mixta. [Decisiones y trazabilidad](soluciones/AUD003_FUENTES_Y_METADATOS.md). Balance actual de las 28 incidencias revisadas, con cinco resueltas y 23 rasgos de fuente conservados abiertos.

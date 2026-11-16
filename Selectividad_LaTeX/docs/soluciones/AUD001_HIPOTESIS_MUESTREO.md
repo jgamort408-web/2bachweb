@@ -34,8 +34,8 @@ Las doce incidencias quedan tratadas en las soluciones, pero su estado original 
 
 ## Continuación
 
-- [ ] AUD002 · Revisar las once incidencias editoriales y de correspondencia con criterios.
-- [ ] AUD003 · Revisar las cinco incidencias generales de fuentes y metadatos.
+- [x] AUD002 · Revisar las once incidencias editoriales y de correspondencia con criterios.
+- [x] AUD003 · Revisar las cinco incidencias generales de fuentes y metadatos.
 - [ ] SEL-AUD-01 · Auditoría matemática y didáctica independiente.
 - [ ] SEL-PARTES · Selección de partes y apartados.
 

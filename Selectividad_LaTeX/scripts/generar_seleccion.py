@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 
 from validar import DEFAULT_ROOT, load_catalog, relative_path, validate, values
@@ -52,6 +53,34 @@ def select_rows(rows: list[dict[str, str]], args: argparse.Namespace) -> list[di
     return selected
 
 
+def partial_scope(root: Path, rows: list[dict[str, str]], args: argparse.Namespace) -> tuple[str, str]:
+    part = getattr(args, "parte", None) or ""
+    item = getattr(args, "apartado", None) or ""
+    if not part and not item:
+        return part, item
+    if not rows:
+        raise ValueError("La selección parcial no contiene ejercicios.")
+    path = root / "datos" / "seleccion_parcial.json"
+    if not path.is_file():
+        raise ValueError("Falta datos/seleccion_parcial.json para comprobar la selección parcial.")
+    coverage = json.loads(path.read_text(encoding="utf-8"))
+    for row in rows:
+        identifier = row["ejercicio_id"]
+        if identifier not in coverage:
+            raise ValueError(f"{identifier}: selección parcial todavía no preparada.")
+        definition = coverage[identifier]
+        parts = definition.get("partes", {})
+        if part and part not in parts:
+            raise ValueError(f"{identifier}: parte {part} no disponible.")
+        if item:
+            if parts and not part:
+                raise ValueError(f"{identifier}: indique --parte para seleccionar un apartado.")
+            available = parts[part] if part else definition.get("apartados", [])
+            if item not in available:
+                raise ValueError(f"{identifier}: apartado {item} no disponible.")
+    return part, item
+
+
 def generate(root: Path, args: argparse.Namespace) -> tuple[Path, Path, list[str]]:
     root = root.resolve()
     errors = validate(root)
@@ -65,12 +94,18 @@ def generate(root: Path, args: argparse.Namespace) -> tuple[Path, Path, list[str
         raise ValueError("La selección no puede sustituir config/opciones.tex")
     rows = load_catalog(root)["ejercicios"]
     selected = select_rows(rows, args)
+    part, item = partial_scope(root, selected, args)
     registry = root / "catalogo" / "registro.tex"
     ids = [row["ejercicio_id"] for row in selected]
     selection = [
         "% Selección generada. Los pendientes sólo se incluyen con --incluir-pendientes.",
         r"\providecommand{\ListaEjercicios}{" + ",".join(ids) + "}",
     ]
+    if part or item:
+        selection.extend([
+            r"\providecommand{\ParteSeleccionada}{" + tex_escape(part) + "}",
+            r"\providecommand{\ApartadoSeleccionado}{" + tex_escape(item) + "}",
+        ])
     if getattr(args, "modo", None):
         selection.append(r"\providecommand{\ModoSalida}{" + args.modo + "}")
     registry.parent.mkdir(parents=True, exist_ok=True)
@@ -90,6 +125,8 @@ def build_parser() -> argparse.ArgumentParser:
         parser.add_argument("--" + name)
     parser.add_argument("--tag", action="append", help="Todos los tags indicados deben aparecer (AND)")
     parser.add_argument("--id", action="append", help="ID exacto; repetible")
+    parser.add_argument("--parte", help="Parte preparada para todos los IDs seleccionados, por ejemplo II")
+    parser.add_argument("--apartado", help="Apartado preparado, conservando su letra original")
     return parser
 
 

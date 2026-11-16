@@ -1057,3 +1057,13 @@ Ocho soluciones de EXA-0083. El banco suma 632 validadas y 8 pendientes. [Inform
 ## S084 · 2026-11-12
 
 Ocho soluciones de EXA-0084. El banco suma 640 validadas y 0 pendientes. [Informe](docs/soluciones/S084_2012_EXA0084.md). Siguiente fase de auditoría y selección por apartados.
+
+## Auditoría de fuentes e incidencias · 2026-11-12
+
+AUD001, AUD002 y AUD003 revisan las 28 incidencias registradas. Cinco incidencias generales están resueltas y 23 rasgos del original conservan su estado abierto y su tratamiento documentado. [Balance y evidencias](docs/soluciones/AUD003_FUENTES_Y_METADATOS.md). La auditoría matemática independiente y la selección por apartados continúan pendientes.
+
+## Selección parcial
+
+La selección parcial cubre diez IDs. Los filtros --parte y --apartado están preparados para SEL-D0075-OB-E03 y SEL-D0084-OA-E01. Los ocho ejercicios OA/OB E03 de D0067–D0070 admiten únicamente Partes I/II completas. Se conservan el ID, la letra y el contexto común. [Uso y alcance](docs/GUIA_RELACIONES.md). La ampliación al resto del banco se organiza en [tandas](docs/soluciones/SEL_PARTES01_SELECCION_PARCIAL.md).
+
+[SEL-PARTES02 y comprobaciones](docs/soluciones/SEL_PARTES02_PARTES_I_II.md). Siguiente tanda SEL-PARTES03.

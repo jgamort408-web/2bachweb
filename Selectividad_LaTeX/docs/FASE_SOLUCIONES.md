@@ -6,7 +6,7 @@ Autorización del docente: 2026-10-27. Continuar primero la transcripción de lo
 
 - [x] Registrar la autorización y conservar los IDs y la estructura modular existentes.
 - [x] Cerrar las tandas de transcripción pendientes, con cotejo de cada fuente e identificación de duplicados. L001-L084:640 enunciados,83 exámenes canónicos y la reedición L057; [balance](CIERRE_TRANSCRIPCIONES.md).
-- [ ] Resolver las incidencias de lectura o hipótesis que impidan una solución inequívoca; registrar expresamente los casos históricos fuera del guion actual.
+- [x] Resolver las incidencias de lectura o hipótesis que impidan una solución inequívoca; registrar expresamente los casos históricos fuera del guion actual.
 - [x] Inventariar por tema los ejercicios cotejados y preparar tandas de resolución de un examen o un máximo de ocho ejercicios completos. [84 tandas,640 IDs sin duplicados](LOTES_DE_SOLUCIONES.md).
 - [x] Primera pasada: resolver cada apartado en soluciones/ID.tex, con datos, objetivo, teoría aplicable, condiciones de uso y desarrollo justificado.
 - [ ] Segunda pasada: comprobar cada resultado mediante sustitución, cálculo independiente o método alternativo; revisar dominios, signos, unidades, desigualdades estrictas y redondeos.
@@ -378,7 +378,7 @@ La revisión de cada tanda y la auditoría independiente del conjunto son trabaj
 - [x] SEL-CIERRE-01 · Completar S001-S084 y regenerar el índice individual.
 - [x] SEL-CIERRE-02 · Comprobar cuerpos de solución, estados y filtros de los nueve temas.
 - [ ] SEL-AUD-01 · Auditoría matemática y didáctica independiente del banco completo, priorizando hipótesis ambiguas e inferencia.
-- [ ] SEL-AUD-02 · Revisar las 28 incidencias y documentar su resolución o conservación como rasgo del original.
+- [x] SEL-AUD-02 · Revisar las 28 incidencias y documentar su resolución o conservación como rasgo del original.
 - [ ] SEL-AUD-03 · Auditar la adecuación curricular de contrastes históricos y completar las pasadas globales de comprobación.
 - [ ] SEL-PARTES · Permitir relaciones por partes o apartados manteniendo IDs, procedencia y preguntas comunes.
 
@@ -387,7 +387,24 @@ La compilación y revisión de S084 se documentan en [su informe](soluciones/S08
 ## Revisión AUD001 · 2026-11-12
 
 - [x] AUD001 · Hipótesis de muestreo y asignación entera. [Informe](soluciones/AUD001_HIPOTESIS_MUESTREO.md).
-- [ ] AUD002 · Once incidencias editoriales.
-- [ ] AUD003 · Cinco incidencias generales de fuentes.
+- [x] AUD002 · Once incidencias editoriales.
+- [x] AUD003 · Cinco incidencias generales de fuentes.
 
 AUD001 es una nueva pasada del mismo autor. SEL-AUD-01, correspondiente a la revisión independiente, sigue pendiente.
+
+## Revisión AUD002 · 2026-11-12
+
+Once incidencias editoriales revisadas. [Informe](soluciones/AUD002_INCIDENCIAS_EDITORIALES.md). Restan cinco incidencias generales de fuentes en AUD003. SEL-AUD-01 conserva su alcance de revisión independiente.
+
+## Revisión AUD003 · 2026-11-12
+
+[Cinco incidencias generales resueltas](soluciones/AUD003_FUENTES_Y_METADATOS.md). AUD001 a AUD003 cubren las 28 incidencias registradas. Siguiente trabajo de implementación, SEL-PARTES. La auditoría independiente SEL-AUD-01 sigue pendiente.
+
+## SEL-PARTES01 · 2026-11-12
+
+- [x] SEL-PARTES01 · Filtros y bloques compartidos de dos ejercicios piloto. [Informe](soluciones/SEL_PARTES01_SELECCION_PARCIAL.md).
+- [x] SEL-PARTES02 · Preparar ocho ejercicios adicionales de Partes I/II.
+
+Cobertura actual de dos de 640 IDs. La tarea global SEL-PARTES sigue abierta.
+
+SEL-PARTES02 cerrada el 2026-11-12. Ocho ejercicios D0067–D0070 admiten partes completas, con diez IDs de cobertura acumulada. Próxima tanda SEL-PARTES03, D0071–D0074 OA/OB E03. Los apartados individuales y sus categorías siguen pendientes.

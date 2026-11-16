@@ -1,3 +1,5 @@
+\providecommand{\ParteSeleccionada}{}
+\providecommand{\ApartadoSeleccionado}{}
 % Contrato: ID, enunciado, solución, etiqueta, estado enunciado, estado solución.
 % Usa expl3, incluido en el núcleo de LaTeX actual.
 \ExplSyntaxOn
@@ -8,6 +10,26 @@
 \tl_new:N \l_sel_borradores_tl
 \bool_new:N \l_sel_reservado_bool
 \clist_new:N \l_sel_lista_clist
+
+\NewDocumentCommand{\ParteSeleccionable}{m +m}
+  {
+    \str_if_eq:eeTF {\ParteSeleccionada} {}
+      {#2}
+      {\str_if_eq:eeT {\ParteSeleccionada} {#1} {#2}}
+  }
+
+\NewDocumentCommand{\ApartadoSeleccionable}{m +m}
+  {
+    \str_if_eq:eeTF {\ApartadoSeleccionado} {}
+      {#2}
+      {\str_if_eq:eeT {\ApartadoSeleccionado} {#1} {#2}}
+  }
+
+\NewDocumentCommand{\ItemSeleccionable}{m +m}
+  {\ApartadoSeleccionable{#1}{\item[#1)]#2}}
+
+\NewDocumentCommand{\ContextoParcial}{+m}
+  {\str_if_eq:eeF {\ParteSeleccionada\ApartadoSeleccionado} {} {#1}}
 
 \NewDocumentCommand{\RegistrarEjercicio}{mmmmmm}
   {
@@ -47,7 +69,16 @@
         \str_if_eq:VnT \l_sel_estado_tl {pendiente}
           {\bool_set_true:N \l_sel_reservado_bool\begin{minipage}{\linewidth}}
         \section*{Ejercicio~\textnormal{#1}}
-        {\small\prop_item:Nn \g_sel_catalogo_prop {#1/etiqueta}\par}
+        \str_if_eq:eeT {\ParteSeleccionada\ApartadoSeleccionado} {}
+          {{\small\prop_item:Nn \g_sel_catalogo_prop {#1/etiqueta}\par}}
+        \str_if_eq:eeF {\ParteSeleccionada\ApartadoSeleccionado} {}
+          {
+            {\small Selección~parcial~del~ejercicio~original.
+            \str_if_eq:eeF {\ParteSeleccionada} {}
+              {~Parte~\ParteSeleccionada.}
+            \str_if_eq:eeF {\ApartadoSeleccionado} {}
+              {~Apartado~\ApartadoSeleccionado).}\par}
+          }
         \prop_get:NnN \g_sel_catalogo_prop {#1/estadoen} \l_sel_estado_tl
         \str_if_eq:VnTF \l_sel_estado_tl {cotejada}
           {\sel_cargar_fragmento:nn {#1}{en}}
