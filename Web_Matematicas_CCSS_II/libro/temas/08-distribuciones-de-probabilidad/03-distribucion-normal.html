@@ -15,8 +15,9 @@
   <main id="main-content" class="page-main mc-lesson">
     <h1 data-content-role="lesson-title">8.3. Distribución normal</h1>
     <p data-content-role="lead">La campana de Gauss: densidad, probabilidad como área y distribución acumulada.</p>
-    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#definicion">Modelo normal</a> · <a href="#funciones">Densidad y acumulada</a> · <a href="#areas">Áreas</a> · <a href="#tipificacion">Tipificación</a> · <a href="#lectura-tabla">Tabla</a> · <a href="#ejemplos-probabilidad">Ejemplos</a> · <a href="#inversa">Percentiles e inversa</a> · <a href="#explorador">Explorador</a> · <a href="#regla-empirica">Regla empírica</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#objetivos">Objetivos</a> · <a href="#definicion">Modelo normal</a> · <a href="#funciones">Densidad y acumulada</a> · <a href="#areas">Áreas</a> · <a href="#tipificacion">Tipificación</a> · <a href="#lectura-tabla">Tabla</a> · <a href="#ejemplos-probabilidad">Ejemplos</a> · <a href="#inversa">Percentiles e inversa</a> · <a href="#explorador">Explorador</a> · <a href="#regla-empirica">Regla empírica</a> · <a href="#practica">Práctica</a> · <a href="#tarjetas">Tarjetas</a></nav>
 
+    <section id="objetivos" class="learning-goals" data-content-role="learning-goals"><h2>Qué vas a aprender</h2><ul><li>Reconocer la forma de la normal y el papel de μ y σ.</li><li>Tipificar y leer la tabla de la normal estándar.</li><li>Calcular probabilidades de colas e intervalos usando la simetría.</li><li>Resolver problemas inversos: percentiles y umbrales.</li></ul><p>Necesitas la idea de densidad y acumulada (8.1).</p></section>
     <section id="definicion" data-content-role="definition"><h2>¿Qué significa «normal»?</h2>
       <p>La normal es un modelo para variables continuas. Estaturas, pesos, errores de medida y tiempos son los ejemplos que propone el original; que una variable sea continua no garantiza que siga una normal. Hay que valorar el ajuste y las limitaciones del modelo en cada caso.</p>
       <p>\(X\sim N(\mu,\sigma)\): usamos el segundo parámetro para la <strong>desviación típica</strong>, con \(\sigma&gt;0\). La media \(\mu\) puede ser cualquier número real. La varianza es \(\sigma^2\); otros textos usan esa varianza como segundo parámetro.</p>
@@ -120,11 +121,12 @@
       <ul><li>\(P(\mu-\sigma\le X\le\mu+\sigma)\approx68{,}27\,\%\): aproximadamente dos de cada tres.</li><li>\(P(\mu-2\sigma\le X\le\mu+2\sigma)\approx95{,}45\,\%\).</li><li>\(P(\mu-3\sigma\le X\le\mu+3\sigma)\approx99{,}73\,\%\).</li></ul>
       <p>Son probabilidades aproximadas del modelo, no porcentajes garantizados en cada muestra. Estar fuera de estos intervalos no convierte un dato en imposible ni justifica por sí solo eliminarlo.</p>
     </section>
-    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2>
-      <p>El original aporta la teoría inicial y el explorador. La tanda TEORIA-01 añade un extracto de tabla, ejemplos de probabilidades y problemas inversos (TEO-04 y TEO-05), identificados como elaboración didáctica. Siguen pendientes la práctica autocorregible propia y la generación procedural. El extracto es suficiente para los ejemplos de esta lección; no sustituye una tabla completa para otros valores.</p>
-      <p>El explorador no califica ni guarda parámetros o progreso. La lección permanece con contenido parcial.</p>
-    </section>
+    <section id="practica" data-content-role="guided-practice"><h2>Comprueba lo aprendido</h2><p>Seis preguntas sobre tipificación, colas, simetría y la regla empírica. Cada opción explica por qué es correcta o en qué falla.</p><div class="activity" data-quiz="t08-e03" data-content-role="self-check"></div></section>
+    <section data-content-role="common-errors"><h2>Errores frecuentes</h2><ul><li>Usar la varianza como segundo parámetro cuando el texto escribe N(μ,σ).</li><li>Tipificar sin restar la media o sin dividir por σ.</li><li>Leer en la tabla la cola izquierda cuando se pide la derecha.</li><li>Pensar que P(X=a) es la altura de la densidad en a.</li><li>Olvidar comprobar el sentido de un percentil: el 90 está por encima de la media.</li></ul></section>
+    <section data-content-role="summary"><h2>Resumen</h2><p>Una normal N(μ,σ) es simétrica respecto a μ, y σ fija su anchura. Para calcular probabilidades se tipifica, z=(x−μ)/σ, y se usa la acumulada Φ de la normal estándar: colas izquierdas directas, derechas con 1−Φ e intervalos restando acumuladas. La regla empírica da 68,27 %, 95,45 % y 99,73 % para una, dos y tres desviaciones.</p></section>
+    <section id="tarjetas"><h2>Tarjetas de repaso</h2><div class="activity" data-flashcards="t08-e03"></div></section>
     <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="02-distribucion-binomial.html">8.2. Distribución binomial</a> · <a href="index.html">Volver al tema 8</a> · <a href="04-aproximacion-de-la-distribucion-binomial-a-la-distribucion-normal.html">8.4. Aproximación normal</a></nav>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
   </main>
   <div id="site-footer"></div>
 </body>

@@ -334,3 +334,16 @@ html[data-contrast="true"] [data-solution-line] { stroke: currentColor; }
 [data-lp-figure] .lp-point--in { fill: currentColor; }
 [data-lp-figure] .lp-point--out { fill: var(--mc-paper, #fff); }
 [data-objective-output] tr[data-optimal] > * { font-weight: 700; }
+
+/* Exploradores del tema 8 (discrete-distribution-explorers.js): distribución discreta y binomial. */
+.mc-skin .activity:is([data-discrete-explorer], [data-binomial-explorer]) fieldset { display: flex; flex-flow: row wrap; align-items: center; justify-content: flex-start; gap: .5rem 1rem; min-width: 0; margin-block: .75rem; }
+.mc-skin .activity:is([data-discrete-explorer], [data-binomial-explorer]) legend { flex-basis: 100%; font-weight: 700; margin-bottom: .25rem; }
+:is([data-discrete-explorer], [data-binomial-explorer]) input[type="text"] { width: 5em; }
+[data-discrete-explorer] .dd-row { display: flex; flex-wrap: wrap; gap: .5rem 1rem; flex-basis: 100%; }
+[data-dd-figure] { margin-inline: 0; }
+[data-dd-figure] svg { display: block; width: 100%; max-width: 34rem; height: auto; color: var(--mc-text, currentColor); }
+[data-dd-figure] .dd-grid { stroke: currentColor; stroke-opacity: .14; }
+[data-dd-figure] .dd-axis { stroke: currentColor; stroke-opacity: .75; stroke-width: 1.5; }
+[data-dd-figure] .dd-tick { fill: currentColor; font-size: 13px; }
+[data-dd-figure] .dd-bar { fill: var(--mc-accent-tint, #ffedd5); stroke: var(--mc-accent-dark, #9a3412); stroke-width: 1.5; }
+[data-dd-figure] .dd-bar--on { fill: var(--mc-accent, #c2410c); }

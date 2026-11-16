@@ -10,7 +10,7 @@ const root=path.resolve(__dirname,'..'),base=process.env.TEST_URL||'http://127.0
  const {questions,flashcards}=await import(pathToFileURL(path.join(root,'content/activities/catalog.js')));
  assert.equal(questions.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.questions);assert.equal(flashcards.length,(await import('./helpers/catalog-expectations.mjs')).expectedCatalog.cards);
  const editorial=JSON.parse(fs.readFileSync(path.join(root,'config/editorial.json')));
- assert.equal(editorial.pages['t08-e03'],'partial');assert.ok(['pending','partial','reviewed'].includes(editorial.pages['t08-e04']||editorial.defaultStatus));
+ assert.equal(editorial.pages['t08-e03'],'reviewed');assert.ok(['pending','partial','reviewed'].includes(editorial.pages['t08-e04']||editorial.defaultStatus));
  const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH});
  try{
  const page=await browser.newPage({viewport:{width:1280,height:960}}),errors=[],external=[];
@@ -66,7 +66,7 @@ const root=path.resolve(__dirname,'..'),base=process.env.TEST_URL||'http://127.0
   if(!sub&&process.env.SCREENSHOT_DIR)await page.locator('[data-normal-controls]').screenshot({path:process.env.SCREENSHOT_DIR+'/normal-controles-movil.png'});
   await set({mu:2});await page.reload();await ready();assert.equal(Number(await page.locator('#normal-mu').inputValue()),0);assert.equal(await page.locator('[data-text-size]').inputValue(),'200');
   await page.locator('[data-reading-controls]>summary').click();await page.locator('[data-reset-reading]').click();await page.setViewportSize({width:1280,height:960});
-  await page.getByRole('link',{name:'Volver al tema 8',exact:true}).click();await page.locator('[data-source-section="4.3"]',{hasText:/Contenido parcial disponible/}).waitFor();
+  await page.getByRole('link',{name:'Volver al tema 8',exact:true}).click();await page.locator('[data-source-section="4.3"]',{hasText:/Lección completa/}).waitFor();
  }
  const context=await browser.newContext({javaScriptEnabled:false}),fallback=await context.newPage();
  await fallback.goto(base+lesson);assert.equal(await fallback.locator('[data-normal-controls]').isVisible(),false);

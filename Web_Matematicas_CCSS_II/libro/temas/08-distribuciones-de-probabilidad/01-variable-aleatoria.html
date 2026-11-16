@@ -14,8 +14,9 @@
   <main id="main-content" class="page-main mc-lesson">
     <h1 data-content-role="lesson-title">8.1. Variable aleatoria</h1>
     <p data-content-role="lead">Del resultado de un experimento aleatorio a un valor numérico.</p>
-    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#definicion">Definición</a> · <a href="#tipos">Discreta y continua</a> · <a href="#probabilidad">Función de probabilidad</a> · <a href="#densidad">Densidad</a> · <a href="#acumulada">Acumulada</a> · <a href="#parametros">Parámetros</a> · <a href="#ejemplo-dado">Ejemplo del dado</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#objetivos">Objetivos</a> · <a href="#definicion">Definición</a> · <a href="#tipos">Discreta y continua</a> · <a href="#probabilidad">Función de probabilidad</a> · <a href="#densidad">Densidad</a> · <a href="#acumulada">Acumulada</a> · <a href="#parametros">Parámetros</a> · <a href="#ejemplo-dado">Ejemplo del dado</a> · <a href="#explorador-propio">Explorador</a> · <a href="#practica">Práctica</a> · <a href="#tarjetas">Tarjetas</a></nav>
 
+    <section id="objetivos" class="learning-goals" data-content-role="learning-goals"><h2>Qué vas a aprender</h2><ul><li>Definir una variable aleatoria como función de los resultados.</li><li>Distinguir variables discretas y continuas por sus valores posibles.</li><li>Comprobar que una lista de probabilidades es una distribución.</li><li>Calcular la media, la varianza y la desviación típica de una variable discreta finita.</li><li>Diferenciar masa, densidad y función de distribución acumulada.</li></ul><p>Necesitas la probabilidad del tema 7 (regla de Laplace y sucesos) y operar con fracciones.</p></section>
     <section id="definicion" data-content-role="definition"><h2>¿Qué es una variable aleatoria?</h2>
       <p>En un experimento aleatorio hablamos de resultados como «salir cara» o de sucesos como «sacar oros». Una variable aleatoria permite asociar números a los resultados para estudiarlos matemáticamente.</p>
       <p>Una <strong>variable aleatoria \(X\)</strong> es una función que asigna un número real a cada resultado del espacio muestral \(E\):</p>
@@ -132,11 +133,13 @@
         <p data-content-role="warning">Redondeamos al final. Escribir \(15{,}17-3{,}5^2=2{,}92\) usa un valor ya aproximado de la media de los cuadrados; la varianza exacta es \(35/12\).</p>
       </section>
     </section>
-    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2>
-      <p>La definición, los parámetros discretos y el dado conservan el material original. La clasificación, las dos monedas, la espera uniforme y la comparación entre masa, densidad y acumulada son ampliaciones didácticas de la tanda TEORIA-01 (TEO-01 y TEO-02).</p>
-      <p>Quedan pendientes el explorador editable, la práctica autocorregible y la generación procedural propios de esta lección, además de la validación manual con tecnologías de apoyo. Los parámetros anteriores se han desarrollado para el caso discreto finito; no se presentan como fórmulas para integrar densidades.</p>
-    </section>
+    <section id="explorador-propio" data-content-role="guided-practice"><h2>Explora</h2><p>Empieza por el dado y comprueba los valores de la lección. Después cambia probabilidades hasta que dejen de sumar 1, prueba valores negativos de X, como en la rifa, y observa que la media puede no ser un valor posible.</p><div class="activity" data-discrete-explorer></div><p>Los cambios no se guardan ni cuentan como preguntas.</p></section>
+    <section id="practica" data-content-role="guided-practice"><h2>Comprueba lo aprendido</h2><p>Seis preguntas sobre la definición, el tipo de variable, las condiciones de una distribución y sus parámetros. Cada opción explica por qué es correcta o en qué falla.</p><div class="activity" data-quiz="t08-e01" data-content-role="self-check"></div></section>
+    <section data-content-role="common-errors"><h2>Errores frecuentes</h2><ul><li>Clasificar una variable como continua solo porque sus valores tienen decimales.</li><li>Dar la misma probabilidad a todos los valores de X cuando proceden de un número distinto de resultados.</li><li>Olvidar restar μ² al calcular la varianza.</li><li>Redondear la media de los cuadrados antes de restar.</li><li>Leer la altura de una densidad como una probabilidad.</li></ul></section>
+    <section data-content-role="summary"><h2>Resumen</h2><p>Una variable aleatoria asigna números a los resultados. Si es discreta finita, su distribución da la probabilidad de cada valor: probabilidades entre 0 y 1 que suman 1. Su media es μ=Σxᵢpᵢ, su varianza σ²=Σxᵢ²pᵢ−μ² y σ es la raíz de la varianza. En un modelo con densidad, las probabilidades son áreas y un punto aislado tiene probabilidad cero.</p></section>
+    <section id="tarjetas"><h2>Tarjetas de repaso</h2><div class="activity" data-flashcards="t08-e01"></div></section>
     <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="index.html">Volver al tema 8</a> · <a href="02-distribucion-binomial.html">8.2. Distribución binomial</a> · <a href="../../index.html">Volver al libro</a></nav>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
   </main>
   <div id="site-footer"></div>
 </body>

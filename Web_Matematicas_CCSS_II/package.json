@@ -137,6 +137,7 @@
     "test:cabecera": "node tests/cabecera-menus-171-browser.cjs",
     "test:enlaces": "node tests/enlaces-contenido-172-browser.cjs",
     "test:pl-exploradores": "node tests/programacion-lineal-exploradores-173-browser.cjs",
+    "test:distribuciones-exploradores": "node tests/distribuciones-exploradores-174-browser.cjs",
     "build:app-icons": "node scripts/build-app-icons.mjs"
   },
   "devDependencies": {

@@ -14,7 +14,8 @@
   <main id="main-content" class="page-main mc-lesson">
     <h1 data-content-role="lesson-title">8.2. Distribución binomial</h1>
     <p data-content-role="lead">Contar éxitos en ensayos de Bernoulli independientes.</p>
-    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#condiciones">Condiciones</a> · <a href="#probabilidad">Probabilidad exacta</a> · <a href="#parametros">Parámetros</a> · <a href="#ejemplos">Ejemplos resueltos</a> · <a href="#acumuladas">Acumuladas y complementarios</a> · <a href="#ejemplos-acumuladas">Ejemplos de acumuladas</a> · <a href="#pendiente">Contenido pendiente</a></nav>
+    <nav aria-label="Apartados de la lección" data-content-role="related-links"><a href="#objetivos">Objetivos</a> · <a href="#condiciones">Condiciones</a> · <a href="#probabilidad">Probabilidad exacta</a> · <a href="#parametros">Parámetros</a> · <a href="#ejemplos">Ejemplos resueltos</a> · <a href="#acumuladas">Acumuladas y complementarios</a> · <a href="#ejemplos-acumuladas">Ejemplos de acumuladas</a> · <a href="#explorador-propio">Explorador</a> · <a href="#practica">Práctica</a> · <a href="#tarjetas">Tarjetas</a></nav>
+    <section id="objetivos" class="learning-goals" data-content-role="learning-goals"><h2>Qué vas a aprender</h2><ul><li>Reconocer cuándo un recuento sigue una distribución binomial.</li><li>Calcular P(X=k) con el número combinatorio.</li><li>Traducir «como máximo», «al menos» o «entre» a la acumulada y al complementario.</li><li>Calcular e interpretar la media y la desviación típica.</li></ul><p>Necesitas la variable aleatoria discreta (8.1), la independencia de sucesos (tema 7) y los números combinatorios.</p></section>
     <section id="condiciones" data-content-role="definition"><h2>De Bernoulli a la binomial</h2>
       <p>Un ensayo de Bernoulli distingue dos resultados: éxito y fracaso. Cara o cruz, encestar o fallar, pieza defectuosa o correcta son las situaciones propuestas en el material de partida.</p>
       <ol data-binomial-conditions>
@@ -120,11 +121,13 @@
       <p data-content-role="key-idea">Distingue probabilidad y esperanza: E(X)=4 aciertos es un promedio del modelo; P(X=4)=0,4096 es la probabilidad de un resultado concreto.</p>
     </section>
 
-    <section id="pendiente" data-content-role="warning"><h2>Contenido pendiente</h2>
-      <p>El archivo original aporta teoría y dos ejemplos desplegables. No contiene simulador, controles para variar n y p, gráfico de probabilidades, preguntas autocorregibles ni generación procedural. Su «laboratorio» se conserva aquí como ejemplos resueltos.</p>
-      <p>La tanda TEORIA-01 añade las acumuladas, los complementarios y los intervalos (TEO-03), con ampliaciones resueltas de los datos originales. La lección mantiene el estado parcial por las actividades pendientes y la revisión manual de accesibilidad; la teoría nueva se puede leer sin JavaScript.</p>
-    </section>
+    <section id="explorador-propio" data-content-role="guided-practice"><h2>Explora</h2><p>Empieza por los cinco tiros del jugador y comprueba los resultados de la lección. Después cambia el suceso y el umbral: observa qué barras se incluyen y por qué «al menos k» y «como máximo k−1» son contrarios. Prueba también p=0,5 y un n mayor.</p><div class="activity" data-binomial-explorer></div><p>Los cambios no se guardan ni cuentan como preguntas.</p></section>
+    <section id="practica" data-content-role="guided-practice"><h2>Comprueba lo aprendido</h2><p>Seis preguntas sobre condiciones, probabilidades exactas, acumuladas y parámetros. Cada opción explica por qué es correcta o en qué falla.</p><div class="activity" data-quiz="t08-e02" data-content-role="self-check"></div></section>
+    <section data-content-role="common-errors"><h2>Errores frecuentes</h2><ul><li>Aplicar la binomial sin comprobar independencia y probabilidad constante, por ejemplo al extraer sin reemplazamiento.</li><li>Olvidar el número combinatorio y calcular solo pᵏqⁿ⁻ᵏ.</li><li>Usar F(k) para «menos de k» o tomar «al menos k» como contrario de «como máximo k».</li><li>Restar F(a) en lugar de F(a−1) en un intervalo con extremos incluidos.</li><li>Interpretar la media np como un número de éxitos garantizado.</li></ul></section>
+    <section data-content-role="summary"><h2>Resumen</h2><p>Si se repiten n ensayos independientes con la misma probabilidad de éxito p, el número de éxitos sigue B(n,p): P(X=k)=C(n,k)pᵏqⁿ⁻ᵏ, con μ=np y σ=√(npq). Las preguntas sobre varios valores se resuelven con la acumulada F(k)=P(X≤k) o con el suceso contrario, revisando qué extremos están incluidos.</p></section>
+    <section id="tarjetas"><h2>Tarjetas de repaso</h2><div class="activity" data-flashcards="t08-e02"></div></section>
     <nav aria-label="Continuar el estudio" data-content-role="related-links"><a href="01-variable-aleatoria.html">8.1. Variable aleatoria</a> · <a href="index.html">Volver al tema 8</a> · <a href="03-distribucion-normal.html">8.3. Distribución normal</a></nav>
+    <script type="module" src="../../../assets/js/learning/lesson.js"></script>
   </main>
   <div id="site-footer"></div>
 </body>

@@ -53,7 +53,10 @@ const { chromium } = require('playwright');
       // Q01 y P11: instalar.html, offline.html y la presentación del tema 3.
       // 2 páginas de la aplicación instalable y una presentación de clase por tema (P11).
       const decks = JSON.parse(require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'config', 'pages.json'), 'utf8')).filter(page => page.path.endsWith('/presentacion.html')).length;
-      assert.equal(result.count, 1006 + 11 + 2 + decks + selectividad.topics.length + selectividad.solutions.length);
+      // El banco crece con el catálogo (408 preguntas y 405 tarjetas cuando se fijó la base de 1006).
+      const { expectedCatalog } = await import('./helpers/catalog-expectations.mjs');
+      const bank = (expectedCatalog.questions - 408) + (expectedCatalog.cards - 405);
+      assert.equal(result.count, 1006 + bank + 11 + 2 + decks + selectividad.topics.length + selectividad.solutions.length);
       assert.equal(result.url, prefix + 'config/visibility.json');
       assert.equal(result.origin, 'static');
       assert.equal(result.gameId, 'page:game-t01-a-limite-express');
