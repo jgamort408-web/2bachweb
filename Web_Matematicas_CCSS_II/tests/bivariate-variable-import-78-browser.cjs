@@ -116,7 +116,7 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',lesson='libro/apoyos/e
  await page.reload();await math();assert.equal(await page.locator('[data-text-size]').inputValue(),'200');assert.ok(await page.locator('[data-contrast-control]').isChecked());
  await page.getByRole('link',{name:'Volver al libro',exact:true}).click();
  await page.locator('[data-course-index] article').first().waitFor();assert.equal(await page.locator('[data-course-index] article').count(),9);
- assert.match(await page.locator('[data-course-index] article').nth(5).innerText(),/0 de 5.*Contenido parcial en 5/);
+ assert.match(await page.locator('[data-course-index] article').nth(5).innerText(),/5 de 5 lecciones visibles con contenido revisado/);
  await page.getByRole('link',{name:'Estadística bidimensional',exact:true}).click();await math();
  await page.getByRole('link',{name:'Conexiones con programación lineal',exact:true}).click();
  await page.waitForFunction(()=>location.hash==='#itinerario-original'&&!document.documentElement.classList.contains('content-pending'));if(await page.locator('#itinerario-original').getAttribute('open')===null) await page.locator('#itinerario-original summary').press('Enter');

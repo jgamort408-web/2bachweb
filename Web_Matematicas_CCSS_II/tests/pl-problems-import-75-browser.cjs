@@ -57,12 +57,12 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',topic='libro/temas/06-
  if(!sub&&process.env.SCREENSHOT_DIR)await page.locator('#ejercicio-5 [data-content-role="key-idea"]').screenshot({path:process.env.SCREENSHOT_DIR+'/problemas-pl-movil.png'});
  await page.reload();await math();assert.equal(await page.locator('[data-text-size]').inputValue(),'200');
  await page.getByRole('link',{name:'Anterior: método gráfico',exact:true}).click();await math();
- await page.getByRole('link',{name:'Siguiente: problemas de programación lineal (contenido parcial)',exact:true}).click();await math();
+ await page.getByRole('link',{name:'Siguiente: problemas de programación lineal',exact:true}).click();await math();
  await page.getByRole('link',{name:'Volver al tema 6',exact:true}).click();
  await page.locator('[data-topic-index] li').first().waitFor();
- assert.equal((await page.locator('[data-topic-index] li').allTextContents()).filter(t=>t.includes('Contenido parcial')).length,5);
+ assert.equal((await page.locator('[data-topic-index] li').allTextContents()).filter(t=>t.includes('Contenido parcial')).length,0);
  await page.goto(prefix+'libro/index.html');await page.locator('[data-course-index] article').first().waitFor();
- assert.match(await page.locator('[data-course-index] article').nth(5).innerText(),/0 de 5.*Contenido parcial en 5/);
+ assert.match(await page.locator('[data-course-index] article').nth(5).innerText(),/5 de 5 lecciones visibles con contenido revisado/);
  await page.locator('[data-reading-controls]>summary').click();await page.locator('[data-reset-reading]').click();await page.setViewportSize({width:1280,height:960});
  }
  assert.deepEqual(external,[]);assert.deepEqual(errors,[]);

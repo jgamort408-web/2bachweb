@@ -310,3 +310,27 @@ html[data-contrast="true"] [data-solution-line] { stroke: currentColor; }
   .table-readable > table { min-width: 0; }
   .table-readable th { min-width: 0; }
 }
+
+/* Exploradores del tema 6 (linear-programming-explorers.js): semiplano, región factible y función objetivo. */
+.mc-skin .activity:is([data-half-plane-explorer], [data-region-explorer], [data-objective-explorer]) fieldset { display: flex; flex-flow: row wrap; align-items: center; justify-content: flex-start; gap: .5rem 1rem; min-width: 0; margin-block: .75rem; }
+.mc-skin .activity:is([data-half-plane-explorer], [data-region-explorer], [data-objective-explorer]) legend { flex-basis: 100%; font-weight: 700; margin-bottom: .25rem; }
+:is([data-half-plane-explorer], [data-region-explorer], [data-objective-explorer]) fieldset label { max-width: 100%; }
+:is([data-half-plane-explorer], [data-region-explorer], [data-objective-explorer]) input[type="text"] { width: 4.5em; }
+[data-lp-figure] { margin-inline: 0; }
+[data-lp-figure] svg { display: block; width: 100%; max-width: 30rem; height: auto; color: var(--mc-text, currentColor); }
+[data-lp-figure] .lp-grid { stroke: currentColor; stroke-opacity: .12; fill: none; }
+[data-lp-figure] .lp-axis { stroke: currentColor; stroke-opacity: .75; stroke-width: 1.5; fill: none; }
+[data-lp-figure] :is(.lp-tick, .lp-name, .lp-label) { fill: currentColor; font-size: 14px; }
+[data-lp-figure] .lp-name, [data-lp-figure] .lp-label { font-weight: 700; }
+[data-lp-figure] .lp-region { fill: var(--mc-accent-tint, #fae8ff); fill-opacity: .9; stroke: none; }
+[data-lp-figure] .lp-boundary { stroke: var(--mc-accent-dark, #86198f); stroke-width: 3; fill: none; }
+[data-lp-figure] .lp-segment { stroke: var(--mc-accent-dark, #86198f); stroke-width: 7; stroke-linecap: round; fill: none; }
+[data-lp-figure] .lp-level { stroke: currentColor; stroke-width: 2.5; stroke-dasharray: 3 6; stroke-linecap: round; fill: none; }
+[data-lp-figure] .lp-vertex { fill: var(--mc-paper, #fff); stroke: var(--mc-accent-dark, #86198f); stroke-width: 2.5; }
+[data-lp-figure] .lp-vertex--best { fill: var(--mc-accent-dark, #86198f); }
+[data-lp-figure] .lp-probe { fill: currentColor; }
+[data-lp-figure] circle.lp-probe { r: 5px; }
+[data-lp-figure] .lp-point { stroke: currentColor; stroke-width: 2.5; }
+[data-lp-figure] .lp-point--in { fill: currentColor; }
+[data-lp-figure] .lp-point--out { fill: var(--mc-paper, #fff); }
+[data-objective-output] tr[data-optimal] > * { font-weight: 700; }

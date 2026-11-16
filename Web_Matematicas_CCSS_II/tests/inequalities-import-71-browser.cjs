@@ -22,7 +22,7 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',topic='libro/temas/06-
    const prefix=sub?new URL('prueba-subcarpeta/',base).href:base;
    if(sub)await page.route(prefix+'**',async route=>{const response=await route.fetch({url:route.request().url().replace(prefix,base)});await route.fulfill({response});});
    await page.goto(prefix+topic+'index.html');await page.locator('[data-topic-index] li').first().waitFor();
-   const items=await page.locator('[data-topic-index] li').allTextContents();assert.equal(items.length,5);assert.match(items[0],/Contenido parcial/);assert.equal(items.filter(t=>t.includes('En preparación')).length,0);
+   const items=await page.locator('[data-topic-index] li').allTextContents();assert.equal(items.length,5);assert.equal(items.filter(t=>t.includes('Contenido parcial')).length,0);assert.equal(items.filter(t=>t.includes('En preparación')).length,0);
    await page.getByText('Conexiones con estadística y probabilidad',{exact:true}).press('Enter');
    assert.ok(await page.locator('#itinerario-original').getAttribute('open')!==null);
    const links=await page.locator('#itinerario-original a').evaluateAll(nodes=>nodes.map(n=>n.href));
@@ -30,8 +30,8 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',topic='libro/temas/06-
    await page.locator('[data-topic-index] a').first().press('Enter');assert.equal(page.url(),prefix+lesson);await math();
    await page.locator('#site-header a').first().waitFor();assert.ok(await page.locator('#site-footer').innerText());
    assert.match(await page.locator('#metodo').innerText(),/no esté en la recta frontera/);
-   assert.match(await page.locator('#pendiente').innerText(),/pendientes/);
-   assert.equal(await page.locator('[data-quiz], [data-explorer]').count(),0);
+   assert.equal(await page.locator('#pendiente').count(),0);
+   assert.equal(await page.locator('[data-quiz="t06-e01"]').count(),1);assert.equal(await page.locator('[data-flashcards="t06-e01"]').count(),1);assert.equal(await page.locator('[data-half-plane-explorer]').count(),1);
    const graph=page.locator('[data-source-diagram]');assert.equal(await graph.getAttribute('role'),'img');assert.ok(await graph.locator('title').textContent());assert.ok(await graph.locator('desc').textContent());
    const geom=await graph.evaluate(svg=>({boundary:svg.querySelector('[data-boundary]').getAttribute('d'),region:svg.querySelector('[data-region]').getAttribute('d'),points:[...svg.querySelectorAll('circle')].map(p=>[+p.getAttribute('cx'),+p.getAttribute('cy')])}));
    const coordinates=d=>Array.from(d.matchAll(/(-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)/g),m=>[Number(m[1]),Number(m[2])]);
@@ -47,7 +47,7 @@ const base=process.env.TEST_URL||'http://127.0.0.1:4173/',topic='libro/temas/06-
    if(!sub&&process.env.SCREENSHOT_DIR)await page.locator('#metodo').screenshot({path:process.env.SCREENSHOT_DIR+'/inecuaciones-fuente-movil.png'});
    await page.getByRole('link',{name:'Volver al tema 6',exact:true}).click();assert.equal(page.url(),prefix+topic+'index.html');await page.locator('[data-topic-index] li').first().waitFor();
    await page.goto(prefix+'libro/index.html');await page.locator('[data-course-index] article').first().waitFor();
-   const cards=page.locator('[data-course-index] article');assert.equal(await cards.count(),9);assert.match(await cards.nth(5).innerText(),/0 de 5.*Contenido parcial en 5/);assert.match(await cards.nth(4).innerText(),/11 de 11/);
+   const cards=page.locator('[data-course-index] article');assert.equal(await cards.count(),9);assert.match(await cards.nth(5).innerText(),/5 de 5 lecciones visibles con contenido revisado/);assert.match(await cards.nth(4).innerText(),/11 de 11/);
    await page.locator('[data-reading-controls]>summary').click();await page.locator('[data-reset-reading]').click();await page.setViewportSize({width:1280,height:960});
   }
   assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
