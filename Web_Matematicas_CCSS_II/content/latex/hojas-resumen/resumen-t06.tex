@@ -1,0 +1,160 @@
+\documentclass[10pt]{article}
+\input{estilo-resumen.tex}
+\bloque{algebra}
+\begin{document}
+\cabecera{6}{Programación lineal}{Lecciones 6.1--6.5: inecuaciones lineales con dos incógnitas, sistemas de inecuaciones y región factible, formulación de un problema, método gráfico y problemas de programación lineal.}
+\begin{multicols}{2}
+
+\seccion{1. Inecuación lineal: un semiplano}
+\begin{formula}
+\[ax+by\le c,\qquad (a,b)\ne(0,0)\]
+\end{formula}
+La recta \(ax+by=c\) (\textbf{frontera}) divide el plano en dos semiplanos; la inecuación elige uno.
+\begin{enumerate}
+  \item \textbf{Dibuja la frontera}: continua con \(\le,\ge\) (se incluye); discontinua con \(<,>\) (se excluye).
+  \item \textbf{Punto de prueba} que \textbf{no} esté en la frontera; normalmente \((0,0)\). Si la recta pasa por el origen, usa \((0,1)\) o \((1,0)\).
+  \item Si el punto cumple, sombrea su lado; si no, el contrario.
+\end{enumerate}
+\begin{ejemplo}
+\(x+2y\le10\): frontera por \((0,5)\) y \((10,0)\); \(0+0\le10\) es cierto \(\Rightarrow\) el semiplano del origen, con la recta incluida.
+\(y\ge2x\): el origen está en la frontera; con \((0,1)\): \(1\ge0\), se sombrea por encima.
+\end{ejemplo}
+\sub{Casos.} \(x\le3\): frontera vertical. \(y>-2\): horizontal y discontinua. \(-2y\le4\iff y\ge-2\): al dividir entre un negativo se invierte la desigualdad.
+
+\seccion{2. Sistema de inecuaciones: región factible}
+La \textbf{región factible} es la intersección de todos los semiplanos: los puntos que cumplen \textbf{todas} las restricciones.
+\sub{Vértices:} cruces de dos fronteras que cumplen todas las restricciones. Un cruce que incumple alguna no es vértice.
+\begin{ejemplo}
+\(x+y\le60,\ x\le40,\ x,y\ge0\): vértices \((0,0)\), \((40,0)\), \((40,20)\) y \((0,60)\). El cruce \((60,0)\) no es vértice: incumple \(x\le40\).
+\end{ejemplo}
+\begin{tabular}{@{}p{2.3cm}p{5.5cm}@{}}
+\textbf{Región} & \textbf{Ejemplo}\\ \hline
+Acotada & Polígono: cabe en un rectángulo\\
+No acotada & \(x,y\ge0,\ x+y\ge2\)\\
+Vacía & \(x+y\le2\) y \(x+y\ge5\)\\
+Segmento & \(x+y\le4,\ x+y\ge4,\ x,y\ge0\)\\
+Un punto & \(x\ge1,\ y\ge2,\ x+y\le3\): \((1,2)\)
+\end{tabular}
+
+Área cero no significa vacía: un segmento tiene infinitas soluciones.
+
+\seccion{3. Plantear un problema}
+\begin{formula}
+\textbf{Variables} \(x,y\) (con unidades) \(\cdot\) \textbf{Función objetivo} \(Z=ax+by\) (maximizar o minimizar) \(\cdot\) \textbf{Restricciones} lineales \(\cdot\) \textbf{No negatividad} \(x\ge0,\ y\ge0\) si son cantidades.
+\end{formula}
+\begin{tabular}{@{}p{4.3cm}p{3.5cm}@{}}
+\textbf{Enunciado} & \textbf{Restricción}\\ \hline
+Como mínimo 100 en total & \(x+y\ge100\)\\
+Como máximo 500\,euros en total & \(x+y\le500\)\\
+El doble de A que de B & \(x=2y\)\\
+Al menos el doble de A que de B & \(x\ge2y\)\\
+A no supera a B en más de 20 & \(x-y\le20\)\\
+B es al menos el 40\,\% del total & \(y\ge0{,}4(x+y)\)\\
+\guillemotleft{}Dispone de\guillemotright{} 18 h & \(\ldots\le18\) (no \(=\))
+\end{tabular}
+
+\seccion{4. Método gráfico}
+\begin{enumerate}
+  \item \textbf{Plantear}: variables, tabla de datos, objetivo y restricciones.
+  \item \textbf{Dibujar} la región factible.
+  \item \textbf{Calcular los vértices} y comprobar que son factibles.
+  \item \textbf{Evaluar} \(Z\) en cada vértice.
+  \item \textbf{Decidir} e interpretar con unidades.
+\end{enumerate}
+\begin{formula}
+\textbf{Teorema:} si la región es \textbf{no vacía, cerrada y acotada}, una función lineal alcanza su máximo y su mínimo en algún vértice.
+\end{formula}
+\sub{Rectas de nivel.} \(ax+by=k\) son rectas paralelas; al desplazarlas en el sentido en que crece \(Z\), la última posición que toca la región da el máximo.
+
+\seccion{5. Ejemplo resuelto: sillas y mesas}
+18 h de corte y 42 h de montaje. Silla: 2 h y 1 h, 30\,euros. Mesa: 2 h y 3 h, 50\,euros.
+\[\text{Max }Z=30x+50y\ \text{ s.a. }\begin{cases}2x+2y\le18\\x+3y\le42\\x,y\ge0\end{cases}\]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[mini,width=5.6cm,height=4.4cm,xmin=-0.8,xmax=15,ymin=-0.8,ymax=15,xtick={9},ytick={9,14},tick label style={font=\scriptsize}]
+\addplot[fill=acento!20,draw=acento,thick] coordinates {(0,0) (9,0) (0,9)} -- cycle;
+\addplot[domain=0:14,dashed]{(42-x)/3};
+\addplot[domain=0:15,densely dotted,black]{(450-30*x)/50};
+\addplot[only marks,mark=*,mark size=1.6pt,color=acento] coordinates {(0,0) (9,0) (0,9)};
+\node[font=\scriptsize,anchor=south west] at (axis cs:0,9) {\(C\)};
+\node[font=\scriptsize,anchor=north west] at (axis cs:9,0) {\(B\)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+El montaje es \textbf{redundante}: \(x+3y\le3(x+y)\le27<42\). Vértices \(A(0,0)\), \(B(9,0)\), \(C(0,9)\):
+\[Z(A)=0,\quad Z(B)=270,\quad Z(C)=450\]
+\textbf{Máximo: 0 sillas y 9 mesas, 450\,euros} (la línea de puntos es la recta de nivel \(Z=450\)).
+
+\seccion{6. Casos especiales}
+\begin{itemize}
+  \item \textbf{Óptimo múltiple}: dos vértices empatan; todo el lado que los une es óptimo. Max \(2x+2y\) con \(x+y\le6\): vale 12 en todo el segmento de \((6,0)\) a \((0,6)\).
+  \item \textbf{Región vacía}: no hay solución.
+  \item \textbf{No acotado}: con \(x,y\ge0,\ x+y\ge2\), \(Z=x+y\) no tiene máximo (crece sin límite), pero sí mínimo, 2.
+  \item \textbf{Frontera excluida}: con \(0\le x<1\), \(0\le y\le1\), \(Z=x+y\) se acerca a 2 sin alcanzarlo: no hay máximo.
+\end{itemize}
+
+\seccion{7. Soluciones enteras}
+Si las variables cuentan objetos, el óptimo debe ser entero. Si el óptimo del modelo continuo ya es entero, sirve. Si no, \textbf{no basta redondear}: hay que comprobar los puntos enteros cercanos en las restricciones y en \(Z\).
+
+\seccion{8. Problemas tipo}
+\begin{itemize}
+  \item \textbf{Producción} (maximizar beneficio con recursos limitados): restricciones con \(\le\).
+  \item \textbf{Dieta o mezcla} (minimizar coste con requisitos mínimos): restricciones con \(\ge\); la región suele ser no acotada, y el mínimo existe.
+  \item \textbf{Inversión} (repartir un capital con límites y proporciones).
+\end{itemize}
+\seccion{9. Mínimo en una región no acotada: la dieta}
+A cuesta 4 euros/kg y B, 3 euros/kg. Proteínas \(2x+4y\ge12\), vitaminas \(6x+2y\ge12\), \(x,y\ge0\). Minimizar \(Z=4x+3y\).
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[mini,width=5.4cm,height=4.2cm,xmin=-0.5,xmax=7.5,ymin=-0.5,ymax=7.5]
+\addplot[fill=acento!20,draw=none] coordinates {(0,7.5) (0,6) (1.2,2.4) (6,0) (7.5,0) (7.5,7.5)} -- cycle;
+\addplot[domain=0:7.5]{(6-x)/2};
+\addplot[domain=0:2.16]{6-3*x};
+\addplot[only marks,mark=*,mark size=1.6pt,color=acento] coordinates {(0,6) (1.2,2.4) (6,0)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+Simplificando: \(x+2y\ge6\) y \(3x+y\ge6\). Vértices y valores:
+\[\begin{array}{c|ccc}\text{Vértice}&(0,6)&(1{,}2;\ 2{,}4)&(6,0)\\\hline Z&18&\mathbf{12}&24\end{array}\]
+La región no está acotada, pero el mínimo existe: \(Z=(x+2y)+(3x+y)\ge6+6=12\). \textbf{Mínimo: 1,2 kg de A y 2,4 kg de B, 12 euros.} No hay máximo.
+
+\seccion{10. Cuatro vértices: la inversión}
+50 mil euros como máximo; en A como mucho 30, en B al menos 15, y A al menos tanto como B. Interés: 10\,\% en A y 5\,\% en B.
+\[\text{Max }Z=0{,}10x+0{,}05y\ \text{ s.a. }\begin{cases}x+y\le50,\ x\le30\\ y\ge15,\ x\ge y\end{cases}\]
+\[\begin{array}{c|cccc}\text{Vértice}&(15,15)&(30,15)&(30,20)&(25,25)\\\hline Z&2{,}25&3{,}75&\mathbf{4}&3{,}75\end{array}\]
+\textbf{Invertir 30 mil euros en A y 20 en B: 4 mil euros de interés anual.}
+
+\seccion{11. Una restricción redundante: los muebles}
+120 kg de madera y 100 h. Silla: 10 kg, 5 h, 20 euros. Mesa: 20 kg, 10 h, 35 euros.
+\[\begin{cases}10x+20y\le120\iff x+2y\le12\\5x+10y\le100\iff x+2y\le20\end{cases}\]
+La segunda es redundante: si \(x+2y\le12\), también \(x+2y\le20\). Vértices \((0,0)\), \((12,0)\), \((0,6)\) con \(Z=20x+35y\): 0, \textbf{240} y 210. \textbf{Máximo: 12 sillas y ninguna mesa, 240 euros.}
+
+\seccion{12. Comprobar un punto}
+Un punto es factible si cumple \textbf{todas} las restricciones; basta que falle una para descartarlo. En sillas y mesas:
+\begin{itemize}
+  \item \((3,4)\): corte \(2\cdot3+2\cdot4=14\le18\), montaje \(3+12=15\le42\). Factible, \(Z=290\) euros.
+  \item \((6,4)\): corte \(20>18\). No factible, aunque su \(Z\) fuera mayor.
+\end{itemize}
+
+\seccion{13. Lista de control}
+\begin{enumerate}
+  \item \textquestiondown{}Variables definidas con unidades?
+  \item \textquestiondown{}Cada frase del enunciado traducida a una restricción, con el sentido correcto?
+  \item \textquestiondown{}No negatividad, si son cantidades?
+  \item \textquestiondown{}Vértices comprobados en todas las restricciones?
+  \item \textquestiondown{}Región acotada? Si no, \textquestiondown{}existe el óptimo pedido?
+  \item \textquestiondown{}La respuesta dice cuánto de cada cosa y el valor de \(Z\) con unidades?
+\end{enumerate}
+
+\begin{ojo}
+\begin{itemize}
+  \item Usar el origen como punto de prueba cuando está en la frontera.
+  \item Escribir igualdades donde el enunciado da máximos (\guillemotleft{}dispone de\guillemotright{}).
+  \item Evaluar \(Z\) en cruces que no son factibles.
+  \item Dar un solo punto cuando el óptimo es todo un lado.
+  \item Concluir que una región no acotada no tiene óptimo.
+\end{itemize}
+\end{ojo}
+
+\end{multicols}
+\end{document}

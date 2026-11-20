@@ -1,0 +1,175 @@
+\documentclass[10pt]{article}
+\input{estilo-resumen.tex}
+\bloque{azar}
+\begin{document}
+\cabecera{8}{Distribuciones de probabilidad}{Lecciones 8.1--8.4: variable aleatoria discreta y continua, distribución binomial, distribución normal y aproximación de la binomial por la normal.}
+\begin{multicols}{2}
+
+\seccion{1. Variable aleatoria}
+Una \textbf{variable aleatoria} \(X\) asigna un número real a cada resultado del experimento: \(X:\Omega\to\mathbb R\).
+\begin{itemize}
+  \item \textbf{Discreta}: valores que se pueden enumerar (finitos o numerables), aunque no sean enteros: un premio de 0,50 o 1,50 euros.
+  \item \textbf{Continua}: se describe con una densidad y probabilidades de intervalos (tiempos, pesos).
+\end{itemize}
+\sub{Distribución discreta finita.}
+\begin{formula}
+\[P(X=x_i)=p_i,\qquad 0\le p_i\le1,\qquad \sum p_i=1\]
+\[\mu=\sum x_ip_i\]
+\[\sigma^2=\sum x_i^2p_i-\mu^2,\qquad \sigma=\sqrt{\sigma^2}\]
+\end{formula}
+\begin{ejemplo}
+Dado equilibrado: \(\mu=\frac{21}6=3{,}5\); \(\sum x_i^2p_i=\frac{91}6\); \(\sigma^2=\frac{91}6-\frac{49}4=\frac{35}{12}\approx2{,}92\); \(\sigma\approx1{,}71\). La media no tiene por qué ser un valor posible.
+\end{ejemplo}
+\sub{Densidad} (continua).
+\begin{formula}
+\[f(x)\ge0,\qquad \int_{-\infty}^{+\infty}f(x)\,dx=1\]
+\[P(a\le X\le b)=\int_a^bf(x)\,dx\]
+\end{formula}
+La probabilidad es un \textbf{área}: \(P(X=a)=0\), y da igual incluir o no los extremos. La altura \(f(x)\) no es una probabilidad (puede ser mayor que 1).
+\sub{Acumulada:} \(F(x)=P(X\le x)\), no decreciente, de 0 a 1. Discreta: suma de masas; continua: área hasta \(x\).
+
+\seccion{2. Distribución binomial}
+Condiciones: \(n\) ensayos \textbf{fijos}, dos resultados (éxito/fracaso), \textbf{independientes} y con la \textbf{misma} probabilidad de éxito \(p\). \(X\) = número de éxitos.
+\begin{formula}
+\[X\sim B(n,p):\qquad P(X=k)=\binom nk p^kq^{n-k},\quad q=1-p\]
+\[\mu=np,\qquad \sigma=\sqrt{npq}\]
+\end{formula}
+\(\binom nk\) cuenta las posiciones posibles de los \(k\) éxitos (nCr en la calculadora).
+\begin{ejemplo}
+Encesta el 80\,\%; lanza 5 veces. \(X\sim B(5;\,0{,}8)\).
+\[P(X=3)=\binom53(0{,}8)^3(0{,}2)^2=10\cdot0{,}512\cdot0{,}04=0{,}2048\]
+\(\mu=4\) aciertos, \(\sigma=\sqrt{0{,}8}\approx0{,}89\).
+\end{ejemplo}
+\sub{Traducir con la acumulada \(F(k)=P(X\le k)\).}
+\begin{tabular}{@{}lll@{}}
+Como máximo \(k\) & \(X\le k\) & \(F(k)\)\\
+Menos de \(k\) & \(X<k\) & \(F(k-1)\)\\
+Al menos \(k\) & \(X\ge k\) & \(1-F(k-1)\)\\
+Más de \(k\) & \(X>k\) & \(1-F(k)\)\\
+Entre \(a\) y \(b\) & \(a\le X\le b\) & \(F(b)-F(a-1)\)
+\end{tabular}
+
+\begin{ejemplo}
+\(B(5;\,0{,}8)\): \(P(X\ge3)=1-P(X\le2)=1-0{,}05792=0{,}94208\). Al menos uno: \(1-0{,}2^5=0{,}99968\).
+\end{ejemplo}
+
+\seccion{3. Distribución normal}
+\(X\sim N(\mu,\sigma)\): campana simétrica respecto a \(\mu\); \(\sigma\) (\textbf{desviación típica}, el segundo parámetro) fija su anchura. Puntos de inflexión en \(\mu\pm\sigma\).
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[mini,width=6.8cm,height=3.4cm,xmin=-3.6,xmax=3.6,ymin=0,ymax=0.45,xtick={-2,-1,0,1,2},xticklabels={\(\mu-2\sigma\),\(\mu-\sigma\),\(\mu\),\(\mu+\sigma\),\(\mu+2\sigma\)},tick label style={font=\tiny},xlabel={},ylabel={},axis y line=none]
+\addplot[name path=c,domain=-3.6:3.6]{exp(-x^2/2)/sqrt(2*pi)};
+\path[name path=ax] (axis cs:-3.6,0) -- (axis cs:3.6,0);
+\addplot[fill=acento!30,draw=none] fill between[of=c and ax,soft clip={domain=-1:1}];
+\addplot[fill=acento!12,draw=none] fill between[of=c and ax,soft clip={domain=-2:-1}];
+\addplot[fill=acento!12,draw=none] fill between[of=c and ax,soft clip={domain=1:2}];
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\textbf{Regla empírica:} \(\mu\pm\sigma\): 68,27\,\%; \(\mu\pm2\sigma\): 95,45\,\%; \(\mu\pm3\sigma\): 99,73\,\%.
+\begin{formula}
+\textbf{Tipificación:}
+\[Z=\frac{X-\mu}{\sigma}\sim N(0,1),\qquad \Phi(z)=P(Z\le z)\]
+\[P(a\le X\le b)=\Phi\Bigl(\frac{b-\mu}\sigma\Bigr)-\Phi\Bigl(\frac{a-\mu}\sigma\Bigr)\]
+\end{formula}
+\begin{tabular}{@{}ll@{}}
+Cola izquierda & \(P(Z\le z)=\Phi(z)\)\\
+Cola derecha & \(P(Z>z)=1-\Phi(z)\)\\
+Valores negativos & \(\Phi(-z)=1-\Phi(z)\)\\
+Intervalo & \(\Phi(b)-\Phi(a)\)
+\end{tabular}
+
+\sub{Extracto de la tabla de \(\Phi\).}
+\[\begin{array}{c|cccc}
+z&0&1&1{,}28&1{,}64\\\hline
+\Phi(z)&0{,}5&0{,}8413&0{,}8997&0{,}9495
+\end{array}\]
+\[\begin{array}{c|cccc}
+z&1{,}65&1{,}96&2&2{,}58\\\hline
+\Phi(z)&0{,}9505&0{,}975&0{,}9772&0{,}9951
+\end{array}\]
+\begin{ejemplo}
+Puntuaciones \(X\sim N(100,15)\).
+\(P(X<85)=\Phi(-1)=1-0{,}8413=0{,}1587\).
+\(P(X>130)=1-\Phi(2)=0{,}0228\).
+\(P(85\le X\le130)=0{,}9772-0{,}1587=0{,}8185\).
+\end{ejemplo}
+\sub{Problema inverso (percentil).} Se busca \(z_r\) con \(\Phi(z_r)=r\) y se deshace la tipificación:
+\begin{formula}
+\[x=\mu+\sigma z_r\]
+\end{formula}
+\begin{ejemplo}
+Percentil 90 de \(N(100,15)\): \(\Phi(1{,}28)\approx0{,}90\Rightarrow x\approx100+15\cdot1{,}28=119{,}2\). Si se da una cola derecha \(q\), se busca \(\Phi(z)=1-q\).
+\end{ejemplo}
+
+\seccion{4. Aproximación de la binomial por la normal}
+\begin{formula}
+Si \(np\ge5\) y \(n(1-p)\ge5\):
+\[X\sim\operatorname{Bin}(n,p)\ \approx\ Y\sim N\bigl(np,\ \sqrt{np(1-p)}\bigr)\]
+\end{formula}
+\sub{Corrección de continuidad:} cada entero \(k\) ocupa la celda \([k-0{,}5,\ k+0{,}5]\).
+\begin{tabular}{@{}ll@{}}
+\(P(X\le k)\) & \(\approx P(Y\le k+0{,}5)\)\\
+\(P(X<k)\) & \(\approx P(Y\le k-0{,}5)\)\\
+\(P(X\ge k)\) & \(\approx P(Y\ge k-0{,}5)\)\\
+\(P(X>k)\) & \(\approx P(Y\ge k+0{,}5)\)\\
+\(P(A\le X\le B)\) & \(\approx P(A-0{,}5\le Y\le B+0{,}5)\)\\
+\(P(X=k)\) & \(\approx P(k-0{,}5\le Y\le k+0{,}5)\)
+\end{tabular}
+
+\begin{ejemplo}
+\(\operatorname{Bin}(100;\,0{,}5)\): \(np=50\), \(\sigma=5\), \(Y\sim N(50,5)\).
+\[P(X\le55)\approx\Phi\Bigl(\frac{55{,}5-50}5\Bigr)=\Phi(1{,}1)\approx0{,}8643\]
+(valor binomial exacto: 0,8644).
+\[P(X\ge60)\approx1-\Phi(1{,}9)\approx0{,}0287\quad(\text{exacto } 0{,}0284)\]
+\[P(45\le X\le55)\approx\Phi(1{,}1)-\Phi(-1{,}1)\approx0{,}7287\]
+\[P(X=50)\approx\Phi(0{,}1)-\Phi(-0{,}1)\approx0{,}0797\quad(\text{exacto } 0{,}0796)\]
+\end{ejemplo}
+
+\seccion{5. Ejercicio binomial completo}
+El 10\,\% de las piezas de un lote son defectuosas. Se revisan 10 al azar (independencia). \(X\sim B(10;\,0{,}1)\).
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[mini,width=6.4cm,height=3.2cm,ybar,bar width=7pt,xmin=-0.7,xmax=6.7,ymin=0,ymax=0.45,axis x line=bottom,axis y line=none,xtick={0,...,6},tick label style={font=\tiny},xlabel={},ylabel={},title={\(P(X=k)\) en \(B(10;\,0{,}1)\)}]
+\addplot[fill=acento!35,draw=acento] coordinates {(0,0.3487) (1,0.3874) (2,0.1937) (3,0.0574) (4,0.0112) (5,0.0015) (6,0.0001)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\begin{itemize}
+  \item Ninguna defectuosa: \(P(X=0)=0{,}9^{10}\approx0{,}3487\).
+  \item Como máximo una: \(0{,}3487+10\cdot0{,}1\cdot0{,}9^9\approx0{,}3487+0{,}3874=0{,}7361\).
+  \item Al menos dos: \(1-P(X\le1)\approx0{,}2639\).
+  \item Media: \(\mu=10\cdot0{,}1=1\) pieza; \(\sigma=\sqrt{0{,}9}\approx0{,}95\).
+\end{itemize}
+
+\seccion{6. Ejercicio normal completo}
+Los paquetes pesan \(X\sim N(250,10)\) gramos.
+\begin{enumerate}
+  \item Menos de 240 g: \(z=\frac{240-250}{10}=-1\), \(P=\Phi(-1)=0{,}1587\): el 15,87\,\%.
+  \item Entre 240 y 270 g: \(\Phi(2)-\Phi(-1)=0{,}9772-0{,}1587=0{,}8185\).
+  \item Peso que solo supera el 5\,\% más pesado: \(\Phi(z)=0{,}95\Rightarrow z\approx1{,}645\), \(x=250+10\cdot1{,}645\approx266{,}5\) g.
+\end{enumerate}
+\textbf{Pasos:} 1) define \(X\) y sus parámetros; 2) escribe la probabilidad pedida; 3) tipifica; 4) dibuja la campana y decide la cola; 5) usa la tabla y la simetría; 6) responde en el contexto.
+
+\seccion{7. Qué distribución usar}
+\begin{tabular}{@{}p{3.6cm}p{4.2cm}@{}}
+\textbf{Situación} & \textbf{Modelo}\\ \hline
+Contar éxitos en \(n\) ensayos iguales e independientes & Binomial \(B(n,p)\)\\
+Medida continua con forma de campana & Normal \(N(\mu,\sigma)\)\\
+Binomial con \(n\) grande, \(np\) y \(nq\ge5\) & Normal con corrección\\
+Lista de valores con probabilidades & Discreta finita: tabla
+\end{tabular}
+
+\begin{ojo}
+\begin{itemize}
+  \item Usar la binomial sin independencia (extracciones sin reemplazamiento).
+  \item Olvidar \(\binom nk\) en \(P(X=k)\).
+  \item Contrario de \guillemotleft{}al menos \(k\)\guillemotright{} es \guillemotleft{}como máximo \(k-1\)\guillemotright{}.
+  \item Escribir la varianza como segundo parámetro de \(N(\mu,\sigma)\).
+  \item Leer la cola izquierda cuando se pide la derecha.
+  \item Aproximar \(P(X=k)\) por \(P(Y=k)\), que vale 0.
+\end{itemize}
+\end{ojo}
+
+\end{multicols}
+\end{document}

@@ -1,0 +1,149 @@
+\documentclass[10pt]{article}
+\input{estilo-resumen.tex}
+\bloque{algebra}
+\begin{document}
+\cabecera{4}{Matrices y determinantes}{Lecciones 4.1--4.12: tipos de matrices, operaciones, producto, potencias, traspuesta y simetría, determinantes y sus propiedades, desarrollo por adjuntos, matriz inversa, rango, ecuaciones matriciales y grafos.}
+\begin{multicols}{2}
+
+\seccion{1. Matrices: definición y tipos}
+Una matriz \(A=(a_{ij})\) de dimensión \(m\times n\) tiene \(m\) filas y \(n\) columnas; \(a_{ij}\) está en la fila \(i\) y la columna \(j\).
+\begin{itemize}
+  \item \textbf{Fila} \(1\times n\), \textbf{columna} \(m\times1\), \textbf{cuadrada} \(n\times n\) (diagonal principal \(a_{11},\dots,a_{nn}\)).
+  \item \textbf{Nula} \(O\); \textbf{diagonal} (ceros fuera de la diagonal); \textbf{identidad} \(I\) (diagonal de unos).
+  \item \textbf{Triangular} superior o inferior (ceros debajo o encima de la diagonal).
+  \item \textbf{Traspuesta} \(A^T\): las filas pasan a columnas, \((A^T)_{ij}=a_{ji}\).
+  \item \textbf{Simétrica} \(A^T=A\). \textbf{Antisimétrica} \(A^T=-A\) (diagonal nula).
+\end{itemize}
+Dos matrices son iguales si tienen la misma dimensión y los mismos elementos en cada posición.
+
+\seccion{2. Operaciones}
+\sub{Suma y producto por un número:} elemento a elemento; la suma exige la misma dimensión.
+\begin{formula}
+\[\underbrace{A}_{m\times n}\ \underbrace{B}_{n\times p}=\underbrace{C}_{m\times p}\]
+\[c_{ij}=\sum_{k=1}^{n}a_{ik}b_{kj}\]
+\end{formula}
+\(c_{ij}\) = fila \(i\) de \(A\) por columna \(j\) de \(B\). Solo existe si las columnas de \(A\) coinciden con las filas de \(B\).
+\begin{ejemplo}
+\[AB=\begin{pmatrix}1&2\\0&1\end{pmatrix}\begin{pmatrix}3&1\\1&0\end{pmatrix}=\begin{pmatrix}5&1\\1&0\end{pmatrix}\]
+\[BA=\begin{pmatrix}3&1\\1&0\end{pmatrix}\begin{pmatrix}1&2\\0&1\end{pmatrix}=\begin{pmatrix}3&7\\1&2\end{pmatrix}\]
+\end{ejemplo}
+\begin{ojo}
+\(AB\ne BA\) en general. Por eso \((A+B)^2\ne A^2+2AB+B^2\) y \(AB=O\) no implica \(A=O\) o \(B=O\).
+\end{ojo}
+\sub{Traspuesta.}
+\[(A^T)^T=A,\qquad (A+B)^T=A^T+B^T\]
+\[(\alpha A)^T=\alpha A^T,\qquad (AB)^T=B^TA^T\]
+
+\seccion{3. Potencias}
+\(A^n=A\cdot A\cdots A\) (solo matrices cuadradas). Se calculan \(A^2\), \(A^3\)\ldots{} hasta ver un \textbf{patrón} o una repetición, y se comprueba.
+\begin{ejemplo}
+\(A=\begin{pmatrix}1&1\\0&1\end{pmatrix}\Rightarrow A^2=\begin{pmatrix}1&2\\0&1\end{pmatrix},\ A^n=\begin{pmatrix}1&n\\0&1\end{pmatrix}\).
+Si \(A^2=I\), entonces \(A^{n}=I\) para \(n\) par y \(A^n=A\) para \(n\) impar.
+\end{ejemplo}
+
+\seccion{4. Determinantes}
+\begin{formula}
+\[\begin{vmatrix}a&b\\c&d\end{vmatrix}=ad-bc\]
+\[\begin{vmatrix}a&b&c\\d&e&f\\g&h&i\end{vmatrix}=aei+bfg+cdh\]
+\[\hphantom{\begin{vmatrix}a\\d\\g\end{vmatrix}}\qquad\quad-(ceg+afh+bdi)\]
+\end{formula}
+\textbf{Regla de Sarrus:} tres productos con signo \(+\) (diagonal principal y sus paralelas) y tres con signo \(-\) (diagonal secundaria y sus paralelas).
+\begin{ejemplo}
+\[\begin{vmatrix}1&2&0\\0&1&1\\1&0&1\end{vmatrix}=(1+2+0)-(0+0+0)=3\]
+\end{ejemplo}
+
+\seccion{5. Propiedades de los determinantes}
+\begin{formula}
+\[\det(A^T)=\det(A),\qquad \det(AB)=\det(A)\det(B)\]
+\[\det(kA)=k^n\det(A)\quad(A\text{ de orden }n)\]
+\end{formula}
+\begin{itemize}
+  \item Una fila (o columna) de ceros, o dos filas iguales o proporcionales: \(\det=0\).
+  \item Intercambiar dos filas cambia el signo.
+  \item Multiplicar una fila por \(k\) multiplica el determinante por \(k\).
+  \item Sumar a una fila una combinación de otras no lo cambia (así se hacen ceros).
+  \item Matriz triangular: producto de la diagonal.
+\end{itemize}
+
+\seccion{6. Desarrollo por adjuntos}
+\begin{formula}
+\[M_{ij}=\text{menor complementario},\qquad C_{ij}=(-1)^{i+j}M_{ij}\]
+\[\det(A)=\sum_{j=1}^{n}a_{ij}C_{ij}\quad\text{(por la fila }i\text{)}\]
+\end{formula}
+\(M_{ij}\) es el determinante que queda al suprimir la fila \(i\) y la columna \(j\). Signos \(\begin{smallmatrix}+&-&+\\-&+&-\\+&-&+\end{smallmatrix}\). Conviene desarrollar por la fila o columna con más ceros (o crearlos antes).
+
+\seccion{7. Matriz inversa}
+\(A\) es \textbf{invertible} (regular) \(\iff\det(A)\ne0\). Entonces \(AA^{-1}=A^{-1}A=I\).
+\begin{formula}
+\[A^{-1}=\frac1{\det(A)}\operatorname{Adj}(A),\qquad \operatorname{Adj}(A)=C^T\]
+\[A=\begin{pmatrix}a&b\\c&d\end{pmatrix}\ \Rightarrow\]
+\[A^{-1}=\frac1{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}\]
+\end{formula}
+\textbf{Pasos:} 1) \(\det(A)\ne0\); 2) matriz de adjuntos \(C\); 3) trasponer: \(\operatorname{Adj}(A)=C^T\); 4) dividir entre \(\det(A)\); 5) comprobar \(AA^{-1}=I\).
+\begin{ejemplo}
+\(A=\begin{pmatrix}2&1\\1&2\end{pmatrix}\): \(\det A=3\), \(A^{-1}=\dfrac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}\).
+\end{ejemplo}
+Propiedades: \((AB)^{-1}=B^{-1}A^{-1}\), \((A^{-1})^{-1}=A\), \(\det(A^{-1})=\dfrac1{\det A}\).
+
+\seccion{8. Rango}
+\begin{formula}
+\[0\le\operatorname{rg}(A)\le\min(m,n)\]
+\end{formula}
+El rango es el número máximo de filas (o columnas) linealmente independientes, o el orden del mayor menor no nulo. También: número de filas no nulas tras escalonar por Gauss.
+\begin{ejemplo}
+\(A=\begin{pmatrix}1&2&3\\2&4&6\\1&0&1\end{pmatrix}\): la fila 2 es el doble de la 1, así que \(\det A=0\); el menor \(\begin{vmatrix}1&2\\1&0\end{vmatrix}=-2\ne0\Rightarrow\operatorname{rg}(A)=2\).
+\end{ejemplo}
+
+\seccion{9. Ecuaciones matriciales}
+\begin{formula}
+\[AX=B\Rightarrow X=A^{-1}B,\qquad XA=B\Rightarrow X=BA^{-1}\]
+\end{formula}
+Se despeja como con números, pero \textbf{respetando el lado}: se multiplica por \(A^{-1}\) por la izquierda o por la derecha. \(AX+B=C\Rightarrow X=A^{-1}(C-B)\).
+\begin{ejemplo}
+\(A=\begin{pmatrix}2&1\\1&1\end{pmatrix}\), \(B=\begin{pmatrix}3\\2\end{pmatrix}\): \(\det A=1\), \(A^{-1}=\begin{pmatrix}1&-1\\-1&2\end{pmatrix}\), \(X=A^{-1}B=\begin{pmatrix}1\\1\end{pmatrix}\). Comprobación: \(AX=B\).
+\end{ejemplo}
+
+\seccion{10. Grafos y matriz de adyacencia}
+\(a_{ij}=1\) si hay arista (o arco) del vértice \(i\) al \(j\), y 0 si no. Grafo no dirigido: matriz simétrica.
+\begin{formula}
+\((A^k)_{ij}\) = número de recorridos de exactamente \(k\) pasos del vértice \(i\) al \(j\).
+\end{formula}
+\begin{ejemplo}
+Vértices 1, 2, 3 con aristas 1--2 y 2--3: \(A=\begin{pmatrix}0&1&0\\1&0&1\\0&1&0\end{pmatrix}\), \(A^2=\begin{pmatrix}1&0&1\\0&2&0\\1&0&1\end{pmatrix}\). Hay 2 recorridos de dos pasos de 2 a 2 (por 1 y por 3).
+\end{ejemplo}
+
+\seccion{11. Inversa de orden 3 paso a paso}
+\(A=\begin{pmatrix}1&2&0\\0&1&1\\1&0&1\end{pmatrix}\), \(\det A=3\ne0\).
+\begin{enumerate}
+  \item Adjuntos: \(C_{11}=1,\ C_{12}=1,\ C_{13}=-1\); \(C_{21}=-2,\ C_{22}=1,\ C_{23}=2\); \(C_{31}=2,\ C_{32}=-1,\ C_{33}=1\).
+  \item Trasponer y dividir entre 3:
+\end{enumerate}
+\[A^{-1}=\frac13\begin{pmatrix}1&-2&2\\1&1&-1\\-1&2&1\end{pmatrix}\]
+Comprobación: \(A\cdot\operatorname{Adj}(A)=3I\), así que \(AA^{-1}=I\).
+
+\seccion{12. Matrices con un parámetro}
+Se estudia \(\det\) en función del parámetro: los valores que lo anulan son los casos especiales.
+\begin{ejemplo}
+\(A=\begin{pmatrix}1&1\\1&k\end{pmatrix}\): \(\det A=k-1\).
+Si \(k\ne1\): \(\operatorname{rg}(A)=2\) y \(A\) es invertible.
+Si \(k=1\): filas iguales, \(\operatorname{rg}(A)=1\) y no tiene inversa.
+\end{ejemplo}
+
+\seccion{13. Matrices en contexto}
+Una matriz ordena datos: filas y columnas con significado. El producto combina tablas cuando las unidades encajan.
+\begin{ejemplo}
+Dos tiendas venden tres productos. Unidades \(Q=\begin{pmatrix}10&5&2\\4&8&6\end{pmatrix}\) (filas: tiendas) y precios \(P=\begin{pmatrix}2\\3\\5\end{pmatrix}\) euros (por producto). \(QP=\begin{pmatrix}45\\62\end{pmatrix}\): ingresos de cada tienda, en euros.
+\end{ejemplo}
+
+\begin{ojo}
+\begin{itemize}
+  \item Multiplicar matrices elemento a elemento.
+  \item Escribir \(X=BA^{-1}\) cuando la ecuación es \(AX=B\).
+  \item Olvidar trasponer la matriz de adjuntos o el signo \((-1)^{i+j}\).
+  \item \(\det(kA)=k\det(A)\): falta la potencia \(k^n\).
+  \item Calcular \(A^{-1}\) sin comprobar que \(\det A\ne0\).
+\end{itemize}
+\end{ojo}
+
+\end{multicols}
+\end{document}

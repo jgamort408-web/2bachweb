@@ -1,0 +1,184 @@
+\documentclass[10pt]{article}
+\input{estilo-resumen.tex}
+\bloque{azar}
+\begin{document}
+\cabecera{9}{Inferencia estadística}{Lecciones 9.1--9.9: estadística inferencial, muestreo y sus técnicas, distribución muestral y teorema central del límite, estimación, intervalos característicos, intervalos de confianza, tamaño de la muestra y ficha técnica.}
+\begin{multicols}{2}
+
+\seccion{1. Población y muestra}
+\begin{itemize}
+  \item \textbf{Población}: todos los individuos que interesan. \textbf{Muestra}: la parte que se observa.
+  \item \textbf{Parámetro}: valor de la población, normalmente desconocido (\(\mu\), \(\sigma\), \(p\)).
+  \item \textbf{Estadístico}: valor calculado en la muestra (\(\bar x\), \(\hat p\)); cambia de una muestra a otra.
+\end{itemize}
+La inferencia usa la muestra para \textbf{estimar} parámetros con un margen de error y un nivel de confianza.
+
+\seccion{2. Técnicas de muestreo}
+\textbf{Probabilísticas} (cada individuo tiene una probabilidad conocida de ser elegido):
+\begin{itemize}
+  \item \textbf{Aleatorio simple}: todos con la misma probabilidad (sorteo).
+  \item \textbf{Sistemático}: uno de cada \(k=\frac Nn\), desde un inicio al azar.
+  \item \textbf{Estratificado}: grupos homogéneos (estratos) y muestra en cada uno.
+  \item \textbf{Por conglomerados}: se sortean grupos completos (aulas, barrios).
+\end{itemize}
+\textbf{No probabilísticas}: por cuotas, de conveniencia, bola de nieve, intencional. Pueden tener sesgo y no permiten calcular el error con estas fórmulas.
+\begin{formula}
+\textbf{Afijación proporcional:}
+\[n_h=n\cdot\frac{N_h}{N}\]
+\end{formula}
+\begin{ejemplo}
+Centro con 1200 alumnos: 500, 400 y 300 por nivel. Muestra de 60: \(60\cdot\frac{500}{1200}=25\), \(60\cdot\frac{400}{1200}=20\), \(60\cdot\frac{300}{1200}=15\). Si salen decimales, se redondea conservando el total.
+\end{ejemplo}
+
+\seccion{3. Distribución de la media muestral}
+\begin{formula}
+\[E(\bar X)=\mu,\qquad \operatorname{DE}(\bar X)=\frac{\sigma}{\sqrt n}\]
+\[\bar X\sim N\Bigl(\mu,\ \frac{\sigma}{\sqrt n}\Bigr)\]
+\end{formula}
+Exacta si la población es normal; aproximada por el \textbf{teorema central del límite} si \(n\ge30\), sea cual sea la población.
+\begin{ejemplo}
+Estaturas con \(\mu=170\) cm y \(\sigma=10\) cm; muestras de \(n=25\): \(\frac{\sigma}{\sqrt n}=2\).
+\[P(\bar X\ge173)=1-\Phi\Bigl(\frac{173-170}{2}\Bigr)=1-\Phi(1{,}5)=0{,}0668\]
+\end{ejemplo}
+\begin{ojo}
+La media muestral varía mucho menos que un individuo: \(P(X\ge173)=1-\Phi(0{,}3)\approx0{,}38\), pero \(P(\bar X\ge173)\approx0{,}07\).
+\end{ojo}
+
+\seccion{4. Distribución de la proporción muestral}
+\begin{formula}
+\[\hat P\approx N\Bigl(p,\ \sqrt{\frac{pq}n}\Bigr),\qquad q=1-p\]
+\end{formula}
+Si \(n\) es grande (\(np\ge5\), \(nq\ge5\)).
+
+\seccion{5. Nivel de confianza y valor crítico}
+\begin{formula}
+\[P\bigl(-z_{\alpha/2}\le Z\le z_{\alpha/2}\bigr)=1-\alpha\]
+\end{formula}
+\begin{center}
+\begin{tabular}{c|c|c}
+\(1-\alpha\) & \(\alpha/2\) & \(z_{\alpha/2}\)\\ \hline
+90\,\% & 0,05 & 1,645\\
+95\,\% & 0,025 & 1,96\\
+99\,\% & 0,005 & 2,576
+\end{tabular}
+\end{center}
+Se obtiene con \(\Phi(z_{\alpha/2})=1-\frac\alpha2\).
+
+\seccion{6. Intervalo característico}
+Intervalo centrado en \(\mu\) que contiene la media muestral con probabilidad \(1-\alpha\):
+\begin{formula}
+\[\Bigl[\mu-z_{\alpha/2}\frac{\sigma}{\sqrt n};\ \ \mu+z_{\alpha/2}\frac{\sigma}{\sqrt n}\Bigr]\]
+\end{formula}
+Se usa cuando se \textbf{conoce} \(\mu\) y se pregunta por las muestras. Para un individuo, el radio es \(z_{\alpha/2}\sigma\).
+
+\seccion{7. Intervalo de confianza para la media}
+Se \textbf{desconoce} \(\mu\) y se estima a partir de \(\bar x\) (\(\sigma\) conocida):
+\begin{formula}
+\[IC_{1-\alpha}(\mu)=\bigl[\bar x-E;\ \ \bar x+E\bigr],\qquad E=z_{\alpha/2}\frac{\sigma}{\sqrt n}\]
+\end{formula}
+\begin{ejemplo}
+\(\bar x=172\) cm, \(\sigma=10\), \(n=100\), confianza 95\,\%: \(E=1{,}96\cdot\frac{10}{10}=1{,}96\).
+\[IC_{0{,}95}(\mu)=[170{,}04;\ 173{,}96]\]
+\end{ejemplo}
+\begin{ojo}
+El 95\,\% se refiere al \textbf{método}: el 95\,\% de los intervalos construidos así contienen \(\mu\). No significa que \(\mu\) tenga probabilidad 0,95 de estar en este intervalo concreto.
+\end{ojo}
+
+\seccion{8. Intervalo para una proporción}
+\begin{formula}
+\[IC_{1-\alpha}(p)\approx\Bigl[\hat p-z_{\alpha/2}\sqrt{\tfrac{\hat p(1-\hat p)}n};\ \ \hat p+z_{\alpha/2}\sqrt{\tfrac{\hat p(1-\hat p)}n}\Bigr]\]
+\end{formula}
+\begin{ejemplo}
+120 de 400 encuestados opinan que sí: \(\hat p=0{,}3\).
+\(E=1{,}96\sqrt{\frac{0{,}3\cdot0{,}7}{400}}\approx0{,}0449\Rightarrow IC_{0{,}95}(p)\approx[0{,}2551;\ 0{,}3449]\).
+\end{ejemplo}
+
+\seccion{9. Error y tamaño de la muestra}
+\begin{formula}
+Media: \(\displaystyle n\ge\Bigl(\frac{z_{\alpha/2}\,\sigma}{E_0}\Bigr)^2\)\\[3pt]
+Proporción: \(\displaystyle n\ge\frac{z_{\alpha/2}^2\,p_0(1-p_0)}{E_0^2}\); sin información, \(p_0=0{,}5\): \(\displaystyle n\ge\frac{z_{\alpha/2}^2}{4E_0^2}\)
+\end{formula}
+Se redondea siempre \textbf{hacia arriba}.
+\begin{ejemplo}
+\(\sigma=10\), \(E_0=2\), 95\,\%: \(n\ge\bigl(\frac{1{,}96\cdot10}2\bigr)^2=96{,}04\Rightarrow n=97\).
+Proporción, \(E_0=0{,}03\), 95\,\%, sin información: \(n\ge\frac{1{,}96^2}{4\cdot0{,}03^2}\approx1067{,}1\Rightarrow n=1068\).
+\end{ejemplo}
+\sub{Relaciones.} \(E\) aumenta con el nivel de confianza y con \(\sigma\), y disminuye con \(n\). Como depende de \(\sqrt n\), para reducir el error a la mitad hay que multiplicar \(n\) por 4.
+
+\seccion{10. Ficha técnica de una encuesta}
+\begin{tabular}{@{}p{2.6cm}p{5.2cm}@{}}
+Universo & Población estudiada\\
+Ámbito & Lugar geográfico\\
+Tamaño muestral & \(n\) (y entrevistas válidas)\\
+Procedimiento & Técnica de muestreo y afijación\\
+Error muestral & \(\pm E\), con su nivel de confianza\\
+Nivel de confianza & 95\,\% habitual; supuesto \(p=q=0{,}5\)\\
+Fecha y entidad & Trabajo de campo y responsable
+\end{tabular}
+
+\begin{ejemplo}
+Ficha: \(n=1068\), muestreo aleatorio, 95\,\%, \(p=q=0{,}5\) \(\Rightarrow\) error máximo \(\pm3\)\,\%. Si el muestreo no es probabilístico, ese error no está justificado.
+\end{ejemplo}
+
+\seccion{11. Intervalos en la campana}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[mini,width=6.8cm,height=3.3cm,xmin=-3.6,xmax=3.6,ymin=0,ymax=0.45,xtick={-1.96,0,1.96},xticklabels={\(-z_{\alpha/2}\),\(0\),\(z_{\alpha/2}\)},tick label style={font=\tiny},xlabel={},ylabel={},axis y line=none]
+\addplot[name path=c,domain=-3.6:3.6]{exp(-x^2/2)/sqrt(2*pi)};
+\path[name path=ax] (axis cs:-3.6,0) -- (axis cs:3.6,0);
+\addplot[fill=acento!30,draw=none] fill between[of=c and ax,soft clip={domain=-1.96:1.96}];
+\addplot[fill=aviso!25,draw=none] fill between[of=c and ax,soft clip={domain=-3.6:-1.96}];
+\addplot[fill=aviso!25,draw=none] fill between[of=c and ax,soft clip={domain=1.96:3.6}];
+\node[font=\tiny] at (axis cs:0,0.15) {\(1-\alpha\)};
+\node[font=\tiny] at (axis cs:-2.7,0.06) {\(\alpha/2\)};
+\node[font=\tiny] at (axis cs:2.7,0.06) {\(\alpha/2\)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\begin{ejemplo}
+\textbf{Característico.} \(\mu=170\), \(\sigma=10\), \(n=25\), 95\,\%: el 95\,\% de las medias muestrales cae en \(170\pm1{,}96\cdot2=[166{,}08;\ 173{,}92]\).
+\end{ejemplo}
+\begin{ejemplo}
+\textbf{Efecto de la confianza.} Con \(\bar x=172\), \(\sigma=10\), \(n=100\): al 90\,\%, \(E=1{,}645\); al 95\,\%, \(E=1{,}96\); al 99\,\%, \(E=2{,}576\). Más confianza, intervalo más ancho.
+\end{ejemplo}
+
+\seccion{12. Problema inverso}
+Dado el intervalo \([170{,}04;\ 173{,}96]\) con \(\sigma=10\) y \(n=100\):
+\begin{itemize}
+  \item \(\bar x\) es el centro: \(\frac{170{,}04+173{,}96}2=172\).
+  \item \(E\) es la mitad de la amplitud: \(1{,}96\).
+  \item \(z_{\alpha/2}=\frac{E\sqrt n}{\sigma}=1{,}96\Rightarrow\) confianza del 95\,\%.
+\end{itemize}
+\begin{ejemplo}
+\textbf{Tamaño con información previa.} Una encuesta anterior dio \(p_0=0{,}3\). Para \(E_0=0{,}03\) al 95\,\%: \(n\ge\frac{1{,}96^2\cdot0{,}3\cdot0{,}7}{0{,}03^2}\approx896{,}4\Rightarrow n=897\), menos que los 1068 del caso conservador.
+\end{ejemplo}
+
+\seccion{13. Traducir el enunciado}
+\begin{tabular}{@{}p{3.6cm}p{4.2cm}@{}}
+\textbf{Enunciado} & \textbf{Qué hay que hacer}\\ \hline
+\guillemotleft{}Probabilidad de que la media de una muestra\ldots\guillemotright{} & Distribución de \(\bar X\)\\
+\guillemotleft{}Entre qué valores estará la media muestral\ldots\guillemotright{} & Intervalo característico\\
+\guillemotleft{}Estime con una confianza del\ldots\guillemotright{} & Intervalo de confianza\\
+\guillemotleft{}\textquestiondown{}Qué tamaño debe tener la muestra\ldots?\guillemotright{} & \(n\) mínimo, hacia arriba\\
+\guillemotleft{}Error máximo cometido\guillemotright{} & \(E=z_{\alpha/2}\sigma/\sqrt n\)
+\end{tabular}
+
+\seccion{14. Estrategia}
+\begin{enumerate}
+  \item \textquestiondown{}Se conoce el parámetro y se pregunta por las muestras? \(\to\) distribución muestral o intervalo característico.
+  \item \textquestiondown{}Se desconoce y se estima? \(\to\) intervalo de confianza.
+  \item \textquestiondown{}Se fija el error? \(\to\) tamaño de muestra, redondeando hacia arriba.
+  \item Interpreta el resultado en el contexto, con unidades.
+\end{enumerate}
+
+\begin{ojo}
+\begin{itemize}
+  \item Usar \(\sigma\) en lugar de \(\frac\sigma{\sqrt n}\) para la media muestral.
+  \item Redondear \(n\) hacia abajo.
+  \item Confundir el intervalo característico (centrado en \(\mu\)) con el de confianza (centrado en \(\bar x\)).
+  \item Elegir \(z=1{,}645\) para el 95\,\% bilateral.
+\end{itemize}
+\end{ojo}
+
+\end{multicols}
+\end{document}

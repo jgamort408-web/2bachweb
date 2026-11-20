@@ -1,0 +1,162 @@
+\documentclass[10pt]{article}
+\input{estilo-resumen.tex}
+\bloque{algebra}
+\begin{document}
+\cabecera{5}{Sistemas de ecuaciones}{Lecciones 5.1--5.11: sistemas lineales, soluciones, clasificación, notación matricial, sistemas equivalentes, teorema de Rouché-Frobenius, resolución por la inversa, Gauss y Cramer, sistemas homogéneos y discusión con parámetros.}
+\begin{multicols}{2}
+
+\seccion{1. Sistemas lineales y soluciones}
+\begin{formula}
+\[a_1x_1+a_2x_2+\cdots+a_nx_n=b\]
+\end{formula}
+Un sistema reúne varias ecuaciones lineales. Una \textbf{solución} es un valor de las incógnitas que cumple \textbf{todas} a la vez. Resolver es encontrar todas las soluciones (o justificar que no hay).
+\sub{Comprobar no es resolver:} una solución encontrada no prueba que sea la única.
+
+\seccion{2. Clasificación}
+\begin{center}
+\small\begin{tabular}{@{}l@{\ \ }l@{\ \ }l@{}}
+\textbf{Tipo} & \textbf{Soluciones} & \textbf{Dos rectas}\\ \hline
+SCD (compatible determinado) & Una & Secantes\\
+SCI (compatible indeterminado) & Infinitas & Coincidentes\\
+SI (incompatible) & Ninguna & Paralelas
+\end{tabular}
+\end{center}
+Un sistema lineal nunca tiene exactamente dos soluciones. En un SCI se expresan con parámetros: \(x+y=5\Rightarrow S=\{(t,\,5-t):t\in\mathbb R\}\).
+
+\seccion{3. Notación matricial}
+\begin{formula}
+\[AX=B,\qquad (A\,|\,B)=\text{matriz ampliada}\]
+\end{formula}
+\(A\): coeficientes; \(X\): incógnitas; \(B\): términos independientes.
+\begin{ejemplo}
+\[\begin{cases}x+y+z=6\\2x-y+z=3\\x+2y-z=2\end{cases}\iff \begin{pmatrix}1&1&1\\2&-1&1\\1&2&-1\end{pmatrix}\!\begin{pmatrix}x\\y\\z\end{pmatrix}=\begin{pmatrix}6\\3\\2\end{pmatrix}\]
+\end{ejemplo}
+
+\seccion{4. Sistemas equivalentes}
+Tienen las mismas soluciones. Transformaciones que lo conservan: intercambiar ecuaciones, multiplicar una ecuación por un número \(\ne0\), sumar a una ecuación un múltiplo de otra. Son la base del método de Gauss.
+
+\seccion{5. Teorema de Rouché-Frobenius}
+\begin{formula}
+Con \(n\) incógnitas:
+\[\operatorname{rg}(A)=\operatorname{rg}(A|B)=n\ \Rightarrow\ \text{SCD}\]
+\[\operatorname{rg}(A)=\operatorname{rg}(A|B)<n\ \Rightarrow\ \text{SCI}\]
+\[\operatorname{rg}(A)\ne\operatorname{rg}(A|B)\ \Rightarrow\ \text{SI}\]
+\end{formula}
+En un SCI hay \(n-\operatorname{rg}(A)\) parámetros libres.
+
+\seccion{6. Método de Gauss}
+Se escalona la matriz ampliada con transformaciones de filas y se resuelve de abajo arriba.
+\begin{ejemplo}
+\[\left(\begin{array}{rrr|r}1&1&1&6\\2&-1&1&3\\1&2&-1&2\end{array}\right)\xrightarrow[F_3-F_1]{F_2-2F_1}\left(\begin{array}{rrr|r}1&1&1&6\\0&-3&-1&-9\\0&1&-2&-4\end{array}\right)\]
+\[\xrightarrow{3F_3+F_2}\left(\begin{array}{rrr|r}1&1&1&6\\0&-3&-1&-9\\0&0&-7&-21\end{array}\right)\]
+\(z=3\), \(-3y-3=-9\Rightarrow y=2\), \(x=6-2-3=1\). SCD: \((1,2,3)\).
+\end{ejemplo}
+\sub{Al escalonar:} una fila \((0\ 0\ 0\,|\,k)\) con \(k\ne0\) indica SI; una fila de ceros \((0\ 0\ 0\,|\,0)\) se elimina y puede dar un SCI.
+
+\seccion{7. Regla de Cramer}
+Para un sistema con tantas ecuaciones como incógnitas y \(\Delta=\det(A)\ne0\) (SCD):
+\begin{formula}
+\[x_i=\frac{\Delta_i}{\Delta},\qquad \Delta_i=\det(A_i)\]
+\end{formula}
+\(A_i\) es \(A\) con la columna \(i\) sustituida por \(B\).
+\begin{ejemplo}
+En el sistema anterior, \(\Delta=7\) y
+\[\Delta_x=\begin{vmatrix}6&1&1\\3&-1&1\\2&2&-1\end{vmatrix}=7\Rightarrow x=\frac77=1.\]
+\end{ejemplo}
+
+\seccion{8. Resolución con la matriz inversa}
+\begin{formula}
+\[AX=B\ \Rightarrow\ X=A^{-1}B\qquad(\det A\ne0)\]
+\end{formula}
+\begin{ejemplo}
+\(\begin{cases}2x+y=3\\x+y=2\end{cases}\): \(A^{-1}=\begin{pmatrix}1&-1\\-1&2\end{pmatrix}\), \(X=A^{-1}\begin{pmatrix}3\\2\end{pmatrix}=\begin{pmatrix}1\\1\end{pmatrix}\).
+\end{ejemplo}
+
+\seccion{9. Sistemas homogéneos}
+Todos los términos independientes son 0: \(AX=O\). Siempre tienen la solución trivial \((0,\dots,0)\).
+\begin{formula}
+\(\det(A)\ne0\iff\) solo la solución trivial.\\
+\(\det(A)=0\iff\) infinitas soluciones (no triviales).
+\end{formula}
+\begin{ejemplo}
+\(\begin{cases}x+2y=0\\2x+4y=0\end{cases}\): \(\det A=0\), \(S=\{(-2t,\,t):t\in\mathbb R\}\).
+\end{ejemplo}
+
+\seccion{10. Discusión con parámetros}
+\begin{enumerate}
+  \item Calcula \(\det(A)\) y halla los valores que lo anulan.
+  \item Para el resto de valores: \(\operatorname{rg}(A)=\operatorname{rg}(A|B)=n\), SCD.
+  \item Para cada valor crítico, calcula \(\operatorname{rg}(A)\) y \(\operatorname{rg}(A|B)\) y aplica Rouché.
+\end{enumerate}
+\begin{ejemplo}
+\(\begin{cases}x+y=1\\2x+ky=m\end{cases}\): \(\det A=k-2\).
+\begin{itemize}
+  \item \(k\ne2\): SCD.
+  \item \(k=2\), \(m=2\): las ecuaciones son proporcionales, \(\operatorname{rg}(A)=\operatorname{rg}(A|B)=1<2\): SCI.
+  \item \(k=2\), \(m\ne2\): \(\operatorname{rg}(A)=1\ne2=\operatorname{rg}(A|B)\): SI.
+\end{itemize}
+\end{ejemplo}
+
+\seccion{11. Elegir el método}
+\begin{tabular}{@{}p{3.6cm}p{4.2cm}@{}}
+\textbf{Situación} & \textbf{Método}\\ \hline
+Discutir (cuántas soluciones) & Rangos y Rouché\\
+Resolver cualquier sistema & Gauss\\
+\(n\times n\) con \(\det A\ne0\), pocas incógnitas & Cramer o inversa\\
+Varios sistemas con la misma \(A\) & Inversa\\
+Parámetro en los coeficientes & \(\det A\), luego casos
+\end{tabular}
+
+\seccion{12. Planteamiento de problemas}
+Define las incógnitas con unidades, traduce cada condición en una ecuación, resuelve y \textbf{comprueba en el enunciado} que la solución tiene sentido (por ejemplo, cantidades enteras y no negativas).
+\begin{ejemplo}
+Entradas de adulto (\(x\)) e infantiles (\(y\)): 50 entradas y 380\,euros, a 10\,euros y 6\,euros.
+\(x+y=50\), \(10x+6y=380\Rightarrow x=20\), \(y=30\).
+\end{ejemplo}
+
+\seccion{13. Tres incógnitas: planos}
+Cada ecuación con tres incógnitas es un plano. SCD: los planos se cortan en un punto. SCI: tienen en común una recta (un parámetro) o un plano (dos parámetros). SI: no hay ningún punto común a los tres.
+
+\seccion{14. Discusión 3\texorpdfstring{\(\times\)}{x}3 resuelta}
+\[\begin{cases}x+y+z=2\\2x+3y+z=3\\kx+10y+4z=11\end{cases}\]
+\begin{enumerate}
+  \item \(\det A=\begin{vmatrix}1&1&1\\2&3&1\\k&10&4\end{vmatrix}=14-2k=0\iff k=7\).
+  \item \(k\ne7\): \(\operatorname{rg}(A)=\operatorname{rg}(A|B)=3\): SCD.
+  \item \(k=7\): \(\begin{vmatrix}1&1\\2&3\end{vmatrix}=1\ne0\Rightarrow\operatorname{rg}(A)=2\). La tercera ecuación es la primera más tres veces la segunda (también en los términos independientes: \(2+9=11\)), así que \(\operatorname{rg}(A|B)=2\): SCI.
+  \item Solución para \(k=7\): restando, \(y-z=-1\). Con \(z=t\): \(y=t-1\), \(x=3-2t\).
+\end{enumerate}
+\[S=\{(3-2t,\ t-1,\ t):t\in\mathbb R\}\]
+\begin{ejemplo}
+Otro determinante con parámetro: \(\begin{vmatrix}1&1&1\\1&k&1\\1&1&k\end{vmatrix}=(k-1)^2\). Con términos independientes \(1,2,3\): si \(k\ne1\), SCD; si \(k=1\), las dos primeras ecuaciones dicen \(x+y+z=1\) y \(x+y+z=2\): SI.
+\end{ejemplo}
+
+\seccion{15. Tres incógnitas en contexto}
+Una unidad de cada uno de tres productos cuesta 10 euros; dos de A y una de B, 8 euros; una de A y dos de C, 13 euros. Precios \(x,y,z\) en euros:
+\[\begin{cases}x+y+z=10\\2x+y=8\\x+2z=13\end{cases}\]
+Restando las dos primeras: \(x-z=-2\). Con la tercera: \(3x=9\Rightarrow x=3\); \(z=5\), \(y=2\). Comprobación: \(3+2+5=10\), \(6+2=8\), \(3+10=13\). A cuesta 3 euros, B 2 euros y C 5 euros.
+
+\seccion{16. Interpretar un SCI}
+En \(S=\{(3-2t,\ t-1,\ t)\}\), cada valor de \(t\) da una solución. Si las incógnitas son cantidades, se añaden condiciones: \(3-2t\ge0\), \(t-1\ge0\), \(t\ge0\Rightarrow1\le t\le1{,}5\). Si además deben ser enteras, solo queda \(t=1\): \((1,0,1)\).
+
+\seccion{17. Esquema final}
+\begin{tabular}{@{}p{3.3cm}p{4.5cm}@{}}
+\textbf{Si\ldots} & \textbf{Entonces\ldots}\\ \hline
+\(\det A\ne0\) (\(n\times n\)) & SCD; Cramer o inversa\\
+\(\det A=0\) & SCI o SI: comparar rangos\\
+\(\operatorname{rg}A=\operatorname{rg}(A|B)<n\) & SCI con \(n-\operatorname{rg}A\) parámetros\\
+\(\operatorname{rg}A<\operatorname{rg}(A|B)\) & SI\\
+Homogéneo & Siempre compatible
+\end{tabular}
+
+\begin{ojo}
+\begin{itemize}
+  \item Aplicar Cramer o la inversa con \(\det A=0\).
+  \item Concluir SI porque \(\det A=0\): también puede ser SCI.
+  \item En Gauss, operar solo en \(A\) y olvidar la columna de \(B\).
+  \item Dar un ejemplo de solución cuando se pide la familia completa.
+  \item Olvidar comprobar la solución en todas las ecuaciones.
+\end{itemize}
+\end{ojo}
+
+\end{multicols}
+\end{document}

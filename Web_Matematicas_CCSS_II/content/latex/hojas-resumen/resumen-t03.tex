@@ -1,0 +1,171 @@
+\documentclass[10pt]{article}
+\input{estilo-resumen.tex}
+\bloque{analisis}
+\begin{document}
+\cabecera{3}{Integrales}{Lecciones 3.1--3.8: integral indefinida, inmediatas, casi inmediatas, métodos de integración, integral definida, teorema fundamental del cálculo, regla de Barrow y aplicaciones al cálculo de áreas.}
+\begin{multicols}{2}
+
+\seccion{1. Primitiva e integral indefinida}
+\(F\) es una \textbf{primitiva} de \(f\) si \(F'(x)=f(x)\). Si \(F\) es una, todas son \(F+C\).
+\begin{formula}
+\[\int f(x)\,dx=F(x)+C,\qquad C\in\mathbb R\]
+\end{formula}
+\textbf{Comprobar siempre derivando}: la derivada del resultado debe ser el integrando.
+\sub{Linealidad.}
+\[\int\bigl(\alpha f+\beta g\bigr)\,dx=\alpha\!\int f\,dx+\beta\!\int g\,dx\]
+No hay regla para productos ni cocientes: \(\int fg\,dx\ne\int f\,dx\cdot\int g\,dx\).
+\begin{ejemplo}
+Primitiva de \(f(x)=6x-4\) con \(F(1)=3\): \(F(x)=3x^2-4x+C\), \(F(1)=-1+C=3\Rightarrow C=4\). \(F(x)=3x^2-4x+4\).
+\end{ejemplo}
+
+\seccion{2. Tabla de integrales}
+\(u=u(x)\) es la función interior y \(u'\) su derivada; la forma compuesta exige que \(u'\) aparezca como factor (salvo una constante).
+\begin{center}\renewcommand{\arraystretch}{1.75}\small
+\begin{tabular}{@{}l@{\ \ }l@{}}
+\textbf{Inmediata} & \textbf{Compuesta}\\ \hline
+\(\displaystyle\int k\,dx=kx+C\) & \\
+\(\displaystyle\int x^n\,dx=\frac{x^{n+1}}{n+1}+C\) & \(\displaystyle\int u'u^n\,dx=\frac{u^{n+1}}{n+1}+C\)\\
+\multicolumn{2}{@{}l}{\scriptsize (\(n\ne-1\); incluye raíces: \(\sqrt x=x^{1/2}\), \(\frac1{\sqrt x}=x^{-1/2}\))}\\
+\(\displaystyle\int\frac1x\,dx=\ln|x|+C\) & \(\displaystyle\int\frac{u'}u\,dx=\ln|u|+C\)\\
+\(\displaystyle\int e^x\,dx=e^x+C\) & \(\displaystyle\int u'e^u\,dx=e^u+C\)\\
+\(\displaystyle\int a^x\,dx=\frac{a^x}{\ln a}+C\) & \(\displaystyle\int u'a^u\,dx=\frac{a^u}{\ln a}+C\)\\
+\(\displaystyle\int\cos x\,dx=\sin x+C\) & \(\displaystyle\int u'\cos u\,dx=\sin u+C\)\\
+\(\displaystyle\int\sin x\,dx=-\cos x+C\) & \(\displaystyle\int u'\sin u\,dx=-\cos u+C\)
+\end{tabular}
+\end{center}
+\begin{formula}
+\textbf{Caso lineal} \(u=ax+b\), \(a\ne0\): se divide entre \(a\).
+\[\int(ax+b)^n\,dx=\frac{(ax+b)^{n+1}}{a(n+1)}+C\]
+\[\int\frac{dx}{ax+b}=\frac1a\ln|ax+b|+C,\qquad \int e^{ax+b}\,dx=\frac{e^{ax+b}}{a}+C\]
+\end{formula}
+
+\seccion{3. Integrales casi inmediatas}
+\begin{enumerate}
+  \item Identifica la función interior \(u\) y calcula \(u'\).
+  \item Si falta un \textbf{factor numérico}, multiplica y divide por él.
+  \item Aplica la fila de la tabla y comprueba derivando.
+\end{enumerate}
+\begin{ejemplo}
+\[\int x(x^2+1)^3\,dx=\frac12\int2x(x^2+1)^3\,dx=\frac{(x^2+1)^4}{8}+C\]
+\[\int\frac{5x}{x^2+4}\,dx=\frac52\ln(x^2+4)+C\]
+\[\int e^{2-3x}\,dx=-\frac13e^{2-3x}+C\]
+\end{ejemplo}
+\begin{ojo}
+Solo se ajustan \textbf{números}. \(\int e^{x^2}\,dx\) no es casi inmediata: falta el factor \(x\), que no es constante.
+\end{ojo}
+
+\seccion{4. Métodos de integración}
+\sub{Simplificar antes.} Desarrollar productos, dividir cada término entre el denominador, factorizar y cancelar (conservando el dominio).
+\begin{ejemplo}
+\[\int\frac{x^2+1}{x+1}\,dx=\int\Bigl(x-1+\frac2{x+1}\Bigr)dx\]
+\[=\frac{x^2}2-x+2\ln|x+1|+C\]
+\end{ejemplo}
+\sub{Cambio de variable.}
+\begin{formula}
+\[\int h(g(x))\,g'(x)\,dx=\int h(u)\,du=H(u)+C=H(g(x))+C\]
+\end{formula}
+Se escribe toda la integral en \(u\), incluido \(du\), y al final se vuelve a \(x\).
+\begin{ejemplo}
+\(\int x\sqrt{x^2+4}\,dx\): \(u=x^2+4\), \(du=2x\,dx\).
+\[\frac12\int u^{1/2}\,du=\frac12\cdot\frac{u^{3/2}}{3/2}+C=\frac13(x^2+4)^{3/2}+C\]
+\end{ejemplo}
+\sub{Por partes} (ampliación): \(\int u\,dv=uv-\int v\,du\). Por ejemplo, \(\int xe^x\,dx=(x-1)e^x+C\).
+
+\seccion{5. Integral definida}
+\(\int_a^bf(x)\,dx\) es el límite de las sumas de áreas de rectángulos (sumas de Riemann). Si \(f\ge0\) en \([a,b]\), es el área bajo la curva; si \(f\le0\), es el área con signo negativo.
+\sub{Propiedades.}
+\[\int_a^af=0,\qquad \int_b^af=-\int_a^bf,\qquad \int_a^bf=\int_a^cf+\int_c^bf\]
+\[\int_a^b(\alpha f+\beta g)=\alpha\int_a^bf+\beta\int_a^bg\]
+
+\seccion{6. Teorema fundamental y regla de Barrow}
+\begin{formula}
+\textbf{Teorema fundamental:} si \(f\) es continua,
+\[A(x)=\int_a^xf(t)\,dt\ \Longrightarrow\ A'(x)=f(x)\]
+\textbf{Regla de Barrow:} si \(F'=f\) en \([a,b]\),
+\[\int_a^bf(x)\,dx=\bigl[F(x)\bigr]_a^b=F(b)-F(a)\]
+\end{formula}
+No hace falta \(+C\): se cancela al restar.
+\begin{ejemplo}
+\(A(x)=\int_0^x(t^2+1)\,dt\Rightarrow A'(x)=x^2+1\), sin calcular la integral.
+\end{ejemplo}
+\begin{ejemplo}
+\[\int_1^3(3x^2-2x)\,dx=\bigl[x^3-x^2\bigr]_1^3=18-0=18\]
+\[\int_0^1e^{2x}\,dx=\Bigl[\frac{e^{2x}}2\Bigr]_0^1=\frac{e^2-1}2\approx3{,}19\]
+\end{ejemplo}
+
+\begin{ejemplo}
+Función a trozos: \(f(x)=x\) en \([0,1]\) y \(f(x)=1\) en \([1,2]\).
+\[\int_0^2f(x)\,dx=\int_0^1x\,dx+\int_1^2 1\,dx=\frac12+1=\frac32\]
+\end{ejemplo}
+
+\seccion{7. Cálculo de áreas}
+\begin{formula}
+\[A=\int_a^b|f(x)|\,dx,\qquad A=\int_a^b|f(x)-g(x)|\,dx\]
+\end{formula}
+\begin{enumerate}
+  \item Busca los \textbf{cortes} con el eje (\(f=0\)) o entre curvas (\(f=g\)).
+  \item Divide \([a,b]\) en esos puntos y estudia el \textbf{signo} en cada trozo (o qué curva va por encima).
+  \item Integra cada trozo y suma los \textbf{valores absolutos}.
+\end{enumerate}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[mini,width=6.6cm,height=3.8cm,xmin=-0.4,xmax=2.6,ymin=-0.4,ymax=4.8,title={Área entre \(y=2x\) e \(y=x^2\)}]
+\addplot[name path=f,domain=-0.2:2.4]{2*x};
+\addplot[name path=g,domain=-0.2:2.2,dashed]{x^2};
+\addplot[fill=acento!25,draw=none] fill between[of=f and g,soft clip={domain=0:2}];
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\begin{ejemplo}
+Cortes: \(x^2=2x\Rightarrow x=0,\ x=2\). En \(x=1\), \(2x=2>1=x^2\).
+\[A=\int_0^2(2x-x^2)\,dx=\Bigl[x^2-\frac{x^3}3\Bigr]_0^2=\frac43\ \text{u}^2\]
+\end{ejemplo}
+\begin{ejemplo}
+\(f(x)=x^2-4x+3\) en \([0,3]\): corta en 1 y 3; \(f>0\) en \((0,1)\), \(f<0\) en \((1,3)\). Con \(F=\frac{x^3}3-2x^2+3x\):
+\[A=\Bigl|F(1)-F(0)\Bigr|+\Bigl|F(3)-F(1)\Bigr|=\frac43+\frac43=\frac83\ \text{u}^2\]
+(\(\int_0^3f=0\): las partes se compensan; no es el área.)
+\end{ejemplo}
+
+\begin{ejemplo}
+Recinto entre \(y=4-x^2\) y el eje \(X\): cortes en \(x=\pm2\) y \(f\ge0\) entre ellos.
+\[A=\int_{-2}^{2}(4-x^2)\,dx=\Bigl[4x-\frac{x^3}3\Bigr]_{-2}^{2}=\frac{16}3+\frac{16}3=\frac{32}3\ \text{u}^2\]
+\end{ejemplo}
+
+\seccion{8. Aplicación en economía}
+Si se conoce la tasa marginal, la integral da la \textbf{variación total}:
+\[B(q_2)-B(q_1)=\int_{q_1}^{q_2}B'(q)\,dq\]
+\begin{ejemplo}
+\(B'(q)=40-2q\) miles de euros por centena. De 5 a 10 centenas: \(\int_5^{10}(40-2q)\,dq=\bigl[40q-q^2\bigr]_5^{10}=125\) miles de euros.
+\end{ejemplo}
+
+\seccion{9. Cómo elegir el método}
+\begin{tabular}{@{}p{3.2cm}p{4.6cm}@{}}
+\textbf{Si ves\ldots} & \textbf{Prueba\ldots}\\ \hline
+Suma de potencias & Linealidad y fila de la potencia\\
+Función interior y su derivada & Casi inmediata (ajusta números)\\
+\(\frac{u'}u\), salvo constante & Logaritmo \(\ln|u|\)\\
+Producto o potencia desarrollable & Desarrollar y simplificar\\
+Cociente de polinomios & Dividir o separar términos\\
+Raíz con interior y su derivada & Cambio de variable\\
+\(x\cdot e^x\), \(\ln x\) & Por partes (ampliación)
+\end{tabular}
+
+\seccion{10. Problema encadenado}
+\(f'(x)=2x-4\) y \(f(0)=3\). Halla \(f\) y el área entre su gráfica y el eje \(X\) en \([0,3]\).
+\begin{enumerate}
+  \item \(f(x)=\int(2x-4)\,dx=x^2-4x+C\); \(f(0)=C=3\Rightarrow f(x)=x^2-4x+3\).
+  \item Es la función del ejemplo de áreas: \(A=\frac83\) u\(^2\).
+\end{enumerate}
+
+\begin{ojo}
+\begin{itemize}
+  \item Olvidar \(+C\) en las indefinidas (no en las definidas).
+  \item \(\int\frac1x\,dx\) no es \(\frac{x^0}0\): es \(\ln|x|\).
+  \item Dividir mal en el caso lineal: \(\int e^{3x}dx=\frac{e^{3x}}3\), no \(3e^{3x}\).
+  \item Calcular un área con la integral de una función que cambia de signo.
+  \item En el cambio de variable, dejar \(dx\) mezclado con \(u\).
+\end{itemize}
+\end{ojo}
+
+\end{multicols}
+\end{document}

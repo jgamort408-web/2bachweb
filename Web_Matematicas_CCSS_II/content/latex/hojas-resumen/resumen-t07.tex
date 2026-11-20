@@ -1,0 +1,192 @@
+\documentclass[10pt]{article}
+\input{estilo-resumen.tex}
+\bloque{azar}
+\begin{document}
+\cabecera{7}{Probabilidad}{Lecciones 7.1--7.10: sucesos y regla de Laplace, álgebra de sucesos, tablas de contingencia, frecuencias, axiomas de Kolmogórov, propiedades, experimentos compuestos, probabilidad condicionada, probabilidad total y teorema de Bayes.}
+\begin{multicols}{2}
+
+\seccion{1. Experimentos y sucesos}
+\begin{itemize}
+  \item \textbf{Experimento aleatorio}: se conocen los resultados posibles, pero no cuál saldrá.
+  \item \textbf{Espacio muestral} \(\Omega\): todos los resultados. \textbf{Suceso}: subconjunto de \(\Omega\).
+  \item \textbf{Elemental} (un resultado), \textbf{seguro} (\(\Omega\)), \textbf{imposible} (\(\varnothing\)).
+\end{itemize}
+\begin{formula}
+\textbf{Regla de Laplace} (resultados \textbf{equiprobables}):
+\[P(A)=\frac{|A|}{|\Omega|}=\frac{\text{casos favorables}}{\text{casos posibles}}\]
+\end{formula}
+\begin{ejemplo}
+Un dado: \(P(\text{par})=\frac36=\frac12\). Dos dados: \(P(\text{suma }7)=\frac6{36}=\frac16\).
+\end{ejemplo}
+\begin{ojo}
+Laplace solo vale si los resultados son equiprobables: en una ruleta con sectores desiguales, no.
+\end{ojo}
+
+\seccion{2. Álgebra de sucesos}
+\begin{center}
+\begin{tikzpicture}[scale=0.62]
+\fill[acento!18] (0,0) circle (1.2);
+\fill[acento!18] (1.5,0) circle (1.2);
+\begin{scope}\clip (0,0) circle (1.2); \fill[acento!50] (1.5,0) circle (1.2);\end{scope}
+\draw[thick,acento] (0,0) circle (1.2) (1.5,0) circle (1.2);
+\draw (-1.8,-1.6) rectangle (3.3,1.6);
+\node at (-0.5,0) {\small \(A\)}; \node at (2,0) {\small \(B\)}; \node at (0.75,0) {\scriptsize \(A\!\cap\! B\)};
+\node at (2.9,1.25) {\small \(\Omega\)};
+\end{tikzpicture}
+\end{center}
+\begin{itemize}
+  \item \textbf{Unión} \(A\cup B\): ocurre \(A\) o \(B\) (o ambos). \textbf{Intersección} \(A\cap B\): ocurren los dos.
+  \item \textbf{Contrario} \(A^c\): no ocurre \(A\). \textbf{Diferencia} \(A-B=A\cap B^c\).
+  \item \textbf{Incompatibles}: \(A\cap B=\varnothing\) (no pueden ocurrir a la vez).
+\end{itemize}
+\begin{formula}
+\textbf{Leyes de De Morgan:}
+\[(A\cup B)^c=A^c\cap B^c,\qquad (A\cap B)^c=A^c\cup B^c\]
+\end{formula}
+\guillemotleft{}Ninguno de los dos\guillemotright{} \(=A^c\cap B^c=(A\cup B)^c\). \guillemotleft{}No ambos\guillemotright{} \(=(A\cap B)^c\). \guillemotleft{}Al menos uno\guillemotright{} \(=A\cup B\).
+
+\seccion{3. Frecuencias}
+\begin{formula}
+\[f_n(A)=\frac{n_A}{n},\qquad 0\le f_n(A)\le1\]
+\end{formula}
+\(n_A\): frecuencia absoluta (veces que ocurre \(A\) en \(n\) repeticiones). Al aumentar \(n\), la frecuencia relativa tiende a estabilizarse en torno a \(P(A)\) (ley de los grandes números). La probabilidad empírica se estima con datos; la teórica sale del modelo.
+
+\seccion{4. Axiomas de Kolmogórov}
+\begin{formula}
+1) \(P(A)\ge0\). \quad 2) \(P(\Omega)=1\).\\
+3) Si \(A\cap B=\varnothing\): \(P(A\cup B)=P(A)+P(B)\) (y para una sucesión de sucesos incompatibles dos a dos).
+\end{formula}
+
+\seccion{5. Propiedades}
+\begin{formula}
+\[P(A^c)=1-P(A),\qquad P(\varnothing)=0\]
+\[P(A\cup B)=P(A)+P(B)-P(A\cap B)\]
+\[P(A-B)=P(A)-P(A\cap B)\]
+\[A\subset B\ \Rightarrow\ P(A)\le P(B)\]
+\end{formula}
+\begin{ejemplo}
+\(P(A)=0{,}5\), \(P(B)=0{,}4\), \(P(A\cap B)=0{,}2\):
+\(P(A\cup B)=0{,}7\); ninguno: \(P(A^c\cap B^c)=1-0{,}7=0{,}3\); solo \(A\): \(0{,}5-0{,}2=0{,}3\).
+\end{ejemplo}
+\sub{Al menos uno:} mejor por el contrario. Al menos un 6 en tres tiradas: \(1-\bigl(\frac56\bigr)^3=\frac{91}{216}\approx0{,}42\).
+
+\seccion{6. Tablas de contingencia}
+Organizan dos características. Las probabilidades se leen dividiendo entre el total (o entre el total de una fila o columna si se condiciona).
+\begin{ejemplo}
+\[\begin{array}{l|cc|c}
+ & H & M & \text{Total}\\\hline
+F\ (\text{fuma}) & 20 & 10 & 30\\
+F^c & 30 & 40 & 70\\\hline
+\text{Total} & 50 & 50 & 100
+\end{array}\]
+\(P(F)=0{,}3\), \(P(F\cap H)=0{,}2\), \(P(F\mid H)=\frac{20}{50}=0{,}4\), \(P(H\mid F)=\frac{20}{30}=\frac23\).
+\end{ejemplo}
+
+\seccion{7. Probabilidad condicionada}
+\begin{formula}
+\[P(A\mid B)=\frac{P(A\cap B)}{P(B)},\qquad P(B)>0\]
+\textbf{Regla del producto:} \(P(A\cap B)=P(B)\,P(A\mid B)\).
+\end{formula}
+\(P(A\mid B)\) es la probabilidad de \(A\) \textbf{sabiendo que} ha ocurrido \(B\): el espacio se reduce a \(B\).
+\begin{ojo}
+\(P(A\mid B)\ne P(B\mid A)\) en general: en la tabla, \(0{,}4\ne\frac23\).
+\end{ojo}
+
+\seccion{8. Independencia}
+\begin{formula}
+\(A\) y \(B\) independientes \(\iff P(A\cap B)=P(A)\,P(B)\iff P(A\mid B)=P(A)\).
+\end{formula}
+En la tabla: \(P(F\cap H)=0{,}2\ne0{,}3\cdot0{,}5=0{,}15\): fumar y sexo \textbf{no} son independientes.
+\begin{ojo}
+Incompatibles \(\ne\) independientes. Si \(A\) y \(B\) son incompatibles con probabilidades positivas, \(P(A\cap B)=0\ne P(A)P(B)\): son dependientes.
+\end{ojo}
+
+\seccion{9. Experimentos compuestos: árboles}
+Las probabilidades de cada camino se \textbf{multiplican}; los caminos que forman un suceso se \textbf{suman}.
+\begin{ejemplo}
+Urna con 3 rojas y 2 azules; se sacan dos bolas.
+Con reemplazamiento: \(P(RR)=\frac35\cdot\frac35=\frac9{25}\).
+Sin reemplazamiento: \(P(RR)=\frac35\cdot\frac24=\frac3{10}\) (la segunda depende de la primera).
+\end{ejemplo}
+
+\seccion{10. Probabilidad total}
+Si \(A_1,\dots,A_n\) forman una \textbf{partición} de \(\Omega\) (incompatibles dos a dos y su unión es \(\Omega\)):
+\begin{formula}
+\[P(B)=\sum_{i=1}^{n}P(A_i)\,P(B\mid A_i)\]
+\end{formula}
+\begin{center}
+\begin{tikzpicture}[grow=right,level distance=1.9cm,level 1/.style={sibling distance=1.5cm},level 2/.style={sibling distance=0.7cm},every node/.style={font=\scriptsize}]
+\node {}
+  child {node {\(M_2\)}
+    child {node {\(D^c\)} edge from parent node[below] {0,95}}
+    child {node {\(D\)} edge from parent node[above] {0,05}}
+    edge from parent node[below] {0,4}}
+  child {node {\(M_1\)}
+    child {node {\(D^c\)} edge from parent node[below] {0,98}}
+    child {node {\(D\)} edge from parent node[above] {0,02}}
+    edge from parent node[above] {0,6}};
+\end{tikzpicture}
+\end{center}
+\begin{ejemplo}
+\(M_1\) fabrica el 60\,\% de las piezas (2\,\% defectuosas) y \(M_2\) el 40\,\% (5\,\% defectuosas).
+\[P(D)=0{,}6\cdot0{,}02+0{,}4\cdot0{,}05=0{,}012+0{,}02=0{,}032\]
+\end{ejemplo}
+
+\seccion{11. Teorema de Bayes}
+\begin{formula}
+\[P(A_i\mid B)=\frac{P(A_i)\,P(B\mid A_i)}{\sum_{j=1}^{n}P(A_j)\,P(B\mid A_j)}=\frac{P(A_i)\,P(B\mid A_i)}{P(B)}\]
+\end{formula}
+Invierte la condición: conocida la consecuencia \(B\), \textquestiondown{}qué probabilidad tiene cada causa \(A_i\)?
+\begin{ejemplo}
+Una pieza es defectuosa. \textquestiondown{}Probabilidad de que venga de \(M_2\)?
+\[P(M_2\mid D)=\frac{0{,}4\cdot0{,}05}{0{,}032}=\frac{0{,}02}{0{,}032}=0{,}625\]
+\(M_2\) fabrica el 40\,\%, pero aporta el 62,5\,\% de los defectos.
+\end{ejemplo}
+
+\seccion{12. Bayes con una prueba diagnóstica}
+Ejemplo ficticio: el 1\,\% de una población tiene una enfermedad \(E\). La prueba da positivo en el 95\,\% de los enfermos y en el 5\,\% de los sanos.
+\[P(+)=0{,}01\cdot0{,}95+0{,}99\cdot0{,}05=0{,}0095+0{,}0495=0{,}059\]
+\[P(E\mid +)=\frac{0{,}0095}{0{,}059}\approx0{,}161\]
+Solo un 16\,\% de los positivos están enfermos: como la enfermedad es poco frecuente, la mayoría de los positivos vienen de los muchos sanos. \(P(+\mid E)=0{,}95\) y \(P(E\mid +)\approx0{,}16\) son preguntas distintas.
+
+\seccion{13. De porcentajes a una tabla}
+En un centro, el 60\,\% son chicas; el 20\,\% de las chicas y el 30\,\% de los chicos hacen deporte federado. Sobre 100 personas:
+\[\begin{array}{l|cc|c}
+ & \text{Chica} & \text{Chico} & \text{Total}\\\hline
+D & 12 & 12 & 24\\
+D^c & 48 & 28 & 76\\\hline
+\text{Total} & 60 & 40 & 100
+\end{array}\]
+\(P(D)=0{,}24\) (probabilidad total) y \(P(\text{Chica}\mid D)=\frac{12}{24}=0{,}5\) (Bayes), sin fórmulas: leyendo la tabla.
+
+\seccion{14. Traducir expresiones}
+\begin{tabular}{@{}p{3.2cm}p{4.6cm}@{}}
+\textbf{Enunciado} & \textbf{Suceso y probabilidad}\\ \hline
+Al menos uno & \(A\cup B\)\\
+Ambos & \(A\cap B\)\\
+Ninguno & \((A\cup B)^c\): \(1-P(A\cup B)\)\\
+Solo \(A\) & \(A\cap B^c\): \(P(A)-P(A\cap B)\)\\
+Exactamente uno & \(P(A)+P(B)-2P(A\cap B)\)\\
+No ambos & \((A\cap B)^c\): \(1-P(A\cap B)\)\\
+\(A\) sabiendo \(B\) & \(P(A\mid B)\)
+\end{tabular}
+
+\seccion{15. Estrategia}
+\begin{enumerate}
+  \item Nombra los sucesos con letras y traduce el enunciado (\guillemotleft{}sabiendo que\guillemotright{} \(\to\) condicionada).
+  \item Elige la herramienta: tabla, árbol, Laplace o fórmulas.
+  \item \textquestiondown{}Pide una causa conocida la consecuencia? \(\to\) Bayes.
+  \item Comprueba: probabilidades entre 0 y 1; las de cada nudo del árbol suman 1.
+\end{enumerate}
+
+\begin{ojo}
+\begin{itemize}
+  \item Sumar \(P(A)+P(B)\) sin restar la intersección.
+  \item Confundir \(P(A\cap B)\) con \(P(A\mid B)\).
+  \item Multiplicar probabilidades de sucesos que no son independientes sin condicionar.
+  \item Olvidar que sin reemplazamiento cambian las probabilidades.
+\end{itemize}
+\end{ojo}
+
+\end{multicols}
+\end{document}

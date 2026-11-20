@@ -1,0 +1,71 @@
+% Hojas resumen: un A4 por delante y por detrás, dos columnas por cara.
+% Uso: \documentclass[10pt]{article} \input{estilo-resumen.tex} \bloque{analisis|algebra|azar} \cabecera{n}{Título}{Lecciones}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage[a4paper,left=10mm,right=10mm,top=15mm,bottom=13mm,headheight=11pt,headsep=3mm,footskip=6mm]{geometry}
+\usepackage{multicol}
+\setlength{\columnsep}{6mm}
+\setlength{\columnseprule}{0.3pt}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=1.1em,itemsep=1pt}
+\usepackage{array}
+\usepackage{needspace}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.18,
+  mini/.style={width=4.3cm,height=3.3cm,scale only axis=false,axis lines=middle,xtick=\empty,ytick=\empty,samples=120,
+    xlabel={\scriptsize$x$},ylabel={\scriptsize$y$},title style={font=\scriptsize,yshift=-4pt},clip=true,
+    every axis plot/.append style={thick,color=acento}}}
+\usepackage{ragged2e}
+\usepackage[most]{tcolorbox}
+\usepackage{fancyhdr,lastpage}
+\usepackage[hidelinks,pdfencoding=auto]{hyperref}
+\hypersetup{pdflang=es-ES,pdfsubject={Matemáticas Aplicadas a las Ciencias Sociales II}}
+
+\definecolor{analisis}{HTML}{1D4ED8}
+\definecolor{algebra}{HTML}{86198F}
+\definecolor{azar}{HTML}{9A3412}
+\definecolor{aviso}{HTML}{B91C1C}
+\colorlet{acento}{analisis}
+\newcommand{\bloque}[1]{\colorlet{acento}{#1}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\renewcommand{\arraystretch}{1.2}
+\AtBeginDocument{\RaggedRight\fontsize{9.8}{11.9}\selectfont\setlength{\abovedisplayskip}{3pt}\setlength{\belowdisplayskip}{3pt}\setlength{\abovedisplayshortskip}{1pt}\setlength{\belowdisplayshortskip}{1pt}}
+
+\newcommand{\temanum}{}\newcommand{\tematitulo}{}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\color{acento}\textbf{Hoja resumen}\quad Tema \temanum. \tematitulo}
+\fancyhead[R]{\footnotesize Matemáticas Aplicadas a las Ciencias Sociales II --- 2.\textsuperscript{o} Bachillerato}
+\fancyfoot[L]{\scriptsize IES Al-Ándalus --- Juan María Gámez Ortiz, con la ayuda de Claude y de Codex --- CC BY-NC 4.0}
+\fancyfoot[R]{\scriptsize Cara \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Cabecera de la primera cara: número, título y lecciones del tema.
+\newcommand{\cabecera}[3]{%
+  \renewcommand{\temanum}{#1}\renewcommand{\tematitulo}{#2}%
+  \hypersetup{pdftitle={Hoja resumen. Tema #1. #2}}%
+  \noindent\begin{tcolorbox}[enhanced,colback=acento!8,colframe=acento,boxrule=0.6pt,arc=2pt,left=4pt,right=4pt,top=2pt,bottom=2pt]
+  \begin{minipage}[c]{1.1cm}\includegraphics[width=1cm]{logo-al-andalus.png}\end{minipage}%
+  \begin{minipage}[c]{\dimexpr\linewidth-1.2cm}{\large\bfseries\color{acento}Tema #1. #2}\\[1pt]{\scriptsize #3}\end{minipage}
+  \end{tcolorbox}\vspace{-2pt}}
+
+% Apartado con filete del color del bloque.
+\newcommand{\seccion}[1]{\par\needspace{5\baselineskip}\vspace{3pt}{\color{acento}\bfseries\normalsize #1}\par\vspace{-1pt}{\color{acento}\hrule height 0.5pt}\vspace{2pt}}
+\newcommand{\sub}[1]{\par\needspace{3\baselineskip}\vspace{1pt}\textbf{\color{acento}#1}\enspace}
+
+% Fórmula clave, aviso de errores y ejemplo.
+\tcbset{before upper=\RaggedRight}
+\newtcolorbox{formula}{enhanced,colback=acento!6,colframe=acento!70,boxrule=0.5pt,arc=1.5pt,left=3pt,right=3pt,top=0pt,bottom=0pt,before skip=2pt,after skip=2pt}
+\newtcolorbox{ojo}{enhanced,colback=aviso!5,colframe=aviso!60,boxrule=0.5pt,arc=1.5pt,left=3pt,right=3pt,top=1pt,bottom=1pt,before skip=3pt,after skip=2pt,
+  fonttitle=\bfseries\footnotesize,coltitle=aviso,colbacktitle=aviso!5,title={Ojo},attach title to upper={\enspace}}
+\newtcolorbox{ejemplo}{enhanced,colback=white,colframe=acento!45,boxrule=0.4pt,arc=1.5pt,left=3pt,right=3pt,top=1pt,bottom=1pt,before skip=3pt,after skip=2pt,
+  fonttitle=\bfseries\footnotesize,coltitle=acento,colbacktitle=white,title={Ejemplo},attach title to upper={\enspace}}
+\newcommand{\dx}{\,dx}

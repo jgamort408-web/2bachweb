@@ -1,0 +1,179 @@
+\documentclass[10pt]{article}
+\input{estilo-resumen.tex}
+\bloque{analisis}
+\begin{document}
+\cabecera{1}{Límites y derivadas}{Lecciones 1.1--1.18: límites, operaciones con el infinito, indeterminaciones, continuidad, derivada, rectas tangente y normal, tabla y reglas de derivación, regla de L'Hôpital.}
+\begin{multicols}{2}
+
+\seccion{1. Límite de una función}
+\(\lim_{x\to a}f(x)=L\) significa que \(f(x)\) se acerca a \(L\) cuando \(x\) se acerca a \(a\), sin tomar \(x=a\). El valor \(f(a)\) no interviene: puede no existir o ser distinto de \(L\).
+\begin{formula}
+\[\lim_{x\to a}f(x)=L\iff \underbrace{\lim_{x\to a^-}f(x)}_{L_-}=\underbrace{\lim_{x\to a^+}f(x)}_{L_+}=L.\]
+\end{formula}
+\sub{Laterales.} Imprescindibles en funciones a trozos, en valores absolutos y cuando un denominador se anula: el signo puede ser distinto a cada lado.
+\begin{ejemplo}
+\[f(x)=\begin{cases}x+1,&x<2\\ x^2-1,&x\ge2\end{cases}\]
+\(\lim_{x\to2^-}f=3\) y \(\lim_{x\to2^+}f=3\), así que \(\lim_{x\to2}f(x)=3\).
+\end{ejemplo}
+
+\seccion{2. Operaciones con el infinito}
+\begin{tabular}{@{}ll@{}}
+\(\infty+\infty=\infty\), \(\;k\pm\infty=\pm\infty\) & \(\infty\cdot\infty=\infty\)\\
+\(k\cdot\infty=\pm\infty\) \((k\ne0)\) & \(\dfrac{k}{\pm\infty}=0\)\\
+\(\dfrac{k}{0}=\pm\infty\) \((k\ne0\); signo por laterales\()\) & \(\dfrac{\infty}{k}=\pm\infty\)\\
+\(a^{+\infty}=+\infty\) si \(a>1\); \(\;=0\) si \(0\le a<1\) & \(\infty^{k}=\infty\) \((k>0)\)
+\end{tabular}
+\begin{formula}
+\textbf{Indeterminaciones:}
+\[\frac00,\quad \frac\infty\infty,\quad \infty-\infty,\quad 0\cdot\infty,\quad 1^\infty,\quad 0^0,\quad \infty^0\]
+\end{formula}
+Una indeterminación no es un resultado: hay que transformar la expresión.
+
+\seccion{3. Cálculo de límites}
+\begin{enumerate}
+  \item \textbf{Sustituir.} Si sale un número, ese es el límite.
+  \item \(\dfrac k0\): estudiar el signo de cada lateral \(\Rightarrow\pm\infty\).
+  \item \(\dfrac00\) con polinomios: \textbf{factorizar} y simplificar \((x-a)\).
+  \item \(\dfrac00\) con raíces: multiplicar por el \textbf{conjugado}.
+  \item \(\dfrac\infty\infty\) con polinomios (\(x\to\pm\infty\)): comparar \textbf{grados}.
+  \item \(\infty-\infty\): común denominador o conjugado.
+  \item \(1^\infty\): \(\lim f^g=e^{\lim g\,(f-1)}\).
+\end{enumerate}
+\begin{formula}
+\(\displaystyle\lim_{x\to\pm\infty}\frac{a_nx^n+\cdots}{b_mx^m+\cdots}=\begin{cases}\pm\infty & n>m\ (\text{signo}),\\[1pt] \dfrac{a_n}{b_m} & n=m,\\[4pt] 0 & n<m.\end{cases}\)
+\end{formula}
+\begin{ejemplo}
+\[\lim_{x\to2}\frac{x^2-4}{x-2}=\Bigl[\frac00\Bigr]=\lim_{x\to2}\frac{(x-2)(x+2)}{x-2}=4.\]
+\[\lim_{x\to+\infty}\bigl(\sqrt{x^2+x}-x\bigr)=\lim_{x\to+\infty}\frac{x}{\sqrt{x^2+x}+x}=\frac12.\]
+\[\lim_{x\to+\infty}\Bigl(1+\frac2x\Bigr)^{x}=[1^\infty]=e^{\lim x\cdot\frac2x}=e^2.\]
+\end{ejemplo}
+\sub{Crecimiento en \(+\infty\).} \(\ln x\ll x^n\ll e^x\ (n>0)\): por ejemplo, \(\lim\frac{x^3}{e^x}=0\) y \(\lim\frac{\ln x}{x}=0\).
+
+\seccion{4. Asíntotas}
+\begin{itemize}
+  \item \textbf{Vertical} \(x=a\): algún lateral \(\lim_{x\to a^\pm}f(x)=\pm\infty\). Candidatos: ceros del denominador, borde del dominio del logaritmo.
+  \item \textbf{Horizontal} \(y=L\): \(\lim_{x\to\pm\infty}f(x)=L\) (finito). Se estudia en \(+\infty\) y en \(-\infty\).
+  \item \textbf{Oblicua} \(y=mx+n\): \(m=\lim\dfrac{f(x)}x\ne0\) finito, \(n=\lim\bigl(f(x)-mx\bigr)\). No coexiste con una horizontal en el mismo lado.
+\end{itemize}
+\begin{ejemplo}
+\(f(x)=\dfrac{2x+1}{x-3}\). Como \(\lim_{x\to3^\pm}f=\pm\infty\), hay asíntota vertical \(x=3\). Como \(\lim_{x\to\pm\infty}f=2\), hay asíntota horizontal \(y=2\).
+\end{ejemplo}
+
+\seccion{5. Continuidad}
+\begin{formula}
+\(f\) es continua en \(a\iff\) existe \(f(a)\), existe \(\lim_{x\to a}f(x)\) y \(\lim_{x\to a^-}f=\lim_{x\to a^+}f=f(a).\)
+\end{formula}
+\textbf{Discontinuidades:} \emph{evitable} (el límite existe pero no coincide con \(f(a)\) o no existe \(f(a)\)); \emph{de salto finito} (laterales finitos y distintos); \emph{de salto infinito} (algún lateral infinito).
+Polinomios, exponenciales, \(\sin\), \(\cos\) son continuas en \(\mathbb R\); racionales y logaritmos, en su dominio. En funciones a trozos se estudian los puntos de unión.
+\begin{ejemplo}
+\[f(x)=\begin{cases}x^2+k,&x<1\\ 3x,&x\ge1\end{cases}\]
+es continua en 1 si \(1+k=3\), es decir, \(k=2\).
+\end{ejemplo}
+
+\seccion{6. La derivada}
+\begin{formula}
+\[\operatorname{TVM}_{[a,a+h]}=\frac{f(a+h)-f(a)}h\]
+\[f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}h\]
+\end{formula}
+\(f'(a)\) es la \textbf{pendiente de la recta tangente} y la \textbf{tasa de variación instantánea}. \(f\) es derivable en \(a\) si \(f'(a^-)=f'(a^+)\) (derivadas laterales finitas e iguales).
+\begin{ojo}
+Derivable \(\Rightarrow\) continua, pero no al revés: \(|x|\) es continua en 0 y no derivable (pico: \(f'(0^-)=-1\ne1=f'(0^+)\)). Si no es continua, no es derivable.
+\end{ojo}
+
+\seccion{7. Rectas tangente y normal en \(x=a\)}
+\begin{formula}
+\[\text{Tangente: }\ y-f(a)=f'(a)\,(x-a)\]
+\[\text{Normal: }\ y-f(a)=-\frac1{f'(a)}\,(x-a)\]
+\end{formula}
+Pasos: \(f(a)\), \(f'(x)\), \(f'(a)\) y sustituir. Si \(f'(a)=0\), la tangente es horizontal \(y=f(a)\) y la normal es vertical \(x=a\).
+\begin{ejemplo}
+\(f(x)=x^2-3x\) en \(a=1\): \(f(1)=-2\), \(f'(x)=2x-3\), \(f'(1)=-1\).
+Tangente: \(y+2=-(x-1)\), es decir, \(y=-x-1\). Normal: \(y+2=x-1\), es decir, \(y=x-3\).
+\end{ejemplo}
+
+\seccion{8. Tabla de derivadas}
+\begin{tabular}{@{}l@{\ \ }l@{}}
+\textbf{Función} & \textbf{Compuesta} (\(u=u(x)\))\\ \hline
+\((k)'=0\) & \\
+\((x^n)'=nx^{n-1}\) & \((u^n)'=n\,u^{n-1}u'\)\\
+\((\sqrt x)'=\dfrac1{2\sqrt x}\) & \((\sqrt u)'=\dfrac{u'}{2\sqrt u}\)\\
+\((e^x)'=e^x\) & \((e^u)'=u'\,e^u\)\\
+\((a^x)'=a^x\ln a\) & \((a^u)'=u'\,a^u\ln a\)\\
+\((\ln x)'=\dfrac1x\) & \((\ln u)'=\dfrac{u'}u\)\\
+\((\log_a x)'=\dfrac1{x\ln a}\) & \((\log_a u)'=\dfrac{u'}{u\ln a}\)\\
+\((\sin x)'=\cos x\) & \((\sin u)'=u'\cos u\)\\
+\((\cos x)'=-\sin x\) & \((\cos u)'=-u'\sin u\)\\
+\((\operatorname{tg}x)'=\dfrac1{\cos^2x}\) & \((\operatorname{tg}u)'=\dfrac{u'}{\cos^2u}\)
+\end{tabular}
+
+\seccion{9. Reglas de derivación}
+\begin{formula}
+\((f\pm g)'=f'\pm g'\qquad (k f)'=k f'\qquad (fg)'=f'g+fg'\)\\[2pt]
+\(\Bigl(\dfrac fg\Bigr)'=\dfrac{f'g-fg'}{g^2}\ (g\ne0)\qquad \bigl(F(g(x))\bigr)'=F'(g(x))\,g'(x)\)
+\end{formula}
+\textbf{Regla de la cadena:} se deriva la función exterior evaluada en la interior y se multiplica por la derivada de la interior.
+\begin{ejemplo}
+\[\Bigl(\frac{x^2}{x+1}\Bigr)'=\frac{2x(x+1)-x^2}{(x+1)^2}=\frac{x^2+2x}{(x+1)^2}\]
+\[(x\ln x)'=\ln x+1,\qquad \bigl(\ln(x^2+1)\bigr)'=\frac{2x}{x^2+1}\]
+\end{ejemplo}
+\begin{ejemplo}
+\[\bigl((x^2+1)^3\bigr)'=3(x^2+1)^2\cdot2x=6x(x^2+1)^2\]
+\[\bigl(e^{-x^2}\bigr)'=-2x\,e^{-x^2}\]
+\end{ejemplo}
+
+\sub{Derivabilidad de una función a trozos.} Primero continuidad en el punto de unión; después, derivadas laterales iguales.
+\begin{ejemplo}
+\[f(x)=\begin{cases}x^2,&x\le1\\ 2x-1,&x>1\end{cases}\]
+Es continua (los dos trozos valen 1) y las derivadas laterales coinciden, \(f'(1^-)=f'(1^+)=2\): derivable en 1.
+\end{ejemplo}
+
+\seccion{10. Regla de L'Hôpital}
+\begin{formula}
+Si \(\lim\frac{f}{g}\) da \(\frac00\) o \(\frac\infty\infty\) y existe \(\lim\frac{f'}{g'}\):
+\[\lim\frac{f(x)}{g(x)}=\lim\frac{f'(x)}{g'(x)}\]
+\end{formula}
+Se derivan \textbf{numerador y denominador por separado} (no es la derivada del cociente). Se puede repetir si sigue indeterminado. \(0\cdot\infty\) e \(\infty-\infty\) se transforman antes en cociente.
+\begin{ejemplo}
+\[\lim_{x\to0}\frac{e^x-1}{x}=\Bigl[\frac00\Bigr]=\lim_{x\to0}\frac{e^x}{1}=1\]
+\[\lim_{x\to0}\frac{1-\cos x}{x^2}=\lim_{x\to0}\frac{\sin x}{2x}=\lim_{x\to0}\frac{\cos x}{2}=\frac12\]
+\[\lim_{x\to+\infty}\frac{x^2}{e^x}=\lim\frac{2x}{e^x}=\lim\frac{2}{e^x}=0\]
+\end{ejemplo}
+
+\seccion{11. La derivada en economía}
+La derivada mide la \textbf{variación instantánea}. Si \(C(q)\) es el coste de producir \(q\) unidades, \(C'(q)\) es el \textbf{coste marginal}: aproxima el coste de producir una unidad más. Igual con ingreso \(I'(q)\) y beneficio \(B'(q)=I'(q)-C'(q)\).
+\begin{ejemplo}
+\(C(q)=q^2+10q+50\) euros: \(C'(q)=2q+10\), \(C'(20)=50\). Con 20 unidades, la siguiente cuesta unos 50\,euros (exactamente, \(C(21)-C(20)=51\)).
+\end{ejemplo}
+
+\seccion{12. Ejercicio guiado: parámetros}
+Halla \(a\) y \(b\) para que sea derivable en \(x=1\):
+\[f(x)=\begin{cases}ax^2+1,&x\le1\\ bx+3,&x>1\end{cases}\]
+\begin{enumerate}
+  \item \textbf{Continuidad:} \(\lim_{x\to1^-}f=a+1\), \(\lim_{x\to1^+}f=b+3\Rightarrow a+1=b+3\).
+  \item \textbf{Derivadas laterales:} \(f'(1^-)=2a\), \(f'(1^+)=b\Rightarrow 2a=b\).
+  \item \textbf{Resolver:} \(a+1=2a+3\Rightarrow a=-2\), \(b=-4\).
+  \item \textbf{Comprobar:} \(f(1)=-1\) por ambos lados y \(f'(1)=-4\) por ambos lados.
+\end{enumerate}
+
+\seccion{13. Estrategia ante un límite}
+\begin{enumerate}
+  \item Sustituye y clasifica el resultado: número, \(\frac k0\) o indeterminación.
+  \item Elige la herramienta según el tipo (apartado 3) o L'Hôpital.
+  \item Si \(x\to a\) con cambio de signo o trozos, calcula los laterales.
+  \item Interpreta: asíntota vertical, horizontal, continuidad\ldots
+\end{enumerate}
+
+\begin{ojo}
+\begin{itemize}
+  \item \(\frac00\) no vale 0 ni 1: es una indeterminación.
+  \item \(\frac k0\) exige mirar el signo a cada lado.
+  \item \((fg)'\ne f'g'\) y \(\bigl(\frac fg\bigr)'\ne\frac{f'}{g'}\).
+  \item Olvidar \(u'\) en la regla de la cadena.
+  \item Aplicar L'Hôpital sin comprobar que hay \(\frac00\) o \(\frac\infty\infty\).
+  \item Estudiar solo la continuidad en la unión de trozos y olvidar las derivadas laterales.
+  \item Escribir la normal con la misma pendiente que la tangente.
+\end{itemize}
+\end{ojo}
+
+\end{multicols}
+\end{document}
