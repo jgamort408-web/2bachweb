@@ -50,9 +50,11 @@ test('visibilidad: registra todas las páginas y actividades con IDs estables y 
   // 193 entidades de partida + 11 páginas de Selectividad (P08 y los generadores de P09 y P10), un grupo de soluciones por tema y una entidad por solución.
   // Aplicación instalable (Q01): instalar.html y offline.html. Presentaciones de clase: una por tema (P11).
   const decks = readConfig('pages').filter(page => page.path.endsWith('/presentacion.html')).length;
-  const appPages = 2 + decks;
+  // Página «Para imprimir» (materiales/index.html) y su material de estudio en PDF (kind 'study').
+  const study = readConfig('resources').resources.filter(resource => resource.kind === 'study').length;
+  const appPages = 2 + decks + 1;
   const selectividad = readConfig('selectividad');
-  assert.equal(catalog.entities.length, 193 + 11 + appPages + selectividad.topics.length + selectividad.solutions.length
+  assert.equal(catalog.entities.length, 193 + 11 + study + appPages + selectividad.topics.length + selectividad.solutions.length
     + expectedCatalog.questions + expectedCatalog.cards);
   assert.equal(catalog.entities.filter(e => e.id.startsWith('page:')).length, 156 + appPages);
   assert.equal(catalog.entities.filter(e => e.kind === 'widget').length, 28);
@@ -69,7 +71,8 @@ test('visibilidad: registra todas las páginas y actividades con IDs estables y 
   assert.deepEqual(published.entries, Object.fromEntries(selectividad.topics.map(topic =>
     ['group:selectividad-soluciones-' + topic.topicId, { visibility: 'visible' }])));
   const resources = readConfig('resources').resources;
-  assert.equal(resources.length, 48);
+  assert.equal(resources.filter(resource => ['exam', 'solution'].includes(resource.kind)).length, 48);
+  assert.equal(study, 11);
   const solution = catalog.entities.find(e => e.id === 'resource:recuperacion-t1-soluciones');
   assert.equal(solution.solutionOf, 'resource:recuperacion-t1-examen');
   assert.ok(solution.requires.includes(solution.solutionOf));

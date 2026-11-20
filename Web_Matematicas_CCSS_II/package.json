@@ -125,6 +125,7 @@
     "test:admin-browser": "node tests/visibility-panel-159-browser.cjs",
     "test:exam-library": "node tests/exam-library-160-browser.cjs",
     "build:exams": "node scripts/build-exams.mjs",
+    "build:materials": "node scripts/build-materials.mjs",
     "build:glossary": "node scripts/build-glossary.mjs",
     "build:formulas": "node scripts/build-formulas.mjs",
     "build:selectividad": "node scripts/build-selectividad.mjs",
@@ -138,6 +139,7 @@
     "test:enlaces": "node tests/enlaces-contenido-172-browser.cjs",
     "test:pl-exploradores": "node tests/programacion-lineal-exploradores-173-browser.cjs",
     "test:distribuciones-exploradores": "node tests/distribuciones-exploradores-174-browser.cjs",
+    "test:para-imprimir": "node tests/para-imprimir-175-browser.cjs",
     "build:app-icons": "node scripts/build-app-icons.mjs"
   },
   "devDependencies": {

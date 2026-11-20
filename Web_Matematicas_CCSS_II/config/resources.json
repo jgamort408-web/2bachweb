@@ -777,6 +777,126 @@
       ],
       "reviewStatus": "reviewed",
       "examId": "subida-nota-curso-examen"
+    },
+    {
+      "id": "hoja-resumen-t01",
+      "title": "Hoja resumen · Tema 1. Límites y derivadas",
+      "path": "materiales/pdf/hoja-resumen-t01.pdf",
+      "kind": "study",
+      "topicId": "t01",
+      "tags": [
+        "hoja-resumen"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "hoja-resumen-t02",
+      "title": "Hoja resumen · Tema 2. Representación de funciones",
+      "path": "materiales/pdf/hoja-resumen-t02.pdf",
+      "kind": "study",
+      "topicId": "t02",
+      "tags": [
+        "hoja-resumen"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "hoja-resumen-t03",
+      "title": "Hoja resumen · Tema 3. Integrales",
+      "path": "materiales/pdf/hoja-resumen-t03.pdf",
+      "kind": "study",
+      "topicId": "t03",
+      "tags": [
+        "hoja-resumen"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "hoja-resumen-t04",
+      "title": "Hoja resumen · Tema 4. Matrices y determinantes",
+      "path": "materiales/pdf/hoja-resumen-t04.pdf",
+      "kind": "study",
+      "topicId": "t04",
+      "tags": [
+        "hoja-resumen"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "hoja-resumen-t05",
+      "title": "Hoja resumen · Tema 5. Sistemas de ecuaciones",
+      "path": "materiales/pdf/hoja-resumen-t05.pdf",
+      "kind": "study",
+      "topicId": "t05",
+      "tags": [
+        "hoja-resumen"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "hoja-resumen-t06",
+      "title": "Hoja resumen · Tema 6. Programación lineal",
+      "path": "materiales/pdf/hoja-resumen-t06.pdf",
+      "kind": "study",
+      "topicId": "t06",
+      "tags": [
+        "hoja-resumen"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "hoja-resumen-t07",
+      "title": "Hoja resumen · Tema 7. Probabilidad",
+      "path": "materiales/pdf/hoja-resumen-t07.pdf",
+      "kind": "study",
+      "topicId": "t07",
+      "tags": [
+        "hoja-resumen"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "hoja-resumen-t08",
+      "title": "Hoja resumen · Tema 8. Distribuciones de probabilidad",
+      "path": "materiales/pdf/hoja-resumen-t08.pdf",
+      "kind": "study",
+      "topicId": "t08",
+      "tags": [
+        "hoja-resumen"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "hoja-resumen-t09",
+      "title": "Hoja resumen · Tema 9. Inferencia estadística",
+      "path": "materiales/pdf/hoja-resumen-t09.pdf",
+      "kind": "study",
+      "topicId": "t09",
+      "tags": [
+        "hoja-resumen"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "hojas-resumen-todas",
+      "title": "Hojas resumen · Los nueve temas",
+      "path": "materiales/pdf/hojas-resumen-todas.pdf",
+      "kind": "study",
+      "tags": [
+        "hoja-resumen"
+      ],
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "relacion-integrales-guiada",
+      "title": "Relación guiada de integrales",
+      "path": "materiales/pdf/relacion-integrales-guiada.pdf",
+      "kind": "study",
+      "topicId": "t03",
+      "tags": [
+        "relacion-guiada"
+      ],
+      "reviewStatus": "reviewed"
     }
   ]
 }

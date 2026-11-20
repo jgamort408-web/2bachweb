@@ -828,6 +828,13 @@
     "kind": "section"
   },
   {
+    "id": "printables",
+    "title": "Para imprimir",
+    "path": "materiales/index.html",
+    "parentId": "resources",
+    "kind": "section"
+  },
+  {
     "id": "exams",
     "title": "Exámenes",
     "path": "examenes/index.html",

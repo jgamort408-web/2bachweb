@@ -52,7 +52,7 @@ export function validateCatalog(input) {
       entity.tags.forEach(tag => textValue(tag, entity.id + '.tags'));
     }
     if (entity.kind === 'resource') {
-      requireValue(['document', 'exam', 'solution'].includes(entity.resourceKind), entity.id + ': recurso desconocido');
+      requireValue(['document', 'exam', 'solution', 'study'].includes(entity.resourceKind), entity.id + ': recurso desconocido');
       projectPath(entity.path, entity.id + '.path');
       requireValue(entity.path.toLowerCase().endsWith('.pdf'), entity.id + ': se espera un PDF');
       if (entity.resourceKind === 'solution') stableId(entity.solutionOf, entity.id + '.solutionOf');
@@ -140,7 +140,7 @@ export function buildContentCatalog({ pages, widgets, questions, flashcards, edi
     entities.push({
       id: 'resource:' + resource.id, sourceId: resource.id, kind: 'resource',
       title: resource.title, path: resource.path, resourceKind: resource.kind,
-      parentId: ['exam', 'solution'].includes(resource.kind) ? 'page:exams' : 'page:resources',
+      parentId: ['exam', 'solution'].includes(resource.kind) ? 'page:exams' : resource.kind === 'study' ? 'page:printables' : 'page:resources',
       requires: [...(resource.topicId ? ['page:' + resource.topicId] : []),
         ...(resource.kind === 'solution' ? ['resource:' + resource.examId] : [])],
       ...(resource.kind === 'solution' ? { solutionOf: 'resource:' + resource.examId } : {}),

@@ -68,7 +68,8 @@ export function buildLibrary() {
   for (const resource of resources.filter(item => item.kind === 'solution')) {
     if (!exams.some(exam => exam.id === resource.examId)) throw new Error('Solución sin examen: ' + resource.id);
   }
-  for (const resource of resources.filter(item => !['exam', 'solution'].includes(item.kind))) throw new Error('Tipo de recurso sin plantilla: ' + resource.id);
+  // El material de estudio (kind 'study') tiene su propia página: scripts/build-materials.mjs.
+  for (const resource of resources.filter(item => !['exam', 'solution', 'study'].includes(item.kind))) throw new Error('Tipo de recurso sin plantilla: ' + resource.id);
   const unknown = [...new Set(exams.flatMap(exam => exam.tags))]
     .filter(tag => !labels[tag] && tag !== 'normal' && !searchOnly[tag] && !typeTags.includes(tag) && !editorial.includes(tag));
   if (unknown.length) throw new Error('Etiquetas sin nombre visible en build-exams.mjs: ' + unknown.join(', '));

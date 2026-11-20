@@ -56,7 +56,9 @@ const { chromium } = require('playwright');
       // El banco crece con el catálogo (408 preguntas y 405 tarjetas cuando se fijó la base de 1006).
       const { expectedCatalog } = await import('./helpers/catalog-expectations.mjs');
       const bank = (expectedCatalog.questions - 408) + (expectedCatalog.cards - 405);
-      assert.equal(result.count, 1006 + bank + 11 + 2 + decks + selectividad.topics.length + selectividad.solutions.length);
+      // Página «Para imprimir» y sus PDF de estudio (kind 'study').
+      const study = JSON.parse(require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'config', 'resources.json'), 'utf8')).resources.filter(r => r.kind === 'study').length;
+      assert.equal(result.count, 1006 + bank + 11 + 2 + decks + 1 + study + selectividad.topics.length + selectividad.solutions.length);
       assert.equal(result.url, prefix + 'config/visibility.json');
       assert.equal(result.origin, 'static');
       assert.equal(result.gameId, 'page:game-t01-a-limite-express');
@@ -78,7 +80,7 @@ const { chromium } = require('playwright');
             signature: String.fromCharCode(...bytes.slice(0, 5)) };
         }));
       }, prefix);
-      assert.equal(pdfs.length, 48);
+      assert.equal(pdfs.length, 48 + study); // exámenes y soluciones, más el material para imprimir
       for (const pdf of pdfs) {
         assert.equal(pdf.status, 200, pdf.id);
         assert.match(pdf.type, /application\/pdf/, pdf.id);
